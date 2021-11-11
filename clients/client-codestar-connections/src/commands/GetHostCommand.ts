@@ -37,7 +37,7 @@ export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
  *
  * @see {@link GetHostCommandInput} for command's `input` shape.
  * @see {@link GetHostCommandOutput} for command's `response` shape.
- * @see {@link CodeStarConnectionsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
  *
  */
 export class GetHostCommand extends $Command<

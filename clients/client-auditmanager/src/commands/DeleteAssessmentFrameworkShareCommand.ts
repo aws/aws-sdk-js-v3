@@ -39,7 +39,7 @@ export interface DeleteAssessmentFrameworkShareCommandOutput
  *
  * @see {@link DeleteAssessmentFrameworkShareCommandInput} for command's `input` shape.
  * @see {@link DeleteAssessmentFrameworkShareCommandOutput} for command's `response` shape.
- * @see {@link AuditManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  */
 export class DeleteAssessmentFrameworkShareCommand extends $Command<

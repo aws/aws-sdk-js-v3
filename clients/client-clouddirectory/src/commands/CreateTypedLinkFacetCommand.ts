@@ -35,7 +35,7 @@ export interface CreateTypedLinkFacetCommandOutput extends CreateTypedLinkFacetR
  *
  * @see {@link CreateTypedLinkFacetCommandInput} for command's `input` shape.
  * @see {@link CreateTypedLinkFacetCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  */
 export class CreateTypedLinkFacetCommand extends $Command<

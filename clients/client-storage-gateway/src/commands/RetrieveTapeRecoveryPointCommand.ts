@@ -46,7 +46,7 @@ export interface RetrieveTapeRecoveryPointCommandOutput extends RetrieveTapeReco
  *
  * @see {@link RetrieveTapeRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link RetrieveTapeRecoveryPointCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class RetrieveTapeRecoveryPointCommand extends $Command<

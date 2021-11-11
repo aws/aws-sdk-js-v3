@@ -41,7 +41,7 @@ export interface UpdateNumberOfDomainControllersCommandOutput
  *
  * @see {@link UpdateNumberOfDomainControllersCommandInput} for command's `input` shape.
  * @see {@link UpdateNumberOfDomainControllersCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class UpdateNumberOfDomainControllersCommand extends $Command<

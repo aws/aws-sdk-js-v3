@@ -43,7 +43,7 @@ export interface DescribeScheduledActionsCommandOutput extends DescribeScheduled
  *
  * @see {@link DescribeScheduledActionsCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduledActionsCommandOutput} for command's `response` shape.
- * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
  */
 export class DescribeScheduledActionsCommand extends $Command<

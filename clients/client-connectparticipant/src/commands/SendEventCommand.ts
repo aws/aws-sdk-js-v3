@@ -42,7 +42,7 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  *
  * @see {@link SendEventCommandInput} for command's `input` shape.
  * @see {@link SendEventCommandOutput} for command's `response` shape.
- * @see {@link ConnectParticipantClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
  *
  */
 export class SendEventCommand extends $Command<

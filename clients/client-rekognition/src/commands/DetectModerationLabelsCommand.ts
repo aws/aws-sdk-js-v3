@@ -48,7 +48,7 @@ export interface DetectModerationLabelsCommandOutput extends DetectModerationLab
  *
  * @see {@link DetectModerationLabelsCommandInput} for command's `input` shape.
  * @see {@link DetectModerationLabelsCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  */
 export class DetectModerationLabelsCommand extends $Command<

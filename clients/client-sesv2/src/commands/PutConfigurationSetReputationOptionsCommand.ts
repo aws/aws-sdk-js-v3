@@ -41,7 +41,7 @@ export interface PutConfigurationSetReputationOptionsCommandOutput
  *
  * @see {@link PutConfigurationSetReputationOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetReputationOptionsCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class PutConfigurationSetReputationOptionsCommand extends $Command<

@@ -40,7 +40,7 @@ export interface DescribeProfilingGroupCommandOutput extends DescribeProfilingGr
  *
  * @see {@link DescribeProfilingGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeProfilingGroupCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruProfilerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
  *
  */
 export class DescribeProfilingGroupCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  *
  * @see {@link DeleteTokenCommandInput} for command's `input` shape.
  * @see {@link DeleteTokenCommandOutput} for command's `response` shape.
- * @see {@link AmplifyBackendClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
  *
  */
 export class DeleteTokenCommand extends $Command<

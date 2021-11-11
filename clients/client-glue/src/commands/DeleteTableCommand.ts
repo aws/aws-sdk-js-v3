@@ -45,7 +45,7 @@ export interface DeleteTableCommandOutput extends DeleteTableResponse, __Metadat
  *
  * @see {@link DeleteTableCommandInput} for command's `input` shape.
  * @see {@link DeleteTableCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class DeleteTableCommand extends $Command<

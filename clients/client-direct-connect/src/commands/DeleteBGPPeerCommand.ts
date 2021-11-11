@@ -36,7 +36,7 @@ export interface DeleteBGPPeerCommandOutput extends DeleteBGPPeerResponse, __Met
  *
  * @see {@link DeleteBGPPeerCommandInput} for command's `input` shape.
  * @see {@link DeleteBGPPeerCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class DeleteBGPPeerCommand extends $Command<

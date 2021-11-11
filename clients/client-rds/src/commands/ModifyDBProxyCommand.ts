@@ -35,7 +35,7 @@ export interface ModifyDBProxyCommandOutput extends ModifyDBProxyResponse, __Met
  *
  * @see {@link ModifyDBProxyCommandInput} for command's `input` shape.
  * @see {@link ModifyDBProxyCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class ModifyDBProxyCommand extends $Command<

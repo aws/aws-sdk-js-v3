@@ -42,7 +42,7 @@ export interface CancelTaskExecutionCommandOutput extends CancelTaskExecutionRes
  *
  * @see {@link CancelTaskExecutionCommandInput} for command's `input` shape.
  * @see {@link CancelTaskExecutionCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  */
 export class CancelTaskExecutionCommand extends $Command<

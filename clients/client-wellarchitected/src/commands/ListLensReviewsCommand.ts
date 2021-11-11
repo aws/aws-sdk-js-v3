@@ -35,7 +35,7 @@ export interface ListLensReviewsCommandOutput extends ListLensReviewsOutput, __M
  *
  * @see {@link ListLensReviewsCommandInput} for command's `input` shape.
  * @see {@link ListLensReviewsCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  */
 export class ListLensReviewsCommand extends $Command<

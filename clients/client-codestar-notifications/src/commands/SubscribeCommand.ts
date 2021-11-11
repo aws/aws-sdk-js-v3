@@ -41,7 +41,7 @@ export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBeare
  *
  * @see {@link SubscribeCommandInput} for command's `input` shape.
  * @see {@link SubscribeCommandOutput} for command's `response` shape.
- * @see {@link CodestarNotificationsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
  */
 export class SubscribeCommand extends $Command<

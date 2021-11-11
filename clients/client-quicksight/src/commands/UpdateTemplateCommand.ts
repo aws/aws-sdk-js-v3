@@ -35,7 +35,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *
  * @see {@link UpdateTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateTemplateCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class UpdateTemplateCommand extends $Command<

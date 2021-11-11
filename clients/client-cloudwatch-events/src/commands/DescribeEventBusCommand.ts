@@ -41,7 +41,7 @@ export interface DescribeEventBusCommandOutput extends DescribeEventBusResponse,
  *
  * @see {@link DescribeEventBusCommandInput} for command's `input` shape.
  * @see {@link DescribeEventBusCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchEventsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  */
 export class DescribeEventBusCommand extends $Command<

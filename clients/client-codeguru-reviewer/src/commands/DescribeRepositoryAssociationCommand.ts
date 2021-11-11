@@ -42,7 +42,7 @@ export interface DescribeRepositoryAssociationCommandOutput
  *
  * @see {@link DescribeRepositoryAssociationCommandInput} for command's `input` shape.
  * @see {@link DescribeRepositoryAssociationCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruReviewerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
  *
  */
 export class DescribeRepositoryAssociationCommand extends $Command<

@@ -36,7 +36,7 @@ export interface UpdateContainerServiceCommandOutput extends UpdateContainerServ
  *
  * @see {@link UpdateContainerServiceCommandInput} for command's `input` shape.
  * @see {@link UpdateContainerServiceCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class UpdateContainerServiceCommand extends $Command<

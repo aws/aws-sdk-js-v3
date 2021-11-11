@@ -40,7 +40,7 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  *
  * @see {@link GetExecutionHistoryCommandInput} for command's `input` shape.
  * @see {@link GetExecutionHistoryCommandOutput} for command's `response` shape.
- * @see {@link SFNClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  */
 export class GetExecutionHistoryCommand extends $Command<

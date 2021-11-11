@@ -46,7 +46,7 @@ export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
  *
  * @see {@link EnableAvailabilityZonesForLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link EnableAvailabilityZonesForLoadBalancerCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  */
 export class EnableAvailabilityZonesForLoadBalancerCommand extends $Command<

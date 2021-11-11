@@ -64,7 +64,7 @@ export interface DescribeLoadBalancerAttributesCommandOutput
  *
  * @see {@link DescribeLoadBalancerAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancerAttributesCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  */
 export class DescribeLoadBalancerAttributesCommand extends $Command<

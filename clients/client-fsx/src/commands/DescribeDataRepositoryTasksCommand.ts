@@ -47,7 +47,7 @@ export interface DescribeDataRepositoryTasksCommandOutput
  *
  * @see {@link DescribeDataRepositoryTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeDataRepositoryTasksCommandOutput} for command's `response` shape.
- * @see {@link FSxClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  */
 export class DescribeDataRepositoryTasksCommand extends $Command<

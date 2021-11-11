@@ -36,7 +36,7 @@ export interface DeleteParametersCommandOutput extends DeleteParametersResult, _
  *
  * @see {@link DeleteParametersCommandInput} for command's `input` shape.
  * @see {@link DeleteParametersCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class DeleteParametersCommand extends $Command<

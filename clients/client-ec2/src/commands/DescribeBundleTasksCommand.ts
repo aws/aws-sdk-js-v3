@@ -38,7 +38,7 @@ export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksRes
  *
  * @see {@link DescribeBundleTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeBundleTasksCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DescribeBundleTasksCommand extends $Command<

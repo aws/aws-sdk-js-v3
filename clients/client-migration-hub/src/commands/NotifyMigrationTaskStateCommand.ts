@@ -52,7 +52,7 @@ export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTa
  *
  * @see {@link NotifyMigrationTaskStateCommandInput} for command's `input` shape.
  * @see {@link NotifyMigrationTaskStateCommandOutput} for command's `response` shape.
- * @see {@link MigrationHubClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
  *
  */
 export class NotifyMigrationTaskStateCommand extends $Command<

@@ -38,7 +38,7 @@ export interface GetTransitGatewayRegistrationsCommandOutput
  *
  * @see {@link GetTransitGatewayRegistrationsCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayRegistrationsCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class GetTransitGatewayRegistrationsCommand extends $Command<

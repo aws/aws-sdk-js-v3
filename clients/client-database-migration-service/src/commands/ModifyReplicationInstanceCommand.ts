@@ -43,7 +43,7 @@ export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicatio
  *
  * @see {@link ModifyReplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link ModifyReplicationInstanceCommandOutput} for command's `response` shape.
- * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  */
 export class ModifyReplicationInstanceCommand extends $Command<

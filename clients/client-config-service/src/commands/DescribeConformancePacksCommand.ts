@@ -35,7 +35,7 @@ export interface DescribeConformancePacksCommandOutput extends DescribeConforman
  *
  * @see {@link DescribeConformancePacksCommandInput} for command's `input` shape.
  * @see {@link DescribeConformancePacksCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class DescribeConformancePacksCommand extends $Command<

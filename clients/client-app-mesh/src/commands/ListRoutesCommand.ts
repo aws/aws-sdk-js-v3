@@ -35,7 +35,7 @@ export interface ListRoutesCommandOutput extends ListRoutesOutput, __MetadataBea
  *
  * @see {@link ListRoutesCommandInput} for command's `input` shape.
  * @see {@link ListRoutesCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
  *
  */
 export class ListRoutesCommand extends $Command<

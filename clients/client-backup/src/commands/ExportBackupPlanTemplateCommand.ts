@@ -35,7 +35,7 @@ export interface ExportBackupPlanTemplateCommandOutput extends ExportBackupPlanT
  *
  * @see {@link ExportBackupPlanTemplateCommandInput} for command's `input` shape.
  * @see {@link ExportBackupPlanTemplateCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class ExportBackupPlanTemplateCommand extends $Command<

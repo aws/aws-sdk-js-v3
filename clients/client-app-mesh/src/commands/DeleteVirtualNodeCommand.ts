@@ -37,7 +37,7 @@ export interface DeleteVirtualNodeCommandOutput extends DeleteVirtualNodeOutput,
  *
  * @see {@link DeleteVirtualNodeCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualNodeCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
  *
  */
 export class DeleteVirtualNodeCommand extends $Command<

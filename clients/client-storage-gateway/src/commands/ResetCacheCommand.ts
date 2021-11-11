@@ -47,7 +47,7 @@ export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBea
  *
  * @see {@link ResetCacheCommandInput} for command's `input` shape.
  * @see {@link ResetCacheCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class ResetCacheCommand extends $Command<

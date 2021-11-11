@@ -52,7 +52,7 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  *
  * @see {@link CreateBackupCommandInput} for command's `input` shape.
  * @see {@link CreateBackupCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksCMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
  *
  */
 export class CreateBackupCommand extends $Command<

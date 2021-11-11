@@ -97,7 +97,7 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateAliasCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  */
 export class UpdateAliasCommand extends $Command<

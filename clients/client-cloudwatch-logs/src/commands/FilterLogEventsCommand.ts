@@ -43,7 +43,7 @@ export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, _
  *
  * @see {@link FilterLogEventsCommandInput} for command's `input` shape.
  * @see {@link FilterLogEventsCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchLogsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  */
 export class FilterLogEventsCommand extends $Command<

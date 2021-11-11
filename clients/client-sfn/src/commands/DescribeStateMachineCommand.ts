@@ -38,7 +38,7 @@ export interface DescribeStateMachineCommandOutput extends DescribeStateMachineO
  *
  * @see {@link DescribeStateMachineCommandInput} for command's `input` shape.
  * @see {@link DescribeStateMachineCommandOutput} for command's `response` shape.
- * @see {@link SFNClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  */
 export class DescribeStateMachineCommand extends $Command<

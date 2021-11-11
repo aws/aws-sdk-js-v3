@@ -35,7 +35,7 @@ export interface ListDashboardVersionsCommandOutput extends ListDashboardVersion
  *
  * @see {@link ListDashboardVersionsCommandInput} for command's `input` shape.
  * @see {@link ListDashboardVersionsCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class ListDashboardVersionsCommand extends $Command<

@@ -38,7 +38,7 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  *
  * @see {@link ListCertificatesCommandInput} for command's `input` shape.
  * @see {@link ListCertificatesCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class ListCertificatesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershi
  *
  * @see {@link CreateGroupMembershipCommandInput} for command's `input` shape.
  * @see {@link CreateGroupMembershipCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class CreateGroupMembershipCommand extends $Command<

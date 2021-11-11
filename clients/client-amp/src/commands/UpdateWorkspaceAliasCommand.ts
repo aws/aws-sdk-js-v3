@@ -35,7 +35,7 @@ export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateWorkspaceAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceAliasCommandOutput} for command's `response` shape.
- * @see {@link AmpClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
  *
  */
 export class UpdateWorkspaceAliasCommand extends $Command<

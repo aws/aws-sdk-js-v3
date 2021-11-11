@@ -35,7 +35,7 @@ export interface DescribeHarvestJobCommandOutput extends DescribeHarvestJobRespo
  *
  * @see {@link DescribeHarvestJobCommandInput} for command's `input` shape.
  * @see {@link DescribeHarvestJobCommandOutput} for command's `response` shape.
- * @see {@link MediaPackageClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
  *
  */
 export class DescribeHarvestJobCommand extends $Command<

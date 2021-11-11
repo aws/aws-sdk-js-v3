@@ -37,7 +37,7 @@ export interface CreateInstancesCommandOutput extends CreateInstancesResult, __M
  *
  * @see {@link CreateInstancesCommandInput} for command's `input` shape.
  * @see {@link CreateInstancesCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class CreateInstancesCommand extends $Command<

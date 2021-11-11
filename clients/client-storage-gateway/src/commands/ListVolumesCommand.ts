@@ -44,7 +44,7 @@ export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataB
  *
  * @see {@link ListVolumesCommandInput} for command's `input` shape.
  * @see {@link ListVolumesCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class ListVolumesCommand extends $Command<

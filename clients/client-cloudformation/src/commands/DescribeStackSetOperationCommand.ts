@@ -35,7 +35,7 @@ export interface DescribeStackSetOperationCommandOutput extends DescribeStackSet
  *
  * @see {@link DescribeStackSetOperationCommandInput} for command's `input` shape.
  * @see {@link DescribeStackSetOperationCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  */
 export class DescribeStackSetOperationCommand extends $Command<

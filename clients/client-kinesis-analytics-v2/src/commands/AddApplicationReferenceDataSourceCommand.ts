@@ -49,7 +49,7 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  *
  * @see {@link AddApplicationReferenceDataSourceCommandInput} for command's `input` shape.
  * @see {@link AddApplicationReferenceDataSourceCommandOutput} for command's `response` shape.
- * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
  */
 export class AddApplicationReferenceDataSourceCommand extends $Command<

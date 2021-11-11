@@ -35,7 +35,7 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  *
  * @see {@link GetChannelCommandInput} for command's `input` shape.
  * @see {@link GetChannelCommandOutput} for command's `response` shape.
- * @see {@link IvsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
  */
 export class GetChannelCommand extends $Command<

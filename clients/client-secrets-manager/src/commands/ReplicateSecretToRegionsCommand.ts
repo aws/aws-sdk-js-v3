@@ -36,7 +36,7 @@ export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretTo
  *
  * @see {@link ReplicateSecretToRegionsCommandInput} for command's `input` shape.
  * @see {@link ReplicateSecretToRegionsCommandOutput} for command's `response` shape.
- * @see {@link SecretsManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
  */
 export class ReplicateSecretToRegionsCommand extends $Command<

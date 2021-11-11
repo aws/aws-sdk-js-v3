@@ -36,7 +36,7 @@ export interface AssociateApprovedOriginCommandOutput extends __MetadataBearer {
  *
  * @see {@link AssociateApprovedOriginCommandInput} for command's `input` shape.
  * @see {@link AssociateApprovedOriginCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class AssociateApprovedOriginCommand extends $Command<

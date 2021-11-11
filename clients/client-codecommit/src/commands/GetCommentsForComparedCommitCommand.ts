@@ -41,7 +41,7 @@ export interface GetCommentsForComparedCommitCommandOutput
  *
  * @see {@link GetCommentsForComparedCommitCommandInput} for command's `input` shape.
  * @see {@link GetCommentsForComparedCommitCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  */
 export class GetCommentsForComparedCommitCommand extends $Command<

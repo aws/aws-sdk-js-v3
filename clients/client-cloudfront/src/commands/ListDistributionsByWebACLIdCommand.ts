@@ -35,7 +35,7 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  *
  * @see {@link ListDistributionsByWebACLIdCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByWebACLIdCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class ListDistributionsByWebACLIdCommand extends $Command<

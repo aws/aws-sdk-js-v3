@@ -37,7 +37,7 @@ export interface TerminateClientVpnConnectionsCommandOutput
  *
  * @see {@link TerminateClientVpnConnectionsCommandInput} for command's `input` shape.
  * @see {@link TerminateClientVpnConnectionsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class TerminateClientVpnConnectionsCommand extends $Command<

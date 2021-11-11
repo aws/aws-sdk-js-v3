@@ -40,7 +40,7 @@ export interface ListOrganizationPortfolioAccessCommandOutput
  *
  * @see {@link ListOrganizationPortfolioAccessCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationPortfolioAccessCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class ListOrganizationPortfolioAccessCommand extends $Command<

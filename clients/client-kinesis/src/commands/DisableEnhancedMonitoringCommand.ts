@@ -35,7 +35,7 @@ export interface DisableEnhancedMonitoringCommandOutput extends EnhancedMonitori
  *
  * @see {@link DisableEnhancedMonitoringCommandInput} for command's `input` shape.
  * @see {@link DisableEnhancedMonitoringCommandOutput} for command's `response` shape.
- * @see {@link KinesisClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  */
 export class DisableEnhancedMonitoringCommand extends $Command<

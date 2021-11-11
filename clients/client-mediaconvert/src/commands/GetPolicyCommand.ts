@@ -35,7 +35,7 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  *
  * @see {@link GetPolicyCommandInput} for command's `input` shape.
  * @see {@link GetPolicyCommandOutput} for command's `response` shape.
- * @see {@link MediaConvertClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
  *
  */
 export class GetPolicyCommand extends $Command<

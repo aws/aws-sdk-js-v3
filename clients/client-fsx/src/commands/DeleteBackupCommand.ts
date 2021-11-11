@@ -43,7 +43,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  *
  * @see {@link DeleteBackupCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupCommandOutput} for command's `response` shape.
- * @see {@link FSxClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  */
 export class DeleteBackupCommand extends $Command<

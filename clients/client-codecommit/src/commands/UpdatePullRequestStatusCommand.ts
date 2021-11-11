@@ -35,7 +35,7 @@ export interface UpdatePullRequestStatusCommandOutput extends UpdatePullRequestS
  *
  * @see {@link UpdatePullRequestStatusCommandInput} for command's `input` shape.
  * @see {@link UpdatePullRequestStatusCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  */
 export class UpdatePullRequestStatusCommand extends $Command<

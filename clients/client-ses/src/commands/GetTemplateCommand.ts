@@ -34,7 +34,7 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  *
  * @see {@link GetTemplateCommandInput} for command's `input` shape.
  * @see {@link GetTemplateCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class GetTemplateCommand extends $Command<

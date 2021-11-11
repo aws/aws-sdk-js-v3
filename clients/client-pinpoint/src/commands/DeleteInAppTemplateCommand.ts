@@ -35,7 +35,7 @@ export interface DeleteInAppTemplateCommandOutput extends DeleteInAppTemplateRes
  *
  * @see {@link DeleteInAppTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteInAppTemplateCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class DeleteInAppTemplateCommand extends $Command<

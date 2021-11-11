@@ -35,7 +35,7 @@ export interface CreateNotificationCommandOutput extends CreateNotificationRespo
  *
  * @see {@link CreateNotificationCommandInput} for command's `input` shape.
  * @see {@link CreateNotificationCommandOutput} for command's `response` shape.
- * @see {@link BudgetsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
  *
  */
 export class CreateNotificationCommand extends $Command<

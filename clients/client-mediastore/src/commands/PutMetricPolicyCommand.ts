@@ -35,7 +35,7 @@ export interface PutMetricPolicyCommandOutput extends PutMetricPolicyOutput, __M
  *
  * @see {@link PutMetricPolicyCommandInput} for command's `input` shape.
  * @see {@link PutMetricPolicyCommandOutput} for command's `response` shape.
- * @see {@link MediaStoreClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  */
 export class PutMetricPolicyCommand extends $Command<

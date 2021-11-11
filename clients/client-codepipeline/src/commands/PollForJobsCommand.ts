@@ -44,7 +44,7 @@ export interface PollForJobsCommandOutput extends PollForJobsOutput, __MetadataB
  *
  * @see {@link PollForJobsCommandInput} for command's `input` shape.
  * @see {@link PollForJobsCommandOutput} for command's `response` shape.
- * @see {@link CodePipelineClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  */
 export class PollForJobsCommand extends $Command<

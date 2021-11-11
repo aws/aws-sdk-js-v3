@@ -35,7 +35,7 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  *
  * @see {@link GetLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetLoggingConfigurationCommandOutput} for command's `response` shape.
- * @see {@link WAFV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
  *
  */
 export class GetLoggingConfigurationCommand extends $Command<

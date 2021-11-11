@@ -37,7 +37,7 @@ export interface DescribeEnvironmentHealthCommandOutput extends DescribeEnvironm
  *
  * @see {@link DescribeEnvironmentHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentHealthCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  */
 export class DescribeEnvironmentHealthCommand extends $Command<

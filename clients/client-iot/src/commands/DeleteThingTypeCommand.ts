@@ -38,7 +38,7 @@ export interface DeleteThingTypeCommandOutput extends DeleteThingTypeResponse, _
  *
  * @see {@link DeleteThingTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteThingTypeCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class DeleteThingTypeCommand extends $Command<

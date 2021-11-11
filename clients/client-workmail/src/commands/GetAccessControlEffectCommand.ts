@@ -36,7 +36,7 @@ export interface GetAccessControlEffectCommandOutput extends GetAccessControlEff
  *
  * @see {@link GetAccessControlEffectCommandInput} for command's `input` shape.
  * @see {@link GetAccessControlEffectCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class GetAccessControlEffectCommand extends $Command<

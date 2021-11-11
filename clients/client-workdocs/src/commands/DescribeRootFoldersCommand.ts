@@ -43,7 +43,7 @@ export interface DescribeRootFoldersCommandOutput extends DescribeRootFoldersRes
  *
  * @see {@link DescribeRootFoldersCommandInput} for command's `input` shape.
  * @see {@link DescribeRootFoldersCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class DescribeRootFoldersCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListOrganizationsCommandOutput extends ListOrganizationsRespons
  *
  * @see {@link ListOrganizationsCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationsCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class ListOrganizationsCommand extends $Command<

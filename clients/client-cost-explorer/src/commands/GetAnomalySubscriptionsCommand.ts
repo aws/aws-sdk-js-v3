@@ -36,7 +36,7 @@ export interface GetAnomalySubscriptionsCommandOutput extends GetAnomalySubscrip
  *
  * @see {@link GetAnomalySubscriptionsCommandInput} for command's `input` shape.
  * @see {@link GetAnomalySubscriptionsCommandOutput} for command's `response` shape.
- * @see {@link CostExplorerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  */
 export class GetAnomalySubscriptionsCommand extends $Command<

@@ -85,7 +85,7 @@ export interface UpdateSizeConstraintSetCommandOutput extends UpdateSizeConstrai
  *
  * @see {@link UpdateSizeConstraintSetCommandInput} for command's `input` shape.
  * @see {@link UpdateSizeConstraintSetCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  */
 export class UpdateSizeConstraintSetCommand extends $Command<

@@ -38,7 +38,7 @@ export interface DeleteBudgetCommandOutput extends DeleteBudgetResponse, __Metad
  *
  * @see {@link DeleteBudgetCommandInput} for command's `input` shape.
  * @see {@link DeleteBudgetCommandOutput} for command's `response` shape.
- * @see {@link BudgetsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
  *
  */
 export class DeleteBudgetCommand extends $Command<

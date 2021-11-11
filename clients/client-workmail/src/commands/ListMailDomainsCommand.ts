@@ -35,7 +35,7 @@ export interface ListMailDomainsCommandOutput extends ListMailDomainsResponse, _
  *
  * @see {@link ListMailDomainsCommandInput} for command's `input` shape.
  * @see {@link ListMailDomainsCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class ListMailDomainsCommand extends $Command<

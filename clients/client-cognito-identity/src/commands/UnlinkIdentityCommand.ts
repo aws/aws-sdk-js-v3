@@ -38,7 +38,7 @@ export interface UnlinkIdentityCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UnlinkIdentityCommandInput} for command's `input` shape.
  * @see {@link UnlinkIdentityCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
  *
  */
 export class UnlinkIdentityCommand extends $Command<

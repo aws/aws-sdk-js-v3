@@ -35,7 +35,7 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  *
  * @see {@link ListFiltersCommandInput} for command's `input` shape.
  * @see {@link ListFiltersCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  */
 export class ListFiltersCommand extends $Command<

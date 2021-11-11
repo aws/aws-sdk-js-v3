@@ -42,7 +42,7 @@ export interface AdminConfirmSignUpCommandOutput extends AdminConfirmSignUpRespo
  *
  * @see {@link AdminConfirmSignUpCommandInput} for command's `input` shape.
  * @see {@link AdminConfirmSignUpCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class AdminConfirmSignUpCommand extends $Command<

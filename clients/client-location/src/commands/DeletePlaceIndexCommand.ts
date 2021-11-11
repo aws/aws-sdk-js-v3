@@ -38,7 +38,7 @@ export interface DeletePlaceIndexCommandOutput extends DeletePlaceIndexResponse,
  *
  * @see {@link DeletePlaceIndexCommandInput} for command's `input` shape.
  * @see {@link DeletePlaceIndexCommandOutput} for command's `response` shape.
- * @see {@link LocationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  */
 export class DeletePlaceIndexCommand extends $Command<

@@ -86,7 +86,7 @@ export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetRespons
  *
  * @see {@link UpdateXssMatchSetCommandInput} for command's `input` shape.
  * @see {@link UpdateXssMatchSetCommandOutput} for command's `response` shape.
- * @see {@link WAFClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
  */
 export class UpdateXssMatchSetCommand extends $Command<

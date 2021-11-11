@@ -36,7 +36,7 @@ export interface GetGeneratedPolicyCommandOutput extends GetGeneratedPolicyRespo
  *
  * @see {@link GetGeneratedPolicyCommandInput} for command's `input` shape.
  * @see {@link GetGeneratedPolicyCommandOutput} for command's `response` shape.
- * @see {@link AccessAnalyzerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  */
 export class GetGeneratedPolicyCommand extends $Command<

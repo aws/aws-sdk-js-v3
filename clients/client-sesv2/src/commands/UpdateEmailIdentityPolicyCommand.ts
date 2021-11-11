@@ -47,7 +47,7 @@ export interface UpdateEmailIdentityPolicyCommandOutput extends UpdateEmailIdent
  *
  * @see {@link UpdateEmailIdentityPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateEmailIdentityPolicyCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class UpdateEmailIdentityPolicyCommand extends $Command<

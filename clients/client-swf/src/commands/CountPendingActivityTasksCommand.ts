@@ -62,7 +62,7 @@ export interface CountPendingActivityTasksCommandOutput extends PendingTaskCount
  *
  * @see {@link CountPendingActivityTasksCommandInput} for command's `input` shape.
  * @see {@link CountPendingActivityTasksCommandOutput} for command's `response` shape.
- * @see {@link SWFClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
  *
  */
 export class CountPendingActivityTasksCommand extends $Command<

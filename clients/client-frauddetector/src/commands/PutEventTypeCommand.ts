@@ -35,7 +35,7 @@ export interface PutEventTypeCommandOutput extends PutEventTypeResult, __Metadat
  *
  * @see {@link PutEventTypeCommandInput} for command's `input` shape.
  * @see {@link PutEventTypeCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class PutEventTypeCommand extends $Command<

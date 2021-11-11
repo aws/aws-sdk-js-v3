@@ -41,7 +41,7 @@ export interface ListAttributesCommandOutput extends ListAttributesResponse, __M
  *
  * @see {@link ListAttributesCommandInput} for command's `input` shape.
  * @see {@link ListAttributesCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  */
 export class ListAttributesCommand extends $Command<

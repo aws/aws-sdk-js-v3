@@ -35,7 +35,7 @@ export interface ResetImageAttributeCommandOutput extends __MetadataBearer {}
  *
  * @see {@link ResetImageAttributeCommandInput} for command's `input` shape.
  * @see {@link ResetImageAttributeCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class ResetImageAttributeCommand extends $Command<

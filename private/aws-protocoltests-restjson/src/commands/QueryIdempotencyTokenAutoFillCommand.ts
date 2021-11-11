@@ -35,7 +35,7 @@ export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBe
  *
  * @see {@link QueryIdempotencyTokenAutoFillCommandInput} for command's `input` shape.
  * @see {@link QueryIdempotencyTokenAutoFillCommandOutput} for command's `response` shape.
- * @see {@link RestJsonProtocolClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
  */
 export class QueryIdempotencyTokenAutoFillCommand extends $Command<

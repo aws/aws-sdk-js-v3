@@ -42,7 +42,7 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  *
  * @see {@link UpdateDatasetEntriesCommandInput} for command's `input` shape.
  * @see {@link UpdateDatasetEntriesCommandOutput} for command's `response` shape.
- * @see {@link LookoutVisionClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
  *
  */
 export class UpdateDatasetEntriesCommand extends $Command<

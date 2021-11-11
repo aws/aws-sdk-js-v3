@@ -35,7 +35,7 @@ export interface DeleteSmsChannelCommandOutput extends DeleteSmsChannelResponse,
  *
  * @see {@link DeleteSmsChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteSmsChannelCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class DeleteSmsChannelCommand extends $Command<

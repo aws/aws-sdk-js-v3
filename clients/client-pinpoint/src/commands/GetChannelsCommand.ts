@@ -35,7 +35,7 @@ export interface GetChannelsCommandOutput extends GetChannelsResponse, __Metadat
  *
  * @see {@link GetChannelsCommandInput} for command's `input` shape.
  * @see {@link GetChannelsCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class GetChannelsCommand extends $Command<

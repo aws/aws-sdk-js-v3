@@ -36,7 +36,7 @@ export interface ListFargateProfilesCommandOutput extends ListFargateProfilesRes
  *
  * @see {@link ListFargateProfilesCommandInput} for command's `input` shape.
  * @see {@link ListFargateProfilesCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  */
 export class ListFargateProfilesCommand extends $Command<

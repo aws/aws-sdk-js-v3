@@ -42,7 +42,7 @@ export interface DeleteIntentVersionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteIntentVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteIntentVersionCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  */
 export class DeleteIntentVersionCommand extends $Command<

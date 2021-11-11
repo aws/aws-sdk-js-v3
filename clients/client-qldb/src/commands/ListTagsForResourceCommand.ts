@@ -35,7 +35,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
- * @see {@link QLDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
  */
 export class ListTagsForResourceCommand extends $Command<

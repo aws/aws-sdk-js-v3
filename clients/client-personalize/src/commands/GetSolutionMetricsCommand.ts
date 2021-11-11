@@ -35,7 +35,7 @@ export interface GetSolutionMetricsCommandOutput extends GetSolutionMetricsRespo
  *
  * @see {@link GetSolutionMetricsCommandInput} for command's `input` shape.
  * @see {@link GetSolutionMetricsCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  */
 export class GetSolutionMetricsCommand extends $Command<

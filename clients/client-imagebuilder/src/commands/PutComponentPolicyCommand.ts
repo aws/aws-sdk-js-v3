@@ -37,7 +37,7 @@ export interface PutComponentPolicyCommandOutput extends PutComponentPolicyRespo
  *
  * @see {@link PutComponentPolicyCommandInput} for command's `input` shape.
  * @see {@link PutComponentPolicyCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  */
 export class PutComponentPolicyCommand extends $Command<

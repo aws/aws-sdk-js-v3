@@ -52,7 +52,7 @@ export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __Metad
  *
  * @see {@link DescribeVaultCommandInput} for command's `input` shape.
  * @see {@link DescribeVaultCommandOutput} for command's `response` shape.
- * @see {@link GlacierClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  */
 export class DescribeVaultCommand extends $Command<

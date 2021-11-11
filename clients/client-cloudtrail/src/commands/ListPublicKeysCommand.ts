@@ -40,7 +40,7 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __M
  *
  * @see {@link ListPublicKeysCommandInput} for command's `input` shape.
  * @see {@link ListPublicKeysCommandOutput} for command's `response` shape.
- * @see {@link CloudTrailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  */
 export class ListPublicKeysCommand extends $Command<

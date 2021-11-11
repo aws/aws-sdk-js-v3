@@ -42,7 +42,7 @@ export interface ListDataIntegrationAssociationsCommandOutput
  *
  * @see {@link ListDataIntegrationAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListDataIntegrationAssociationsCommandOutput} for command's `response` shape.
- * @see {@link AppIntegrationsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
  *
  */
 export class ListDataIntegrationAssociationsCommand extends $Command<

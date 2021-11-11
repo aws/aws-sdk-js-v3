@@ -39,7 +39,7 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetRespons
  *
  * @see {@link DescribeChangeSetCommandInput} for command's `input` shape.
  * @see {@link DescribeChangeSetCommandOutput} for command's `response` shape.
- * @see {@link MarketplaceCatalogClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
  *
  */
 export class DescribeChangeSetCommand extends $Command<

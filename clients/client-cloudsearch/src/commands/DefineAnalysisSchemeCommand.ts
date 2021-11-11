@@ -35,7 +35,7 @@ export interface DefineAnalysisSchemeCommandOutput extends DefineAnalysisSchemeR
  *
  * @see {@link DefineAnalysisSchemeCommandInput} for command's `input` shape.
  * @see {@link DefineAnalysisSchemeCommandOutput} for command's `response` shape.
- * @see {@link CloudSearchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
  */
 export class DefineAnalysisSchemeCommand extends $Command<

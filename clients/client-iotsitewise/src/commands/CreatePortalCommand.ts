@@ -41,7 +41,7 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  *
  * @see {@link CreatePortalCommandInput} for command's `input` shape.
  * @see {@link CreatePortalCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class CreatePortalCommand extends $Command<

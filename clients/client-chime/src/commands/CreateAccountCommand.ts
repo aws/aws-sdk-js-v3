@@ -37,7 +37,7 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *
  * @see {@link CreateAccountCommandInput} for command's `input` shape.
  * @see {@link CreateAccountCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class CreateAccountCommand extends $Command<

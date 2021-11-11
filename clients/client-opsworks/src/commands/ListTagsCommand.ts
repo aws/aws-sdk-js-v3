@@ -32,7 +32,7 @@ export interface ListTagsCommandOutput extends ListTagsResult, __MetadataBearer 
  *
  * @see {@link ListTagsCommandInput} for command's `input` shape.
  * @see {@link ListTagsCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class ListTagsCommand extends $Command<

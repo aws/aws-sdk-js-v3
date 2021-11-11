@@ -35,7 +35,7 @@ export interface DisableSsoCommandOutput extends DisableSsoResult, __MetadataBea
  *
  * @see {@link DisableSsoCommandInput} for command's `input` shape.
  * @see {@link DisableSsoCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class DisableSsoCommand extends $Command<

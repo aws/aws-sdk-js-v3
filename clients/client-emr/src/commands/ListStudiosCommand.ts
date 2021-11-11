@@ -36,7 +36,7 @@ export interface ListStudiosCommandOutput extends ListStudiosOutput, __MetadataB
  *
  * @see {@link ListStudiosCommandInput} for command's `input` shape.
  * @see {@link ListStudiosCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class ListStudiosCommand extends $Command<

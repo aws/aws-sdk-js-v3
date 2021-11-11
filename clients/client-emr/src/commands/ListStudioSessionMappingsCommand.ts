@@ -36,7 +36,7 @@ export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessio
  *
  * @see {@link ListStudioSessionMappingsCommandInput} for command's `input` shape.
  * @see {@link ListStudioSessionMappingsCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class ListStudioSessionMappingsCommand extends $Command<

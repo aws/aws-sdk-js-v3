@@ -89,7 +89,7 @@ export interface StartGameSessionPlacementCommandOutput extends StartGameSession
  *
  * @see {@link StartGameSessionPlacementCommandInput} for command's `input` shape.
  * @see {@link StartGameSessionPlacementCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class StartGameSessionPlacementCommand extends $Command<

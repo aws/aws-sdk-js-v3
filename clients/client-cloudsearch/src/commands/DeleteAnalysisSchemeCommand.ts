@@ -35,7 +35,7 @@ export interface DeleteAnalysisSchemeCommandOutput extends DeleteAnalysisSchemeR
  *
  * @see {@link DeleteAnalysisSchemeCommandInput} for command's `input` shape.
  * @see {@link DeleteAnalysisSchemeCommandOutput} for command's `response` shape.
- * @see {@link CloudSearchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
  */
 export class DeleteAnalysisSchemeCommand extends $Command<

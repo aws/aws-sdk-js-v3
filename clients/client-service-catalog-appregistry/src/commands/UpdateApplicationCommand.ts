@@ -39,7 +39,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *
  * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
  *
  */
 export class UpdateApplicationCommand extends $Command<

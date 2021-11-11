@@ -39,7 +39,7 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
  *
  * @see {@link UpdateListenerCommandInput} for command's `input` shape.
  * @see {@link UpdateListenerCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  */
 export class UpdateListenerCommand extends $Command<

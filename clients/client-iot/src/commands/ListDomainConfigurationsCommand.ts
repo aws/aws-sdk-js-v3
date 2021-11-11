@@ -37,7 +37,7 @@ export interface ListDomainConfigurationsCommandOutput extends ListDomainConfigu
  *
  * @see {@link ListDomainConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListDomainConfigurationsCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class ListDomainConfigurationsCommand extends $Command<

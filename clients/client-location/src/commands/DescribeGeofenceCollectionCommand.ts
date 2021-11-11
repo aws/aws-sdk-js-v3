@@ -35,7 +35,7 @@ export interface DescribeGeofenceCollectionCommandOutput extends DescribeGeofenc
  *
  * @see {@link DescribeGeofenceCollectionCommandInput} for command's `input` shape.
  * @see {@link DescribeGeofenceCollectionCommandOutput} for command's `response` shape.
- * @see {@link LocationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  */
 export class DescribeGeofenceCollectionCommand extends $Command<

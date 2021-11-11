@@ -40,7 +40,7 @@ export interface EnableImportFindingsForProductCommandOutput
  *
  * @see {@link EnableImportFindingsForProductCommandInput} for command's `input` shape.
  * @see {@link EnableImportFindingsForProductCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
 export class EnableImportFindingsForProductCommand extends $Command<

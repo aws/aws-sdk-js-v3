@@ -50,7 +50,7 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
  *
  * @see {@link RegisterResourceCommandInput} for command's `input` shape.
  * @see {@link RegisterResourceCommandOutput} for command's `response` shape.
- * @see {@link LakeFormationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  */
 export class RegisterResourceCommand extends $Command<

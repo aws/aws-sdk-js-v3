@@ -41,7 +41,7 @@ export interface DisassociateTransitGatewayConnectPeerCommandOutput
  *
  * @see {@link DisassociateTransitGatewayConnectPeerCommandInput} for command's `input` shape.
  * @see {@link DisassociateTransitGatewayConnectPeerCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class DisassociateTransitGatewayConnectPeerCommand extends $Command<

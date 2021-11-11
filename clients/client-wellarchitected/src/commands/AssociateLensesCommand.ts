@@ -35,7 +35,7 @@ export interface AssociateLensesCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AssociateLensesCommandInput} for command's `input` shape.
  * @see {@link AssociateLensesCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  */
 export class AssociateLensesCommand extends $Command<

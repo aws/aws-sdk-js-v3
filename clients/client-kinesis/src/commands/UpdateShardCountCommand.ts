@@ -78,7 +78,7 @@ export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, _
  *
  * @see {@link UpdateShardCountCommandInput} for command's `input` shape.
  * @see {@link UpdateShardCountCommandOutput} for command's `response` shape.
- * @see {@link KinesisClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  */
 export class UpdateShardCountCommand extends $Command<

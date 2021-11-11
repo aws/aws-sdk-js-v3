@@ -40,7 +40,7 @@ export interface GetConformancePackComplianceSummaryCommandOutput
  *
  * @see {@link GetConformancePackComplianceSummaryCommandInput} for command's `input` shape.
  * @see {@link GetConformancePackComplianceSummaryCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class GetConformancePackComplianceSummaryCommand extends $Command<

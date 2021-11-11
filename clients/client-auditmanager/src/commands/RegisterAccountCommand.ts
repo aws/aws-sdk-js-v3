@@ -35,7 +35,7 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  *
  * @see {@link RegisterAccountCommandInput} for command's `input` shape.
  * @see {@link RegisterAccountCommandOutput} for command's `response` shape.
- * @see {@link AuditManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  */
 export class RegisterAccountCommand extends $Command<

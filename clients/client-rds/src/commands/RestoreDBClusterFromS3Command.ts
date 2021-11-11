@@ -54,7 +54,7 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  *
  * @see {@link RestoreDBClusterFromS3CommandInput} for command's `input` shape.
  * @see {@link RestoreDBClusterFromS3CommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class RestoreDBClusterFromS3Command extends $Command<

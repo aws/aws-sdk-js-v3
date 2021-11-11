@@ -51,7 +51,7 @@ export interface ChangeMessageVisibilityBatchCommandOutput
  *
  * @see {@link ChangeMessageVisibilityBatchCommandInput} for command's `input` shape.
  * @see {@link ChangeMessageVisibilityBatchCommandOutput} for command's `response` shape.
- * @see {@link SQSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  */
 export class ChangeMessageVisibilityBatchCommand extends $Command<

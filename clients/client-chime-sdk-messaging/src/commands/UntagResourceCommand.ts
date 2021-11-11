@@ -39,7 +39,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UntagResourceCommandInput} for command's `input` shape.
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  */
 export class UntagResourceCommand extends $Command<

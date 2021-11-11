@@ -36,7 +36,7 @@ export interface AssociateDiscoveredResourceCommandOutput extends AssociateDisco
  *
  * @see {@link AssociateDiscoveredResourceCommandInput} for command's `input` shape.
  * @see {@link AssociateDiscoveredResourceCommandOutput} for command's `response` shape.
- * @see {@link MigrationHubClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
  *
  */
 export class AssociateDiscoveredResourceCommand extends $Command<

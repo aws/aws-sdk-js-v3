@@ -35,7 +35,7 @@ export interface DeleteReportGroupCommandOutput extends DeleteReportGroupOutput,
  *
  * @see {@link DeleteReportGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteReportGroupCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  */
 export class DeleteReportGroupCommand extends $Command<

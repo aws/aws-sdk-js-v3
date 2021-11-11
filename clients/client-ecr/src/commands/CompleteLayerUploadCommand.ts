@@ -43,7 +43,7 @@ export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadRes
  *
  * @see {@link CompleteLayerUploadCommandInput} for command's `input` shape.
  * @see {@link CompleteLayerUploadCommandOutput} for command's `response` shape.
- * @see {@link ECRClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  */
 export class CompleteLayerUploadCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateDatasetCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateDatasetCommandInput} for command's `input` shape.
  * @see {@link UpdateDatasetCommandOutput} for command's `response` shape.
- * @see {@link IoTAnalyticsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
  *
  */
 export class UpdateDatasetCommand extends $Command<

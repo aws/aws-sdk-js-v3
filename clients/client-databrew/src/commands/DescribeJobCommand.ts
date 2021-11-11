@@ -35,7 +35,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResponse, __Metadat
  *
  * @see {@link DescribeJobCommandInput} for command's `input` shape.
  * @see {@link DescribeJobCommandOutput} for command's `response` shape.
- * @see {@link DataBrewClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  */
 export class DescribeJobCommand extends $Command<

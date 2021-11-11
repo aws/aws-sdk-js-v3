@@ -35,7 +35,7 @@ export interface UpdateJobTemplateCommandOutput extends UpdateJobTemplateRespons
  *
  * @see {@link UpdateJobTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateJobTemplateCommandOutput} for command's `response` shape.
- * @see {@link MediaConvertClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
  *
  */
 export class UpdateJobTemplateCommand extends $Command<

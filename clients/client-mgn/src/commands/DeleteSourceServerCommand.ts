@@ -35,7 +35,7 @@ export interface DeleteSourceServerCommandOutput extends DeleteSourceServerRespo
  *
  * @see {@link DeleteSourceServerCommandInput} for command's `input` shape.
  * @see {@link DeleteSourceServerCommandOutput} for command's `response` shape.
- * @see {@link MgnClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  */
 export class DeleteSourceServerCommand extends $Command<

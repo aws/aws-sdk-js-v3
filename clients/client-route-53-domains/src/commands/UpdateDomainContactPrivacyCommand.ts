@@ -49,7 +49,7 @@ export interface UpdateDomainContactPrivacyCommandOutput extends UpdateDomainCon
  *
  * @see {@link UpdateDomainContactPrivacyCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainContactPrivacyCommandOutput} for command's `response` shape.
- * @see {@link Route53DomainsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  */
 export class UpdateDomainContactPrivacyCommand extends $Command<

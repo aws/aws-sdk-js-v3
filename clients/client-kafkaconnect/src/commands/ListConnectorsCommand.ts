@@ -35,7 +35,7 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  *
  * @see {@link ListConnectorsCommandInput} for command's `input` shape.
  * @see {@link ListConnectorsCommandOutput} for command's `response` shape.
- * @see {@link KafkaConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.
  *
  */
 export class ListConnectorsCommand extends $Command<

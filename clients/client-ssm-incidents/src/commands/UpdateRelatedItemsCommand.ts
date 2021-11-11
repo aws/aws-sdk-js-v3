@@ -35,7 +35,7 @@ export interface UpdateRelatedItemsCommandOutput extends UpdateRelatedItemsOutpu
  *
  * @see {@link UpdateRelatedItemsCommandInput} for command's `input` shape.
  * @see {@link UpdateRelatedItemsCommandOutput} for command's `response` shape.
- * @see {@link SSMIncidentsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
  *
  */
 export class UpdateRelatedItemsCommand extends $Command<

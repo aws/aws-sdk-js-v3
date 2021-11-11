@@ -52,7 +52,7 @@ export interface ListScriptsCommandOutput extends ListScriptsOutput, __MetadataB
  *
  * @see {@link ListScriptsCommandInput} for command's `input` shape.
  * @see {@link ListScriptsCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class ListScriptsCommand extends $Command<

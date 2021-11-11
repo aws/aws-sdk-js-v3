@@ -38,7 +38,7 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  *
  * @see {@link CopyDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CopyDBClusterParameterGroupCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class CopyDBClusterParameterGroupCommand extends $Command<

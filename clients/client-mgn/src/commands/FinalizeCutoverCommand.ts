@@ -35,7 +35,7 @@ export interface FinalizeCutoverCommandOutput extends SourceServer, __MetadataBe
  *
  * @see {@link FinalizeCutoverCommandInput} for command's `input` shape.
  * @see {@link FinalizeCutoverCommandOutput} for command's `response` shape.
- * @see {@link MgnClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  */
 export class FinalizeCutoverCommand extends $Command<

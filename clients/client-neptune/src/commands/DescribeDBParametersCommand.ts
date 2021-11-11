@@ -35,7 +35,7 @@ export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetai
  *
  * @see {@link DescribeDBParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeDBParametersCommandOutput} for command's `response` shape.
- * @see {@link NeptuneClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  */
 export class DescribeDBParametersCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListIntegrationsCommandOutput extends ListIntegrationsResponse,
  *
  * @see {@link ListIntegrationsCommandInput} for command's `input` shape.
  * @see {@link ListIntegrationsCommandOutput} for command's `response` shape.
- * @see {@link CustomerProfilesClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  */
 export class ListIntegrationsCommand extends $Command<

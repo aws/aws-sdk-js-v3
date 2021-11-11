@@ -39,7 +39,7 @@ export interface DisassociateExternalConnectionCommandOutput
  *
  * @see {@link DisassociateExternalConnectionCommandInput} for command's `input` shape.
  * @see {@link DisassociateExternalConnectionCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  */
 export class DisassociateExternalConnectionCommand extends $Command<

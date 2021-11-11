@@ -50,7 +50,7 @@ export interface SetAlarmStateCommandOutput extends __MetadataBearer {}
  *
  * @see {@link SetAlarmStateCommandInput} for command's `input` shape.
  * @see {@link SetAlarmStateCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  */
 export class SetAlarmStateCommand extends $Command<

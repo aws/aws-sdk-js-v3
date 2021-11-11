@@ -42,7 +42,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *
  * @see {@link CreateTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateTemplateCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class CreateTemplateCommand extends $Command<

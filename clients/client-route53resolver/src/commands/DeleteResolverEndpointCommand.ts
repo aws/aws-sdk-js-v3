@@ -47,7 +47,7 @@ export interface DeleteResolverEndpointCommandOutput extends DeleteResolverEndpo
  *
  * @see {@link DeleteResolverEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteResolverEndpointCommandOutput} for command's `response` shape.
- * @see {@link Route53ResolverClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
  */
 export class DeleteResolverEndpointCommand extends $Command<

@@ -41,7 +41,7 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
  *
  * @see {@link CreateLocationS3CommandInput} for command's `input` shape.
  * @see {@link CreateLocationS3CommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  */
 export class CreateLocationS3Command extends $Command<

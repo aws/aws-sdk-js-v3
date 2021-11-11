@@ -57,7 +57,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  *
  * @see {@link DescribeEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
- * @see {@link HealthClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
  */
 export class DescribeEventsCommand extends $Command<

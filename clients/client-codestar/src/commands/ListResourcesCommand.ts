@@ -35,7 +35,7 @@ export interface ListResourcesCommandOutput extends ListResourcesResult, __Metad
  *
  * @see {@link ListResourcesCommandInput} for command's `input` shape.
  * @see {@link ListResourcesCommandOutput} for command's `response` shape.
- * @see {@link CodeStarClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
  *
  */
 export class ListResourcesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteRuleGroupsNamespaceCommandOutput extends __MetadataBearer
  *
  * @see {@link DeleteRuleGroupsNamespaceCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleGroupsNamespaceCommandOutput} for command's `response` shape.
- * @see {@link AmpClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
  *
  */
 export class DeleteRuleGroupsNamespaceCommand extends $Command<

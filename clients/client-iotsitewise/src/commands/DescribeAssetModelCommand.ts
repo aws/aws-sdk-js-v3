@@ -35,7 +35,7 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  *
  * @see {@link DescribeAssetModelCommandInput} for command's `input` shape.
  * @see {@link DescribeAssetModelCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class DescribeAssetModelCommand extends $Command<

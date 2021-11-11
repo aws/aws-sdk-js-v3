@@ -59,7 +59,7 @@ export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, _
  *
  * @see {@link UpdateTimeToLiveCommandInput} for command's `input` shape.
  * @see {@link UpdateTimeToLiveCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  */
 export class UpdateTimeToLiveCommand extends $Command<

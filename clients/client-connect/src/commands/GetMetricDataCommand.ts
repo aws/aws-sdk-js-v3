@@ -38,7 +38,7 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  *
  * @see {@link GetMetricDataCommandInput} for command's `input` shape.
  * @see {@link GetMetricDataCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class GetMetricDataCommand extends $Command<

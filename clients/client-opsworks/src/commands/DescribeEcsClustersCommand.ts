@@ -44,7 +44,7 @@ export interface DescribeEcsClustersCommandOutput extends DescribeEcsClustersRes
  *
  * @see {@link DescribeEcsClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeEcsClustersCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class DescribeEcsClustersCommand extends $Command<

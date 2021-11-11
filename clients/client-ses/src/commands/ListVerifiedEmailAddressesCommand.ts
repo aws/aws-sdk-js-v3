@@ -36,7 +36,7 @@ export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEma
  *
  * @see {@link ListVerifiedEmailAddressesCommandInput} for command's `input` shape.
  * @see {@link ListVerifiedEmailAddressesCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class ListVerifiedEmailAddressesCommand extends $Command<

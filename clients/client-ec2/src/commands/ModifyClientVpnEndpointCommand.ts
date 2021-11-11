@@ -35,7 +35,7 @@ export interface ModifyClientVpnEndpointCommandOutput extends ModifyClientVpnEnd
  *
  * @see {@link ModifyClientVpnEndpointCommandInput} for command's `input` shape.
  * @see {@link ModifyClientVpnEndpointCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class ModifyClientVpnEndpointCommand extends $Command<

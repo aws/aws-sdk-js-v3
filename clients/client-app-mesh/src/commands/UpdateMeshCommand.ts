@@ -35,7 +35,7 @@ export interface UpdateMeshCommandOutput extends UpdateMeshOutput, __MetadataBea
  *
  * @see {@link UpdateMeshCommandInput} for command's `input` shape.
  * @see {@link UpdateMeshCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
  *
  */
 export class UpdateMeshCommand extends $Command<

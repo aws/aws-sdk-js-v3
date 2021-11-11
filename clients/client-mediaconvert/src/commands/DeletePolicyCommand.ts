@@ -35,7 +35,7 @@ export interface DeletePolicyCommandOutput extends DeletePolicyResponse, __Metad
  *
  * @see {@link DeletePolicyCommandInput} for command's `input` shape.
  * @see {@link DeletePolicyCommandOutput} for command's `response` shape.
- * @see {@link MediaConvertClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
  *
  */
 export class DeletePolicyCommand extends $Command<

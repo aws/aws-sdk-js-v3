@@ -41,7 +41,7 @@ export interface GetMigrationCommandOutput extends GetMigrationResponse, __Metad
  *
  * @see {@link GetMigrationCommandInput} for command's `input` shape.
  * @see {@link GetMigrationCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  */
 export class GetMigrationCommand extends $Command<

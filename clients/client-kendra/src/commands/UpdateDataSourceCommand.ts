@@ -35,7 +35,7 @@ export interface UpdateDataSourceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateDataSourceCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSourceCommandOutput} for command's `response` shape.
- * @see {@link KendraClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  */
 export class UpdateDataSourceCommand extends $Command<

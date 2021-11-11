@@ -35,7 +35,7 @@ export interface CreatePartitionIndexCommandOutput extends CreatePartitionIndexR
  *
  * @see {@link CreatePartitionIndexCommandInput} for command's `input` shape.
  * @see {@link CreatePartitionIndexCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class CreatePartitionIndexCommand extends $Command<

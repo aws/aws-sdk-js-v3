@@ -37,7 +37,7 @@ export interface DeleteCostCategoryDefinitionCommandOutput
  *
  * @see {@link DeleteCostCategoryDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteCostCategoryDefinitionCommandOutput} for command's `response` shape.
- * @see {@link CostExplorerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  */
 export class DeleteCostCategoryDefinitionCommand extends $Command<

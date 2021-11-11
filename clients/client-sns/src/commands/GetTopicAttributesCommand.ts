@@ -36,7 +36,7 @@ export interface GetTopicAttributesCommandOutput extends GetTopicAttributesRespo
  *
  * @see {@link GetTopicAttributesCommandInput} for command's `input` shape.
  * @see {@link GetTopicAttributesCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  */
 export class GetTopicAttributesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateProxySessionCommandOutput extends UpdateProxySessionRespo
  *
  * @see {@link UpdateProxySessionCommandInput} for command's `input` shape.
  * @see {@link UpdateProxySessionCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class UpdateProxySessionCommand extends $Command<

@@ -42,7 +42,7 @@ export interface RebuildWorkspacesCommandOutput extends RebuildWorkspacesResult,
  *
  * @see {@link RebuildWorkspacesCommandInput} for command's `input` shape.
  * @see {@link RebuildWorkspacesCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class RebuildWorkspacesCommand extends $Command<

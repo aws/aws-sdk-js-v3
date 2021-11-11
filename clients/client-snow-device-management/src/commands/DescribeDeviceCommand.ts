@@ -40,7 +40,7 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceOutput, __Met
  *
  * @see {@link DescribeDeviceCommandInput} for command's `input` shape.
  * @see {@link DescribeDeviceCommandOutput} for command's `response` shape.
- * @see {@link SnowDeviceManagementClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
  *
  */
 export class DescribeDeviceCommand extends $Command<

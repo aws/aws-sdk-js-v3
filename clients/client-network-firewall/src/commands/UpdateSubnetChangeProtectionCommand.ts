@@ -37,7 +37,7 @@ export interface UpdateSubnetChangeProtectionCommandOutput
  *
  * @see {@link UpdateSubnetChangeProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateSubnetChangeProtectionCommandOutput} for command's `response` shape.
- * @see {@link NetworkFirewallClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  */
 export class UpdateSubnetChangeProtectionCommand extends $Command<

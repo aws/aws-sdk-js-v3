@@ -39,7 +39,7 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  *
  * @see {@link PutReportDefinitionCommandInput} for command's `input` shape.
  * @see {@link PutReportDefinitionCommandOutput} for command's `response` shape.
- * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.
  *
  */
 export class PutReportDefinitionCommand extends $Command<

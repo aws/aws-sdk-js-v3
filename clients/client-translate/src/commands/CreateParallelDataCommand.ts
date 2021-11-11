@@ -38,7 +38,7 @@ export interface CreateParallelDataCommandOutput extends CreateParallelDataRespo
  *
  * @see {@link CreateParallelDataCommandInput} for command's `input` shape.
  * @see {@link CreateParallelDataCommandOutput} for command's `response` shape.
- * @see {@link TranslateClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
  */
 export class CreateParallelDataCommand extends $Command<

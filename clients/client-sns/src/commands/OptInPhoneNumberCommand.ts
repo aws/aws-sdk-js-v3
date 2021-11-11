@@ -37,7 +37,7 @@ export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse,
  *
  * @see {@link OptInPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link OptInPhoneNumberCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  */
 export class OptInPhoneNumberCommand extends $Command<

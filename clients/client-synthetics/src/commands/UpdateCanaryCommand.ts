@@ -39,7 +39,7 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *
  * @see {@link UpdateCanaryCommandInput} for command's `input` shape.
  * @see {@link UpdateCanaryCommandOutput} for command's `response` shape.
- * @see {@link SyntheticsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  */
 export class UpdateCanaryCommand extends $Command<

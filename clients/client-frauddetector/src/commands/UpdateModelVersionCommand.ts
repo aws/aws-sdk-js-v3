@@ -35,7 +35,7 @@ export interface UpdateModelVersionCommandOutput extends UpdateModelVersionResul
  *
  * @see {@link UpdateModelVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateModelVersionCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class UpdateModelVersionCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListAppsListsCommandOutput extends ListAppsListsResponse, __Met
  *
  * @see {@link ListAppsListsCommandInput} for command's `input` shape.
  * @see {@link ListAppsListsCommandOutput} for command's `response` shape.
- * @see {@link FMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
  */
 export class ListAppsListsCommand extends $Command<

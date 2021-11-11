@@ -73,7 +73,7 @@ export interface DescribeWorkflowTypeCommandOutput extends WorkflowTypeDetail, _
  *
  * @see {@link DescribeWorkflowTypeCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkflowTypeCommandOutput} for command's `response` shape.
- * @see {@link SWFClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
  *
  */
 export class DescribeWorkflowTypeCommand extends $Command<

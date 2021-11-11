@@ -35,7 +35,7 @@ export interface GetSubscriptionDefinitionCommandOutput extends GetSubscriptionD
  *
  * @see {@link GetSubscriptionDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetSubscriptionDefinitionCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class GetSubscriptionDefinitionCommand extends $Command<

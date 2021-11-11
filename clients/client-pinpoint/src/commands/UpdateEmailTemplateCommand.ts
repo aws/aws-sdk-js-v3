@@ -35,7 +35,7 @@ export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateRes
  *
  * @see {@link UpdateEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateEmailTemplateCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class UpdateEmailTemplateCommand extends $Command<

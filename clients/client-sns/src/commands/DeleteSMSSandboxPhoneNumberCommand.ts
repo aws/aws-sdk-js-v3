@@ -43,7 +43,7 @@ export interface DeleteSMSSandboxPhoneNumberCommandOutput extends DeleteSMSSandb
  *
  * @see {@link DeleteSMSSandboxPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link DeleteSMSSandboxPhoneNumberCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  */
 export class DeleteSMSSandboxPhoneNumberCommand extends $Command<

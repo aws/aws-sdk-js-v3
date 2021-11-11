@@ -35,7 +35,7 @@ export interface BulkPublishCommandOutput extends BulkPublishResponse, __Metadat
  *
  * @see {@link BulkPublishCommandInput} for command's `input` shape.
  * @see {@link BulkPublishCommandOutput} for command's `response` shape.
- * @see {@link CognitoSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
  *
  */
 export class BulkPublishCommand extends $Command<

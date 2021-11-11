@@ -35,7 +35,7 @@ export interface UpdateJourneyCommandOutput extends UpdateJourneyResponse, __Met
  *
  * @see {@link UpdateJourneyCommandInput} for command's `input` shape.
  * @see {@link UpdateJourneyCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class UpdateJourneyCommand extends $Command<

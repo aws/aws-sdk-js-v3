@@ -35,7 +35,7 @@ export interface UpdatePullRequestApprovalStateCommandOutput extends __MetadataB
  *
  * @see {@link UpdatePullRequestApprovalStateCommandInput} for command's `input` shape.
  * @see {@link UpdatePullRequestApprovalStateCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  */
 export class UpdatePullRequestApprovalStateCommand extends $Command<

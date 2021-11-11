@@ -35,7 +35,7 @@ export interface DescribeDatastoreCommandOutput extends DescribeDatastoreRespons
  *
  * @see {@link DescribeDatastoreCommandInput} for command's `input` shape.
  * @see {@link DescribeDatastoreCommandOutput} for command's `response` shape.
- * @see {@link IoTAnalyticsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
  *
  */
 export class DescribeDatastoreCommand extends $Command<

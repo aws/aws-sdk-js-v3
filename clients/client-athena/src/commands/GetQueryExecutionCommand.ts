@@ -37,7 +37,7 @@ export interface GetQueryExecutionCommandOutput extends GetQueryExecutionOutput,
  *
  * @see {@link GetQueryExecutionCommandInput} for command's `input` shape.
  * @see {@link GetQueryExecutionCommandOutput} for command's `response` shape.
- * @see {@link AthenaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  */
 export class GetQueryExecutionCommand extends $Command<

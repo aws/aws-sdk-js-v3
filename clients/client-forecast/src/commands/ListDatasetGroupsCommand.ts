@@ -38,7 +38,7 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  *
  * @see {@link ListDatasetGroupsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetGroupsCommandOutput} for command's `response` shape.
- * @see {@link ForecastClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  */
 export class ListDatasetGroupsCommand extends $Command<

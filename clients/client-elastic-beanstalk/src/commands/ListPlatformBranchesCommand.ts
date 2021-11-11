@@ -38,7 +38,7 @@ export interface ListPlatformBranchesCommandOutput extends ListPlatformBranchesR
  *
  * @see {@link ListPlatformBranchesCommandInput} for command's `input` shape.
  * @see {@link ListPlatformBranchesCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  */
 export class ListPlatformBranchesCommand extends $Command<

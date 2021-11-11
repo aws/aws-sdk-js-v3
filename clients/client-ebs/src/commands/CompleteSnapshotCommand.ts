@@ -37,7 +37,7 @@ export interface CompleteSnapshotCommandOutput extends CompleteSnapshotResponse,
  *
  * @see {@link CompleteSnapshotCommandInput} for command's `input` shape.
  * @see {@link CompleteSnapshotCommandOutput} for command's `response` shape.
- * @see {@link EBSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.
  *
  */
 export class CompleteSnapshotCommand extends $Command<

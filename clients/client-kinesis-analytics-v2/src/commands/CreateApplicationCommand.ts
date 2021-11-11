@@ -41,7 +41,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *
  * @see {@link CreateApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
- * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
  */
 export class CreateApplicationCommand extends $Command<

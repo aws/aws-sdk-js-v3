@@ -35,7 +35,7 @@ export interface DescribePackagingGroupCommandOutput extends DescribePackagingGr
  *
  * @see {@link DescribePackagingGroupCommandInput} for command's `input` shape.
  * @see {@link DescribePackagingGroupCommandOutput} for command's `response` shape.
- * @see {@link MediaPackageVodClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.
  *
  */
 export class DescribePackagingGroupCommand extends $Command<

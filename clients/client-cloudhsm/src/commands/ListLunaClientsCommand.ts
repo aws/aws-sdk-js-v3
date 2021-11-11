@@ -49,7 +49,7 @@ export interface ListLunaClientsCommandOutput extends ListLunaClientsResponse, _
  *
  * @see {@link ListLunaClientsCommandInput} for command's `input` shape.
  * @see {@link ListLunaClientsCommandOutput} for command's `response` shape.
- * @see {@link CloudHSMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
  *
  */
 export class ListLunaClientsCommand extends $Command<

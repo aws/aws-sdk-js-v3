@@ -35,7 +35,7 @@ export interface ListSourceLocationsCommandOutput extends ListSourceLocationsRes
  *
  * @see {@link ListSourceLocationsCommandInput} for command's `input` shape.
  * @see {@link ListSourceLocationsCommandOutput} for command's `response` shape.
- * @see {@link MediaTailorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  */
 export class ListSourceLocationsCommand extends $Command<

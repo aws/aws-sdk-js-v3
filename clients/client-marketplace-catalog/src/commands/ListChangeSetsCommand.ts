@@ -45,7 +45,7 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __M
  *
  * @see {@link ListChangeSetsCommandInput} for command's `input` shape.
  * @see {@link ListChangeSetsCommandOutput} for command's `response` shape.
- * @see {@link MarketplaceCatalogClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
  *
  */
 export class ListChangeSetsCommand extends $Command<

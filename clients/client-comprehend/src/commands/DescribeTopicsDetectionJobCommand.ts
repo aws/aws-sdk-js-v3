@@ -36,7 +36,7 @@ export interface DescribeTopicsDetectionJobCommandOutput extends DescribeTopicsD
  *
  * @see {@link DescribeTopicsDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeTopicsDetectionJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class DescribeTopicsDetectionJobCommand extends $Command<

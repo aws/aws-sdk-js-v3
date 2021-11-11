@@ -36,7 +36,7 @@ export interface ListInferenceSchedulersCommandOutput extends ListInferenceSched
  *
  * @see {@link ListInferenceSchedulersCommandInput} for command's `input` shape.
  * @see {@link ListInferenceSchedulersCommandOutput} for command's `response` shape.
- * @see {@link LookoutEquipmentClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
  *
  */
 export class ListInferenceSchedulersCommand extends $Command<

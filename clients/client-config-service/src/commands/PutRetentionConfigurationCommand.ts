@@ -45,7 +45,7 @@ export interface PutRetentionConfigurationCommandOutput extends PutRetentionConf
  *
  * @see {@link PutRetentionConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutRetentionConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class PutRetentionConfigurationCommand extends $Command<

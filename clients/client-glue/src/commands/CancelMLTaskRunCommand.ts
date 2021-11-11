@@ -37,7 +37,7 @@ export interface CancelMLTaskRunCommandOutput extends CancelMLTaskRunResponse, _
  *
  * @see {@link CancelMLTaskRunCommandInput} for command's `input` shape.
  * @see {@link CancelMLTaskRunCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class CancelMLTaskRunCommand extends $Command<

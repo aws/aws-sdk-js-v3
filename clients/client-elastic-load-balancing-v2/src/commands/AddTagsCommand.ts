@@ -40,7 +40,7 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  *
  * @see {@link AddTagsCommandInput} for command's `input` shape.
  * @see {@link AddTagsCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  */
 export class AddTagsCommand extends $Command<

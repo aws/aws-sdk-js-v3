@@ -32,7 +32,7 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteTagsCommandInput} for command's `input` shape.
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class DeleteTagsCommand extends $Command<

@@ -39,7 +39,7 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  *
  * @see {@link DescribeDBClusterParameterGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterParameterGroupsCommandOutput} for command's `response` shape.
- * @see {@link NeptuneClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  */
 export class DescribeDBClusterParameterGroupsCommand extends $Command<

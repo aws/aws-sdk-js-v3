@@ -36,7 +36,7 @@ export interface RemoveResourcePermissionCommandOutput extends __MetadataBearer 
  *
  * @see {@link RemoveResourcePermissionCommandInput} for command's `input` shape.
  * @see {@link RemoveResourcePermissionCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class RemoveResourcePermissionCommand extends $Command<

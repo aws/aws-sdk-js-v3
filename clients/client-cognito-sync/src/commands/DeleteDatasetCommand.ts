@@ -39,7 +39,7 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  *
  * @see {@link DeleteDatasetCommandInput} for command's `input` shape.
  * @see {@link DeleteDatasetCommandOutput} for command's `response` shape.
- * @see {@link CognitoSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
  *
  */
 export class DeleteDatasetCommand extends $Command<

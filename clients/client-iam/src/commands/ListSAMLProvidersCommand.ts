@@ -40,7 +40,7 @@ export interface ListSAMLProvidersCommandOutput extends ListSAMLProvidersRespons
  *
  * @see {@link ListSAMLProvidersCommandInput} for command's `input` shape.
  * @see {@link ListSAMLProvidersCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class ListSAMLProvidersCommand extends $Command<

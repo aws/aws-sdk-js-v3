@@ -39,7 +39,7 @@ export interface DeleteDomainCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteDomainCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DeleteDomainCommand extends $Command<

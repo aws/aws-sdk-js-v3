@@ -75,7 +75,7 @@ export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectio
  *
  * @see {@link CreateBackupSelectionCommandInput} for command's `input` shape.
  * @see {@link CreateBackupSelectionCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class CreateBackupSelectionCommand extends $Command<

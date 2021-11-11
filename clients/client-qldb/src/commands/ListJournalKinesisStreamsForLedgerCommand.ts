@@ -48,7 +48,7 @@ export interface ListJournalKinesisStreamsForLedgerCommandOutput
  *
  * @see {@link ListJournalKinesisStreamsForLedgerCommandInput} for command's `input` shape.
  * @see {@link ListJournalKinesisStreamsForLedgerCommandOutput} for command's `response` shape.
- * @see {@link QLDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
  */
 export class ListJournalKinesisStreamsForLedgerCommand extends $Command<

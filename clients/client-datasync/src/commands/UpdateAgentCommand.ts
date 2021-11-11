@@ -35,7 +35,7 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  *
  * @see {@link UpdateAgentCommandInput} for command's `input` shape.
  * @see {@link UpdateAgentCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  */
 export class UpdateAgentCommand extends $Command<

@@ -37,7 +37,7 @@ export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInsta
  *
  * @see {@link ConfirmProductInstanceCommandInput} for command's `input` shape.
  * @see {@link ConfirmProductInstanceCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class ConfirmProductInstanceCommand extends $Command<

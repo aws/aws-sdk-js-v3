@@ -35,7 +35,7 @@ export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __Metad
  *
  * @see {@link UpdateVolumeCommandInput} for command's `input` shape.
  * @see {@link UpdateVolumeCommandOutput} for command's `response` shape.
- * @see {@link FSxClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  */
 export class UpdateVolumeCommand extends $Command<

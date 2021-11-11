@@ -50,7 +50,7 @@ export interface GetContextKeysForPrincipalPolicyCommandOutput
  *
  * @see {@link GetContextKeysForPrincipalPolicyCommandInput} for command's `input` shape.
  * @see {@link GetContextKeysForPrincipalPolicyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class GetContextKeysForPrincipalPolicyCommand extends $Command<

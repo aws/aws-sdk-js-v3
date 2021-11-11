@@ -41,7 +41,7 @@ export interface DeleteVpcEndpointConnectionNotificationsCommandOutput
  *
  * @see {@link DeleteVpcEndpointConnectionNotificationsCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcEndpointConnectionNotificationsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<

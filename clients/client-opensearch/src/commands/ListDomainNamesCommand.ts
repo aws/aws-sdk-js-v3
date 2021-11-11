@@ -35,7 +35,7 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  *
  * @see {@link ListDomainNamesCommandInput} for command's `input` shape.
  * @see {@link ListDomainNamesCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
 export class ListDomainNamesCommand extends $Command<

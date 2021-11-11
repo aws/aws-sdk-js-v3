@@ -54,7 +54,7 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  *
  * @see {@link AddApplicationOutputCommandInput} for command's `input` shape.
  * @see {@link AddApplicationOutputCommandOutput} for command's `response` shape.
- * @see {@link KinesisAnalyticsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
  *
  */
 export class AddApplicationOutputCommand extends $Command<

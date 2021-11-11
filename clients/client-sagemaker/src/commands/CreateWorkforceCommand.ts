@@ -55,7 +55,7 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  *
  * @see {@link CreateWorkforceCommandInput} for command's `input` shape.
  * @see {@link CreateWorkforceCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class CreateWorkforceCommand extends $Command<

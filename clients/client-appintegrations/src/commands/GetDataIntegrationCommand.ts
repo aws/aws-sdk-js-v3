@@ -40,7 +40,7 @@ export interface GetDataIntegrationCommandOutput extends GetDataIntegrationRespo
  *
  * @see {@link GetDataIntegrationCommandInput} for command's `input` shape.
  * @see {@link GetDataIntegrationCommandOutput} for command's `response` shape.
- * @see {@link AppIntegrationsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
  *
  */
 export class GetDataIntegrationCommand extends $Command<

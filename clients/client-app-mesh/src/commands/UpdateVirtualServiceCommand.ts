@@ -35,7 +35,7 @@ export interface UpdateVirtualServiceCommandOutput extends UpdateVirtualServiceO
  *
  * @see {@link UpdateVirtualServiceCommandInput} for command's `input` shape.
  * @see {@link UpdateVirtualServiceCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
  *
  */
 export class UpdateVirtualServiceCommand extends $Command<

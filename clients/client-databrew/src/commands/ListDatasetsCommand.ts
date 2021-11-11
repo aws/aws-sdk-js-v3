@@ -35,7 +35,7 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  *
  * @see {@link ListDatasetsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetsCommandOutput} for command's `response` shape.
- * @see {@link DataBrewClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  */
 export class ListDatasetsCommand extends $Command<

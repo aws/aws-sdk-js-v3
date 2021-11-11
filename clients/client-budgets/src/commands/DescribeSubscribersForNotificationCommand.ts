@@ -40,7 +40,7 @@ export interface DescribeSubscribersForNotificationCommandOutput
  *
  * @see {@link DescribeSubscribersForNotificationCommandInput} for command's `input` shape.
  * @see {@link DescribeSubscribersForNotificationCommandOutput} for command's `response` shape.
- * @see {@link BudgetsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
  *
  */
 export class DescribeSubscribersForNotificationCommand extends $Command<

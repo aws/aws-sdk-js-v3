@@ -40,7 +40,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *
  * @see {@link UpdateServiceCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
- * @see {@link AppRunnerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
  *
  */
 export class UpdateServiceCommand extends $Command<

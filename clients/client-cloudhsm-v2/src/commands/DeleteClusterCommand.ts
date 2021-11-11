@@ -36,7 +36,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  *
  * @see {@link DeleteClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
- * @see {@link CloudHSMV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
  *
  */
 export class DeleteClusterCommand extends $Command<

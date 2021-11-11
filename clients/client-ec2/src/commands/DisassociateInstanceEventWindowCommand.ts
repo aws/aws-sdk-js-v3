@@ -39,7 +39,7 @@ export interface DisassociateInstanceEventWindowCommandOutput
  *
  * @see {@link DisassociateInstanceEventWindowCommandInput} for command's `input` shape.
  * @see {@link DisassociateInstanceEventWindowCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DisassociateInstanceEventWindowCommand extends $Command<

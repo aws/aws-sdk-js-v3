@@ -37,7 +37,7 @@ export interface FlattenedXmlMapWithXmlNamespaceCommandOutput
  *
  * @see {@link FlattenedXmlMapWithXmlNamespaceCommandInput} for command's `input` shape.
  * @see {@link FlattenedXmlMapWithXmlNamespaceCommandOutput} for command's `response` shape.
- * @see {@link RestXmlProtocolClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
  */
 export class FlattenedXmlMapWithXmlNamespaceCommand extends $Command<

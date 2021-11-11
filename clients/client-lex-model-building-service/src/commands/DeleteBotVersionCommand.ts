@@ -42,7 +42,7 @@ export interface DeleteBotVersionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteBotVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteBotVersionCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  */
 export class DeleteBotVersionCommand extends $Command<

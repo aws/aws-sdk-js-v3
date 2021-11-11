@@ -42,7 +42,7 @@ export interface ListCachePoliciesCommandOutput extends ListCachePoliciesResult,
  *
  * @see {@link ListCachePoliciesCommandInput} for command's `input` shape.
  * @see {@link ListCachePoliciesCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class ListCachePoliciesCommand extends $Command<

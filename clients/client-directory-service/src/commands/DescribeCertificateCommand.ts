@@ -35,7 +35,7 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  *
  * @see {@link DescribeCertificateCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificateCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class DescribeCertificateCommand extends $Command<

@@ -41,7 +41,7 @@ export interface GetBotAliasesCommandOutput extends GetBotAliasesResponse, __Met
  *
  * @see {@link GetBotAliasesCommandInput} for command's `input` shape.
  * @see {@link GetBotAliasesCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  */
 export class GetBotAliasesCommand extends $Command<

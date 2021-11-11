@@ -36,7 +36,7 @@ export interface CreateProtectionCommandOutput extends CreateProtectionResponse,
  *
  * @see {@link CreateProtectionCommandInput} for command's `input` shape.
  * @see {@link CreateProtectionCommandOutput} for command's `response` shape.
- * @see {@link ShieldClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  */
 export class CreateProtectionCommand extends $Command<

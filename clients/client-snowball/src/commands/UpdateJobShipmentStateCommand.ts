@@ -35,7 +35,7 @@ export interface UpdateJobShipmentStateCommandOutput extends UpdateJobShipmentSt
  *
  * @see {@link UpdateJobShipmentStateCommandInput} for command's `input` shape.
  * @see {@link UpdateJobShipmentStateCommandOutput} for command's `response` shape.
- * @see {@link SnowballClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  */
 export class UpdateJobShipmentStateCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListBackendEnvironmentsCommandOutput extends ListBackendEnviron
  *
  * @see {@link ListBackendEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link ListBackendEnvironmentsCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  */
 export class ListBackendEnvironmentsCommand extends $Command<

@@ -59,7 +59,7 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  *
  * @see {@link GenerateEmbedUrlForRegisteredUserCommandInput} for command's `input` shape.
  * @see {@link GenerateEmbedUrlForRegisteredUserCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class GenerateEmbedUrlForRegisteredUserCommand extends $Command<

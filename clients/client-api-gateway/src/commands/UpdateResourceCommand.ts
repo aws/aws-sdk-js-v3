@@ -35,7 +35,7 @@ export interface UpdateResourceCommandOutput extends Resource, __MetadataBearer 
  *
  * @see {@link UpdateResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class UpdateResourceCommand extends $Command<

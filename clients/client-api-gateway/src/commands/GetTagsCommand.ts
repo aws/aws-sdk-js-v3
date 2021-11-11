@@ -35,7 +35,7 @@ export interface GetTagsCommandOutput extends Tags, __MetadataBearer {}
  *
  * @see {@link GetTagsCommandInput} for command's `input` shape.
  * @see {@link GetTagsCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class GetTagsCommand extends $Command<

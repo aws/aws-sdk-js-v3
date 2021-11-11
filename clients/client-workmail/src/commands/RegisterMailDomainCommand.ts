@@ -36,7 +36,7 @@ export interface RegisterMailDomainCommandOutput extends RegisterMailDomainRespo
  *
  * @see {@link RegisterMailDomainCommandInput} for command's `input` shape.
  * @see {@link RegisterMailDomainCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class RegisterMailDomainCommand extends $Command<

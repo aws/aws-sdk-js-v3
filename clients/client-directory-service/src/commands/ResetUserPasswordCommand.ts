@@ -52,7 +52,7 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
  *
  * @see {@link ResetUserPasswordCommandInput} for command's `input` shape.
  * @see {@link ResetUserPasswordCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class ResetUserPasswordCommand extends $Command<

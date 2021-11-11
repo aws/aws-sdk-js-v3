@@ -35,7 +35,7 @@ export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __Met
  *
  * @see {@link SendBulkEmailCommandInput} for command's `input` shape.
  * @see {@link SendBulkEmailCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class SendBulkEmailCommand extends $Command<

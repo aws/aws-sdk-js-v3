@@ -36,7 +36,7 @@ export interface UpdateHostedZoneCommentCommandOutput extends UpdateHostedZoneCo
  *
  * @see {@link UpdateHostedZoneCommentCommandInput} for command's `input` shape.
  * @see {@link UpdateHostedZoneCommentCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  */
 export class UpdateHostedZoneCommentCommand extends $Command<

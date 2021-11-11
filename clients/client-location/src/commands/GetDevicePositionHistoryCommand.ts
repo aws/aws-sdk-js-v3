@@ -39,7 +39,7 @@ export interface GetDevicePositionHistoryCommandOutput extends GetDevicePosition
  *
  * @see {@link GetDevicePositionHistoryCommandInput} for command's `input` shape.
  * @see {@link GetDevicePositionHistoryCommandOutput} for command's `response` shape.
- * @see {@link LocationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  */
 export class GetDevicePositionHistoryCommand extends $Command<

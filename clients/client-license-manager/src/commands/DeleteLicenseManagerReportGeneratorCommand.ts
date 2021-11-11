@@ -42,7 +42,7 @@ export interface DeleteLicenseManagerReportGeneratorCommandOutput
  *
  * @see {@link DeleteLicenseManagerReportGeneratorCommandInput} for command's `input` shape.
  * @see {@link DeleteLicenseManagerReportGeneratorCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class DeleteLicenseManagerReportGeneratorCommand extends $Command<

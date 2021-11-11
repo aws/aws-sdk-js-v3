@@ -43,7 +43,7 @@ export interface GetChannelMembershipPreferencesCommandOutput
  *
  * @see {@link GetChannelMembershipPreferencesCommandInput} for command's `input` shape.
  * @see {@link GetChannelMembershipPreferencesCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  */
 export class GetChannelMembershipPreferencesCommand extends $Command<

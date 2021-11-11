@@ -35,7 +35,7 @@ export interface GetThreatIntelSetCommandOutput extends GetThreatIntelSetRespons
  *
  * @see {@link GetThreatIntelSetCommandInput} for command's `input` shape.
  * @see {@link GetThreatIntelSetCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  */
 export class GetThreatIntelSetCommand extends $Command<

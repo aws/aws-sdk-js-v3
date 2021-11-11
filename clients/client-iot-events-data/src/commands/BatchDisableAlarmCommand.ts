@@ -36,7 +36,7 @@ export interface BatchDisableAlarmCommandOutput extends BatchDisableAlarmRespons
  *
  * @see {@link BatchDisableAlarmCommandInput} for command's `input` shape.
  * @see {@link BatchDisableAlarmCommandOutput} for command's `response` shape.
- * @see {@link IoTEventsDataClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
  *
  */
 export class BatchDisableAlarmCommand extends $Command<

@@ -36,7 +36,7 @@ export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBea
  *
  * @see {@link DeleteTagsCommandInput} for command's `input` shape.
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
- * @see {@link MachineLearningClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  */
 export class DeleteTagsCommand extends $Command<

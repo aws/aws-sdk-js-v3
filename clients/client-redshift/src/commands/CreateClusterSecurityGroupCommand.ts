@@ -40,7 +40,7 @@ export interface CreateClusterSecurityGroupCommandOutput extends CreateClusterSe
  *
  * @see {@link CreateClusterSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link CreateClusterSecurityGroupCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class CreateClusterSecurityGroupCommand extends $Command<

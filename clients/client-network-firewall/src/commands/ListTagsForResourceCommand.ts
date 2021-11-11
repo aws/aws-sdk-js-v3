@@ -41,7 +41,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
- * @see {@link NetworkFirewallClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  */
 export class ListTagsForResourceCommand extends $Command<

@@ -38,7 +38,7 @@ export interface ListRoutingProfilesCommandOutput extends ListRoutingProfilesRes
  *
  * @see {@link ListRoutingProfilesCommandInput} for command's `input` shape.
  * @see {@link ListRoutingProfilesCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class ListRoutingProfilesCommand extends $Command<

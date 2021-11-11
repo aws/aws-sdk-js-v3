@@ -35,7 +35,7 @@ export interface GetBulkDeploymentStatusCommandOutput extends GetBulkDeploymentS
  *
  * @see {@link GetBulkDeploymentStatusCommandInput} for command's `input` shape.
  * @see {@link GetBulkDeploymentStatusCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class GetBulkDeploymentStatusCommand extends $Command<

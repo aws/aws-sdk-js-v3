@@ -36,7 +36,7 @@ export interface DeleteImageCommandOutput extends DeleteImageResult, __MetadataB
  *
  * @see {@link DeleteImageCommandInput} for command's `input` shape.
  * @see {@link DeleteImageCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  */
 export class DeleteImageCommand extends $Command<

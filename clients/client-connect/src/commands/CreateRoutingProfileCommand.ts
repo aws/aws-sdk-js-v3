@@ -35,7 +35,7 @@ export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileR
  *
  * @see {@link CreateRoutingProfileCommandInput} for command's `input` shape.
  * @see {@link CreateRoutingProfileCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class CreateRoutingProfileCommand extends $Command<

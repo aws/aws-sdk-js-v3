@@ -37,7 +37,7 @@ export interface StartStreamProcessorCommandOutput extends StartStreamProcessorR
  *
  * @see {@link StartStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link StartStreamProcessorCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  */
 export class StartStreamProcessorCommand extends $Command<

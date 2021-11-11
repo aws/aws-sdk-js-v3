@@ -40,7 +40,7 @@ export interface DeleteRecordingConfigurationCommandOutput extends __MetadataBea
  *
  * @see {@link DeleteRecordingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteRecordingConfigurationCommandOutput} for command's `response` shape.
- * @see {@link IvsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
  */
 export class DeleteRecordingConfigurationCommand extends $Command<

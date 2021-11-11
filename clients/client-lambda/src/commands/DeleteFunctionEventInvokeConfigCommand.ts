@@ -36,7 +36,7 @@ export interface DeleteFunctionEventInvokeConfigCommandOutput extends __Metadata
  *
  * @see {@link DeleteFunctionEventInvokeConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionEventInvokeConfigCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
 export class DeleteFunctionEventInvokeConfigCommand extends $Command<

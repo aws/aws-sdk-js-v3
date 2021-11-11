@@ -47,7 +47,7 @@ export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteDatasetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDatasetGroupCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  */
 export class DeleteDatasetGroupCommand extends $Command<

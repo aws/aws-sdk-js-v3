@@ -113,7 +113,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *
  * @see {@link UpdateDistributionCommandInput} for command's `input` shape.
  * @see {@link UpdateDistributionCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class UpdateDistributionCommand extends $Command<

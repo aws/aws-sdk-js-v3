@@ -76,7 +76,7 @@ export interface UndeprecateActivityTypeCommandOutput extends __MetadataBearer {
  *
  * @see {@link UndeprecateActivityTypeCommandInput} for command's `input` shape.
  * @see {@link UndeprecateActivityTypeCommandOutput} for command's `response` shape.
- * @see {@link SWFClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
  *
  */
 export class UndeprecateActivityTypeCommand extends $Command<

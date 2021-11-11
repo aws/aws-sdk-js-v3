@@ -35,7 +35,7 @@ export interface AddNotificationChannelsCommandOutput extends AddNotificationCha
  *
  * @see {@link AddNotificationChannelsCommandInput} for command's `input` shape.
  * @see {@link AddNotificationChannelsCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruProfilerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
  *
  */
 export class AddNotificationChannelsCommand extends $Command<

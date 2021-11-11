@@ -39,7 +39,7 @@ export interface DescribeHostedConnectionsCommandOutput extends Connections, __M
  *
  * @see {@link DescribeHostedConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeHostedConnectionsCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class DescribeHostedConnectionsCommand extends $Command<

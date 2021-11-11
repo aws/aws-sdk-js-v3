@@ -37,7 +37,7 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  *
  * @see {@link GetEmailIdentityCommandInput} for command's `input` shape.
  * @see {@link GetEmailIdentityCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class GetEmailIdentityCommand extends $Command<

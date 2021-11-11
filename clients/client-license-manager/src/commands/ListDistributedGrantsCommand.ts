@@ -35,7 +35,7 @@ export interface ListDistributedGrantsCommandOutput extends ListDistributedGrant
  *
  * @see {@link ListDistributedGrantsCommandInput} for command's `input` shape.
  * @see {@link ListDistributedGrantsCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class ListDistributedGrantsCommand extends $Command<

@@ -36,7 +36,7 @@ export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCu
  *
  * @see {@link DeleteAccountCustomizationCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountCustomizationCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class DeleteAccountCustomizationCommand extends $Command<

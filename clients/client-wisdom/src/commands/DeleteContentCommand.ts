@@ -35,7 +35,7 @@ export interface DeleteContentCommandOutput extends DeleteContentResponse, __Met
  *
  * @see {@link DeleteContentCommandInput} for command's `input` shape.
  * @see {@link DeleteContentCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
  *
  */
 export class DeleteContentCommand extends $Command<

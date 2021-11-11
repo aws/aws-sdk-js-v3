@@ -39,7 +39,7 @@ export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinit
  *
  * @see {@link ModifyReportDefinitionCommandInput} for command's `input` shape.
  * @see {@link ModifyReportDefinitionCommandOutput} for command's `response` shape.
- * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.
  *
  */
 export class ModifyReportDefinitionCommand extends $Command<

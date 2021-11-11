@@ -35,7 +35,7 @@ export interface ListPhoneNumberOrdersCommandOutput extends ListPhoneNumberOrder
  *
  * @see {@link ListPhoneNumberOrdersCommandInput} for command's `input` shape.
  * @see {@link ListPhoneNumberOrdersCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class ListPhoneNumberOrdersCommand extends $Command<

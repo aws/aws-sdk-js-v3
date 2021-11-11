@@ -34,7 +34,7 @@ export interface DeleteStackCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteStackCommandInput} for command's `input` shape.
  * @see {@link DeleteStackCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  */
 export class DeleteStackCommand extends $Command<

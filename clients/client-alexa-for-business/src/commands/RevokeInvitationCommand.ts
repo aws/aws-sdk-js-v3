@@ -35,7 +35,7 @@ export interface RevokeInvitationCommandOutput extends RevokeInvitationResponse,
  *
  * @see {@link RevokeInvitationCommandInput} for command's `input` shape.
  * @see {@link RevokeInvitationCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class RevokeInvitationCommand extends $Command<

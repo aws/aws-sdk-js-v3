@@ -37,7 +37,7 @@ export interface DescribePolicyCommandOutput extends DescribePolicyResponse, __M
  *
  * @see {@link DescribePolicyCommandInput} for command's `input` shape.
  * @see {@link DescribePolicyCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class DescribePolicyCommand extends $Command<

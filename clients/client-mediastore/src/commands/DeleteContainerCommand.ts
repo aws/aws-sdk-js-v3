@@ -37,7 +37,7 @@ export interface DeleteContainerCommandOutput extends DeleteContainerOutput, __M
  *
  * @see {@link DeleteContainerCommandInput} for command's `input` shape.
  * @see {@link DeleteContainerCommandOutput} for command's `response` shape.
- * @see {@link MediaStoreClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  */
 export class DeleteContainerCommand extends $Command<

@@ -38,7 +38,7 @@ export interface DeleteElasticsearchServiceRoleCommandOutput extends __MetadataB
  *
  * @see {@link DeleteElasticsearchServiceRoleCommandInput} for command's `input` shape.
  * @see {@link DeleteElasticsearchServiceRoleCommandOutput} for command's `response` shape.
- * @see {@link ElasticsearchServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
  */
 export class DeleteElasticsearchServiceRoleCommand extends $Command<

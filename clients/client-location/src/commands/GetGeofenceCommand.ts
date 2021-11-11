@@ -35,7 +35,7 @@ export interface GetGeofenceCommandOutput extends GetGeofenceResponse, __Metadat
  *
  * @see {@link GetGeofenceCommandInput} for command's `input` shape.
  * @see {@link GetGeofenceCommandOutput} for command's `response` shape.
- * @see {@link LocationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  */
 export class GetGeofenceCommand extends $Command<

@@ -35,7 +35,7 @@ export interface BatchDeleteBuildsCommandOutput extends BatchDeleteBuildsOutput,
  *
  * @see {@link BatchDeleteBuildsCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteBuildsCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  */
 export class BatchDeleteBuildsCommand extends $Command<

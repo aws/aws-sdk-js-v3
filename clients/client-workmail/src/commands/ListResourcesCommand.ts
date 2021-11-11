@@ -35,7 +35,7 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  *
  * @see {@link ListResourcesCommandInput} for command's `input` shape.
  * @see {@link ListResourcesCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class ListResourcesCommand extends $Command<

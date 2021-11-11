@@ -37,7 +37,7 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  *
  * @see {@link QueryAssistantCommandInput} for command's `input` shape.
  * @see {@link QueryAssistantCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
  *
  */
 export class QueryAssistantCommand extends $Command<

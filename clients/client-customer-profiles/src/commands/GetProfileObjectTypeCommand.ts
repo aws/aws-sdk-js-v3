@@ -35,7 +35,7 @@ export interface GetProfileObjectTypeCommandOutput extends GetProfileObjectTypeR
  *
  * @see {@link GetProfileObjectTypeCommandInput} for command's `input` shape.
  * @see {@link GetProfileObjectTypeCommandOutput} for command's `response` shape.
- * @see {@link CustomerProfilesClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  */
 export class GetProfileObjectTypeCommand extends $Command<

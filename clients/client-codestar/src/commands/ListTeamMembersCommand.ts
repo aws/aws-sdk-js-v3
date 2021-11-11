@@ -35,7 +35,7 @@ export interface ListTeamMembersCommandOutput extends ListTeamMembersResult, __M
  *
  * @see {@link ListTeamMembersCommandInput} for command's `input` shape.
  * @see {@link ListTeamMembersCommandOutput} for command's `response` shape.
- * @see {@link CodeStarClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
  *
  */
 export class ListTeamMembersCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetLensVersionDifferenceCommandOutput extends GetLensVersionDif
  *
  * @see {@link GetLensVersionDifferenceCommandInput} for command's `input` shape.
  * @see {@link GetLensVersionDifferenceCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  */
 export class GetLensVersionDifferenceCommand extends $Command<

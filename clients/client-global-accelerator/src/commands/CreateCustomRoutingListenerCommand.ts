@@ -42,7 +42,7 @@ export interface CreateCustomRoutingListenerCommandOutput
  *
  * @see {@link CreateCustomRoutingListenerCommandInput} for command's `input` shape.
  * @see {@link CreateCustomRoutingListenerCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  */
 export class CreateCustomRoutingListenerCommand extends $Command<

@@ -39,7 +39,7 @@ export interface CreateContextCommandOutput extends CreateContextResponse, __Met
  *
  * @see {@link CreateContextCommandInput} for command's `input` shape.
  * @see {@link CreateContextCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class CreateContextCommand extends $Command<

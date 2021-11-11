@@ -35,7 +35,7 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  *
  * @see {@link GetAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link GetAccountSettingsCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
 export class GetAccountSettingsCommand extends $Command<

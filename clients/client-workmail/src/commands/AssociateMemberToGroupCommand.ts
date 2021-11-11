@@ -35,7 +35,7 @@ export interface AssociateMemberToGroupCommandOutput extends AssociateMemberToGr
  *
  * @see {@link AssociateMemberToGroupCommandInput} for command's `input` shape.
  * @see {@link AssociateMemberToGroupCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class AssociateMemberToGroupCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeServiceCommandOutput extends DescribeServiceResponse, _
  *
  * @see {@link DescribeServiceCommandInput} for command's `input` shape.
  * @see {@link DescribeServiceCommandOutput} for command's `response` shape.
- * @see {@link AppRunnerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
  *
  */
 export class DescribeServiceCommand extends $Command<

@@ -45,7 +45,7 @@ export interface GetRelationalDatabaseMasterUserPasswordCommandOutput
  *
  * @see {@link GetRelationalDatabaseMasterUserPasswordCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseMasterUserPasswordCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class GetRelationalDatabaseMasterUserPasswordCommand extends $Command<

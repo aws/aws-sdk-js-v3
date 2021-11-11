@@ -43,7 +43,7 @@ export interface ListDomainDeliverabilityCampaignsCommandOutput
  *
  * @see {@link ListDomainDeliverabilityCampaignsCommandInput} for command's `input` shape.
  * @see {@link ListDomainDeliverabilityCampaignsCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  */
 export class ListDomainDeliverabilityCampaignsCommand extends $Command<

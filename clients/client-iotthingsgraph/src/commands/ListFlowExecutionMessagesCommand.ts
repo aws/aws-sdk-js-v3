@@ -35,7 +35,7 @@ export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutio
  *
  * @see {@link ListFlowExecutionMessagesCommandInput} for command's `input` shape.
  * @see {@link ListFlowExecutionMessagesCommandOutput} for command's `response` shape.
- * @see {@link IoTThingsGraphClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  */
 export class ListFlowExecutionMessagesCommand extends $Command<

@@ -41,7 +41,7 @@ export interface DescribeTransitGatewayVpcAttachmentsCommandOutput
  *
  * @see {@link DescribeTransitGatewayVpcAttachmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayVpcAttachmentsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command<

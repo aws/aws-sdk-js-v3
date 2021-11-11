@@ -38,7 +38,7 @@ export interface CreateConnectorProfileCommandOutput extends CreateConnectorProf
  *
  * @see {@link CreateConnectorProfileCommandInput} for command's `input` shape.
  * @see {@link CreateConnectorProfileCommandOutput} for command's `response` shape.
- * @see {@link AppflowClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  */
 export class CreateConnectorProfileCommand extends $Command<

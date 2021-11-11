@@ -35,7 +35,7 @@ export interface DeleteDevEndpointCommandOutput extends DeleteDevEndpointRespons
  *
  * @see {@link DeleteDevEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteDevEndpointCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class DeleteDevEndpointCommand extends $Command<

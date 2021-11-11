@@ -35,7 +35,7 @@ export interface DeleteRouteRequestParameterCommandOutput extends __MetadataBear
  *
  * @see {@link DeleteRouteRequestParameterCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteRequestParameterCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
  *
  */
 export class DeleteRouteRequestParameterCommand extends $Command<

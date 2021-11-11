@@ -72,7 +72,7 @@ export interface TagSAMLProviderCommandOutput extends __MetadataBearer {}
  *
  * @see {@link TagSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link TagSAMLProviderCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class TagSAMLProviderCommand extends $Command<

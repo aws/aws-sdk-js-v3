@@ -50,7 +50,7 @@ export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataB
  *
  * @see {@link UpdateAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateAliasCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class UpdateAliasCommand extends $Command<

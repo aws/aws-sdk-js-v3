@@ -39,7 +39,7 @@ export interface DeleteInterconnectCommandOutput extends DeleteInterconnectRespo
  *
  * @see {@link DeleteInterconnectCommandInput} for command's `input` shape.
  * @see {@link DeleteInterconnectCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class DeleteInterconnectCommand extends $Command<

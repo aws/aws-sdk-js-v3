@@ -35,7 +35,7 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  *
  * @see {@link DescribeSchemaCommandInput} for command's `input` shape.
  * @see {@link DescribeSchemaCommandOutput} for command's `response` shape.
- * @see {@link SchemasClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
  *
  */
 export class DescribeSchemaCommand extends $Command<

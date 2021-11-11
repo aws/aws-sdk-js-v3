@@ -35,7 +35,7 @@ export interface CreateOrderCommandOutput extends CreateOrderOutput, __MetadataB
  *
  * @see {@link CreateOrderCommandInput} for command's `input` shape.
  * @see {@link CreateOrderCommandOutput} for command's `response` shape.
- * @see {@link OutpostsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
  *
  */
 export class CreateOrderCommand extends $Command<

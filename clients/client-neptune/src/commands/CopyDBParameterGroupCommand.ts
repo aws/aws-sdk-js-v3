@@ -35,7 +35,7 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  *
  * @see {@link CopyDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CopyDBParameterGroupCommandOutput} for command's `response` shape.
- * @see {@link NeptuneClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  */
 export class CopyDBParameterGroupCommand extends $Command<

@@ -37,7 +37,7 @@ export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __M
  *
  * @see {@link PutEvaluationsCommandInput} for command's `input` shape.
  * @see {@link PutEvaluationsCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class PutEvaluationsCommand extends $Command<

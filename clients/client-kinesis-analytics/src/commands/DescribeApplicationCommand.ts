@@ -44,7 +44,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  *
  * @see {@link DescribeApplicationCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationCommandOutput} for command's `response` shape.
- * @see {@link KinesisAnalyticsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
  *
  */
 export class DescribeApplicationCommand extends $Command<

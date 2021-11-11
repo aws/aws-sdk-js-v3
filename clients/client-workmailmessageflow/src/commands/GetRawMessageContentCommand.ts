@@ -39,7 +39,7 @@ export interface GetRawMessageContentCommandOutput extends GetRawMessageContentR
  *
  * @see {@link GetRawMessageContentCommandInput} for command's `input` shape.
  * @see {@link GetRawMessageContentCommandOutput} for command's `response` shape.
- * @see {@link WorkMailMessageFlowClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailMessageFlowClientResolvedConfig | config} for WorkMailMessageFlowClient's `config` shape.
  *
  */
 export class GetRawMessageContentCommand extends $Command<

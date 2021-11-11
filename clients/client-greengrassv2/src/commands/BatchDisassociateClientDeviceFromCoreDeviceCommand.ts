@@ -43,7 +43,7 @@ export interface BatchDisassociateClientDeviceFromCoreDeviceCommandOutput
  *
  * @see {@link BatchDisassociateClientDeviceFromCoreDeviceCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateClientDeviceFromCoreDeviceCommandOutput} for command's `response` shape.
- * @see {@link GreengrassV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
  *
  */
 export class BatchDisassociateClientDeviceFromCoreDeviceCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListImagePackagesCommandOutput extends ListImagePackagesRespons
  *
  * @see {@link ListImagePackagesCommandInput} for command's `input` shape.
  * @see {@link ListImagePackagesCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  */
 export class ListImagePackagesCommand extends $Command<

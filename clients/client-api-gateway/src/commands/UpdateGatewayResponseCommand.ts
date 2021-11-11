@@ -35,7 +35,7 @@ export interface UpdateGatewayResponseCommandOutput extends GatewayResponse, __M
  *
  * @see {@link UpdateGatewayResponseCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayResponseCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class UpdateGatewayResponseCommand extends $Command<

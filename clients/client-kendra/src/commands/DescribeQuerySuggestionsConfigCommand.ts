@@ -39,7 +39,7 @@ export interface DescribeQuerySuggestionsConfigCommandOutput
  *
  * @see {@link DescribeQuerySuggestionsConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeQuerySuggestionsConfigCommandOutput} for command's `response` shape.
- * @see {@link KendraClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  */
 export class DescribeQuerySuggestionsConfigCommand extends $Command<

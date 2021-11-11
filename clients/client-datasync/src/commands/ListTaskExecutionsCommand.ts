@@ -35,7 +35,7 @@ export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsRespo
  *
  * @see {@link ListTaskExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListTaskExecutionsCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  */
 export class ListTaskExecutionsCommand extends $Command<

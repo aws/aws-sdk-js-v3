@@ -36,7 +36,7 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  *
  * @see {@link ListDataSetsCommandInput} for command's `input` shape.
  * @see {@link ListDataSetsCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class ListDataSetsCommand extends $Command<

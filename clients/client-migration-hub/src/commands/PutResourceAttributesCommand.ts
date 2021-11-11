@@ -60,7 +60,7 @@ export interface PutResourceAttributesCommandOutput extends PutResourceAttribute
  *
  * @see {@link PutResourceAttributesCommandInput} for command's `input` shape.
  * @see {@link PutResourceAttributesCommandOutput} for command's `response` shape.
- * @see {@link MigrationHubClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
  *
  */
 export class PutResourceAttributesCommand extends $Command<

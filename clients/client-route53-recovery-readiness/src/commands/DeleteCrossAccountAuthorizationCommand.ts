@@ -41,7 +41,7 @@ export interface DeleteCrossAccountAuthorizationCommandOutput
  *
  * @see {@link DeleteCrossAccountAuthorizationCommandInput} for command's `input` shape.
  * @see {@link DeleteCrossAccountAuthorizationCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
  *
  */
 export class DeleteCrossAccountAuthorizationCommand extends $Command<

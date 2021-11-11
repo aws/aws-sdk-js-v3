@@ -35,7 +35,7 @@ export interface FlattenedXmlMapCommandOutput extends FlattenedXmlMapOutput, __M
  *
  * @see {@link FlattenedXmlMapCommandInput} for command's `input` shape.
  * @see {@link FlattenedXmlMapCommandOutput} for command's `response` shape.
- * @see {@link QueryProtocolClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
  *
  */
 export class FlattenedXmlMapCommand extends $Command<

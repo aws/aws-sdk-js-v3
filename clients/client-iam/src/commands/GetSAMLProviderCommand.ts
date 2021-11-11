@@ -39,7 +39,7 @@ export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, _
  *
  * @see {@link GetSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link GetSAMLProviderCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class GetSAMLProviderCommand extends $Command<

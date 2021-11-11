@@ -40,7 +40,7 @@ export interface DescribeRiskConfigurationCommandOutput extends DescribeRiskConf
  *
  * @see {@link DescribeRiskConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeRiskConfigurationCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class DescribeRiskConfigurationCommand extends $Command<

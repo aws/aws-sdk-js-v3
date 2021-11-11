@@ -46,7 +46,7 @@ export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIV
  *
  * @see {@link CreateStorediSCSIVolumeCommandInput} for command's `input` shape.
  * @see {@link CreateStorediSCSIVolumeCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class CreateStorediSCSIVolumeCommand extends $Command<

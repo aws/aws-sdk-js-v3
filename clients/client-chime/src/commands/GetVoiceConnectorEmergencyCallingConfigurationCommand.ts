@@ -41,7 +41,7 @@ export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
  *
  * @see {@link GetVoiceConnectorEmergencyCallingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetVoiceConnectorEmergencyCallingConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Command<

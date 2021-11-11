@@ -41,7 +41,7 @@ export interface DescribeContainerCommandOutput extends DescribeContainerOutput,
  *
  * @see {@link DescribeContainerCommandInput} for command's `input` shape.
  * @see {@link DescribeContainerCommandOutput} for command's `response` shape.
- * @see {@link MediaStoreClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  */
 export class DescribeContainerCommand extends $Command<

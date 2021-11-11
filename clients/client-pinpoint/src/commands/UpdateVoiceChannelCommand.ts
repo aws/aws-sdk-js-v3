@@ -35,7 +35,7 @@ export interface UpdateVoiceChannelCommandOutput extends UpdateVoiceChannelRespo
  *
  * @see {@link UpdateVoiceChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateVoiceChannelCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class UpdateVoiceChannelCommand extends $Command<

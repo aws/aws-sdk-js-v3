@@ -38,7 +38,7 @@ export interface HttpPayloadTraitsCommandOutput extends HttpPayloadTraitsInputOu
  *
  * @see {@link HttpPayloadTraitsCommandInput} for command's `input` shape.
  * @see {@link HttpPayloadTraitsCommandOutput} for command's `response` shape.
- * @see {@link RestXmlProtocolClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
  */
 export class HttpPayloadTraitsCommand extends $Command<

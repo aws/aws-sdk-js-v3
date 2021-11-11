@@ -35,7 +35,7 @@ export interface ListPagesByContactCommandOutput extends ListPagesByContactResul
  *
  * @see {@link ListPagesByContactCommandInput} for command's `input` shape.
  * @see {@link ListPagesByContactCommandOutput} for command's `response` shape.
- * @see {@link SSMContactsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
  */
 export class ListPagesByContactCommand extends $Command<

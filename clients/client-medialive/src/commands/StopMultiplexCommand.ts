@@ -35,7 +35,7 @@ export interface StopMultiplexCommandOutput extends StopMultiplexResponse, __Met
  *
  * @see {@link StopMultiplexCommandInput} for command's `input` shape.
  * @see {@link StopMultiplexCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  */
 export class StopMultiplexCommand extends $Command<

@@ -38,7 +38,7 @@ export interface GetItemCommandOutput extends GetItemOutput, __MetadataBearer {}
  *
  * @see {@link GetItemCommandInput} for command's `input` shape.
  * @see {@link GetItemCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  */
 export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommandOutput, DynamoDBClientResolvedConfig> {

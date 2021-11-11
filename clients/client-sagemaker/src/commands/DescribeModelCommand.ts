@@ -36,7 +36,7 @@ export interface DescribeModelCommandOutput extends DescribeModelOutput, __Metad
  *
  * @see {@link DescribeModelCommandInput} for command's `input` shape.
  * @see {@link DescribeModelCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DescribeModelCommand extends $Command<

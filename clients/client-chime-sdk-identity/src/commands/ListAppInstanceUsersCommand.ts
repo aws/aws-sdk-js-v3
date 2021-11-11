@@ -36,7 +36,7 @@ export interface ListAppInstanceUsersCommandOutput extends ListAppInstanceUsersR
  *
  * @see {@link ListAppInstanceUsersCommandInput} for command's `input` shape.
  * @see {@link ListAppInstanceUsersCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
  *
  */
 export class ListAppInstanceUsersCommand extends $Command<

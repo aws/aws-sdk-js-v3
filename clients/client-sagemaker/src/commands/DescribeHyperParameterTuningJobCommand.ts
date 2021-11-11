@@ -38,7 +38,7 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  *
  * @see {@link DescribeHyperParameterTuningJobCommandInput} for command's `input` shape.
  * @see {@link DescribeHyperParameterTuningJobCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DescribeHyperParameterTuningJobCommand extends $Command<

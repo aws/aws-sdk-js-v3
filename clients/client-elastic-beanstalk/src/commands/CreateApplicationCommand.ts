@@ -36,7 +36,7 @@ export interface CreateApplicationCommandOutput extends ApplicationDescriptionMe
  *
  * @see {@link CreateApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  */
 export class CreateApplicationCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  *
  * @see {@link UpdateSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateSubnetGroupCommandOutput} for command's `response` shape.
- * @see {@link DAXClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  */
 export class UpdateSubnetGroupCommand extends $Command<

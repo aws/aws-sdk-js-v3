@@ -39,7 +39,7 @@ export interface CreateReplicationTaskCommandOutput extends CreateReplicationTas
  *
  * @see {@link CreateReplicationTaskCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationTaskCommandOutput} for command's `response` shape.
- * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  */
 export class CreateReplicationTaskCommand extends $Command<

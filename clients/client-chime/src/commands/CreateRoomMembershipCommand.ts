@@ -35,7 +35,7 @@ export interface CreateRoomMembershipCommandOutput extends CreateRoomMembershipR
  *
  * @see {@link CreateRoomMembershipCommandInput} for command's `input` shape.
  * @see {@link CreateRoomMembershipCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class CreateRoomMembershipCommand extends $Command<

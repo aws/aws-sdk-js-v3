@@ -36,7 +36,7 @@ export interface AssociateLexBotCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AssociateLexBotCommandInput} for command's `input` shape.
  * @see {@link AssociateLexBotCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class AssociateLexBotCommand extends $Command<

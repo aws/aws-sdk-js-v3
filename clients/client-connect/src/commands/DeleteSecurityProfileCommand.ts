@@ -36,7 +36,7 @@ export interface DeleteSecurityProfileCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityProfileCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class DeleteSecurityProfileCommand extends $Command<

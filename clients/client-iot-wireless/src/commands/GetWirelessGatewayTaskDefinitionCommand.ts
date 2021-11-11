@@ -37,7 +37,7 @@ export interface GetWirelessGatewayTaskDefinitionCommandOutput
  *
  * @see {@link GetWirelessGatewayTaskDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetWirelessGatewayTaskDefinitionCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class GetWirelessGatewayTaskDefinitionCommand extends $Command<

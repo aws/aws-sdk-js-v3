@@ -39,7 +39,7 @@ export interface DeleteElasticsearchDomainCommandOutput extends DeleteElasticsea
  *
  * @see {@link DeleteElasticsearchDomainCommandInput} for command's `input` shape.
  * @see {@link DeleteElasticsearchDomainCommandOutput} for command's `response` shape.
- * @see {@link ElasticsearchServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
  */
 export class DeleteElasticsearchDomainCommand extends $Command<

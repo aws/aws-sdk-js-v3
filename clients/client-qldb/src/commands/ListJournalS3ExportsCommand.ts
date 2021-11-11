@@ -41,7 +41,7 @@ export interface ListJournalS3ExportsCommandOutput extends ListJournalS3ExportsR
  *
  * @see {@link ListJournalS3ExportsCommandInput} for command's `input` shape.
  * @see {@link ListJournalS3ExportsCommandOutput} for command's `response` shape.
- * @see {@link QLDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
  */
 export class ListJournalS3ExportsCommand extends $Command<

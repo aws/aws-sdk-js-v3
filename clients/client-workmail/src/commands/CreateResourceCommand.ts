@@ -35,7 +35,7 @@ export interface CreateResourceCommandOutput extends CreateResourceResponse, __M
  *
  * @see {@link CreateResourceCommandInput} for command's `input` shape.
  * @see {@link CreateResourceCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class CreateResourceCommand extends $Command<

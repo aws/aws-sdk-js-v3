@@ -44,7 +44,7 @@ export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, _
  *
  * @see {@link GetLoginProfileCommandInput} for command's `input` shape.
  * @see {@link GetLoginProfileCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class GetLoginProfileCommand extends $Command<

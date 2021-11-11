@@ -35,7 +35,7 @@ export interface GetRoomSkillParameterCommandOutput extends GetRoomSkillParamete
  *
  * @see {@link GetRoomSkillParameterCommandInput} for command's `input` shape.
  * @see {@link GetRoomSkillParameterCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class GetRoomSkillParameterCommand extends $Command<

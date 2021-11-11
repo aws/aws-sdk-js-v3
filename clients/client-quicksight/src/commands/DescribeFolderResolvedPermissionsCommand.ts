@@ -40,7 +40,7 @@ export interface DescribeFolderResolvedPermissionsCommandOutput
  *
  * @see {@link DescribeFolderResolvedPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeFolderResolvedPermissionsCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class DescribeFolderResolvedPermissionsCommand extends $Command<

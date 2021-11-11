@@ -35,7 +35,7 @@ export interface DeletePackagingGroupCommandOutput extends DeletePackagingGroupR
  *
  * @see {@link DeletePackagingGroupCommandInput} for command's `input` shape.
  * @see {@link DeletePackagingGroupCommandOutput} for command's `response` shape.
- * @see {@link MediaPackageVodClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.
  *
  */
 export class DeletePackagingGroupCommand extends $Command<

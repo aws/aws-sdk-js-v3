@@ -35,7 +35,7 @@ export interface DescribeConfigRulesCommandOutput extends DescribeConfigRulesRes
  *
  * @see {@link DescribeConfigRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigRulesCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class DescribeConfigRulesCommand extends $Command<

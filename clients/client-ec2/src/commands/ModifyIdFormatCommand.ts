@@ -55,7 +55,7 @@ export interface ModifyIdFormatCommandOutput extends __MetadataBearer {}
  *
  * @see {@link ModifyIdFormatCommandInput} for command's `input` shape.
  * @see {@link ModifyIdFormatCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class ModifyIdFormatCommand extends $Command<

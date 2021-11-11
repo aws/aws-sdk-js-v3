@@ -45,7 +45,7 @@ export interface UpdateBandwidthRateLimitCommandOutput extends UpdateBandwidthRa
  *
  * @see {@link UpdateBandwidthRateLimitCommandInput} for command's `input` shape.
  * @see {@link UpdateBandwidthRateLimitCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class UpdateBandwidthRateLimitCommand extends $Command<

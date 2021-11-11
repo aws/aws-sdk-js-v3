@@ -35,7 +35,7 @@ export interface DeleteGrantCommandOutput extends DeleteGrantResponse, __Metadat
  *
  * @see {@link DeleteGrantCommandInput} for command's `input` shape.
  * @see {@link DeleteGrantCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class DeleteGrantCommand extends $Command<

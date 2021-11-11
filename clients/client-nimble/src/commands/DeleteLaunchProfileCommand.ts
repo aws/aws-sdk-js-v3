@@ -35,7 +35,7 @@ export interface DeleteLaunchProfileCommandOutput extends DeleteLaunchProfileRes
  *
  * @see {@link DeleteLaunchProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchProfileCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
  *
  */
 export class DeleteLaunchProfileCommand extends $Command<

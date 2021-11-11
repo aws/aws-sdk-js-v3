@@ -44,7 +44,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *
  * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
- * @see {@link KinesisAnalyticsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
  *
  */
 export class UpdateApplicationCommand extends $Command<

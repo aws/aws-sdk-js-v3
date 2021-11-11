@@ -45,7 +45,7 @@ export interface DeleteChannelMembershipCommandOutput extends __MetadataBearer {
  *
  * @see {@link DeleteChannelMembershipCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelMembershipCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  */
 export class DeleteChannelMembershipCommand extends $Command<

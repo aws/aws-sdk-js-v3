@@ -35,7 +35,7 @@ export interface UpdateTriggerCommandOutput extends UpdateTriggerResponse, __Met
  *
  * @see {@link UpdateTriggerCommandInput} for command's `input` shape.
  * @see {@link UpdateTriggerCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class UpdateTriggerCommand extends $Command<

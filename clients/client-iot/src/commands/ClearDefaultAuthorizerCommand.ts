@@ -36,7 +36,7 @@ export interface ClearDefaultAuthorizerCommandOutput extends ClearDefaultAuthori
  *
  * @see {@link ClearDefaultAuthorizerCommandInput} for command's `input` shape.
  * @see {@link ClearDefaultAuthorizerCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class ClearDefaultAuthorizerCommand extends $Command<

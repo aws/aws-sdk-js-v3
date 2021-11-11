@@ -35,7 +35,7 @@ export interface DeleteOrganizationCommandOutput extends DeleteOrganizationRespo
  *
  * @see {@link DeleteOrganizationCommandInput} for command's `input` shape.
  * @see {@link DeleteOrganizationCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class DeleteOrganizationCommand extends $Command<

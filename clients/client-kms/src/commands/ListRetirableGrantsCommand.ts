@@ -78,7 +78,7 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  *
  * @see {@link ListRetirableGrantsCommandInput} for command's `input` shape.
  * @see {@link ListRetirableGrantsCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  */
 export class ListRetirableGrantsCommand extends $Command<

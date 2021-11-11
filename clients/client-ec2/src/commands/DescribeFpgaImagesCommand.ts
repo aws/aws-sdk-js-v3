@@ -37,7 +37,7 @@ export interface DescribeFpgaImagesCommandOutput extends DescribeFpgaImagesResul
  *
  * @see {@link DescribeFpgaImagesCommandInput} for command's `input` shape.
  * @see {@link DescribeFpgaImagesCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DescribeFpgaImagesCommand extends $Command<

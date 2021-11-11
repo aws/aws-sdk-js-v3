@@ -35,7 +35,7 @@ export interface DeleteLogSubscriptionCommandOutput extends DeleteLogSubscriptio
  *
  * @see {@link DeleteLogSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteLogSubscriptionCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class DeleteLogSubscriptionCommand extends $Command<

@@ -36,7 +36,7 @@ export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link ActivateEventSourceCommandInput} for command's `input` shape.
  * @see {@link ActivateEventSourceCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchEventsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  */
 export class ActivateEventSourceCommand extends $Command<

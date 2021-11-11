@@ -36,7 +36,7 @@ export interface ListPrincipalsCommandOutput extends ListPrincipalsResponse, __M
  *
  * @see {@link ListPrincipalsCommandInput} for command's `input` shape.
  * @see {@link ListPrincipalsCommandOutput} for command's `response` shape.
- * @see {@link RAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  */
 export class ListPrincipalsCommand extends $Command<

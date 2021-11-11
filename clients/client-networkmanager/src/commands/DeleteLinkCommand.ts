@@ -36,7 +36,7 @@ export interface DeleteLinkCommandOutput extends DeleteLinkResponse, __MetadataB
  *
  * @see {@link DeleteLinkCommandInput} for command's `input` shape.
  * @see {@link DeleteLinkCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class DeleteLinkCommand extends $Command<

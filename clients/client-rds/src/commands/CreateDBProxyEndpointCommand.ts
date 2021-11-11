@@ -39,7 +39,7 @@ export interface CreateDBProxyEndpointCommandOutput extends CreateDBProxyEndpoin
  *
  * @see {@link CreateDBProxyEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateDBProxyEndpointCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class CreateDBProxyEndpointCommand extends $Command<

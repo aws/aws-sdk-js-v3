@@ -37,7 +37,7 @@ export interface ListEntityRecognizerSummariesCommandOutput
  *
  * @see {@link ListEntityRecognizerSummariesCommandInput} for command's `input` shape.
  * @see {@link ListEntityRecognizerSummariesCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class ListEntityRecognizerSummariesCommand extends $Command<

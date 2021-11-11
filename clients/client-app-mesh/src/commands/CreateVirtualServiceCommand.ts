@@ -41,7 +41,7 @@ export interface CreateVirtualServiceCommandOutput extends CreateVirtualServiceO
  *
  * @see {@link CreateVirtualServiceCommandInput} for command's `input` shape.
  * @see {@link CreateVirtualServiceCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
  *
  */
 export class CreateVirtualServiceCommand extends $Command<

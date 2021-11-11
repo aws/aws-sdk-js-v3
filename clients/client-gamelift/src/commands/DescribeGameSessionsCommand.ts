@@ -85,7 +85,7 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  *
  * @see {@link DescribeGameSessionsCommandInput} for command's `input` shape.
  * @see {@link DescribeGameSessionsCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class DescribeGameSessionsCommand extends $Command<

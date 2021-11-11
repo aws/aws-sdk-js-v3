@@ -35,7 +35,7 @@ export interface ListTypeVersionsCommandOutput extends ListTypeVersionsOutput, _
  *
  * @see {@link ListTypeVersionsCommandInput} for command's `input` shape.
  * @see {@link ListTypeVersionsCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  */
 export class ListTypeVersionsCommand extends $Command<

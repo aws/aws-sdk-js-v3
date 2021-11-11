@@ -38,7 +38,7 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
  *
  * @see {@link UpdateFleetCommandInput} for command's `input` shape.
  * @see {@link UpdateFleetCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  */
 export class UpdateFleetCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListEndpointsCommandOutput extends ListEndpointsOutput, __Metad
  *
  * @see {@link ListEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListEndpointsCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class ListEndpointsCommand extends $Command<

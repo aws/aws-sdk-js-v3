@@ -38,7 +38,7 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResult, _
  *
  * @see {@link PurchaseOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseOfferingCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class PurchaseOfferingCommand extends $Command<

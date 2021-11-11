@@ -36,7 +36,7 @@ export interface GetBackupPlanCommandOutput extends GetBackupPlanOutput, __Metad
  *
  * @see {@link GetBackupPlanCommandInput} for command's `input` shape.
  * @see {@link GetBackupPlanCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class GetBackupPlanCommand extends $Command<

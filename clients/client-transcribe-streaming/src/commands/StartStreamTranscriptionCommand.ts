@@ -58,7 +58,7 @@ export interface StartStreamTranscriptionCommandOutput extends StartStreamTransc
  *
  * @see {@link StartStreamTranscriptionCommandInput} for command's `input` shape.
  * @see {@link StartStreamTranscriptionCommandOutput} for command's `response` shape.
- * @see {@link TranscribeStreamingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TranscribeStreamingClientResolvedConfig | config} for TranscribeStreamingClient's `config` shape.
  *
  */
 export class StartStreamTranscriptionCommand extends $Command<

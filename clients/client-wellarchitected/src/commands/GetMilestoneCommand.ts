@@ -35,7 +35,7 @@ export interface GetMilestoneCommandOutput extends GetMilestoneOutput, __Metadat
  *
  * @see {@link GetMilestoneCommandInput} for command's `input` shape.
  * @see {@link GetMilestoneCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  */
 export class GetMilestoneCommand extends $Command<

@@ -71,7 +71,7 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  *
  * @see {@link ReceiveMessageCommandInput} for command's `input` shape.
  * @see {@link ReceiveMessageCommandOutput} for command's `response` shape.
- * @see {@link SQSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  */
 export class ReceiveMessageCommand extends $Command<

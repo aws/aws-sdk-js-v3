@@ -37,7 +37,7 @@ export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, _
  *
  * @see {@link ProvisionDeviceCommandInput} for command's `input` shape.
  * @see {@link ProvisionDeviceCommandOutput} for command's `response` shape.
- * @see {@link PanoramaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
  *
  */
 export class ProvisionDeviceCommand extends $Command<

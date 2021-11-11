@@ -73,7 +73,7 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
  *
  * @see {@link TestIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link TestIdentityProviderCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
 export class TestIdentityProviderCommand extends $Command<

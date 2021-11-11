@@ -35,7 +35,7 @@ export interface CreateGatewayGroupCommandOutput extends CreateGatewayGroupRespo
  *
  * @see {@link CreateGatewayGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGatewayGroupCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class CreateGatewayGroupCommand extends $Command<

@@ -43,7 +43,7 @@ export interface StartServerCommandOutput extends __MetadataBearer {}
  *
  * @see {@link StartServerCommandInput} for command's `input` shape.
  * @see {@link StartServerCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
 export class StartServerCommand extends $Command<

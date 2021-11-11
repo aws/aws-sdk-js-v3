@@ -35,7 +35,7 @@ export interface DescribeDetectorCommandOutput extends DescribeDetectorResult, _
  *
  * @see {@link DescribeDetectorCommandInput} for command's `input` shape.
  * @see {@link DescribeDetectorCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class DescribeDetectorCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeCustomerMetadataCommandOutput extends DescribeCustomerM
  *
  * @see {@link DescribeCustomerMetadataCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomerMetadataCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class DescribeCustomerMetadataCommand extends $Command<

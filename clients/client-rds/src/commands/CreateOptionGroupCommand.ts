@@ -36,7 +36,7 @@ export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult,
  *
  * @see {@link CreateOptionGroupCommandInput} for command's `input` shape.
  * @see {@link CreateOptionGroupCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class CreateOptionGroupCommand extends $Command<

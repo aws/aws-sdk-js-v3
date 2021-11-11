@@ -35,7 +35,7 @@ export interface DeleteModelBiasJobDefinitionCommandOutput extends __MetadataBea
  *
  * @see {@link DeleteModelBiasJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteModelBiasJobDefinitionCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DeleteModelBiasJobDefinitionCommand extends $Command<

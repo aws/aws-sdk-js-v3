@@ -98,7 +98,7 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  *
  * @see {@link DescribeLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeLimitsCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  */
 export class DescribeLimitsCommand extends $Command<

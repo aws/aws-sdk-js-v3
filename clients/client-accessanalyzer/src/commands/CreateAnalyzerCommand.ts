@@ -35,7 +35,7 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  *
  * @see {@link CreateAnalyzerCommandInput} for command's `input` shape.
  * @see {@link CreateAnalyzerCommandOutput} for command's `response` shape.
- * @see {@link AccessAnalyzerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  */
 export class CreateAnalyzerCommand extends $Command<

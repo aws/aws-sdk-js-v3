@@ -82,7 +82,7 @@ export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGrou
  *
  * @see {@link DeleteGameServerGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteGameServerGroupCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class DeleteGameServerGroupCommand extends $Command<

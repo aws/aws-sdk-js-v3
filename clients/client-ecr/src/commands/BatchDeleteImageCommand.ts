@@ -40,7 +40,7 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  *
  * @see {@link BatchDeleteImageCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteImageCommandOutput} for command's `response` shape.
- * @see {@link ECRClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  */
 export class BatchDeleteImageCommand extends $Command<

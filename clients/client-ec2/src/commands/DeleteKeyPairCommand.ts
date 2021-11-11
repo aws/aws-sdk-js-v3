@@ -32,7 +32,7 @@ export interface DeleteKeyPairCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteKeyPairCommandInput} for command's `input` shape.
  * @see {@link DeleteKeyPairCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DeleteKeyPairCommand extends $Command<

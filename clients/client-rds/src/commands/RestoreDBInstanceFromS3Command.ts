@@ -43,7 +43,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  *
  * @see {@link RestoreDBInstanceFromS3CommandInput} for command's `input` shape.
  * @see {@link RestoreDBInstanceFromS3CommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class RestoreDBInstanceFromS3Command extends $Command<

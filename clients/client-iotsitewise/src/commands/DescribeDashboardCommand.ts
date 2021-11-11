@@ -35,7 +35,7 @@ export interface DescribeDashboardCommandOutput extends DescribeDashboardRespons
  *
  * @see {@link DescribeDashboardCommandInput} for command's `input` shape.
  * @see {@link DescribeDashboardCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class DescribeDashboardCommand extends $Command<

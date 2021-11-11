@@ -43,7 +43,7 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  *
  * @see {@link BatchExecuteStatementCommandInput} for command's `input` shape.
  * @see {@link BatchExecuteStatementCommandOutput} for command's `response` shape.
- * @see {@link RDSDataClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
  *
  */
 export class BatchExecuteStatementCommand extends $Command<

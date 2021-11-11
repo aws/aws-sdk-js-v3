@@ -35,7 +35,7 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  *
  * @see {@link ListClustersCommandInput} for command's `input` shape.
  * @see {@link ListClustersCommandOutput} for command's `response` shape.
- * @see {@link KafkaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
  *
  */
 export class ListClustersCommand extends $Command<

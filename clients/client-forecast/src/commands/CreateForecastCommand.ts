@@ -53,7 +53,7 @@ export interface CreateForecastCommandOutput extends CreateForecastResponse, __M
  *
  * @see {@link CreateForecastCommandInput} for command's `input` shape.
  * @see {@link CreateForecastCommandOutput} for command's `response` shape.
- * @see {@link ForecastClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  */
 export class CreateForecastCommand extends $Command<

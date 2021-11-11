@@ -35,7 +35,7 @@ export interface StopNotebookExecutionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link StopNotebookExecutionCommandInput} for command's `input` shape.
  * @see {@link StopNotebookExecutionCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class StopNotebookExecutionCommand extends $Command<

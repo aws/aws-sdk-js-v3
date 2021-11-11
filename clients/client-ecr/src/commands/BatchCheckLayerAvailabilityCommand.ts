@@ -44,7 +44,7 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  *
  * @see {@link BatchCheckLayerAvailabilityCommandInput} for command's `input` shape.
  * @see {@link BatchCheckLayerAvailabilityCommandOutput} for command's `response` shape.
- * @see {@link ECRClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  */
 export class BatchCheckLayerAvailabilityCommand extends $Command<

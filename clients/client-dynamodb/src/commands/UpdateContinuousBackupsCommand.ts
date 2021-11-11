@@ -46,7 +46,7 @@ export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBa
  *
  * @see {@link UpdateContinuousBackupsCommandInput} for command's `input` shape.
  * @see {@link UpdateContinuousBackupsCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  */
 export class UpdateContinuousBackupsCommand extends $Command<

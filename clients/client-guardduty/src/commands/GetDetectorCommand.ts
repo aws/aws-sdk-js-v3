@@ -35,7 +35,7 @@ export interface GetDetectorCommandOutput extends GetDetectorResponse, __Metadat
  *
  * @see {@link GetDetectorCommandInput} for command's `input` shape.
  * @see {@link GetDetectorCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  */
 export class GetDetectorCommand extends $Command<

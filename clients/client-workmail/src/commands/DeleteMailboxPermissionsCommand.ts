@@ -35,7 +35,7 @@ export interface DeleteMailboxPermissionsCommandOutput extends DeleteMailboxPerm
  *
  * @see {@link DeleteMailboxPermissionsCommandInput} for command's `input` shape.
  * @see {@link DeleteMailboxPermissionsCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class DeleteMailboxPermissionsCommand extends $Command<

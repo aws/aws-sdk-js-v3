@@ -36,7 +36,7 @@ export interface UpdateDataSetPermissionsCommandOutput extends UpdateDataSetPerm
  *
  * @see {@link UpdateDataSetPermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSetPermissionsCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class UpdateDataSetPermissionsCommand extends $Command<

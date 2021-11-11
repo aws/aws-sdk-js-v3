@@ -37,7 +37,7 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  *
  * @see {@link DescribeAnomalyDetectorsCommandInput} for command's `input` shape.
  * @see {@link DescribeAnomalyDetectorsCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  */
 export class DescribeAnomalyDetectorsCommand extends $Command<

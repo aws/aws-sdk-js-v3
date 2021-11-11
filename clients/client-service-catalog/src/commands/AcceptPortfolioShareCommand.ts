@@ -35,7 +35,7 @@ export interface AcceptPortfolioShareCommandOutput extends AcceptPortfolioShareO
  *
  * @see {@link AcceptPortfolioShareCommandInput} for command's `input` shape.
  * @see {@link AcceptPortfolioShareCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class AcceptPortfolioShareCommand extends $Command<

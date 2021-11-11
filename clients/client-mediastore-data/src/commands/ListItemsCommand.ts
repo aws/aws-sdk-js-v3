@@ -36,7 +36,7 @@ export interface ListItemsCommandOutput extends ListItemsResponse, __MetadataBea
  *
  * @see {@link ListItemsCommandInput} for command's `input` shape.
  * @see {@link ListItemsCommandOutput} for command's `response` shape.
- * @see {@link MediaStoreDataClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaStoreDataClientResolvedConfig | config} for MediaStoreDataClient's `config` shape.
  *
  */
 export class ListItemsCommand extends $Command<

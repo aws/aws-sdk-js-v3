@@ -38,7 +38,7 @@ export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResul
  *
  * @see {@link CreateUpdatedImageCommandInput} for command's `input` shape.
  * @see {@link CreateUpdatedImageCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  */
 export class CreateUpdatedImageCommand extends $Command<

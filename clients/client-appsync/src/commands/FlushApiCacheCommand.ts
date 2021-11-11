@@ -35,7 +35,7 @@ export interface FlushApiCacheCommandOutput extends FlushApiCacheResponse, __Met
  *
  * @see {@link FlushApiCacheCommandInput} for command's `input` shape.
  * @see {@link FlushApiCacheCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  */
 export class FlushApiCacheCommand extends $Command<

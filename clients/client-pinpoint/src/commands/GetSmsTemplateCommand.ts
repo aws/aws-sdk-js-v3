@@ -35,7 +35,7 @@ export interface GetSmsTemplateCommandOutput extends GetSmsTemplateResponse, __M
  *
  * @see {@link GetSmsTemplateCommandInput} for command's `input` shape.
  * @see {@link GetSmsTemplateCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class GetSmsTemplateCommand extends $Command<

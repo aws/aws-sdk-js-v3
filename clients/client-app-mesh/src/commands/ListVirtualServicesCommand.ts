@@ -35,7 +35,7 @@ export interface ListVirtualServicesCommandOutput extends ListVirtualServicesOut
  *
  * @see {@link ListVirtualServicesCommandInput} for command's `input` shape.
  * @see {@link ListVirtualServicesCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
  *
  */
 export class ListVirtualServicesCommand extends $Command<

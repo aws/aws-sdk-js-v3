@@ -46,7 +46,7 @@ export interface GetAssetPropertyValueCommandOutput extends GetAssetPropertyValu
  *
  * @see {@link GetAssetPropertyValueCommandInput} for command's `input` shape.
  * @see {@link GetAssetPropertyValueCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class GetAssetPropertyValueCommand extends $Command<

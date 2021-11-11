@@ -35,7 +35,7 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  *
  * @see {@link DeleteFleetCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class DeleteFleetCommand extends $Command<

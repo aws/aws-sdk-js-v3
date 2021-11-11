@@ -37,7 +37,7 @@ export interface ListComplianceSummariesCommandOutput extends ListComplianceSumm
  *
  * @see {@link ListComplianceSummariesCommandInput} for command's `input` shape.
  * @see {@link ListComplianceSummariesCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class ListComplianceSummariesCommand extends $Command<

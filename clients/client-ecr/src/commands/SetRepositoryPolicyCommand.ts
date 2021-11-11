@@ -37,7 +37,7 @@ export interface SetRepositoryPolicyCommandOutput extends SetRepositoryPolicyRes
  *
  * @see {@link SetRepositoryPolicyCommandInput} for command's `input` shape.
  * @see {@link SetRepositoryPolicyCommandOutput} for command's `response` shape.
- * @see {@link ECRClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  */
 export class SetRepositoryPolicyCommand extends $Command<

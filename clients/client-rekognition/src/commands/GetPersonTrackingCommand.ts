@@ -64,7 +64,7 @@ export interface GetPersonTrackingCommandOutput extends GetPersonTrackingRespons
  *
  * @see {@link GetPersonTrackingCommandInput} for command's `input` shape.
  * @see {@link GetPersonTrackingCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  */
 export class GetPersonTrackingCommand extends $Command<

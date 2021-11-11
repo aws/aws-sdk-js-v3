@@ -39,7 +39,7 @@ export interface ListMLTransformsCommandOutput extends ListMLTransformsResponse,
  *
  * @see {@link ListMLTransformsCommandInput} for command's `input` shape.
  * @see {@link ListMLTransformsCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class ListMLTransformsCommand extends $Command<

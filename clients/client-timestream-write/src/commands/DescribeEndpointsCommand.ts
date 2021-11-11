@@ -48,7 +48,7 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  *
  * @see {@link DescribeEndpointsCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointsCommandOutput} for command's `response` shape.
- * @see {@link TimestreamWriteClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
  *
  */
 export class DescribeEndpointsCommand extends $Command<

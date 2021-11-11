@@ -35,7 +35,7 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateGlobalSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateGlobalSettingsCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class UpdateGlobalSettingsCommand extends $Command<

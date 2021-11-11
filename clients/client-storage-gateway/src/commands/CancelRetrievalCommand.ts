@@ -37,7 +37,7 @@ export interface CancelRetrievalCommandOutput extends CancelRetrievalOutput, __M
  *
  * @see {@link CancelRetrievalCommandInput} for command's `input` shape.
  * @see {@link CancelRetrievalCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class CancelRetrievalCommand extends $Command<

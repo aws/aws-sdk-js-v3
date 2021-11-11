@@ -36,7 +36,7 @@ export interface ProvisionPermissionSetCommandOutput extends ProvisionPermission
  *
  * @see {@link ProvisionPermissionSetCommandInput} for command's `input` shape.
  * @see {@link ProvisionPermissionSetCommandOutput} for command's `response` shape.
- * @see {@link SSOAdminClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
  *
  */
 export class ProvisionPermissionSetCommand extends $Command<

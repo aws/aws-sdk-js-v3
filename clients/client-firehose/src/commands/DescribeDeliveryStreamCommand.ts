@@ -41,7 +41,7 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  *
  * @see {@link DescribeDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link DescribeDeliveryStreamCommandOutput} for command's `response` shape.
- * @see {@link FirehoseClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
  *
  */
 export class DescribeDeliveryStreamCommand extends $Command<

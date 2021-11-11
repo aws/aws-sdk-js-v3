@@ -35,7 +35,7 @@ export interface AssociateCertificateCommandOutput extends AssociateCertificateR
  *
  * @see {@link AssociateCertificateCommandInput} for command's `input` shape.
  * @see {@link AssociateCertificateCommandOutput} for command's `response` shape.
- * @see {@link MediaConvertClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
  *
  */
 export class AssociateCertificateCommand extends $Command<

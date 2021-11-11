@@ -35,7 +35,7 @@ export interface DescribeVirtualClusterCommandOutput extends DescribeVirtualClus
  *
  * @see {@link DescribeVirtualClusterCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualClusterCommandOutput} for command's `response` shape.
- * @see {@link EMRContainersClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
  *
  */
 export class DescribeVirtualClusterCommand extends $Command<

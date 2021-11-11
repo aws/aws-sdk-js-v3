@@ -36,7 +36,7 @@ export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePoli
  *
  * @see {@link GetLifecyclePolicyPreviewCommandInput} for command's `input` shape.
  * @see {@link GetLifecyclePolicyPreviewCommandOutput} for command's `response` shape.
- * @see {@link ECRClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  */
 export class GetLifecyclePolicyPreviewCommand extends $Command<

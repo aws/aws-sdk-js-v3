@@ -40,7 +40,7 @@ export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyRespo
  *
  * @see {@link ImportSshPublicKeyCommandInput} for command's `input` shape.
  * @see {@link ImportSshPublicKeyCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
 export class ImportSshPublicKeyCommand extends $Command<

@@ -39,7 +39,7 @@ export interface AcceptReservedNodeExchangeCommandOutput
  *
  * @see {@link AcceptReservedNodeExchangeCommandInput} for command's `input` shape.
  * @see {@link AcceptReservedNodeExchangeCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class AcceptReservedNodeExchangeCommand extends $Command<

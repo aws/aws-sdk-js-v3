@@ -38,7 +38,7 @@ export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __Metad
  *
  * @see {@link SkipWaitTimeForInstanceTerminationCommandInput} for command's `input` shape.
  * @see {@link SkipWaitTimeForInstanceTerminationCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  */
 export class SkipWaitTimeForInstanceTerminationCommand extends $Command<

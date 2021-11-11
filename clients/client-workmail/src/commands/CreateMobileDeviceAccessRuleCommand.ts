@@ -37,7 +37,7 @@ export interface CreateMobileDeviceAccessRuleCommandOutput
  *
  * @see {@link CreateMobileDeviceAccessRuleCommandInput} for command's `input` shape.
  * @see {@link CreateMobileDeviceAccessRuleCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class CreateMobileDeviceAccessRuleCommand extends $Command<

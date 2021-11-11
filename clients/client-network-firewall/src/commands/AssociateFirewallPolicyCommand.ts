@@ -39,7 +39,7 @@ export interface AssociateFirewallPolicyCommandOutput extends AssociateFirewallP
  *
  * @see {@link AssociateFirewallPolicyCommandInput} for command's `input` shape.
  * @see {@link AssociateFirewallPolicyCommandOutput} for command's `response` shape.
- * @see {@link NetworkFirewallClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  */
 export class AssociateFirewallPolicyCommand extends $Command<

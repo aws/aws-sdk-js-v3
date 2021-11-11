@@ -37,7 +37,7 @@ export interface UpdateRepositoryCommandOutput extends UpdateRepositoryResult, _
  *
  * @see {@link UpdateRepositoryCommandInput} for command's `input` shape.
  * @see {@link UpdateRepositoryCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  */
 export class UpdateRepositoryCommand extends $Command<

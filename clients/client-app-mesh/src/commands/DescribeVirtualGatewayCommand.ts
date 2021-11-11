@@ -35,7 +35,7 @@ export interface DescribeVirtualGatewayCommandOutput extends DescribeVirtualGate
  *
  * @see {@link DescribeVirtualGatewayCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualGatewayCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
  *
  */
 export class DescribeVirtualGatewayCommand extends $Command<

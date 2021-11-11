@@ -37,7 +37,7 @@ export interface RenewOfferingCommandOutput extends RenewOfferingResult, __Metad
  *
  * @see {@link RenewOfferingCommandInput} for command's `input` shape.
  * @see {@link RenewOfferingCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class RenewOfferingCommand extends $Command<

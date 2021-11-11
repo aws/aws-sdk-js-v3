@@ -57,7 +57,7 @@ export interface DescribeJobFlowsCommandOutput extends DescribeJobFlowsOutput, _
  *
  * @see {@link DescribeJobFlowsCommandInput} for command's `input` shape.
  * @see {@link DescribeJobFlowsCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class DescribeJobFlowsCommand extends $Command<

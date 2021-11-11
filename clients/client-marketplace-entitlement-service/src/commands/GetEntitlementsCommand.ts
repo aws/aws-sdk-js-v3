@@ -40,7 +40,7 @@ export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __M
  *
  * @see {@link GetEntitlementsCommandInput} for command's `input` shape.
  * @see {@link GetEntitlementsCommandOutput} for command's `response` shape.
- * @see {@link MarketplaceEntitlementServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MarketplaceEntitlementServiceClientResolvedConfig | config} for MarketplaceEntitlementServiceClient's `config` shape.
  *
  */
 export class GetEntitlementsCommand extends $Command<

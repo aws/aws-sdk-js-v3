@@ -36,7 +36,7 @@ export interface ListSimulationJobBatchesCommandOutput extends ListSimulationJob
  *
  * @see {@link ListSimulationJobBatchesCommandInput} for command's `input` shape.
  * @see {@link ListSimulationJobBatchesCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class ListSimulationJobBatchesCommand extends $Command<

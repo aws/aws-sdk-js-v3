@@ -35,7 +35,7 @@ export interface DeleteSpeakerCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteSpeakerCommandInput} for command's `input` shape.
  * @see {@link DeleteSpeakerCommandOutput} for command's `response` shape.
- * @see {@link VoiceIDClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
  *
  */
 export class DeleteSpeakerCommand extends $Command<

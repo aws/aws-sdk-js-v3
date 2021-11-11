@@ -35,7 +35,7 @@ export interface ListServiceActionsCommandOutput extends ListServiceActionsOutpu
  *
  * @see {@link ListServiceActionsCommandInput} for command's `input` shape.
  * @see {@link ListServiceActionsCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class ListServiceActionsCommand extends $Command<

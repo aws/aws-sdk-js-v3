@@ -39,7 +39,7 @@ export interface GetAttributeGroupCommandOutput extends GetAttributeGroupRespons
  *
  * @see {@link GetAttributeGroupCommandInput} for command's `input` shape.
  * @see {@link GetAttributeGroupCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
  *
  */
 export class GetAttributeGroupCommand extends $Command<

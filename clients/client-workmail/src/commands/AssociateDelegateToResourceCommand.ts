@@ -37,7 +37,7 @@ export interface AssociateDelegateToResourceCommandOutput
  *
  * @see {@link AssociateDelegateToResourceCommandInput} for command's `input` shape.
  * @see {@link AssociateDelegateToResourceCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class AssociateDelegateToResourceCommand extends $Command<

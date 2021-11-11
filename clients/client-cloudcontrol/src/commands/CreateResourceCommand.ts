@@ -39,7 +39,7 @@ export interface CreateResourceCommandOutput extends CreateResourceOutput, __Met
  *
  * @see {@link CreateResourceCommandInput} for command's `input` shape.
  * @see {@link CreateResourceCommandOutput} for command's `response` shape.
- * @see {@link CloudControlClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
  *
  */
 export class CreateResourceCommand extends $Command<

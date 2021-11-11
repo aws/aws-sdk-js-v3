@@ -36,7 +36,7 @@ export interface UpdateAnomalyMonitorCommandOutput extends UpdateAnomalyMonitorR
  *
  * @see {@link UpdateAnomalyMonitorCommandInput} for command's `input` shape.
  * @see {@link UpdateAnomalyMonitorCommandOutput} for command's `response` shape.
- * @see {@link CostExplorerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  */
 export class UpdateAnomalyMonitorCommand extends $Command<

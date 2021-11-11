@@ -35,7 +35,7 @@ export interface DeleteBranchCommandOutput extends DeleteBranchResult, __Metadat
  *
  * @see {@link DeleteBranchCommandInput} for command's `input` shape.
  * @see {@link DeleteBranchCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  */
 export class DeleteBranchCommand extends $Command<

@@ -43,7 +43,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  *
  * @see {@link DeleteProjectCommandInput} for command's `input` shape.
  * @see {@link DeleteProjectCommandOutput} for command's `response` shape.
- * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.
  *
  */
 export class DeleteProjectCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateUserRoutingProfileCommandOutput extends __MetadataBearer 
  *
  * @see {@link UpdateUserRoutingProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateUserRoutingProfileCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class UpdateUserRoutingProfileCommand extends $Command<

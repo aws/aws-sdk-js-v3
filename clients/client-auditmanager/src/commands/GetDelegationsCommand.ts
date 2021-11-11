@@ -35,7 +35,7 @@ export interface GetDelegationsCommandOutput extends GetDelegationsResponse, __M
  *
  * @see {@link GetDelegationsCommandInput} for command's `input` shape.
  * @see {@link GetDelegationsCommandOutput} for command's `response` shape.
- * @see {@link AuditManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  */
 export class GetDelegationsCommand extends $Command<

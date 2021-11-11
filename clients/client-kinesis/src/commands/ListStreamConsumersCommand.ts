@@ -37,7 +37,7 @@ export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOut
  *
  * @see {@link ListStreamConsumersCommandInput} for command's `input` shape.
  * @see {@link ListStreamConsumersCommandOutput} for command's `response` shape.
- * @see {@link KinesisClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  */
 export class ListStreamConsumersCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetReplicationConfigurationCommandOutput extends ReplicationCon
  *
  * @see {@link GetReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetReplicationConfigurationCommandOutput} for command's `response` shape.
- * @see {@link MgnClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  */
 export class GetReplicationConfigurationCommand extends $Command<

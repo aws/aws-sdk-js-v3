@@ -53,7 +53,7 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  *
  * @see {@link StartOutboundVoiceContactCommandInput} for command's `input` shape.
  * @see {@link StartOutboundVoiceContactCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class StartOutboundVoiceContactCommand extends $Command<

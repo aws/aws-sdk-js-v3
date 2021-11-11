@@ -56,7 +56,7 @@ export interface UpdateConnectionAliasPermissionCommandOutput
  *
  * @see {@link UpdateConnectionAliasPermissionCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectionAliasPermissionCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class UpdateConnectionAliasPermissionCommand extends $Command<

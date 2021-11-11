@@ -36,7 +36,7 @@ export interface GetLinksCommandOutput extends GetLinksResponse, __MetadataBeare
  *
  * @see {@link GetLinksCommandInput} for command's `input` shape.
  * @see {@link GetLinksCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class GetLinksCommand extends $Command<

@@ -37,7 +37,7 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResponse, _
  *
  * @see {@link DeleteDirectoryCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectoryCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  */
 export class DeleteDirectoryCommand extends $Command<

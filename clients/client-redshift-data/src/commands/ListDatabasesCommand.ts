@@ -49,7 +49,7 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
  *
  * @see {@link ListDatabasesCommandInput} for command's `input` shape.
  * @see {@link ListDatabasesCommandOutput} for command's `response` shape.
- * @see {@link RedshiftDataClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
  *
  */
 export class ListDatabasesCommand extends $Command<

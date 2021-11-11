@@ -36,7 +36,7 @@ export interface ListVocabulariesCommandOutput extends ListVocabulariesResponse,
  *
  * @see {@link ListVocabulariesCommandInput} for command's `input` shape.
  * @see {@link ListVocabulariesCommandOutput} for command's `response` shape.
- * @see {@link TranscribeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  */
 export class ListVocabulariesCommand extends $Command<

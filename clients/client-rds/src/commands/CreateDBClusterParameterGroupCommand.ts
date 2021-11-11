@@ -68,7 +68,7 @@ export interface CreateDBClusterParameterGroupCommandOutput
  *
  * @see {@link CreateDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDBClusterParameterGroupCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class CreateDBClusterParameterGroupCommand extends $Command<

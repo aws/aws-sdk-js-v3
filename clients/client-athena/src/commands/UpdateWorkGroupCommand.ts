@@ -36,7 +36,7 @@ export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __M
  *
  * @see {@link UpdateWorkGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkGroupCommandOutput} for command's `response` shape.
- * @see {@link AthenaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  */
 export class UpdateWorkGroupCommand extends $Command<

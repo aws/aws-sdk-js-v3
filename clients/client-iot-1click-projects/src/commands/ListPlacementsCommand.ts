@@ -39,7 +39,7 @@ export interface ListPlacementsCommandOutput extends ListPlacementsResponse, __M
  *
  * @see {@link ListPlacementsCommandInput} for command's `input` shape.
  * @see {@link ListPlacementsCommandOutput} for command's `response` shape.
- * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.
  *
  */
 export class ListPlacementsCommand extends $Command<

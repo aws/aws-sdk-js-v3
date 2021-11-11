@@ -37,7 +37,7 @@ export interface ModifySnapshotScheduleCommandOutput extends SnapshotSchedule, _
  *
  * @see {@link ModifySnapshotScheduleCommandInput} for command's `input` shape.
  * @see {@link ModifySnapshotScheduleCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class ModifySnapshotScheduleCommand extends $Command<

@@ -55,7 +55,7 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  *
  * @see {@link GetRepositoryEndpointCommandInput} for command's `input` shape.
  * @see {@link GetRepositoryEndpointCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  */
 export class GetRepositoryEndpointCommand extends $Command<

@@ -41,7 +41,7 @@ export interface ListAssociatedAttributeGroupsCommandOutput
  *
  * @see {@link ListAssociatedAttributeGroupsCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedAttributeGroupsCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
  *
  */
 export class ListAssociatedAttributeGroupsCommand extends $Command<

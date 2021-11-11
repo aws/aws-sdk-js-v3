@@ -41,7 +41,7 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  *
  * @see {@link DeleteSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class DeleteSnapshotCommand extends $Command<

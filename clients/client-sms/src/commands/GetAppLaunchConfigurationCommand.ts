@@ -35,7 +35,7 @@ export interface GetAppLaunchConfigurationCommandOutput extends GetAppLaunchConf
  *
  * @see {@link GetAppLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetAppLaunchConfigurationCommandOutput} for command's `response` shape.
- * @see {@link SMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
  *
  */
 export class GetAppLaunchConfigurationCommand extends $Command<

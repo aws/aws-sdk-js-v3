@@ -37,7 +37,7 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  *
  * @see {@link DescribeAccountCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class DescribeAccountCommand extends $Command<

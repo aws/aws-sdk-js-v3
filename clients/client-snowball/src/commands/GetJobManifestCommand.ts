@@ -53,7 +53,7 @@ export interface GetJobManifestCommandOutput extends GetJobManifestResult, __Met
  *
  * @see {@link GetJobManifestCommandInput} for command's `input` shape.
  * @see {@link GetJobManifestCommandOutput} for command's `response` shape.
- * @see {@link SnowballClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  */
 export class GetJobManifestCommand extends $Command<

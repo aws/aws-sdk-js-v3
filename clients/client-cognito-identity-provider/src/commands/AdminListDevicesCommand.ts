@@ -41,7 +41,7 @@ export interface AdminListDevicesCommandOutput extends AdminListDevicesResponse,
  *
  * @see {@link AdminListDevicesCommandInput} for command's `input` shape.
  * @see {@link AdminListDevicesCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class AdminListDevicesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse,
  *
  * @see {@link DeleteDataSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteDataSourceCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  */
 export class DeleteDataSourceCommand extends $Command<

@@ -36,7 +36,7 @@ export interface GetWorkingLocationCommandOutput extends GetWorkingLocationRespo
  *
  * @see {@link GetWorkingLocationCommandInput} for command's `input` shape.
  * @see {@link GetWorkingLocationCommandOutput} for command's `response` shape.
- * @see {@link FinspaceDataClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
  *
  */
 export class GetWorkingLocationCommand extends $Command<

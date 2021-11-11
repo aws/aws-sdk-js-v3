@@ -37,7 +37,7 @@ export interface UpdateProvisionedProductPropertiesCommandOutput
  *
  * @see {@link UpdateProvisionedProductPropertiesCommandInput} for command's `input` shape.
  * @see {@link UpdateProvisionedProductPropertiesCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class UpdateProvisionedProductPropertiesCommand extends $Command<

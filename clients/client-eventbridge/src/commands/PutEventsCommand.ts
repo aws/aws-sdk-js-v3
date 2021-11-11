@@ -32,7 +32,7 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  *
  * @see {@link PutEventsCommandInput} for command's `input` shape.
  * @see {@link PutEventsCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class PutEventsCommand extends $Command<

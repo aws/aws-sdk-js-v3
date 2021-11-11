@@ -35,7 +35,7 @@ export interface UpdateDomainMetadataCommandOutput extends UpdateDomainMetadataR
  *
  * @see {@link UpdateDomainMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainMetadataCommandOutput} for command's `response` shape.
- * @see {@link WorkLinkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
  *
  */
 export class UpdateDomainMetadataCommand extends $Command<

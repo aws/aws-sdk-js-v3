@@ -35,7 +35,7 @@ export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersio
  *
  * @see {@link DeletePlatformVersionCommandInput} for command's `input` shape.
  * @see {@link DeletePlatformVersionCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  */
 export class DeletePlatformVersionCommand extends $Command<

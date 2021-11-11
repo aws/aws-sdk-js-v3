@@ -50,7 +50,7 @@ export interface GetVaultNotificationsCommandOutput extends GetVaultNotification
  *
  * @see {@link GetVaultNotificationsCommandInput} for command's `input` shape.
  * @see {@link GetVaultNotificationsCommandOutput} for command's `response` shape.
- * @see {@link GlacierClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  */
 export class GetVaultNotificationsCommand extends $Command<

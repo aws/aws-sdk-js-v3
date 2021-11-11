@@ -39,7 +39,7 @@ export interface CancelServiceSoftwareUpdateCommandOutput
  *
  * @see {@link CancelServiceSoftwareUpdateCommandInput} for command's `input` shape.
  * @see {@link CancelServiceSoftwareUpdateCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
 export class CancelServiceSoftwareUpdateCommand extends $Command<

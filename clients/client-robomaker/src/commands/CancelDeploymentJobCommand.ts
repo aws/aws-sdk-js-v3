@@ -35,7 +35,7 @@ export interface CancelDeploymentJobCommandOutput extends CancelDeploymentJobRes
  *
  * @see {@link CancelDeploymentJobCommandInput} for command's `input` shape.
  * @see {@link CancelDeploymentJobCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class CancelDeploymentJobCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteProvisionedConcurrencyConfigCommandOutput extends __Metad
  *
  * @see {@link DeleteProvisionedConcurrencyConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteProvisionedConcurrencyConfigCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
 export class DeleteProvisionedConcurrencyConfigCommand extends $Command<

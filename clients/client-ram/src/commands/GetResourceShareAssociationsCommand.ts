@@ -37,7 +37,7 @@ export interface GetResourceShareAssociationsCommandOutput
  *
  * @see {@link GetResourceShareAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetResourceShareAssociationsCommandOutput} for command's `response` shape.
- * @see {@link RAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  */
 export class GetResourceShareAssociationsCommand extends $Command<

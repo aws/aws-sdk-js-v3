@@ -35,7 +35,7 @@ export interface AssociateIpGroupsCommandOutput extends AssociateIpGroupsResult,
  *
  * @see {@link AssociateIpGroupsCommandInput} for command's `input` shape.
  * @see {@link AssociateIpGroupsCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class AssociateIpGroupsCommand extends $Command<

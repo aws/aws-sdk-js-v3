@@ -39,7 +39,7 @@ export interface DescribeListenerCommandOutput extends DescribeListenerResponse,
  *
  * @see {@link DescribeListenerCommandInput} for command's `input` shape.
  * @see {@link DescribeListenerCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  */
 export class DescribeListenerCommand extends $Command<

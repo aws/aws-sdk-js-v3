@@ -36,7 +36,7 @@ export interface ListEventSubscriptionsCommandOutput extends ListEventSubscripti
  *
  * @see {@link ListEventSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link ListEventSubscriptionsCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  */
 export class ListEventSubscriptionsCommand extends $Command<

@@ -36,7 +36,7 @@ export interface ListAppInstancesCommandOutput extends ListAppInstancesResponse,
  *
  * @see {@link ListAppInstancesCommandInput} for command's `input` shape.
  * @see {@link ListAppInstancesCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
  *
  */
 export class ListAppInstancesCommand extends $Command<

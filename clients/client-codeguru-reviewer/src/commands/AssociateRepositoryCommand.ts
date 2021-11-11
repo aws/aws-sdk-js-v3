@@ -59,7 +59,7 @@ export interface AssociateRepositoryCommandOutput extends AssociateRepositoryRes
  *
  * @see {@link AssociateRepositoryCommandInput} for command's `input` shape.
  * @see {@link AssociateRepositoryCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruReviewerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
  *
  */
 export class AssociateRepositoryCommand extends $Command<

@@ -54,7 +54,7 @@ export interface AddCommunicationToCaseCommandOutput extends AddCommunicationToC
  *
  * @see {@link AddCommunicationToCaseCommandInput} for command's `input` shape.
  * @see {@link AddCommunicationToCaseCommandOutput} for command's `response` shape.
- * @see {@link SupportClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
  */
 export class AddCommunicationToCaseCommand extends $Command<

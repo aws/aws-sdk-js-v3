@@ -35,7 +35,7 @@ export interface ListTopicsDetectionJobsCommandOutput extends ListTopicsDetectio
  *
  * @see {@link ListTopicsDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListTopicsDetectionJobsCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class ListTopicsDetectionJobsCommand extends $Command<

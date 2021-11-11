@@ -36,7 +36,7 @@ export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType,
  *
  * @see {@link DescribeScalingProcessTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingProcessTypesCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class DescribeScalingProcessTypesCommand extends $Command<

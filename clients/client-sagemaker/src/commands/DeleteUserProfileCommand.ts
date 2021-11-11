@@ -36,7 +36,7 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteUserProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteUserProfileCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DeleteUserProfileCommand extends $Command<

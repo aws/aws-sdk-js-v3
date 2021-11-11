@@ -137,7 +137,7 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *
  * @see {@link PutObjectCommandInput} for command's `input` shape.
  * @see {@link PutObjectCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  */
 export class PutObjectCommand extends $Command<PutObjectCommandInput, PutObjectCommandOutput, S3ClientResolvedConfig> {

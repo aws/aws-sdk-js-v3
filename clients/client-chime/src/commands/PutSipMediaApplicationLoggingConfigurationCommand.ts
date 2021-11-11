@@ -41,7 +41,7 @@ export interface PutSipMediaApplicationLoggingConfigurationCommandOutput
  *
  * @see {@link PutSipMediaApplicationLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutSipMediaApplicationLoggingConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetBlacklistReportsCommandOutput extends GetBlacklistReportsRes
  *
  * @see {@link GetBlacklistReportsCommandInput} for command's `input` shape.
  * @see {@link GetBlacklistReportsCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class GetBlacklistReportsCommand extends $Command<

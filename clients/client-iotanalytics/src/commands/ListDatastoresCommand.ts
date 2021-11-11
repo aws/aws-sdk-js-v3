@@ -35,7 +35,7 @@ export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __M
  *
  * @see {@link ListDatastoresCommandInput} for command's `input` shape.
  * @see {@link ListDatastoresCommandOutput} for command's `response` shape.
- * @see {@link IoTAnalyticsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
  *
  */
 export class ListDatastoresCommand extends $Command<

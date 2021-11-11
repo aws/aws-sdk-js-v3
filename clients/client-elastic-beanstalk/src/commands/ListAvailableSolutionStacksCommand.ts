@@ -38,7 +38,7 @@ export interface ListAvailableSolutionStacksCommandOutput
  *
  * @see {@link ListAvailableSolutionStacksCommandInput} for command's `input` shape.
  * @see {@link ListAvailableSolutionStacksCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  */
 export class ListAvailableSolutionStacksCommand extends $Command<

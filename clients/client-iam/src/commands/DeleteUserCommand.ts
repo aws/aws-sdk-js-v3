@@ -64,7 +64,7 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteUserCommandInput} for command's `input` shape.
  * @see {@link DeleteUserCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class DeleteUserCommand extends $Command<

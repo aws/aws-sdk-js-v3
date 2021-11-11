@@ -35,7 +35,7 @@ export interface UpdateSourceLocationCommandOutput extends UpdateSourceLocationR
  *
  * @see {@link UpdateSourceLocationCommandInput} for command's `input` shape.
  * @see {@link UpdateSourceLocationCommandOutput} for command's `response` shape.
- * @see {@link MediaTailorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  */
 export class UpdateSourceLocationCommand extends $Command<

@@ -43,7 +43,7 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  *
  * @see {@link ListIPSetsCommandInput} for command's `input` shape.
  * @see {@link ListIPSetsCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  */
 export class ListIPSetsCommand extends $Command<

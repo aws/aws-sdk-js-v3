@@ -38,7 +38,7 @@ export interface UpdateDomainNameserversCommandOutput extends UpdateDomainNamese
  *
  * @see {@link UpdateDomainNameserversCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainNameserversCommandOutput} for command's `response` shape.
- * @see {@link Route53DomainsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  */
 export class UpdateDomainNameserversCommand extends $Command<

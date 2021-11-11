@@ -39,7 +39,7 @@ export interface GetDistributionMetricDataCommandOutput extends GetDistributionM
  *
  * @see {@link GetDistributionMetricDataCommandInput} for command's `input` shape.
  * @see {@link GetDistributionMetricDataCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class GetDistributionMetricDataCommand extends $Command<

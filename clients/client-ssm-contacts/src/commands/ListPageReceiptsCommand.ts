@@ -35,7 +35,7 @@ export interface ListPageReceiptsCommandOutput extends ListPageReceiptsResult, _
  *
  * @see {@link ListPageReceiptsCommandInput} for command's `input` shape.
  * @see {@link ListPageReceiptsCommandOutput} for command's `response` shape.
- * @see {@link SSMContactsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
  */
 export class ListPageReceiptsCommand extends $Command<

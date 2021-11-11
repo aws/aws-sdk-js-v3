@@ -35,7 +35,7 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  *
  * @see {@link DeleteEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteEventSubscriptionCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  */
 export class DeleteEventSubscriptionCommand extends $Command<

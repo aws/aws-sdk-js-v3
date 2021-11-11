@@ -53,7 +53,7 @@ export interface DeleteMatchmakingConfigurationCommandOutput
  *
  * @see {@link DeleteMatchmakingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteMatchmakingConfigurationCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class DeleteMatchmakingConfigurationCommand extends $Command<

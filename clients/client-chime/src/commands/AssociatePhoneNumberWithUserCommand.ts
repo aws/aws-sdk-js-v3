@@ -37,7 +37,7 @@ export interface AssociatePhoneNumberWithUserCommandOutput
  *
  * @see {@link AssociatePhoneNumberWithUserCommandInput} for command's `input` shape.
  * @see {@link AssociatePhoneNumberWithUserCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class AssociatePhoneNumberWithUserCommand extends $Command<

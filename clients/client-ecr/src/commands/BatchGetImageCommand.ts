@@ -38,7 +38,7 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  *
  * @see {@link BatchGetImageCommandInput} for command's `input` shape.
  * @see {@link BatchGetImageCommandOutput} for command's `response` shape.
- * @see {@link ECRClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  */
 export class BatchGetImageCommand extends $Command<

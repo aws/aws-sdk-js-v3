@@ -39,7 +39,7 @@ export interface UpdateMLTransformCommandOutput extends UpdateMLTransformRespons
  *
  * @see {@link UpdateMLTransformCommandInput} for command's `input` shape.
  * @see {@link UpdateMLTransformCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class UpdateMLTransformCommand extends $Command<

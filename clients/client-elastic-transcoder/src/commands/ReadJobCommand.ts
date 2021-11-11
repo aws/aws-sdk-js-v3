@@ -39,7 +39,7 @@ export interface ReadJobCommandOutput extends ReadJobResponse, __MetadataBearer 
  *
  * @see {@link ReadJobCommandInput} for command's `input` shape.
  * @see {@link ReadJobCommandOutput} for command's `response` shape.
- * @see {@link ElasticTranscoderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
  *
  */
 export class ReadJobCommand extends $Command<

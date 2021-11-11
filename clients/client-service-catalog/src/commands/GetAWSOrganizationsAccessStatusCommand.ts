@@ -38,7 +38,7 @@ export interface GetAWSOrganizationsAccessStatusCommandOutput
  *
  * @see {@link GetAWSOrganizationsAccessStatusCommandInput} for command's `input` shape.
  * @see {@link GetAWSOrganizationsAccessStatusCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class GetAWSOrganizationsAccessStatusCommand extends $Command<

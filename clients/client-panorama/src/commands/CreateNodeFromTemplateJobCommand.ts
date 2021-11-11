@@ -35,7 +35,7 @@ export interface CreateNodeFromTemplateJobCommandOutput extends CreateNodeFromTe
  *
  * @see {@link CreateNodeFromTemplateJobCommandInput} for command's `input` shape.
  * @see {@link CreateNodeFromTemplateJobCommandOutput} for command's `response` shape.
- * @see {@link PanoramaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
  *
  */
 export class CreateNodeFromTemplateJobCommand extends $Command<

@@ -51,7 +51,7 @@ export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinke
  *
  * @see {@link DeleteServiceLinkedRoleCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceLinkedRoleCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class DeleteServiceLinkedRoleCommand extends $Command<

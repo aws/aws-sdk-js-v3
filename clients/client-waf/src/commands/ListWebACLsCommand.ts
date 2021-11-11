@@ -43,7 +43,7 @@ export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __Metadat
  *
  * @see {@link ListWebACLsCommandInput} for command's `input` shape.
  * @see {@link ListWebACLsCommandOutput} for command's `response` shape.
- * @see {@link WAFClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
  */
 export class ListWebACLsCommand extends $Command<

@@ -40,7 +40,7 @@ export interface SignalResourceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link SignalResourceCommandInput} for command's `input` shape.
  * @see {@link SignalResourceCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  */
 export class SignalResourceCommand extends $Command<

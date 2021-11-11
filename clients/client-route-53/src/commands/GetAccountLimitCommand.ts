@@ -44,7 +44,7 @@ export interface GetAccountLimitCommandOutput extends GetAccountLimitResponse, _
  *
  * @see {@link GetAccountLimitCommandInput} for command's `input` shape.
  * @see {@link GetAccountLimitCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  */
 export class GetAccountLimitCommand extends $Command<

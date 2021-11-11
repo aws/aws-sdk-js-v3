@@ -66,7 +66,7 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  *
  * @see {@link PutLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutLifecycleConfigurationCommandOutput} for command's `response` shape.
- * @see {@link EFSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  */
 export class PutLifecycleConfigurationCommand extends $Command<

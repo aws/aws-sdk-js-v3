@@ -37,7 +37,7 @@ export interface DescribeModelBiasJobDefinitionCommandOutput
  *
  * @see {@link DescribeModelBiasJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeModelBiasJobDefinitionCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DescribeModelBiasJobDefinitionCommand extends $Command<

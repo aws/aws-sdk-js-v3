@@ -35,7 +35,7 @@ export interface UpdateFuotaTaskCommandOutput extends UpdateFuotaTaskResponse, _
  *
  * @see {@link UpdateFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link UpdateFuotaTaskCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class UpdateFuotaTaskCommand extends $Command<

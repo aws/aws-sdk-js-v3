@@ -35,7 +35,7 @@ export interface GetAnswerCommandOutput extends GetAnswerOutput, __MetadataBeare
  *
  * @see {@link GetAnswerCommandInput} for command's `input` shape.
  * @see {@link GetAnswerCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  */
 export class GetAnswerCommand extends $Command<

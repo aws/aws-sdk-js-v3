@@ -35,7 +35,7 @@ export interface ListIngestionsCommandOutput extends ListIngestionsResponse, __M
  *
  * @see {@link ListIngestionsCommandInput} for command's `input` shape.
  * @see {@link ListIngestionsCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class ListIngestionsCommand extends $Command<

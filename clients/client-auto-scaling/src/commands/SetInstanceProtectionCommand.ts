@@ -41,7 +41,7 @@ export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectio
  *
  * @see {@link SetInstanceProtectionCommandInput} for command's `input` shape.
  * @see {@link SetInstanceProtectionCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class SetInstanceProtectionCommand extends $Command<

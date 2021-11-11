@@ -35,7 +35,7 @@ export interface UpdateAccountCommandOutput extends UpdateAccountResponse, __Met
  *
  * @see {@link UpdateAccountCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class UpdateAccountCommand extends $Command<

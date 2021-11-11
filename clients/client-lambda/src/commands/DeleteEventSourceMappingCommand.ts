@@ -38,7 +38,7 @@ export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappin
  *
  * @see {@link DeleteEventSourceMappingCommandInput} for command's `input` shape.
  * @see {@link DeleteEventSourceMappingCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
 export class DeleteEventSourceMappingCommand extends $Command<

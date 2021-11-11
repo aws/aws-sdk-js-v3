@@ -36,7 +36,7 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchLogsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  */
 export class DeleteResourcePolicyCommand extends $Command<

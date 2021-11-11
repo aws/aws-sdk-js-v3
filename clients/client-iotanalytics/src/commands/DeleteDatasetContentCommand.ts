@@ -35,7 +35,7 @@ export interface DeleteDatasetContentCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteDatasetContentCommandInput} for command's `input` shape.
  * @see {@link DeleteDatasetContentCommandOutput} for command's `response` shape.
- * @see {@link IoTAnalyticsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
  *
  */
 export class DeleteDatasetContentCommand extends $Command<

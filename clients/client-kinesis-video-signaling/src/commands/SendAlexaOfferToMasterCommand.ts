@@ -44,7 +44,7 @@ export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMas
  *
  * @see {@link SendAlexaOfferToMasterCommandInput} for command's `input` shape.
  * @see {@link SendAlexaOfferToMasterCommandOutput} for command's `response` shape.
- * @see {@link KinesisVideoSignalingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KinesisVideoSignalingClientResolvedConfig | config} for KinesisVideoSignalingClient's `config` shape.
  *
  */
 export class SendAlexaOfferToMasterCommand extends $Command<

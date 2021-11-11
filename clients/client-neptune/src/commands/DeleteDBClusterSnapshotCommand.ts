@@ -40,7 +40,7 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  *
  * @see {@link DeleteDBClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteDBClusterSnapshotCommandOutput} for command's `response` shape.
- * @see {@link NeptuneClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  */
 export class DeleteDBClusterSnapshotCommand extends $Command<

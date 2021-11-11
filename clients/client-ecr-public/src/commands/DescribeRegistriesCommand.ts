@@ -35,7 +35,7 @@ export interface DescribeRegistriesCommandOutput extends DescribeRegistriesRespo
  *
  * @see {@link DescribeRegistriesCommandInput} for command's `input` shape.
  * @see {@link DescribeRegistriesCommandOutput} for command's `response` shape.
- * @see {@link ECRPUBLICClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
  *
  */
 export class DescribeRegistriesCommand extends $Command<

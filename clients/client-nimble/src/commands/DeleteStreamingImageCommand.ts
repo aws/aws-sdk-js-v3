@@ -35,7 +35,7 @@ export interface DeleteStreamingImageCommandOutput extends DeleteStreamingImageR
  *
  * @see {@link DeleteStreamingImageCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamingImageCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
  *
  */
 export class DeleteStreamingImageCommand extends $Command<

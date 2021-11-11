@@ -35,7 +35,7 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  *
  * @see {@link ListGatewaysCommandInput} for command's `input` shape.
  * @see {@link ListGatewaysCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class ListGatewaysCommand extends $Command<

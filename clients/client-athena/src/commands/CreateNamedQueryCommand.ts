@@ -39,7 +39,7 @@ export interface CreateNamedQueryCommandOutput extends CreateNamedQueryOutput, _
  *
  * @see {@link CreateNamedQueryCommandInput} for command's `input` shape.
  * @see {@link CreateNamedQueryCommandOutput} for command's `response` shape.
- * @see {@link AthenaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  */
 export class CreateNamedQueryCommand extends $Command<

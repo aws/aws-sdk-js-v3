@@ -38,7 +38,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
- * @see {@link ECRPUBLICClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
  *
  */
 export class TagResourceCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetCallAnalyticsCategoryCommandOutput extends GetCallAnalyticsC
  *
  * @see {@link GetCallAnalyticsCategoryCommandInput} for command's `input` shape.
  * @see {@link GetCallAnalyticsCategoryCommandOutput} for command's `response` shape.
- * @see {@link TranscribeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  */
 export class GetCallAnalyticsCategoryCommand extends $Command<

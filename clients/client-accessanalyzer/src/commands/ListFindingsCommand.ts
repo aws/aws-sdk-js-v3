@@ -36,7 +36,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *
  * @see {@link ListFindingsCommandInput} for command's `input` shape.
  * @see {@link ListFindingsCommandOutput} for command's `response` shape.
- * @see {@link AccessAnalyzerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  */
 export class ListFindingsCommand extends $Command<

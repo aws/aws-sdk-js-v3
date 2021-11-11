@@ -37,7 +37,7 @@ export interface GetAccessKeyLastUsedCommandOutput extends GetAccessKeyLastUsedR
  *
  * @see {@link GetAccessKeyLastUsedCommandInput} for command's `input` shape.
  * @see {@link GetAccessKeyLastUsedCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class GetAccessKeyLastUsedCommand extends $Command<

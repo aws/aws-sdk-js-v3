@@ -46,7 +46,7 @@ export interface GetTagKeysCommandOutput extends GetTagKeysOutput, __MetadataBea
  *
  * @see {@link GetTagKeysCommandInput} for command's `input` shape.
  * @see {@link GetTagKeysCommandOutput} for command's `response` shape.
- * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
  *
  */
 export class GetTagKeysCommand extends $Command<

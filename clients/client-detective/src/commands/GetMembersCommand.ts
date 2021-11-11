@@ -36,7 +36,7 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  *
  * @see {@link GetMembersCommandInput} for command's `input` shape.
  * @see {@link GetMembersCommandOutput} for command's `response` shape.
- * @see {@link DetectiveClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
  *
  */
 export class GetMembersCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListProvisionedProductPlansCommandOutput extends ListProvisione
  *
  * @see {@link ListProvisionedProductPlansCommandInput} for command's `input` shape.
  * @see {@link ListProvisionedProductPlansCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class ListProvisionedProductPlansCommand extends $Command<

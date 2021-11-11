@@ -38,7 +38,7 @@ export interface BatchGetApplicationRevisionsCommandOutput
  *
  * @see {@link BatchGetApplicationRevisionsCommandInput} for command's `input` shape.
  * @see {@link BatchGetApplicationRevisionsCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  */
 export class BatchGetApplicationRevisionsCommand extends $Command<

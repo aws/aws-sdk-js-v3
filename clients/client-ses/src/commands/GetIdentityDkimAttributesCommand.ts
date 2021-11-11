@@ -57,7 +57,7 @@ export interface GetIdentityDkimAttributesCommandOutput extends GetIdentityDkimA
  *
  * @see {@link GetIdentityDkimAttributesCommandInput} for command's `input` shape.
  * @see {@link GetIdentityDkimAttributesCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class GetIdentityDkimAttributesCommand extends $Command<

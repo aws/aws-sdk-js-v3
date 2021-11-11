@@ -36,7 +36,7 @@ export interface DeleteContainerImageCommandOutput extends DeleteContainerImageR
  *
  * @see {@link DeleteContainerImageCommandInput} for command's `input` shape.
  * @see {@link DeleteContainerImageCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class DeleteContainerImageCommand extends $Command<

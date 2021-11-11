@@ -35,7 +35,7 @@ export interface ListDataSetRevisionsCommandOutput extends ListDataSetRevisionsR
  *
  * @see {@link ListDataSetRevisionsCommandInput} for command's `input` shape.
  * @see {@link ListDataSetRevisionsCommandOutput} for command's `response` shape.
- * @see {@link DataExchangeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  */
 export class ListDataSetRevisionsCommand extends $Command<

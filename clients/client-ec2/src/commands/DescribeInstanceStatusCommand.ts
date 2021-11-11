@@ -61,7 +61,7 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  *
  * @see {@link DescribeInstanceStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceStatusCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DescribeInstanceStatusCommand extends $Command<

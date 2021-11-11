@@ -40,7 +40,7 @@ export interface GetComplianceDetailsByConfigRuleCommandOutput
  *
  * @see {@link GetComplianceDetailsByConfigRuleCommandInput} for command's `input` shape.
  * @see {@link GetComplianceDetailsByConfigRuleCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class GetComplianceDetailsByConfigRuleCommand extends $Command<

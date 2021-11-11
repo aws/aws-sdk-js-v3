@@ -39,7 +39,7 @@ export interface GetPackageVersionAssetCommandOutput extends GetPackageVersionAs
  *
  * @see {@link GetPackageVersionAssetCommandInput} for command's `input` shape.
  * @see {@link GetPackageVersionAssetCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  */
 export class GetPackageVersionAssetCommand extends $Command<

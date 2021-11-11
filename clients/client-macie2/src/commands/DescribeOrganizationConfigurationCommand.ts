@@ -40,7 +40,7 @@ export interface DescribeOrganizationConfigurationCommandOutput
  *
  * @see {@link DescribeOrganizationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationConfigurationCommandOutput} for command's `response` shape.
- * @see {@link Macie2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  */
 export class DescribeOrganizationConfigurationCommand extends $Command<

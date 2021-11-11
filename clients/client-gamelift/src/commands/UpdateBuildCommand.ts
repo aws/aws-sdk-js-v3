@@ -55,7 +55,7 @@ export interface UpdateBuildCommandOutput extends UpdateBuildOutput, __MetadataB
  *
  * @see {@link UpdateBuildCommandInput} for command's `input` shape.
  * @see {@link UpdateBuildCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class UpdateBuildCommand extends $Command<

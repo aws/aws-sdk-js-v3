@@ -36,7 +36,7 @@ export interface DeleteStreamCommandOutput extends DeleteStreamResponse, __Metad
  *
  * @see {@link DeleteStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class DeleteStreamCommand extends $Command<

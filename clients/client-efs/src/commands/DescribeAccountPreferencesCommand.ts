@@ -36,7 +36,7 @@ export interface DescribeAccountPreferencesCommandOutput extends DescribeAccount
  *
  * @see {@link DescribeAccountPreferencesCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountPreferencesCommandOutput} for command's `response` shape.
- * @see {@link EFSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  */
 export class DescribeAccountPreferencesCommand extends $Command<

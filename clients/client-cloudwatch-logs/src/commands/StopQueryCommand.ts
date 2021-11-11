@@ -33,7 +33,7 @@ export interface StopQueryCommandOutput extends StopQueryResponse, __MetadataBea
  *
  * @see {@link StopQueryCommandInput} for command's `input` shape.
  * @see {@link StopQueryCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchLogsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  */
 export class StopQueryCommand extends $Command<

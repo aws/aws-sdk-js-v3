@@ -38,7 +38,7 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  *
  * @see {@link CreateCacheClusterCommandInput} for command's `input` shape.
  * @see {@link CreateCacheClusterCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class CreateCacheClusterCommand extends $Command<

@@ -36,7 +36,7 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  *
  * @see {@link DeleteNamespaceCommandInput} for command's `input` shape.
  * @see {@link DeleteNamespaceCommandOutput} for command's `response` shape.
- * @see {@link ServiceDiscoveryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  */
 export class DeleteNamespaceCommand extends $Command<

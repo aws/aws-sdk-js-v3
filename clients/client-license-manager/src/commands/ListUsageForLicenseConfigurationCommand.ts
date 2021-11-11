@@ -39,7 +39,7 @@ export interface ListUsageForLicenseConfigurationCommandOutput
  *
  * @see {@link ListUsageForLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link ListUsageForLicenseConfigurationCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class ListUsageForLicenseConfigurationCommand extends $Command<

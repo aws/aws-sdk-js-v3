@@ -35,7 +35,7 @@ export interface DescribeSourceLocationCommandOutput extends DescribeSourceLocat
  *
  * @see {@link DescribeSourceLocationCommandInput} for command's `input` shape.
  * @see {@link DescribeSourceLocationCommandOutput} for command's `response` shape.
- * @see {@link MediaTailorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  */
 export class DescribeSourceLocationCommand extends $Command<

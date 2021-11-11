@@ -35,7 +35,7 @@ export interface DeregisterDBProxyTargetsCommandOutput extends DeregisterDBProxy
  *
  * @see {@link DeregisterDBProxyTargetsCommandInput} for command's `input` shape.
  * @see {@link DeregisterDBProxyTargetsCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class DeregisterDBProxyTargetsCommand extends $Command<

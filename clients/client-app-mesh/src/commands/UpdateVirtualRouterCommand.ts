@@ -35,7 +35,7 @@ export interface UpdateVirtualRouterCommandOutput extends UpdateVirtualRouterOut
  *
  * @see {@link UpdateVirtualRouterCommandInput} for command's `input` shape.
  * @see {@link UpdateVirtualRouterCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
  *
  */
 export class UpdateVirtualRouterCommand extends $Command<

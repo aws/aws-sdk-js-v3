@@ -38,7 +38,7 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  *
  * @see {@link UpdatePipelineCommandInput} for command's `input` shape.
  * @see {@link UpdatePipelineCommandOutput} for command's `response` shape.
- * @see {@link CodePipelineClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  */
 export class UpdatePipelineCommand extends $Command<

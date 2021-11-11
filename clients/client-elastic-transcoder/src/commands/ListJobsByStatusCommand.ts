@@ -40,7 +40,7 @@ export interface ListJobsByStatusCommandOutput extends ListJobsByStatusResponse,
  *
  * @see {@link ListJobsByStatusCommandInput} for command's `input` shape.
  * @see {@link ListJobsByStatusCommandOutput} for command's `response` shape.
- * @see {@link ElasticTranscoderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
  *
  */
 export class ListJobsByStatusCommand extends $Command<

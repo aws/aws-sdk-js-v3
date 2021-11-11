@@ -35,7 +35,7 @@ export interface ListSchemaExtensionsCommandOutput extends ListSchemaExtensionsR
  *
  * @see {@link ListSchemaExtensionsCommandInput} for command's `input` shape.
  * @see {@link ListSchemaExtensionsCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class ListSchemaExtensionsCommand extends $Command<

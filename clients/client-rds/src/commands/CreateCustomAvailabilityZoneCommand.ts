@@ -42,7 +42,7 @@ export interface CreateCustomAvailabilityZoneCommandOutput
  *
  * @see {@link CreateCustomAvailabilityZoneCommandInput} for command's `input` shape.
  * @see {@link CreateCustomAvailabilityZoneCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class CreateCustomAvailabilityZoneCommand extends $Command<

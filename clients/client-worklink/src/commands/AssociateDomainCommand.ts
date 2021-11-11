@@ -35,7 +35,7 @@ export interface AssociateDomainCommandOutput extends AssociateDomainResponse, _
  *
  * @see {@link AssociateDomainCommandInput} for command's `input` shape.
  * @see {@link AssociateDomainCommandOutput} for command's `response` shape.
- * @see {@link WorkLinkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
  *
  */
 export class AssociateDomainCommand extends $Command<

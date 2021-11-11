@@ -49,7 +49,7 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  *
  * @see {@link ListAccountsForParentCommandInput} for command's `input` shape.
  * @see {@link ListAccountsForParentCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class ListAccountsForParentCommand extends $Command<

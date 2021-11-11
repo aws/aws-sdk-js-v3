@@ -35,7 +35,7 @@ export interface DescribeExclusionsCommandOutput extends DescribeExclusionsRespo
  *
  * @see {@link DescribeExclusionsCommandInput} for command's `input` shape.
  * @see {@link DescribeExclusionsCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  */
 export class DescribeExclusionsCommand extends $Command<

@@ -42,7 +42,7 @@ export interface GetCompatibleVersionsCommandOutput extends GetCompatibleVersion
  *
  * @see {@link GetCompatibleVersionsCommandInput} for command's `input` shape.
  * @see {@link GetCompatibleVersionsCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
 export class GetCompatibleVersionsCommand extends $Command<

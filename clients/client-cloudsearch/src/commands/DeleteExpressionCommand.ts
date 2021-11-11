@@ -35,7 +35,7 @@ export interface DeleteExpressionCommandOutput extends DeleteExpressionResponse,
  *
  * @see {@link DeleteExpressionCommandInput} for command's `input` shape.
  * @see {@link DeleteExpressionCommandOutput} for command's `response` shape.
- * @see {@link CloudSearchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
  */
 export class DeleteExpressionCommand extends $Command<

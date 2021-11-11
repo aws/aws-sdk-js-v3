@@ -37,7 +37,7 @@ export interface BatchModifyClusterSnapshotsCommandOutput
  *
  * @see {@link BatchModifyClusterSnapshotsCommandInput} for command's `input` shape.
  * @see {@link BatchModifyClusterSnapshotsCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class BatchModifyClusterSnapshotsCommand extends $Command<

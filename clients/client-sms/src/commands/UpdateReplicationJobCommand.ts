@@ -35,7 +35,7 @@ export interface UpdateReplicationJobCommandOutput extends UpdateReplicationJobR
  *
  * @see {@link UpdateReplicationJobCommandInput} for command's `input` shape.
  * @see {@link UpdateReplicationJobCommandOutput} for command's `response` shape.
- * @see {@link SMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
  *
  */
 export class UpdateReplicationJobCommand extends $Command<

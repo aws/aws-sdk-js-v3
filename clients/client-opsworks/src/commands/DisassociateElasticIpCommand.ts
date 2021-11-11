@@ -41,7 +41,7 @@ export interface DisassociateElasticIpCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DisassociateElasticIpCommandInput} for command's `input` shape.
  * @see {@link DisassociateElasticIpCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class DisassociateElasticIpCommand extends $Command<

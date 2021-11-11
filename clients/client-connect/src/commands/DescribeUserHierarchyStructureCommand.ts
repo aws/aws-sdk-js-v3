@@ -37,7 +37,7 @@ export interface DescribeUserHierarchyStructureCommandOutput
  *
  * @see {@link DescribeUserHierarchyStructureCommandInput} for command's `input` shape.
  * @see {@link DescribeUserHierarchyStructureCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class DescribeUserHierarchyStructureCommand extends $Command<

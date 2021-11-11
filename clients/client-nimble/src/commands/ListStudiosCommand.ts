@@ -36,7 +36,7 @@ export interface ListStudiosCommandOutput extends ListStudiosResponse, __Metadat
  *
  * @see {@link ListStudiosCommandInput} for command's `input` shape.
  * @see {@link ListStudiosCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
  *
  */
 export class ListStudiosCommand extends $Command<

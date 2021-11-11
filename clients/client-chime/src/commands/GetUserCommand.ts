@@ -40,7 +40,7 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  *
  * @see {@link GetUserCommandInput} for command's `input` shape.
  * @see {@link GetUserCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommandOutput, ChimeClientResolvedConfig> {

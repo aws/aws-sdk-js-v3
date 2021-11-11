@@ -35,7 +35,7 @@ export interface PutAppLaunchConfigurationCommandOutput extends PutAppLaunchConf
  *
  * @see {@link PutAppLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutAppLaunchConfigurationCommandOutput} for command's `response` shape.
- * @see {@link SMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
  *
  */
 export class PutAppLaunchConfigurationCommand extends $Command<

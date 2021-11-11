@@ -39,7 +39,7 @@ export interface CreateActionCommandOutput extends CreateActionResponse, __Metad
  *
  * @see {@link CreateActionCommandInput} for command's `input` shape.
  * @see {@link CreateActionCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class CreateActionCommand extends $Command<

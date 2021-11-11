@@ -38,7 +38,7 @@ export interface MergePullRequestByFastForwardCommandOutput
  *
  * @see {@link MergePullRequestByFastForwardCommandInput} for command's `input` shape.
  * @see {@link MergePullRequestByFastForwardCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  */
 export class MergePullRequestByFastForwardCommand extends $Command<

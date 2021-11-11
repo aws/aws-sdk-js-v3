@@ -32,7 +32,7 @@ export interface XmlMapsCommandOutput extends XmlMapsInputOutput, __MetadataBear
  *
  * @see {@link XmlMapsCommandInput} for command's `input` shape.
  * @see {@link XmlMapsCommandOutput} for command's `response` shape.
- * @see {@link RestXmlProtocolClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
  */
 export class XmlMapsCommand extends $Command<

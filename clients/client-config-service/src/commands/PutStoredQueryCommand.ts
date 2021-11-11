@@ -36,7 +36,7 @@ export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __M
  *
  * @see {@link PutStoredQueryCommandInput} for command's `input` shape.
  * @see {@link PutStoredQueryCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class PutStoredQueryCommand extends $Command<

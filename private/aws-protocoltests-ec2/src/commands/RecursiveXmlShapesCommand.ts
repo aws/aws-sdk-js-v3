@@ -35,7 +35,7 @@ export interface RecursiveXmlShapesCommandOutput extends RecursiveXmlShapesOutpu
  *
  * @see {@link RecursiveXmlShapesCommandInput} for command's `input` shape.
  * @see {@link RecursiveXmlShapesCommandOutput} for command's `response` shape.
- * @see {@link EC2ProtocolClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
  *
  */
 export class RecursiveXmlShapesCommand extends $Command<

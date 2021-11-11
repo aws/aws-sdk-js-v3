@@ -35,7 +35,7 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  *
  * @see {@link UpdateInputCommandInput} for command's `input` shape.
  * @see {@link UpdateInputCommandOutput} for command's `response` shape.
- * @see {@link IoTEventsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
  *
  */
 export class UpdateInputCommand extends $Command<

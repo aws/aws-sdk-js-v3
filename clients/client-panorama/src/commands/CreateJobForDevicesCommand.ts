@@ -35,7 +35,7 @@ export interface CreateJobForDevicesCommandOutput extends CreateJobForDevicesRes
  *
  * @see {@link CreateJobForDevicesCommandInput} for command's `input` shape.
  * @see {@link CreateJobForDevicesCommandOutput} for command's `response` shape.
- * @see {@link PanoramaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
  *
  */
 export class CreateJobForDevicesCommand extends $Command<

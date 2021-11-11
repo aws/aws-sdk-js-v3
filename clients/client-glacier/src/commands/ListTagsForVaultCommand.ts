@@ -37,7 +37,7 @@ export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, _
  *
  * @see {@link ListTagsForVaultCommandInput} for command's `input` shape.
  * @see {@link ListTagsForVaultCommandOutput} for command's `response` shape.
- * @see {@link GlacierClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  */
 export class ListTagsForVaultCommand extends $Command<

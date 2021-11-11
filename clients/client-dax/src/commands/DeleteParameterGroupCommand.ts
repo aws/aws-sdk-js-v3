@@ -36,7 +36,7 @@ export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupR
  *
  * @see {@link DeleteParameterGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteParameterGroupCommandOutput} for command's `response` shape.
- * @see {@link DAXClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  */
 export class DeleteParameterGroupCommand extends $Command<

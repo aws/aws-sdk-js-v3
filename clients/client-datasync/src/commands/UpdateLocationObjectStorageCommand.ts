@@ -39,7 +39,7 @@ export interface UpdateLocationObjectStorageCommandOutput
  *
  * @see {@link UpdateLocationObjectStorageCommandInput} for command's `input` shape.
  * @see {@link UpdateLocationObjectStorageCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  */
 export class UpdateLocationObjectStorageCommand extends $Command<

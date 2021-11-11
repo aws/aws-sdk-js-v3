@@ -39,7 +39,7 @@ export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer 
  *
  * @see {@link DeletePartnerEventSourceCommandInput} for command's `input` shape.
  * @see {@link DeletePartnerEventSourceCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class DeletePartnerEventSourceCommand extends $Command<

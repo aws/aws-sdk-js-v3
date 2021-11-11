@@ -35,7 +35,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class ListTagsForResourceCommand extends $Command<

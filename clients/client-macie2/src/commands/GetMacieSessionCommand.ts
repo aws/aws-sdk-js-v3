@@ -35,7 +35,7 @@ export interface GetMacieSessionCommandOutput extends GetMacieSessionResponse, _
  *
  * @see {@link GetMacieSessionCommandInput} for command's `input` shape.
  * @see {@link GetMacieSessionCommandOutput} for command's `response` shape.
- * @see {@link Macie2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  */
 export class GetMacieSessionCommand extends $Command<

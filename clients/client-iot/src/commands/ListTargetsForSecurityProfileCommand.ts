@@ -38,7 +38,7 @@ export interface ListTargetsForSecurityProfileCommandOutput
  *
  * @see {@link ListTargetsForSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link ListTargetsForSecurityProfileCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class ListTargetsForSecurityProfileCommand extends $Command<

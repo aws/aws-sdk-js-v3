@@ -37,7 +37,7 @@ export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, _
  *
  * @see {@link DescribeFlowLogsCommandInput} for command's `input` shape.
  * @see {@link DescribeFlowLogsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DescribeFlowLogsCommand extends $Command<

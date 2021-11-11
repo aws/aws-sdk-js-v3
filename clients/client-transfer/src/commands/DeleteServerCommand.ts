@@ -37,7 +37,7 @@ export interface DeleteServerCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteServerCommandInput} for command's `input` shape.
  * @see {@link DeleteServerCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
 export class DeleteServerCommand extends $Command<

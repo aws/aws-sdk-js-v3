@@ -36,7 +36,7 @@ export interface ListAssessmentRunAgentsCommandOutput extends ListAssessmentRunA
  *
  * @see {@link ListAssessmentRunAgentsCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentRunAgentsCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  */
 export class ListAssessmentRunAgentsCommand extends $Command<

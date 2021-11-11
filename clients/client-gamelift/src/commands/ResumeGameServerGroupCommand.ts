@@ -66,7 +66,7 @@ export interface ResumeGameServerGroupCommandOutput extends ResumeGameServerGrou
  *
  * @see {@link ResumeGameServerGroupCommandInput} for command's `input` shape.
  * @see {@link ResumeGameServerGroupCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class ResumeGameServerGroupCommand extends $Command<

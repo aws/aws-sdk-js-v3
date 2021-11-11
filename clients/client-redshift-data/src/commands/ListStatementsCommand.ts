@@ -36,7 +36,7 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
  *
  * @see {@link ListStatementsCommandInput} for command's `input` shape.
  * @see {@link ListStatementsCommandOutput} for command's `response` shape.
- * @see {@link RedshiftDataClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
  *
  */
 export class ListStatementsCommand extends $Command<

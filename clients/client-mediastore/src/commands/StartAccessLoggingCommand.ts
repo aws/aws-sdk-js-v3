@@ -35,7 +35,7 @@ export interface StartAccessLoggingCommandOutput extends StartAccessLoggingOutpu
  *
  * @see {@link StartAccessLoggingCommandInput} for command's `input` shape.
  * @see {@link StartAccessLoggingCommandOutput} for command's `response` shape.
- * @see {@link MediaStoreClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  */
 export class StartAccessLoggingCommand extends $Command<

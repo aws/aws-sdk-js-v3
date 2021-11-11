@@ -38,7 +38,7 @@ export interface UpdateIAMPolicyAssignmentCommandOutput extends UpdateIAMPolicyA
  *
  * @see {@link UpdateIAMPolicyAssignmentCommandInput} for command's `input` shape.
  * @see {@link UpdateIAMPolicyAssignmentCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class UpdateIAMPolicyAssignmentCommand extends $Command<

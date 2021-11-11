@@ -39,7 +39,7 @@ export interface UnclaimDeviceCommandOutput extends UnclaimDeviceResponse, __Met
  *
  * @see {@link UnclaimDeviceCommandInput} for command's `input` shape.
  * @see {@link UnclaimDeviceCommandOutput} for command's `response` shape.
- * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
  *
  */
 export class UnclaimDeviceCommand extends $Command<

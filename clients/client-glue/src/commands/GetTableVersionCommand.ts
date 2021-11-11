@@ -35,7 +35,7 @@ export interface GetTableVersionCommandOutput extends GetTableVersionResponse, _
  *
  * @see {@link GetTableVersionCommandInput} for command's `input` shape.
  * @see {@link GetTableVersionCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class GetTableVersionCommand extends $Command<

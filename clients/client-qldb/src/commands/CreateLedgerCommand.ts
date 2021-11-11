@@ -35,7 +35,7 @@ export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __Metad
  *
  * @see {@link CreateLedgerCommandInput} for command's `input` shape.
  * @see {@link CreateLedgerCommandOutput} for command's `response` shape.
- * @see {@link QLDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
  */
 export class CreateLedgerCommand extends $Command<

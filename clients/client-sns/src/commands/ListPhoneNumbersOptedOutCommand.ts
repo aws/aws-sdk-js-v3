@@ -42,7 +42,7 @@ export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersO
  *
  * @see {@link ListPhoneNumbersOptedOutCommandInput} for command's `input` shape.
  * @see {@link ListPhoneNumbersOptedOutCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  */
 export class ListPhoneNumbersOptedOutCommand extends $Command<

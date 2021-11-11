@@ -35,7 +35,7 @@ export interface GetDataCatalogCommandOutput extends GetDataCatalogOutput, __Met
  *
  * @see {@link GetDataCatalogCommandInput} for command's `input` shape.
  * @see {@link GetDataCatalogCommandOutput} for command's `response` shape.
- * @see {@link AthenaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  */
 export class GetDataCatalogCommand extends $Command<

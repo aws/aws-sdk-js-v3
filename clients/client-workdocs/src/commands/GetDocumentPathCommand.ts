@@ -40,7 +40,7 @@ export interface GetDocumentPathCommandOutput extends GetDocumentPathResponse, _
  *
  * @see {@link GetDocumentPathCommandInput} for command's `input` shape.
  * @see {@link GetDocumentPathCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class GetDocumentPathCommand extends $Command<

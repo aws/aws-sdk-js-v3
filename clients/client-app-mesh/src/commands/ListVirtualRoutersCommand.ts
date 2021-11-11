@@ -35,7 +35,7 @@ export interface ListVirtualRoutersCommandOutput extends ListVirtualRoutersOutpu
  *
  * @see {@link ListVirtualRoutersCommandInput} for command's `input` shape.
  * @see {@link ListVirtualRoutersCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
  *
  */
 export class ListVirtualRoutersCommand extends $Command<

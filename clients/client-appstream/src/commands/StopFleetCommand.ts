@@ -32,7 +32,7 @@ export interface StopFleetCommandOutput extends StopFleetResult, __MetadataBeare
  *
  * @see {@link StopFleetCommandInput} for command's `input` shape.
  * @see {@link StopFleetCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  */
 export class StopFleetCommand extends $Command<

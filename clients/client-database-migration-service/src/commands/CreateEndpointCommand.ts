@@ -46,7 +46,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *
  * @see {@link CreateEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateEndpointCommandOutput} for command's `response` shape.
- * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  */
 export class CreateEndpointCommand extends $Command<

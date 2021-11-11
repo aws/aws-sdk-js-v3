@@ -40,7 +40,7 @@ export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroup
  *
  * @see {@link DescribeReplicationGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationGroupsCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class DescribeReplicationGroupsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeClusterOperationCommandOutput extends DescribeClusterOp
  *
  * @see {@link DescribeClusterOperationCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterOperationCommandOutput} for command's `response` shape.
- * @see {@link KafkaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
  *
  */
 export class DescribeClusterOperationCommand extends $Command<

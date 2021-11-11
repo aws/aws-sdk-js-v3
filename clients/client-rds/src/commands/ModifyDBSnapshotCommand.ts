@@ -42,7 +42,7 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  *
  * @see {@link ModifyDBSnapshotCommandInput} for command's `input` shape.
  * @see {@link ModifyDBSnapshotCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class ModifyDBSnapshotCommand extends $Command<

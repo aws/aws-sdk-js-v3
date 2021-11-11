@@ -37,7 +37,7 @@ export interface DisassociatePhoneNumberFromUserCommandOutput
  *
  * @see {@link DisassociatePhoneNumberFromUserCommandInput} for command's `input` shape.
  * @see {@link DisassociatePhoneNumberFromUserCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class DisassociatePhoneNumberFromUserCommand extends $Command<

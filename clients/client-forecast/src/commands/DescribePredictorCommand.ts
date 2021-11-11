@@ -69,7 +69,7 @@ export interface DescribePredictorCommandOutput extends DescribePredictorRespons
  *
  * @see {@link DescribePredictorCommandInput} for command's `input` shape.
  * @see {@link DescribePredictorCommandOutput} for command's `response` shape.
- * @see {@link ForecastClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  */
 export class DescribePredictorCommand extends $Command<

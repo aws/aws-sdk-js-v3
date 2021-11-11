@@ -37,7 +37,7 @@ export interface DescribeNodeFromTemplateJobCommandOutput
  *
  * @see {@link DescribeNodeFromTemplateJobCommandInput} for command's `input` shape.
  * @see {@link DescribeNodeFromTemplateJobCommandOutput} for command's `response` shape.
- * @see {@link PanoramaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
  *
  */
 export class DescribeNodeFromTemplateJobCommand extends $Command<

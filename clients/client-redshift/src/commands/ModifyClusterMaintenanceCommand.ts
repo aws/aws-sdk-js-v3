@@ -35,7 +35,7 @@ export interface ModifyClusterMaintenanceCommandOutput extends ModifyClusterMain
  *
  * @see {@link ModifyClusterMaintenanceCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterMaintenanceCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class ModifyClusterMaintenanceCommand extends $Command<

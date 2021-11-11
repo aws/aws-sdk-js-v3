@@ -44,7 +44,7 @@ export interface DescribeChannelMembershipCommandOutput extends DescribeChannelM
  *
  * @see {@link DescribeChannelMembershipCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelMembershipCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  */
 export class DescribeChannelMembershipCommand extends $Command<

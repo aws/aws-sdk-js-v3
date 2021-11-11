@@ -35,7 +35,7 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  *
  * @see {@link GetConnectionsCommandInput} for command's `input` shape.
  * @see {@link GetConnectionsCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class GetConnectionsCommand extends $Command<

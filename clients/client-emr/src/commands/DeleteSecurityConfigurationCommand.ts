@@ -35,7 +35,7 @@ export interface DeleteSecurityConfigurationCommandOutput extends DeleteSecurity
  *
  * @see {@link DeleteSecurityConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityConfigurationCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class DeleteSecurityConfigurationCommand extends $Command<

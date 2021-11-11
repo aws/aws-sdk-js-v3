@@ -57,7 +57,7 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  *
  * @see {@link CreateEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateEventSubscriptionCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class CreateEventSubscriptionCommand extends $Command<

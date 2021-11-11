@@ -36,7 +36,7 @@ export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link SetTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link SetTagsForResourceCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  */
 export class SetTagsForResourceCommand extends $Command<

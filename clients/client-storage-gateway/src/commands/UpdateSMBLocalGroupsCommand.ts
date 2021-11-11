@@ -36,7 +36,7 @@ export interface UpdateSMBLocalGroupsCommandOutput extends UpdateSMBLocalGroupsO
  *
  * @see {@link UpdateSMBLocalGroupsCommandInput} for command's `input` shape.
  * @see {@link UpdateSMBLocalGroupsCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class UpdateSMBLocalGroupsCommand extends $Command<

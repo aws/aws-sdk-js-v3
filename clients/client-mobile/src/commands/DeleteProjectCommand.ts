@@ -37,7 +37,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  *
  * @see {@link DeleteProjectCommandInput} for command's `input` shape.
  * @see {@link DeleteProjectCommandOutput} for command's `response` shape.
- * @see {@link MobileClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.
  *
  */
 export class DeleteProjectCommand extends $Command<

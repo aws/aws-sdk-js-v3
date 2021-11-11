@@ -35,7 +35,7 @@ export interface DetectKeyPhrasesCommandOutput extends DetectKeyPhrasesResponse,
  *
  * @see {@link DetectKeyPhrasesCommandInput} for command's `input` shape.
  * @see {@link DetectKeyPhrasesCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class DetectKeyPhrasesCommand extends $Command<

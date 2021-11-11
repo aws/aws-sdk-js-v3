@@ -35,7 +35,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
- * @see {@link MediaTailorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  */
 export class ListTagsForResourceCommand extends $Command<

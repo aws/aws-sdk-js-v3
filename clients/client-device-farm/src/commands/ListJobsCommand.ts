@@ -32,7 +32,7 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  *
  * @see {@link ListJobsCommandInput} for command's `input` shape.
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class ListJobsCommand extends $Command<

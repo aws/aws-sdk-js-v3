@@ -35,7 +35,7 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  *
  * @see {@link CreateQueueCommandInput} for command's `input` shape.
  * @see {@link CreateQueueCommandOutput} for command's `response` shape.
- * @see {@link MediaConvertClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
  *
  */
 export class CreateQueueCommand extends $Command<

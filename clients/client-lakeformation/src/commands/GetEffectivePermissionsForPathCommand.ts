@@ -38,7 +38,7 @@ export interface GetEffectivePermissionsForPathCommandOutput
  *
  * @see {@link GetEffectivePermissionsForPathCommandInput} for command's `input` shape.
  * @see {@link GetEffectivePermissionsForPathCommandOutput} for command's `response` shape.
- * @see {@link LakeFormationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  */
 export class GetEffectivePermissionsForPathCommand extends $Command<

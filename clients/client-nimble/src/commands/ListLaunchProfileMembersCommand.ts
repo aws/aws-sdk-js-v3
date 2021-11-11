@@ -35,7 +35,7 @@ export interface ListLaunchProfileMembersCommandOutput extends ListLaunchProfile
  *
  * @see {@link ListLaunchProfileMembersCommandInput} for command's `input` shape.
  * @see {@link ListLaunchProfileMembersCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
  *
  */
 export class ListLaunchProfileMembersCommand extends $Command<

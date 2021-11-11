@@ -39,7 +39,7 @@ export interface StartContinuousExportCommandOutput extends StartContinuousExpor
  *
  * @see {@link StartContinuousExportCommandInput} for command's `input` shape.
  * @see {@link StartContinuousExportCommandOutput} for command's `response` shape.
- * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  */
 export class StartContinuousExportCommand extends $Command<

@@ -35,7 +35,7 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *
  * @see {@link RegisterJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link RegisterJobDefinitionCommandOutput} for command's `response` shape.
- * @see {@link BatchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  */
 export class RegisterJobDefinitionCommand extends $Command<

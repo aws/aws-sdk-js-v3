@@ -35,7 +35,7 @@ export interface DeleteBaiduChannelCommandOutput extends DeleteBaiduChannelRespo
  *
  * @see {@link DeleteBaiduChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteBaiduChannelCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class DeleteBaiduChannelCommand extends $Command<

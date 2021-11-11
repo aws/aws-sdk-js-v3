@@ -40,7 +40,7 @@ export interface BatchDeleteDelegationByAssessmentCommandOutput
  *
  * @see {@link BatchDeleteDelegationByAssessmentCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteDelegationByAssessmentCommandOutput} for command's `response` shape.
- * @see {@link AuditManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  */
 export class BatchDeleteDelegationByAssessmentCommand extends $Command<

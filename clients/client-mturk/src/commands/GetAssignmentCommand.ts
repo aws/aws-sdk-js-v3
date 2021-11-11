@@ -37,7 +37,7 @@ export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __Met
  *
  * @see {@link GetAssignmentCommandInput} for command's `input` shape.
  * @see {@link GetAssignmentCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  */
 export class GetAssignmentCommand extends $Command<

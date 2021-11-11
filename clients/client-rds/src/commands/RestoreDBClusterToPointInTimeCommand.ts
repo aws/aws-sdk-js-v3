@@ -56,7 +56,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *
  * @see {@link RestoreDBClusterToPointInTimeCommandInput} for command's `input` shape.
  * @see {@link RestoreDBClusterToPointInTimeCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class RestoreDBClusterToPointInTimeCommand extends $Command<

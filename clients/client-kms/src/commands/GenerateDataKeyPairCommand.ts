@@ -111,7 +111,7 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *
  * @see {@link GenerateDataKeyPairCommandInput} for command's `input` shape.
  * @see {@link GenerateDataKeyPairCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  */
 export class GenerateDataKeyPairCommand extends $Command<

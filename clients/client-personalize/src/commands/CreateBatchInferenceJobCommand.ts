@@ -36,7 +36,7 @@ export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferen
  *
  * @see {@link CreateBatchInferenceJobCommandInput} for command's `input` shape.
  * @see {@link CreateBatchInferenceJobCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  */
 export class CreateBatchInferenceJobCommand extends $Command<

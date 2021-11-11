@@ -44,7 +44,7 @@ export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
  *
  * @see {@link DeleteInstanceAccessControlAttributeConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceAccessControlAttributeConfigurationCommandOutput} for command's `response` shape.
- * @see {@link SSOAdminClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
  *
  */
 export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $Command<

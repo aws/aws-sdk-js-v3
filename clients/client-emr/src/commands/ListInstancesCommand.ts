@@ -37,7 +37,7 @@ export interface ListInstancesCommandOutput extends ListInstancesOutput, __Metad
  *
  * @see {@link ListInstancesCommandInput} for command's `input` shape.
  * @see {@link ListInstancesCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class ListInstancesCommand extends $Command<

@@ -49,7 +49,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  *
  * @see {@link BatchMeterUsageCommandInput} for command's `input` shape.
  * @see {@link BatchMeterUsageCommandOutput} for command's `response` shape.
- * @see {@link MarketplaceMeteringClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MarketplaceMeteringClientResolvedConfig | config} for MarketplaceMeteringClient's `config` shape.
  *
  */
 export class BatchMeterUsageCommand extends $Command<

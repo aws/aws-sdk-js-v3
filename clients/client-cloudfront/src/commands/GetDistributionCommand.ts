@@ -35,7 +35,7 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  *
  * @see {@link GetDistributionCommandInput} for command's `input` shape.
  * @see {@link GetDistributionCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class GetDistributionCommand extends $Command<

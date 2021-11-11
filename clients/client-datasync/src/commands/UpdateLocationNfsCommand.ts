@@ -36,7 +36,7 @@ export interface UpdateLocationNfsCommandOutput extends UpdateLocationNfsRespons
  *
  * @see {@link UpdateLocationNfsCommandInput} for command's `input` shape.
  * @see {@link UpdateLocationNfsCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  */
 export class UpdateLocationNfsCommand extends $Command<

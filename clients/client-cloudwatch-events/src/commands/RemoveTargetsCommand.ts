@@ -43,7 +43,7 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
  *
  * @see {@link RemoveTargetsCommandInput} for command's `input` shape.
  * @see {@link RemoveTargetsCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchEventsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  */
 export class RemoveTargetsCommand extends $Command<

@@ -39,7 +39,7 @@ export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
  *
  * @see {@link CancelUpdateStackCommandInput} for command's `input` shape.
  * @see {@link CancelUpdateStackCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  */
 export class CancelUpdateStackCommand extends $Command<

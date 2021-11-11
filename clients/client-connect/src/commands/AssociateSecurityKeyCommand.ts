@@ -36,7 +36,7 @@ export interface AssociateSecurityKeyCommandOutput extends AssociateSecurityKeyR
  *
  * @see {@link AssociateSecurityKeyCommandInput} for command's `input` shape.
  * @see {@link AssociateSecurityKeyCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class AssociateSecurityKeyCommand extends $Command<

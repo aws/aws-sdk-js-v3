@@ -42,7 +42,7 @@ export interface AssociateHostedConnectionCommandOutput extends Connection, __Me
  *
  * @see {@link AssociateHostedConnectionCommandInput} for command's `input` shape.
  * @see {@link AssociateHostedConnectionCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class AssociateHostedConnectionCommand extends $Command<

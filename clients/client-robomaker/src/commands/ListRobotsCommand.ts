@@ -36,7 +36,7 @@ export interface ListRobotsCommandOutput extends ListRobotsResponse, __MetadataB
  *
  * @see {@link ListRobotsCommandInput} for command's `input` shape.
  * @see {@link ListRobotsCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class ListRobotsCommand extends $Command<

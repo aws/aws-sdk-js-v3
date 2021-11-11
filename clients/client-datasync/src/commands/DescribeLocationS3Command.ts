@@ -35,7 +35,7 @@ export interface DescribeLocationS3CommandOutput extends DescribeLocationS3Respo
  *
  * @see {@link DescribeLocationS3CommandInput} for command's `input` shape.
  * @see {@link DescribeLocationS3CommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  */
 export class DescribeLocationS3Command extends $Command<

@@ -35,7 +35,7 @@ export interface GetVocabularyFilterCommandOutput extends GetVocabularyFilterRes
  *
  * @see {@link GetVocabularyFilterCommandInput} for command's `input` shape.
  * @see {@link GetVocabularyFilterCommandOutput} for command's `response` shape.
- * @see {@link TranscribeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  */
 export class GetVocabularyFilterCommand extends $Command<

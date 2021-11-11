@@ -36,7 +36,7 @@ export interface AssociateMemberAccountCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AssociateMemberAccountCommandInput} for command's `input` shape.
  * @see {@link AssociateMemberAccountCommandOutput} for command's `response` shape.
- * @see {@link MacieClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
  *
  */
 export class AssociateMemberAccountCommand extends $Command<

@@ -42,7 +42,7 @@ export interface CreateAttributeGroupCommandOutput extends CreateAttributeGroupR
  *
  * @see {@link CreateAttributeGroupCommandInput} for command's `input` shape.
  * @see {@link CreateAttributeGroupCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
  *
  */
 export class CreateAttributeGroupCommand extends $Command<

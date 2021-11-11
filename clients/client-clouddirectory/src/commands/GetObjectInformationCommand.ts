@@ -35,7 +35,7 @@ export interface GetObjectInformationCommandOutput extends GetObjectInformationR
  *
  * @see {@link GetObjectInformationCommandInput} for command's `input` shape.
  * @see {@link GetObjectInformationCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  */
 export class GetObjectInformationCommand extends $Command<

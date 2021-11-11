@@ -35,7 +35,7 @@ export interface GetNetworkTelemetryCommandOutput extends GetNetworkTelemetryRes
  *
  * @see {@link GetNetworkTelemetryCommandInput} for command's `input` shape.
  * @see {@link GetNetworkTelemetryCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class GetNetworkTelemetryCommand extends $Command<

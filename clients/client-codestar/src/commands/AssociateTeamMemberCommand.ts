@@ -35,7 +35,7 @@ export interface AssociateTeamMemberCommandOutput extends AssociateTeamMemberRes
  *
  * @see {@link AssociateTeamMemberCommandInput} for command's `input` shape.
  * @see {@link AssociateTeamMemberCommandOutput} for command's `response` shape.
- * @see {@link CodeStarClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
  *
  */
 export class AssociateTeamMemberCommand extends $Command<

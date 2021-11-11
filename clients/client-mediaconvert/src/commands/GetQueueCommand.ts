@@ -35,7 +35,7 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  *
  * @see {@link GetQueueCommandInput} for command's `input` shape.
  * @see {@link GetQueueCommandOutput} for command's `response` shape.
- * @see {@link MediaConvertClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
  *
  */
 export class GetQueueCommand extends $Command<

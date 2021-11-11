@@ -36,7 +36,7 @@ export interface AssociateQueueQuickConnectsCommandOutput extends __MetadataBear
  *
  * @see {@link AssociateQueueQuickConnectsCommandInput} for command's `input` shape.
  * @see {@link AssociateQueueQuickConnectsCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class AssociateQueueQuickConnectsCommand extends $Command<

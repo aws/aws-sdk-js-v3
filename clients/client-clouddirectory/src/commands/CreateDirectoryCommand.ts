@@ -38,7 +38,7 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResponse, _
  *
  * @see {@link CreateDirectoryCommandInput} for command's `input` shape.
  * @see {@link CreateDirectoryCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  */
 export class CreateDirectoryCommand extends $Command<

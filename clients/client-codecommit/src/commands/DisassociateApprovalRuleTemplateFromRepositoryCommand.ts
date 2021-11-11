@@ -39,7 +39,7 @@ export interface DisassociateApprovalRuleTemplateFromRepositoryCommandOutput ext
  *
  * @see {@link DisassociateApprovalRuleTemplateFromRepositoryCommandInput} for command's `input` shape.
  * @see {@link DisassociateApprovalRuleTemplateFromRepositoryCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  */
 export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Command<

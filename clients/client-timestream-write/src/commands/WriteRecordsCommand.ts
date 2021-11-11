@@ -49,7 +49,7 @@ export interface WriteRecordsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link WriteRecordsCommandInput} for command's `input` shape.
  * @see {@link WriteRecordsCommandOutput} for command's `response` shape.
- * @see {@link TimestreamWriteClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
  *
  */
 export class WriteRecordsCommand extends $Command<

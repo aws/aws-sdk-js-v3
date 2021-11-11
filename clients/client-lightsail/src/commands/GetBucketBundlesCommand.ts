@@ -41,7 +41,7 @@ export interface GetBucketBundlesCommandOutput extends GetBucketBundlesResult, _
  *
  * @see {@link GetBucketBundlesCommandInput} for command's `input` shape.
  * @see {@link GetBucketBundlesCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class GetBucketBundlesCommand extends $Command<

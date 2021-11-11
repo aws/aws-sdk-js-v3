@@ -35,7 +35,7 @@ export interface UpdateLFTagCommandOutput extends UpdateLFTagResponse, __Metadat
  *
  * @see {@link UpdateLFTagCommandInput} for command's `input` shape.
  * @see {@link UpdateLFTagCommandOutput} for command's `response` shape.
- * @see {@link LakeFormationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  */
 export class UpdateLFTagCommand extends $Command<

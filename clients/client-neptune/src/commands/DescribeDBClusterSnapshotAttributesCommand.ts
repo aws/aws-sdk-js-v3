@@ -49,7 +49,7 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  *
  * @see {@link DescribeDBClusterSnapshotAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterSnapshotAttributesCommandOutput} for command's `response` shape.
- * @see {@link NeptuneClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  */
 export class DescribeDBClusterSnapshotAttributesCommand extends $Command<

@@ -36,7 +36,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  *
  * @see {@link GetFindingsCommandInput} for command's `input` shape.
  * @see {@link GetFindingsCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
 export class GetFindingsCommand extends $Command<

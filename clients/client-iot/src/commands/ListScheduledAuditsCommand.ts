@@ -36,7 +36,7 @@ export interface ListScheduledAuditsCommandOutput extends ListScheduledAuditsRes
  *
  * @see {@link ListScheduledAuditsCommandInput} for command's `input` shape.
  * @see {@link ListScheduledAuditsCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class ListScheduledAuditsCommand extends $Command<

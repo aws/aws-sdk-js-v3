@@ -36,7 +36,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResult, __M
  *
  * @see {@link DescribeClusterCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterCommandOutput} for command's `response` shape.
- * @see {@link SnowballClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  */
 export class DescribeClusterCommand extends $Command<

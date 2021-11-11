@@ -40,7 +40,7 @@ export interface ListKeyGroupsCommandOutput extends ListKeyGroupsResult, __Metad
  *
  * @see {@link ListKeyGroupsCommandInput} for command's `input` shape.
  * @see {@link ListKeyGroupsCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class ListKeyGroupsCommand extends $Command<

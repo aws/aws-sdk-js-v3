@@ -35,7 +35,7 @@ export interface CancelReplayCommandOutput extends CancelReplayResponse, __Metad
  *
  * @see {@link CancelReplayCommandInput} for command's `input` shape.
  * @see {@link CancelReplayCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class CancelReplayCommand extends $Command<

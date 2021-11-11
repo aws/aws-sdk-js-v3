@@ -39,7 +39,7 @@ export interface DeleteCustomRoutingListenerCommandOutput extends __MetadataBear
  *
  * @see {@link DeleteCustomRoutingListenerCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomRoutingListenerCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  */
 export class DeleteCustomRoutingListenerCommand extends $Command<

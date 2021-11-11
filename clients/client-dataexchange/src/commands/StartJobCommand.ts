@@ -35,7 +35,7 @@ export interface StartJobCommandOutput extends StartJobResponse, __MetadataBeare
  *
  * @see {@link StartJobCommandInput} for command's `input` shape.
  * @see {@link StartJobCommandOutput} for command's `response` shape.
- * @see {@link DataExchangeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  */
 export class StartJobCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeClientPropertiesCommandOutput extends DescribeClientPro
  *
  * @see {@link DescribeClientPropertiesCommandInput} for command's `input` shape.
  * @see {@link DescribeClientPropertiesCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class DescribeClientPropertiesCommand extends $Command<

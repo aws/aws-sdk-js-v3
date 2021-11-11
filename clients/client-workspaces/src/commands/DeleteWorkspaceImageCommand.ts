@@ -37,7 +37,7 @@ export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageR
  *
  * @see {@link DeleteWorkspaceImageCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkspaceImageCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class DeleteWorkspaceImageCommand extends $Command<

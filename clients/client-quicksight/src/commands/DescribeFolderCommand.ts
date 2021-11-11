@@ -35,7 +35,7 @@ export interface DescribeFolderCommandOutput extends DescribeFolderResponse, __M
  *
  * @see {@link DescribeFolderCommandInput} for command's `input` shape.
  * @see {@link DescribeFolderCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class DescribeFolderCommand extends $Command<

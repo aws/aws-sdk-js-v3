@@ -35,7 +35,7 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  *
  * @see {@link PutFeedbackCommandInput} for command's `input` shape.
  * @see {@link PutFeedbackCommandOutput} for command's `response` shape.
- * @see {@link LookoutMetricsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
  *
  */
 export class PutFeedbackCommand extends $Command<

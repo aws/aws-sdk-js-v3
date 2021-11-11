@@ -36,7 +36,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *
  * @see {@link CreateUserCommandInput} for command's `input` shape.
  * @see {@link CreateUserCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class CreateUserCommand extends $Command<

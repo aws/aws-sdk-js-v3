@@ -37,7 +37,7 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsOutput, __Metad
  *
  * @see {@link XmlTimestampsCommandInput} for command's `input` shape.
  * @see {@link XmlTimestampsCommandOutput} for command's `response` shape.
- * @see {@link QueryProtocolClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
  *
  */
 export class XmlTimestampsCommand extends $Command<

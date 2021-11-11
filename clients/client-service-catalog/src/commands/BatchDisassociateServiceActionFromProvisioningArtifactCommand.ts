@@ -41,7 +41,7 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOu
  *
  * @see {@link BatchDisassociateServiceActionFromProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class BatchDisassociateServiceActionFromProvisioningArtifactCommand extends $Command<

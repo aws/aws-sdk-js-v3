@@ -35,7 +35,7 @@ export interface UpgradeLensReviewCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpgradeLensReviewCommandInput} for command's `input` shape.
  * @see {@link UpgradeLensReviewCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  */
 export class UpgradeLensReviewCommand extends $Command<

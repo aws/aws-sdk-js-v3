@@ -39,7 +39,7 @@ export interface ListApplicationSnapshotsCommandOutput extends ListApplicationSn
  *
  * @see {@link ListApplicationSnapshotsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationSnapshotsCommandOutput} for command's `response` shape.
- * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
  */
 export class ListApplicationSnapshotsCommand extends $Command<

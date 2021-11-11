@@ -114,7 +114,7 @@ export interface PostTextCommandOutput extends PostTextResponse, __MetadataBeare
  *
  * @see {@link PostTextCommandInput} for command's `input` shape.
  * @see {@link PostTextCommandOutput} for command's `response` shape.
- * @see {@link LexRuntimeServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LexRuntimeServiceClientResolvedConfig | config} for LexRuntimeServiceClient's `config` shape.
  *
  */
 export class PostTextCommand extends $Command<

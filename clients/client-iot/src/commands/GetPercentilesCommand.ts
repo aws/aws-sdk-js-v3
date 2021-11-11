@@ -44,7 +44,7 @@ export interface GetPercentilesCommandOutput extends GetPercentilesResponse, __M
  *
  * @see {@link GetPercentilesCommandInput} for command's `input` shape.
  * @see {@link GetPercentilesCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class GetPercentilesCommand extends $Command<

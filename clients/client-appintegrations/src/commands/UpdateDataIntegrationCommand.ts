@@ -40,7 +40,7 @@ export interface UpdateDataIntegrationCommandOutput extends UpdateDataIntegratio
  *
  * @see {@link UpdateDataIntegrationCommandInput} for command's `input` shape.
  * @see {@link UpdateDataIntegrationCommandOutput} for command's `response` shape.
- * @see {@link AppIntegrationsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
  *
  */
 export class UpdateDataIntegrationCommand extends $Command<

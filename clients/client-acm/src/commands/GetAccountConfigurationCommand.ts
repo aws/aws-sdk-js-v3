@@ -36,7 +36,7 @@ export interface GetAccountConfigurationCommandOutput extends GetAccountConfigur
  *
  * @see {@link GetAccountConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetAccountConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ACMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  */
 export class GetAccountConfigurationCommand extends $Command<

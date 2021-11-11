@@ -42,7 +42,7 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
  *
  * @see {@link DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput} for command's `response` shape.
- * @see {@link ServiceQuotasClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
  *
  */
 export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<

@@ -88,7 +88,7 @@ export interface GetServiceLastAccessedDetailsCommandOutput
  *
  * @see {@link GetServiceLastAccessedDetailsCommandInput} for command's `input` shape.
  * @see {@link GetServiceLastAccessedDetailsCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class GetServiceLastAccessedDetailsCommand extends $Command<

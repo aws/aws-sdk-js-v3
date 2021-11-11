@@ -37,7 +37,7 @@ export interface ListProfileObjectTypeTemplatesCommandOutput
  *
  * @see {@link ListProfileObjectTypeTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListProfileObjectTypeTemplatesCommandOutput} for command's `response` shape.
- * @see {@link CustomerProfilesClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  */
 export class ListProfileObjectTypeTemplatesCommand extends $Command<

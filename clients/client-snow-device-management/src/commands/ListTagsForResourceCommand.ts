@@ -39,7 +39,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  *
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
- * @see {@link SnowDeviceManagementClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
  *
  */
 export class ListTagsForResourceCommand extends $Command<

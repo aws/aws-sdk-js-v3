@@ -57,7 +57,7 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  *
  * @see {@link GetRecommendationSummariesCommandInput} for command's `input` shape.
  * @see {@link GetRecommendationSummariesCommandOutput} for command's `response` shape.
- * @see {@link ComputeOptimizerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
  *
  */
 export class GetRecommendationSummariesCommand extends $Command<

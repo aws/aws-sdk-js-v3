@@ -36,7 +36,7 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  *
  * @see {@link DeleteLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteLifecyclePolicyCommandOutput} for command's `response` shape.
- * @see {@link DLMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DLMClientResolvedConfig | config} for DLMClient's `config` shape.
  *
  */
 export class DeleteLifecyclePolicyCommand extends $Command<

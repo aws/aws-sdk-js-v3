@@ -71,7 +71,7 @@ export interface GetInsightRuleReportCommandOutput extends GetInsightRuleReportO
  *
  * @see {@link GetInsightRuleReportCommandInput} for command's `input` shape.
  * @see {@link GetInsightRuleReportCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  */
 export class GetInsightRuleReportCommand extends $Command<

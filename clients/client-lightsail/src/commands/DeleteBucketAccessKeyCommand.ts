@@ -40,7 +40,7 @@ export interface DeleteBucketAccessKeyCommandOutput extends DeleteBucketAccessKe
  *
  * @see {@link DeleteBucketAccessKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketAccessKeyCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class DeleteBucketAccessKeyCommand extends $Command<

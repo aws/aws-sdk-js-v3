@@ -35,7 +35,7 @@ export interface UpdateBackendJobCommandOutput extends UpdateBackendJobResponse,
  *
  * @see {@link UpdateBackendJobCommandInput} for command's `input` shape.
  * @see {@link UpdateBackendJobCommandOutput} for command's `response` shape.
- * @see {@link AmplifyBackendClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
  *
  */
 export class UpdateBackendJobCommand extends $Command<

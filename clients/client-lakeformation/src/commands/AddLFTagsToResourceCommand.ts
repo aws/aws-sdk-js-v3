@@ -35,7 +35,7 @@ export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceRes
  *
  * @see {@link AddLFTagsToResourceCommandInput} for command's `input` shape.
  * @see {@link AddLFTagsToResourceCommandOutput} for command's `response` shape.
- * @see {@link LakeFormationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  */
 export class AddLFTagsToResourceCommand extends $Command<

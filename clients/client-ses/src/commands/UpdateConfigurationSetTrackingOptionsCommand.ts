@@ -45,7 +45,7 @@ export interface UpdateConfigurationSetTrackingOptionsCommandOutput
  *
  * @see {@link UpdateConfigurationSetTrackingOptionsCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationSetTrackingOptionsCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<

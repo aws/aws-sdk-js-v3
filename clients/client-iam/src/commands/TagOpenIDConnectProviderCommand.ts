@@ -72,7 +72,7 @@ export interface TagOpenIDConnectProviderCommandOutput extends __MetadataBearer 
  *
  * @see {@link TagOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link TagOpenIDConnectProviderCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class TagOpenIDConnectProviderCommand extends $Command<

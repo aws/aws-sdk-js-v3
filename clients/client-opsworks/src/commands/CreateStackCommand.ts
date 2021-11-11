@@ -40,7 +40,7 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  *
  * @see {@link CreateStackCommandInput} for command's `input` shape.
  * @see {@link CreateStackCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class CreateStackCommand extends $Command<

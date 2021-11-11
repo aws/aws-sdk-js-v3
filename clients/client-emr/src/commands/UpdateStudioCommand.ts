@@ -35,7 +35,7 @@ export interface UpdateStudioCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateStudioCommandInput} for command's `input` shape.
  * @see {@link UpdateStudioCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class UpdateStudioCommand extends $Command<

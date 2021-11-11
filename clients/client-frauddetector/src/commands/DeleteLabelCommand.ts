@@ -39,7 +39,7 @@ export interface DeleteLabelCommandOutput extends DeleteLabelResult, __MetadataB
  *
  * @see {@link DeleteLabelCommandInput} for command's `input` shape.
  * @see {@link DeleteLabelCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class DeleteLabelCommand extends $Command<

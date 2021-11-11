@@ -40,7 +40,7 @@ export interface DescribeConnectionsCommandOutput extends DescribeConnectionsRes
  *
  * @see {@link DescribeConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionsCommandOutput} for command's `response` shape.
- * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  */
 export class DescribeConnectionsCommand extends $Command<

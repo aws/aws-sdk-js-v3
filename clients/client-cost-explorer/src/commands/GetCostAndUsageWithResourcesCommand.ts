@@ -44,7 +44,7 @@ export interface GetCostAndUsageWithResourcesCommandOutput
  *
  * @see {@link GetCostAndUsageWithResourcesCommandInput} for command's `input` shape.
  * @see {@link GetCostAndUsageWithResourcesCommandOutput} for command's `response` shape.
- * @see {@link CostExplorerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  */
 export class GetCostAndUsageWithResourcesCommand extends $Command<

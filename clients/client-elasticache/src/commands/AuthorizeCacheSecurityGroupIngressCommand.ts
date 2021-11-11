@@ -46,7 +46,7 @@ export interface AuthorizeCacheSecurityGroupIngressCommandOutput
  *
  * @see {@link AuthorizeCacheSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link AuthorizeCacheSecurityGroupIngressCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class AuthorizeCacheSecurityGroupIngressCommand extends $Command<

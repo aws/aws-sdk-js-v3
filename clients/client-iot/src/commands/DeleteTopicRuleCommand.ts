@@ -36,7 +36,7 @@ export interface DeleteTopicRuleCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteTopicRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteTopicRuleCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class DeleteTopicRuleCommand extends $Command<

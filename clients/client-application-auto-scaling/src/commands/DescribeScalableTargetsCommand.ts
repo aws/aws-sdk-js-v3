@@ -41,7 +41,7 @@ export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTa
  *
  * @see {@link DescribeScalableTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeScalableTargetsCommandOutput} for command's `response` shape.
- * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
  */
 export class DescribeScalableTargetsCommand extends $Command<

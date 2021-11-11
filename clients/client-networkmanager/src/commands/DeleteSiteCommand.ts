@@ -35,7 +35,7 @@ export interface DeleteSiteCommandOutput extends DeleteSiteResponse, __MetadataB
  *
  * @see {@link DeleteSiteCommandInput} for command's `input` shape.
  * @see {@link DeleteSiteCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class DeleteSiteCommand extends $Command<

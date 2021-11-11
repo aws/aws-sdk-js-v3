@@ -49,7 +49,7 @@ export interface ResetServiceSettingCommandOutput extends ResetServiceSettingRes
  *
  * @see {@link ResetServiceSettingCommandInput} for command's `input` shape.
  * @see {@link ResetServiceSettingCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class ResetServiceSettingCommand extends $Command<

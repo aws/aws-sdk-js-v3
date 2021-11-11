@@ -63,7 +63,7 @@ export interface PutPolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PutPolicyCommandInput} for command's `input` shape.
  * @see {@link PutPolicyCommandOutput} for command's `response` shape.
- * @see {@link ACMPCAClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
  *
  */
 export class PutPolicyCommand extends $Command<

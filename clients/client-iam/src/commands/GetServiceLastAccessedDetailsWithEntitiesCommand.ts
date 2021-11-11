@@ -66,7 +66,7 @@ export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput
  *
  * @see {@link GetServiceLastAccessedDetailsWithEntitiesCommandInput} for command's `input` shape.
  * @see {@link GetServiceLastAccessedDetailsWithEntitiesCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<

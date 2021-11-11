@@ -37,7 +37,7 @@ export interface DescribeMergeConflictsCommandOutput extends DescribeMergeConfli
  *
  * @see {@link DescribeMergeConflictsCommandInput} for command's `input` shape.
  * @see {@link DescribeMergeConflictsCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  */
 export class DescribeMergeConflictsCommand extends $Command<

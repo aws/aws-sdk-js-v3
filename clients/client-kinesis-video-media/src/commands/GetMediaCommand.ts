@@ -84,7 +84,7 @@ export interface GetMediaCommandOutput extends GetMediaOutput, __MetadataBearer 
  *
  * @see {@link GetMediaCommandInput} for command's `input` shape.
  * @see {@link GetMediaCommandOutput} for command's `response` shape.
- * @see {@link KinesisVideoMediaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KinesisVideoMediaClientResolvedConfig | config} for KinesisVideoMediaClient's `config` shape.
  *
  */
 export class GetMediaCommand extends $Command<

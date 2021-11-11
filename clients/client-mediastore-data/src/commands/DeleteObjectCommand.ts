@@ -35,7 +35,7 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  *
  * @see {@link DeleteObjectCommandInput} for command's `input` shape.
  * @see {@link DeleteObjectCommandOutput} for command's `response` shape.
- * @see {@link MediaStoreDataClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaStoreDataClientResolvedConfig | config} for MediaStoreDataClient's `config` shape.
  *
  */
 export class DeleteObjectCommand extends $Command<

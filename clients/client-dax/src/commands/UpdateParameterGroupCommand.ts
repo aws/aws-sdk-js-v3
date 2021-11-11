@@ -37,7 +37,7 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  *
  * @see {@link UpdateParameterGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateParameterGroupCommandOutput} for command's `response` shape.
- * @see {@link DAXClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  */
 export class UpdateParameterGroupCommand extends $Command<

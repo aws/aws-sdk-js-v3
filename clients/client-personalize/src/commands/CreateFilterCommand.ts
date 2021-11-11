@@ -35,7 +35,7 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  *
  * @see {@link CreateFilterCommandInput} for command's `input` shape.
  * @see {@link CreateFilterCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  */
 export class CreateFilterCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
  *
  * @see {@link UpdateInputDeviceCommandInput} for command's `input` shape.
  * @see {@link UpdateInputDeviceCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  */
 export class UpdateInputDeviceCommand extends $Command<

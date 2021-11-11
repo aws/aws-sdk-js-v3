@@ -40,7 +40,7 @@ export interface CreateDataIntegrationCommandOutput extends CreateDataIntegratio
  *
  * @see {@link CreateDataIntegrationCommandInput} for command's `input` shape.
  * @see {@link CreateDataIntegrationCommandOutput} for command's `response` shape.
- * @see {@link AppIntegrationsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
  *
  */
 export class CreateDataIntegrationCommand extends $Command<

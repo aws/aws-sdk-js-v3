@@ -35,7 +35,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *
  * @see {@link UntagResourceCommandInput} for command's `input` shape.
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  */
 export class UntagResourceCommand extends $Command<

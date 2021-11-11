@@ -35,7 +35,7 @@ export interface GetContactChannelCommandOutput extends GetContactChannelResult,
  *
  * @see {@link GetContactChannelCommandInput} for command's `input` shape.
  * @see {@link GetContactChannelCommandOutput} for command's `response` shape.
- * @see {@link SSMContactsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
  */
 export class GetContactChannelCommand extends $Command<

@@ -87,7 +87,7 @@ export interface SetIdentityPoolConfigurationCommandOutput
  *
  * @see {@link SetIdentityPoolConfigurationCommandInput} for command's `input` shape.
  * @see {@link SetIdentityPoolConfigurationCommandOutput} for command's `response` shape.
- * @see {@link CognitoSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
  *
  */
 export class SetIdentityPoolConfigurationCommand extends $Command<

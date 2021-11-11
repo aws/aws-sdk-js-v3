@@ -35,7 +35,7 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionRespons
  *
  * @see {@link DescribeExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeExecutionCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
 export class DescribeExecutionCommand extends $Command<

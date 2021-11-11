@@ -51,7 +51,7 @@ export interface AcceptDomainTransferFromAnotherAwsAccountCommandOutput
  *
  * @see {@link AcceptDomainTransferFromAnotherAwsAccountCommandInput} for command's `input` shape.
  * @see {@link AcceptDomainTransferFromAnotherAwsAccountCommandOutput} for command's `response` shape.
- * @see {@link Route53DomainsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  */
 export class AcceptDomainTransferFromAnotherAwsAccountCommand extends $Command<

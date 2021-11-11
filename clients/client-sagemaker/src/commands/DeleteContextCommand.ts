@@ -35,7 +35,7 @@ export interface DeleteContextCommandOutput extends DeleteContextResponse, __Met
  *
  * @see {@link DeleteContextCommandInput} for command's `input` shape.
  * @see {@link DeleteContextCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DeleteContextCommand extends $Command<

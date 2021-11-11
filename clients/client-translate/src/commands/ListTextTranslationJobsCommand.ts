@@ -35,7 +35,7 @@ export interface ListTextTranslationJobsCommandOutput extends ListTextTranslatio
  *
  * @see {@link ListTextTranslationJobsCommandInput} for command's `input` shape.
  * @see {@link ListTextTranslationJobsCommandOutput} for command's `response` shape.
- * @see {@link TranslateClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
  */
 export class ListTextTranslationJobsCommand extends $Command<

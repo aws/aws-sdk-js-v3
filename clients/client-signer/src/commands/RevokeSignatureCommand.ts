@@ -36,7 +36,7 @@ export interface RevokeSignatureCommandOutput extends __MetadataBearer {}
  *
  * @see {@link RevokeSignatureCommandInput} for command's `input` shape.
  * @see {@link RevokeSignatureCommandOutput} for command's `response` shape.
- * @see {@link SignerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
  *
  */
 export class RevokeSignatureCommand extends $Command<

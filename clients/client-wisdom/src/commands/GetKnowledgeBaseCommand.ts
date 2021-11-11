@@ -35,7 +35,7 @@ export interface GetKnowledgeBaseCommandOutput extends GetKnowledgeBaseResponse,
  *
  * @see {@link GetKnowledgeBaseCommandInput} for command's `input` shape.
  * @see {@link GetKnowledgeBaseCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
  *
  */
 export class GetKnowledgeBaseCommand extends $Command<

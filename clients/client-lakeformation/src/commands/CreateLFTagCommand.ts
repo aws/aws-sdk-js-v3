@@ -35,7 +35,7 @@ export interface CreateLFTagCommandOutput extends CreateLFTagResponse, __Metadat
  *
  * @see {@link CreateLFTagCommandInput} for command's `input` shape.
  * @see {@link CreateLFTagCommandOutput} for command's `response` shape.
- * @see {@link LakeFormationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  */
 export class CreateLFTagCommand extends $Command<

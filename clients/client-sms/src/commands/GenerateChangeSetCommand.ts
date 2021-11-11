@@ -36,7 +36,7 @@ export interface GenerateChangeSetCommandOutput extends GenerateChangeSetRespons
  *
  * @see {@link GenerateChangeSetCommandInput} for command's `input` shape.
  * @see {@link GenerateChangeSetCommandOutput} for command's `response` shape.
- * @see {@link SMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
  *
  */
 export class GenerateChangeSetCommand extends $Command<

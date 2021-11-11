@@ -43,7 +43,7 @@ export interface GetEnrollmentStatusesForOrganizationCommandOutput
  *
  * @see {@link GetEnrollmentStatusesForOrganizationCommandInput} for command's `input` shape.
  * @see {@link GetEnrollmentStatusesForOrganizationCommandOutput} for command's `response` shape.
- * @see {@link ComputeOptimizerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
  *
  */
 export class GetEnrollmentStatusesForOrganizationCommand extends $Command<

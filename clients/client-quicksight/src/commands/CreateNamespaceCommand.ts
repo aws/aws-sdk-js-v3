@@ -42,7 +42,7 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  *
  * @see {@link CreateNamespaceCommandInput} for command's `input` shape.
  * @see {@link CreateNamespaceCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class CreateNamespaceCommand extends $Command<

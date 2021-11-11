@@ -55,7 +55,7 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
  *
  * @see {@link AttachLoadBalancerTargetGroupsCommandInput} for command's `input` shape.
  * @see {@link AttachLoadBalancerTargetGroupsCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class AttachLoadBalancerTargetGroupsCommand extends $Command<

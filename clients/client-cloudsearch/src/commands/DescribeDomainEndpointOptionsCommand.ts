@@ -37,7 +37,7 @@ export interface DescribeDomainEndpointOptionsCommandOutput
  *
  * @see {@link DescribeDomainEndpointOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainEndpointOptionsCommandOutput} for command's `response` shape.
- * @see {@link CloudSearchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
  */
 export class DescribeDomainEndpointOptionsCommand extends $Command<

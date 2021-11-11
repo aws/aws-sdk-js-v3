@@ -35,7 +35,7 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  *
  * @see {@link DescribeUserCommandInput} for command's `input` shape.
  * @see {@link DescribeUserCommandOutput} for command's `response` shape.
- * @see {@link IdentitystoreClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
  *
  */
 export class DescribeUserCommand extends $Command<

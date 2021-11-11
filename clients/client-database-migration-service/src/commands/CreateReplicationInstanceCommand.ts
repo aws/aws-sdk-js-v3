@@ -44,7 +44,7 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  *
  * @see {@link CreateReplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationInstanceCommandOutput} for command's `response` shape.
- * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  */
 export class CreateReplicationInstanceCommand extends $Command<

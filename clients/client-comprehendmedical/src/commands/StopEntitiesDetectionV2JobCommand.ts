@@ -39,7 +39,7 @@ export interface StopEntitiesDetectionV2JobCommandOutput extends StopEntitiesDet
  *
  * @see {@link StopEntitiesDetectionV2JobCommandInput} for command's `input` shape.
  * @see {@link StopEntitiesDetectionV2JobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendMedicalClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
  *
  */
 export class StopEntitiesDetectionV2JobCommand extends $Command<

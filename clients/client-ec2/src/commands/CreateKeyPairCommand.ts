@@ -41,7 +41,7 @@ export interface CreateKeyPairCommandOutput extends KeyPair, __MetadataBearer {}
  *
  * @see {@link CreateKeyPairCommandInput} for command's `input` shape.
  * @see {@link CreateKeyPairCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class CreateKeyPairCommand extends $Command<

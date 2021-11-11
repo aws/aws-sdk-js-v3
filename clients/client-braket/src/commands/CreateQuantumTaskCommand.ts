@@ -35,7 +35,7 @@ export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskRespons
  *
  * @see {@link CreateQuantumTaskCommandInput} for command's `input` shape.
  * @see {@link CreateQuantumTaskCommandOutput} for command's `response` shape.
- * @see {@link BraketClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
  *
  */
 export class CreateQuantumTaskCommand extends $Command<

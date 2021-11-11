@@ -41,7 +41,7 @@ export interface CreateKeysAndCertificateCommandOutput extends CreateKeysAndCert
  *
  * @see {@link CreateKeysAndCertificateCommandInput} for command's `input` shape.
  * @see {@link CreateKeysAndCertificateCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class CreateKeysAndCertificateCommand extends $Command<

@@ -42,7 +42,7 @@ export interface PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
  *
  * @see {@link PutVoiceConnectorEmergencyCallingConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorEmergencyCallingConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class PutVoiceConnectorEmergencyCallingConfigurationCommand extends $Command<

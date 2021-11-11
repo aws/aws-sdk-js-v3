@@ -40,7 +40,7 @@ export interface ValidateConfigurationSettingsCommandOutput
  *
  * @see {@link ValidateConfigurationSettingsCommandInput} for command's `input` shape.
  * @see {@link ValidateConfigurationSettingsCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  */
 export class ValidateConfigurationSettingsCommand extends $Command<

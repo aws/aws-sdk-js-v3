@@ -41,7 +41,7 @@ export interface StartRxNormInferenceJobCommandOutput extends StartRxNormInferen
  *
  * @see {@link StartRxNormInferenceJobCommandInput} for command's `input` shape.
  * @see {@link StartRxNormInferenceJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendMedicalClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
  *
  */
 export class StartRxNormInferenceJobCommand extends $Command<

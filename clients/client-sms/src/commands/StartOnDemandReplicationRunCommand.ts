@@ -41,7 +41,7 @@ export interface StartOnDemandReplicationRunCommandOutput
  *
  * @see {@link StartOnDemandReplicationRunCommandInput} for command's `input` shape.
  * @see {@link StartOnDemandReplicationRunCommandOutput} for command's `response` shape.
- * @see {@link SMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
  *
  */
 export class StartOnDemandReplicationRunCommand extends $Command<

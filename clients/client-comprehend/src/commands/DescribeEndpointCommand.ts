@@ -36,7 +36,7 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  *
  * @see {@link DescribeEndpointCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class DescribeEndpointCommand extends $Command<

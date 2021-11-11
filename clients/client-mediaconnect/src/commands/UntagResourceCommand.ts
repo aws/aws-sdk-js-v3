@@ -35,7 +35,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UntagResourceCommandInput} for command's `input` shape.
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
- * @see {@link MediaConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
  *
  */
 export class UntagResourceCommand extends $Command<

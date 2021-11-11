@@ -65,7 +65,7 @@ export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, _
  *
  * @see {@link AnalyzeDocumentCommandInput} for command's `input` shape.
  * @see {@link AnalyzeDocumentCommandOutput} for command's `response` shape.
- * @see {@link TextractClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
  *
  */
 export class AnalyzeDocumentCommand extends $Command<

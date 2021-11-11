@@ -36,7 +36,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  *
  * @see {@link CreateConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateConnectionCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class CreateConnectionCommand extends $Command<

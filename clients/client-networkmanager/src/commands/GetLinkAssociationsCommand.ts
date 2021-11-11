@@ -36,7 +36,7 @@ export interface GetLinkAssociationsCommandOutput extends GetLinkAssociationsRes
  *
  * @see {@link GetLinkAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetLinkAssociationsCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class GetLinkAssociationsCommand extends $Command<

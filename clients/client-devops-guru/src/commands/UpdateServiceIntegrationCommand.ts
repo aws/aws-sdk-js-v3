@@ -38,7 +38,7 @@ export interface UpdateServiceIntegrationCommandOutput extends UpdateServiceInte
  *
  * @see {@link UpdateServiceIntegrationCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceIntegrationCommandOutput} for command's `response` shape.
- * @see {@link DevOpsGuruClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
  *
  */
 export class UpdateServiceIntegrationCommand extends $Command<

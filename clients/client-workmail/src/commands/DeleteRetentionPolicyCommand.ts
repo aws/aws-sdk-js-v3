@@ -35,7 +35,7 @@ export interface DeleteRetentionPolicyCommandOutput extends DeleteRetentionPolic
  *
  * @see {@link DeleteRetentionPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteRetentionPolicyCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class DeleteRetentionPolicyCommand extends $Command<

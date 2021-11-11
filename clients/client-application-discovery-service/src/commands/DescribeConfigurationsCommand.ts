@@ -64,7 +64,7 @@ export interface DescribeConfigurationsCommandOutput extends DescribeConfigurati
  *
  * @see {@link DescribeConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationsCommandOutput} for command's `response` shape.
- * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  */
 export class DescribeConfigurationsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  *
  * @see {@link UpdateArchiveCommandInput} for command's `input` shape.
  * @see {@link UpdateArchiveCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class UpdateArchiveCommand extends $Command<

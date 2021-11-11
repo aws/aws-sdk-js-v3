@@ -42,7 +42,7 @@ export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse,
  *
  * @see {@link SendSSHPublicKeyCommandInput} for command's `input` shape.
  * @see {@link SendSSHPublicKeyCommandOutput} for command's `response` shape.
- * @see {@link EC2InstanceConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2InstanceConnectClientResolvedConfig | config} for EC2InstanceConnectClient's `config` shape.
  *
  */
 export class SendSSHPublicKeyCommand extends $Command<

@@ -32,7 +32,7 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  *
  * @see {@link GetJobRunCommandInput} for command's `input` shape.
  * @see {@link GetJobRunCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class GetJobRunCommand extends $Command<

@@ -36,7 +36,7 @@ export interface SearchContentCommandOutput extends SearchContentResponse, __Met
  *
  * @see {@link SearchContentCommandInput} for command's `input` shape.
  * @see {@link SearchContentCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
  *
  */
 export class SearchContentCommand extends $Command<

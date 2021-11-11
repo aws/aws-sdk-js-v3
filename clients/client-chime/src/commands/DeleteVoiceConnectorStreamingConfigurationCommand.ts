@@ -36,7 +36,7 @@ export interface DeleteVoiceConnectorStreamingConfigurationCommandOutput extends
  *
  * @see {@link DeleteVoiceConnectorStreamingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceConnectorStreamingConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class DeleteVoiceConnectorStreamingConfigurationCommand extends $Command<

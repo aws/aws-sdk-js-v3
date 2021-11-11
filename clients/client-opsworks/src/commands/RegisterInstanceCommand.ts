@@ -53,7 +53,7 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResult, _
  *
  * @see {@link RegisterInstanceCommandInput} for command's `input` shape.
  * @see {@link RegisterInstanceCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class RegisterInstanceCommand extends $Command<

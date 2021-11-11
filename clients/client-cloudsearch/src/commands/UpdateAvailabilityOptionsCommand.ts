@@ -35,7 +35,7 @@ export interface UpdateAvailabilityOptionsCommandOutput extends UpdateAvailabili
  *
  * @see {@link UpdateAvailabilityOptionsCommandInput} for command's `input` shape.
  * @see {@link UpdateAvailabilityOptionsCommandOutput} for command's `response` shape.
- * @see {@link CloudSearchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
  */
 export class UpdateAvailabilityOptionsCommand extends $Command<

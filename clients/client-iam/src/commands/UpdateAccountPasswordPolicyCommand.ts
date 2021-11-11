@@ -50,7 +50,7 @@ export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBear
  *
  * @see {@link UpdateAccountPasswordPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountPasswordPolicyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class UpdateAccountPasswordPolicyCommand extends $Command<

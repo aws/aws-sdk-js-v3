@@ -35,7 +35,7 @@ export interface DeleteRoomMembershipCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteRoomMembershipCommandInput} for command's `input` shape.
  * @see {@link DeleteRoomMembershipCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class DeleteRoomMembershipCommand extends $Command<

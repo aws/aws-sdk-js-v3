@@ -35,7 +35,7 @@ export interface ListBrokersCommandOutput extends ListBrokersResponse, __Metadat
  *
  * @see {@link ListBrokersCommandInput} for command's `input` shape.
  * @see {@link ListBrokersCommandOutput} for command's `response` shape.
- * @see {@link MqClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
  *
  */
 export class ListBrokersCommand extends $Command<

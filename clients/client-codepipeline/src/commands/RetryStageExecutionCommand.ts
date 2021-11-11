@@ -38,7 +38,7 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  *
  * @see {@link RetryStageExecutionCommandInput} for command's `input` shape.
  * @see {@link RetryStageExecutionCommandOutput} for command's `response` shape.
- * @see {@link CodePipelineClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  */
 export class RetryStageExecutionCommand extends $Command<

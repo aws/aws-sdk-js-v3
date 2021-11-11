@@ -59,7 +59,7 @@ export interface CreateChannelModeratorCommandOutput extends CreateChannelModera
  *
  * @see {@link CreateChannelModeratorCommandInput} for command's `input` shape.
  * @see {@link CreateChannelModeratorCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class CreateChannelModeratorCommand extends $Command<

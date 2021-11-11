@@ -41,7 +41,7 @@ export interface DescribeEffectiveInstanceAssociationsCommandOutput
  *
  * @see {@link DescribeEffectiveInstanceAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeEffectiveInstanceAssociationsCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class DescribeEffectiveInstanceAssociationsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetBranchCommandOutput extends GetBranchResult, __MetadataBeare
  *
  * @see {@link GetBranchCommandInput} for command's `input` shape.
  * @see {@link GetBranchCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  */
 export class GetBranchCommand extends $Command<

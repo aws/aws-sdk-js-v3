@@ -39,7 +39,7 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  *
  * @see {@link ListPipelinesCommandInput} for command's `input` shape.
  * @see {@link ListPipelinesCommandOutput} for command's `response` shape.
- * @see {@link ElasticTranscoderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
  *
  */
 export class ListPipelinesCommand extends $Command<

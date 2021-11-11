@@ -35,7 +35,7 @@ export interface GetMergeConflictsCommandOutput extends GetMergeConflictsOutput,
  *
  * @see {@link GetMergeConflictsCommandInput} for command's `input` shape.
  * @see {@link GetMergeConflictsCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  */
 export class GetMergeConflictsCommand extends $Command<

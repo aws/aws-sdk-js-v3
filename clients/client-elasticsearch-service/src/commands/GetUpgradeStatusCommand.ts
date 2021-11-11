@@ -39,7 +39,7 @@ export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse,
  *
  * @see {@link GetUpgradeStatusCommandInput} for command's `input` shape.
  * @see {@link GetUpgradeStatusCommandOutput} for command's `response` shape.
- * @see {@link ElasticsearchServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
  */
 export class GetUpgradeStatusCommand extends $Command<

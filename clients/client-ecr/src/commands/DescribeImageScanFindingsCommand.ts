@@ -35,7 +35,7 @@ export interface DescribeImageScanFindingsCommandOutput extends DescribeImageSca
  *
  * @see {@link DescribeImageScanFindingsCommandInput} for command's `input` shape.
  * @see {@link DescribeImageScanFindingsCommandOutput} for command's `response` shape.
- * @see {@link ECRClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  */
 export class DescribeImageScanFindingsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateAssessmentCommandOutput extends CreateAssessmentResponse,
  *
  * @see {@link CreateAssessmentCommandInput} for command's `input` shape.
  * @see {@link CreateAssessmentCommandOutput} for command's `response` shape.
- * @see {@link AuditManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  */
 export class CreateAssessmentCommand extends $Command<

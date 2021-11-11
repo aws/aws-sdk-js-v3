@@ -35,7 +35,7 @@ export interface CreateBranchCommandOutput extends CreateBranchResult, __Metadat
  *
  * @see {@link CreateBranchCommandInput} for command's `input` shape.
  * @see {@link CreateBranchCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  */
 export class CreateBranchCommand extends $Command<

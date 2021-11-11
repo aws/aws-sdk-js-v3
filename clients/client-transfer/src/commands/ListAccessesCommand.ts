@@ -35,7 +35,7 @@ export interface ListAccessesCommandOutput extends ListAccessesResponse, __Metad
  *
  * @see {@link ListAccessesCommandInput} for command's `input` shape.
  * @see {@link ListAccessesCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
 export class ListAccessesCommand extends $Command<

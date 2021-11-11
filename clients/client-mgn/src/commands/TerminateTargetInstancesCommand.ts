@@ -35,7 +35,7 @@ export interface TerminateTargetInstancesCommandOutput extends TerminateTargetIn
  *
  * @see {@link TerminateTargetInstancesCommandInput} for command's `input` shape.
  * @see {@link TerminateTargetInstancesCommandOutput} for command's `response` shape.
- * @see {@link MgnClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  */
 export class TerminateTargetInstancesCommand extends $Command<

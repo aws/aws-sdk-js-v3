@@ -41,7 +41,7 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  *
  * @see {@link ListPermissionsCommandInput} for command's `input` shape.
  * @see {@link ListPermissionsCommandOutput} for command's `response` shape.
- * @see {@link GrafanaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
  *
  */
 export class ListPermissionsCommand extends $Command<

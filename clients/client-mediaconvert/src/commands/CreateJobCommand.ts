@@ -35,7 +35,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *
  * @see {@link CreateJobCommandInput} for command's `input` shape.
  * @see {@link CreateJobCommandOutput} for command's `response` shape.
- * @see {@link MediaConvertClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
  *
  */
 export class CreateJobCommand extends $Command<

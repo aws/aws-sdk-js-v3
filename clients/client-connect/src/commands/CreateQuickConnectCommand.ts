@@ -35,7 +35,7 @@ export interface CreateQuickConnectCommandOutput extends CreateQuickConnectRespo
  *
  * @see {@link CreateQuickConnectCommandInput} for command's `input` shape.
  * @see {@link CreateQuickConnectCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class CreateQuickConnectCommand extends $Command<

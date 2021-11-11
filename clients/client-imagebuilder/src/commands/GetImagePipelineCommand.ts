@@ -35,7 +35,7 @@ export interface GetImagePipelineCommandOutput extends GetImagePipelineResponse,
  *
  * @see {@link GetImagePipelineCommandInput} for command's `input` shape.
  * @see {@link GetImagePipelineCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  */
 export class GetImagePipelineCommand extends $Command<

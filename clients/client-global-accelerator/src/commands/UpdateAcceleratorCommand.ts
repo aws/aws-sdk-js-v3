@@ -44,7 +44,7 @@ export interface UpdateAcceleratorCommandOutput extends UpdateAcceleratorRespons
  *
  * @see {@link UpdateAcceleratorCommandInput} for command's `input` shape.
  * @see {@link UpdateAcceleratorCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  */
 export class UpdateAcceleratorCommand extends $Command<

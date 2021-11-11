@@ -37,7 +37,7 @@ export interface PutMobileDeviceAccessOverrideCommandOutput
  *
  * @see {@link PutMobileDeviceAccessOverrideCommandInput} for command's `input` shape.
  * @see {@link PutMobileDeviceAccessOverrideCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class PutMobileDeviceAccessOverrideCommand extends $Command<

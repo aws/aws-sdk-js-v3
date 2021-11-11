@@ -38,7 +38,7 @@ export interface DeleteContactChannelCommandOutput extends DeleteContactChannelR
  *
  * @see {@link DeleteContactChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteContactChannelCommandOutput} for command's `response` shape.
- * @see {@link SSMContactsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
  */
 export class DeleteContactChannelCommand extends $Command<

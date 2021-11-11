@@ -38,7 +38,7 @@ export interface GetLogLevelsByResourceTypesCommandOutput
  *
  * @see {@link GetLogLevelsByResourceTypesCommandInput} for command's `input` shape.
  * @see {@link GetLogLevelsByResourceTypesCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class GetLogLevelsByResourceTypesCommand extends $Command<

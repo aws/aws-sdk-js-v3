@@ -58,7 +58,7 @@ export interface DeleteScriptCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteScriptCommandInput} for command's `input` shape.
  * @see {@link DeleteScriptCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class DeleteScriptCommand extends $Command<

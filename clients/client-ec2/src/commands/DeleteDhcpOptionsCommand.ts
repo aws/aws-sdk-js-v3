@@ -35,7 +35,7 @@ export interface DeleteDhcpOptionsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteDhcpOptionsCommandInput} for command's `input` shape.
  * @see {@link DeleteDhcpOptionsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DeleteDhcpOptionsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  *
  * @see {@link ListIndicesCommandInput} for command's `input` shape.
  * @see {@link ListIndicesCommandOutput} for command's `response` shape.
- * @see {@link KendraClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  */
 export class ListIndicesCommand extends $Command<

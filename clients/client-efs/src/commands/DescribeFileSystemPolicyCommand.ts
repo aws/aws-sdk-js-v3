@@ -36,7 +36,7 @@ export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyD
  *
  * @see {@link DescribeFileSystemPolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemPolicyCommandOutput} for command's `response` shape.
- * @see {@link EFSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  */
 export class DescribeFileSystemPolicyCommand extends $Command<

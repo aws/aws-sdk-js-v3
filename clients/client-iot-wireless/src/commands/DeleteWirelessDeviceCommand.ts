@@ -35,7 +35,7 @@ export interface DeleteWirelessDeviceCommandOutput extends DeleteWirelessDeviceR
  *
  * @see {@link DeleteWirelessDeviceCommandInput} for command's `input` shape.
  * @see {@link DeleteWirelessDeviceCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class DeleteWirelessDeviceCommand extends $Command<

@@ -43,7 +43,7 @@ export interface PutNotificationConfigurationCommandOutput extends __MetadataBea
  *
  * @see {@link PutNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutNotificationConfigurationCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class PutNotificationConfigurationCommand extends $Command<

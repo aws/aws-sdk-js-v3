@@ -36,7 +36,7 @@ export interface UpdateHttpNamespaceCommandOutput extends UpdateHttpNamespaceRes
  *
  * @see {@link UpdateHttpNamespaceCommandInput} for command's `input` shape.
  * @see {@link UpdateHttpNamespaceCommandOutput} for command's `response` shape.
- * @see {@link ServiceDiscoveryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  */
 export class UpdateHttpNamespaceCommand extends $Command<

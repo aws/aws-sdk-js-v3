@@ -75,7 +75,7 @@ export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockO
  *
  * @see {@link GetPublicAccessBlockCommandInput} for command's `input` shape.
  * @see {@link GetPublicAccessBlockCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  */
 export class GetPublicAccessBlockCommand extends $Command<

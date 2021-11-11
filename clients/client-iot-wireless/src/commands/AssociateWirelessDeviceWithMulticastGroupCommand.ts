@@ -41,7 +41,7 @@ export interface AssociateWirelessDeviceWithMulticastGroupCommandOutput
  *
  * @see {@link AssociateWirelessDeviceWithMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link AssociateWirelessDeviceWithMulticastGroupCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class AssociateWirelessDeviceWithMulticastGroupCommand extends $Command<

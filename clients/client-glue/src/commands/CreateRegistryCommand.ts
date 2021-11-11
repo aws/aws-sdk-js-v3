@@ -35,7 +35,7 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  *
  * @see {@link CreateRegistryCommandInput} for command's `input` shape.
  * @see {@link CreateRegistryCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class CreateRegistryCommand extends $Command<

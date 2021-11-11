@@ -35,7 +35,7 @@ export interface PutAppsListCommandOutput extends PutAppsListResponse, __Metadat
  *
  * @see {@link PutAppsListCommandInput} for command's `input` shape.
  * @see {@link PutAppsListCommandOutput} for command's `response` shape.
- * @see {@link FMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
  */
 export class PutAppsListCommand extends $Command<

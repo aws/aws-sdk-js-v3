@@ -38,7 +38,7 @@ export interface ListLocationsCommandOutput extends ListLocationsResponse, __Met
  *
  * @see {@link ListLocationsCommandInput} for command's `input` shape.
  * @see {@link ListLocationsCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  */
 export class ListLocationsCommand extends $Command<

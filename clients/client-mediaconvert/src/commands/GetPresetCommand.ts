@@ -35,7 +35,7 @@ export interface GetPresetCommandOutput extends GetPresetResponse, __MetadataBea
  *
  * @see {@link GetPresetCommandInput} for command's `input` shape.
  * @see {@link GetPresetCommandOutput} for command's `response` shape.
- * @see {@link MediaConvertClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
  *
  */
 export class GetPresetCommand extends $Command<

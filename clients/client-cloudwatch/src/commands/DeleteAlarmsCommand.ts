@@ -47,7 +47,7 @@ export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteAlarmsCommandInput} for command's `input` shape.
  * @see {@link DeleteAlarmsCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  */
 export class DeleteAlarmsCommand extends $Command<

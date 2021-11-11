@@ -35,7 +35,7 @@ export interface GetAppsListCommandOutput extends GetAppsListResponse, __Metadat
  *
  * @see {@link GetAppsListCommandInput} for command's `input` shape.
  * @see {@link GetAppsListCommandOutput} for command's `response` shape.
- * @see {@link FMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
  */
 export class GetAppsListCommand extends $Command<

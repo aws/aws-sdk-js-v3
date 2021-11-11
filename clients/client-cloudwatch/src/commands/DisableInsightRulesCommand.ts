@@ -36,7 +36,7 @@ export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOut
  *
  * @see {@link DisableInsightRulesCommandInput} for command's `input` shape.
  * @see {@link DisableInsightRulesCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  */
 export class DisableInsightRulesCommand extends $Command<

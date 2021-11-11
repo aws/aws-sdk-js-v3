@@ -35,7 +35,7 @@ export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, _
  *
  * @see {@link CheckoutLicenseCommandInput} for command's `input` shape.
  * @see {@link CheckoutLicenseCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class CheckoutLicenseCommand extends $Command<

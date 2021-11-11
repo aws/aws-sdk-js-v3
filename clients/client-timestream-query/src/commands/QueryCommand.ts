@@ -35,7 +35,7 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  *
  * @see {@link QueryCommandInput} for command's `input` shape.
  * @see {@link QueryCommandOutput} for command's `response` shape.
- * @see {@link TimestreamQueryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
  *
  */
 export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput, TimestreamQueryClientResolvedConfig> {

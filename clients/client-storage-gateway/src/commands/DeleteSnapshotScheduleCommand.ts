@@ -49,7 +49,7 @@ export interface DeleteSnapshotScheduleCommandOutput extends DeleteSnapshotSched
  *
  * @see {@link DeleteSnapshotScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotScheduleCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class DeleteSnapshotScheduleCommand extends $Command<

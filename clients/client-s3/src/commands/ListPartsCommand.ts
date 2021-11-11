@@ -77,7 +77,7 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  *
  * @see {@link ListPartsCommandInput} for command's `input` shape.
  * @see {@link ListPartsCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  */
 export class ListPartsCommand extends $Command<ListPartsCommandInput, ListPartsCommandOutput, S3ClientResolvedConfig> {

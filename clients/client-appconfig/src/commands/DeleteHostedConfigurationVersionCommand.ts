@@ -35,7 +35,7 @@ export interface DeleteHostedConfigurationVersionCommandOutput extends __Metadat
  *
  * @see {@link DeleteHostedConfigurationVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteHostedConfigurationVersionCommandOutput} for command's `response` shape.
- * @see {@link AppConfigClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
  */
 export class DeleteHostedConfigurationVersionCommand extends $Command<

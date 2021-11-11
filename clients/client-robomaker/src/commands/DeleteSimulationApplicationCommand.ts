@@ -37,7 +37,7 @@ export interface DeleteSimulationApplicationCommandOutput
  *
  * @see {@link DeleteSimulationApplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteSimulationApplicationCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class DeleteSimulationApplicationCommand extends $Command<

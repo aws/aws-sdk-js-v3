@@ -96,7 +96,7 @@ export interface StartConversationCommandOutput extends StartConversationRespons
  *
  * @see {@link StartConversationCommandInput} for command's `input` shape.
  * @see {@link StartConversationCommandOutput} for command's `response` shape.
- * @see {@link LexRuntimeV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.
  *
  */
 export class StartConversationCommand extends $Command<

@@ -39,7 +39,7 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  *
  * @see {@link GetApplicationCommandInput} for command's `input` shape.
  * @see {@link GetApplicationCommandOutput} for command's `response` shape.
- * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
  *
  */
 export class GetApplicationCommand extends $Command<

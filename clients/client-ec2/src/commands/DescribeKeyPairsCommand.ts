@@ -37,7 +37,7 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  *
  * @see {@link DescribeKeyPairsCommandInput} for command's `input` shape.
  * @see {@link DescribeKeyPairsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DescribeKeyPairsCommand extends $Command<

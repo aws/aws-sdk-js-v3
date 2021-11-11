@@ -42,7 +42,7 @@ export interface GetAggregateDiscoveredResourceCountsCommandOutput
  *
  * @see {@link GetAggregateDiscoveredResourceCountsCommandInput} for command's `input` shape.
  * @see {@link GetAggregateDiscoveredResourceCountsCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class GetAggregateDiscoveredResourceCountsCommand extends $Command<

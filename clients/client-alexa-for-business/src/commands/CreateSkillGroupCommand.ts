@@ -35,7 +35,7 @@ export interface CreateSkillGroupCommandOutput extends CreateSkillGroupResponse,
  *
  * @see {@link CreateSkillGroupCommandInput} for command's `input` shape.
  * @see {@link CreateSkillGroupCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class CreateSkillGroupCommand extends $Command<

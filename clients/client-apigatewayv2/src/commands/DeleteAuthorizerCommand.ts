@@ -35,7 +35,7 @@ export interface DeleteAuthorizerCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteAuthorizerCommandInput} for command's `input` shape.
  * @see {@link DeleteAuthorizerCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
  *
  */
 export class DeleteAuthorizerCommand extends $Command<

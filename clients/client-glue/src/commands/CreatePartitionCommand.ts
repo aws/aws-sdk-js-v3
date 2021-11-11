@@ -35,7 +35,7 @@ export interface CreatePartitionCommandOutput extends CreatePartitionResponse, _
  *
  * @see {@link CreatePartitionCommandInput} for command's `input` shape.
  * @see {@link CreatePartitionCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class CreatePartitionCommand extends $Command<

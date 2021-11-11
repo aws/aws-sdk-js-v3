@@ -46,7 +46,7 @@ export interface TestRoleCommandOutput extends TestRoleResponse, __MetadataBeare
  *
  * @see {@link TestRoleCommandInput} for command's `input` shape.
  * @see {@link TestRoleCommandOutput} for command's `response` shape.
- * @see {@link ElasticTranscoderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
  *
  */
 export class TestRoleCommand extends $Command<

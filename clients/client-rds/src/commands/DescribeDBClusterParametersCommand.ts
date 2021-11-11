@@ -42,7 +42,7 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  *
  * @see {@link DescribeDBClusterParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterParametersCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class DescribeDBClusterParametersCommand extends $Command<

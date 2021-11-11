@@ -32,7 +32,7 @@ export interface UpdateRoleCommandOutput extends UpdateRoleResponse, __MetadataB
  *
  * @see {@link UpdateRoleCommandInput} for command's `input` shape.
  * @see {@link UpdateRoleCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class UpdateRoleCommand extends $Command<

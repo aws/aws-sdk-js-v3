@@ -69,7 +69,7 @@ export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeCo
  *
  * @see {@link UpdateRuntimeConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateRuntimeConfigurationCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class UpdateRuntimeConfigurationCommand extends $Command<

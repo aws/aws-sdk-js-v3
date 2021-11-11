@@ -36,7 +36,7 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  *
  * @see {@link GetInvitationsCountCommandInput} for command's `input` shape.
  * @see {@link GetInvitationsCountCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
 export class GetInvitationsCountCommand extends $Command<

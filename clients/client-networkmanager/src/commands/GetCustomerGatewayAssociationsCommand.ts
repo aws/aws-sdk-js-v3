@@ -38,7 +38,7 @@ export interface GetCustomerGatewayAssociationsCommandOutput
  *
  * @see {@link GetCustomerGatewayAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetCustomerGatewayAssociationsCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class GetCustomerGatewayAssociationsCommand extends $Command<

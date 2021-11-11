@@ -35,7 +35,7 @@ export interface ListEulasCommandOutput extends ListEulasResponse, __MetadataBea
  *
  * @see {@link ListEulasCommandInput} for command's `input` shape.
  * @see {@link ListEulasCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
  *
  */
 export class ListEulasCommand extends $Command<

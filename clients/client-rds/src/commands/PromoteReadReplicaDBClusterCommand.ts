@@ -38,7 +38,7 @@ export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadRep
  *
  * @see {@link PromoteReadReplicaDBClusterCommandInput} for command's `input` shape.
  * @see {@link PromoteReadReplicaDBClusterCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class PromoteReadReplicaDBClusterCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteQueuedSavingsPlanCommandOutput extends DeleteQueuedSaving
  *
  * @see {@link DeleteQueuedSavingsPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteQueuedSavingsPlanCommandOutput} for command's `response` shape.
- * @see {@link SavingsplansClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.
  *
  */
 export class DeleteQueuedSavingsPlanCommand extends $Command<

@@ -42,7 +42,7 @@ export interface ListRecoveryPointsByResourceCommandOutput
  *
  * @see {@link ListRecoveryPointsByResourceCommandInput} for command's `input` shape.
  * @see {@link ListRecoveryPointsByResourceCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class ListRecoveryPointsByResourceCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  *
  * @see {@link GetWebACLForResourceCommandInput} for command's `input` shape.
  * @see {@link GetWebACLForResourceCommandOutput} for command's `response` shape.
- * @see {@link WAFV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
  *
  */
 export class GetWebACLForResourceCommand extends $Command<

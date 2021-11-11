@@ -39,7 +39,7 @@ export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class DeleteInstanceCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeSubscriptionCommandOutput extends DescribeSubscriptionR
  *
  * @see {@link DescribeSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DescribeSubscriptionCommandOutput} for command's `response` shape.
- * @see {@link ShieldClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  */
 export class DescribeSubscriptionCommand extends $Command<

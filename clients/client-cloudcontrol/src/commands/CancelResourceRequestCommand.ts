@@ -38,7 +38,7 @@ export interface CancelResourceRequestCommandOutput extends CancelResourceReques
  *
  * @see {@link CancelResourceRequestCommandInput} for command's `input` shape.
  * @see {@link CancelResourceRequestCommandOutput} for command's `response` shape.
- * @see {@link CloudControlClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
  *
  */
 export class CancelResourceRequestCommand extends $Command<

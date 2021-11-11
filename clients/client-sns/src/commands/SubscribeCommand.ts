@@ -37,7 +37,7 @@ export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBea
  *
  * @see {@link SubscribeCommandInput} for command's `input` shape.
  * @see {@link SubscribeCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  */
 export class SubscribeCommand extends $Command<SubscribeCommandInput, SubscribeCommandOutput, SNSClientResolvedConfig> {

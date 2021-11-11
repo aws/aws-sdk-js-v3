@@ -39,7 +39,7 @@ export interface ListNotificationRulesCommandOutput extends ListNotificationRule
  *
  * @see {@link ListNotificationRulesCommandInput} for command's `input` shape.
  * @see {@link ListNotificationRulesCommandOutput} for command's `response` shape.
- * @see {@link CodestarNotificationsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
  */
 export class ListNotificationRulesCommand extends $Command<

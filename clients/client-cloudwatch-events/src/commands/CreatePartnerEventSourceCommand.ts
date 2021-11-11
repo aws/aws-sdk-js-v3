@@ -58,7 +58,7 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  *
  * @see {@link CreatePartnerEventSourceCommandInput} for command's `input` shape.
  * @see {@link CreatePartnerEventSourceCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchEventsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  */
 export class CreatePartnerEventSourceCommand extends $Command<

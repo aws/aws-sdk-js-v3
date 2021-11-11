@@ -37,7 +37,7 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  *
  * @see {@link DescribeOrderableDBInstanceOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeOrderableDBInstanceOptionsCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class DescribeOrderableDBInstanceOptionsCommand extends $Command<

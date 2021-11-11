@@ -41,7 +41,7 @@ export interface CreateTransitGatewayMulticastDomainCommandOutput
  *
  * @see {@link CreateTransitGatewayMulticastDomainCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayMulticastDomainCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class CreateTransitGatewayMulticastDomainCommand extends $Command<

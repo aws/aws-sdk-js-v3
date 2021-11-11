@@ -35,7 +35,7 @@ export interface DeleteFolderCommandOutput extends DeleteFolderResponse, __Metad
  *
  * @see {@link DeleteFolderCommandInput} for command's `input` shape.
  * @see {@link DeleteFolderCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class DeleteFolderCommand extends $Command<

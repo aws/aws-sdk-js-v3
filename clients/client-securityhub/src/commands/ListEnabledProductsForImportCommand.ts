@@ -38,7 +38,7 @@ export interface ListEnabledProductsForImportCommandOutput
  *
  * @see {@link ListEnabledProductsForImportCommandInput} for command's `input` shape.
  * @see {@link ListEnabledProductsForImportCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
 export class ListEnabledProductsForImportCommand extends $Command<

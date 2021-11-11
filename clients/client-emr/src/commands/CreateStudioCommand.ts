@@ -35,7 +35,7 @@ export interface CreateStudioCommandOutput extends CreateStudioOutput, __Metadat
  *
  * @see {@link CreateStudioCommandInput} for command's `input` shape.
  * @see {@link CreateStudioCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class CreateStudioCommand extends $Command<

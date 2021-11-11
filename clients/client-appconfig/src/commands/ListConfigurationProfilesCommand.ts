@@ -35,7 +35,7 @@ export interface ListConfigurationProfilesCommandOutput extends ConfigurationPro
  *
  * @see {@link ListConfigurationProfilesCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationProfilesCommandOutput} for command's `response` shape.
- * @see {@link AppConfigClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
  */
 export class ListConfigurationProfilesCommand extends $Command<

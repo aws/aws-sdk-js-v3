@@ -35,7 +35,7 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
  *
  * @see {@link UpdateSubscriberCommandInput} for command's `input` shape.
  * @see {@link UpdateSubscriberCommandOutput} for command's `response` shape.
- * @see {@link BudgetsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
  *
  */
 export class UpdateSubscriberCommand extends $Command<

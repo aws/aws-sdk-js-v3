@@ -49,7 +49,7 @@ export interface CreateAccountAssignmentCommandOutput extends CreateAccountAssig
  *
  * @see {@link CreateAccountAssignmentCommandInput} for command's `input` shape.
  * @see {@link CreateAccountAssignmentCommandOutput} for command's `response` shape.
- * @see {@link SSOAdminClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
  *
  */
 export class CreateAccountAssignmentCommand extends $Command<

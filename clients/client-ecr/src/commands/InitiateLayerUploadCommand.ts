@@ -42,7 +42,7 @@ export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadRes
  *
  * @see {@link InitiateLayerUploadCommandInput} for command's `input` shape.
  * @see {@link InitiateLayerUploadCommandOutput} for command's `response` shape.
- * @see {@link ECRClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  */
 export class InitiateLayerUploadCommand extends $Command<

@@ -32,7 +32,7 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  *
  * @see {@link GetRoomCommandInput} for command's `input` shape.
  * @see {@link GetRoomCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class GetRoomCommand extends $Command<

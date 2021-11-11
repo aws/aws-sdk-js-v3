@@ -41,7 +41,7 @@ export interface AssociateDRTRoleCommandOutput extends AssociateDRTRoleResponse,
  *
  * @see {@link AssociateDRTRoleCommandInput} for command's `input` shape.
  * @see {@link AssociateDRTRoleCommandOutput} for command's `response` shape.
- * @see {@link ShieldClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  */
 export class AssociateDRTRoleCommand extends $Command<

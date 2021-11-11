@@ -35,7 +35,7 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsResul
  *
  * @see {@link ListMemberAccountsCommandInput} for command's `input` shape.
  * @see {@link ListMemberAccountsCommandOutput} for command's `response` shape.
- * @see {@link MacieClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
  *
  */
 export class ListMemberAccountsCommand extends $Command<

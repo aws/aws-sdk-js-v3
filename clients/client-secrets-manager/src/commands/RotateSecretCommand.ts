@@ -96,7 +96,7 @@ export interface RotateSecretCommandOutput extends RotateSecretResponse, __Metad
  *
  * @see {@link RotateSecretCommandInput} for command's `input` shape.
  * @see {@link RotateSecretCommandOutput} for command's `response` shape.
- * @see {@link SecretsManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
  */
 export class RotateSecretCommand extends $Command<

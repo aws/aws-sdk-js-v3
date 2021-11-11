@@ -36,7 +36,7 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  *
  * @see {@link CreateDeploymentCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  */
 export class CreateDeploymentCommand extends $Command<

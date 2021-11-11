@@ -35,7 +35,7 @@ export interface MergeBranchesByFastForwardCommandOutput extends MergeBranchesBy
  *
  * @see {@link MergeBranchesByFastForwardCommandInput} for command's `input` shape.
  * @see {@link MergeBranchesByFastForwardCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  */
 export class MergeBranchesByFastForwardCommand extends $Command<

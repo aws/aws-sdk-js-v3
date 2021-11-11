@@ -35,7 +35,7 @@ export interface CheckInLicenseCommandOutput extends CheckInLicenseResponse, __M
  *
  * @see {@link CheckInLicenseCommandInput} for command's `input` shape.
  * @see {@link CheckInLicenseCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class CheckInLicenseCommand extends $Command<

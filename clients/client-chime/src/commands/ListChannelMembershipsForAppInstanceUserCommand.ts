@@ -48,7 +48,7 @@ export interface ListChannelMembershipsForAppInstanceUserCommandOutput
  *
  * @see {@link ListChannelMembershipsForAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link ListChannelMembershipsForAppInstanceUserCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class ListChannelMembershipsForAppInstanceUserCommand extends $Command<

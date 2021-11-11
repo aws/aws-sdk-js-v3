@@ -90,7 +90,7 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  *
  * @see {@link RestoreTableToPointInTimeCommandInput} for command's `input` shape.
  * @see {@link RestoreTableToPointInTimeCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  */
 export class RestoreTableToPointInTimeCommand extends $Command<

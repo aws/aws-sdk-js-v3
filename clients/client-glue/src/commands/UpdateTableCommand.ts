@@ -35,7 +35,7 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *
  * @see {@link UpdateTableCommandInput} for command's `input` shape.
  * @see {@link UpdateTableCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class UpdateTableCommand extends $Command<

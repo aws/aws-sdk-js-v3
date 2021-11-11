@@ -35,7 +35,7 @@ export interface GetRouteResponseCommandOutput extends GetRouteResponseResponse,
  *
  * @see {@link GetRouteResponseCommandInput} for command's `input` shape.
  * @see {@link GetRouteResponseCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
  *
  */
 export class GetRouteResponseCommand extends $Command<

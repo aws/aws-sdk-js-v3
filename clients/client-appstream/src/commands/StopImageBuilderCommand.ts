@@ -35,7 +35,7 @@ export interface StopImageBuilderCommandOutput extends StopImageBuilderResult, _
  *
  * @see {@link StopImageBuilderCommandInput} for command's `input` shape.
  * @see {@link StopImageBuilderCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  */
 export class StopImageBuilderCommand extends $Command<

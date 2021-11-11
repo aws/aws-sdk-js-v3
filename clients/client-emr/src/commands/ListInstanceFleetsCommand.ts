@@ -39,7 +39,7 @@ export interface ListInstanceFleetsCommandOutput extends ListInstanceFleetsOutpu
  *
  * @see {@link ListInstanceFleetsCommandInput} for command's `input` shape.
  * @see {@link ListInstanceFleetsCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class ListInstanceFleetsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetDevicePoolCommandOutput extends GetDevicePoolResult, __Metad
  *
  * @see {@link GetDevicePoolCommandInput} for command's `input` shape.
  * @see {@link GetDevicePoolCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class GetDevicePoolCommand extends $Command<

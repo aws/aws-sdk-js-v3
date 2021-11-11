@@ -35,7 +35,7 @@ export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitatio
  *
  * @see {@link UpdateShareInvitationCommandInput} for command's `input` shape.
  * @see {@link UpdateShareInvitationCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  */
 export class UpdateShareInvitationCommand extends $Command<

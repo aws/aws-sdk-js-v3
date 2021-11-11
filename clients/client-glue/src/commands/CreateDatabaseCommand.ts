@@ -35,7 +35,7 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  *
  * @see {@link CreateDatabaseCommandInput} for command's `input` shape.
  * @see {@link CreateDatabaseCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class CreateDatabaseCommand extends $Command<

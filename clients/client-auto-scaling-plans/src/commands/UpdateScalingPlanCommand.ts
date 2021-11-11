@@ -37,7 +37,7 @@ export interface UpdateScalingPlanCommandOutput extends UpdateScalingPlanRespons
  *
  * @see {@link UpdateScalingPlanCommandInput} for command's `input` shape.
  * @see {@link UpdateScalingPlanCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingPlansClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.
  *
  */
 export class UpdateScalingPlanCommand extends $Command<

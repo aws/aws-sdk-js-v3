@@ -40,7 +40,7 @@ export interface UpdateCompanyNetworkConfigurationCommandOutput
  *
  * @see {@link UpdateCompanyNetworkConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateCompanyNetworkConfigurationCommandOutput} for command's `response` shape.
- * @see {@link WorkLinkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
  *
  */
 export class UpdateCompanyNetworkConfigurationCommand extends $Command<

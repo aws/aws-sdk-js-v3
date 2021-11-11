@@ -35,7 +35,7 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
  *
  * @see {@link UpdatePackageCommandInput} for command's `input` shape.
  * @see {@link UpdatePackageCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
 export class UpdatePackageCommand extends $Command<

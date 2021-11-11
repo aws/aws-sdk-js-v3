@@ -38,7 +38,7 @@ export interface ListGraphsCommandOutput extends ListGraphsResponse, __MetadataB
  *
  * @see {@link ListGraphsCommandInput} for command's `input` shape.
  * @see {@link ListGraphsCommandOutput} for command's `response` shape.
- * @see {@link DetectiveClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
  *
  */
 export class ListGraphsCommand extends $Command<

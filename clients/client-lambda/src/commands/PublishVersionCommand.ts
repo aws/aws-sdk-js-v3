@@ -43,7 +43,7 @@ export interface PublishVersionCommandOutput extends FunctionConfiguration, __Me
  *
  * @see {@link PublishVersionCommandInput} for command's `input` shape.
  * @see {@link PublishVersionCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
 export class PublishVersionCommand extends $Command<

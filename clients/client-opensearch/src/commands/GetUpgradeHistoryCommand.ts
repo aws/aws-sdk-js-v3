@@ -35,7 +35,7 @@ export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryRespons
  *
  * @see {@link GetUpgradeHistoryCommandInput} for command's `input` shape.
  * @see {@link GetUpgradeHistoryCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
 export class GetUpgradeHistoryCommand extends $Command<

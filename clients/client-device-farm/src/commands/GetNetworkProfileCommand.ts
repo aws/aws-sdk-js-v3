@@ -35,7 +35,7 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileResult,
  *
  * @see {@link GetNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link GetNetworkProfileCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class GetNetworkProfileCommand extends $Command<

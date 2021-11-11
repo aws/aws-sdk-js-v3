@@ -39,7 +39,7 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  *
  * @see {@link GreetingWithErrorsCommandInput} for command's `input` shape.
  * @see {@link GreetingWithErrorsCommandOutput} for command's `response` shape.
- * @see {@link QueryProtocolClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
  *
  */
 export class GreetingWithErrorsCommand extends $Command<

@@ -40,7 +40,7 @@ export interface DeleteFeatureGroupCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteFeatureGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteFeatureGroupCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DeleteFeatureGroupCommand extends $Command<

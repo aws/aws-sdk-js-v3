@@ -35,7 +35,7 @@ export interface GetRoutesCommandOutput extends GetRoutesResponse, __MetadataBea
  *
  * @see {@link GetRoutesCommandInput} for command's `input` shape.
  * @see {@link GetRoutesCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
  *
  */
 export class GetRoutesCommand extends $Command<

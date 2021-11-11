@@ -45,7 +45,7 @@ export interface PurchaseReservedNodeOfferingCommandOutput
  *
  * @see {@link PurchaseReservedNodeOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedNodeOfferingCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class PurchaseReservedNodeOfferingCommand extends $Command<

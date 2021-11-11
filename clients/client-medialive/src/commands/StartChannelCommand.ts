@@ -35,7 +35,7 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  *
  * @see {@link StartChannelCommandInput} for command's `input` shape.
  * @see {@link StartChannelCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  */
 export class StartChannelCommand extends $Command<

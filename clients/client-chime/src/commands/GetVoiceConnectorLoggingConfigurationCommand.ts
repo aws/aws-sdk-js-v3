@@ -41,7 +41,7 @@ export interface GetVoiceConnectorLoggingConfigurationCommandOutput
  *
  * @see {@link GetVoiceConnectorLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetVoiceConnectorLoggingConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class GetVoiceConnectorLoggingConfigurationCommand extends $Command<

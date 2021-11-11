@@ -35,7 +35,7 @@ export interface GetProductsCommandOutput extends GetProductsResponse, __Metadat
  *
  * @see {@link GetProductsCommandInput} for command's `input` shape.
  * @see {@link GetProductsCommandOutput} for command's `response` shape.
- * @see {@link PricingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
  *
  */
 export class GetProductsCommand extends $Command<

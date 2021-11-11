@@ -35,7 +35,7 @@ export interface GetCostForecastCommandOutput extends GetCostForecastResponse, _
  *
  * @see {@link GetCostForecastCommandInput} for command's `input` shape.
  * @see {@link GetCostForecastCommandOutput} for command's `response` shape.
- * @see {@link CostExplorerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  */
 export class GetCostForecastCommand extends $Command<

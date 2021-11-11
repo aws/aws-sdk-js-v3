@@ -39,7 +39,7 @@ export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __M
  *
  * @see {@link DescribeEntityCommandInput} for command's `input` shape.
  * @see {@link DescribeEntityCommandOutput} for command's `response` shape.
- * @see {@link MarketplaceCatalogClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
  *
  */
 export class DescribeEntityCommand extends $Command<

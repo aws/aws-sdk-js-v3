@@ -50,7 +50,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResult, __Metad
  *
  * @see {@link DeleteClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class DeleteClusterCommand extends $Command<

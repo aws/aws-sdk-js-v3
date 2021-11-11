@@ -52,7 +52,7 @@ export interface PutRawMessageContentCommandOutput extends PutRawMessageContentR
  *
  * @see {@link PutRawMessageContentCommandInput} for command's `input` shape.
  * @see {@link PutRawMessageContentCommandOutput} for command's `response` shape.
- * @see {@link WorkMailMessageFlowClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailMessageFlowClientResolvedConfig | config} for WorkMailMessageFlowClient's `config` shape.
  *
  */
 export class PutRawMessageContentCommand extends $Command<

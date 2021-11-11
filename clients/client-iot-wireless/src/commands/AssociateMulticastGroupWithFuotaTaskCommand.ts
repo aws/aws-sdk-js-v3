@@ -40,7 +40,7 @@ export interface AssociateMulticastGroupWithFuotaTaskCommandOutput
  *
  * @see {@link AssociateMulticastGroupWithFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link AssociateMulticastGroupWithFuotaTaskCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class AssociateMulticastGroupWithFuotaTaskCommand extends $Command<

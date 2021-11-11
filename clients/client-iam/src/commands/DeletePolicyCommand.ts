@@ -56,7 +56,7 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeletePolicyCommandInput} for command's `input` shape.
  * @see {@link DeletePolicyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class DeletePolicyCommand extends $Command<

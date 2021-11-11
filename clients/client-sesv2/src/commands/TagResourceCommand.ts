@@ -43,7 +43,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class TagResourceCommand extends $Command<

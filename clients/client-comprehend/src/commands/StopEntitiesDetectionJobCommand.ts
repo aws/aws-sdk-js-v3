@@ -44,7 +44,7 @@ export interface StopEntitiesDetectionJobCommandOutput extends StopEntitiesDetec
  *
  * @see {@link StopEntitiesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopEntitiesDetectionJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class StopEntitiesDetectionJobCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteBrokerCommandOutput extends DeleteBrokerResponse, __Metad
  *
  * @see {@link DeleteBrokerCommandInput} for command's `input` shape.
  * @see {@link DeleteBrokerCommandOutput} for command's `response` shape.
- * @see {@link MqClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
  *
  */
 export class DeleteBrokerCommand extends $Command<

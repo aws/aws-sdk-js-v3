@@ -37,7 +37,7 @@ export interface GetEvidenceByEvidenceFolderCommandOutput
  *
  * @see {@link GetEvidenceByEvidenceFolderCommandInput} for command's `input` shape.
  * @see {@link GetEvidenceByEvidenceFolderCommandOutput} for command's `response` shape.
- * @see {@link AuditManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  */
 export class GetEvidenceByEvidenceFolderCommand extends $Command<

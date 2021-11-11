@@ -35,7 +35,7 @@ export interface UpdateIntegrationCommandOutput extends Integration, __MetadataB
  *
  * @see {@link UpdateIntegrationCommandInput} for command's `input` shape.
  * @see {@link UpdateIntegrationCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class UpdateIntegrationCommand extends $Command<

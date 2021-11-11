@@ -35,7 +35,7 @@ export interface GetAnomalyGroupCommandOutput extends GetAnomalyGroupResponse, _
  *
  * @see {@link GetAnomalyGroupCommandInput} for command's `input` shape.
  * @see {@link GetAnomalyGroupCommandOutput} for command's `response` shape.
- * @see {@link LookoutMetricsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
  *
  */
 export class GetAnomalyGroupCommand extends $Command<

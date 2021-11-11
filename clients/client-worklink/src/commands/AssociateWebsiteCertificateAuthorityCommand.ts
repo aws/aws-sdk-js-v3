@@ -41,7 +41,7 @@ export interface AssociateWebsiteCertificateAuthorityCommandOutput
  *
  * @see {@link AssociateWebsiteCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link AssociateWebsiteCertificateAuthorityCommandOutput} for command's `response` shape.
- * @see {@link WorkLinkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
  *
  */
 export class AssociateWebsiteCertificateAuthorityCommand extends $Command<

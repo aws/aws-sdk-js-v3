@@ -35,7 +35,7 @@ export interface DescribeSuggestersCommandOutput extends DescribeSuggestersRespo
  *
  * @see {@link DescribeSuggestersCommandInput} for command's `input` shape.
  * @see {@link DescribeSuggestersCommandOutput} for command's `response` shape.
- * @see {@link CloudSearchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
  */
 export class DescribeSuggestersCommand extends $Command<

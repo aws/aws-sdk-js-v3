@@ -36,7 +36,7 @@ export interface DescribeFleetMetricCommandOutput extends DescribeFleetMetricRes
  *
  * @see {@link DescribeFleetMetricCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetMetricCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class DescribeFleetMetricCommand extends $Command<

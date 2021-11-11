@@ -35,7 +35,7 @@ export interface ListTokensCommandOutput extends ListTokensResponse, __MetadataB
  *
  * @see {@link ListTokensCommandInput} for command's `input` shape.
  * @see {@link ListTokensCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class ListTokensCommand extends $Command<

@@ -41,7 +41,7 @@ export interface DescribeConnectionsOnInterconnectCommandOutput extends Connecti
  *
  * @see {@link DescribeConnectionsOnInterconnectCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionsOnInterconnectCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class DescribeConnectionsOnInterconnectCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ReserveContactCommandOutput extends ContactIdResponse, __Metada
  *
  * @see {@link ReserveContactCommandInput} for command's `input` shape.
  * @see {@link ReserveContactCommandOutput} for command's `response` shape.
- * @see {@link GroundStationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
  *
  */
 export class ReserveContactCommand extends $Command<

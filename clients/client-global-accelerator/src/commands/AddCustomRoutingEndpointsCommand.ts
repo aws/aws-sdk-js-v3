@@ -49,7 +49,7 @@ export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRouting
  *
  * @see {@link AddCustomRoutingEndpointsCommandInput} for command's `input` shape.
  * @see {@link AddCustomRoutingEndpointsCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  */
 export class AddCustomRoutingEndpointsCommand extends $Command<

@@ -42,7 +42,7 @@ export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesRespo
  *
  * @see {@link GetCheckerIpRangesCommandInput} for command's `input` shape.
  * @see {@link GetCheckerIpRangesCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  */
 export class GetCheckerIpRangesCommand extends $Command<

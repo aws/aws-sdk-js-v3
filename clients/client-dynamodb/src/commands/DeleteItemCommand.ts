@@ -40,7 +40,7 @@ export interface DeleteItemCommandOutput extends DeleteItemOutput, __MetadataBea
  *
  * @see {@link DeleteItemCommandInput} for command's `input` shape.
  * @see {@link DeleteItemCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  */
 export class DeleteItemCommand extends $Command<

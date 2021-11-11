@@ -37,7 +37,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *
  * @see {@link UpdateClusterCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterCommandOutput} for command's `response` shape.
- * @see {@link DAXClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  */
 export class UpdateClusterCommand extends $Command<

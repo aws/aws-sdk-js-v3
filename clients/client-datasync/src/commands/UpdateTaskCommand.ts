@@ -35,7 +35,7 @@ export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataB
  *
  * @see {@link UpdateTaskCommandInput} for command's `input` shape.
  * @see {@link UpdateTaskCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  */
 export class UpdateTaskCommand extends $Command<

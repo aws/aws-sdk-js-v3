@@ -35,7 +35,7 @@ export interface ListRuleGroupsNamespacesCommandOutput extends ListRuleGroupsNam
  *
  * @see {@link ListRuleGroupsNamespacesCommandInput} for command's `input` shape.
  * @see {@link ListRuleGroupsNamespacesCommandOutput} for command's `response` shape.
- * @see {@link AmpClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
  *
  */
 export class ListRuleGroupsNamespacesCommand extends $Command<

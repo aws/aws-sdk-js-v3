@@ -35,7 +35,7 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
  *
  * @see {@link CancelStatementCommandInput} for command's `input` shape.
  * @see {@link CancelStatementCommandOutput} for command's `response` shape.
- * @see {@link RedshiftDataClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
  *
  */
 export class CancelStatementCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateFolderMembershipCommandOutput extends CreateFolderMembers
  *
  * @see {@link CreateFolderMembershipCommandInput} for command's `input` shape.
  * @see {@link CreateFolderMembershipCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class CreateFolderMembershipCommand extends $Command<

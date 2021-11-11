@@ -32,7 +32,7 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  *
  * @see {@link GetTagsCommandInput} for command's `input` shape.
  * @see {@link GetTagsCommandOutput} for command's `response` shape.
- * @see {@link CostExplorerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  */
 export class GetTagsCommand extends $Command<

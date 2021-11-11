@@ -35,7 +35,7 @@ export interface CreateResourceCommandOutput extends Resource, __MetadataBearer 
  *
  * @see {@link CreateResourceCommandInput} for command's `input` shape.
  * @see {@link CreateResourceCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class CreateResourceCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  *
  * @see {@link CancelJobRunCommandInput} for command's `input` shape.
  * @see {@link CancelJobRunCommandOutput} for command's `response` shape.
- * @see {@link EMRContainersClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
  *
  */
 export class CancelJobRunCommand extends $Command<

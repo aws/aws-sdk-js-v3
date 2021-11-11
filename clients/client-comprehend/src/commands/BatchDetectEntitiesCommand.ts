@@ -37,7 +37,7 @@ export interface BatchDetectEntitiesCommandOutput extends BatchDetectEntitiesRes
  *
  * @see {@link BatchDetectEntitiesCommandInput} for command's `input` shape.
  * @see {@link BatchDetectEntitiesCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class BatchDetectEntitiesCommand extends $Command<

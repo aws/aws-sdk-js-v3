@@ -35,7 +35,7 @@ export interface UpdateLensReviewCommandOutput extends UpdateLensReviewOutput, _
  *
  * @see {@link UpdateLensReviewCommandInput} for command's `input` shape.
  * @see {@link UpdateLensReviewCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  */
 export class UpdateLensReviewCommand extends $Command<

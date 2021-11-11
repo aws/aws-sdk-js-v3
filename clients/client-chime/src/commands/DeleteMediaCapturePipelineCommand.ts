@@ -35,7 +35,7 @@ export interface DeleteMediaCapturePipelineCommandOutput extends __MetadataBeare
  *
  * @see {@link DeleteMediaCapturePipelineCommandInput} for command's `input` shape.
  * @see {@link DeleteMediaCapturePipelineCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class DeleteMediaCapturePipelineCommand extends $Command<

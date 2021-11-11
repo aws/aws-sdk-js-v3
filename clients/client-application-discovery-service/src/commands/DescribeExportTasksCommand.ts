@@ -40,7 +40,7 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  *
  * @see {@link DescribeExportTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeExportTasksCommandOutput} for command's `response` shape.
- * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  */
 export class DescribeExportTasksCommand extends $Command<

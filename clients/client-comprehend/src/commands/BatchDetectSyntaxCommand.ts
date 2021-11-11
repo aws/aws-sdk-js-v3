@@ -36,7 +36,7 @@ export interface BatchDetectSyntaxCommandOutput extends BatchDetectSyntaxRespons
  *
  * @see {@link BatchDetectSyntaxCommandInput} for command's `input` shape.
  * @see {@link BatchDetectSyntaxCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class BatchDetectSyntaxCommand extends $Command<

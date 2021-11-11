@@ -45,7 +45,7 @@ export interface UpdateCertificateAuthorityCommandOutput extends __MetadataBeare
  *
  * @see {@link UpdateCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link UpdateCertificateAuthorityCommandOutput} for command's `response` shape.
- * @see {@link ACMPCAClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
  *
  */
 export class UpdateCertificateAuthorityCommand extends $Command<

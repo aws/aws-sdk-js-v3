@@ -35,7 +35,7 @@ export interface ListProfilePermissionsCommandOutput extends ListProfilePermissi
  *
  * @see {@link ListProfilePermissionsCommandInput} for command's `input` shape.
  * @see {@link ListProfilePermissionsCommandOutput} for command's `response` shape.
- * @see {@link SignerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
  *
  */
 export class ListProfilePermissionsCommand extends $Command<

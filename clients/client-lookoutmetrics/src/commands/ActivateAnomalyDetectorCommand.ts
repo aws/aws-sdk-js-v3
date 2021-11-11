@@ -35,7 +35,7 @@ export interface ActivateAnomalyDetectorCommandOutput extends ActivateAnomalyDet
  *
  * @see {@link ActivateAnomalyDetectorCommandInput} for command's `input` shape.
  * @see {@link ActivateAnomalyDetectorCommandOutput} for command's `response` shape.
- * @see {@link LookoutMetricsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
  *
  */
 export class ActivateAnomalyDetectorCommand extends $Command<

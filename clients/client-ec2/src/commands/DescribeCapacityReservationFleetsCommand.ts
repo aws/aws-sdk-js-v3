@@ -37,7 +37,7 @@ export interface DescribeCapacityReservationFleetsCommandOutput
  *
  * @see {@link DescribeCapacityReservationFleetsCommandInput} for command's `input` shape.
  * @see {@link DescribeCapacityReservationFleetsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DescribeCapacityReservationFleetsCommand extends $Command<

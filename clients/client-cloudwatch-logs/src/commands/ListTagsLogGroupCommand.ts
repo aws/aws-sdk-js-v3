@@ -35,7 +35,7 @@ export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse,
  *
  * @see {@link ListTagsLogGroupCommandInput} for command's `input` shape.
  * @see {@link ListTagsLogGroupCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchLogsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  */
 export class ListTagsLogGroupCommand extends $Command<

@@ -39,7 +39,7 @@ export interface DescribeTableCommandOutput extends DescribeTableResponse, __Met
  *
  * @see {@link DescribeTableCommandInput} for command's `input` shape.
  * @see {@link DescribeTableCommandOutput} for command's `response` shape.
- * @see {@link TimestreamWriteClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
  *
  */
 export class DescribeTableCommand extends $Command<

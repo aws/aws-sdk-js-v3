@@ -36,7 +36,7 @@ export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __M
  *
  * @see {@link DeleteArtifactCommandInput} for command's `input` shape.
  * @see {@link DeleteArtifactCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DeleteArtifactCommand extends $Command<

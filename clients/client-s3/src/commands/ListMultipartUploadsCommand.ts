@@ -86,7 +86,7 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  *
  * @see {@link ListMultipartUploadsCommandInput} for command's `input` shape.
  * @see {@link ListMultipartUploadsCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  */
 export class ListMultipartUploadsCommand extends $Command<

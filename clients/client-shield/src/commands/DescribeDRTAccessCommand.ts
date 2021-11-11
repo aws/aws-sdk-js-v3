@@ -35,7 +35,7 @@ export interface DescribeDRTAccessCommandOutput extends DescribeDRTAccessRespons
  *
  * @see {@link DescribeDRTAccessCommandInput} for command's `input` shape.
  * @see {@link DescribeDRTAccessCommandOutput} for command's `response` shape.
- * @see {@link ShieldClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  */
 export class DescribeDRTAccessCommand extends $Command<

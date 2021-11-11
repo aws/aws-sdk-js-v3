@@ -43,7 +43,7 @@ export interface DisassociateConnectionAliasCommandOutput extends DisassociateCo
  *
  * @see {@link DisassociateConnectionAliasCommandInput} for command's `input` shape.
  * @see {@link DisassociateConnectionAliasCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class DisassociateConnectionAliasCommand extends $Command<

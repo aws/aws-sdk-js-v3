@@ -35,7 +35,7 @@ export interface ListConfigsCommandOutput extends ListConfigsResponse, __Metadat
  *
  * @see {@link ListConfigsCommandInput} for command's `input` shape.
  * @see {@link ListConfigsCommandOutput} for command's `response` shape.
- * @see {@link GroundStationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
  *
  */
 export class ListConfigsCommand extends $Command<

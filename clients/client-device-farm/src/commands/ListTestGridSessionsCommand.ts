@@ -35,7 +35,7 @@ export interface ListTestGridSessionsCommandOutput extends ListTestGridSessionsR
  *
  * @see {@link ListTestGridSessionsCommandInput} for command's `input` shape.
  * @see {@link ListTestGridSessionsCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class ListTestGridSessionsCommand extends $Command<

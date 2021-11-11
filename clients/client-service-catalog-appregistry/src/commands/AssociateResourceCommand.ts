@@ -39,7 +39,7 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  *
  * @see {@link AssociateResourceCommandInput} for command's `input` shape.
  * @see {@link AssociateResourceCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
  *
  */
 export class AssociateResourceCommand extends $Command<

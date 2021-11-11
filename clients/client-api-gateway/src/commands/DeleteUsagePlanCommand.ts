@@ -35,7 +35,7 @@ export interface DeleteUsagePlanCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteUsagePlanCommandInput} for command's `input` shape.
  * @see {@link DeleteUsagePlanCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class DeleteUsagePlanCommand extends $Command<

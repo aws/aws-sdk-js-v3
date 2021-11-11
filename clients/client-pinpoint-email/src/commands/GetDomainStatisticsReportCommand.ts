@@ -36,7 +36,7 @@ export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatist
  *
  * @see {@link GetDomainStatisticsReportCommandInput} for command's `input` shape.
  * @see {@link GetDomainStatisticsReportCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  */
 export class GetDomainStatisticsReportCommand extends $Command<

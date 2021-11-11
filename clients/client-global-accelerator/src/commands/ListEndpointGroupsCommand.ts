@@ -39,7 +39,7 @@ export interface ListEndpointGroupsCommandOutput extends ListEndpointGroupsRespo
  *
  * @see {@link ListEndpointGroupsCommandInput} for command's `input` shape.
  * @see {@link ListEndpointGroupsCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  */
 export class ListEndpointGroupsCommand extends $Command<

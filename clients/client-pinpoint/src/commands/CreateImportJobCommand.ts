@@ -35,7 +35,7 @@ export interface CreateImportJobCommandOutput extends CreateImportJobResponse, _
  *
  * @see {@link CreateImportJobCommandInput} for command's `input` shape.
  * @see {@link CreateImportJobCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class CreateImportJobCommand extends $Command<

@@ -37,7 +37,7 @@ export interface UpdateDomainConfigurationCommandOutput extends UpdateDomainConf
  *
  * @see {@link UpdateDomainConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainConfigurationCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class UpdateDomainConfigurationCommand extends $Command<

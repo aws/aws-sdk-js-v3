@@ -54,7 +54,7 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *
  * @see {@link CreateModelPackageCommandInput} for command's `input` shape.
  * @see {@link CreateModelPackageCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class CreateModelPackageCommand extends $Command<

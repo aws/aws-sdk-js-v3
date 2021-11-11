@@ -143,7 +143,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *
  * @see {@link UpdateServiceCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  */
 export class UpdateServiceCommand extends $Command<

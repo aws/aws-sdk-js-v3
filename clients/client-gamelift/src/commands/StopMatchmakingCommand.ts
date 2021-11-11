@@ -64,7 +64,7 @@ export interface StopMatchmakingCommandOutput extends StopMatchmakingOutput, __M
  *
  * @see {@link StopMatchmakingCommandInput} for command's `input` shape.
  * @see {@link StopMatchmakingCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class StopMatchmakingCommand extends $Command<

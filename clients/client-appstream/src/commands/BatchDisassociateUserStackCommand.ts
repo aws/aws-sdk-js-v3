@@ -35,7 +35,7 @@ export interface BatchDisassociateUserStackCommandOutput extends BatchDisassocia
  *
  * @see {@link BatchDisassociateUserStackCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateUserStackCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  */
 export class BatchDisassociateUserStackCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
  *
  * @see {@link DescribeUserProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeUserProfileCommandOutput} for command's `response` shape.
- * @see {@link CodeStarClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
  *
  */
 export class DescribeUserProfileCommand extends $Command<

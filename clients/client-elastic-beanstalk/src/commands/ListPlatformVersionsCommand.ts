@@ -39,7 +39,7 @@ export interface ListPlatformVersionsCommandOutput extends ListPlatformVersionsR
  *
  * @see {@link ListPlatformVersionsCommandInput} for command's `input` shape.
  * @see {@link ListPlatformVersionsCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  */
 export class ListPlatformVersionsCommand extends $Command<

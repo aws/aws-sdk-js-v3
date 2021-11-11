@@ -38,7 +38,7 @@ export interface DeleteQuerySuggestionsBlockListCommandOutput extends __Metadata
  *
  * @see {@link DeleteQuerySuggestionsBlockListCommandInput} for command's `input` shape.
  * @see {@link DeleteQuerySuggestionsBlockListCommandOutput} for command's `response` shape.
- * @see {@link KendraClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  */
 export class DeleteQuerySuggestionsBlockListCommand extends $Command<

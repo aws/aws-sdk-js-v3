@@ -35,7 +35,7 @@ export interface ListDevicePoolsCommandOutput extends ListDevicePoolsResult, __M
  *
  * @see {@link ListDevicePoolsCommandInput} for command's `input` shape.
  * @see {@link ListDevicePoolsCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class ListDevicePoolsCommand extends $Command<

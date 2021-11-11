@@ -43,7 +43,7 @@ export interface ListGeoMatchSetsCommandOutput extends ListGeoMatchSetsResponse,
  *
  * @see {@link ListGeoMatchSetsCommandInput} for command's `input` shape.
  * @see {@link ListGeoMatchSetsCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  */
 export class ListGeoMatchSetsCommand extends $Command<

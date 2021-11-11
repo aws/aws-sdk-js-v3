@@ -43,7 +43,7 @@ export interface GetByteMatchSetCommandOutput extends GetByteMatchSetResponse, _
  *
  * @see {@link GetByteMatchSetCommandInput} for command's `input` shape.
  * @see {@link GetByteMatchSetCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  */
 export class GetByteMatchSetCommand extends $Command<

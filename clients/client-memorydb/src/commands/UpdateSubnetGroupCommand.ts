@@ -36,7 +36,7 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  *
  * @see {@link UpdateSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateSubnetGroupCommandOutput} for command's `response` shape.
- * @see {@link MemoryDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  */
 export class UpdateSubnetGroupCommand extends $Command<

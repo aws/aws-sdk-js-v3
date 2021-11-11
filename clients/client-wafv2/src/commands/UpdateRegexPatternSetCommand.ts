@@ -38,7 +38,7 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  *
  * @see {@link UpdateRegexPatternSetCommandInput} for command's `input` shape.
  * @see {@link UpdateRegexPatternSetCommandOutput} for command's `response` shape.
- * @see {@link WAFV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
  *
  */
 export class UpdateRegexPatternSetCommand extends $Command<

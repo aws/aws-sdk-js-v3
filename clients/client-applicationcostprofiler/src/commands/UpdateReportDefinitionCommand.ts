@@ -39,7 +39,7 @@ export interface UpdateReportDefinitionCommandOutput extends UpdateReportDefinit
  *
  * @see {@link UpdateReportDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateReportDefinitionCommandOutput} for command's `response` shape.
- * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.
  *
  */
 export class UpdateReportDefinitionCommand extends $Command<

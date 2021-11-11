@@ -41,7 +41,7 @@ export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupName
  *
  * @see {@link ResetDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ResetDBParameterGroupCommandOutput} for command's `response` shape.
- * @see {@link NeptuneClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  */
 export class ResetDBParameterGroupCommand extends $Command<

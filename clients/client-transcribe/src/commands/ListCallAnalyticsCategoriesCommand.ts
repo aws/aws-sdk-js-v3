@@ -39,7 +39,7 @@ export interface ListCallAnalyticsCategoriesCommandOutput
  *
  * @see {@link ListCallAnalyticsCategoriesCommandInput} for command's `input` shape.
  * @see {@link ListCallAnalyticsCategoriesCommandOutput} for command's `response` shape.
- * @see {@link TranscribeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  */
 export class ListCallAnalyticsCategoriesCommand extends $Command<

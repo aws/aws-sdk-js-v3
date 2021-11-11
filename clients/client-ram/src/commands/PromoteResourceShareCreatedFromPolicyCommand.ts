@@ -53,7 +53,7 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput
  *
  * @see {@link PromoteResourceShareCreatedFromPolicyCommandInput} for command's `input` shape.
  * @see {@link PromoteResourceShareCreatedFromPolicyCommandOutput} for command's `response` shape.
- * @see {@link RAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  */
 export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<

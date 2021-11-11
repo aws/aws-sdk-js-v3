@@ -171,7 +171,7 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  *
  * @see {@link GenerateOrganizationsAccessReportCommandInput} for command's `input` shape.
  * @see {@link GenerateOrganizationsAccessReportCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class GenerateOrganizationsAccessReportCommand extends $Command<

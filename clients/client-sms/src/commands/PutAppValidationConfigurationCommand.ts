@@ -37,7 +37,7 @@ export interface PutAppValidationConfigurationCommandOutput
  *
  * @see {@link PutAppValidationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutAppValidationConfigurationCommandOutput} for command's `response` shape.
- * @see {@link SMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
  *
  */
 export class PutAppValidationConfigurationCommand extends $Command<

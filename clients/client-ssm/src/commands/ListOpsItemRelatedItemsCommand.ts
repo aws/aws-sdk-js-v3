@@ -36,7 +36,7 @@ export interface ListOpsItemRelatedItemsCommandOutput extends ListOpsItemRelated
  *
  * @see {@link ListOpsItemRelatedItemsCommandInput} for command's `input` shape.
  * @see {@link ListOpsItemRelatedItemsCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class ListOpsItemRelatedItemsCommand extends $Command<

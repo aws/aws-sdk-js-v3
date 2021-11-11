@@ -38,7 +38,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  *
  * @see {@link GetDataSourceCommandInput} for command's `input` shape.
  * @see {@link GetDataSourceCommandOutput} for command's `response` shape.
- * @see {@link MachineLearningClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  */
 export class GetDataSourceCommand extends $Command<

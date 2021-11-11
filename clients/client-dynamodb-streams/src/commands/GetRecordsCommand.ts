@@ -45,7 +45,7 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  *
  * @see {@link GetRecordsCommandInput} for command's `input` shape.
  * @see {@link GetRecordsCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBStreamsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.
  *
  */
 export class GetRecordsCommand extends $Command<

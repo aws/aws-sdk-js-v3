@@ -37,7 +37,7 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResult, __M
  *
  * @see {@link DescribeProjectCommandInput} for command's `input` shape.
  * @see {@link DescribeProjectCommandOutput} for command's `response` shape.
- * @see {@link MobileClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.
  *
  */
 export class DescribeProjectCommand extends $Command<

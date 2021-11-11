@@ -36,7 +36,7 @@ export interface GetResourcesCommandOutput extends GetResourcesResponse, __Metad
  *
  * @see {@link GetResourcesCommandInput} for command's `input` shape.
  * @see {@link GetResourcesCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class GetResourcesCommand extends $Command<

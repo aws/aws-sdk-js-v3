@@ -41,7 +41,7 @@ export interface RegisterDefaultPatchBaselineCommandOutput
  *
  * @see {@link RegisterDefaultPatchBaselineCommandInput} for command's `input` shape.
  * @see {@link RegisterDefaultPatchBaselineCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class RegisterDefaultPatchBaselineCommand extends $Command<

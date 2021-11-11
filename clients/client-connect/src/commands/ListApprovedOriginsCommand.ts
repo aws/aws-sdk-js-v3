@@ -36,7 +36,7 @@ export interface ListApprovedOriginsCommandOutput extends ListApprovedOriginsRes
  *
  * @see {@link ListApprovedOriginsCommandInput} for command's `input` shape.
  * @see {@link ListApprovedOriginsCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class ListApprovedOriginsCommand extends $Command<

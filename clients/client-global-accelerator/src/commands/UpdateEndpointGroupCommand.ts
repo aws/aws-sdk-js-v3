@@ -39,7 +39,7 @@ export interface UpdateEndpointGroupCommandOutput extends UpdateEndpointGroupRes
  *
  * @see {@link UpdateEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointGroupCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  */
 export class UpdateEndpointGroupCommand extends $Command<

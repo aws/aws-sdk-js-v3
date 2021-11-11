@@ -54,7 +54,7 @@ export interface DeleteAccessPointForObjectLambdaCommandOutput extends __Metadat
  *
  * @see {@link DeleteAccessPointForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessPointForObjectLambdaCommandOutput} for command's `response` shape.
- * @see {@link S3ControlClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  */
 export class DeleteAccessPointForObjectLambdaCommand extends $Command<

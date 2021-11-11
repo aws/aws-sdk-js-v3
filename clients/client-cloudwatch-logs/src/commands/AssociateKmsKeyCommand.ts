@@ -47,7 +47,7 @@ export interface AssociateKmsKeyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AssociateKmsKeyCommandInput} for command's `input` shape.
  * @see {@link AssociateKmsKeyCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchLogsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  */
 export class AssociateKmsKeyCommand extends $Command<

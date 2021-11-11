@@ -35,7 +35,7 @@ export interface ResetPasswordCommandOutput extends ResetPasswordResponse, __Met
  *
  * @see {@link ResetPasswordCommandInput} for command's `input` shape.
  * @see {@link ResetPasswordCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class ResetPasswordCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeBotVersionCommandOutput extends DescribeBotVersionRespo
  *
  * @see {@link DescribeBotVersionCommandInput} for command's `input` shape.
  * @see {@link DescribeBotVersionCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  */
 export class DescribeBotVersionCommand extends $Command<

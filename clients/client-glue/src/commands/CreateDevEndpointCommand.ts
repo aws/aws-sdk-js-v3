@@ -35,7 +35,7 @@ export interface CreateDevEndpointCommandOutput extends CreateDevEndpointRespons
  *
  * @see {@link CreateDevEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateDevEndpointCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class CreateDevEndpointCommand extends $Command<

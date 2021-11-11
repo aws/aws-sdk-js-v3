@@ -35,7 +35,7 @@ export interface ListInstalledComponentsCommandOutput extends ListInstalledCompo
  *
  * @see {@link ListInstalledComponentsCommandInput} for command's `input` shape.
  * @see {@link ListInstalledComponentsCommandOutput} for command's `response` shape.
- * @see {@link GreengrassV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
  *
  */
 export class ListInstalledComponentsCommand extends $Command<

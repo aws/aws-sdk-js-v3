@@ -40,7 +40,7 @@ export interface GetDetectorModelAnalysisResultsCommandOutput
  *
  * @see {@link GetDetectorModelAnalysisResultsCommandInput} for command's `input` shape.
  * @see {@link GetDetectorModelAnalysisResultsCommandOutput} for command's `response` shape.
- * @see {@link IoTEventsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
  *
  */
 export class GetDetectorModelAnalysisResultsCommand extends $Command<

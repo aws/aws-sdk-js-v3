@@ -35,7 +35,7 @@ export interface UpdateTypeCommandOutput extends UpdateTypeResponse, __MetadataB
  *
  * @see {@link UpdateTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateTypeCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  */
 export class UpdateTypeCommand extends $Command<

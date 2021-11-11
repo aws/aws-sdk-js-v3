@@ -44,7 +44,7 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  *
  * @see {@link DisassociateFromAdministratorAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateFromAdministratorAccountCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
 export class DisassociateFromAdministratorAccountCommand extends $Command<

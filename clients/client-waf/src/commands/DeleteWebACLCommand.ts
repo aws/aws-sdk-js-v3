@@ -56,7 +56,7 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  *
  * @see {@link DeleteWebACLCommandInput} for command's `input` shape.
  * @see {@link DeleteWebACLCommandOutput} for command's `response` shape.
- * @see {@link WAFClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
  */
 export class DeleteWebACLCommand extends $Command<

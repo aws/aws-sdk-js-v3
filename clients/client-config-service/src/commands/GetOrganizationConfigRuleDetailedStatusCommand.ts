@@ -41,7 +41,7 @@ export interface GetOrganizationConfigRuleDetailedStatusCommandOutput
  *
  * @see {@link GetOrganizationConfigRuleDetailedStatusCommandInput} for command's `input` shape.
  * @see {@link GetOrganizationConfigRuleDetailedStatusCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command<

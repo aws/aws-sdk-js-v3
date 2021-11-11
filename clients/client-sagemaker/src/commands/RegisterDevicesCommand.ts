@@ -35,7 +35,7 @@ export interface RegisterDevicesCommandOutput extends __MetadataBearer {}
  *
  * @see {@link RegisterDevicesCommandInput} for command's `input` shape.
  * @see {@link RegisterDevicesCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class RegisterDevicesCommand extends $Command<

@@ -37,7 +37,7 @@ export interface AddResourcePermissionsCommandOutput extends AddResourcePermissi
  *
  * @see {@link AddResourcePermissionsCommandInput} for command's `input` shape.
  * @see {@link AddResourcePermissionsCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class AddResourcePermissionsCommand extends $Command<

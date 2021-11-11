@@ -36,7 +36,7 @@ export interface ListTopicRulesCommandOutput extends ListTopicRulesResponse, __M
  *
  * @see {@link ListTopicRulesCommandInput} for command's `input` shape.
  * @see {@link ListTopicRulesCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class ListTopicRulesCommand extends $Command<

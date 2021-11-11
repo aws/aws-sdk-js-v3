@@ -35,7 +35,7 @@ export interface UpdateStreamingImageCommandOutput extends UpdateStreamingImageR
  *
  * @see {@link UpdateStreamingImageCommandInput} for command's `input` shape.
  * @see {@link UpdateStreamingImageCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
  *
  */
 export class UpdateStreamingImageCommand extends $Command<

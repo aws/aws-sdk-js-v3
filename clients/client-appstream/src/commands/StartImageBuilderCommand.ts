@@ -35,7 +35,7 @@ export interface StartImageBuilderCommandOutput extends StartImageBuilderResult,
  *
  * @see {@link StartImageBuilderCommandInput} for command's `input` shape.
  * @see {@link StartImageBuilderCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  */
 export class StartImageBuilderCommand extends $Command<

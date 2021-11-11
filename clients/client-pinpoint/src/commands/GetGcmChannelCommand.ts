@@ -35,7 +35,7 @@ export interface GetGcmChannelCommandOutput extends GetGcmChannelResponse, __Met
  *
  * @see {@link GetGcmChannelCommandInput} for command's `input` shape.
  * @see {@link GetGcmChannelCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class GetGcmChannelCommand extends $Command<

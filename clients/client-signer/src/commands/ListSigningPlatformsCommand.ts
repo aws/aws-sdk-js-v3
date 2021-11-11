@@ -41,7 +41,7 @@ export interface ListSigningPlatformsCommandOutput extends ListSigningPlatformsR
  *
  * @see {@link ListSigningPlatformsCommandInput} for command's `input` shape.
  * @see {@link ListSigningPlatformsCommandOutput} for command's `response` shape.
- * @see {@link SignerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
  *
  */
 export class ListSigningPlatformsCommand extends $Command<

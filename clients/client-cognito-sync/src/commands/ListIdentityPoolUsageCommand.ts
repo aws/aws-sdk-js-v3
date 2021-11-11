@@ -93,7 +93,7 @@ export interface ListIdentityPoolUsageCommandOutput extends ListIdentityPoolUsag
  *
  * @see {@link ListIdentityPoolUsageCommandInput} for command's `input` shape.
  * @see {@link ListIdentityPoolUsageCommandOutput} for command's `response` shape.
- * @see {@link CognitoSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
  *
  */
 export class ListIdentityPoolUsageCommand extends $Command<

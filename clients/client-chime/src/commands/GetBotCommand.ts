@@ -32,7 +32,7 @@ export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
  *
  * @see {@link GetBotCommandInput} for command's `input` shape.
  * @see {@link GetBotCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class GetBotCommand extends $Command<GetBotCommandInput, GetBotCommandOutput, ChimeClientResolvedConfig> {

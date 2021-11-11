@@ -39,7 +39,7 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  *
  * @see {@link GetConnectionCommandInput} for command's `input` shape.
  * @see {@link GetConnectionCommandOutput} for command's `response` shape.
- * @see {@link CodeStarConnectionsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
  *
  */
 export class GetConnectionCommand extends $Command<

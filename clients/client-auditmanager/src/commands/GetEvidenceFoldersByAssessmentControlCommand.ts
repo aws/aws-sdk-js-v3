@@ -42,7 +42,7 @@ export interface GetEvidenceFoldersByAssessmentControlCommandOutput
  *
  * @see {@link GetEvidenceFoldersByAssessmentControlCommandInput} for command's `input` shape.
  * @see {@link GetEvidenceFoldersByAssessmentControlCommandOutput} for command's `response` shape.
- * @see {@link AuditManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  */
 export class GetEvidenceFoldersByAssessmentControlCommand extends $Command<

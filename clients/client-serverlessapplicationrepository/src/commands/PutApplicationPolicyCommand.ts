@@ -42,7 +42,7 @@ export interface PutApplicationPolicyCommandOutput extends PutApplicationPolicyR
  *
  * @see {@link PutApplicationPolicyCommandInput} for command's `input` shape.
  * @see {@link PutApplicationPolicyCommandOutput} for command's `response` shape.
- * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
  *
  */
 export class PutApplicationPolicyCommand extends $Command<

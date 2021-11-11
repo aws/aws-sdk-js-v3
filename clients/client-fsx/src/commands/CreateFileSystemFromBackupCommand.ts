@@ -71,7 +71,7 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  *
  * @see {@link CreateFileSystemFromBackupCommandInput} for command's `input` shape.
  * @see {@link CreateFileSystemFromBackupCommandOutput} for command's `response` shape.
- * @see {@link FSxClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  */
 export class CreateFileSystemFromBackupCommand extends $Command<

@@ -41,7 +41,7 @@ export interface UpdateInfrastructureConfigurationCommandOutput
  *
  * @see {@link UpdateInfrastructureConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateInfrastructureConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  */
 export class UpdateInfrastructureConfigurationCommand extends $Command<

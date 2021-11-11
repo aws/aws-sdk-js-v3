@@ -46,7 +46,7 @@ export interface ListIdentityPoliciesCommandOutput extends ListIdentityPoliciesR
  *
  * @see {@link ListIdentityPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListIdentityPoliciesCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class ListIdentityPoliciesCommand extends $Command<

@@ -39,7 +39,7 @@ export interface UpdateChannelFlowCommandOutput extends UpdateChannelFlowRespons
  *
  * @see {@link UpdateChannelFlowCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelFlowCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  */
 export class UpdateChannelFlowCommand extends $Command<

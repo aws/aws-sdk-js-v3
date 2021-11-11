@@ -35,7 +35,7 @@ export interface DeleteDetectorCommandOutput extends DeleteDetectorResponse, __M
  *
  * @see {@link DeleteDetectorCommandInput} for command's `input` shape.
  * @see {@link DeleteDetectorCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  */
 export class DeleteDetectorCommand extends $Command<

@@ -40,7 +40,7 @@ export interface ListAutomaticTapeCreationPoliciesCommandOutput
  *
  * @see {@link ListAutomaticTapeCreationPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListAutomaticTapeCreationPoliciesCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class ListAutomaticTapeCreationPoliciesCommand extends $Command<

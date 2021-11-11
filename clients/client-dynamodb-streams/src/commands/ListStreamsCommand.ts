@@ -40,7 +40,7 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  *
  * @see {@link ListStreamsCommandInput} for command's `input` shape.
  * @see {@link ListStreamsCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBStreamsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.
  *
  */
 export class ListStreamsCommand extends $Command<

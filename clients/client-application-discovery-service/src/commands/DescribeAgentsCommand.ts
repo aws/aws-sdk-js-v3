@@ -41,7 +41,7 @@ export interface DescribeAgentsCommandOutput extends DescribeAgentsResponse, __M
  *
  * @see {@link DescribeAgentsCommandInput} for command's `input` shape.
  * @see {@link DescribeAgentsCommandOutput} for command's `response` shape.
- * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  */
 export class DescribeAgentsCommand extends $Command<

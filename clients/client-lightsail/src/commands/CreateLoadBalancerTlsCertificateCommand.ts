@@ -41,7 +41,7 @@ export interface CreateLoadBalancerTlsCertificateCommandOutput
  *
  * @see {@link CreateLoadBalancerTlsCertificateCommandInput} for command's `input` shape.
  * @see {@link CreateLoadBalancerTlsCertificateCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class CreateLoadBalancerTlsCertificateCommand extends $Command<

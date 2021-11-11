@@ -50,7 +50,7 @@ export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AddTagsToCertificateCommandInput} for command's `input` shape.
  * @see {@link AddTagsToCertificateCommandOutput} for command's `response` shape.
- * @see {@link ACMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  */
 export class AddTagsToCertificateCommand extends $Command<

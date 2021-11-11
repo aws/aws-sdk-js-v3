@@ -35,7 +35,7 @@ export interface CreateRealtimeEndpointCommandOutput extends CreateRealtimeEndpo
  *
  * @see {@link CreateRealtimeEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateRealtimeEndpointCommandOutput} for command's `response` shape.
- * @see {@link MachineLearningClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  */
 export class CreateRealtimeEndpointCommand extends $Command<

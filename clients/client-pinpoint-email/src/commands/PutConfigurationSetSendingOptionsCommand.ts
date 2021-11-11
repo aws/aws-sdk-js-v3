@@ -41,7 +41,7 @@ export interface PutConfigurationSetSendingOptionsCommandOutput
  *
  * @see {@link PutConfigurationSetSendingOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetSendingOptionsCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  */
 export class PutConfigurationSetSendingOptionsCommand extends $Command<

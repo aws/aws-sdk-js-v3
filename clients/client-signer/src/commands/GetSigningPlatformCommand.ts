@@ -35,7 +35,7 @@ export interface GetSigningPlatformCommandOutput extends GetSigningPlatformRespo
  *
  * @see {@link GetSigningPlatformCommandInput} for command's `input` shape.
  * @see {@link GetSigningPlatformCommandOutput} for command's `response` shape.
- * @see {@link SignerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
  *
  */
 export class GetSigningPlatformCommand extends $Command<

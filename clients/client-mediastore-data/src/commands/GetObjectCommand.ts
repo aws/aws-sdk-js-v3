@@ -35,7 +35,7 @@ export interface GetObjectCommandOutput extends GetObjectResponse, __MetadataBea
  *
  * @see {@link GetObjectCommandInput} for command's `input` shape.
  * @see {@link GetObjectCommandOutput} for command's `response` shape.
- * @see {@link MediaStoreDataClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaStoreDataClientResolvedConfig | config} for MediaStoreDataClient's `config` shape.
  *
  */
 export class GetObjectCommand extends $Command<

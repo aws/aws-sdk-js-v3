@@ -35,7 +35,7 @@ export interface CreateOutboundConnectionCommandOutput extends CreateOutboundCon
  *
  * @see {@link CreateOutboundConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateOutboundConnectionCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
 export class CreateOutboundConnectionCommand extends $Command<

@@ -36,7 +36,7 @@ export interface SendAnnouncementCommandOutput extends SendAnnouncementResponse,
  *
  * @see {@link SendAnnouncementCommandInput} for command's `input` shape.
  * @see {@link SendAnnouncementCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class SendAnnouncementCommand extends $Command<

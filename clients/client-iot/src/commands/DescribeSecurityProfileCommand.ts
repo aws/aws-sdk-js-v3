@@ -36,7 +36,7 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  *
  * @see {@link DescribeSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityProfileCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class DescribeSecurityProfileCommand extends $Command<

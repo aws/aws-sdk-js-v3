@@ -35,7 +35,7 @@ export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __M
  *
  * @see {@link DescribeAttackCommandInput} for command's `input` shape.
  * @see {@link DescribeAttackCommandOutput} for command's `response` shape.
- * @see {@link ShieldClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  */
 export class DescribeAttackCommand extends $Command<

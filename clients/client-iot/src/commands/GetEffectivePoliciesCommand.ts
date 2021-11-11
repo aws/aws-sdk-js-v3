@@ -37,7 +37,7 @@ export interface GetEffectivePoliciesCommandOutput extends GetEffectivePoliciesR
  *
  * @see {@link GetEffectivePoliciesCommandInput} for command's `input` shape.
  * @see {@link GetEffectivePoliciesCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class GetEffectivePoliciesCommand extends $Command<

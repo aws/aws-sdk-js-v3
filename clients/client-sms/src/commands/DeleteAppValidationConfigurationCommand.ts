@@ -37,7 +37,7 @@ export interface DeleteAppValidationConfigurationCommandOutput
  *
  * @see {@link DeleteAppValidationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAppValidationConfigurationCommandOutput} for command's `response` shape.
- * @see {@link SMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
  *
  */
 export class DeleteAppValidationConfigurationCommand extends $Command<

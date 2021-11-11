@@ -51,7 +51,7 @@ export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAd
  *
  * @see {@link CreateAppInstanceAdminCommandInput} for command's `input` shape.
  * @see {@link CreateAppInstanceAdminCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
  *
  */
 export class CreateAppInstanceAdminCommand extends $Command<

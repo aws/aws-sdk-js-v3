@@ -35,7 +35,7 @@ export interface GetStaticIpCommandOutput extends GetStaticIpResult, __MetadataB
  *
  * @see {@link GetStaticIpCommandInput} for command's `input` shape.
  * @see {@link GetStaticIpCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class GetStaticIpCommand extends $Command<

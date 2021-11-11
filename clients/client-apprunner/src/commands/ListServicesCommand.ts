@@ -35,7 +35,7 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  *
  * @see {@link ListServicesCommandInput} for command's `input` shape.
  * @see {@link ListServicesCommandOutput} for command's `response` shape.
- * @see {@link AppRunnerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
  *
  */
 export class ListServicesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  *
  * @see {@link PutProfileObjectTypeCommandInput} for command's `input` shape.
  * @see {@link PutProfileObjectTypeCommandOutput} for command's `response` shape.
- * @see {@link CustomerProfilesClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  */
 export class PutProfileObjectTypeCommand extends $Command<

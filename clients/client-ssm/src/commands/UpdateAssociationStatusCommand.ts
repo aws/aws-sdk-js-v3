@@ -40,7 +40,7 @@ export interface UpdateAssociationStatusCommandOutput extends UpdateAssociationS
  *
  * @see {@link UpdateAssociationStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateAssociationStatusCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class UpdateAssociationStatusCommand extends $Command<

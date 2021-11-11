@@ -35,7 +35,7 @@ export interface ListDocumentVersionsCommandOutput extends ListDocumentVersionsR
  *
  * @see {@link ListDocumentVersionsCommandInput} for command's `input` shape.
  * @see {@link ListDocumentVersionsCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class ListDocumentVersionsCommand extends $Command<

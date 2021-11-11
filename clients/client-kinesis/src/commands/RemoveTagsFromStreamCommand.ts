@@ -40,7 +40,7 @@ export interface RemoveTagsFromStreamCommandOutput extends __MetadataBearer {}
  *
  * @see {@link RemoveTagsFromStreamCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromStreamCommandOutput} for command's `response` shape.
- * @see {@link KinesisClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  */
 export class RemoveTagsFromStreamCommand extends $Command<

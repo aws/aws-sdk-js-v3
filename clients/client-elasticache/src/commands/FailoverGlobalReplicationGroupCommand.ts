@@ -37,7 +37,7 @@ export interface FailoverGlobalReplicationGroupCommandOutput
  *
  * @see {@link FailoverGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link FailoverGlobalReplicationGroupCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class FailoverGlobalReplicationGroupCommand extends $Command<

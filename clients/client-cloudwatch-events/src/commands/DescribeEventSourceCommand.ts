@@ -36,7 +36,7 @@ export interface DescribeEventSourceCommandOutput extends DescribeEventSourceRes
  *
  * @see {@link DescribeEventSourceCommandInput} for command's `input` shape.
  * @see {@link DescribeEventSourceCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchEventsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  */
 export class DescribeEventSourceCommand extends $Command<

@@ -39,7 +39,7 @@ export interface DeleteRecoveryGroupCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteRecoveryGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteRecoveryGroupCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
  *
  */
 export class DeleteRecoveryGroupCommand extends $Command<

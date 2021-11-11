@@ -40,7 +40,7 @@ export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __Met
  *
  * @see {@link DeleteTrackerCommandInput} for command's `input` shape.
  * @see {@link DeleteTrackerCommandOutput} for command's `response` shape.
- * @see {@link LocationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  */
 export class DeleteTrackerCommand extends $Command<

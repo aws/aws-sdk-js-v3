@@ -41,7 +41,7 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
  *
  * @see {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput} for command's `input` shape.
  * @see {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput} for command's `response` shape.
- * @see {@link ServiceQuotasClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
  *
  */
 export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Command<

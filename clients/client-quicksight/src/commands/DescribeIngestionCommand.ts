@@ -35,7 +35,7 @@ export interface DescribeIngestionCommandOutput extends DescribeIngestionRespons
  *
  * @see {@link DescribeIngestionCommandInput} for command's `input` shape.
  * @see {@link DescribeIngestionCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class DescribeIngestionCommand extends $Command<

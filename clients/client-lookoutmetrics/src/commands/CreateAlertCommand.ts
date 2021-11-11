@@ -35,7 +35,7 @@ export interface CreateAlertCommandOutput extends CreateAlertResponse, __Metadat
  *
  * @see {@link CreateAlertCommandInput} for command's `input` shape.
  * @see {@link CreateAlertCommandOutput} for command's `response` shape.
- * @see {@link LookoutMetricsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
  *
  */
 export class CreateAlertCommand extends $Command<

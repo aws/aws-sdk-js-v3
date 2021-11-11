@@ -40,7 +40,7 @@ export interface RegisterTargetWithMaintenanceWindowCommandOutput
  *
  * @see {@link RegisterTargetWithMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link RegisterTargetWithMaintenanceWindowCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class RegisterTargetWithMaintenanceWindowCommand extends $Command<

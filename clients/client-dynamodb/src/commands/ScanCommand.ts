@@ -56,7 +56,7 @@ export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
  *
  * @see {@link ScanCommandInput} for command's `input` shape.
  * @see {@link ScanCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  */
 export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, DynamoDBClientResolvedConfig> {

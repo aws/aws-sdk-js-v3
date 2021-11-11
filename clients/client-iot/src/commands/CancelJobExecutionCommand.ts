@@ -36,7 +36,7 @@ export interface CancelJobExecutionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link CancelJobExecutionCommandInput} for command's `input` shape.
  * @see {@link CancelJobExecutionCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class CancelJobExecutionCommand extends $Command<

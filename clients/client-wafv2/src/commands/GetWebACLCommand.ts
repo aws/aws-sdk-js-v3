@@ -32,7 +32,7 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  *
  * @see {@link GetWebACLCommandInput} for command's `input` shape.
  * @see {@link GetWebACLCommandOutput} for command's `response` shape.
- * @see {@link WAFV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
  *
  */
 export class GetWebACLCommand extends $Command<

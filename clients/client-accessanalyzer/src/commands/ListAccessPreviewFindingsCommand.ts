@@ -36,7 +36,7 @@ export interface ListAccessPreviewFindingsCommandOutput extends ListAccessPrevie
  *
  * @see {@link ListAccessPreviewFindingsCommandInput} for command's `input` shape.
  * @see {@link ListAccessPreviewFindingsCommandOutput} for command's `response` shape.
- * @see {@link AccessAnalyzerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  */
 export class ListAccessPreviewFindingsCommand extends $Command<

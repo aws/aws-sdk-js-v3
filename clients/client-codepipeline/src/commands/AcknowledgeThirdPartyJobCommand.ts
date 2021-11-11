@@ -36,7 +36,7 @@ export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdP
  *
  * @see {@link AcknowledgeThirdPartyJobCommandInput} for command's `input` shape.
  * @see {@link AcknowledgeThirdPartyJobCommandOutput} for command's `response` shape.
- * @see {@link CodePipelineClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  */
 export class AcknowledgeThirdPartyJobCommand extends $Command<

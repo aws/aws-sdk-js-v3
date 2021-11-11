@@ -35,7 +35,7 @@ export interface PutWorkflowRunPropertiesCommandOutput extends PutWorkflowRunPro
  *
  * @see {@link PutWorkflowRunPropertiesCommandInput} for command's `input` shape.
  * @see {@link PutWorkflowRunPropertiesCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class PutWorkflowRunPropertiesCommand extends $Command<

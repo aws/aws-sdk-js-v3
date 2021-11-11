@@ -37,7 +37,7 @@ export interface PutImageRecipePolicyCommandOutput extends PutImageRecipePolicyR
  *
  * @see {@link PutImageRecipePolicyCommandInput} for command's `input` shape.
  * @see {@link PutImageRecipePolicyCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  */
 export class PutImageRecipePolicyCommand extends $Command<

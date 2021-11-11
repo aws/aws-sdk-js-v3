@@ -35,7 +35,7 @@ export interface GetRegistryCatalogDataCommandOutput extends GetRegistryCatalogD
  *
  * @see {@link GetRegistryCatalogDataCommandInput} for command's `input` shape.
  * @see {@link GetRegistryCatalogDataCommandOutput} for command's `response` shape.
- * @see {@link ECRPUBLICClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
  *
  */
 export class GetRegistryCatalogDataCommand extends $Command<

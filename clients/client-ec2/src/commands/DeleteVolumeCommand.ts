@@ -36,7 +36,7 @@ export interface DeleteVolumeCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteVolumeCommandInput} for command's `input` shape.
  * @see {@link DeleteVolumeCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DeleteVolumeCommand extends $Command<

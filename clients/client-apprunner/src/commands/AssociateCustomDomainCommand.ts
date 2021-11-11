@@ -39,7 +39,7 @@ export interface AssociateCustomDomainCommandOutput extends AssociateCustomDomai
  *
  * @see {@link AssociateCustomDomainCommandInput} for command's `input` shape.
  * @see {@link AssociateCustomDomainCommandOutput} for command's `response` shape.
- * @see {@link AppRunnerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
  *
  */
 export class AssociateCustomDomainCommand extends $Command<

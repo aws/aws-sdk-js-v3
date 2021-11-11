@@ -40,7 +40,7 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
  *
  * @see {@link PutConfigurationSetDeliveryOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetDeliveryOptionsCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class PutConfigurationSetDeliveryOptionsCommand extends $Command<

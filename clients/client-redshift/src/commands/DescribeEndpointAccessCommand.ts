@@ -35,7 +35,7 @@ export interface DescribeEndpointAccessCommandOutput extends EndpointAccessList,
  *
  * @see {@link DescribeEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointAccessCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class DescribeEndpointAccessCommand extends $Command<

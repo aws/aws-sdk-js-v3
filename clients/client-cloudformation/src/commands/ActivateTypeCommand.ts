@@ -38,7 +38,7 @@ export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __Metadat
  *
  * @see {@link ActivateTypeCommandInput} for command's `input` shape.
  * @see {@link ActivateTypeCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  */
 export class ActivateTypeCommand extends $Command<

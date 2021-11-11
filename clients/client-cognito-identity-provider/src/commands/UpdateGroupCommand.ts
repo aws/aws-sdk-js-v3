@@ -41,7 +41,7 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  *
  * @see {@link UpdateGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class UpdateGroupCommand extends $Command<

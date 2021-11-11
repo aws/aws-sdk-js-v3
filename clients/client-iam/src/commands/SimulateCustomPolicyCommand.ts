@@ -51,7 +51,7 @@ export interface SimulateCustomPolicyCommandOutput extends SimulatePolicyRespons
  *
  * @see {@link SimulateCustomPolicyCommandInput} for command's `input` shape.
  * @see {@link SimulateCustomPolicyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class SimulateCustomPolicyCommand extends $Command<

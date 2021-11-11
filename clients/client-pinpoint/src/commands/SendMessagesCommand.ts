@@ -35,7 +35,7 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  *
  * @see {@link SendMessagesCommandInput} for command's `input` shape.
  * @see {@link SendMessagesCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class SendMessagesCommand extends $Command<

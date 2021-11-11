@@ -60,7 +60,7 @@ export interface RegisterScalableTargetCommandOutput extends RegisterScalableTar
  *
  * @see {@link RegisterScalableTargetCommandInput} for command's `input` shape.
  * @see {@link RegisterScalableTargetCommandOutput} for command's `response` shape.
- * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
  */
 export class RegisterScalableTargetCommand extends $Command<

@@ -36,7 +36,7 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResult, __M
  *
  * @see {@link StartDeploymentCommandInput} for command's `input` shape.
  * @see {@link StartDeploymentCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  */
 export class StartDeploymentCommand extends $Command<

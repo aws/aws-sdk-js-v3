@@ -35,7 +35,7 @@ export interface UpdateBotCommandOutput extends UpdateBotResponse, __MetadataBea
  *
  * @see {@link UpdateBotCommandInput} for command's `input` shape.
  * @see {@link UpdateBotCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class UpdateBotCommand extends $Command<

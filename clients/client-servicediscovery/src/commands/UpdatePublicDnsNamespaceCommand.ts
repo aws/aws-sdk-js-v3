@@ -36,7 +36,7 @@ export interface UpdatePublicDnsNamespaceCommandOutput extends UpdatePublicDnsNa
  *
  * @see {@link UpdatePublicDnsNamespaceCommandInput} for command's `input` shape.
  * @see {@link UpdatePublicDnsNamespaceCommandOutput} for command's `response` shape.
- * @see {@link ServiceDiscoveryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  */
 export class UpdatePublicDnsNamespaceCommand extends $Command<

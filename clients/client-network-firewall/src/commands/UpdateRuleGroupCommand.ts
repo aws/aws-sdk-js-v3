@@ -40,7 +40,7 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *
  * @see {@link UpdateRuleGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateRuleGroupCommandOutput} for command's `response` shape.
- * @see {@link NetworkFirewallClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  */
 export class UpdateRuleGroupCommand extends $Command<

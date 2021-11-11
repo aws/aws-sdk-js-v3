@@ -43,7 +43,7 @@ export interface PutInstancePublicPortsCommandOutput extends PutInstancePublicPo
  *
  * @see {@link PutInstancePublicPortsCommandInput} for command's `input` shape.
  * @see {@link PutInstancePublicPortsCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class PutInstancePublicPortsCommand extends $Command<

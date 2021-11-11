@@ -41,7 +41,7 @@ export interface UpdateCustomRoutingAcceleratorCommandOutput
  *
  * @see {@link UpdateCustomRoutingAcceleratorCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomRoutingAcceleratorCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  */
 export class UpdateCustomRoutingAcceleratorCommand extends $Command<

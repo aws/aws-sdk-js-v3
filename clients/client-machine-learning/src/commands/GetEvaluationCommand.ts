@@ -35,7 +35,7 @@ export interface GetEvaluationCommandOutput extends GetEvaluationOutput, __Metad
  *
  * @see {@link GetEvaluationCommandInput} for command's `input` shape.
  * @see {@link GetEvaluationCommandOutput} for command's `response` shape.
- * @see {@link MachineLearningClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  */
 export class GetEvaluationCommand extends $Command<

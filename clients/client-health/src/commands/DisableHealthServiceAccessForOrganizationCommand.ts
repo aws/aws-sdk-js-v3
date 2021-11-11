@@ -48,7 +48,7 @@ export interface DisableHealthServiceAccessForOrganizationCommandOutput extends 
  *
  * @see {@link DisableHealthServiceAccessForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DisableHealthServiceAccessForOrganizationCommandOutput} for command's `response` shape.
- * @see {@link HealthClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
  */
 export class DisableHealthServiceAccessForOrganizationCommand extends $Command<

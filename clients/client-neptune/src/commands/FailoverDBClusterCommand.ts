@@ -42,7 +42,7 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  *
  * @see {@link FailoverDBClusterCommandInput} for command's `input` shape.
  * @see {@link FailoverDBClusterCommandOutput} for command's `response` shape.
- * @see {@link NeptuneClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  */
 export class FailoverDBClusterCommand extends $Command<

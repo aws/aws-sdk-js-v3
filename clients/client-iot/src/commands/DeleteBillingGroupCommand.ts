@@ -36,7 +36,7 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupRespo
  *
  * @see {@link DeleteBillingGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteBillingGroupCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class DeleteBillingGroupCommand extends $Command<

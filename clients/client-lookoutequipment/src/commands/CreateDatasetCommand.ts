@@ -38,7 +38,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *
  * @see {@link CreateDatasetCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetCommandOutput} for command's `response` shape.
- * @see {@link LookoutEquipmentClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
  *
  */
 export class CreateDatasetCommand extends $Command<

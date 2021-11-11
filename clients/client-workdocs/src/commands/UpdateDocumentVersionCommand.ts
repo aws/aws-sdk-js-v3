@@ -38,7 +38,7 @@ export interface UpdateDocumentVersionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateDocumentVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateDocumentVersionCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class UpdateDocumentVersionCommand extends $Command<

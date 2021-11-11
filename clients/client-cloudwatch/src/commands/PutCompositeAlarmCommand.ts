@@ -70,7 +70,7 @@ export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PutCompositeAlarmCommandInput} for command's `input` shape.
  * @see {@link PutCompositeAlarmCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  */
 export class PutCompositeAlarmCommand extends $Command<

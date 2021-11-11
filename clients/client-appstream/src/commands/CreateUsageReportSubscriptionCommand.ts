@@ -37,7 +37,7 @@ export interface CreateUsageReportSubscriptionCommandOutput
  *
  * @see {@link CreateUsageReportSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateUsageReportSubscriptionCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  */
 export class CreateUsageReportSubscriptionCommand extends $Command<

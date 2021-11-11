@@ -37,7 +37,7 @@ export interface DeleteEventTypeCommandOutput extends DeleteEventTypeResult, __M
  *
  * @see {@link DeleteEventTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteEventTypeCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class DeleteEventTypeCommand extends $Command<

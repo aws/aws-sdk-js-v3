@@ -37,7 +37,7 @@ export interface CreateIntegrationAssociationCommandOutput
  *
  * @see {@link CreateIntegrationAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateIntegrationAssociationCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class CreateIntegrationAssociationCommand extends $Command<

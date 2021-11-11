@@ -48,7 +48,7 @@ export interface CreateBucketAccessKeyCommandOutput extends CreateBucketAccessKe
  *
  * @see {@link CreateBucketAccessKeyCommandInput} for command's `input` shape.
  * @see {@link CreateBucketAccessKeyCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class CreateBucketAccessKeyCommand extends $Command<

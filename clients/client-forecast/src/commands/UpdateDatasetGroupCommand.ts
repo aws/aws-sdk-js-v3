@@ -40,7 +40,7 @@ export interface UpdateDatasetGroupCommandOutput extends UpdateDatasetGroupRespo
  *
  * @see {@link UpdateDatasetGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateDatasetGroupCommandOutput} for command's `response` shape.
- * @see {@link ForecastClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  */
 export class UpdateDatasetGroupCommand extends $Command<

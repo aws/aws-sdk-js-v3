@@ -35,7 +35,7 @@ export interface DescribeTagOptionCommandOutput extends DescribeTagOptionOutput,
  *
  * @see {@link DescribeTagOptionCommandInput} for command's `input` shape.
  * @see {@link DescribeTagOptionCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class DescribeTagOptionCommand extends $Command<

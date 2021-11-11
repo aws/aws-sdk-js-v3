@@ -41,7 +41,7 @@ export interface AssociateSigninDelegateGroupsWithAccountCommandOutput
  *
  * @see {@link AssociateSigninDelegateGroupsWithAccountCommandInput} for command's `input` shape.
  * @see {@link AssociateSigninDelegateGroupsWithAccountCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class AssociateSigninDelegateGroupsWithAccountCommand extends $Command<

@@ -45,7 +45,7 @@ export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuo
  *
  * @see {@link DescribeContinuousBackupsCommandInput} for command's `input` shape.
  * @see {@link DescribeContinuousBackupsCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  */
 export class DescribeContinuousBackupsCommand extends $Command<

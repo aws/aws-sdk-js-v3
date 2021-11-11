@@ -75,7 +75,7 @@ export interface GetMediaForFragmentListCommandOutput extends GetMediaForFragmen
  *
  * @see {@link GetMediaForFragmentListCommandInput} for command's `input` shape.
  * @see {@link GetMediaForFragmentListCommandOutput} for command's `response` shape.
- * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.
  *
  */
 export class GetMediaForFragmentListCommand extends $Command<

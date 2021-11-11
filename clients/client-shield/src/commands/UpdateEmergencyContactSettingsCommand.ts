@@ -37,7 +37,7 @@ export interface UpdateEmergencyContactSettingsCommandOutput
  *
  * @see {@link UpdateEmergencyContactSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateEmergencyContactSettingsCommandOutput} for command's `response` shape.
- * @see {@link ShieldClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  */
 export class UpdateEmergencyContactSettingsCommand extends $Command<

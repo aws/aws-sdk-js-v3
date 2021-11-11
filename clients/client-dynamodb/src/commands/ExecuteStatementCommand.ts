@@ -37,7 +37,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  *
  * @see {@link ExecuteStatementCommandInput} for command's `input` shape.
  * @see {@link ExecuteStatementCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  */
 export class ExecuteStatementCommand extends $Command<

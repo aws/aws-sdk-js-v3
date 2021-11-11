@@ -33,7 +33,7 @@ export interface UntagPolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UntagPolicyCommandInput} for command's `input` shape.
  * @see {@link UntagPolicyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class UntagPolicyCommand extends $Command<

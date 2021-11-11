@@ -35,7 +35,7 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  *
  * @see {@link ListWorkspacesCommandInput} for command's `input` shape.
  * @see {@link ListWorkspacesCommandOutput} for command's `response` shape.
- * @see {@link AmpClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
  *
  */
 export class ListWorkspacesCommand extends $Command<

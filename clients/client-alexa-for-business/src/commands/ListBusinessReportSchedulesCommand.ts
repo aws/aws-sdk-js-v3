@@ -37,7 +37,7 @@ export interface ListBusinessReportSchedulesCommandOutput
  *
  * @see {@link ListBusinessReportSchedulesCommandInput} for command's `input` shape.
  * @see {@link ListBusinessReportSchedulesCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class ListBusinessReportSchedulesCommand extends $Command<

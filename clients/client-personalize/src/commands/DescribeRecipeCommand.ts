@@ -53,7 +53,7 @@ export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __M
  *
  * @see {@link DescribeRecipeCommandInput} for command's `input` shape.
  * @see {@link DescribeRecipeCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  */
 export class DescribeRecipeCommand extends $Command<

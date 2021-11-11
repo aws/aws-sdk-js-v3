@@ -42,7 +42,7 @@ export interface GetLambdaFunctionRecommendationsCommandOutput
  *
  * @see {@link GetLambdaFunctionRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetLambdaFunctionRecommendationsCommandOutput} for command's `response` shape.
- * @see {@link ComputeOptimizerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
  *
  */
 export class GetLambdaFunctionRecommendationsCommand extends $Command<

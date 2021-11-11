@@ -42,7 +42,7 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  *
  * @see {@link SetSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link SetSecurityGroupsCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  */
 export class SetSecurityGroupsCommand extends $Command<

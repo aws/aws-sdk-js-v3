@@ -37,7 +37,7 @@ export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __Metad
  *
  * @see {@link GetActionTypeCommandInput} for command's `input` shape.
  * @see {@link GetActionTypeCommandOutput} for command's `response` shape.
- * @see {@link CodePipelineClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  */
 export class GetActionTypeCommand extends $Command<

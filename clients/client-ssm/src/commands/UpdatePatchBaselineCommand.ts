@@ -40,7 +40,7 @@ export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineRes
  *
  * @see {@link UpdatePatchBaselineCommandInput} for command's `input` shape.
  * @see {@link UpdatePatchBaselineCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class UpdatePatchBaselineCommand extends $Command<

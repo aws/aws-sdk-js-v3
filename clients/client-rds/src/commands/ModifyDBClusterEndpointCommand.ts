@@ -39,7 +39,7 @@ export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  *
  * @see {@link ModifyDBClusterEndpointCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterEndpointCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class ModifyDBClusterEndpointCommand extends $Command<

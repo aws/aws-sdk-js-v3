@@ -44,7 +44,7 @@ export interface GetCustomVerificationEmailTemplateCommandOutput
  *
  * @see {@link GetCustomVerificationEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link GetCustomVerificationEmailTemplateCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class GetCustomVerificationEmailTemplateCommand extends $Command<

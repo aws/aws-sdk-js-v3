@@ -35,7 +35,7 @@ export interface DescribeAppCommandOutput extends DescribeAppResponse, __Metadat
  *
  * @see {@link DescribeAppCommandInput} for command's `input` shape.
  * @see {@link DescribeAppCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DescribeAppCommand extends $Command<

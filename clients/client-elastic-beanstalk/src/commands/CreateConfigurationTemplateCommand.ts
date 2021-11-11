@@ -58,7 +58,7 @@ export interface CreateConfigurationTemplateCommandOutput extends ConfigurationS
  *
  * @see {@link CreateConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationTemplateCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  */
 export class CreateConfigurationTemplateCommand extends $Command<

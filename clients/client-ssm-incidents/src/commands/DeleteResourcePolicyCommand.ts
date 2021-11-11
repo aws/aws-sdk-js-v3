@@ -36,7 +36,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyO
  *
  * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
- * @see {@link SSMIncidentsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
  *
  */
 export class DeleteResourcePolicyCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  *
  * @see {@link DescribeConnectionCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class DescribeConnectionCommand extends $Command<

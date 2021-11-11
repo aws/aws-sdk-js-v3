@@ -35,7 +35,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *
  * @see {@link CreateDataSourceCommandInput} for command's `input` shape.
  * @see {@link CreateDataSourceCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class CreateDataSourceCommand extends $Command<

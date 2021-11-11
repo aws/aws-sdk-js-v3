@@ -32,7 +32,7 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  *
  * @see {@link GetTagsCommandInput} for command's `input` shape.
  * @see {@link GetTagsCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommandOutput, GlueClientResolvedConfig> {

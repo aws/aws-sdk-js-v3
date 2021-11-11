@@ -35,7 +35,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *
  * @see {@link CreateClusterCommandInput} for command's `input` shape.
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
- * @see {@link MemoryDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  */
 export class CreateClusterCommand extends $Command<

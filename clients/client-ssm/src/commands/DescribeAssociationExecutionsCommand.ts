@@ -37,7 +37,7 @@ export interface DescribeAssociationExecutionsCommandOutput
  *
  * @see {@link DescribeAssociationExecutionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAssociationExecutionsCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class DescribeAssociationExecutionsCommand extends $Command<

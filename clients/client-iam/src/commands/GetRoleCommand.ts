@@ -41,7 +41,7 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  *
  * @see {@link GetRoleCommandInput} for command's `input` shape.
  * @see {@link GetRoleCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class GetRoleCommand extends $Command<GetRoleCommandInput, GetRoleCommandOutput, IAMClientResolvedConfig> {

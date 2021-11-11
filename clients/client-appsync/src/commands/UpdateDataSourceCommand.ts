@@ -35,7 +35,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *
  * @see {@link UpdateDataSourceCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSourceCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  */
 export class UpdateDataSourceCommand extends $Command<

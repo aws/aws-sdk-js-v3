@@ -39,7 +39,7 @@ export interface StopPHIDetectionJobCommandOutput extends StopPHIDetectionJobRes
  *
  * @see {@link StopPHIDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopPHIDetectionJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendMedicalClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
  *
  */
 export class StopPHIDetectionJobCommand extends $Command<

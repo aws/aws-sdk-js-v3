@@ -35,7 +35,7 @@ export interface CreateSiteCommandOutput extends CreateSiteResponse, __MetadataB
  *
  * @see {@link CreateSiteCommandInput} for command's `input` shape.
  * @see {@link CreateSiteCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class CreateSiteCommand extends $Command<

@@ -35,7 +35,7 @@ export interface BatchDeleteClusterSnapshotsCommandOutput extends BatchDeleteClu
  *
  * @see {@link BatchDeleteClusterSnapshotsCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteClusterSnapshotsCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class BatchDeleteClusterSnapshotsCommand extends $Command<

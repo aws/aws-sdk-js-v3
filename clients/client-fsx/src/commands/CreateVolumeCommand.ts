@@ -35,7 +35,7 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  *
  * @see {@link CreateVolumeCommandInput} for command's `input` shape.
  * @see {@link CreateVolumeCommandOutput} for command's `response` shape.
- * @see {@link FSxClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  */
 export class CreateVolumeCommand extends $Command<

@@ -38,7 +38,7 @@ export interface ListForecastExportJobsCommandOutput extends ListForecastExportJ
  *
  * @see {@link ListForecastExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListForecastExportJobsCommandOutput} for command's `response` shape.
- * @see {@link ForecastClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  */
 export class ListForecastExportJobsCommand extends $Command<

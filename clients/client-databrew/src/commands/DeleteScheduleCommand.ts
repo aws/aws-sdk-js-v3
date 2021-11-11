@@ -35,7 +35,7 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __M
  *
  * @see {@link DeleteScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduleCommandOutput} for command's `response` shape.
- * @see {@link DataBrewClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  */
 export class DeleteScheduleCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupRespons
  *
  * @see {@link DescribeRuleGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeRuleGroupCommandOutput} for command's `response` shape.
- * @see {@link NetworkFirewallClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  */
 export class DescribeRuleGroupCommand extends $Command<

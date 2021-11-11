@@ -72,7 +72,7 @@ export interface ModifyVpnConnectionCommandOutput extends ModifyVpnConnectionRes
  *
  * @see {@link ModifyVpnConnectionCommandInput} for command's `input` shape.
  * @see {@link ModifyVpnConnectionCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class ModifyVpnConnectionCommand extends $Command<

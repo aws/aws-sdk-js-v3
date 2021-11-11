@@ -35,7 +35,7 @@ export interface DeleteImagePermissionsCommandOutput extends DeleteImagePermissi
  *
  * @see {@link DeleteImagePermissionsCommandInput} for command's `input` shape.
  * @see {@link DeleteImagePermissionsCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  */
 export class DeleteImagePermissionsCommand extends $Command<

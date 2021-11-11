@@ -82,7 +82,7 @@ export interface LookupEventsCommandOutput extends LookupEventsResponse, __Metad
  *
  * @see {@link LookupEventsCommandInput} for command's `input` shape.
  * @see {@link LookupEventsCommandOutput} for command's `response` shape.
- * @see {@link CloudTrailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  */
 export class LookupEventsCommand extends $Command<

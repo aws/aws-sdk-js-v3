@@ -35,7 +35,7 @@ export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefin
  *
  * @see {@link DeregisterJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeregisterJobDefinitionCommandOutput} for command's `response` shape.
- * @see {@link BatchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  */
 export class DeregisterJobDefinitionCommand extends $Command<

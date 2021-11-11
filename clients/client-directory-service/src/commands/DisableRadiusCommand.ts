@@ -36,7 +36,7 @@ export interface DisableRadiusCommandOutput extends DisableRadiusResult, __Metad
  *
  * @see {@link DisableRadiusCommandInput} for command's `input` shape.
  * @see {@link DisableRadiusCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class DisableRadiusCommand extends $Command<

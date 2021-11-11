@@ -52,7 +52,7 @@ export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedA
  *
  * @see {@link AssociateCreatedArtifactCommandInput} for command's `input` shape.
  * @see {@link AssociateCreatedArtifactCommandOutput} for command's `response` shape.
- * @see {@link MigrationHubClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
  *
  */
 export class AssociateCreatedArtifactCommand extends $Command<

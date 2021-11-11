@@ -42,7 +42,7 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  *
  * @see {@link RemoveFromGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link RemoveFromGlobalClusterCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class RemoveFromGlobalClusterCommand extends $Command<

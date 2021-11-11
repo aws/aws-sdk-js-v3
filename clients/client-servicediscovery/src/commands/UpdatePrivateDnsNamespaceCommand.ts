@@ -36,7 +36,7 @@ export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDns
  *
  * @see {@link UpdatePrivateDnsNamespaceCommandInput} for command's `input` shape.
  * @see {@link UpdatePrivateDnsNamespaceCommandOutput} for command's `response` shape.
- * @see {@link ServiceDiscoveryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  */
 export class UpdatePrivateDnsNamespaceCommand extends $Command<

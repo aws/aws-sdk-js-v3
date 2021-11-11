@@ -35,7 +35,7 @@ export interface DeleteCoreDefinitionCommandOutput extends DeleteCoreDefinitionR
  *
  * @see {@link DeleteCoreDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteCoreDefinitionCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class DeleteCoreDefinitionCommand extends $Command<

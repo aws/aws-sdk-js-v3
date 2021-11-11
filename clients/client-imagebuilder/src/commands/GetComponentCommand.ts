@@ -35,7 +35,7 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  *
  * @see {@link GetComponentCommandInput} for command's `input` shape.
  * @see {@link GetComponentCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  */
 export class GetComponentCommand extends $Command<

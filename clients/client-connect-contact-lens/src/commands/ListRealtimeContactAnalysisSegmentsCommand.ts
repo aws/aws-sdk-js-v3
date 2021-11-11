@@ -44,7 +44,7 @@ export interface ListRealtimeContactAnalysisSegmentsCommandOutput
  *
  * @see {@link ListRealtimeContactAnalysisSegmentsCommandInput} for command's `input` shape.
  * @see {@link ListRealtimeContactAnalysisSegmentsCommandOutput} for command's `response` shape.
- * @see {@link ConnectContactLensClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectContactLensClientResolvedConfig | config} for ConnectContactLensClient's `config` shape.
  *
  */
 export class ListRealtimeContactAnalysisSegmentsCommand extends $Command<

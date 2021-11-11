@@ -45,7 +45,7 @@ export interface DeleteLunaClientCommandOutput extends DeleteLunaClientResponse,
  *
  * @see {@link DeleteLunaClientCommandInput} for command's `input` shape.
  * @see {@link DeleteLunaClientCommandOutput} for command's `response` shape.
- * @see {@link CloudHSMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
  *
  */
 export class DeleteLunaClientCommand extends $Command<

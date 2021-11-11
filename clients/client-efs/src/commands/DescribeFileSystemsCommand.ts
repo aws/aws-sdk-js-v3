@@ -57,7 +57,7 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  *
  * @see {@link DescribeFileSystemsCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemsCommandOutput} for command's `response` shape.
- * @see {@link EFSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  */
 export class DescribeFileSystemsCommand extends $Command<

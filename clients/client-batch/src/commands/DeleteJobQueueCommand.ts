@@ -38,7 +38,7 @@ export interface DeleteJobQueueCommandOutput extends DeleteJobQueueResponse, __M
  *
  * @see {@link DeleteJobQueueCommandInput} for command's `input` shape.
  * @see {@link DeleteJobQueueCommandOutput} for command's `response` shape.
- * @see {@link BatchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  */
 export class DeleteJobQueueCommand extends $Command<

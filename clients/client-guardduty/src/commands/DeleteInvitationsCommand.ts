@@ -36,7 +36,7 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  *
  * @see {@link DeleteInvitationsCommandInput} for command's `input` shape.
  * @see {@link DeleteInvitationsCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  */
 export class DeleteInvitationsCommand extends $Command<

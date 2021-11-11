@@ -69,7 +69,7 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  *
  * @see {@link GetParametersForImportCommandInput} for command's `input` shape.
  * @see {@link GetParametersForImportCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  */
 export class GetParametersForImportCommand extends $Command<

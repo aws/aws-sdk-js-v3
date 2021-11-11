@@ -36,7 +36,7 @@ export interface UpdateAgentStatusCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateAgentStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateAgentStatusCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class UpdateAgentStatusCommand extends $Command<

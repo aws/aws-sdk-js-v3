@@ -52,7 +52,7 @@ export interface UpdateOriginRequestPolicyCommandOutput extends UpdateOriginRequ
  *
  * @see {@link UpdateOriginRequestPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateOriginRequestPolicyCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class UpdateOriginRequestPolicyCommand extends $Command<

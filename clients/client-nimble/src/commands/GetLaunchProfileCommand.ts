@@ -35,7 +35,7 @@ export interface GetLaunchProfileCommandOutput extends GetLaunchProfileResponse,
  *
  * @see {@link GetLaunchProfileCommandInput} for command's `input` shape.
  * @see {@link GetLaunchProfileCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
  *
  */
 export class GetLaunchProfileCommand extends $Command<

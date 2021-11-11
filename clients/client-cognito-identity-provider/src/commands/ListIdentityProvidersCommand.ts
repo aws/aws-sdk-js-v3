@@ -40,7 +40,7 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  *
  * @see {@link ListIdentityProvidersCommandInput} for command's `input` shape.
  * @see {@link ListIdentityProvidersCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class ListIdentityProvidersCommand extends $Command<

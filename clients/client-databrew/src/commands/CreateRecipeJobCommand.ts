@@ -35,7 +35,7 @@ export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, _
  *
  * @see {@link CreateRecipeJobCommandInput} for command's `input` shape.
  * @see {@link CreateRecipeJobCommandOutput} for command's `response` shape.
- * @see {@link DataBrewClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  */
 export class CreateRecipeJobCommand extends $Command<

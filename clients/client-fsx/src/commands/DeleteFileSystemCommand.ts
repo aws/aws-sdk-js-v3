@@ -60,7 +60,7 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  *
  * @see {@link DeleteFileSystemCommandInput} for command's `input` shape.
  * @see {@link DeleteFileSystemCommandOutput} for command's `response` shape.
- * @see {@link FSxClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  */
 export class DeleteFileSystemCommand extends $Command<

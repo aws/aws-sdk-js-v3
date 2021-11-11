@@ -36,7 +36,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  *
  * @see {@link UpdateUserCommandInput} for command's `input` shape.
  * @see {@link UpdateUserCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class UpdateUserCommand extends $Command<

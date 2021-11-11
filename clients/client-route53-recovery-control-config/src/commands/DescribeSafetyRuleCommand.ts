@@ -39,7 +39,7 @@ export interface DescribeSafetyRuleCommandOutput extends DescribeSafetyRuleRespo
  *
  * @see {@link DescribeSafetyRuleCommandInput} for command's `input` shape.
  * @see {@link DescribeSafetyRuleCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
  *
  */
 export class DescribeSafetyRuleCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetBucketStatisticsCommandOutput extends GetBucketStatisticsRes
  *
  * @see {@link GetBucketStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetBucketStatisticsCommandOutput} for command's `response` shape.
- * @see {@link Macie2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  */
 export class GetBucketStatisticsCommand extends $Command<

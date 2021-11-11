@@ -35,7 +35,7 @@ export interface DescribeThemePermissionsCommandOutput extends DescribeThemePerm
  *
  * @see {@link DescribeThemePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeThemePermissionsCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class DescribeThemePermissionsCommand extends $Command<

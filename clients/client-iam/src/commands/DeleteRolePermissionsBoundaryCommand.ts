@@ -40,7 +40,7 @@ export interface DeleteRolePermissionsBoundaryCommandOutput extends __MetadataBe
  *
  * @see {@link DeleteRolePermissionsBoundaryCommandInput} for command's `input` shape.
  * @see {@link DeleteRolePermissionsBoundaryCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class DeleteRolePermissionsBoundaryCommand extends $Command<

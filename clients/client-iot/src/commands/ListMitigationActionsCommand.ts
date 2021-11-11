@@ -36,7 +36,7 @@ export interface ListMitigationActionsCommandOutput extends ListMitigationAction
  *
  * @see {@link ListMitigationActionsCommandInput} for command's `input` shape.
  * @see {@link ListMitigationActionsCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class ListMitigationActionsCommand extends $Command<

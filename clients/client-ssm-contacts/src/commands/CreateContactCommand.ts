@@ -37,7 +37,7 @@ export interface CreateContactCommandOutput extends CreateContactResult, __Metad
  *
  * @see {@link CreateContactCommandInput} for command's `input` shape.
  * @see {@link CreateContactCommandOutput} for command's `response` shape.
- * @see {@link SSMContactsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
  */
 export class CreateContactCommand extends $Command<

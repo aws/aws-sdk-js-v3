@@ -35,7 +35,7 @@ export interface UntagMeetingCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UntagMeetingCommandInput} for command's `input` shape.
  * @see {@link UntagMeetingCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class UntagMeetingCommand extends $Command<

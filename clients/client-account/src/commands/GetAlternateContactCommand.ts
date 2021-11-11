@@ -37,7 +37,7 @@ export interface GetAlternateContactCommandOutput extends GetAlternateContactRes
  *
  * @see {@link GetAlternateContactCommandInput} for command's `input` shape.
  * @see {@link GetAlternateContactCommandOutput} for command's `response` shape.
- * @see {@link AccountClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
  *
  */
 export class GetAlternateContactCommand extends $Command<

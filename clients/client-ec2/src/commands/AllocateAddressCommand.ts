@@ -44,7 +44,7 @@ export interface AllocateAddressCommandOutput extends AllocateAddressResult, __M
  *
  * @see {@link AllocateAddressCommandInput} for command's `input` shape.
  * @see {@link AllocateAddressCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class AllocateAddressCommand extends $Command<

@@ -37,7 +37,7 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
  *
  * @see {@link DescribeDhcpOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDhcpOptionsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DescribeDhcpOptionsCommand extends $Command<

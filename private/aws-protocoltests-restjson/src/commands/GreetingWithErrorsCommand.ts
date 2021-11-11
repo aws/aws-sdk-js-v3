@@ -44,7 +44,7 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  *
  * @see {@link GreetingWithErrorsCommandInput} for command's `input` shape.
  * @see {@link GreetingWithErrorsCommandOutput} for command's `response` shape.
- * @see {@link RestJsonProtocolClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
  */
 export class GreetingWithErrorsCommand extends $Command<

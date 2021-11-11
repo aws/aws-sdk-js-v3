@@ -37,7 +37,7 @@ export interface DescribeBundleCommandOutput extends DescribeBundleResult, __Met
  *
  * @see {@link DescribeBundleCommandInput} for command's `input` shape.
  * @see {@link DescribeBundleCommandOutput} for command's `response` shape.
- * @see {@link MobileClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.
  *
  */
 export class DescribeBundleCommand extends $Command<

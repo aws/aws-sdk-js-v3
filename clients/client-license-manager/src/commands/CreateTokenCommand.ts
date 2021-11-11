@@ -38,7 +38,7 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  *
  * @see {@link CreateTokenCommandInput} for command's `input` shape.
  * @see {@link CreateTokenCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class CreateTokenCommand extends $Command<

@@ -99,7 +99,7 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  *
  * @see {@link PutItemCommandInput} for command's `input` shape.
  * @see {@link PutItemCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  */
 export class PutItemCommand extends $Command<PutItemCommandInput, PutItemCommandOutput, DynamoDBClientResolvedConfig> {

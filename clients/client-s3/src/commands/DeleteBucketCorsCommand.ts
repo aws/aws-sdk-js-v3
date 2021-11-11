@@ -57,7 +57,7 @@ export interface DeleteBucketCorsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteBucketCorsCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketCorsCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  */
 export class DeleteBucketCorsCommand extends $Command<

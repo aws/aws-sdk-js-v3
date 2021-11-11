@@ -37,7 +37,7 @@ export interface GetDataCatalogEncryptionSettingsCommandOutput
  *
  * @see {@link GetDataCatalogEncryptionSettingsCommandInput} for command's `input` shape.
  * @see {@link GetDataCatalogEncryptionSettingsCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class GetDataCatalogEncryptionSettingsCommand extends $Command<

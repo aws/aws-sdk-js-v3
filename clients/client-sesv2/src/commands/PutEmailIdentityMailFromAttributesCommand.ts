@@ -41,7 +41,7 @@ export interface PutEmailIdentityMailFromAttributesCommandOutput
  *
  * @see {@link PutEmailIdentityMailFromAttributesCommandInput} for command's `input` shape.
  * @see {@link PutEmailIdentityMailFromAttributesCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class PutEmailIdentityMailFromAttributesCommand extends $Command<

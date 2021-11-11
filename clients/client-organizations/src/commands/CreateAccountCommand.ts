@@ -112,7 +112,7 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *
  * @see {@link CreateAccountCommandInput} for command's `input` shape.
  * @see {@link CreateAccountCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class CreateAccountCommand extends $Command<

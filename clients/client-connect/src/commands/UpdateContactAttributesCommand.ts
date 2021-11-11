@@ -54,7 +54,7 @@ export interface UpdateContactAttributesCommandOutput extends UpdateContactAttri
  *
  * @see {@link UpdateContactAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateContactAttributesCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class UpdateContactAttributesCommand extends $Command<

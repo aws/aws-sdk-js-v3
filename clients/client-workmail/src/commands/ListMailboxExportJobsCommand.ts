@@ -36,7 +36,7 @@ export interface ListMailboxExportJobsCommandOutput extends ListMailboxExportJob
  *
  * @see {@link ListMailboxExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListMailboxExportJobsCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class ListMailboxExportJobsCommand extends $Command<

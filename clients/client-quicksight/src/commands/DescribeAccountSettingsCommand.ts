@@ -36,7 +36,7 @@ export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSet
  *
  * @see {@link DescribeAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountSettingsCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class DescribeAccountSettingsCommand extends $Command<

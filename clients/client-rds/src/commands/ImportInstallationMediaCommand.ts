@@ -37,7 +37,7 @@ export interface ImportInstallationMediaCommandOutput extends InstallationMedia,
  *
  * @see {@link ImportInstallationMediaCommandInput} for command's `input` shape.
  * @see {@link ImportInstallationMediaCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class ImportInstallationMediaCommand extends $Command<

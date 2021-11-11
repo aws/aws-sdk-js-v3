@@ -35,7 +35,7 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  *
  * @see {@link UpdateRegistryCommandInput} for command's `input` shape.
  * @see {@link UpdateRegistryCommandOutput} for command's `response` shape.
- * @see {@link SchemasClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
  *
  */
 export class UpdateRegistryCommand extends $Command<

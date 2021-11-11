@@ -35,7 +35,7 @@ export interface LogoutUserCommandOutput extends LogoutUserResponse, __MetadataB
  *
  * @see {@link LogoutUserCommandInput} for command's `input` shape.
  * @see {@link LogoutUserCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class LogoutUserCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  *
  * @see {@link CreateMediaCapturePipelineCommandInput} for command's `input` shape.
  * @see {@link CreateMediaCapturePipelineCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class CreateMediaCapturePipelineCommand extends $Command<

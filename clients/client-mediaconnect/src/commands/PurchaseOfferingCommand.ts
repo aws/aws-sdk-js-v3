@@ -35,7 +35,7 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse,
  *
  * @see {@link PurchaseOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseOfferingCommandOutput} for command's `response` shape.
- * @see {@link MediaConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
  *
  */
 export class PurchaseOfferingCommand extends $Command<

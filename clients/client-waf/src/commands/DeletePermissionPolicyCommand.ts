@@ -44,7 +44,7 @@ export interface DeletePermissionPolicyCommandOutput extends DeletePermissionPol
  *
  * @see {@link DeletePermissionPolicyCommandInput} for command's `input` shape.
  * @see {@link DeletePermissionPolicyCommandOutput} for command's `response` shape.
- * @see {@link WAFClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
  */
 export class DeletePermissionPolicyCommand extends $Command<

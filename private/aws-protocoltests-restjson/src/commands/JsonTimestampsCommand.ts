@@ -37,7 +37,7 @@ export interface JsonTimestampsCommandOutput extends JsonTimestampsInputOutput, 
  *
  * @see {@link JsonTimestampsCommandInput} for command's `input` shape.
  * @see {@link JsonTimestampsCommandOutput} for command's `response` shape.
- * @see {@link RestJsonProtocolClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
  */
 export class JsonTimestampsCommand extends $Command<

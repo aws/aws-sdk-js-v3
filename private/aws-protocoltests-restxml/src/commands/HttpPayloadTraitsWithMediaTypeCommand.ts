@@ -38,7 +38,7 @@ export interface HttpPayloadTraitsWithMediaTypeCommandOutput
  *
  * @see {@link HttpPayloadTraitsWithMediaTypeCommandInput} for command's `input` shape.
  * @see {@link HttpPayloadTraitsWithMediaTypeCommandOutput} for command's `response` shape.
- * @see {@link RestXmlProtocolClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
  */
 export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<

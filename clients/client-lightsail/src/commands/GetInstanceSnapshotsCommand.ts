@@ -35,7 +35,7 @@ export interface GetInstanceSnapshotsCommandOutput extends GetInstanceSnapshotsR
  *
  * @see {@link GetInstanceSnapshotsCommandInput} for command's `input` shape.
  * @see {@link GetInstanceSnapshotsCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class GetInstanceSnapshotsCommand extends $Command<

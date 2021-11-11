@@ -35,7 +35,7 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  *
  * @see {@link CreateTokenCommandInput} for command's `input` shape.
  * @see {@link CreateTokenCommandOutput} for command's `response` shape.
- * @see {@link AmplifyBackendClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
  *
  */
 export class CreateTokenCommand extends $Command<

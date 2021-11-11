@@ -106,7 +106,7 @@ export interface RecognizeUtteranceCommandOutput extends RecognizeUtteranceRespo
  *
  * @see {@link RecognizeUtteranceCommandInput} for command's `input` shape.
  * @see {@link RecognizeUtteranceCommandOutput} for command's `response` shape.
- * @see {@link LexRuntimeV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.
  *
  */
 export class RecognizeUtteranceCommand extends $Command<

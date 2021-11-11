@@ -87,7 +87,7 @@ export interface CancelRotateSecretCommandOutput extends CancelRotateSecretRespo
  *
  * @see {@link CancelRotateSecretCommandInput} for command's `input` shape.
  * @see {@link CancelRotateSecretCommandOutput} for command's `response` shape.
- * @see {@link SecretsManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
  */
 export class CancelRotateSecretCommand extends $Command<

@@ -41,7 +41,7 @@ export interface PutContainerPolicyCommandOutput extends PutContainerPolicyOutpu
  *
  * @see {@link PutContainerPolicyCommandInput} for command's `input` shape.
  * @see {@link PutContainerPolicyCommandOutput} for command's `response` shape.
- * @see {@link MediaStoreClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  */
 export class PutContainerPolicyCommand extends $Command<

@@ -38,7 +38,7 @@ export interface SetLocalConsolePasswordCommandOutput extends SetLocalConsolePas
  *
  * @see {@link SetLocalConsolePasswordCommandInput} for command's `input` shape.
  * @see {@link SetLocalConsolePasswordCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class SetLocalConsolePasswordCommand extends $Command<

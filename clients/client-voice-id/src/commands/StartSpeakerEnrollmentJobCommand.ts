@@ -35,7 +35,7 @@ export interface StartSpeakerEnrollmentJobCommandOutput extends StartSpeakerEnro
  *
  * @see {@link StartSpeakerEnrollmentJobCommandInput} for command's `input` shape.
  * @see {@link StartSpeakerEnrollmentJobCommandOutput} for command's `response` shape.
- * @see {@link VoiceIDClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
  *
  */
 export class StartSpeakerEnrollmentJobCommand extends $Command<

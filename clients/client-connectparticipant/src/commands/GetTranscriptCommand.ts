@@ -42,7 +42,7 @@ export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __Met
  *
  * @see {@link GetTranscriptCommandInput} for command's `input` shape.
  * @see {@link GetTranscriptCommandOutput} for command's `response` shape.
- * @see {@link ConnectParticipantClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
  *
  */
 export class GetTranscriptCommand extends $Command<

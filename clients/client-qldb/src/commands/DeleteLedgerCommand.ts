@@ -37,7 +37,7 @@ export interface DeleteLedgerCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteLedgerCommandInput} for command's `input` shape.
  * @see {@link DeleteLedgerCommandOutput} for command's `response` shape.
- * @see {@link QLDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
  */
 export class DeleteLedgerCommand extends $Command<

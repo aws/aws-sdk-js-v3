@@ -87,7 +87,7 @@ export interface ClaimGameServerCommandOutput extends ClaimGameServerOutput, __M
  *
  * @see {@link ClaimGameServerCommandInput} for command's `input` shape.
  * @see {@link ClaimGameServerCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class ClaimGameServerCommand extends $Command<

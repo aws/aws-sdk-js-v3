@@ -37,7 +37,7 @@ export interface ListDocumentClassificationJobsCommandOutput
  *
  * @see {@link ListDocumentClassificationJobsCommandInput} for command's `input` shape.
  * @see {@link ListDocumentClassificationJobsCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class ListDocumentClassificationJobsCommand extends $Command<

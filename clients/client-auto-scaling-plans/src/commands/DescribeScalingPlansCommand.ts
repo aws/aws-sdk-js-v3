@@ -35,7 +35,7 @@ export interface DescribeScalingPlansCommandOutput extends DescribeScalingPlansR
  *
  * @see {@link DescribeScalingPlansCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingPlansCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingPlansClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.
  *
  */
 export class DescribeScalingPlansCommand extends $Command<

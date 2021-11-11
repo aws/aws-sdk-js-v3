@@ -40,7 +40,7 @@ export interface ListWebsiteAuthorizationProvidersCommandOutput
  *
  * @see {@link ListWebsiteAuthorizationProvidersCommandInput} for command's `input` shape.
  * @see {@link ListWebsiteAuthorizationProvidersCommandOutput} for command's `response` shape.
- * @see {@link WorkLinkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
  *
  */
 export class ListWebsiteAuthorizationProvidersCommand extends $Command<

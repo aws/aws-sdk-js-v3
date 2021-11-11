@@ -35,7 +35,7 @@ export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse,
  *
  * @see {@link DescribeOfferingCommandInput} for command's `input` shape.
  * @see {@link DescribeOfferingCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  */
 export class DescribeOfferingCommand extends $Command<

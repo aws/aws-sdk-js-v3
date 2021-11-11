@@ -35,7 +35,7 @@ export interface UpdateMultiplexCommandOutput extends UpdateMultiplexResponse, _
  *
  * @see {@link UpdateMultiplexCommandInput} for command's `input` shape.
  * @see {@link UpdateMultiplexCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  */
 export class UpdateMultiplexCommand extends $Command<

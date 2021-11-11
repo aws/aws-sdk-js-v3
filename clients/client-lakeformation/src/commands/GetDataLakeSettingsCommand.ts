@@ -35,7 +35,7 @@ export interface GetDataLakeSettingsCommandOutput extends GetDataLakeSettingsRes
  *
  * @see {@link GetDataLakeSettingsCommandInput} for command's `input` shape.
  * @see {@link GetDataLakeSettingsCommandOutput} for command's `response` shape.
- * @see {@link LakeFormationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  */
 export class GetDataLakeSettingsCommand extends $Command<

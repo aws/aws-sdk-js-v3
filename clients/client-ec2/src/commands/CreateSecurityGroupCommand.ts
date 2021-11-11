@@ -49,7 +49,7 @@ export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupRes
  *
  * @see {@link CreateSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link CreateSecurityGroupCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class CreateSecurityGroupCommand extends $Command<

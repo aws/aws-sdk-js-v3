@@ -35,7 +35,7 @@ export interface DeleteWirelessGatewayTaskCommandOutput extends DeleteWirelessGa
  *
  * @see {@link DeleteWirelessGatewayTaskCommandInput} for command's `input` shape.
  * @see {@link DeleteWirelessGatewayTaskCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class DeleteWirelessGatewayTaskCommand extends $Command<

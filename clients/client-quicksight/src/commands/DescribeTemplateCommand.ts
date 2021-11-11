@@ -35,7 +35,7 @@ export interface DescribeTemplateCommandOutput extends DescribeTemplateResponse,
  *
  * @see {@link DescribeTemplateCommandInput} for command's `input` shape.
  * @see {@link DescribeTemplateCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class DescribeTemplateCommand extends $Command<

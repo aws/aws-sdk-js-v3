@@ -40,7 +40,7 @@ export interface UnlinkDeveloperIdentityCommandOutput extends __MetadataBearer {
  *
  * @see {@link UnlinkDeveloperIdentityCommandInput} for command's `input` shape.
  * @see {@link UnlinkDeveloperIdentityCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
  *
  */
 export class UnlinkDeveloperIdentityCommand extends $Command<

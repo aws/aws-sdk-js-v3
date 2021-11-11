@@ -41,7 +41,7 @@ export interface CreateBackupVaultCommandOutput extends CreateBackupVaultOutput,
  *
  * @see {@link CreateBackupVaultCommandInput} for command's `input` shape.
  * @see {@link CreateBackupVaultCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class CreateBackupVaultCommand extends $Command<

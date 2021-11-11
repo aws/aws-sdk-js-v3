@@ -42,7 +42,7 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
  *
  * @see {@link GetAttachmentCommandInput} for command's `input` shape.
  * @see {@link GetAttachmentCommandOutput} for command's `response` shape.
- * @see {@link ConnectParticipantClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
  *
  */
 export class GetAttachmentCommand extends $Command<

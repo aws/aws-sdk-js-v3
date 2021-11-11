@@ -36,7 +36,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *
  * @see {@link UpdateDomainCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainCommandOutput} for command's `response` shape.
- * @see {@link VoiceIDClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
  *
  */
 export class UpdateDomainCommand extends $Command<

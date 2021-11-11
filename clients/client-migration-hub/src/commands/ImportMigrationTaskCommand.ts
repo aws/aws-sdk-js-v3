@@ -38,7 +38,7 @@ export interface ImportMigrationTaskCommandOutput extends ImportMigrationTaskRes
  *
  * @see {@link ImportMigrationTaskCommandInput} for command's `input` shape.
  * @see {@link ImportMigrationTaskCommandOutput} for command's `response` shape.
- * @see {@link MigrationHubClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
  *
  */
 export class ImportMigrationTaskCommand extends $Command<

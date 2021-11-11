@@ -35,7 +35,7 @@ export interface ListWirelessDevicesCommandOutput extends ListWirelessDevicesRes
  *
  * @see {@link ListWirelessDevicesCommandInput} for command's `input` shape.
  * @see {@link ListWirelessDevicesCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class ListWirelessDevicesCommand extends $Command<

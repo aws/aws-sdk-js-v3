@@ -35,7 +35,7 @@ export interface UpdateAddonCommandOutput extends UpdateAddonResponse, __Metadat
  *
  * @see {@link UpdateAddonCommandInput} for command's `input` shape.
  * @see {@link UpdateAddonCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  */
 export class UpdateAddonCommand extends $Command<

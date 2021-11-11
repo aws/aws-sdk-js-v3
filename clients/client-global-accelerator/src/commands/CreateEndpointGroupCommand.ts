@@ -40,7 +40,7 @@ export interface CreateEndpointGroupCommandOutput extends CreateEndpointGroupRes
  *
  * @see {@link CreateEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link CreateEndpointGroupCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  */
 export class CreateEndpointGroupCommand extends $Command<

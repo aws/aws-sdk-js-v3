@@ -40,7 +40,7 @@ export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationO
  *
  * @see {@link DeleteApplicationOutputCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationOutputCommandOutput} for command's `response` shape.
- * @see {@link KinesisAnalyticsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
  *
  */
 export class DeleteApplicationOutputCommand extends $Command<

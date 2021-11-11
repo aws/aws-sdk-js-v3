@@ -37,7 +37,7 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  *
  * @see {@link DescribeEventSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventSubscriptionsCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class DescribeEventSubscriptionsCommand extends $Command<

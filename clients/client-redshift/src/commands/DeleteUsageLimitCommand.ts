@@ -35,7 +35,7 @@ export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteUsageLimitCommandInput} for command's `input` shape.
  * @see {@link DeleteUsageLimitCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class DeleteUsageLimitCommand extends $Command<

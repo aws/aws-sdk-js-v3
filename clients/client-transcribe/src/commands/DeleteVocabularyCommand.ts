@@ -35,7 +35,7 @@ export interface DeleteVocabularyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteVocabularyCommandInput} for command's `input` shape.
  * @see {@link DeleteVocabularyCommandOutput} for command's `response` shape.
- * @see {@link TranscribeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  */
 export class DeleteVocabularyCommand extends $Command<

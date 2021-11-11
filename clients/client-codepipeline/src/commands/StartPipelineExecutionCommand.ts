@@ -36,7 +36,7 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  *
  * @see {@link StartPipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link StartPipelineExecutionCommandOutput} for command's `response` shape.
- * @see {@link CodePipelineClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  */
 export class StartPipelineExecutionCommand extends $Command<

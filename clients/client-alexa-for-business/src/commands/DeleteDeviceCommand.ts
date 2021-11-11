@@ -35,7 +35,7 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  *
  * @see {@link DeleteDeviceCommandInput} for command's `input` shape.
  * @see {@link DeleteDeviceCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class DeleteDeviceCommand extends $Command<

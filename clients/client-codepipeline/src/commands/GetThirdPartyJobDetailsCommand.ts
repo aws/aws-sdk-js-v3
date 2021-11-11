@@ -42,7 +42,7 @@ export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDe
  *
  * @see {@link GetThirdPartyJobDetailsCommandInput} for command's `input` shape.
  * @see {@link GetThirdPartyJobDetailsCommandOutput} for command's `response` shape.
- * @see {@link CodePipelineClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  */
 export class GetThirdPartyJobDetailsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  *
  * @see {@link DeleteSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class DeleteSnapshotCommand extends $Command<

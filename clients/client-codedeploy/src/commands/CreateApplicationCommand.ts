@@ -35,7 +35,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationOutput,
  *
  * @see {@link CreateApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  */
 export class CreateApplicationCommand extends $Command<

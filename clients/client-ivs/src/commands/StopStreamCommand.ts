@@ -42,7 +42,7 @@ export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataB
  *
  * @see {@link StopStreamCommandInput} for command's `input` shape.
  * @see {@link StopStreamCommandOutput} for command's `response` shape.
- * @see {@link IvsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
  */
 export class StopStreamCommand extends $Command<

@@ -42,7 +42,7 @@ export interface CreateLoginProfileCommandOutput extends CreateLoginProfileRespo
  *
  * @see {@link CreateLoginProfileCommandInput} for command's `input` shape.
  * @see {@link CreateLoginProfileCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class CreateLoginProfileCommand extends $Command<

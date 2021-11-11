@@ -46,7 +46,7 @@ export interface PutManagedRuleSetVersionsCommandOutput extends PutManagedRuleSe
  *
  * @see {@link PutManagedRuleSetVersionsCommandInput} for command's `input` shape.
  * @see {@link PutManagedRuleSetVersionsCommandOutput} for command's `response` shape.
- * @see {@link WAFV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
  *
  */
 export class PutManagedRuleSetVersionsCommand extends $Command<

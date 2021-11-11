@@ -35,7 +35,7 @@ export interface ListActionExecutionsCommandOutput extends ListActionExecutionsO
  *
  * @see {@link ListActionExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListActionExecutionsCommandOutput} for command's `response` shape.
- * @see {@link CodePipelineClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  */
 export class ListActionExecutionsCommand extends $Command<

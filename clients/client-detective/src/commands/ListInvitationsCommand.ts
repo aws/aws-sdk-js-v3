@@ -40,7 +40,7 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  *
  * @see {@link ListInvitationsCommandInput} for command's `input` shape.
  * @see {@link ListInvitationsCommandOutput} for command's `response` shape.
- * @see {@link DetectiveClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
  *
  */
 export class ListInvitationsCommand extends $Command<

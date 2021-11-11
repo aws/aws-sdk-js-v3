@@ -39,7 +39,7 @@ export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PutLoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link PutLoggingOptionsCommandOutput} for command's `response` shape.
- * @see {@link IoTAnalyticsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
  *
  */
 export class PutLoggingOptionsCommand extends $Command<

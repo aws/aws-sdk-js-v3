@@ -37,7 +37,7 @@ export interface GetRecoveryPointRestoreMetadataCommandOutput
  *
  * @see {@link GetRecoveryPointRestoreMetadataCommandInput} for command's `input` shape.
  * @see {@link GetRecoveryPointRestoreMetadataCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class GetRecoveryPointRestoreMetadataCommand extends $Command<

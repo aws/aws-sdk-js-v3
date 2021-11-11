@@ -35,7 +35,7 @@ export interface DeleteParallelDataCommandOutput extends DeleteParallelDataRespo
  *
  * @see {@link DeleteParallelDataCommandInput} for command's `input` shape.
  * @see {@link DeleteParallelDataCommandOutput} for command's `response` shape.
- * @see {@link TranslateClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
  */
 export class DeleteParallelDataCommand extends $Command<

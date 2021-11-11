@@ -36,7 +36,7 @@ export interface ListAccountAssignmentsCommandOutput extends ListAccountAssignme
  *
  * @see {@link ListAccountAssignmentsCommandInput} for command's `input` shape.
  * @see {@link ListAccountAssignmentsCommandOutput} for command's `response` shape.
- * @see {@link SSOAdminClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
  *
  */
 export class ListAccountAssignmentsCommand extends $Command<

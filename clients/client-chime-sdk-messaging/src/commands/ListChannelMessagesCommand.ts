@@ -49,7 +49,7 @@ export interface ListChannelMessagesCommandOutput extends ListChannelMessagesRes
  *
  * @see {@link ListChannelMessagesCommandInput} for command's `input` shape.
  * @see {@link ListChannelMessagesCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  */
 export class ListChannelMessagesCommand extends $Command<

@@ -47,7 +47,7 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  *
  * @see {@link RemoveTagsFromResourceCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromResourceCommandOutput} for command's `response` shape.
- * @see {@link CloudHSMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
  *
  */
 export class RemoveTagsFromResourceCommand extends $Command<

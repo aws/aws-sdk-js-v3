@@ -37,7 +37,7 @@ export interface GetQualificationTypeCommandOutput extends GetQualificationTypeR
  *
  * @see {@link GetQualificationTypeCommandInput} for command's `input` shape.
  * @see {@link GetQualificationTypeCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  */
 export class GetQualificationTypeCommand extends $Command<

@@ -39,7 +39,7 @@ export interface DescribeFunctionCommandOutput extends DescribeFunctionResult, _
  *
  * @see {@link DescribeFunctionCommandInput} for command's `input` shape.
  * @see {@link DescribeFunctionCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class DescribeFunctionCommand extends $Command<

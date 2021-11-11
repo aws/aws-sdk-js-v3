@@ -42,7 +42,7 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResult, __Metad
  *
  * @see {@link ListFunctionsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionsCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class ListFunctionsCommand extends $Command<

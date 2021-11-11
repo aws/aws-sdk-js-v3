@@ -35,7 +35,7 @@ export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __Met
  *
  * @see {@link DeleteInsightCommandInput} for command's `input` shape.
  * @see {@link DeleteInsightCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
 export class DeleteInsightCommand extends $Command<

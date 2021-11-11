@@ -35,7 +35,7 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
  *
  * @see {@link DescribeArchiveCommandInput} for command's `input` shape.
  * @see {@link DescribeArchiveCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchEventsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  */
 export class DescribeArchiveCommand extends $Command<

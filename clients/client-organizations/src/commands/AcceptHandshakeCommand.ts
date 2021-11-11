@@ -64,7 +64,7 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  *
  * @see {@link AcceptHandshakeCommandInput} for command's `input` shape.
  * @see {@link AcceptHandshakeCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class AcceptHandshakeCommand extends $Command<

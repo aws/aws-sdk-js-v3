@@ -35,7 +35,7 @@ export interface GetDimensionValuesCommandOutput extends GetDimensionValuesRespo
  *
  * @see {@link GetDimensionValuesCommandInput} for command's `input` shape.
  * @see {@link GetDimensionValuesCommandOutput} for command's `response` shape.
- * @see {@link CostExplorerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  */
 export class GetDimensionValuesCommand extends $Command<

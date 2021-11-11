@@ -35,7 +35,7 @@ export interface GetEndpointCommandOutput extends GetEndpointResponse, __Metadat
  *
  * @see {@link GetEndpointCommandInput} for command's `input` shape.
  * @see {@link GetEndpointCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class GetEndpointCommand extends $Command<

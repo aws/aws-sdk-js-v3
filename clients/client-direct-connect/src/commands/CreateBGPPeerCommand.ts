@@ -41,7 +41,7 @@ export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __Met
  *
  * @see {@link CreateBGPPeerCommandInput} for command's `input` shape.
  * @see {@link CreateBGPPeerCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class CreateBGPPeerCommand extends $Command<

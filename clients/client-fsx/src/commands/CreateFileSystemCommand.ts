@@ -67,7 +67,7 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  *
  * @see {@link CreateFileSystemCommandInput} for command's `input` shape.
  * @see {@link CreateFileSystemCommandOutput} for command's `response` shape.
- * @see {@link FSxClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  */
 export class CreateFileSystemCommand extends $Command<

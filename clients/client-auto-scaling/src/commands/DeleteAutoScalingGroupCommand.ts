@@ -44,7 +44,7 @@ export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteAutoScalingGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteAutoScalingGroupCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class DeleteAutoScalingGroupCommand extends $Command<

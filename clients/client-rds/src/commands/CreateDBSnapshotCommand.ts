@@ -36,7 +36,7 @@ export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, _
  *
  * @see {@link CreateDBSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateDBSnapshotCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class CreateDBSnapshotCommand extends $Command<

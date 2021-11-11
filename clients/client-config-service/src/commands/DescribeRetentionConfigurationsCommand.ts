@@ -44,7 +44,7 @@ export interface DescribeRetentionConfigurationsCommandOutput
  *
  * @see {@link DescribeRetentionConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeRetentionConfigurationsCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class DescribeRetentionConfigurationsCommand extends $Command<

@@ -36,7 +36,7 @@ export interface SearchIndexCommandOutput extends SearchIndexResponse, __Metadat
  *
  * @see {@link SearchIndexCommandInput} for command's `input` shape.
  * @see {@link SearchIndexCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class SearchIndexCommand extends $Command<

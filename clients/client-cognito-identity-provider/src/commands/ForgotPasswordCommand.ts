@@ -63,7 +63,7 @@ export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __M
  *
  * @see {@link ForgotPasswordCommandInput} for command's `input` shape.
  * @see {@link ForgotPasswordCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class ForgotPasswordCommand extends $Command<

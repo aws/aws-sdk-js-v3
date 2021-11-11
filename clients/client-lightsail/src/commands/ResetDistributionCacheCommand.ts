@@ -38,7 +38,7 @@ export interface ResetDistributionCacheCommandOutput extends ResetDistributionCa
  *
  * @see {@link ResetDistributionCacheCommandInput} for command's `input` shape.
  * @see {@link ResetDistributionCacheCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class ResetDistributionCacheCommand extends $Command<

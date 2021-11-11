@@ -37,7 +37,7 @@ export interface DisassociateLambdaFunctionCommandOutput extends __MetadataBeare
  *
  * @see {@link DisassociateLambdaFunctionCommandInput} for command's `input` shape.
  * @see {@link DisassociateLambdaFunctionCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class DisassociateLambdaFunctionCommand extends $Command<

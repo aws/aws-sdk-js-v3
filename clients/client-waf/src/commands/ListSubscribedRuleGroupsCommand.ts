@@ -43,7 +43,7 @@ export interface ListSubscribedRuleGroupsCommandOutput extends ListSubscribedRul
  *
  * @see {@link ListSubscribedRuleGroupsCommandInput} for command's `input` shape.
  * @see {@link ListSubscribedRuleGroupsCommandOutput} for command's `response` shape.
- * @see {@link WAFClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
  */
 export class ListSubscribedRuleGroupsCommand extends $Command<

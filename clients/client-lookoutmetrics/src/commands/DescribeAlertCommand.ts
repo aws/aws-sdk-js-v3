@@ -37,7 +37,7 @@ export interface DescribeAlertCommandOutput extends DescribeAlertResponse, __Met
  *
  * @see {@link DescribeAlertCommandInput} for command's `input` shape.
  * @see {@link DescribeAlertCommandOutput} for command's `response` shape.
- * @see {@link LookoutMetricsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
  *
  */
 export class DescribeAlertCommand extends $Command<

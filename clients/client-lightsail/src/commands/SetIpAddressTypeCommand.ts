@@ -39,7 +39,7 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeResult, _
  *
  * @see {@link SetIpAddressTypeCommandInput} for command's `input` shape.
  * @see {@link SetIpAddressTypeCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class SetIpAddressTypeCommand extends $Command<

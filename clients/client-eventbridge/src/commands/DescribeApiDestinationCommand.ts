@@ -35,7 +35,7 @@ export interface DescribeApiDestinationCommandOutput extends DescribeApiDestinat
  *
  * @see {@link DescribeApiDestinationCommandInput} for command's `input` shape.
  * @see {@link DescribeApiDestinationCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class DescribeApiDestinationCommand extends $Command<

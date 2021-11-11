@@ -88,7 +88,7 @@ export interface CreateGameServerGroupCommandOutput extends CreateGameServerGrou
  *
  * @see {@link CreateGameServerGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGameServerGroupCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class CreateGameServerGroupCommand extends $Command<

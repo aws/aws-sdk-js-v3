@@ -36,7 +36,7 @@ export interface DescribeStudioCommandOutput extends DescribeStudioOutput, __Met
  *
  * @see {@link DescribeStudioCommandInput} for command's `input` shape.
  * @see {@link DescribeStudioCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class DescribeStudioCommand extends $Command<

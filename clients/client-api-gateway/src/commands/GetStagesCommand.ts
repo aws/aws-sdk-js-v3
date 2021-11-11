@@ -35,7 +35,7 @@ export interface GetStagesCommandOutput extends Stages, __MetadataBearer {}
  *
  * @see {@link GetStagesCommandInput} for command's `input` shape.
  * @see {@link GetStagesCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class GetStagesCommand extends $Command<

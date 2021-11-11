@@ -37,7 +37,7 @@ export interface CreateDeviceDefinitionVersionCommandOutput
  *
  * @see {@link CreateDeviceDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateDeviceDefinitionVersionCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class CreateDeviceDefinitionVersionCommand extends $Command<

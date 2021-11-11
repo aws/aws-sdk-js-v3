@@ -35,7 +35,7 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  *
  * @see {@link DeleteTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteTemplateCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class DeleteTemplateCommand extends $Command<

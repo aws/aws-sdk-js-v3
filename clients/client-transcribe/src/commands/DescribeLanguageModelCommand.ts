@@ -39,7 +39,7 @@ export interface DescribeLanguageModelCommandOutput extends DescribeLanguageMode
  *
  * @see {@link DescribeLanguageModelCommandInput} for command's `input` shape.
  * @see {@link DescribeLanguageModelCommandOutput} for command's `response` shape.
- * @see {@link TranscribeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  */
 export class DescribeLanguageModelCommand extends $Command<

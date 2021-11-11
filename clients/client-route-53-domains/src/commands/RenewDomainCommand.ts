@@ -39,7 +39,7 @@ export interface RenewDomainCommandOutput extends RenewDomainResponse, __Metadat
  *
  * @see {@link RenewDomainCommandInput} for command's `input` shape.
  * @see {@link RenewDomainCommandOutput} for command's `response` shape.
- * @see {@link Route53DomainsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  */
 export class RenewDomainCommand extends $Command<

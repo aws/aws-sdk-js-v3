@@ -36,7 +36,7 @@ export interface DisassociateAssetsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DisassociateAssetsCommandInput} for command's `input` shape.
  * @see {@link DisassociateAssetsCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class DisassociateAssetsCommand extends $Command<

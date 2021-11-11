@@ -35,7 +35,7 @@ export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleRespons
  *
  * @see {@link ListTargetsByRuleCommandInput} for command's `input` shape.
  * @see {@link ListTargetsByRuleCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class ListTargetsByRuleCommand extends $Command<

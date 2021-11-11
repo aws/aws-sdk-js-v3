@@ -35,7 +35,7 @@ export interface DescribeProtectionGroupCommandOutput extends DescribeProtection
  *
  * @see {@link DescribeProtectionGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeProtectionGroupCommandOutput} for command's `response` shape.
- * @see {@link ShieldClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  */
 export class DescribeProtectionGroupCommand extends $Command<

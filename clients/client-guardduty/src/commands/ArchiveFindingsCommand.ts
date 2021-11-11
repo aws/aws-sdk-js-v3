@@ -39,7 +39,7 @@ export interface ArchiveFindingsCommandOutput extends ArchiveFindingsResponse, _
  *
  * @see {@link ArchiveFindingsCommandInput} for command's `input` shape.
  * @see {@link ArchiveFindingsCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  */
 export class ArchiveFindingsCommand extends $Command<

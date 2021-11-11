@@ -38,7 +38,7 @@ export interface UpdateDetectorVersionMetadataCommandOutput
  *
  * @see {@link UpdateDetectorVersionMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateDetectorVersionMetadataCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class UpdateDetectorVersionMetadataCommand extends $Command<

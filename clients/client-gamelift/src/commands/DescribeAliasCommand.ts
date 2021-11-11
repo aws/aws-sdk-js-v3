@@ -50,7 +50,7 @@ export interface DescribeAliasCommandOutput extends DescribeAliasOutput, __Metad
  *
  * @see {@link DescribeAliasCommandInput} for command's `input` shape.
  * @see {@link DescribeAliasCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class DescribeAliasCommand extends $Command<

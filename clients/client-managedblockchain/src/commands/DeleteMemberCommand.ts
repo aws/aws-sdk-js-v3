@@ -40,7 +40,7 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  *
  * @see {@link DeleteMemberCommandInput} for command's `input` shape.
  * @see {@link DeleteMemberCommandOutput} for command's `response` shape.
- * @see {@link ManagedBlockchainClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
  *
  */
 export class DeleteMemberCommand extends $Command<

@@ -32,7 +32,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  *
  * @see {@link GetJobCommandInput} for command's `input` shape.
  * @see {@link GetJobCommandOutput} for command's `response` shape.
- * @see {@link MediaConvertClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
  *
  */
 export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOutput, MediaConvertClientResolvedConfig> {

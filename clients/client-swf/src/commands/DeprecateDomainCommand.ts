@@ -66,7 +66,7 @@ export interface DeprecateDomainCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeprecateDomainCommandInput} for command's `input` shape.
  * @see {@link DeprecateDomainCommandOutput} for command's `response` shape.
- * @see {@link SWFClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
  *
  */
 export class DeprecateDomainCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteDeviceDefinitionCommandOutput extends DeleteDeviceDefinit
  *
  * @see {@link DeleteDeviceDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteDeviceDefinitionCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class DeleteDeviceDefinitionCommand extends $Command<

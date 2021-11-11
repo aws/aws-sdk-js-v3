@@ -38,7 +38,7 @@ export interface DeleteProfileObjectTypeCommandOutput extends DeleteProfileObjec
  *
  * @see {@link DeleteProfileObjectTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteProfileObjectTypeCommandOutput} for command's `response` shape.
- * @see {@link CustomerProfilesClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  */
 export class DeleteProfileObjectTypeCommand extends $Command<

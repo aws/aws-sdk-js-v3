@@ -47,7 +47,7 @@ export interface DeleteGroupCommandOutput extends DeleteGroupOutput, __MetadataB
  *
  * @see {@link DeleteGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteGroupCommandOutput} for command's `response` shape.
- * @see {@link ResourceGroupsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
  *
  */
 export class DeleteGroupCommand extends $Command<

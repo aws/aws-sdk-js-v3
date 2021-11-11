@@ -35,7 +35,7 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  *
  * @see {@link ListFleetsCommandInput} for command's `input` shape.
  * @see {@link ListFleetsCommandOutput} for command's `response` shape.
- * @see {@link WorkLinkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
  *
  */
 export class ListFleetsCommand extends $Command<

@@ -40,7 +40,7 @@ export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __Met
  *
  * @see {@link ConfirmSignUpCommandInput} for command's `input` shape.
  * @see {@link ConfirmSignUpCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class ConfirmSignUpCommand extends $Command<

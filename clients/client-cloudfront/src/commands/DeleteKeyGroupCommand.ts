@@ -41,7 +41,7 @@ export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteKeyGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteKeyGroupCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class DeleteKeyGroupCommand extends $Command<

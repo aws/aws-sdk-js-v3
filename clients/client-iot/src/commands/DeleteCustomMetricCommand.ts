@@ -46,7 +46,7 @@ export interface DeleteCustomMetricCommandOutput extends DeleteCustomMetricRespo
  *
  * @see {@link DeleteCustomMetricCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomMetricCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class DeleteCustomMetricCommand extends $Command<

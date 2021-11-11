@@ -35,7 +35,7 @@ export interface GetWorkGroupCommandOutput extends GetWorkGroupOutput, __Metadat
  *
  * @see {@link GetWorkGroupCommandInput} for command's `input` shape.
  * @see {@link GetWorkGroupCommandOutput} for command's `response` shape.
- * @see {@link AthenaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  */
 export class GetWorkGroupCommand extends $Command<

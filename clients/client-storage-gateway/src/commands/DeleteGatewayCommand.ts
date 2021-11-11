@@ -52,7 +52,7 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __Metad
  *
  * @see {@link DeleteGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteGatewayCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class DeleteGatewayCommand extends $Command<

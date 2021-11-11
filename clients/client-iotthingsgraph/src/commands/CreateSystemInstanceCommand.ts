@@ -43,7 +43,7 @@ export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceR
  *
  * @see {@link CreateSystemInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateSystemInstanceCommandOutput} for command's `response` shape.
- * @see {@link IoTThingsGraphClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  */
 export class CreateSystemInstanceCommand extends $Command<

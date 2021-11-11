@@ -38,7 +38,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  *
  * @see {@link ListApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationsCommandOutput} for command's `response` shape.
- * @see {@link IoTFleetHubClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTFleetHubClientResolvedConfig | config} for IoTFleetHubClient's `config` shape.
  *
  */
 export class ListApplicationsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DisassociateRoleFromGroupCommandOutput extends DisassociateRole
  *
  * @see {@link DisassociateRoleFromGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateRoleFromGroupCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class DisassociateRoleFromGroupCommand extends $Command<

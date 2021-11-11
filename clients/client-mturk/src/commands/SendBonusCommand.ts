@@ -45,7 +45,7 @@ export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBea
  *
  * @see {@link SendBonusCommandInput} for command's `input` shape.
  * @see {@link SendBonusCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  */
 export class SendBonusCommand extends $Command<

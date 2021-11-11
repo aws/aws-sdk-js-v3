@@ -38,7 +38,7 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  *
  * @see {@link DeletePipelineCommandInput} for command's `input` shape.
  * @see {@link DeletePipelineCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DeletePipelineCommand extends $Command<

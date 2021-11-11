@@ -49,7 +49,7 @@ export interface GetGroupPolicyCommandOutput extends GetGroupPolicyResponse, __M
  *
  * @see {@link GetGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link GetGroupPolicyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class GetGroupPolicyCommand extends $Command<

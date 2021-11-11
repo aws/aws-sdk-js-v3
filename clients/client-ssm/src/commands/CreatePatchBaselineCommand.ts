@@ -39,7 +39,7 @@ export interface CreatePatchBaselineCommandOutput extends CreatePatchBaselineRes
  *
  * @see {@link CreatePatchBaselineCommandInput} for command's `input` shape.
  * @see {@link CreatePatchBaselineCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class CreatePatchBaselineCommand extends $Command<

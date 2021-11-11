@@ -35,7 +35,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, _
  *
  * @see {@link DescribeVolumesCommandInput} for command's `input` shape.
  * @see {@link DescribeVolumesCommandOutput} for command's `response` shape.
- * @see {@link FSxClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  */
 export class DescribeVolumesCommand extends $Command<

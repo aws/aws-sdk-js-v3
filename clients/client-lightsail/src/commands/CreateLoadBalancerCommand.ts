@@ -42,7 +42,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerResul
  *
  * @see {@link CreateLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link CreateLoadBalancerCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class CreateLoadBalancerCommand extends $Command<

@@ -36,7 +36,7 @@ export interface BatchWriteCommandOutput extends BatchWriteResponse, __MetadataB
  *
  * @see {@link BatchWriteCommandInput} for command's `input` shape.
  * @see {@link BatchWriteCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  */
 export class BatchWriteCommand extends $Command<

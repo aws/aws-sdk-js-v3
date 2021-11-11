@@ -35,7 +35,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *
  * @see {@link CreateProjectCommandInput} for command's `input` shape.
  * @see {@link CreateProjectCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  */
 export class CreateProjectCommand extends $Command<

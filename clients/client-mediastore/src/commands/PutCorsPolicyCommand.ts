@@ -45,7 +45,7 @@ export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __Metad
  *
  * @see {@link PutCorsPolicyCommandInput} for command's `input` shape.
  * @see {@link PutCorsPolicyCommandOutput} for command's `response` shape.
- * @see {@link MediaStoreClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  */
 export class PutCorsPolicyCommand extends $Command<

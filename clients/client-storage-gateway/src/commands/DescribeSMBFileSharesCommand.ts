@@ -36,7 +36,7 @@ export interface DescribeSMBFileSharesCommandOutput extends DescribeSMBFileShare
  *
  * @see {@link DescribeSMBFileSharesCommandInput} for command's `input` shape.
  * @see {@link DescribeSMBFileSharesCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class DescribeSMBFileSharesCommand extends $Command<

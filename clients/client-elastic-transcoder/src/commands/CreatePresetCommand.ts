@@ -52,7 +52,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *
  * @see {@link CreatePresetCommandInput} for command's `input` shape.
  * @see {@link CreatePresetCommandOutput} for command's `response` shape.
- * @see {@link ElasticTranscoderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
  *
  */
 export class CreatePresetCommand extends $Command<

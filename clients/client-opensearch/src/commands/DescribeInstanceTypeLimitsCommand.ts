@@ -42,7 +42,7 @@ export interface DescribeInstanceTypeLimitsCommandOutput extends DescribeInstanc
  *
  * @see {@link DescribeInstanceTypeLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceTypeLimitsCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
 export class DescribeInstanceTypeLimitsCommand extends $Command<

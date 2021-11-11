@@ -35,7 +35,7 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  *
  * @see {@link UpdateConnectorProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectorProfileCommandOutput} for command's `response` shape.
- * @see {@link AppflowClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  */
 export class UpdateConnectorProfileCommand extends $Command<

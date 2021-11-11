@@ -35,7 +35,7 @@ export interface DeleteDeploymentCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteDeploymentCommandInput} for command's `input` shape.
  * @see {@link DeleteDeploymentCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class DeleteDeploymentCommand extends $Command<

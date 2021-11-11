@@ -35,7 +35,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  *
  * @see {@link UpdateConnectionCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectionCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchEventsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  */
 export class UpdateConnectionCommand extends $Command<

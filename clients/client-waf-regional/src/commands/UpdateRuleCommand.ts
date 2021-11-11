@@ -84,7 +84,7 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  *
  * @see {@link UpdateRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateRuleCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  */
 export class UpdateRuleCommand extends $Command<

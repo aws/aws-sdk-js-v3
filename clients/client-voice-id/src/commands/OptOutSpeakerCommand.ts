@@ -39,7 +39,7 @@ export interface OptOutSpeakerCommandOutput extends OptOutSpeakerResponse, __Met
  *
  * @see {@link OptOutSpeakerCommandInput} for command's `input` shape.
  * @see {@link OptOutSpeakerCommandOutput} for command's `response` shape.
- * @see {@link VoiceIDClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
  *
  */
 export class OptOutSpeakerCommand extends $Command<

@@ -40,7 +40,7 @@ export interface DeleteInfrastructureConfigurationCommandOutput
  *
  * @see {@link DeleteInfrastructureConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteInfrastructureConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  */
 export class DeleteInfrastructureConfigurationCommand extends $Command<

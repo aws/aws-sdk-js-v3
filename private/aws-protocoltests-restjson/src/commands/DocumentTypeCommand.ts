@@ -35,7 +35,7 @@ export interface DocumentTypeCommandOutput extends DocumentTypeInputOutput, __Me
  *
  * @see {@link DocumentTypeCommandInput} for command's `input` shape.
  * @see {@link DocumentTypeCommandOutput} for command's `response` shape.
- * @see {@link RestJsonProtocolClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
  */
 export class DocumentTypeCommand extends $Command<

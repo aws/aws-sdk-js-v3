@@ -39,7 +39,7 @@ export interface DeleteContactMethodCommandOutput extends DeleteContactMethodRes
  *
  * @see {@link DeleteContactMethodCommandInput} for command's `input` shape.
  * @see {@link DeleteContactMethodCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class DeleteContactMethodCommand extends $Command<

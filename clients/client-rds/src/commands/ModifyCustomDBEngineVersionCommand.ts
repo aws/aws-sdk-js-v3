@@ -46,7 +46,7 @@ export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersio
  *
  * @see {@link ModifyCustomDBEngineVersionCommandInput} for command's `input` shape.
  * @see {@link ModifyCustomDBEngineVersionCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class ModifyCustomDBEngineVersionCommand extends $Command<

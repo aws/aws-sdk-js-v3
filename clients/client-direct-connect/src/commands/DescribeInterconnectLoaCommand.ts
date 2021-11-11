@@ -41,7 +41,7 @@ export interface DescribeInterconnectLoaCommandOutput extends DescribeInterconne
  *
  * @see {@link DescribeInterconnectLoaCommandInput} for command's `input` shape.
  * @see {@link DescribeInterconnectLoaCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class DescribeInterconnectLoaCommand extends $Command<

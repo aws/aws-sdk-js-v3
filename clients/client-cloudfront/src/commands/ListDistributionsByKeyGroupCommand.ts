@@ -41,7 +41,7 @@ export interface ListDistributionsByKeyGroupCommandOutput extends ListDistributi
  *
  * @see {@link ListDistributionsByKeyGroupCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByKeyGroupCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class ListDistributionsByKeyGroupCommand extends $Command<

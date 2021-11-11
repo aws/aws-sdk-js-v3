@@ -41,7 +41,7 @@ export interface AssociateWebsiteAuthorizationProviderCommandOutput
  *
  * @see {@link AssociateWebsiteAuthorizationProviderCommandInput} for command's `input` shape.
  * @see {@link AssociateWebsiteAuthorizationProviderCommandOutput} for command's `response` shape.
- * @see {@link WorkLinkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
  *
  */
 export class AssociateWebsiteAuthorizationProviderCommand extends $Command<

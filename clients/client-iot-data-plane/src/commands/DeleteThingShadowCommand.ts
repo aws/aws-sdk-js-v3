@@ -37,7 +37,7 @@ export interface DeleteThingShadowCommandOutput extends DeleteThingShadowRespons
  *
  * @see {@link DeleteThingShadowCommandInput} for command's `input` shape.
  * @see {@link DeleteThingShadowCommandOutput} for command's `response` shape.
- * @see {@link IoTDataPlaneClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.
  *
  */
 export class DeleteThingShadowCommand extends $Command<

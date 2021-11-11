@@ -42,7 +42,7 @@ export interface CreateAssessmentTargetCommandOutput extends CreateAssessmentTar
  *
  * @see {@link CreateAssessmentTargetCommandInput} for command's `input` shape.
  * @see {@link CreateAssessmentTargetCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  */
 export class CreateAssessmentTargetCommand extends $Command<

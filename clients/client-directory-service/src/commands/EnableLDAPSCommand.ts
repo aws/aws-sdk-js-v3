@@ -35,7 +35,7 @@ export interface EnableLDAPSCommandOutput extends EnableLDAPSResult, __MetadataB
  *
  * @see {@link EnableLDAPSCommandInput} for command's `input` shape.
  * @see {@link EnableLDAPSCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class EnableLDAPSCommand extends $Command<

@@ -37,7 +37,7 @@ export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteAccountAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountAliasCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class DeleteAccountAliasCommand extends $Command<

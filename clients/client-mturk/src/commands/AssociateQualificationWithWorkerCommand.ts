@@ -57,7 +57,7 @@ export interface AssociateQualificationWithWorkerCommandOutput
  *
  * @see {@link AssociateQualificationWithWorkerCommandInput} for command's `input` shape.
  * @see {@link AssociateQualificationWithWorkerCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  */
 export class AssociateQualificationWithWorkerCommand extends $Command<

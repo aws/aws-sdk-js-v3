@@ -34,7 +34,7 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResult, __Metadat
  *
  * @see {@link DescribeTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DescribeTagsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ModifyFpgaImageAttributeCommandOutput extends ModifyFpgaImageAt
  *
  * @see {@link ModifyFpgaImageAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyFpgaImageAttributeCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class ModifyFpgaImageAttributeCommand extends $Command<

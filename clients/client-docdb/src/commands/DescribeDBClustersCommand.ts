@@ -40,7 +40,7 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  *
  * @see {@link DescribeDBClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClustersCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  */
 export class DescribeDBClustersCommand extends $Command<

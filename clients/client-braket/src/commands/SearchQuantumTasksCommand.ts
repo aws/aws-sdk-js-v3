@@ -35,7 +35,7 @@ export interface SearchQuantumTasksCommandOutput extends SearchQuantumTasksRespo
  *
  * @see {@link SearchQuantumTasksCommandInput} for command's `input` shape.
  * @see {@link SearchQuantumTasksCommandOutput} for command's `response` shape.
- * @see {@link BraketClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
  *
  */
 export class SearchQuantumTasksCommand extends $Command<

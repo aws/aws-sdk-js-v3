@@ -36,7 +36,7 @@ export interface PutMailboxPermissionsCommandOutput extends PutMailboxPermission
  *
  * @see {@link PutMailboxPermissionsCommandInput} for command's `input` shape.
  * @see {@link PutMailboxPermissionsCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class PutMailboxPermissionsCommand extends $Command<

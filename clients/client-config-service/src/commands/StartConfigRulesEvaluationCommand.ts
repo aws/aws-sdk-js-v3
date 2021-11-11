@@ -82,7 +82,7 @@ export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRule
  *
  * @see {@link StartConfigRulesEvaluationCommandInput} for command's `input` shape.
  * @see {@link StartConfigRulesEvaluationCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class StartConfigRulesEvaluationCommand extends $Command<

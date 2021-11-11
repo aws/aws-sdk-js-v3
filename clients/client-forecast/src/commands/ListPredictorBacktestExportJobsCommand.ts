@@ -40,7 +40,7 @@ export interface ListPredictorBacktestExportJobsCommandOutput
  *
  * @see {@link ListPredictorBacktestExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListPredictorBacktestExportJobsCommandOutput} for command's `response` shape.
- * @see {@link ForecastClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  */
 export class ListPredictorBacktestExportJobsCommand extends $Command<

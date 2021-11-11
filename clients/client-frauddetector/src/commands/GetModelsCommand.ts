@@ -38,7 +38,7 @@ export interface GetModelsCommandOutput extends GetModelsResult, __MetadataBeare
  *
  * @see {@link GetModelsCommandInput} for command's `input` shape.
  * @see {@link GetModelsCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class GetModelsCommand extends $Command<

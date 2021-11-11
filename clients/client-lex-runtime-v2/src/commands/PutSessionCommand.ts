@@ -37,7 +37,7 @@ export interface PutSessionCommandOutput extends PutSessionResponse, __MetadataB
  *
  * @see {@link PutSessionCommandInput} for command's `input` shape.
  * @see {@link PutSessionCommandOutput} for command's `response` shape.
- * @see {@link LexRuntimeV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.
  *
  */
 export class PutSessionCommand extends $Command<

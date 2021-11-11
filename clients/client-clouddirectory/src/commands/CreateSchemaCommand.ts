@@ -55,7 +55,7 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  *
  * @see {@link CreateSchemaCommandInput} for command's `input` shape.
  * @see {@link CreateSchemaCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  */
 export class CreateSchemaCommand extends $Command<

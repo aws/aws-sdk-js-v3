@@ -36,7 +36,7 @@ export interface DescribeLedgerCommandOutput extends DescribeLedgerResponse, __M
  *
  * @see {@link DescribeLedgerCommandInput} for command's `input` shape.
  * @see {@link DescribeLedgerCommandOutput} for command's `response` shape.
- * @see {@link QLDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
  */
 export class DescribeLedgerCommand extends $Command<

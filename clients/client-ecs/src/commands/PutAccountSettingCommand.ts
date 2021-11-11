@@ -58,7 +58,7 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  *
  * @see {@link PutAccountSettingCommandInput} for command's `input` shape.
  * @see {@link PutAccountSettingCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  */
 export class PutAccountSettingCommand extends $Command<

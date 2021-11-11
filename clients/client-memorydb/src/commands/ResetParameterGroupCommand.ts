@@ -35,7 +35,7 @@ export interface ResetParameterGroupCommandOutput extends ResetParameterGroupRes
  *
  * @see {@link ResetParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ResetParameterGroupCommandOutput} for command's `response` shape.
- * @see {@link MemoryDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  */
 export class ResetParameterGroupCommand extends $Command<

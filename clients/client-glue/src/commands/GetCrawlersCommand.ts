@@ -36,7 +36,7 @@ export interface GetCrawlersCommandOutput extends GetCrawlersResponse, __Metadat
  *
  * @see {@link GetCrawlersCommandInput} for command's `input` shape.
  * @see {@link GetCrawlersCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class GetCrawlersCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeProcessingJobCommandOutput extends DescribeProcessingJo
  *
  * @see {@link DescribeProcessingJobCommandInput} for command's `input` shape.
  * @see {@link DescribeProcessingJobCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DescribeProcessingJobCommand extends $Command<

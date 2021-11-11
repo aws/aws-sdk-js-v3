@@ -36,7 +36,7 @@ export interface UpdateFirewallDescriptionCommandOutput extends UpdateFirewallDe
  *
  * @see {@link UpdateFirewallDescriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallDescriptionCommandOutput} for command's `response` shape.
- * @see {@link NetworkFirewallClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  */
 export class UpdateFirewallDescriptionCommand extends $Command<

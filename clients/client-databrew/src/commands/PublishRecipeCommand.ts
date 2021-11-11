@@ -35,7 +35,7 @@ export interface PublishRecipeCommandOutput extends PublishRecipeResponse, __Met
  *
  * @see {@link PublishRecipeCommandInput} for command's `input` shape.
  * @see {@link PublishRecipeCommandOutput} for command's `response` shape.
- * @see {@link DataBrewClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  */
 export class PublishRecipeCommand extends $Command<

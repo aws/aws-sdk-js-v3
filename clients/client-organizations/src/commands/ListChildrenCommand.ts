@@ -47,7 +47,7 @@ export interface ListChildrenCommandOutput extends ListChildrenResponse, __Metad
  *
  * @see {@link ListChildrenCommandInput} for command's `input` shape.
  * @see {@link ListChildrenCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class ListChildrenCommand extends $Command<

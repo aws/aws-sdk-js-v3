@@ -39,7 +39,7 @@ export interface DescribeCreateAccountStatusCommandOutput
  *
  * @see {@link DescribeCreateAccountStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeCreateAccountStatusCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class DescribeCreateAccountStatusCommand extends $Command<

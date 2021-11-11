@@ -37,7 +37,7 @@ export interface DeletePlacementGroupCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeletePlacementGroupCommandInput} for command's `input` shape.
  * @see {@link DeletePlacementGroupCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DeletePlacementGroupCommand extends $Command<

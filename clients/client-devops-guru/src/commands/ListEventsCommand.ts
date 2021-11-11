@@ -37,7 +37,7 @@ export interface ListEventsCommandOutput extends ListEventsResponse, __MetadataB
  *
  * @see {@link ListEventsCommandInput} for command's `input` shape.
  * @see {@link ListEventsCommandOutput} for command's `response` shape.
- * @see {@link DevOpsGuruClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
  *
  */
 export class ListEventsCommand extends $Command<

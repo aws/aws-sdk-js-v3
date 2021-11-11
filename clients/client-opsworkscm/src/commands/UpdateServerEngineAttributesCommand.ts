@@ -50,7 +50,7 @@ export interface UpdateServerEngineAttributesCommandOutput
  *
  * @see {@link UpdateServerEngineAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateServerEngineAttributesCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksCMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
  *
  */
 export class UpdateServerEngineAttributesCommand extends $Command<

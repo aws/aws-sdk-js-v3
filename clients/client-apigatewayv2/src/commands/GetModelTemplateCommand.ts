@@ -35,7 +35,7 @@ export interface GetModelTemplateCommandOutput extends GetModelTemplateResponse,
  *
  * @see {@link GetModelTemplateCommandInput} for command's `input` shape.
  * @see {@link GetModelTemplateCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
  *
  */
 export class GetModelTemplateCommand extends $Command<

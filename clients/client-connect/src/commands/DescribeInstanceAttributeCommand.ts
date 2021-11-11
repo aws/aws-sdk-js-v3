@@ -36,7 +36,7 @@ export interface DescribeInstanceAttributeCommandOutput extends DescribeInstance
  *
  * @see {@link DescribeInstanceAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceAttributeCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class DescribeInstanceAttributeCommand extends $Command<

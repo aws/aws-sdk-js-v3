@@ -37,7 +37,7 @@ export interface RotateChannelCredentialsCommandOutput extends RotateChannelCred
  *
  * @see {@link RotateChannelCredentialsCommandInput} for command's `input` shape.
  * @see {@link RotateChannelCredentialsCommandOutput} for command's `response` shape.
- * @see {@link MediaPackageClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
  *
  */
 export class RotateChannelCredentialsCommand extends $Command<

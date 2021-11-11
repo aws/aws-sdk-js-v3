@@ -42,7 +42,7 @@ export interface UpdateQuerySuggestionsBlockListCommandOutput extends __Metadata
  *
  * @see {@link UpdateQuerySuggestionsBlockListCommandInput} for command's `input` shape.
  * @see {@link UpdateQuerySuggestionsBlockListCommandOutput} for command's `response` shape.
- * @see {@link KendraClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  */
 export class UpdateQuerySuggestionsBlockListCommand extends $Command<

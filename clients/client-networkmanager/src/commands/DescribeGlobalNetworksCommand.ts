@@ -38,7 +38,7 @@ export interface DescribeGlobalNetworksCommandOutput extends DescribeGlobalNetwo
  *
  * @see {@link DescribeGlobalNetworksCommandInput} for command's `input` shape.
  * @see {@link DescribeGlobalNetworksCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class DescribeGlobalNetworksCommand extends $Command<

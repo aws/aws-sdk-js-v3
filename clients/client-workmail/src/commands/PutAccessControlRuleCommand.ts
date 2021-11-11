@@ -38,7 +38,7 @@ export interface PutAccessControlRuleCommandOutput extends PutAccessControlRuleR
  *
  * @see {@link PutAccessControlRuleCommandInput} for command's `input` shape.
  * @see {@link PutAccessControlRuleCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class PutAccessControlRuleCommand extends $Command<

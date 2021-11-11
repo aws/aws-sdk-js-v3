@@ -38,7 +38,7 @@ export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateRes
  *
  * @see {@link UpdateEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateEmailTemplateCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class UpdateEmailTemplateCommand extends $Command<

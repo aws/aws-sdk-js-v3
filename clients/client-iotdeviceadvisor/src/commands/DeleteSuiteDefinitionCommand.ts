@@ -35,7 +35,7 @@ export interface DeleteSuiteDefinitionCommandOutput extends DeleteSuiteDefinitio
  *
  * @see {@link DeleteSuiteDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteSuiteDefinitionCommandOutput} for command's `response` shape.
- * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.
  *
  */
 export class DeleteSuiteDefinitionCommand extends $Command<

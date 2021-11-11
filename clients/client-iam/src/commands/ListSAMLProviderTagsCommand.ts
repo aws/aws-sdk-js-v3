@@ -39,7 +39,7 @@ export interface ListSAMLProviderTagsCommandOutput extends ListSAMLProviderTagsR
  *
  * @see {@link ListSAMLProviderTagsCommandInput} for command's `input` shape.
  * @see {@link ListSAMLProviderTagsCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class ListSAMLProviderTagsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
  *
  * @see {@link DescribeCertificatesCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificatesCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  */
 export class DescribeCertificatesCommand extends $Command<

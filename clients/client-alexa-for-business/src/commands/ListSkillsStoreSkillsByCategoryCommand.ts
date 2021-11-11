@@ -37,7 +37,7 @@ export interface ListSkillsStoreSkillsByCategoryCommandOutput
  *
  * @see {@link ListSkillsStoreSkillsByCategoryCommandInput} for command's `input` shape.
  * @see {@link ListSkillsStoreSkillsByCategoryCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class ListSkillsStoreSkillsByCategoryCommand extends $Command<

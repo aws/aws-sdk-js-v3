@@ -37,7 +37,7 @@ export interface CreateActionTargetCommandOutput extends CreateActionTargetRespo
  *
  * @see {@link CreateActionTargetCommandInput} for command's `input` shape.
  * @see {@link CreateActionTargetCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
 export class CreateActionTargetCommand extends $Command<

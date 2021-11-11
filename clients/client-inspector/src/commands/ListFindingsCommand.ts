@@ -36,7 +36,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *
  * @see {@link ListFindingsCommandInput} for command's `input` shape.
  * @see {@link ListFindingsCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  */
 export class ListFindingsCommand extends $Command<

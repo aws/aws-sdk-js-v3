@@ -35,7 +35,7 @@ export interface DeleteStudioCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteStudioCommandInput} for command's `input` shape.
  * @see {@link DeleteStudioCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class DeleteStudioCommand extends $Command<

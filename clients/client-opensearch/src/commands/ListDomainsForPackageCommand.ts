@@ -35,7 +35,7 @@ export interface ListDomainsForPackageCommandOutput extends ListDomainsForPackag
  *
  * @see {@link ListDomainsForPackageCommandInput} for command's `input` shape.
  * @see {@link ListDomainsForPackageCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
 export class ListDomainsForPackageCommand extends $Command<

@@ -36,7 +36,7 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
  *
  * @see {@link ListStreamsCommandInput} for command's `input` shape.
  * @see {@link ListStreamsCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class ListStreamsCommand extends $Command<

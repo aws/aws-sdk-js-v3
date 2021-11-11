@@ -36,7 +36,7 @@ export interface EnableHostedZoneDNSSECCommandOutput extends EnableHostedZoneDNS
  *
  * @see {@link EnableHostedZoneDNSSECCommandInput} for command's `input` shape.
  * @see {@link EnableHostedZoneDNSSECCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  */
 export class EnableHostedZoneDNSSECCommand extends $Command<

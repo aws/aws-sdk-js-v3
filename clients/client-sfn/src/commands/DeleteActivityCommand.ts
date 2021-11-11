@@ -35,7 +35,7 @@ export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __Met
  *
  * @see {@link DeleteActivityCommandInput} for command's `input` shape.
  * @see {@link DeleteActivityCommandOutput} for command's `response` shape.
- * @see {@link SFNClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  */
 export class DeleteActivityCommand extends $Command<

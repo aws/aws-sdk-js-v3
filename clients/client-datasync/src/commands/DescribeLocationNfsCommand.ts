@@ -35,7 +35,7 @@ export interface DescribeLocationNfsCommandOutput extends DescribeLocationNfsRes
  *
  * @see {@link DescribeLocationNfsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationNfsCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  */
 export class DescribeLocationNfsCommand extends $Command<

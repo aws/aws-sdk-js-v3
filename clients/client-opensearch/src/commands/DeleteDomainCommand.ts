@@ -37,7 +37,7 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  *
  * @see {@link DeleteDomainCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
 export class DeleteDomainCommand extends $Command<

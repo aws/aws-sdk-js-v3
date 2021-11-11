@@ -39,7 +39,7 @@ export interface GetManagedRuleSetCommandOutput extends GetManagedRuleSetRespons
  *
  * @see {@link GetManagedRuleSetCommandInput} for command's `input` shape.
  * @see {@link GetManagedRuleSetCommandOutput} for command's `response` shape.
- * @see {@link WAFV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
  *
  */
 export class GetManagedRuleSetCommand extends $Command<

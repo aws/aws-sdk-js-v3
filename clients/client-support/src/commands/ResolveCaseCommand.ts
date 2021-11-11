@@ -50,7 +50,7 @@ export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __Metadat
  *
  * @see {@link ResolveCaseCommandInput} for command's `input` shape.
  * @see {@link ResolveCaseCommandOutput} for command's `response` shape.
- * @see {@link SupportClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
  */
 export class ResolveCaseCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateCommentCommandOutput extends CreateCommentResponse, __Met
  *
  * @see {@link CreateCommentCommandInput} for command's `input` shape.
  * @see {@link CreateCommentCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class CreateCommentCommand extends $Command<

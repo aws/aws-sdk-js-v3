@@ -42,7 +42,7 @@ export interface ImportTerminologyCommandOutput extends ImportTerminologyRespons
  *
  * @see {@link ImportTerminologyCommandInput} for command's `input` shape.
  * @see {@link ImportTerminologyCommandOutput} for command's `response` shape.
- * @see {@link TranslateClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
  */
 export class ImportTerminologyCommand extends $Command<

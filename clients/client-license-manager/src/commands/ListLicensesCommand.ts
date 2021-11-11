@@ -35,7 +35,7 @@ export interface ListLicensesCommandOutput extends ListLicensesResponse, __Metad
  *
  * @see {@link ListLicensesCommandInput} for command's `input` shape.
  * @see {@link ListLicensesCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class ListLicensesCommand extends $Command<

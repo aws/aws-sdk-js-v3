@@ -35,7 +35,7 @@ export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingIn
  *
  * @see {@link DescribeAutoScalingInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeAutoScalingInstancesCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class DescribeAutoScalingInstancesCommand extends $Command<

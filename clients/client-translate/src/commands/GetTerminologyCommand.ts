@@ -35,7 +35,7 @@ export interface GetTerminologyCommandOutput extends GetTerminologyResponse, __M
  *
  * @see {@link GetTerminologyCommandInput} for command's `input` shape.
  * @see {@link GetTerminologyCommandOutput} for command's `response` shape.
- * @see {@link TranslateClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
  */
 export class GetTerminologyCommand extends $Command<

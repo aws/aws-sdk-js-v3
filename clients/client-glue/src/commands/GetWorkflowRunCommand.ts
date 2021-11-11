@@ -35,7 +35,7 @@ export interface GetWorkflowRunCommandOutput extends GetWorkflowRunResponse, __M
  *
  * @see {@link GetWorkflowRunCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowRunCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class GetWorkflowRunCommand extends $Command<

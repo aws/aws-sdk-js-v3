@@ -41,7 +41,7 @@ export interface StartInstanceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link StartInstanceCommandInput} for command's `input` shape.
  * @see {@link StartInstanceCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class StartInstanceCommand extends $Command<

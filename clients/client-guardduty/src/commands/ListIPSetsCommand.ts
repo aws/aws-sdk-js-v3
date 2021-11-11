@@ -37,7 +37,7 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  *
  * @see {@link ListIPSetsCommandInput} for command's `input` shape.
  * @see {@link ListIPSetsCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  */
 export class ListIPSetsCommand extends $Command<

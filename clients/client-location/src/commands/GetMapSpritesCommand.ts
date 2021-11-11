@@ -37,7 +37,7 @@ export interface GetMapSpritesCommandOutput extends GetMapSpritesResponse, __Met
  *
  * @see {@link GetMapSpritesCommandInput} for command's `input` shape.
  * @see {@link GetMapSpritesCommandOutput} for command's `response` shape.
- * @see {@link LocationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  */
 export class GetMapSpritesCommand extends $Command<

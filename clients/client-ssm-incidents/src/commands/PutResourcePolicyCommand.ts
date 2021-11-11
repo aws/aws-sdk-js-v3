@@ -35,7 +35,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput,
  *
  * @see {@link PutResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
- * @see {@link SSMIncidentsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
  *
  */
 export class PutResourcePolicyCommand extends $Command<

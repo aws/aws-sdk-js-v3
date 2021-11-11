@@ -37,7 +37,7 @@ export interface DeleteAppLaunchConfigurationCommandOutput
  *
  * @see {@link DeleteAppLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAppLaunchConfigurationCommandOutput} for command's `response` shape.
- * @see {@link SMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
  *
  */
 export class DeleteAppLaunchConfigurationCommand extends $Command<

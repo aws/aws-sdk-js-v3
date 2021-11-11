@@ -54,7 +54,7 @@ export interface CreateSlotTypeVersionCommandOutput extends CreateSlotTypeVersio
  *
  * @see {@link CreateSlotTypeVersionCommandInput} for command's `input` shape.
  * @see {@link CreateSlotTypeVersionCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  */
 export class CreateSlotTypeVersionCommand extends $Command<

@@ -37,7 +37,7 @@ export interface ListPolicyTagsCommandOutput extends ListPolicyTagsResponse, __M
  *
  * @see {@link ListPolicyTagsCommandInput} for command's `input` shape.
  * @see {@link ListPolicyTagsCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class ListPolicyTagsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateProxySessionCommandOutput extends CreateProxySessionRespo
  *
  * @see {@link CreateProxySessionCommandInput} for command's `input` shape.
  * @see {@link CreateProxySessionCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class CreateProxySessionCommand extends $Command<

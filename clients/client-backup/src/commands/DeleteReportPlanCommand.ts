@@ -35,7 +35,7 @@ export interface DeleteReportPlanCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteReportPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteReportPlanCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class DeleteReportPlanCommand extends $Command<

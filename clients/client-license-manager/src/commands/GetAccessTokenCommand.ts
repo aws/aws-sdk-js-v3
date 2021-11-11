@@ -36,7 +36,7 @@ export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __M
  *
  * @see {@link GetAccessTokenCommandInput} for command's `input` shape.
  * @see {@link GetAccessTokenCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class GetAccessTokenCommand extends $Command<

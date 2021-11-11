@@ -35,7 +35,7 @@ export interface GetApplicationSettingsCommandOutput extends GetApplicationSetti
  *
  * @see {@link GetApplicationSettingsCommandInput} for command's `input` shape.
  * @see {@link GetApplicationSettingsCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class GetApplicationSettingsCommand extends $Command<

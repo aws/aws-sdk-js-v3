@@ -35,7 +35,7 @@ export interface GetResourceDefinitionCommandOutput extends GetResourceDefinitio
  *
  * @see {@link GetResourceDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetResourceDefinitionCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class GetResourceDefinitionCommand extends $Command<

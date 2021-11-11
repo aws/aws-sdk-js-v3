@@ -48,7 +48,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  *
  * @see {@link RebootDBInstanceCommandInput} for command's `input` shape.
  * @see {@link RebootDBInstanceCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class RebootDBInstanceCommand extends $Command<

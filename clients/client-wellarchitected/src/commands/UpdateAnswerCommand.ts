@@ -35,7 +35,7 @@ export interface UpdateAnswerCommandOutput extends UpdateAnswerOutput, __Metadat
  *
  * @see {@link UpdateAnswerCommandInput} for command's `input` shape.
  * @see {@link UpdateAnswerCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  */
 export class UpdateAnswerCommand extends $Command<

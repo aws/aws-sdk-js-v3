@@ -36,7 +36,7 @@ export interface GetServersCommandOutput extends GetServersResponse, __MetadataB
  *
  * @see {@link GetServersCommandInput} for command's `input` shape.
  * @see {@link GetServersCommandOutput} for command's `response` shape.
- * @see {@link SMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
  *
  */
 export class GetServersCommand extends $Command<

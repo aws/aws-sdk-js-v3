@@ -35,7 +35,7 @@ export interface DisassociateRoutingProfileQueuesCommandOutput extends __Metadat
  *
  * @see {@link DisassociateRoutingProfileQueuesCommandInput} for command's `input` shape.
  * @see {@link DisassociateRoutingProfileQueuesCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class DisassociateRoutingProfileQueuesCommand extends $Command<

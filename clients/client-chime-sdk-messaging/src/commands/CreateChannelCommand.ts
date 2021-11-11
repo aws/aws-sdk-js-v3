@@ -49,7 +49,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *
  * @see {@link CreateChannelCommandInput} for command's `input` shape.
  * @see {@link CreateChannelCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  */
 export class CreateChannelCommand extends $Command<

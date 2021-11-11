@@ -39,7 +39,7 @@ export interface CreateGatewayRouteCommandOutput extends CreateGatewayRouteOutpu
  *
  * @see {@link CreateGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link CreateGatewayRouteCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
  *
  */
 export class CreateGatewayRouteCommand extends $Command<

@@ -50,7 +50,7 @@ export interface ListParentsCommandOutput extends ListParentsResponse, __Metadat
  *
  * @see {@link ListParentsCommandInput} for command's `input` shape.
  * @see {@link ListParentsCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class ListParentsCommand extends $Command<

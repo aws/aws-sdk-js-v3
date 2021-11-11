@@ -37,7 +37,7 @@ export interface PutEventsConfigurationCommandOutput extends PutEventsConfigurat
  *
  * @see {@link PutEventsConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutEventsConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class PutEventsConfigurationCommand extends $Command<

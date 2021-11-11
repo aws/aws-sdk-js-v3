@@ -43,7 +43,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  *
  * @see {@link DescribeClusterCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  */
 export class DescribeClusterCommand extends $Command<

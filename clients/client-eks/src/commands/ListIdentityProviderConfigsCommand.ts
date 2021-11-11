@@ -37,7 +37,7 @@ export interface ListIdentityProviderConfigsCommandOutput
  *
  * @see {@link ListIdentityProviderConfigsCommandInput} for command's `input` shape.
  * @see {@link ListIdentityProviderConfigsCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  */
 export class ListIdentityProviderConfigsCommand extends $Command<

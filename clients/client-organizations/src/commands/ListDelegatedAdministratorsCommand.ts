@@ -40,7 +40,7 @@ export interface ListDelegatedAdministratorsCommandOutput
  *
  * @see {@link ListDelegatedAdministratorsCommandInput} for command's `input` shape.
  * @see {@link ListDelegatedAdministratorsCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class ListDelegatedAdministratorsCommand extends $Command<

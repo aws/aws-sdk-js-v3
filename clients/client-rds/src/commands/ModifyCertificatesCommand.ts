@@ -59,7 +59,7 @@ export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResul
  *
  * @see {@link ModifyCertificatesCommandInput} for command's `input` shape.
  * @see {@link ModifyCertificatesCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class ModifyCertificatesCommand extends $Command<

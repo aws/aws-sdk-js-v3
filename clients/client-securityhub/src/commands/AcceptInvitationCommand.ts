@@ -44,7 +44,7 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  *
  * @see {@link AcceptInvitationCommandInput} for command's `input` shape.
  * @see {@link AcceptInvitationCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
 export class AcceptInvitationCommand extends $Command<

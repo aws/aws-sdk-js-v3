@@ -36,7 +36,7 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  *
  * @see {@link CreateComponentCommandInput} for command's `input` shape.
  * @see {@link CreateComponentCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  */
 export class CreateComponentCommand extends $Command<

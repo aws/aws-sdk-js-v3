@@ -41,7 +41,7 @@ export interface DescribeProblemObservationsCommandOutput
  *
  * @see {@link DescribeProblemObservationsCommandInput} for command's `input` shape.
  * @see {@link DescribeProblemObservationsCommandOutput} for command's `response` shape.
- * @see {@link ApplicationInsightsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
  *
  */
 export class DescribeProblemObservationsCommand extends $Command<

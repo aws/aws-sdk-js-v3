@@ -35,7 +35,7 @@ export interface BatchDescribeSimulationJobCommandOutput extends BatchDescribeSi
  *
  * @see {@link BatchDescribeSimulationJobCommandInput} for command's `input` shape.
  * @see {@link BatchDescribeSimulationJobCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class BatchDescribeSimulationJobCommand extends $Command<

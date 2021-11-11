@@ -35,7 +35,7 @@ export interface DescribeCodeBindingCommandOutput extends DescribeCodeBindingRes
  *
  * @see {@link DescribeCodeBindingCommandInput} for command's `input` shape.
  * @see {@link DescribeCodeBindingCommandOutput} for command's `response` shape.
- * @see {@link SchemasClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
  *
  */
 export class DescribeCodeBindingCommand extends $Command<

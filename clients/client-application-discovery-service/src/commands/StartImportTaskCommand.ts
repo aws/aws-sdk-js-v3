@@ -74,7 +74,7 @@ export interface StartImportTaskCommandOutput extends StartImportTaskResponse, _
  *
  * @see {@link StartImportTaskCommandInput} for command's `input` shape.
  * @see {@link StartImportTaskCommandOutput} for command's `response` shape.
- * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  */
 export class StartImportTaskCommand extends $Command<

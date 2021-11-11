@@ -40,7 +40,7 @@ export interface ListNamedQueriesCommandOutput extends ListNamedQueriesOutput, _
  *
  * @see {@link ListNamedQueriesCommandInput} for command's `input` shape.
  * @see {@link ListNamedQueriesCommandOutput} for command's `response` shape.
- * @see {@link AthenaClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  */
 export class ListNamedQueriesCommand extends $Command<

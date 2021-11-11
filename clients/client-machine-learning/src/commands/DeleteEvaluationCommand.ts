@@ -40,7 +40,7 @@ export interface DeleteEvaluationCommandOutput extends DeleteEvaluationOutput, _
  *
  * @see {@link DeleteEvaluationCommandInput} for command's `input` shape.
  * @see {@link DeleteEvaluationCommandOutput} for command's `response` shape.
- * @see {@link MachineLearningClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  */
 export class DeleteEvaluationCommand extends $Command<

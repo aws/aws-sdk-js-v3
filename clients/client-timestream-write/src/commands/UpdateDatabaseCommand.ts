@@ -40,7 +40,7 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  *
  * @see {@link UpdateDatabaseCommandInput} for command's `input` shape.
  * @see {@link UpdateDatabaseCommandOutput} for command's `response` shape.
- * @see {@link TimestreamWriteClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
  *
  */
 export class UpdateDatabaseCommand extends $Command<

@@ -56,7 +56,7 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  *
  * @see {@link UpdateWorkforceCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkforceCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class UpdateWorkforceCommand extends $Command<

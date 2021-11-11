@@ -35,7 +35,7 @@ export interface GetApiMappingCommandOutput extends GetApiMappingResponse, __Met
  *
  * @see {@link GetApiMappingCommandInput} for command's `input` shape.
  * @see {@link GetApiMappingCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
  *
  */
 export class GetApiMappingCommand extends $Command<

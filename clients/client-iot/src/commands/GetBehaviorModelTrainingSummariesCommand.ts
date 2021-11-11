@@ -43,7 +43,7 @@ export interface GetBehaviorModelTrainingSummariesCommandOutput
  *
  * @see {@link GetBehaviorModelTrainingSummariesCommandInput} for command's `input` shape.
  * @see {@link GetBehaviorModelTrainingSummariesCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class GetBehaviorModelTrainingSummariesCommand extends $Command<

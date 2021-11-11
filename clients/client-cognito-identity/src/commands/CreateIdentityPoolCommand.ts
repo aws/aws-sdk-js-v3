@@ -62,7 +62,7 @@ export interface CreateIdentityPoolCommandOutput extends IdentityPool, __Metadat
  *
  * @see {@link CreateIdentityPoolCommandInput} for command's `input` shape.
  * @see {@link CreateIdentityPoolCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
  *
  */
 export class CreateIdentityPoolCommand extends $Command<

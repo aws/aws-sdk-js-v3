@@ -37,7 +37,7 @@ export interface UpdateDashboardPublishedVersionCommandOutput
  *
  * @see {@link UpdateDashboardPublishedVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateDashboardPublishedVersionCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class UpdateDashboardPublishedVersionCommand extends $Command<

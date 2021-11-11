@@ -35,7 +35,7 @@ export interface ListSamplesCommandOutput extends ListSamplesResult, __MetadataB
  *
  * @see {@link ListSamplesCommandInput} for command's `input` shape.
  * @see {@link ListSamplesCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class ListSamplesCommand extends $Command<

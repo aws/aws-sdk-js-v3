@@ -35,7 +35,7 @@ export interface ListMultiplexProgramsCommandOutput extends ListMultiplexProgram
  *
  * @see {@link ListMultiplexProgramsCommandInput} for command's `input` shape.
  * @see {@link ListMultiplexProgramsCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  */
 export class ListMultiplexProgramsCommand extends $Command<

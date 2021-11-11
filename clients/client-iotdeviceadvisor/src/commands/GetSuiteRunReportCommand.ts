@@ -35,7 +35,7 @@ export interface GetSuiteRunReportCommandOutput extends GetSuiteRunReportRespons
  *
  * @see {@link GetSuiteRunReportCommandInput} for command's `input` shape.
  * @see {@link GetSuiteRunReportCommandOutput} for command's `response` shape.
- * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.
  *
  */
 export class GetSuiteRunReportCommand extends $Command<

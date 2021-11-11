@@ -52,7 +52,7 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  *
  * @see {@link StartDocumentAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartDocumentAnalysisCommandOutput} for command's `response` shape.
- * @see {@link TextractClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
  *
  */
 export class StartDocumentAnalysisCommand extends $Command<

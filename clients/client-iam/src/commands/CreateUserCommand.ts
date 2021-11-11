@@ -34,7 +34,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *
  * @see {@link CreateUserCommandInput} for command's `input` shape.
  * @see {@link CreateUserCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class CreateUserCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateRevisionCommandOutput extends UpdateRevisionResponse, __M
  *
  * @see {@link UpdateRevisionCommandInput} for command's `input` shape.
  * @see {@link UpdateRevisionCommandOutput} for command's `response` shape.
- * @see {@link DataExchangeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  */
 export class UpdateRevisionCommand extends $Command<

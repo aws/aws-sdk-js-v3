@@ -36,7 +36,7 @@ export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __Metadat
  *
  * @see {@link UpdateAssetCommandInput} for command's `input` shape.
  * @see {@link UpdateAssetCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class UpdateAssetCommand extends $Command<

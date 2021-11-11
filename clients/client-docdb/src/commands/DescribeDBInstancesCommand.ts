@@ -35,7 +35,7 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  *
  * @see {@link DescribeDBInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeDBInstancesCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  */
 export class DescribeDBInstancesCommand extends $Command<

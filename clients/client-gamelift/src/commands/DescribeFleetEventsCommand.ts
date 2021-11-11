@@ -64,7 +64,7 @@ export interface DescribeFleetEventsCommandOutput extends DescribeFleetEventsOut
  *
  * @see {@link DescribeFleetEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetEventsCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class DescribeFleetEventsCommand extends $Command<

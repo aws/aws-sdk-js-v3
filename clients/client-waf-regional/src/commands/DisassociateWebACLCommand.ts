@@ -43,7 +43,7 @@ export interface DisassociateWebACLCommandOutput extends DisassociateWebACLRespo
  *
  * @see {@link DisassociateWebACLCommandInput} for command's `input` shape.
  * @see {@link DisassociateWebACLCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  */
 export class DisassociateWebACLCommand extends $Command<

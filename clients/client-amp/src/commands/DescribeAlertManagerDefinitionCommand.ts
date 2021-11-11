@@ -37,7 +37,7 @@ export interface DescribeAlertManagerDefinitionCommandOutput
  *
  * @see {@link DescribeAlertManagerDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeAlertManagerDefinitionCommandOutput} for command's `response` shape.
- * @see {@link AmpClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
  *
  */
 export class DescribeAlertManagerDefinitionCommand extends $Command<

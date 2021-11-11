@@ -40,7 +40,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
- * @see {@link KinesisVideoClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
  *
  */
 export class TagResourceCommand extends $Command<

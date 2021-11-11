@@ -35,7 +35,7 @@ export interface GetNamespaceDeletionStatusCommandOutput extends GetNamespaceDel
  *
  * @see {@link GetNamespaceDeletionStatusCommandInput} for command's `input` shape.
  * @see {@link GetNamespaceDeletionStatusCommandOutput} for command's `response` shape.
- * @see {@link IoTThingsGraphClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  */
 export class GetNamespaceDeletionStatusCommand extends $Command<

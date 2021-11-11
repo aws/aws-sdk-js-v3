@@ -37,7 +37,7 @@ export interface StartContactStreamingCommandOutput extends StartContactStreamin
  *
  * @see {@link StartContactStreamingCommandInput} for command's `input` shape.
  * @see {@link StartContactStreamingCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class StartContactStreamingCommand extends $Command<

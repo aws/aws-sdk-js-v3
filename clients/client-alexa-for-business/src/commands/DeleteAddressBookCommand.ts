@@ -35,7 +35,7 @@ export interface DeleteAddressBookCommandOutput extends DeleteAddressBookRespons
  *
  * @see {@link DeleteAddressBookCommandInput} for command's `input` shape.
  * @see {@link DeleteAddressBookCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class DeleteAddressBookCommand extends $Command<

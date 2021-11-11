@@ -36,7 +36,7 @@ export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResource
  *
  * @see {@link ListAnalyzedResourcesCommandInput} for command's `input` shape.
  * @see {@link ListAnalyzedResourcesCommandOutput} for command's `response` shape.
- * @see {@link AccessAnalyzerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  */
 export class ListAnalyzedResourcesCommand extends $Command<

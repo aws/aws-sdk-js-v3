@@ -35,7 +35,7 @@ export interface UpdateProfilingGroupCommandOutput extends UpdateProfilingGroupR
  *
  * @see {@link UpdateProfilingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateProfilingGroupCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruProfilerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
  *
  */
 export class UpdateProfilingGroupCommand extends $Command<

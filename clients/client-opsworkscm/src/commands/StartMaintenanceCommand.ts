@@ -42,7 +42,7 @@ export interface StartMaintenanceCommandOutput extends StartMaintenanceResponse,
  *
  * @see {@link StartMaintenanceCommandInput} for command's `input` shape.
  * @see {@link StartMaintenanceCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksCMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
  *
  */
 export class StartMaintenanceCommand extends $Command<

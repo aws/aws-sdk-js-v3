@@ -36,7 +36,7 @@ export interface DetachSecurityProfileCommandOutput extends DetachSecurityProfil
  *
  * @see {@link DetachSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link DetachSecurityProfileCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class DetachSecurityProfileCommand extends $Command<

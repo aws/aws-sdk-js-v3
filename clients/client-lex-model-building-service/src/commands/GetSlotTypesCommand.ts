@@ -53,7 +53,7 @@ export interface GetSlotTypesCommandOutput extends GetSlotTypesResponse, __Metad
  *
  * @see {@link GetSlotTypesCommandInput} for command's `input` shape.
  * @see {@link GetSlotTypesCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  */
 export class GetSlotTypesCommand extends $Command<

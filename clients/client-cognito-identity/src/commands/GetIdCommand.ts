@@ -34,7 +34,7 @@ export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
  *
  * @see {@link GetIdCommandInput} for command's `input` shape.
  * @see {@link GetIdCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
  *
  */
 export class GetIdCommand extends $Command<GetIdCommandInput, GetIdCommandOutput, CognitoIdentityClientResolvedConfig> {

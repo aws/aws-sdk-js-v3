@@ -35,7 +35,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  *
  * @see {@link ListConnectionsCommandInput} for command's `input` shape.
  * @see {@link ListConnectionsCommandOutput} for command's `response` shape.
- * @see {@link AppRunnerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
  *
  */
 export class ListConnectionsCommand extends $Command<

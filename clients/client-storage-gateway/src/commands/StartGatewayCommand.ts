@@ -47,7 +47,7 @@ export interface StartGatewayCommandOutput extends StartGatewayOutput, __Metadat
  *
  * @see {@link StartGatewayCommandInput} for command's `input` shape.
  * @see {@link StartGatewayCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class StartGatewayCommand extends $Command<

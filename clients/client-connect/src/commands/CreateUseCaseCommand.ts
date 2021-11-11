@@ -35,7 +35,7 @@ export interface CreateUseCaseCommandOutput extends CreateUseCaseResponse, __Met
  *
  * @see {@link CreateUseCaseCommandInput} for command's `input` shape.
  * @see {@link CreateUseCaseCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class CreateUseCaseCommand extends $Command<

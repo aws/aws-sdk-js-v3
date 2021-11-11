@@ -35,7 +35,7 @@ export interface GetClientCertificatesCommandOutput extends ClientCertificates, 
  *
  * @see {@link GetClientCertificatesCommandInput} for command's `input` shape.
  * @see {@link GetClientCertificatesCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class GetClientCertificatesCommand extends $Command<

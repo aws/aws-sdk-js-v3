@@ -40,7 +40,7 @@ export interface StartStackCommandOutput extends __MetadataBearer {}
  *
  * @see {@link StartStackCommandInput} for command's `input` shape.
  * @see {@link StartStackCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class StartStackCommand extends $Command<

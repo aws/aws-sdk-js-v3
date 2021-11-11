@@ -41,7 +41,7 @@ export interface AdminListUserAuthEventsCommandOutput extends AdminListUserAuthE
  *
  * @see {@link AdminListUserAuthEventsCommandInput} for command's `input` shape.
  * @see {@link AdminListUserAuthEventsCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class AdminListUserAuthEventsCommand extends $Command<

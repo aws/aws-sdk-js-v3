@@ -36,7 +36,7 @@ export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataB
  *
  * @see {@link UpdateSiteCommandInput} for command's `input` shape.
  * @see {@link UpdateSiteCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class UpdateSiteCommand extends $Command<

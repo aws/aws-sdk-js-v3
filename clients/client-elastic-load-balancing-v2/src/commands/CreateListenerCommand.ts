@@ -66,7 +66,7 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  *
  * @see {@link CreateListenerCommandInput} for command's `input` shape.
  * @see {@link CreateListenerCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  */
 export class CreateListenerCommand extends $Command<

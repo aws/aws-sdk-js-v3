@@ -36,7 +36,7 @@ export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliv
  *
  * @see {@link ListTagsForDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link ListTagsForDeliveryStreamCommandOutput} for command's `response` shape.
- * @see {@link FirehoseClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
  *
  */
 export class ListTagsForDeliveryStreamCommand extends $Command<

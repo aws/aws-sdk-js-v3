@@ -45,7 +45,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  *
  * @see {@link ListPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListPoliciesCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class ListPoliciesCommand extends $Command<

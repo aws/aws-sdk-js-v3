@@ -36,7 +36,7 @@ export interface CreateAppInstanceUserCommandOutput extends CreateAppInstanceUse
  *
  * @see {@link CreateAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link CreateAppInstanceUserCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class CreateAppInstanceUserCommand extends $Command<

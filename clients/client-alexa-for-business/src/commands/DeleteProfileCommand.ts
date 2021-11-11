@@ -35,7 +35,7 @@ export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __Met
  *
  * @see {@link DeleteProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteProfileCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class DeleteProfileCommand extends $Command<

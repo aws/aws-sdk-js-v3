@@ -39,7 +39,7 @@ export interface CreateCustomVerificationEmailTemplateCommandOutput extends __Me
  *
  * @see {@link CreateCustomVerificationEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateCustomVerificationEmailTemplateCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class CreateCustomVerificationEmailTemplateCommand extends $Command<

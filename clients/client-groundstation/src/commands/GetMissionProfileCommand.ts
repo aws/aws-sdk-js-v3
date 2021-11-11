@@ -35,7 +35,7 @@ export interface GetMissionProfileCommandOutput extends GetMissionProfileRespons
  *
  * @see {@link GetMissionProfileCommandInput} for command's `input` shape.
  * @see {@link GetMissionProfileCommandOutput} for command's `response` shape.
- * @see {@link GroundStationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
  *
  */
 export class GetMissionProfileCommand extends $Command<

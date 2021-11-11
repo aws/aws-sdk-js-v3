@@ -38,7 +38,7 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  *
  * @see {@link CreateDistributionCommandInput} for command's `input` shape.
  * @see {@link CreateDistributionCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class CreateDistributionCommand extends $Command<

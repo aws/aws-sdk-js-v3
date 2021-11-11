@@ -36,7 +36,7 @@ export interface UpdateRulesOfIpGroupCommandOutput extends UpdateRulesOfIpGroupR
  *
  * @see {@link UpdateRulesOfIpGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateRulesOfIpGroupCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class UpdateRulesOfIpGroupCommand extends $Command<

@@ -37,7 +37,7 @@ export interface UpdateDataSourcePermissionsCommandOutput
  *
  * @see {@link UpdateDataSourcePermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSourcePermissionsCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class UpdateDataSourcePermissionsCommand extends $Command<

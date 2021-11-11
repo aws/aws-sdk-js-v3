@@ -39,7 +39,7 @@ export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBeare
  *
  * @see {@link RegisterOnPremisesInstanceCommandInput} for command's `input` shape.
  * @see {@link RegisterOnPremisesInstanceCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  */
 export class RegisterOnPremisesInstanceCommand extends $Command<

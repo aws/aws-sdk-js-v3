@@ -35,7 +35,7 @@ export interface DeleteFolderMembershipCommandOutput extends DeleteFolderMembers
  *
  * @see {@link DeleteFolderMembershipCommandInput} for command's `input` shape.
  * @see {@link DeleteFolderMembershipCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class DeleteFolderMembershipCommand extends $Command<

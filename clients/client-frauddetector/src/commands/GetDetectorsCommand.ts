@@ -40,7 +40,7 @@ export interface GetDetectorsCommandOutput extends GetDetectorsResult, __Metadat
  *
  * @see {@link GetDetectorsCommandInput} for command's `input` shape.
  * @see {@link GetDetectorsCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class GetDetectorsCommand extends $Command<

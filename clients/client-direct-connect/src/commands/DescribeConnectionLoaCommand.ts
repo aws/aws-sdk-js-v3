@@ -42,7 +42,7 @@ export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLo
  *
  * @see {@link DescribeConnectionLoaCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionLoaCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class DescribeConnectionLoaCommand extends $Command<

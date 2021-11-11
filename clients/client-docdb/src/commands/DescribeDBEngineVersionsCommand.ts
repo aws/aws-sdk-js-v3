@@ -35,7 +35,7 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  *
  * @see {@link DescribeDBEngineVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBEngineVersionsCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  */
 export class DescribeDBEngineVersionsCommand extends $Command<

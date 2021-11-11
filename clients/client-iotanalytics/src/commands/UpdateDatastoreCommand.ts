@@ -35,7 +35,7 @@ export interface UpdateDatastoreCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateDatastoreCommandInput} for command's `input` shape.
  * @see {@link UpdateDatastoreCommandOutput} for command's `response` shape.
- * @see {@link IoTAnalyticsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
  *
  */
 export class UpdateDatastoreCommand extends $Command<

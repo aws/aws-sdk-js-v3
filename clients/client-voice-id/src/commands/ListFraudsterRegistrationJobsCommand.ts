@@ -40,7 +40,7 @@ export interface ListFraudsterRegistrationJobsCommandOutput
  *
  * @see {@link ListFraudsterRegistrationJobsCommandInput} for command's `input` shape.
  * @see {@link ListFraudsterRegistrationJobsCommandOutput} for command's `response` shape.
- * @see {@link VoiceIDClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
  *
  */
 export class ListFraudsterRegistrationJobsCommand extends $Command<

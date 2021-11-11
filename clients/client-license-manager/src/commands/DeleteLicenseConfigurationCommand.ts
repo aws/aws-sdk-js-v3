@@ -36,7 +36,7 @@ export interface DeleteLicenseConfigurationCommandOutput extends DeleteLicenseCo
  *
  * @see {@link DeleteLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteLicenseConfigurationCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class DeleteLicenseConfigurationCommand extends $Command<

@@ -41,7 +41,7 @@ export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput
  *
  * @see {@link DisassociateServiceActionFromProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link DisassociateServiceActionFromProvisioningArtifactCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class DisassociateServiceActionFromProvisioningArtifactCommand extends $Command<

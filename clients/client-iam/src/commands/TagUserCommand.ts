@@ -75,7 +75,7 @@ export interface TagUserCommandOutput extends __MetadataBearer {}
  *
  * @see {@link TagUserCommandInput} for command's `input` shape.
  * @see {@link TagUserCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class TagUserCommand extends $Command<TagUserCommandInput, TagUserCommandOutput, IAMClientResolvedConfig> {

@@ -37,7 +37,7 @@ export interface UpdateCustomMetricCommandOutput extends UpdateCustomMetricRespo
  *
  * @see {@link UpdateCustomMetricCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomMetricCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class UpdateCustomMetricCommand extends $Command<

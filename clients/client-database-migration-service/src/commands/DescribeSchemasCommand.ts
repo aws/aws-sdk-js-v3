@@ -41,7 +41,7 @@ export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, _
  *
  * @see {@link DescribeSchemasCommandInput} for command's `input` shape.
  * @see {@link DescribeSchemasCommandOutput} for command's `response` shape.
- * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  */
 export class DescribeSchemasCommand extends $Command<

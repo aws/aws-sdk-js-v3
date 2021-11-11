@@ -35,7 +35,7 @@ export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeR
  *
  * @see {@link DescribeVpcAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcAttributeCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DescribeVpcAttributeCommand extends $Command<

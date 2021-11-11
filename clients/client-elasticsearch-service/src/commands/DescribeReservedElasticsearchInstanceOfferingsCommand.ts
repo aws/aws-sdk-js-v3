@@ -45,7 +45,7 @@ export interface DescribeReservedElasticsearchInstanceOfferingsCommandOutput
  *
  * @see {@link DescribeReservedElasticsearchInstanceOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedElasticsearchInstanceOfferingsCommandOutput} for command's `response` shape.
- * @see {@link ElasticsearchServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
  */
 export class DescribeReservedElasticsearchInstanceOfferingsCommand extends $Command<

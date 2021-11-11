@@ -40,7 +40,7 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __Met
  *
  * @see {@link UpdateFunctionCommandInput} for command's `input` shape.
  * @see {@link UpdateFunctionCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class UpdateFunctionCommand extends $Command<

@@ -36,7 +36,7 @@ export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __M
  *
  * @see {@link GetJobDocumentCommandInput} for command's `input` shape.
  * @see {@link GetJobDocumentCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class GetJobDocumentCommand extends $Command<

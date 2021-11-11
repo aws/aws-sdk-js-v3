@@ -37,7 +37,7 @@ export interface DescribeInsightCommandOutput extends DescribeInsightResponse, _
  *
  * @see {@link DescribeInsightCommandInput} for command's `input` shape.
  * @see {@link DescribeInsightCommandOutput} for command's `response` shape.
- * @see {@link DevOpsGuruClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
  *
  */
 export class DescribeInsightCommand extends $Command<

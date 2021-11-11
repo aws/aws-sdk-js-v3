@@ -39,7 +39,7 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  *
  * @see {@link DescribeTargetHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeTargetHealthCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  */
 export class DescribeTargetHealthCommand extends $Command<

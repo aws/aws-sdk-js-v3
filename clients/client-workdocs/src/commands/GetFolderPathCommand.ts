@@ -40,7 +40,7 @@ export interface GetFolderPathCommandOutput extends GetFolderPathResponse, __Met
  *
  * @see {@link GetFolderPathCommandInput} for command's `input` shape.
  * @see {@link GetFolderPathCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class GetFolderPathCommand extends $Command<

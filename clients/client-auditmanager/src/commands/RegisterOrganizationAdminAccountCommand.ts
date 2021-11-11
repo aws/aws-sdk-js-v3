@@ -38,7 +38,7 @@ export interface RegisterOrganizationAdminAccountCommandOutput
  *
  * @see {@link RegisterOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link RegisterOrganizationAdminAccountCommandOutput} for command's `response` shape.
- * @see {@link AuditManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  */
 export class RegisterOrganizationAdminAccountCommand extends $Command<

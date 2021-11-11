@@ -36,7 +36,7 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  *
  * @see {@link RemoveTagsFromResourceCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromResourceCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class RemoveTagsFromResourceCommand extends $Command<

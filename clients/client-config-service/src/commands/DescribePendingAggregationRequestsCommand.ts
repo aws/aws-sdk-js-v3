@@ -40,7 +40,7 @@ export interface DescribePendingAggregationRequestsCommandOutput
  *
  * @see {@link DescribePendingAggregationRequestsCommandInput} for command's `input` shape.
  * @see {@link DescribePendingAggregationRequestsCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class DescribePendingAggregationRequestsCommand extends $Command<

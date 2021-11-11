@@ -54,7 +54,7 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointOutput, __Met
  *
  * @see {@link InvokeEndpointCommandInput} for command's `input` shape.
  * @see {@link InvokeEndpointCommandOutput} for command's `response` shape.
- * @see {@link SageMakerRuntimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerRuntimeClientResolvedConfig | config} for SageMakerRuntimeClient's `config` shape.
  *
  */
 export class InvokeEndpointCommand extends $Command<

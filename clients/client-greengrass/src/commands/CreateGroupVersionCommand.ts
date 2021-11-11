@@ -35,7 +35,7 @@ export interface CreateGroupVersionCommandOutput extends CreateGroupVersionRespo
  *
  * @see {@link CreateGroupVersionCommandInput} for command's `input` shape.
  * @see {@link CreateGroupVersionCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class CreateGroupVersionCommand extends $Command<

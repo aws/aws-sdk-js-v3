@@ -35,7 +35,7 @@ export interface DescribeBrokerCommandOutput extends DescribeBrokerResponse, __M
  *
  * @see {@link DescribeBrokerCommandInput} for command's `input` shape.
  * @see {@link DescribeBrokerCommandOutput} for command's `response` shape.
- * @see {@link MqClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
  *
  */
 export class DescribeBrokerCommand extends $Command<

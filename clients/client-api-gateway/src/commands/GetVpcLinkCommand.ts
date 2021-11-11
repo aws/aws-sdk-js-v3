@@ -35,7 +35,7 @@ export interface GetVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
  *
  * @see {@link GetVpcLinkCommandInput} for command's `input` shape.
  * @see {@link GetVpcLinkCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class GetVpcLinkCommand extends $Command<

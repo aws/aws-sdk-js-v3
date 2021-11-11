@@ -41,7 +41,7 @@ export interface GetProfileObjectTypeTemplateCommandOutput
  *
  * @see {@link GetProfileObjectTypeTemplateCommandInput} for command's `input` shape.
  * @see {@link GetProfileObjectTypeTemplateCommandOutput} for command's `response` shape.
- * @see {@link CustomerProfilesClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  */
 export class GetProfileObjectTypeTemplateCommand extends $Command<

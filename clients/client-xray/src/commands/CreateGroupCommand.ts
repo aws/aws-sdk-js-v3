@@ -35,7 +35,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResult, __MetadataB
  *
  * @see {@link CreateGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGroupCommandOutput} for command's `response` shape.
- * @see {@link XRayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  */
 export class CreateGroupCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateGraphqlApiCommandOutput extends UpdateGraphqlApiResponse,
  *
  * @see {@link UpdateGraphqlApiCommandInput} for command's `input` shape.
  * @see {@link UpdateGraphqlApiCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  */
 export class UpdateGraphqlApiCommand extends $Command<

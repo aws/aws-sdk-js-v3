@@ -49,7 +49,7 @@ export interface DescribeAffectedAccountsForOrganizationCommandOutput
  *
  * @see {@link DescribeAffectedAccountsForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeAffectedAccountsForOrganizationCommandOutput} for command's `response` shape.
- * @see {@link HealthClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
  */
 export class DescribeAffectedAccountsForOrganizationCommand extends $Command<

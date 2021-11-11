@@ -59,7 +59,7 @@ export interface ListAggregatedUtterancesCommandOutput extends ListAggregatedUtt
  *
  * @see {@link ListAggregatedUtterancesCommandInput} for command's `input` shape.
  * @see {@link ListAggregatedUtterancesCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  */
 export class ListAggregatedUtterancesCommand extends $Command<

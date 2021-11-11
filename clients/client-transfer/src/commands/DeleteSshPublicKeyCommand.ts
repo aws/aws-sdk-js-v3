@@ -35,7 +35,7 @@ export interface DeleteSshPublicKeyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteSshPublicKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteSshPublicKeyCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
 export class DeleteSshPublicKeyCommand extends $Command<

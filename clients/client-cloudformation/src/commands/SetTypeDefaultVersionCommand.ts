@@ -36,7 +36,7 @@ export interface SetTypeDefaultVersionCommandOutput extends SetTypeDefaultVersio
  *
  * @see {@link SetTypeDefaultVersionCommandInput} for command's `input` shape.
  * @see {@link SetTypeDefaultVersionCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  */
 export class SetTypeDefaultVersionCommand extends $Command<

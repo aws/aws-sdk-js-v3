@@ -37,7 +37,7 @@ export interface ListKeyPhrasesDetectionJobsCommandOutput
  *
  * @see {@link ListKeyPhrasesDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListKeyPhrasesDetectionJobsCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class ListKeyPhrasesDetectionJobsCommand extends $Command<

@@ -43,7 +43,7 @@ export interface StartReplayCommandOutput extends StartReplayResponse, __Metadat
  *
  * @see {@link StartReplayCommandInput} for command's `input` shape.
  * @see {@link StartReplayCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class StartReplayCommand extends $Command<

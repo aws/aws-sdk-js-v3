@@ -36,7 +36,7 @@ export interface ListInstanceAttributesCommandOutput extends ListInstanceAttribu
  *
  * @see {@link ListInstanceAttributesCommandInput} for command's `input` shape.
  * @see {@link ListInstanceAttributesCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class ListInstanceAttributesCommand extends $Command<

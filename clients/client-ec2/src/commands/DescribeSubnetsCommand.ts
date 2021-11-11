@@ -34,7 +34,7 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
  *
  * @see {@link DescribeSubnetsCommandInput} for command's `input` shape.
  * @see {@link DescribeSubnetsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DescribeSubnetsCommand extends $Command<

@@ -36,7 +36,7 @@ export interface CreateClientVpnRouteCommandOutput extends CreateClientVpnRouteR
  *
  * @see {@link CreateClientVpnRouteCommandInput} for command's `input` shape.
  * @see {@link CreateClientVpnRouteCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class CreateClientVpnRouteCommand extends $Command<

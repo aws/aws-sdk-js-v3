@@ -41,7 +41,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  *
  * @see {@link DescribeImagesCommandInput} for command's `input` shape.
  * @see {@link DescribeImagesCommandOutput} for command's `response` shape.
- * @see {@link ECRPUBLICClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
  *
  */
 export class DescribeImagesCommand extends $Command<

@@ -41,7 +41,7 @@ export interface SendTestEventNotificationCommandOutput extends SendTestEventNot
  *
  * @see {@link SendTestEventNotificationCommandInput} for command's `input` shape.
  * @see {@link SendTestEventNotificationCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  */
 export class SendTestEventNotificationCommand extends $Command<

@@ -36,7 +36,7 @@ export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __Metadat
  *
  * @see {@link StartCopyJobCommandInput} for command's `input` shape.
  * @see {@link StartCopyJobCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class StartCopyJobCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetDevicesCommandOutput extends GetDevicesResponse, __MetadataB
  *
  * @see {@link GetDevicesCommandInput} for command's `input` shape.
  * @see {@link GetDevicesCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class GetDevicesCommand extends $Command<

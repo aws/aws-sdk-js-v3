@@ -35,7 +35,7 @@ export interface CreateManagedEndpointCommandOutput extends CreateManagedEndpoin
  *
  * @see {@link CreateManagedEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateManagedEndpointCommandOutput} for command's `response` shape.
- * @see {@link EMRContainersClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
  *
  */
 export class CreateManagedEndpointCommand extends $Command<

@@ -37,7 +37,7 @@ export interface QueryTableRowsCommandOutput extends QueryTableRowsResult, __Met
  *
  * @see {@link QueryTableRowsCommandInput} for command's `input` shape.
  * @see {@link QueryTableRowsCommandOutput} for command's `response` shape.
- * @see {@link HoneycodeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
  *
  */
 export class QueryTableRowsCommand extends $Command<

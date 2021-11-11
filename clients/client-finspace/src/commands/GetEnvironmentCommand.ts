@@ -35,7 +35,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  *
  * @see {@link GetEnvironmentCommandInput} for command's `input` shape.
  * @see {@link GetEnvironmentCommandOutput} for command's `response` shape.
- * @see {@link FinspaceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
  *
  */
 export class GetEnvironmentCommand extends $Command<

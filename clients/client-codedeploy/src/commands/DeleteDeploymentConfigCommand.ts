@@ -39,7 +39,7 @@ export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteDeploymentConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteDeploymentConfigCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  */
 export class DeleteDeploymentConfigCommand extends $Command<

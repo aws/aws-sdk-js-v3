@@ -39,7 +39,7 @@ export interface UpdateInstanceCustomHealthStatusCommandOutput extends __Metadat
  *
  * @see {@link UpdateInstanceCustomHealthStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceCustomHealthStatusCommandOutput} for command's `response` shape.
- * @see {@link ServiceDiscoveryClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  */
 export class UpdateInstanceCustomHealthStatusCommand extends $Command<

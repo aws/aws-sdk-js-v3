@@ -37,7 +37,7 @@ export interface ListCompilationJobsCommandOutput extends ListCompilationJobsRes
  *
  * @see {@link ListCompilationJobsCommandInput} for command's `input` shape.
  * @see {@link ListCompilationJobsCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class ListCompilationJobsCommand extends $Command<

@@ -36,7 +36,7 @@ export interface DeleteThesaurusCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteThesaurusCommandInput} for command's `input` shape.
  * @see {@link DeleteThesaurusCommandOutput} for command's `response` shape.
- * @see {@link KendraClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  */
 export class DeleteThesaurusCommand extends $Command<

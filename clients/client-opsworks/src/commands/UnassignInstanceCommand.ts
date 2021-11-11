@@ -43,7 +43,7 @@ export interface UnassignInstanceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UnassignInstanceCommandInput} for command's `input` shape.
  * @see {@link UnassignInstanceCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class UnassignInstanceCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateRequestValidatorCommandOutput extends RequestValidator, _
  *
  * @see {@link UpdateRequestValidatorCommandInput} for command's `input` shape.
  * @see {@link UpdateRequestValidatorCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class UpdateRequestValidatorCommand extends $Command<

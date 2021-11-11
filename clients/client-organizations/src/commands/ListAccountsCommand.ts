@@ -46,7 +46,7 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  *
  * @see {@link ListAccountsCommandInput} for command's `input` shape.
  * @see {@link ListAccountsCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class ListAccountsCommand extends $Command<

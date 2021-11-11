@@ -38,7 +38,7 @@ export interface CreateReportPlanCommandOutput extends CreateReportPlanOutput, _
  *
  * @see {@link CreateReportPlanCommandInput} for command's `input` shape.
  * @see {@link CreateReportPlanCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class CreateReportPlanCommand extends $Command<

@@ -38,7 +38,7 @@ export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataB
  *
  * @see {@link GetTemplateCommandInput} for command's `input` shape.
  * @see {@link GetTemplateCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  */
 export class GetTemplateCommand extends $Command<

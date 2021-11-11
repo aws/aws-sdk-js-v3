@@ -48,7 +48,7 @@ export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PutKeyPolicyCommandInput} for command's `input` shape.
  * @see {@link PutKeyPolicyCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  */
 export class PutKeyPolicyCommand extends $Command<

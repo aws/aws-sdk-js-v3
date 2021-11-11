@@ -35,7 +35,7 @@ export interface UpdatePartnerAccountCommandOutput extends UpdatePartnerAccountR
  *
  * @see {@link UpdatePartnerAccountCommandInput} for command's `input` shape.
  * @see {@link UpdatePartnerAccountCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class UpdatePartnerAccountCommand extends $Command<

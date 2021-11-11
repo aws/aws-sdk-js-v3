@@ -44,7 +44,7 @@ export interface GetBlueprintsCommandOutput extends GetBlueprintsResult, __Metad
  *
  * @see {@link GetBlueprintsCommandInput} for command's `input` shape.
  * @see {@link GetBlueprintsCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class GetBlueprintsCommand extends $Command<

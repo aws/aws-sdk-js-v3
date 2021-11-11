@@ -35,7 +35,7 @@ export interface ListRevisionAssetsCommandOutput extends ListRevisionAssetsRespo
  *
  * @see {@link ListRevisionAssetsCommandInput} for command's `input` shape.
  * @see {@link ListRevisionAssetsCommandOutput} for command's `response` shape.
- * @see {@link DataExchangeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  */
 export class ListRevisionAssetsCommand extends $Command<

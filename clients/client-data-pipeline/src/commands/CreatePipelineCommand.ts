@@ -65,7 +65,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  *
  * @see {@link CreatePipelineCommandInput} for command's `input` shape.
  * @see {@link CreatePipelineCommandOutput} for command's `response` shape.
- * @see {@link DataPipelineClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
  *
  */
 export class CreatePipelineCommand extends $Command<

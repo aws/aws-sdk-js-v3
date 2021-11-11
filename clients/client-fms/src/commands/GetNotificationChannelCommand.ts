@@ -37,7 +37,7 @@ export interface GetNotificationChannelCommandOutput extends GetNotificationChan
  *
  * @see {@link GetNotificationChannelCommandInput} for command's `input` shape.
  * @see {@link GetNotificationChannelCommandOutput} for command's `response` shape.
- * @see {@link FMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
  */
 export class GetNotificationChannelCommand extends $Command<

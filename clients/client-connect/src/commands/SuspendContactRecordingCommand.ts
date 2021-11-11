@@ -40,7 +40,7 @@ export interface SuspendContactRecordingCommandOutput extends SuspendContactReco
  *
  * @see {@link SuspendContactRecordingCommandInput} for command's `input` shape.
  * @see {@link SuspendContactRecordingCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class SuspendContactRecordingCommand extends $Command<

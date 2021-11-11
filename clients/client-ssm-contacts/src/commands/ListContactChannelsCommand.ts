@@ -35,7 +35,7 @@ export interface ListContactChannelsCommandOutput extends ListContactChannelsRes
  *
  * @see {@link ListContactChannelsCommandInput} for command's `input` shape.
  * @see {@link ListContactChannelsCommandOutput} for command's `response` shape.
- * @see {@link SSMContactsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
  */
 export class ListContactChannelsCommand extends $Command<

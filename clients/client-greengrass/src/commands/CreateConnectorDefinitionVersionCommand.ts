@@ -37,7 +37,7 @@ export interface CreateConnectorDefinitionVersionCommandOutput
  *
  * @see {@link CreateConnectorDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateConnectorDefinitionVersionCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class CreateConnectorDefinitionVersionCommand extends $Command<

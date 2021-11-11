@@ -53,7 +53,7 @@ export interface UpdateTrafficPolicyInstanceCommandOutput
  *
  * @see {@link UpdateTrafficPolicyInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateTrafficPolicyInstanceCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  */
 export class UpdateTrafficPolicyInstanceCommand extends $Command<

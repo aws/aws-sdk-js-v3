@@ -38,7 +38,7 @@ export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleRespons
  *
  * @see {@link CreateReceiptRuleCommandInput} for command's `input` shape.
  * @see {@link CreateReceiptRuleCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class CreateReceiptRuleCommand extends $Command<

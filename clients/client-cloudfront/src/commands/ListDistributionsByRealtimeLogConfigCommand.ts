@@ -49,7 +49,7 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  *
  * @see {@link ListDistributionsByRealtimeLogConfigCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByRealtimeLogConfigCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class ListDistributionsByRealtimeLogConfigCommand extends $Command<

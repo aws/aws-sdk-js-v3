@@ -42,7 +42,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *
  * @see {@link CreateDBClusterCommandInput} for command's `input` shape.
  * @see {@link CreateDBClusterCommandOutput} for command's `response` shape.
- * @see {@link NeptuneClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  */
 export class CreateDBClusterCommand extends $Command<

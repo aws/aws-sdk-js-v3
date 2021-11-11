@@ -32,7 +32,7 @@ export interface DeleteACLCommandOutput extends DeleteACLResponse, __MetadataBea
  *
  * @see {@link DeleteACLCommandInput} for command's `input` shape.
  * @see {@link DeleteACLCommandOutput} for command's `response` shape.
- * @see {@link MemoryDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  */
 export class DeleteACLCommand extends $Command<

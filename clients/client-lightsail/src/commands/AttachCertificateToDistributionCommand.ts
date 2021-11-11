@@ -48,7 +48,7 @@ export interface AttachCertificateToDistributionCommandOutput
  *
  * @see {@link AttachCertificateToDistributionCommandInput} for command's `input` shape.
  * @see {@link AttachCertificateToDistributionCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class AttachCertificateToDistributionCommand extends $Command<

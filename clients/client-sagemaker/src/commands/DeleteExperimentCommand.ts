@@ -37,7 +37,7 @@ export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse,
  *
  * @see {@link DeleteExperimentCommandInput} for command's `input` shape.
  * @see {@link DeleteExperimentCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DeleteExperimentCommand extends $Command<

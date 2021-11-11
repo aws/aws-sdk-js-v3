@@ -35,7 +35,7 @@ export interface CreateMultiplexCommandOutput extends CreateMultiplexResponse, _
  *
  * @see {@link CreateMultiplexCommandInput} for command's `input` shape.
  * @see {@link CreateMultiplexCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  */
 export class CreateMultiplexCommand extends $Command<

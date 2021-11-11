@@ -46,7 +46,7 @@ export interface StartCelebrityRecognitionCommandOutput extends StartCelebrityRe
  *
  * @see {@link StartCelebrityRecognitionCommandInput} for command's `input` shape.
  * @see {@link StartCelebrityRecognitionCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  */
 export class StartCelebrityRecognitionCommand extends $Command<

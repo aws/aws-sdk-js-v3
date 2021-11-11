@@ -66,7 +66,7 @@ export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstrai
  *
  * @see {@link CreateSizeConstraintSetCommandInput} for command's `input` shape.
  * @see {@link CreateSizeConstraintSetCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  */
 export class CreateSizeConstraintSetCommand extends $Command<

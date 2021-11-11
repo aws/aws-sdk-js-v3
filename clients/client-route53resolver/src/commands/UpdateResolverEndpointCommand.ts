@@ -35,7 +35,7 @@ export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpo
  *
  * @see {@link UpdateResolverEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateResolverEndpointCommandOutput} for command's `response` shape.
- * @see {@link Route53ResolverClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
  */
 export class UpdateResolverEndpointCommand extends $Command<

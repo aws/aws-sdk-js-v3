@@ -35,7 +35,7 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  *
  * @see {@link UpdateThemeCommandInput} for command's `input` shape.
  * @see {@link UpdateThemeCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class UpdateThemeCommand extends $Command<

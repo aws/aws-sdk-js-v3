@@ -35,7 +35,7 @@ export interface GetResolverCommandOutput extends GetResolverResponse, __Metadat
  *
  * @see {@link GetResolverCommandInput} for command's `input` shape.
  * @see {@link GetResolverCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  */
 export class GetResolverCommand extends $Command<

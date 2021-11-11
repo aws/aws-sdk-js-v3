@@ -35,7 +35,7 @@ export interface RegisterApplicationRevisionCommandOutput extends __MetadataBear
  *
  * @see {@link RegisterApplicationRevisionCommandInput} for command's `input` shape.
  * @see {@link RegisterApplicationRevisionCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  */
 export class RegisterApplicationRevisionCommand extends $Command<

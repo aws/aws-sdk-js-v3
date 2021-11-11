@@ -42,7 +42,7 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  *
  * @see {@link SendMessageCommandInput} for command's `input` shape.
  * @see {@link SendMessageCommandOutput} for command's `response` shape.
- * @see {@link ConnectParticipantClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
  *
  */
 export class SendMessageCommand extends $Command<

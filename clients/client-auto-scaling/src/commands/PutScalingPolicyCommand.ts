@@ -44,7 +44,7 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  *
  * @see {@link PutScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link PutScalingPolicyCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class PutScalingPolicyCommand extends $Command<

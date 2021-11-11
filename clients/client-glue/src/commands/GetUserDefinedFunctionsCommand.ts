@@ -35,7 +35,7 @@ export interface GetUserDefinedFunctionsCommandOutput extends GetUserDefinedFunc
  *
  * @see {@link GetUserDefinedFunctionsCommandInput} for command's `input` shape.
  * @see {@link GetUserDefinedFunctionsCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class GetUserDefinedFunctionsCommand extends $Command<

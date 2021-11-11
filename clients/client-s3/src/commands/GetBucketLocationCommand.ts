@@ -56,7 +56,7 @@ export interface GetBucketLocationCommandOutput extends GetBucketLocationOutput,
  *
  * @see {@link GetBucketLocationCommandInput} for command's `input` shape.
  * @see {@link GetBucketLocationCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  */
 export class GetBucketLocationCommand extends $Command<

@@ -40,7 +40,7 @@ export interface DeregisterPatchBaselineForPatchGroupCommandOutput
  *
  * @see {@link DeregisterPatchBaselineForPatchGroupCommandInput} for command's `input` shape.
  * @see {@link DeregisterPatchBaselineForPatchGroupCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<

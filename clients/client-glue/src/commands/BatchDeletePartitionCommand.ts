@@ -35,7 +35,7 @@ export interface BatchDeletePartitionCommandOutput extends BatchDeletePartitionR
  *
  * @see {@link BatchDeletePartitionCommandInput} for command's `input` shape.
  * @see {@link BatchDeletePartitionCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class BatchDeletePartitionCommand extends $Command<

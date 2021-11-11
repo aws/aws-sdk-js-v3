@@ -36,7 +36,7 @@ export interface GetConnectionStatusCommandOutput extends GetConnectionStatusRes
  *
  * @see {@link GetConnectionStatusCommandInput} for command's `input` shape.
  * @see {@link GetConnectionStatusCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class GetConnectionStatusCommand extends $Command<

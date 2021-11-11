@@ -45,7 +45,7 @@ export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBea
  *
  * @see {@link ListQueuesCommandInput} for command's `input` shape.
  * @see {@link ListQueuesCommandOutput} for command's `response` shape.
- * @see {@link SQSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  */
 export class ListQueuesCommand extends $Command<

@@ -37,7 +37,7 @@ export interface DeleteReportCommandOutput extends DeleteReportOutput, __Metadat
  *
  * @see {@link DeleteReportCommandInput} for command's `input` shape.
  * @see {@link DeleteReportCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  */
 export class DeleteReportCommand extends $Command<

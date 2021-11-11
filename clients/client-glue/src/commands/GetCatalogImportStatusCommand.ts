@@ -35,7 +35,7 @@ export interface GetCatalogImportStatusCommandOutput extends GetCatalogImportSta
  *
  * @see {@link GetCatalogImportStatusCommandInput} for command's `input` shape.
  * @see {@link GetCatalogImportStatusCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class GetCatalogImportStatusCommand extends $Command<

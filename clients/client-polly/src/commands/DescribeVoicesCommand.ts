@@ -53,7 +53,7 @@ export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __Met
  *
  * @see {@link DescribeVoicesCommandInput} for command's `input` shape.
  * @see {@link DescribeVoicesCommandOutput} for command's `response` shape.
- * @see {@link PollyClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
  */
 export class DescribeVoicesCommand extends $Command<

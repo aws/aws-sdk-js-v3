@@ -35,7 +35,7 @@ export interface ListAppInstanceAdminsCommandOutput extends ListAppInstanceAdmin
  *
  * @see {@link ListAppInstanceAdminsCommandInput} for command's `input` shape.
  * @see {@link ListAppInstanceAdminsCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class ListAppInstanceAdminsCommand extends $Command<

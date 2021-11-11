@@ -37,7 +37,7 @@ export interface GetRequestedServiceQuotaChangeCommandOutput
  *
  * @see {@link GetRequestedServiceQuotaChangeCommandInput} for command's `input` shape.
  * @see {@link GetRequestedServiceQuotaChangeCommandOutput} for command's `response` shape.
- * @see {@link ServiceQuotasClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
  *
  */
 export class GetRequestedServiceQuotaChangeCommand extends $Command<

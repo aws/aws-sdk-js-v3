@@ -35,7 +35,7 @@ export interface GetLensReviewReportCommandOutput extends GetLensReviewReportOut
  *
  * @see {@link GetLensReviewReportCommandInput} for command's `input` shape.
  * @see {@link GetLensReviewReportCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  */
 export class GetLensReviewReportCommand extends $Command<

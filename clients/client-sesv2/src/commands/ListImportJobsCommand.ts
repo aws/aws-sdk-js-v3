@@ -35,7 +35,7 @@ export interface ListImportJobsCommandOutput extends ListImportJobsResponse, __M
  *
  * @see {@link ListImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListImportJobsCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class ListImportJobsCommand extends $Command<

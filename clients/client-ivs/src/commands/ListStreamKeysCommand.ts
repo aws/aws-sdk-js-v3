@@ -35,7 +35,7 @@ export interface ListStreamKeysCommandOutput extends ListStreamKeysResponse, __M
  *
  * @see {@link ListStreamKeysCommandInput} for command's `input` shape.
  * @see {@link ListStreamKeysCommandOutput} for command's `response` shape.
- * @see {@link IvsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
  */
 export class ListStreamKeysCommand extends $Command<

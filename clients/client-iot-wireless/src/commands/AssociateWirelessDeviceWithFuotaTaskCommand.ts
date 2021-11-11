@@ -40,7 +40,7 @@ export interface AssociateWirelessDeviceWithFuotaTaskCommandOutput
  *
  * @see {@link AssociateWirelessDeviceWithFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link AssociateWirelessDeviceWithFuotaTaskCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class AssociateWirelessDeviceWithFuotaTaskCommand extends $Command<

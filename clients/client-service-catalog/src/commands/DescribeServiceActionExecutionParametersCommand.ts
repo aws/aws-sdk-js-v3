@@ -41,7 +41,7 @@ export interface DescribeServiceActionExecutionParametersCommandOutput
  *
  * @see {@link DescribeServiceActionExecutionParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeServiceActionExecutionParametersCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class DescribeServiceActionExecutionParametersCommand extends $Command<

@@ -36,7 +36,7 @@ export interface UpdateThingGroupCommandOutput extends UpdateThingGroupResponse,
  *
  * @see {@link UpdateThingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateThingGroupCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class UpdateThingGroupCommand extends $Command<

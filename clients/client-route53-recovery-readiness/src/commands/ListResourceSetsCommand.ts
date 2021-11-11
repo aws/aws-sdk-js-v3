@@ -39,7 +39,7 @@ export interface ListResourceSetsCommandOutput extends ListResourceSetsResponse,
  *
  * @see {@link ListResourceSetsCommandInput} for command's `input` shape.
  * @see {@link ListResourceSetsCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
  *
  */
 export class ListResourceSetsCommand extends $Command<

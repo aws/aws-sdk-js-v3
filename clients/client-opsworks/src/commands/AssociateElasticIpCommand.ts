@@ -43,7 +43,7 @@ export interface AssociateElasticIpCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AssociateElasticIpCommandInput} for command's `input` shape.
  * @see {@link AssociateElasticIpCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class AssociateElasticIpCommand extends $Command<

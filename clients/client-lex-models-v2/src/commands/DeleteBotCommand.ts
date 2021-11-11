@@ -44,7 +44,7 @@ export interface DeleteBotCommandOutput extends DeleteBotResponse, __MetadataBea
  *
  * @see {@link DeleteBotCommandInput} for command's `input` shape.
  * @see {@link DeleteBotCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  */
 export class DeleteBotCommand extends $Command<

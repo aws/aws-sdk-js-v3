@@ -39,7 +39,7 @@ export interface DeactivateEventSourceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeactivateEventSourceCommandInput} for command's `input` shape.
  * @see {@link DeactivateEventSourceCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchEventsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  */
 export class DeactivateEventSourceCommand extends $Command<

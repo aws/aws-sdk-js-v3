@@ -37,7 +37,7 @@ export interface DeleteRecoveryPointCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link DeleteRecoveryPointCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class DeleteRecoveryPointCommand extends $Command<

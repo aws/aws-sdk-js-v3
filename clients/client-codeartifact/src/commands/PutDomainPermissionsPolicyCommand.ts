@@ -42,7 +42,7 @@ export interface PutDomainPermissionsPolicyCommandOutput extends PutDomainPermis
  *
  * @see {@link PutDomainPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link PutDomainPermissionsPolicyCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  */
 export class PutDomainPermissionsPolicyCommand extends $Command<

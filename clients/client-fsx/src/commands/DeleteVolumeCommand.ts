@@ -38,7 +38,7 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __Metad
  *
  * @see {@link DeleteVolumeCommandInput} for command's `input` shape.
  * @see {@link DeleteVolumeCommandOutput} for command's `response` shape.
- * @see {@link FSxClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  */
 export class DeleteVolumeCommand extends $Command<

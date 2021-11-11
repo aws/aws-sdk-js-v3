@@ -35,7 +35,7 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  *
  * @see {@link StopBuildBatchCommandInput} for command's `input` shape.
  * @see {@link StopBuildBatchCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  */
 export class StopBuildBatchCommand extends $Command<

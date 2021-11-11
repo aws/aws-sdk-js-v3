@@ -39,7 +39,7 @@ export interface DescribeBudgetActionHistoriesCommandOutput
  *
  * @see {@link DescribeBudgetActionHistoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeBudgetActionHistoriesCommandOutput} for command's `response` shape.
- * @see {@link BudgetsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
  *
  */
 export class DescribeBudgetActionHistoriesCommand extends $Command<

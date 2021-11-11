@@ -41,7 +41,7 @@ export interface ListAccountsForProvisionedPermissionSetCommandOutput
  *
  * @see {@link ListAccountsForProvisionedPermissionSetCommandInput} for command's `input` shape.
  * @see {@link ListAccountsForProvisionedPermissionSetCommandOutput} for command's `response` shape.
- * @see {@link SSOAdminClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
  *
  */
 export class ListAccountsForProvisionedPermissionSetCommand extends $Command<

@@ -42,7 +42,7 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  *
  * @see {@link ListAllowedNodeTypeModificationsCommandInput} for command's `input` shape.
  * @see {@link ListAllowedNodeTypeModificationsCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class ListAllowedNodeTypeModificationsCommand extends $Command<

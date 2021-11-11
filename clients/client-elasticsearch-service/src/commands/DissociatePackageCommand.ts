@@ -39,7 +39,7 @@ export interface DissociatePackageCommandOutput extends DissociatePackageRespons
  *
  * @see {@link DissociatePackageCommandInput} for command's `input` shape.
  * @see {@link DissociatePackageCommandOutput} for command's `response` shape.
- * @see {@link ElasticsearchServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
  */
 export class DissociatePackageCommand extends $Command<

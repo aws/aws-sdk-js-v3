@@ -52,7 +52,7 @@ export interface DeleteAcceleratorCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteAcceleratorCommandInput} for command's `input` shape.
  * @see {@link DeleteAcceleratorCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  */
 export class DeleteAcceleratorCommand extends $Command<

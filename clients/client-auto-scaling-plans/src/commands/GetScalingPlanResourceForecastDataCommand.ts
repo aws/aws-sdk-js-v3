@@ -43,7 +43,7 @@ export interface GetScalingPlanResourceForecastDataCommandOutput
  *
  * @see {@link GetScalingPlanResourceForecastDataCommandInput} for command's `input` shape.
  * @see {@link GetScalingPlanResourceForecastDataCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingPlansClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.
  *
  */
 export class GetScalingPlanResourceForecastDataCommand extends $Command<

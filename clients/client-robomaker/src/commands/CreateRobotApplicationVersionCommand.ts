@@ -37,7 +37,7 @@ export interface CreateRobotApplicationVersionCommandOutput
  *
  * @see {@link CreateRobotApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link CreateRobotApplicationVersionCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class CreateRobotApplicationVersionCommand extends $Command<

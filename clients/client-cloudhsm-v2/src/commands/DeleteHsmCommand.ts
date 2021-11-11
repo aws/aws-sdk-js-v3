@@ -34,7 +34,7 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  *
  * @see {@link DeleteHsmCommandInput} for command's `input` shape.
  * @see {@link DeleteHsmCommandOutput} for command's `response` shape.
- * @see {@link CloudHSMV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
  *
  */
 export class DeleteHsmCommand extends $Command<

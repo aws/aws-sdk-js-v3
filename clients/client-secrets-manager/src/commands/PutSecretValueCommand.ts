@@ -123,7 +123,7 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  *
  * @see {@link PutSecretValueCommandInput} for command's `input` shape.
  * @see {@link PutSecretValueCommandOutput} for command's `response` shape.
- * @see {@link SecretsManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
  */
 export class PutSecretValueCommand extends $Command<

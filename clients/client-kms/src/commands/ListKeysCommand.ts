@@ -62,7 +62,7 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  *
  * @see {@link ListKeysCommandInput} for command's `input` shape.
  * @see {@link ListKeysCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  */
 export class ListKeysCommand extends $Command<ListKeysCommandInput, ListKeysCommandOutput, KMSClientResolvedConfig> {

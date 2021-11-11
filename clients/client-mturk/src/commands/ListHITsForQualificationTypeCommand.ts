@@ -42,7 +42,7 @@ export interface ListHITsForQualificationTypeCommandOutput
  *
  * @see {@link ListHITsForQualificationTypeCommandInput} for command's `input` shape.
  * @see {@link ListHITsForQualificationTypeCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  */
 export class ListHITsForQualificationTypeCommand extends $Command<

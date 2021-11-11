@@ -35,7 +35,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  *
  * @see {@link ListDataSourcesCommandInput} for command's `input` shape.
  * @see {@link ListDataSourcesCommandOutput} for command's `response` shape.
- * @see {@link KendraClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  */
 export class ListDataSourcesCommand extends $Command<

@@ -36,7 +36,7 @@ export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResul
  *
  * @see {@link GetSoftwareUpdatesCommandInput} for command's `input` shape.
  * @see {@link GetSoftwareUpdatesCommandOutput} for command's `response` shape.
- * @see {@link SnowballClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  */
 export class GetSoftwareUpdatesCommand extends $Command<

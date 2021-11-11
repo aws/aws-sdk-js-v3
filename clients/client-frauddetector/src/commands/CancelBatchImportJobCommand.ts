@@ -35,7 +35,7 @@ export interface CancelBatchImportJobCommandOutput extends CancelBatchImportJobR
  *
  * @see {@link CancelBatchImportJobCommandInput} for command's `input` shape.
  * @see {@link CancelBatchImportJobCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class CancelBatchImportJobCommand extends $Command<

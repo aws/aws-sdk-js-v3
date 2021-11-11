@@ -35,7 +35,7 @@ export interface DeleteWorkflowCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteWorkflowCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkflowCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
 export class DeleteWorkflowCommand extends $Command<

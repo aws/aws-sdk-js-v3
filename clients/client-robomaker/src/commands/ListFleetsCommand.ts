@@ -36,7 +36,7 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  *
  * @see {@link ListFleetsCommandInput} for command's `input` shape.
  * @see {@link ListFleetsCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class ListFleetsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteJobTemplateCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteJobTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteJobTemplateCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class DeleteJobTemplateCommand extends $Command<

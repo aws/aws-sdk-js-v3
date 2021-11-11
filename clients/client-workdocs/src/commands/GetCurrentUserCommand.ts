@@ -41,7 +41,7 @@ export interface GetCurrentUserCommandOutput extends GetCurrentUserResponse, __M
  *
  * @see {@link GetCurrentUserCommandInput} for command's `input` shape.
  * @see {@link GetCurrentUserCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class GetCurrentUserCommand extends $Command<

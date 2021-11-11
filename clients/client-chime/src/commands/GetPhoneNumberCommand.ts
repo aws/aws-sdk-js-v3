@@ -35,7 +35,7 @@ export interface GetPhoneNumberCommandOutput extends GetPhoneNumberResponse, __M
  *
  * @see {@link GetPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link GetPhoneNumberCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class GetPhoneNumberCommand extends $Command<

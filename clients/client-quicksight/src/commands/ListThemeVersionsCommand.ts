@@ -35,7 +35,7 @@ export interface ListThemeVersionsCommandOutput extends ListThemeVersionsRespons
  *
  * @see {@link ListThemeVersionsCommandInput} for command's `input` shape.
  * @see {@link ListThemeVersionsCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class ListThemeVersionsCommand extends $Command<

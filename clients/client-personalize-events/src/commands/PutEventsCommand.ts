@@ -40,7 +40,7 @@ export interface PutEventsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PutEventsCommandInput} for command's `input` shape.
  * @see {@link PutEventsCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeEventsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PersonalizeEventsClientResolvedConfig | config} for PersonalizeEventsClient's `config` shape.
  *
  */
 export class PutEventsCommand extends $Command<

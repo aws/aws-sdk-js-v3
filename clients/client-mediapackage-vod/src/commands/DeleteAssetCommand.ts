@@ -35,7 +35,7 @@ export interface DeleteAssetCommandOutput extends DeleteAssetResponse, __Metadat
  *
  * @see {@link DeleteAssetCommandInput} for command's `input` shape.
  * @see {@link DeleteAssetCommandOutput} for command's `response` shape.
- * @see {@link MediaPackageVodClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.
  *
  */
 export class DeleteAssetCommand extends $Command<

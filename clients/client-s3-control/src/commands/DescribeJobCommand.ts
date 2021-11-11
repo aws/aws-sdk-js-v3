@@ -62,7 +62,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  *
  * @see {@link DescribeJobCommandInput} for command's `input` shape.
  * @see {@link DescribeJobCommandOutput} for command's `response` shape.
- * @see {@link S3ControlClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  */
 export class DescribeJobCommand extends $Command<

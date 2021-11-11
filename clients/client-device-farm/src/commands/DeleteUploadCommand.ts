@@ -35,7 +35,7 @@ export interface DeleteUploadCommandOutput extends DeleteUploadResult, __Metadat
  *
  * @see {@link DeleteUploadCommandInput} for command's `input` shape.
  * @see {@link DeleteUploadCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class DeleteUploadCommand extends $Command<

@@ -43,7 +43,7 @@ export interface RemovePermissionCommandOutput extends RemovePermissionResponse,
  *
  * @see {@link RemovePermissionCommandInput} for command's `input` shape.
  * @see {@link RemovePermissionCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruProfilerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
  *
  */
 export class RemovePermissionCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetRevisionCommandOutput extends GetRevisionResponse, __Metadat
  *
  * @see {@link GetRevisionCommandInput} for command's `input` shape.
  * @see {@link GetRevisionCommandOutput} for command's `response` shape.
- * @see {@link DataExchangeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  */
 export class GetRevisionCommand extends $Command<

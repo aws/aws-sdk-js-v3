@@ -38,7 +38,7 @@ export interface AssociateEncryptionConfigCommandOutput extends AssociateEncrypt
  *
  * @see {@link AssociateEncryptionConfigCommandInput} for command's `input` shape.
  * @see {@link AssociateEncryptionConfigCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  */
 export class AssociateEncryptionConfigCommand extends $Command<

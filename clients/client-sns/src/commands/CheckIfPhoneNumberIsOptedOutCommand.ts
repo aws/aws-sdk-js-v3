@@ -41,7 +41,7 @@ export interface CheckIfPhoneNumberIsOptedOutCommandOutput
  *
  * @see {@link CheckIfPhoneNumberIsOptedOutCommandInput} for command's `input` shape.
  * @see {@link CheckIfPhoneNumberIsOptedOutCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  */
 export class CheckIfPhoneNumberIsOptedOutCommand extends $Command<

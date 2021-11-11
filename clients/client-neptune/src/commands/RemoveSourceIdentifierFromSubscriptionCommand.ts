@@ -41,7 +41,7 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  *
  * @see {@link RemoveSourceIdentifierFromSubscriptionCommandInput} for command's `input` shape.
  * @see {@link RemoveSourceIdentifierFromSubscriptionCommandOutput} for command's `response` shape.
- * @see {@link NeptuneClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  */
 export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<

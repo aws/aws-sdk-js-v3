@@ -38,7 +38,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  *
  * @see {@link DeleteDataSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteDataSourceCommandOutput} for command's `response` shape.
- * @see {@link MachineLearningClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  */
 export class DeleteDataSourceCommand extends $Command<

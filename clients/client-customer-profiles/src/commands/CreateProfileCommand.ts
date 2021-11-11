@@ -37,7 +37,7 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  *
  * @see {@link CreateProfileCommandInput} for command's `input` shape.
  * @see {@link CreateProfileCommandOutput} for command's `response` shape.
- * @see {@link CustomerProfilesClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  */
 export class CreateProfileCommand extends $Command<

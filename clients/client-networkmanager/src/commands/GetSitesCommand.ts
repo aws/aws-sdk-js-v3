@@ -35,7 +35,7 @@ export interface GetSitesCommandOutput extends GetSitesResponse, __MetadataBeare
  *
  * @see {@link GetSitesCommandInput} for command's `input` shape.
  * @see {@link GetSitesCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class GetSitesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteProtectionCommandOutput extends DeleteProtectionResponse,
  *
  * @see {@link DeleteProtectionCommandInput} for command's `input` shape.
  * @see {@link DeleteProtectionCommandOutput} for command's `response` shape.
- * @see {@link ShieldClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  */
 export class DeleteProtectionCommand extends $Command<

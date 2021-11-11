@@ -46,7 +46,7 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  *
  * @see {@link UpdateConfigurationSetEventDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  */
 export class UpdateConfigurationSetEventDestinationCommand extends $Command<

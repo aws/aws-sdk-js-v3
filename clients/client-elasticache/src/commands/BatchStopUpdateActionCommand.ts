@@ -35,7 +35,7 @@ export interface BatchStopUpdateActionCommandOutput extends UpdateActionResultsM
  *
  * @see {@link BatchStopUpdateActionCommandInput} for command's `input` shape.
  * @see {@link BatchStopUpdateActionCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class BatchStopUpdateActionCommand extends $Command<

@@ -36,7 +36,7 @@ export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBea
  *
  * @see {@link StartFlowCommandInput} for command's `input` shape.
  * @see {@link StartFlowCommandOutput} for command's `response` shape.
- * @see {@link AppflowClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  */
 export class StartFlowCommand extends $Command<

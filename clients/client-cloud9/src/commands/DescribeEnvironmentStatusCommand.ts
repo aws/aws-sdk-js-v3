@@ -35,7 +35,7 @@ export interface DescribeEnvironmentStatusCommandOutput extends DescribeEnvironm
  *
  * @see {@link DescribeEnvironmentStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentStatusCommandOutput} for command's `response` shape.
- * @see {@link Cloud9ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
  *
  */
 export class DescribeEnvironmentStatusCommand extends $Command<

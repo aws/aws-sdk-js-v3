@@ -36,7 +36,7 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  *
  * @see {@link CreateCustomActionTypeCommandInput} for command's `input` shape.
  * @see {@link CreateCustomActionTypeCommandOutput} for command's `response` shape.
- * @see {@link CodePipelineClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  */
 export class CreateCustomActionTypeCommand extends $Command<

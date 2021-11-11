@@ -37,7 +37,7 @@ export interface GetVoiceConnectorOriginationCommandOutput
  *
  * @see {@link GetVoiceConnectorOriginationCommandInput} for command's `input` shape.
  * @see {@link GetVoiceConnectorOriginationCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class GetVoiceConnectorOriginationCommand extends $Command<

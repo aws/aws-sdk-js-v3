@@ -48,7 +48,7 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  *
  * @see {@link DeleteSessionCommandInput} for command's `input` shape.
  * @see {@link DeleteSessionCommandOutput} for command's `response` shape.
- * @see {@link LexRuntimeV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.
  *
  */
 export class DeleteSessionCommand extends $Command<

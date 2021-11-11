@@ -35,7 +35,7 @@ export interface AddProfilePermissionCommandOutput extends AddProfilePermissionR
  *
  * @see {@link AddProfilePermissionCommandInput} for command's `input` shape.
  * @see {@link AddProfilePermissionCommandOutput} for command's `response` shape.
- * @see {@link SignerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
  *
  */
 export class AddProfilePermissionCommand extends $Command<

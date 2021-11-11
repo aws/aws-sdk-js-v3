@@ -77,7 +77,7 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  *
  * @see {@link ListAliasesCommandInput} for command's `input` shape.
  * @see {@link ListAliasesCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  */
 export class ListAliasesCommand extends $Command<

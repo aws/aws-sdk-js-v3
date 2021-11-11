@@ -41,7 +41,7 @@ export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput,
  *
  * @see {@link RegisterPublisherCommandInput} for command's `input` shape.
  * @see {@link RegisterPublisherCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  */
 export class RegisterPublisherCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateDetectorVersionCommandOutput extends UpdateDetectorVersio
  *
  * @see {@link UpdateDetectorVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateDetectorVersionCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class UpdateDetectorVersionCommand extends $Command<

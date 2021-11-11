@@ -35,7 +35,7 @@ export interface DeleteSuggesterCommandOutput extends DeleteSuggesterResponse, _
  *
  * @see {@link DeleteSuggesterCommandInput} for command's `input` shape.
  * @see {@link DeleteSuggesterCommandOutput} for command's `response` shape.
- * @see {@link CloudSearchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
  */
 export class DeleteSuggesterCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *
  * @see {@link CreateDashboardCommandInput} for command's `input` shape.
  * @see {@link CreateDashboardCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class CreateDashboardCommand extends $Command<

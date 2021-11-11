@@ -35,7 +35,7 @@ export interface DeleteDataSetCommandOutput extends DeleteDataSetResponse, __Met
  *
  * @see {@link DeleteDataSetCommandInput} for command's `input` shape.
  * @see {@link DeleteDataSetCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class DeleteDataSetCommand extends $Command<

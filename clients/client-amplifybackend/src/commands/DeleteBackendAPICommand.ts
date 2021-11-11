@@ -35,7 +35,7 @@ export interface DeleteBackendAPICommandOutput extends DeleteBackendAPIResponse,
  *
  * @see {@link DeleteBackendAPICommandInput} for command's `input` shape.
  * @see {@link DeleteBackendAPICommandOutput} for command's `response` shape.
- * @see {@link AmplifyBackendClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
  *
  */
 export class DeleteBackendAPICommand extends $Command<

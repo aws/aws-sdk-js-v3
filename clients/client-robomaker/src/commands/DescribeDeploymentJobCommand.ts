@@ -35,7 +35,7 @@ export interface DescribeDeploymentJobCommandOutput extends DescribeDeploymentJo
  *
  * @see {@link DescribeDeploymentJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDeploymentJobCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class DescribeDeploymentJobCommand extends $Command<

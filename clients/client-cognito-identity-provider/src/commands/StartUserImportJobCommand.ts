@@ -41,7 +41,7 @@ export interface StartUserImportJobCommandOutput extends StartUserImportJobRespo
  *
  * @see {@link StartUserImportJobCommandInput} for command's `input` shape.
  * @see {@link StartUserImportJobCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class StartUserImportJobCommand extends $Command<

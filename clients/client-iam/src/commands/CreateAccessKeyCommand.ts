@@ -48,7 +48,7 @@ export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, _
  *
  * @see {@link CreateAccessKeyCommandInput} for command's `input` shape.
  * @see {@link CreateAccessKeyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class CreateAccessKeyCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetApprovalRuleTemplateCommandOutput extends GetApprovalRuleTem
  *
  * @see {@link GetApprovalRuleTemplateCommandInput} for command's `input` shape.
  * @see {@link GetApprovalRuleTemplateCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  */
 export class GetApprovalRuleTemplateCommand extends $Command<

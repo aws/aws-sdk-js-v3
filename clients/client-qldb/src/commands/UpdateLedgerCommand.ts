@@ -35,7 +35,7 @@ export interface UpdateLedgerCommandOutput extends UpdateLedgerResponse, __Metad
  *
  * @see {@link UpdateLedgerCommandInput} for command's `input` shape.
  * @see {@link UpdateLedgerCommandOutput} for command's `response` shape.
- * @see {@link QLDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
  */
 export class UpdateLedgerCommand extends $Command<

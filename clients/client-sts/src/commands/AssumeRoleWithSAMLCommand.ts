@@ -166,7 +166,7 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *
  * @see {@link AssumeRoleWithSAMLCommandInput} for command's `input` shape.
  * @see {@link AssumeRoleWithSAMLCommandOutput} for command's `response` shape.
- * @see {@link STSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
  *
  */
 export class AssumeRoleWithSAMLCommand extends $Command<

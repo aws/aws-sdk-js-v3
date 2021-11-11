@@ -45,7 +45,7 @@ export interface AssociateChannelFlowCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AssociateChannelFlowCommandInput} for command's `input` shape.
  * @see {@link AssociateChannelFlowCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  */
 export class AssociateChannelFlowCommand extends $Command<

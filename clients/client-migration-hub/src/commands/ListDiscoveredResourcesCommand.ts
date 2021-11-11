@@ -35,7 +35,7 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  *
  * @see {@link ListDiscoveredResourcesCommandInput} for command's `input` shape.
  * @see {@link ListDiscoveredResourcesCommandOutput} for command's `response` shape.
- * @see {@link MigrationHubClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
  *
  */
 export class ListDiscoveredResourcesCommand extends $Command<

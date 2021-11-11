@@ -69,7 +69,7 @@ export interface CreateDataSourceFromRedshiftCommandOutput
  *
  * @see {@link CreateDataSourceFromRedshiftCommandInput} for command's `input` shape.
  * @see {@link CreateDataSourceFromRedshiftCommandOutput} for command's `response` shape.
- * @see {@link MachineLearningClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  */
 export class CreateDataSourceFromRedshiftCommand extends $Command<

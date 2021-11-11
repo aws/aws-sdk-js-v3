@@ -36,7 +36,7 @@ export interface DeleteDevicePoolCommandOutput extends DeleteDevicePoolResult, _
  *
  * @see {@link DeleteDevicePoolCommandInput} for command's `input` shape.
  * @see {@link DeleteDevicePoolCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class DeleteDevicePoolCommand extends $Command<

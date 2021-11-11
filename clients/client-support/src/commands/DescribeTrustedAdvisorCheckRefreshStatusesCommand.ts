@@ -60,7 +60,7 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
  *
  * @see {@link DescribeTrustedAdvisorCheckRefreshStatusesCommandInput} for command's `input` shape.
  * @see {@link DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput} for command's `response` shape.
- * @see {@link SupportClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
  */
 export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<

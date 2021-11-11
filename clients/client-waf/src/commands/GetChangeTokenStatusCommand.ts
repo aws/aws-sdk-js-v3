@@ -59,7 +59,7 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  *
  * @see {@link GetChangeTokenStatusCommandInput} for command's `input` shape.
  * @see {@link GetChangeTokenStatusCommandOutput} for command's `response` shape.
- * @see {@link WAFClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
  */
 export class GetChangeTokenStatusCommand extends $Command<

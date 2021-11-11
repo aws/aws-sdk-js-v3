@@ -37,7 +37,7 @@ export interface DescribeAuditStreamConfigurationCommandOutput
  *
  * @see {@link DescribeAuditStreamConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeAuditStreamConfigurationCommandOutput} for command's `response` shape.
- * @see {@link WorkLinkClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
  *
  */
 export class DescribeAuditStreamConfigurationCommand extends $Command<

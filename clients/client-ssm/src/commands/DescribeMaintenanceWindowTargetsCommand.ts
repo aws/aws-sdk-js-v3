@@ -37,7 +37,7 @@ export interface DescribeMaintenanceWindowTargetsCommandOutput
  *
  * @see {@link DescribeMaintenanceWindowTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowTargetsCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class DescribeMaintenanceWindowTargetsCommand extends $Command<

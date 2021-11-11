@@ -35,7 +35,7 @@ export interface UpdateAppInstanceCommandOutput extends UpdateAppInstanceRespons
  *
  * @see {@link UpdateAppInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateAppInstanceCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class UpdateAppInstanceCommand extends $Command<

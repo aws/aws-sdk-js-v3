@@ -44,7 +44,7 @@ export interface EnableKeyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link EnableKeyCommandInput} for command's `input` shape.
  * @see {@link EnableKeyCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  */
 export class EnableKeyCommand extends $Command<EnableKeyCommandInput, EnableKeyCommandOutput, KMSClientResolvedConfig> {

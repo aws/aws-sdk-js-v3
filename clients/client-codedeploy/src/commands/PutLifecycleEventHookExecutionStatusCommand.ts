@@ -48,7 +48,7 @@ export interface PutLifecycleEventHookExecutionStatusCommandOutput
  *
  * @see {@link PutLifecycleEventHookExecutionStatusCommandInput} for command's `input` shape.
  * @see {@link PutLifecycleEventHookExecutionStatusCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  */
 export class PutLifecycleEventHookExecutionStatusCommand extends $Command<

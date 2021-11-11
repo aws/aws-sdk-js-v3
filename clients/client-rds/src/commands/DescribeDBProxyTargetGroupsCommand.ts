@@ -37,7 +37,7 @@ export interface DescribeDBProxyTargetGroupsCommandOutput
  *
  * @see {@link DescribeDBProxyTargetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBProxyTargetGroupsCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class DescribeDBProxyTargetGroupsCommand extends $Command<

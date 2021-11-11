@@ -35,7 +35,7 @@ export interface GetSubscriptionAttributesCommandOutput extends GetSubscriptionA
  *
  * @see {@link GetSubscriptionAttributesCommandInput} for command's `input` shape.
  * @see {@link GetSubscriptionAttributesCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  */
 export class GetSubscriptionAttributesCommand extends $Command<

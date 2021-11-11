@@ -37,7 +37,7 @@ export interface GetCloudFrontOriginAccessIdentityCommandOutput
  *
  * @see {@link GetCloudFrontOriginAccessIdentityCommandInput} for command's `input` shape.
  * @see {@link GetCloudFrontOriginAccessIdentityCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class GetCloudFrontOriginAccessIdentityCommand extends $Command<

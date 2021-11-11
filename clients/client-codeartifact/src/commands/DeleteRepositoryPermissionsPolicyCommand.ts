@@ -46,7 +46,7 @@ export interface DeleteRepositoryPermissionsPolicyCommandOutput
  *
  * @see {@link DeleteRepositoryPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteRepositoryPermissionsPolicyCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  */
 export class DeleteRepositoryPermissionsPolicyCommand extends $Command<

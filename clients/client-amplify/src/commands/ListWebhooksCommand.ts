@@ -35,7 +35,7 @@ export interface ListWebhooksCommandOutput extends ListWebhooksResult, __Metadat
  *
  * @see {@link ListWebhooksCommandInput} for command's `input` shape.
  * @see {@link ListWebhooksCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  */
 export class ListWebhooksCommand extends $Command<

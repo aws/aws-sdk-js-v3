@@ -78,7 +78,7 @@ export interface DeprecateWorkflowTypeCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeprecateWorkflowTypeCommandInput} for command's `input` shape.
  * @see {@link DeprecateWorkflowTypeCommandOutput} for command's `response` shape.
- * @see {@link SWFClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
  *
  */
 export class DeprecateWorkflowTypeCommand extends $Command<

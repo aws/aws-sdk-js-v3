@@ -35,7 +35,7 @@ export interface DeleteAnomalySubscriptionCommandOutput extends DeleteAnomalySub
  *
  * @see {@link DeleteAnomalySubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteAnomalySubscriptionCommandOutput} for command's `response` shape.
- * @see {@link CostExplorerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  */
 export class DeleteAnomalySubscriptionCommand extends $Command<

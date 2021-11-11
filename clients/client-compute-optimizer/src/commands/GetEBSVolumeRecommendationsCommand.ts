@@ -42,7 +42,7 @@ export interface GetEBSVolumeRecommendationsCommandOutput
  *
  * @see {@link GetEBSVolumeRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetEBSVolumeRecommendationsCommandOutput} for command's `response` shape.
- * @see {@link ComputeOptimizerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
  *
  */
 export class GetEBSVolumeRecommendationsCommand extends $Command<

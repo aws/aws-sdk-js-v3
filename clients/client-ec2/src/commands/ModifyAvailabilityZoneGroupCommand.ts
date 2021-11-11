@@ -38,7 +38,7 @@ export interface ModifyAvailabilityZoneGroupCommandOutput extends ModifyAvailabi
  *
  * @see {@link ModifyAvailabilityZoneGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyAvailabilityZoneGroupCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class ModifyAvailabilityZoneGroupCommand extends $Command<

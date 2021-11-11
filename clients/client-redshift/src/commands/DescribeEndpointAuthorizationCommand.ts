@@ -35,7 +35,7 @@ export interface DescribeEndpointAuthorizationCommandOutput extends EndpointAuth
  *
  * @see {@link DescribeEndpointAuthorizationCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointAuthorizationCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class DescribeEndpointAuthorizationCommand extends $Command<

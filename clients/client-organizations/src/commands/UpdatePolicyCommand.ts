@@ -38,7 +38,7 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  *
  * @see {@link UpdatePolicyCommandInput} for command's `input` shape.
  * @see {@link UpdatePolicyCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class UpdatePolicyCommand extends $Command<

@@ -38,7 +38,7 @@ export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderRespo
  *
  * @see {@link UpdateSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link UpdateSAMLProviderCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class UpdateSAMLProviderCommand extends $Command<

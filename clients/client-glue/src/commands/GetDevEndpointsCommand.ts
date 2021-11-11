@@ -40,7 +40,7 @@ export interface GetDevEndpointsCommandOutput extends GetDevEndpointsResponse, _
  *
  * @see {@link GetDevEndpointsCommandInput} for command's `input` shape.
  * @see {@link GetDevEndpointsCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class GetDevEndpointsCommand extends $Command<

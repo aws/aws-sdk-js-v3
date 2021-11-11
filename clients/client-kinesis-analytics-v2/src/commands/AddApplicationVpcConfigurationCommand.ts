@@ -52,7 +52,7 @@ export interface AddApplicationVpcConfigurationCommandOutput
  *
  * @see {@link AddApplicationVpcConfigurationCommandInput} for command's `input` shape.
  * @see {@link AddApplicationVpcConfigurationCommandOutput} for command's `response` shape.
- * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
  */
 export class AddApplicationVpcConfigurationCommand extends $Command<

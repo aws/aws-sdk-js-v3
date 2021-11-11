@@ -37,7 +37,7 @@ export interface EnableDomainTransferLockCommandOutput extends EnableDomainTrans
  *
  * @see {@link EnableDomainTransferLockCommandInput} for command's `input` shape.
  * @see {@link EnableDomainTransferLockCommandOutput} for command's `response` shape.
- * @see {@link Route53DomainsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  */
 export class EnableDomainTransferLockCommand extends $Command<

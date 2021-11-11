@@ -40,7 +40,7 @@ export interface RejectInvitationCommandOutput extends RejectInvitationOutput, _
  *
  * @see {@link RejectInvitationCommandInput} for command's `input` shape.
  * @see {@link RejectInvitationCommandOutput} for command's `response` shape.
- * @see {@link ManagedBlockchainClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
  *
  */
 export class RejectInvitationCommand extends $Command<

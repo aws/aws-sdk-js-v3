@@ -36,7 +36,7 @@ export interface DescribeLocationHdfsCommandOutput extends DescribeLocationHdfsR
  *
  * @see {@link DescribeLocationHdfsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationHdfsCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  */
 export class DescribeLocationHdfsCommand extends $Command<

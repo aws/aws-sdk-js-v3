@@ -39,7 +39,7 @@ export interface DescribeObservationCommandOutput extends DescribeObservationRes
  *
  * @see {@link DescribeObservationCommandInput} for command's `input` shape.
  * @see {@link DescribeObservationCommandOutput} for command's `response` shape.
- * @see {@link ApplicationInsightsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
  *
  */
 export class DescribeObservationCommand extends $Command<

@@ -42,7 +42,7 @@ export interface ListChannelBansCommandOutput extends ListChannelBansResponse, _
  *
  * @see {@link ListChannelBansCommandInput} for command's `input` shape.
  * @see {@link ListChannelBansCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class ListChannelBansCommand extends $Command<

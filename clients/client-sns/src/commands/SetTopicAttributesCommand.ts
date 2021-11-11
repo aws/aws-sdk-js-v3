@@ -35,7 +35,7 @@ export interface SetTopicAttributesCommandOutput extends __MetadataBearer {}
  *
  * @see {@link SetTopicAttributesCommandInput} for command's `input` shape.
  * @see {@link SetTopicAttributesCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  */
 export class SetTopicAttributesCommand extends $Command<

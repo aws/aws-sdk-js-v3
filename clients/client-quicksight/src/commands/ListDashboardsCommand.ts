@@ -35,7 +35,7 @@ export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __M
  *
  * @see {@link ListDashboardsCommandInput} for command's `input` shape.
  * @see {@link ListDashboardsCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class ListDashboardsCommand extends $Command<

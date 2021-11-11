@@ -40,7 +40,7 @@ export interface ListNetworksCommandOutput extends ListNetworksOutput, __Metadat
  *
  * @see {@link ListNetworksCommandInput} for command's `input` shape.
  * @see {@link ListNetworksCommandOutput} for command's `response` shape.
- * @see {@link ManagedBlockchainClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
  *
  */
 export class ListNetworksCommand extends $Command<

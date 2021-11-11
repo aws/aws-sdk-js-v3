@@ -41,7 +41,7 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteFunctionCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class DeleteFunctionCommand extends $Command<

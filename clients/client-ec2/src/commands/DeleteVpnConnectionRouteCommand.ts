@@ -38,7 +38,7 @@ export interface DeleteVpnConnectionRouteCommandOutput extends __MetadataBearer 
  *
  * @see {@link DeleteVpnConnectionRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteVpnConnectionRouteCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DeleteVpnConnectionRouteCommand extends $Command<

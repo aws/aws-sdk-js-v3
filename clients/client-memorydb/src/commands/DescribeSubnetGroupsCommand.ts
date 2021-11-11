@@ -35,7 +35,7 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  *
  * @see {@link DescribeSubnetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeSubnetGroupsCommandOutput} for command's `response` shape.
- * @see {@link MemoryDBClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  */
 export class DescribeSubnetGroupsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ChangeServerLifeCycleStateCommandOutput extends SourceServer, _
  *
  * @see {@link ChangeServerLifeCycleStateCommandInput} for command's `input` shape.
  * @see {@link ChangeServerLifeCycleStateCommandOutput} for command's `response` shape.
- * @see {@link MgnClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  */
 export class ChangeServerLifeCycleStateCommand extends $Command<

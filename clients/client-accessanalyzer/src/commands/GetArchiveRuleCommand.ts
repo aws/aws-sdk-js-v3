@@ -36,7 +36,7 @@ export interface GetArchiveRuleCommandOutput extends GetArchiveRuleResponse, __M
  *
  * @see {@link GetArchiveRuleCommandInput} for command's `input` shape.
  * @see {@link GetArchiveRuleCommandOutput} for command's `response` shape.
- * @see {@link AccessAnalyzerClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  */
 export class GetArchiveRuleCommand extends $Command<

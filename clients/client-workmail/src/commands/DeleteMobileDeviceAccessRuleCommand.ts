@@ -40,7 +40,7 @@ export interface DeleteMobileDeviceAccessRuleCommandOutput
  *
  * @see {@link DeleteMobileDeviceAccessRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteMobileDeviceAccessRuleCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class DeleteMobileDeviceAccessRuleCommand extends $Command<

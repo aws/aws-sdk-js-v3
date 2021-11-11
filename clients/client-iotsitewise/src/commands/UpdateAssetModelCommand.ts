@@ -47,7 +47,7 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *
  * @see {@link UpdateAssetModelCommandInput} for command's `input` shape.
  * @see {@link UpdateAssetModelCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class UpdateAssetModelCommand extends $Command<

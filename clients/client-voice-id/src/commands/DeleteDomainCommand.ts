@@ -35,7 +35,7 @@ export interface DeleteDomainCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteDomainCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainCommandOutput} for command's `response` shape.
- * @see {@link VoiceIDClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
  *
  */
 export class DeleteDomainCommand extends $Command<

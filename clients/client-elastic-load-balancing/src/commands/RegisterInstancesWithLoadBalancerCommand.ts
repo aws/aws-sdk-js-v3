@@ -57,7 +57,7 @@ export interface RegisterInstancesWithLoadBalancerCommandOutput extends Register
  *
  * @see {@link RegisterInstancesWithLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link RegisterInstancesWithLoadBalancerCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  */
 export class RegisterInstancesWithLoadBalancerCommand extends $Command<

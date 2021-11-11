@@ -36,7 +36,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  *
  * @see {@link ListRulesCommandInput} for command's `input` shape.
  * @see {@link ListRulesCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class ListRulesCommand extends $Command<

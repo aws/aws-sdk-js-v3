@@ -35,7 +35,7 @@ export interface GetBackendAPICommandOutput extends GetBackendAPIResponse, __Met
  *
  * @see {@link GetBackendAPICommandInput} for command's `input` shape.
  * @see {@link GetBackendAPICommandOutput} for command's `response` shape.
- * @see {@link AmplifyBackendClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
  *
  */
 export class GetBackendAPICommand extends $Command<

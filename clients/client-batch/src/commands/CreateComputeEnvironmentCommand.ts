@@ -74,7 +74,7 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *
  * @see {@link CreateComputeEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateComputeEnvironmentCommandOutput} for command's `response` shape.
- * @see {@link BatchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  */
 export class CreateComputeEnvironmentCommand extends $Command<

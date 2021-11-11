@@ -39,7 +39,7 @@ export interface ListContactFlowsCommandOutput extends ListContactFlowsResponse,
  *
  * @see {@link ListContactFlowsCommandInput} for command's `input` shape.
  * @see {@link ListContactFlowsCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class ListContactFlowsCommand extends $Command<

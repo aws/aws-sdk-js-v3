@@ -35,7 +35,7 @@ export interface RejectSharedDirectoryCommandOutput extends RejectSharedDirector
  *
  * @see {@link RejectSharedDirectoryCommandInput} for command's `input` shape.
  * @see {@link RejectSharedDirectoryCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class RejectSharedDirectoryCommand extends $Command<

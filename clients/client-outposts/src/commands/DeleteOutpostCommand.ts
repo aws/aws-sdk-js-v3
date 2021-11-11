@@ -35,7 +35,7 @@ export interface DeleteOutpostCommandOutput extends DeleteOutpostOutput, __Metad
  *
  * @see {@link DeleteOutpostCommandInput} for command's `input` shape.
  * @see {@link DeleteOutpostCommandOutput} for command's `response` shape.
- * @see {@link OutpostsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
  *
  */
 export class DeleteOutpostCommand extends $Command<

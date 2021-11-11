@@ -90,7 +90,7 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  *
  * @see {@link DisableAWSServiceAccessCommandInput} for command's `input` shape.
  * @see {@link DisableAWSServiceAccessCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class DisableAWSServiceAccessCommand extends $Command<

@@ -51,7 +51,7 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
  *
  * @see {@link CreateActivityCommandInput} for command's `input` shape.
  * @see {@link CreateActivityCommandOutput} for command's `response` shape.
- * @see {@link SFNClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  */
 export class CreateActivityCommand extends $Command<

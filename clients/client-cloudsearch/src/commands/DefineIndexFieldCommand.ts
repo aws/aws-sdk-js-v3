@@ -35,7 +35,7 @@ export interface DefineIndexFieldCommandOutput extends DefineIndexFieldResponse,
  *
  * @see {@link DefineIndexFieldCommandInput} for command's `input` shape.
  * @see {@link DefineIndexFieldCommandOutput} for command's `response` shape.
- * @see {@link CloudSearchClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
  */
 export class DefineIndexFieldCommand extends $Command<

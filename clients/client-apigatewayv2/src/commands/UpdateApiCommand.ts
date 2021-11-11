@@ -35,7 +35,7 @@ export interface UpdateApiCommandOutput extends UpdateApiResponse, __MetadataBea
  *
  * @see {@link UpdateApiCommandInput} for command's `input` shape.
  * @see {@link UpdateApiCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
  *
  */
 export class UpdateApiCommand extends $Command<

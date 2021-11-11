@@ -35,7 +35,7 @@ export interface GetEventPredictionCommandOutput extends GetEventPredictionResul
  *
  * @see {@link GetEventPredictionCommandInput} for command's `input` shape.
  * @see {@link GetEventPredictionCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class GetEventPredictionCommand extends $Command<

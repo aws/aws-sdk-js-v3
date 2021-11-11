@@ -36,7 +36,7 @@ export interface DeleteAlarmModelCommandOutput extends DeleteAlarmModelResponse,
  *
  * @see {@link DeleteAlarmModelCommandInput} for command's `input` shape.
  * @see {@link DeleteAlarmModelCommandOutput} for command's `response` shape.
- * @see {@link IoTEventsClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
  *
  */
 export class DeleteAlarmModelCommand extends $Command<

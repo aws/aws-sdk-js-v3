@@ -36,7 +36,7 @@ export interface DeleteFileShareCommandOutput extends DeleteFileShareOutput, __M
  *
  * @see {@link DeleteFileShareCommandInput} for command's `input` shape.
  * @see {@link DeleteFileShareCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class DeleteFileShareCommand extends $Command<

@@ -39,7 +39,7 @@ export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChang
  *
  * @see {@link SubmitTaskStateChangeCommandInput} for command's `input` shape.
  * @see {@link SubmitTaskStateChangeCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  */
 export class SubmitTaskStateChangeCommand extends $Command<

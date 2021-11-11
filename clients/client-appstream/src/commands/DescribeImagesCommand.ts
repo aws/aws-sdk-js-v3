@@ -35,7 +35,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  *
  * @see {@link DescribeImagesCommandInput} for command's `input` shape.
  * @see {@link DescribeImagesCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  */
 export class DescribeImagesCommand extends $Command<

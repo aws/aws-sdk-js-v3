@@ -35,7 +35,7 @@ export interface DescribeTypeCommandOutput extends DescribeTypeOutput, __Metadat
  *
  * @see {@link DescribeTypeCommandInput} for command's `input` shape.
  * @see {@link DescribeTypeCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  */
 export class DescribeTypeCommand extends $Command<

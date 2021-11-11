@@ -42,7 +42,7 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
  *
  * @see {@link DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class DescribeMaintenanceWindowExecutionTaskInvocationsCommand extends $Command<

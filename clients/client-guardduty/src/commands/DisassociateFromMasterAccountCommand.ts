@@ -37,7 +37,7 @@ export interface DisassociateFromMasterAccountCommandOutput
  *
  * @see {@link DisassociateFromMasterAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateFromMasterAccountCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  */
 export class DisassociateFromMasterAccountCommand extends $Command<

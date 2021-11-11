@@ -35,7 +35,7 @@ export interface UpdateMemberSessionCommandOutput extends UpdateMemberSessionRes
  *
  * @see {@link UpdateMemberSessionCommandInput} for command's `input` shape.
  * @see {@link UpdateMemberSessionCommandOutput} for command's `response` shape.
- * @see {@link Macie2ClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  */
 export class UpdateMemberSessionCommand extends $Command<

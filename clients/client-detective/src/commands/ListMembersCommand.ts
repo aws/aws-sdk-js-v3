@@ -36,7 +36,7 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  *
  * @see {@link ListMembersCommandInput} for command's `input` shape.
  * @see {@link ListMembersCommandOutput} for command's `response` shape.
- * @see {@link DetectiveClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
  *
  */
 export class ListMembersCommand extends $Command<

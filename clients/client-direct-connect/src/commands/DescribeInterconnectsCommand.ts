@@ -35,7 +35,7 @@ export interface DescribeInterconnectsCommandOutput extends Interconnects, __Met
  *
  * @see {@link DescribeInterconnectsCommandInput} for command's `input` shape.
  * @see {@link DescribeInterconnectsCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class DescribeInterconnectsCommand extends $Command<
