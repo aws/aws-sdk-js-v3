@@ -31,6 +31,21 @@
   "shapes": {
     "com.amazonaws.translate#AWSShineFrontendService_20170701": {
       "type": "service",
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Translate",
+          "arnNamespace": "translate",
+          "cloudFormationName": "Translate",
+          "cloudTrailEventSource": "translate.amazonaws.com",
+          "endpointPrefix": "translate"
+        },
+        "aws.auth#sigv4": {
+          "name": "translate"
+        },
+        "aws.protocols#awsJson1_1": {},
+        "smithy.api#documentation": "<p>Provides translation between one source language and another of the same set of\n      languages.</p>",
+        "smithy.api#title": "Amazon Translate"
+      },
       "version": "2017-07-01",
       "operations": [
         {
@@ -75,22 +90,7 @@
         {
           "target": "com.amazonaws.translate#UpdateParallelData"
         }
-      ],
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "Translate",
-          "arnNamespace": "translate",
-          "cloudFormationName": "Translate",
-          "cloudTrailEventSource": "translate.amazonaws.com",
-          "endpointPrefix": "translate"
-        },
-        "aws.auth#sigv4": {
-          "name": "translate"
-        },
-        "aws.protocols#awsJson1_1": {},
-        "smithy.api#documentation": "<p>Provides translation between one source language and another of the same set of\n      languages.</p>",
-        "smithy.api#title": "Amazon Translate"
-      }
+      ]
     },
     "com.amazonaws.translate#AppliedTerminology": {
       "type": "structure",
@@ -424,6 +424,21 @@
         "smithy.api#httpError": 400
       }
     },
+    "com.amazonaws.translate#Directionality": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "UNI",
+            "name": "UNI"
+          },
+          {
+            "value": "MULTI",
+            "name": "MULTI"
+          }
+        ]
+      }
+    },
     "com.amazonaws.translate#EncryptionKey": {
       "type": "structure",
       "members": {
@@ -573,8 +588,7 @@
         "TerminologyDataFormat": {
           "target": "com.amazonaws.translate#TerminologyDataFormat",
           "traits": {
-            "smithy.api#documentation": "<p>The data format of the custom terminology being retrieved, either CSV or TMX.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The data format of the custom terminology being retrieved.</p>\n         <p>If you don't specify this parameter, Amazon Translate returns a file that has the same\n      format as the file that was imported to create the terminology. </p>\n         <p>If you specify this parameter when you retrieve a multi-directional terminology resource,\n      you must specify the same format as that of the input file that was imported to create it.\n      Otherwise, Amazon Translate throws an error.</p>"
           }
         }
       }
@@ -592,6 +606,12 @@
           "target": "com.amazonaws.translate#TerminologyDataLocation",
           "traits": {
             "smithy.api#documentation": "<p>The data location of the custom terminology being retrieved. The custom terminology file\n      is returned in a presigned url that has a 30 minute expiration.</p>"
+          }
+        },
+        "AuxiliaryDataLocation": {
+          "target": "com.amazonaws.translate#TerminologyDataLocation",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 location of a file that provides any errors or warnings that were produced\n      by your input file. This file was created when Amazon Translate attempted to create a\n      terminology resource. The location is returned as a presigned URL to that has a 30 minute\n      expiration.</p>"
           }
         }
       }
@@ -678,6 +698,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The properties of the custom terminology being imported.</p>"
           }
+        },
+        "AuxiliaryDataLocation": {
+          "target": "com.amazonaws.translate#TerminologyDataLocation",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 location of a file that provides any errors or warnings that were produced\n      by your input file. This file was created when Amazon Translate attempted to create a\n      terminology resource. The location is returned as a presigned URL to that has a 30 minute\n      expiration.</p>"
+          }
         }
       }
     },
@@ -694,7 +720,7 @@
         "ContentType": {
           "target": "com.amazonaws.translate#ContentType",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the format of the data that you submit to Amazon Translate as input. You can\n      specify one of the following multipurpose internet mail extension (MIME) types:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>text/html</code>: The input data consists of one or more HTML files. Amazon\n          Translate translates only the text that resides in the <code>html</code> element in each\n          file.</p>\n            </li>\n            <li>\n               <p>\n                  <code>text/plain</code>: The input data consists of one or more unformatted text\n          files. Amazon Translate translates every character in this type of input.</p>\n            </li>\n            <li>\n               <p>\n                  <code>application/vnd.openxmlformats-officedocument.wordprocessingml.document</code>:\n          The input data consists of one or more Word documents (.docx).</p>\n            </li>\n            <li>\n               <p>\n                  <code>application/vnd.openxmlformats-officedocument.presentationml.presentation</code>:\n          The input data consists of one or more PowerPoint Presentation files (.pptx).</p>\n            </li>\n            <li>\n               <p>\n                  <code>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</code>: The\n          input data consists of one or more Excel Workbook files (.xlsx).</p>\n            </li>\n            <li>\n               <p>\n                  <code>application/x-xliff+xml</code>: The input data consists of one or more XML\n          Localization Interchange File Format (XLIFF) files (.xlf). Amazon Translate supports only XLIFF version 1.2.</p>\n            </li>\n         </ul>\n         <important>\n            <p>If you structure your input data as HTML, ensure that you set this parameter to\n          <code>text/html</code>. By doing so, you cut costs by limiting the translation to the\n        contents of the <code>html</code> element in each file. Otherwise, if you set this parameter\n        to <code>text/plain</code>, your costs will cover the translation of every character.</p>\n         </important>",
+            "smithy.api#documentation": "<p>Describes the format of the data that you submit to Amazon Translate as input. You can\n      specify one of the following multipurpose internet mail extension (MIME) types:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>text/html</code>: The input data consists of one or more HTML files. Amazon\n          Translate translates only the text that resides in the <code>html</code> element in each\n          file.</p>\n            </li>\n            <li>\n               <p>\n                  <code>text/plain</code>: The input data consists of one or more unformatted text\n          files. Amazon Translate translates every character in this type of input.</p>\n            </li>\n            <li>\n               <p>\n                  <code>application/vnd.openxmlformats-officedocument.wordprocessingml.document</code>:\n          The input data consists of one or more Word documents (.docx).</p>\n            </li>\n            <li>\n               <p>\n                  <code>application/vnd.openxmlformats-officedocument.presentationml.presentation</code>:\n          The input data consists of one or more PowerPoint Presentation files (.pptx).</p>\n            </li>\n            <li>\n               <p>\n                  <code>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</code>: The\n          input data consists of one or more Excel Workbook files (.xlsx).</p>\n            </li>\n            <li>\n               <p>\n                  <code>application/x-xliff+xml</code>: The input data consists of one or more XML\n          Localization Interchange File Format (XLIFF) files (.xlf). Amazon Translate supports only\n          XLIFF version 1.2.</p>\n            </li>\n         </ul>\n         <important>\n            <p>If you structure your input data as HTML, ensure that you set this parameter to\n          <code>text/html</code>. By doing so, you cut costs by limiting the translation to the\n        contents of the <code>html</code> element in each file. Otherwise, if you set this parameter\n        to <code>text/plain</code>, your costs will cover the translation of every character.</p>\n         </important>",
             "smithy.api#required": {}
           }
         }
@@ -1621,8 +1647,14 @@
         "Format": {
           "target": "com.amazonaws.translate#TerminologyDataFormat",
           "traits": {
-            "smithy.api#documentation": "<p>The data format of the custom terminology. Either CSV or TMX.</p>",
+            "smithy.api#documentation": "<p>The data format of the custom terminology.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "Directionality": {
+          "target": "com.amazonaws.translate#Directionality",
+          "traits": {
+            "smithy.api#documentation": "<p>The directionality of your terminology resource indicates whether it has one source\n      language (uni-directional) or multiple (multi-directional).</p>\n         <dl>\n            <dt>UNI</dt>\n            <dd>\n               <p>The terminology resource has one source language (for example, the first column in a\n            CSV file), and all of its other languages are target languages. </p>\n            </dd>\n            <dt>MULTI</dt>\n            <dd>\n               <p>Any language in the terminology resource can be the source language or a target\n            language. A single multi-directional terminology resource can be used for jobs that\n            translate different language pairs. For example, if the terminology contains terms in\n            English and Spanish, then it can be used for jobs that translate English to Spanish and\n            jobs that translate Spanish to English.</p>\n            </dd>\n         </dl>\n         <p>When you create a custom terminology resource without specifying the directionality, it\n      behaves as uni-directional terminology, although this parameter will have a null value.</p>"
           }
         }
       },
@@ -1641,6 +1673,10 @@
           {
             "value": "TMX",
             "name": "TMX"
+          },
+          {
+            "value": "TSV",
+            "name": "TSV"
           }
         ]
       }
@@ -1707,7 +1743,7 @@
         "TargetLanguageCodes": {
           "target": "com.amazonaws.translate#LanguageCodeStringList",
           "traits": {
-            "smithy.api#documentation": "<p>The language codes for the target languages available with the custom terminology file.\n      All possible target languages are returned in array.</p>"
+            "smithy.api#documentation": "<p>The language codes for the target languages available with the custom terminology\n      resource. All possible target languages are returned in array.</p>"
           }
         },
         "EncryptionKey": {
@@ -1738,6 +1774,30 @@
           "target": "com.amazonaws.translate#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time at which the custom terminology was last update, based on the timestamp.</p>"
+          }
+        },
+        "Directionality": {
+          "target": "com.amazonaws.translate#Directionality",
+          "traits": {
+            "smithy.api#documentation": "<p>The directionality of your terminology resource indicates whether it has one source\n      language (uni-directional) or multiple (multi-directional). </p>\n         <dl>\n            <dt>UNI</dt>\n            <dd>\n               <p>The terminology resource has one source language (the first column in a CSV file),\n            and all of its other languages are target languages.</p>\n            </dd>\n            <dt>MULTI</dt>\n            <dd>\n               <p>Any language in the terminology resource can be the source language.</p>\n            </dd>\n         </dl>"
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.translate#UnboundedLengthString",
+          "traits": {
+            "smithy.api#documentation": "<p>Additional information from Amazon Translate about the terminology resource.</p>"
+          }
+        },
+        "SkippedTermCount": {
+          "target": "com.amazonaws.translate#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of terms in the input file that Amazon Translate skipped when you created or\n      updated the terminology resource.</p>"
+          }
+        },
+        "Format": {
+          "target": "com.amazonaws.translate#TerminologyDataFormat",
+          "traits": {
+            "smithy.api#documentation": "<p>The format of the custom terminology input file.</p>"
           }
         }
       },

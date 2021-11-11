@@ -9256,6 +9256,9 @@
         }
       }
     },
+    "com.amazonaws.ec2#CoreNetworkArn": {
+      "type": "string"
+    },
     "com.amazonaws.ec2#CpuManufacturer": {
       "type": "string",
       "traits": {
@@ -12227,6 +12230,9 @@
             "smithy.api#documentation": "<p>The ID of a VPC peering connection.</p>",
             "smithy.api#xmlName": "vpcPeeringConnectionId"
           }
+        },
+        "CoreNetworkArn": {
+          "target": "com.amazonaws.ec2#CoreNetworkArn"
         }
       }
     },
@@ -34354,6 +34360,29 @@
         }
       }
     },
+    "com.amazonaws.ec2#GatewayAssociationState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "associated",
+            "name": "associated"
+          },
+          {
+            "value": "not-associated",
+            "name": "not_associated"
+          },
+          {
+            "value": "associating",
+            "name": "associating"
+          },
+          {
+            "value": "disassociating",
+            "name": "disassociating"
+          }
+        ]
+      }
+    },
     "com.amazonaws.ec2#GatewayType": {
       "type": "string",
       "traits": {
@@ -54888,7 +54917,7 @@
         "MultiRegion": {
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
-            "smithy.api#documentation": "<para>Reserved.</para>"
+            "smithy.api#documentation": "<p>Reserved.</p>"
           }
         }
       }
@@ -56799,6 +56828,9 @@
             "smithy.api#documentation": "<p>The ID of a VPC peering connection.</p>",
             "smithy.api#xmlName": "vpcPeeringConnectionId"
           }
+        },
+        "CoreNetworkArn": {
+          "target": "com.amazonaws.ec2#CoreNetworkArn"
         }
       }
     },
@@ -59953,6 +59985,13 @@
             "aws.protocols#ec2QueryName": "VpcPeeringConnectionId",
             "smithy.api#documentation": "<p>The ID of a VPC peering connection.</p>",
             "smithy.api#xmlName": "vpcPeeringConnectionId"
+          }
+        },
+        "CoreNetworkArn": {
+          "target": "com.amazonaws.ec2#CoreNetworkArn",
+          "traits": {
+            "aws.protocols#ec2QueryName": "CoreNetworkArn",
+            "smithy.api#xmlName": "coreNetworkArn"
           }
         }
       },
@@ -71733,7 +71772,7 @@
           }
         },
         "GatewayAssociationState": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#GatewayAssociationState",
           "traits": {
             "aws.protocols#ec2QueryName": "GatewayAssociationState",
             "smithy.api#documentation": "<p>The current state of the gateway association.</p>",
