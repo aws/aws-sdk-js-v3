@@ -13,8 +13,9 @@ Feature: SES
     When I ask to verify the email address "foo@example.com"
     Then the status code should be 200
 
-  Scenario: Rescue SES InvalidParameterValue
-    When I ask to verify the email address "abc123"
-    Then I should get the error:
-    | name                  | message                        |
-    | InvalidParameterValue | Invalid email address<abc123>. |
+  # Uncomment when P55107118 is resolved
+  # Scenario: Rescue SES InvalidParameterValue
+  #   When I ask to verify the email address "abc123"
+  #   Then I should get the error:
+  #   | name                  | message                        |
+  #   | InvalidParameterValue | Invalid email address<abc123>. |
