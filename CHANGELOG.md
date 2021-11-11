@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.41.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.40.1...v3.41.0) (2021-11-11)
+
+
+### Bug Fixes
+
+* **codegen:** use specific Smithy version ([#3011](https://github.com/aws/aws-sdk-js-v3/issues/3011)) ([6cdee41](https://github.com/aws/aws-sdk-js-v3/commit/6cdee414fe8f753e8381095c7281b323154598a9))
+* **credential-provider-web-identity:** exclude node.js code from browser bundle ([#3005](https://github.com/aws/aws-sdk-js-v3/issues/3005)) ([7ba033a](https://github.com/aws/aws-sdk-js-v3/commit/7ba033a37058c6697edb004180dc046a2298e9aa))
+* **credential-providers:** exclude node.js files for web ([#3006](https://github.com/aws/aws-sdk-js-v3/issues/3006)) ([a890fd7](https://github.com/aws/aws-sdk-js-v3/commit/a890fd791143cdccf249b648c45ed89bc8bb3e70))
+* **polly-request-presigner:** add missing polly dependency ([#3010](https://github.com/aws/aws-sdk-js-v3/issues/3010)) ([c2873e7](https://github.com/aws/aws-sdk-js-v3/commit/c2873e7eebdba9c9b36df685dfe588f70bd657a7))
+* **signature-v4-crt:** notify this package is node.js only ([#3009](https://github.com/aws/aws-sdk-js-v3/issues/3009)) ([39e758c](https://github.com/aws/aws-sdk-js-v3/commit/39e758cc986aec660c119c6e8aa14a704d141a4c))
+* **smithy-client:** remove capturing groups from date regex ([#3008](https://github.com/aws/aws-sdk-js-v3/issues/3008)) ([3bc91c0](https://github.com/aws/aws-sdk-js-v3/commit/3bc91c0eb21ed802a27361ad92789b936cb47803))
+
+
+### Features
+
+* **clients:** update clients as of 2021/11/11 ([#3015](https://github.com/aws/aws-sdk-js-v3/issues/3015)) ([3d82c4e](https://github.com/aws/aws-sdk-js-v3/commit/3d82c4e3c4d174533f46ce35495cf5cffabdb35a))
+* **karma-credential-loader:** mark package as private ([#3016](https://github.com/aws/aws-sdk-js-v3/issues/3016)) ([f13cac0](https://github.com/aws/aws-sdk-js-v3/commit/f13cac09b896b6d179930a4387738e7838cc9016))
+
+
+
+
+
 ## [3.40.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.40.0...v3.40.1) (2021-11-08)
 
 

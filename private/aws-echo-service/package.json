@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-echo-service",
   "description": "@aws-sdk/aws-echo-service client",
-  "version": "3.40.0",
+  "version": "3.41.0",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.json",
@@ -35,7 +35,7 @@
     "@aws-sdk/node-config-provider": "3.40.0",
     "@aws-sdk/node-http-handler": "3.40.0",
     "@aws-sdk/protocol-http": "3.40.0",
-    "@aws-sdk/smithy-client": "3.40.0",
+    "@aws-sdk/smithy-client": "3.41.0",
     "@aws-sdk/types": "3.40.0",
     "@aws-sdk/url-parser": "3.40.0",
     "@aws-sdk/util-base64-browser": "3.37.0",
