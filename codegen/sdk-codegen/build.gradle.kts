@@ -25,7 +25,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        "classpath"("software.amazon.smithy:smithy-aws-traits:[1.12.0,1.13.0[")
+        "classpath"("software.amazon.smithy:smithy-cli:${rootProject.extra["smithyVersion"]}")
+        "classpath"("software.amazon.smithy:smithy-aws-traits:${rootProject.extra["smithyVersion"]}")
     }
 }
 
