@@ -26,10 +26,8 @@ import {
   AutoMLJobStatus,
   AutoMLOutputDataConfig,
   AutoMLPartialFailureReason,
-  AutoRollbackConfig,
   BatchStrategy,
   Bias,
-  BlueGreenUpdatePolicy,
   CaptureStatus,
   Channel,
   CheckpointConfig,
@@ -43,6 +41,7 @@ import {
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
+  DeploymentConfig,
   DomainSettings,
   EdgeOutputConfig,
   EdgePresetDeploymentType,
@@ -61,7 +60,8 @@ import {
   InferenceSpecification,
   InputConfig,
   KernelGatewayImageConfig,
-  LabelingJobInputConfig,
+  LabelingJobDataAttributes,
+  LabelingJobDataSource,
   MetadataProperties,
   MetricsSource,
   ModelApprovalStatus,
@@ -85,6 +85,8 @@ import {
   ProcessingS3InputMode,
   ProcessingS3UploadMode,
   ProductionVariant,
+  ProductionVariantAcceleratorType,
+  ProductionVariantInstanceType,
   ResourceConfig,
   ResourceSpec,
   RetryStrategy,
@@ -99,6 +101,30 @@ import {
   UserSettings,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Input configuration information for a labeling job.</p>
+ */
+export interface LabelingJobInputConfig {
+  /**
+   * <p>The location of the input data.</p>
+   */
+  DataSource: LabelingJobDataSource | undefined;
+
+  /**
+   * <p>Attributes of the data specified by the customer.</p>
+   */
+  DataAttributes?: LabelingJobDataAttributes;
+}
+
+export namespace LabelingJobInputConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LabelingJobInputConfig): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Configure encryption on the storage volume attached to the ML compute instance used to
@@ -5457,30 +5483,6 @@ export namespace DeployedImage {
   });
 }
 
-/**
- * <p>Currently, the <code>DeploymentConfig</code> API is not supported.</p>
- */
-export interface DeploymentConfig {
-  /**
-   * <p></p>
-   */
-  BlueGreenUpdatePolicy: BlueGreenUpdatePolicy | undefined;
-
-  /**
-   * <p></p>
-   */
-  AutoRollbackConfiguration?: AutoRollbackConfig;
-}
-
-export namespace DeploymentConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface DeregisterDevicesRequest {
   /**
    * <p>The name of the fleet the devices belong to.</p>
@@ -7006,6 +7008,175 @@ export enum EndpointStatus {
   UPDATING = "Updating",
 }
 
+export enum VariantStatus {
+  ACTIVATING_TRAFFIC = "ActivatingTraffic",
+  BAKING = "Baking",
+  CREATING = "Creating",
+  DELETING = "Deleting",
+  UPDATING = "Updating",
+}
+
+/**
+ * <p>Describes the status of the production variant.</p>
+ */
+export interface ProductionVariantStatus {
+  /**
+   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>Creating</code>: Creating inference resources for the production variant.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Deleting</code>: Terminating inference resources for the production variant.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Updating</code>: Updating capacity for the production variant.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ActivatingTraffic</code>: Turning on traffic for the production variant.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Baking</code>: Waiting period to monitor the CloudWatch alarms in the
+   *                 automatic rollback configuration.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status: VariantStatus | string | undefined;
+
+  /**
+   * <p>A message that describes the status of the production variant.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The start time of the current status change.</p>
+   */
+  StartTime?: Date;
+}
+
+export namespace ProductionVariantStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProductionVariantStatus): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The production variant summary for a deployment when an endpoint is
+ *             creating or updating with the <code>
+ *                <a>CreateEndpoint</a>
+ *             </code>
+ *             or <code>
+ *                <a>UpdateEndpoint</a>
+ *             </code> operations.
+ *             Describes the <code>VariantStatus </code>, weight and capacity for a production
+ *             variant associated with an endpoint.
+ *            </p>
+ */
+export interface PendingProductionVariantSummary {
+  /**
+   * <p>The name of the variant.</p>
+   */
+  VariantName: string | undefined;
+
+  /**
+   * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2
+   *             Container Registry paths of the inference images deployed on instances of this
+   *             <code>ProductionVariant</code>.</p>
+   */
+  DeployedImages?: DeployedImage[];
+
+  /**
+   * <p>The weight associated with the variant.</p>
+   */
+  CurrentWeight?: number;
+
+  /**
+   * <p>The requested weight for the variant in this deployment, as specified in the endpoint configuration
+   *             for the endpoint. The value is taken from the request to the <code>
+   *                <a>CreateEndpointConfig</a>
+   *             </code> operation.</p>
+   */
+  DesiredWeight?: number;
+
+  /**
+   * <p>The number of instances associated with the variant.</p>
+   */
+  CurrentInstanceCount?: number;
+
+  /**
+   * <p>The number of instances requested in this deployment, as specified in the endpoint configuration
+   *             for the endpoint. The value is taken from the request to the <code>
+   *                <a>CreateEndpointConfig</a>
+   *             </code> operation.</p>
+   */
+  DesiredInstanceCount?: number;
+
+  /**
+   * <p>The type of instances associated with the variant.</p>
+   */
+  InstanceType?: ProductionVariantInstanceType | string;
+
+  /**
+   * <p>The size of the Elastic Inference (EI) instance to use for the production variant. EI
+   *             instances provide on-demand GPU computing for inference. For more information, see
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
+   *                 Inference in Amazon SageMaker</a>.</p>
+   */
+  AcceleratorType?: ProductionVariantAcceleratorType | string;
+
+  /**
+   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
+   */
+  VariantStatus?: ProductionVariantStatus[];
+}
+
+export namespace PendingProductionVariantSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PendingProductionVariantSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The summary of an in-progress deployment when an endpoint is creating or
+ *             updating with a new endpoint configuration.</p>
+ */
+export interface PendingDeploymentSummary {
+  /**
+   * <p>The name of the endpoint configuration used in the deployment. </p>
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>List of <code>PendingProductionVariantSummary</code> objects.</p>
+   */
+  ProductionVariants?: PendingProductionVariantSummary[];
+
+  /**
+   * <p>The start time of the deployment.</p>
+   */
+  StartTime?: Date;
+}
+
+export namespace PendingDeploymentSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PendingDeploymentSummary): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Describes weight and capacities for a production variant associated with an
  *             endpoint. If you sent a request to the <code>UpdateEndpointWeightsAndCapacities</code>
@@ -7045,6 +7216,11 @@ export interface ProductionVariantSummary {
    *                 <code>UpdateEndpointWeightsAndCapacities</code> request. </p>
    */
   DesiredInstanceCount?: number;
+
+  /**
+   * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
+   */
+  VariantStatus?: ProductionVariantStatus[];
 }
 
 export namespace ProductionVariantSummary {
@@ -7164,6 +7340,12 @@ export interface DescribeEndpointOutput {
    *             </a> API.</p>
    */
   AsyncInferenceConfig?: AsyncInferenceConfig;
+
+  /**
+   * <p>Returns the summary of an in-progress deployment. This field is only returned when the
+   *             endpoint is creating or updating with a new endpoint configuration.</p>
+   */
+  PendingDeploymentSummary?: PendingDeploymentSummary;
 }
 
 export namespace DescribeEndpointOutput {
@@ -9740,163 +9922,4 @@ export namespace DescribeProcessingJobRequest {
   export const filterSensitiveLog = (obj: DescribeProcessingJobRequest): any => ({
     ...obj,
   });
-}
-
-export enum ProcessingJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
-
-export interface DescribeProcessingJobResponse {
-  /**
-   * <p>The inputs for a processing job.</p>
-   */
-  ProcessingInputs?: ProcessingInput[];
-
-  /**
-   * <p>Output configuration for the processing job.</p>
-   */
-  ProcessingOutputConfig?: ProcessingOutputConfig;
-
-  /**
-   * <p>The name of the processing job. The name must be unique within an Amazon Web Services Region in the
-   *             Amazon Web Services account.</p>
-   */
-  ProcessingJobName: string | undefined;
-
-  /**
-   * <p>Identifies the resources, ML compute instances, and ML storage volumes to deploy for a
-   *             processing job. In distributed training, you specify more than one instance.</p>
-   */
-  ProcessingResources: ProcessingResources | undefined;
-
-  /**
-   * <p>The time limit for how long the processing job is allowed to run.</p>
-   */
-  StoppingCondition?: ProcessingStoppingCondition;
-
-  /**
-   * <p>Configures the processing job to run a specified container image.</p>
-   */
-  AppSpecification: AppSpecification | undefined;
-
-  /**
-   * <p>The environment variables set in the Docker container.</p>
-   */
-  Environment?: { [key: string]: string };
-
-  /**
-   * <p>Networking options for a processing job.</p>
-   */
-  NetworkConfig?: NetworkConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on
-   *             your behalf.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The configuration information used to create an experiment.</p>
-   */
-  ExperimentConfig?: ExperimentConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the processing job.</p>
-   */
-  ProcessingJobArn: string | undefined;
-
-  /**
-   * <p>Provides the status of a processing job.</p>
-   */
-  ProcessingJobStatus: ProcessingJobStatus | string | undefined;
-
-  /**
-   * <p>An optional string, up to one KB in size, that contains metadata from the processing
-   *             container when the processing job exits.</p>
-   */
-  ExitMessage?: string;
-
-  /**
-   * <p>A string, up to one KB in size, that contains the reason a processing job failed, if
-   *             it failed.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The time at which the processing job completed.</p>
-   */
-  ProcessingEndTime?: Date;
-
-  /**
-   * <p>The time at which the processing job started.</p>
-   */
-  ProcessingStartTime?: Date;
-
-  /**
-   * <p>The time at which the processing job was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The time at which the processing job was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The ARN of a monitoring schedule for an endpoint associated with this processing
-   *             job.</p>
-   */
-  MonitoringScheduleArn?: string;
-
-  /**
-   * <p>The ARN of an AutoML job associated with this processing job.</p>
-   */
-  AutoMLJobArn?: string;
-
-  /**
-   * <p>The ARN of a training job associated with this processing job.</p>
-   */
-  TrainingJobArn?: string;
-}
-
-export namespace DescribeProcessingJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProcessingJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeProjectInput {
-  /**
-   * <p>The name of the project to describe.</p>
-   */
-  ProjectName: string | undefined;
-}
-
-export namespace DescribeProjectInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProjectInput): any => ({
-    ...obj,
-  });
-}
-
-export enum ProjectStatus {
-  CREATE_COMPLETED = "CreateCompleted",
-  CREATE_FAILED = "CreateFailed",
-  CREATE_IN_PROGRESS = "CreateInProgress",
-  DELETE_COMPLETED = "DeleteCompleted",
-  DELETE_FAILED = "DeleteFailed",
-  DELETE_IN_PROGRESS = "DeleteInProgress",
-  PENDING = "Pending",
-  UPDATE_COMPLETED = "UpdateCompleted",
-  UPDATE_FAILED = "UpdateFailed",
-  UPDATE_IN_PROGRESS = "UpdateInProgress",
 }

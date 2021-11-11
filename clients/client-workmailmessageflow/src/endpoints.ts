@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "workmailmessageflow.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "workmailmessageflow-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "workmailmessageflow.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "workmailmessageflow-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

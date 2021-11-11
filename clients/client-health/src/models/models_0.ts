@@ -40,7 +40,7 @@ export interface AffectedEntity {
   entityUrl?: string;
 
   /**
-   * <p>The 12-digit AWS account number that contains the affected entity.</p>
+   * <p>The 12-digit Amazon Web Services account number that contains the affected entity.</p>
    */
   awsAccountId?: string;
 
@@ -122,7 +122,7 @@ export interface DescribeAffectedAccountsForOrganizationResponse {
   affectedAccounts?: string[];
 
   /**
-   * <p>This parameter specifies if the AWS Health event is a public AWS service event or an account-specific event.</p>
+   * <p>This parameter specifies if the Health event is a public Amazon Web Services service event or an account-specific event.</p>
    *          <ul>
    *             <li>
    *                <p>If the <code>eventScopeCode</code> value is <code>PUBLIC</code>, then the
@@ -130,9 +130,9 @@ export interface DescribeAffectedAccountsForOrganizationResponse {
    *             </li>
    *             <li>
    *                <p>If the <code>eventScopeCode</code> value is <code>ACCOUNT_SPECIFIC</code>, then
-   *                the <code>affectedAccounts</code> value lists the affected AWS accounts in your
+   *                the <code>affectedAccounts</code> value lists the affected Amazon Web Services accounts in your
    *                organization. For example, if an event affects a service such as Amazon Elastic Compute Cloud and you
-   *                have AWS accounts that use that service, those account IDs appear in the
+   *                have Amazon Web Services accounts that use that service, those account IDs appear in the
    *                response.</p>
    *             </li>
    *             <li>
@@ -211,7 +211,7 @@ export namespace DateTimeRange {
 }
 
 /**
- * <p>The values to use to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html">EntityFilter</a>
+ * <p>The values to use to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html">DescribeAffectedEntities</a>
  *          operation.</p>
  */
 export interface EntityFilter {
@@ -353,7 +353,7 @@ export interface EventAccountFilter {
   eventArn: string | undefined;
 
   /**
-   * <p>The 12-digit AWS account numbers that contains the affected entities.</p>
+   * <p>The 12-digit Amazon Web Services account numbers that contains the affected entities.</p>
    */
   awsAccountId?: string;
 }
@@ -408,7 +408,7 @@ export namespace DescribeAffectedEntitiesForOrganizationRequest {
  */
 export interface OrganizationAffectedEntitiesErrorItem {
   /**
-   * <p>The 12-digit AWS account numbers that contains the affected entities.</p>
+   * <p>The 12-digit Amazon Web Services account numbers that contains the affected entities.</p>
    */
   awsAccountId?: string;
 
@@ -577,17 +577,17 @@ export interface EventFilter {
   eventTypeCodes?: string[];
 
   /**
-   * <p>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   * <p>The Amazon Web Services services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    */
   services?: string[];
 
   /**
-   * <p>A list of AWS Regions.</p>
+   * <p>A list of Amazon Web Services Regions.</p>
    */
   regions?: string[];
 
   /**
-   * <p>A list of AWS Availability Zones.</p>
+   * <p>A list of Amazon Web Services Availability Zones.</p>
    */
   availabilityZones?: string[];
 
@@ -618,8 +618,9 @@ export interface EventFilter {
   entityValues?: string[];
 
   /**
-   * <p>A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>,
-   *          or <code>accountNotification</code>).</p>
+   * <p>A list of event type category codes. Possible values are
+   * <code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>. Currently,
+   * the <code>investigation</code> value isn't supported at this time.</p>
    */
   eventTypeCategories?: (EventTypeCategory | string)[];
 
@@ -787,21 +788,20 @@ export namespace EventDetailsErrorItem {
 }
 
 /**
- * <p>Summary information about an AWS Health event.</p>
- *          <p>AWS Health events can be public or account-specific:</p>
+ * <p>Summary information about an Health event.</p>
+ *          <p>Health events can be public or account-specific:</p>
  *          <ul>
  *             <li>
  *                <p>
  *                   <i>Public events</i> might be service events that are not specific
- *                to an AWS account. For example, if there is an issue with an AWS Region,
- *                AWS Health provides information about the event, even if you don't use services or
+ *                to an Amazon Web Services account. For example, if there is an issue with an Amazon Web Services Region,
+ *                Health provides information about the event, even if you don't use services or
  *                resources in that Region.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <i>Account-specific</i> events are specific to either your AWS
- *                account or an account in your organization. For example, if there's an issue with
- *                Amazon Elastic Compute Cloud in a Region that you use, AWS Health provides information about the event
+ *                   <i>Account-specific</i> events are specific to either your Amazon Web Services account or an account in your organization. For example, if there's an issue with
+ *                Amazon Elastic Compute Cloud in a Region that you use, Health provides information about the event
  *                and the affected resources in the account.</p>
  *             </li>
  *          </ul>
@@ -822,7 +822,7 @@ export interface Event {
   arn?: string;
 
   /**
-   * <p>The AWS service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   * <p>The Amazon Web Services service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    */
   service?: string;
 
@@ -833,18 +833,19 @@ export interface Event {
   eventTypeCode?: string;
 
   /**
-   * <p>The category of the event. Possible values are <code>issue</code>,
-   *             <code>scheduledChange</code>, and <code>accountNotification</code>.</p>
+   * <p>A list of event type category codes. Possible values are
+   * <code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>. Currently,
+   * the <code>investigation</code> value isn't supported at this time.</p>
    */
   eventTypeCategory?: EventTypeCategory | string;
 
   /**
-   * <p>The AWS Region name of the event.</p>
+   * <p>The Amazon Web Services Region name of the event.</p>
    */
   region?: string;
 
   /**
-   * <p>The AWS Availability Zone of the event. For example, us-east-1a.</p>
+   * <p>The Amazon Web Services Availability Zone of the event. For example, us-east-1a.</p>
    */
   availabilityZone?: string;
 
@@ -870,7 +871,7 @@ export interface Event {
   statusCode?: EventStatusCode | string;
 
   /**
-   * <p>This parameter specifies if the AWS Health event is a public AWS service event or an account-specific event.</p>
+   * <p>This parameter specifies if the Health event is a public Amazon Web Services service event or an account-specific event.</p>
    *          <ul>
    *             <li>
    *                <p>If the <code>eventScopeCode</code> value is <code>PUBLIC</code>, then the
@@ -878,9 +879,9 @@ export interface Event {
    *             </li>
    *             <li>
    *                <p>If the <code>eventScopeCode</code> value is <code>ACCOUNT_SPECIFIC</code>, then
-   *                the <code>affectedAccounts</code> value lists the affected AWS accounts in your
+   *                the <code>affectedAccounts</code> value lists the affected Amazon Web Services accounts in your
    *                organization. For example, if an event affects a service such as Amazon Elastic Compute Cloud and you
-   *                have AWS accounts that use that service, those account IDs appear in the
+   *                have Amazon Web Services accounts that use that service, those account IDs appear in the
    *                response.</p>
    *             </li>
    *             <li>
@@ -1025,17 +1026,16 @@ export interface OrganizationEventDetailsErrorItem {
 
   /**
    * <p>A message that describes the error.</p>
-   *          <p>If you call the <code>DescribeEventDetailsForOrganization</code>
-   * operation and receive one of the following errors, follow the recommendations in the message:</p>
+   *          <p>If you call the <code>DescribeEventDetailsForOrganization</code> operation and receive one of the following errors, follow the recommendations in the message:</p>
    *          <ul>
    *             <li>
-   *                <p>We couldn't find a public event that matches your request. To find an event that is account specific, you must enter an AWS account ID in the request.</p>
+   *                <p>We couldn't find a public event that matches your request. To find an event that is account specific, you must enter an Amazon Web Services account ID in the request.</p>
    *             </li>
    *             <li>
-   *                <p>We couldn't find an account specific event for the specified AWS account. To find an event that is public, you must enter a null value for the AWS account ID in the request.</p>
+   *                <p>We couldn't find an account specific event for the specified Amazon Web Services account. To find an event that is public, you must enter a null value for the Amazon Web Services account ID in the request.</p>
    *             </li>
    *             <li>
-   *                <p>Your AWS account doesn't include the AWS Support plan required to use the AWS Health API. You must have either a Business or Enterprise Support plan.</p>
+   *                <p>Your Amazon Web Services account doesn't include the Amazon Web Services Support plan required to use the Health API. You must have either a Business or Enterprise Support plan.</p>
    *             </li>
    *          </ul>
    */
@@ -1057,26 +1057,25 @@ export namespace OrganizationEventDetailsErrorItem {
  */
 export interface OrganizationEventDetails {
   /**
-   * <p>The 12-digit AWS account numbers that contains the affected entities.</p>
+   * <p>The 12-digit Amazon Web Services account numbers that contains the affected entities.</p>
    */
   awsAccountId?: string;
 
   /**
-   * <p>Summary information about an AWS Health event.</p>
-   *          <p>AWS Health events can be public or account-specific:</p>
+   * <p>Summary information about an Health event.</p>
+   *          <p>Health events can be public or account-specific:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <i>Public events</i> might be service events that are not specific
-   *                to an AWS account. For example, if there is an issue with an AWS Region,
-   *                AWS Health provides information about the event, even if you don't use services or
+   *                to an Amazon Web Services account. For example, if there is an issue with an Amazon Web Services Region,
+   *                Health provides information about the event, even if you don't use services or
    *                resources in that Region.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Account-specific</i> events are specific to either your AWS
-   *                account or an account in your organization. For example, if there's an issue with
-   *                Amazon Elastic Compute Cloud in a Region that you use, AWS Health provides information about the event
+   *                   <i>Account-specific</i> events are specific to either your Amazon Web Services account or an account in your organization. For example, if there's an issue with
+   *                Amazon Elastic Compute Cloud in a Region that you use, Health provides information about the event
    *                and the affected resources in the account.</p>
    *             </li>
    *          </ul>
@@ -1196,17 +1195,17 @@ export interface OrganizationEventFilter {
   eventTypeCodes?: string[];
 
   /**
-   * <p>A list of 12-digit AWS account numbers that contains the affected entities.</p>
+   * <p>A list of 12-digit Amazon Web Services account numbers that contains the affected entities.</p>
    */
   awsAccountIds?: string[];
 
   /**
-   * <p>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   * <p>The Amazon Web Services services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    */
   services?: string[];
 
   /**
-   * <p>A list of AWS Regions.</p>
+   * <p>A list of Amazon Web Services Regions.</p>
    */
   regions?: string[];
 
@@ -1254,7 +1253,9 @@ export interface OrganizationEventFilter {
   entityValues?: string[];
 
   /**
-   * <p>A list of event type category codes (issue, scheduledChange, or accountNotification).</p>
+   * <p>A list of event type category codes. Possible values are
+   * <code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>. Currently,
+   * the <code>investigation</code> value isn't supported at this time.</p>
    */
   eventTypeCategories?: (EventTypeCategory | string)[];
 
@@ -1324,7 +1325,7 @@ export interface OrganizationEvent {
   arn?: string;
 
   /**
-   * <p>The AWS service that is affected by the event, such as EC2 and RDS.</p>
+   * <p>The Amazon Web Services service that is affected by the event, such as EC2 and RDS.</p>
    */
   service?: string;
 
@@ -1336,12 +1337,14 @@ export interface OrganizationEvent {
   eventTypeCode?: string;
 
   /**
-   * <p>The category of the event type.</p>
+   * <p>A list of event type category codes. Possible values are
+   * <code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>. Currently,
+   * the <code>investigation</code> value isn't supported at this time.</p>
    */
   eventTypeCategory?: EventTypeCategory | string;
 
   /**
-   * <p>This parameter specifies if the AWS Health event is a public AWS service event or an account-specific event.</p>
+   * <p>This parameter specifies if the Health event is a public Amazon Web Services service event or an account-specific event.</p>
    *          <ul>
    *             <li>
    *                <p>If the <code>eventScopeCode</code> value is <code>PUBLIC</code>, then the
@@ -1349,9 +1352,9 @@ export interface OrganizationEvent {
    *             </li>
    *             <li>
    *                <p>If the <code>eventScopeCode</code> value is <code>ACCOUNT_SPECIFIC</code>, then
-   *                the <code>affectedAccounts</code> value lists the affected AWS accounts in your
+   *                the <code>affectedAccounts</code> value lists the affected Amazon Web Services accounts in your
    *                organization. For example, if an event affects a service such as Amazon Elastic Compute Cloud and you
-   *                have AWS accounts that use that service, those account IDs appear in the
+   *                have Amazon Web Services accounts that use that service, those account IDs appear in the
    *                response.</p>
    *             </li>
    *             <li>
@@ -1364,7 +1367,7 @@ export interface OrganizationEvent {
   eventScopeCode?: EventScopeCode | string;
 
   /**
-   * <p>The AWS Region name of the event.</p>
+   * <p>The Amazon Web Services Region name of the event.</p>
    */
   region?: string;
 
@@ -1434,13 +1437,14 @@ export interface EventTypeFilter {
   eventTypeCodes?: string[];
 
   /**
-   * <p>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   * <p>The Amazon Web Services services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    */
   services?: string[];
 
   /**
-   * <p>A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>,
-   *          or <code>accountNotification</code>).</p>
+   * <p>A list of event type category codes. Possible values are
+   * <code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>. Currently,
+   * the <code>investigation</code> value isn't supported at this time.</p>
    */
   eventTypeCategories?: (EventTypeCategory | string)[];
 }
@@ -1489,20 +1493,20 @@ export namespace DescribeEventTypesRequest {
 }
 
 /**
- * <p>Contains the metadata about a type of event that is reported by AWS Health. The
+ * <p>Contains the metadata about a type of event that is reported by Health. The
  *             <code>EventType</code> shows the category, service, and the event type code of the
  *          event. For example, an <code>issue</code> might be the category, <code>EC2</code> the
  *          service, and <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code> the event type code.</p>
  *          <p>You can use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventTypes.html">DescribeEventTypes</a> API operation to return this information
  *          about an event.</p>
  *          <p>You can also use the Amazon CloudWatch Events console to create a rule so that you can get notified or
- *          take action when AWS Health delivers a specific event to your AWS account. For more
- *          information, see <a href="https://docs.aws.amazon.com/health/latest/ug/cloudwatch-events-health.html">Monitor for AWS Health events with Amazon CloudWatch Events</a> in the
- *             <i>AWS Health User Guide</i>.</p>
+ *          take action when Health delivers a specific event to your Amazon Web Services account. For more
+ *          information, see <a href="https://docs.aws.amazon.com/health/latest/ug/cloudwatch-events-health.html">Monitor for Health events with Amazon CloudWatch Events</a> in the
+ *             <i>Health User Guide</i>.</p>
  */
 export interface EventType {
   /**
-   * <p>The AWS service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   * <p>The Amazon Web Services service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    */
   service?: string;
 
@@ -1513,8 +1517,9 @@ export interface EventType {
   code?: string;
 
   /**
-   * <p>A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>,
-   *          or <code>accountNotification</code>).</p>
+   * <p>A list of event type category codes. Possible values are
+   * <code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>. Currently,
+   * the <code>investigation</code> value isn't supported at this time.</p>
    */
   category?: EventTypeCategory | string;
 }
@@ -1560,7 +1565,8 @@ export namespace DescribeEventTypesResponse {
 
 export interface DescribeHealthServiceStatusForOrganizationResponse {
   /**
-   * <p>Information about the status of enabling or disabling AWS Health Organizational View in
+   * <p>Information about the status of enabling or disabling the Health organizational
+   *          view feature in
    *          your organization.</p>
    *          <p>Valid values are <code>ENABLED | DISABLED | PENDING</code>. </p>
    */

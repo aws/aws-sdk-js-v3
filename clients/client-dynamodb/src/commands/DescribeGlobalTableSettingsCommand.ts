@@ -23,9 +23,10 @@ export interface DescribeGlobalTableSettingsCommandOutput extends DescribeGlobal
 
 /**
  * <p>Describes Region-specific settings for a global table.</p>
- *           <note>
- *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
- *          </note>
+ *         <note>
+ *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+ *                     2017.11.29</a> of global tables.</p>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

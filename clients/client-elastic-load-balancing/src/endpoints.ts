@@ -155,6 +155,10 @@ const partitionHash: PartitionHash = {
         hostname: "elasticloadbalancing.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "elasticloadbalancing-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -164,6 +168,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "elasticloadbalancing.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "elasticloadbalancing-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

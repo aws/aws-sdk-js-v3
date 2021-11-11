@@ -21,20 +21,19 @@ export interface DisableHealthServiceAccessForOrganizationCommandInput {}
 export interface DisableHealthServiceAccessForOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disables AWS Health from working with AWS Organizations. To call this operation, you must sign
- *          in as an AWS Identity and Access Management (IAM) user, assume an IAM role, or sign in as the root user (not
+ * <p>Disables Health from working with Organizations. To call this operation, you must sign
+ *          in as an Identity and Access Management (IAM) user, assume an IAM role, or sign in as the root user (not
  *          recommended) in the organization's management account. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html">Aggregating
- *             AWS Health events</a> in the
- *             <i>AWS Health User Guide</i>.</p>
- *          <p>This operation doesn't remove the service-linked role from the management account in your organization. You must use the IAM console, API, or AWS Command Line Interface (AWS CLI) to
+ *             Health events</a> in the
+ *             <i>Health User Guide</i>.</p>
+ *          <p>This operation doesn't remove the service-linked role from the management account in your organization. You must use the IAM console, API, or Command Line Interface (CLI) to
  *          remove the service-linked role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role">Deleting a Service-Linked Role</a> in the
  *          <i>IAM User Guide</i>.</p>
  *          <note>
  *             <p>You can also disable the organizational feature by using the Organizations <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html">DisableAWSServiceAccess</a> API operation. After you call this operation,
- *             AWS Health stops aggregating events for all other AWS accounts in your organization.
- *             If you call the AWS Health API operations for organizational view, AWS Health returns
- *             an error. AWS Health continues to aggregate health events for your AWS
- *             account.</p>
+ *             Health stops aggregating events for all other Amazon Web Services accounts in your organization.
+ *             If you call the Health API operations for organizational view, Health returns
+ *             an error. Health continues to aggregate health events for your Amazon Web Services account.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

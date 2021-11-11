@@ -149,6 +149,10 @@ const partitionHash: PartitionHash = {
         hostname: "cloudtrail.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "cloudtrail-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -158,6 +162,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "cloudtrail.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "cloudtrail-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

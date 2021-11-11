@@ -845,6 +845,13 @@ export namespace CreateVpnConnectionRequest {
   });
 }
 
+export enum GatewayAssociationState {
+  associated = "associated",
+  associating = "associating",
+  disassociating = "disassociating",
+  not_associated = "not-associated",
+}
+
 /**
  * <p>The internet key exchange (IKE) version permitted for the VPN tunnel.</p>
  */
@@ -1293,7 +1300,7 @@ export interface VpnConnection {
   /**
    * <p>The current state of the gateway association.</p>
    */
-  GatewayAssociationState?: string;
+  GatewayAssociationState?: GatewayAssociationState | string;
 
   /**
    * <p>The VPN connection options.</p>
@@ -9464,38 +9471,6 @@ export namespace DescribeHostsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeHostsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the number of instances that can be launched onto the Dedicated
- *     		Host.</p>
- */
-export interface InstanceCapacity {
-  /**
-   * <p>The number of instances that can be launched onto the Dedicated Host based on the
-   *     		host's available capacity.</p>
-   */
-  AvailableCapacity?: number;
-
-  /**
-   * <p>The instance type supported by the Dedicated Host.</p>
-   */
-  InstanceType?: string;
-
-  /**
-   * <p>The total number of instances that can be launched onto the Dedicated Host if there
-   *     		are no instances running on it.</p>
-   */
-  TotalCapacity?: number;
-}
-
-export namespace InstanceCapacity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceCapacity): any => ({
     ...obj,
   });
 }

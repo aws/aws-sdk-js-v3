@@ -447,7 +447,8 @@ export interface InputDataConfig {
    *             <li>
    *                <p>
    *                   <code>application/x-xliff+xml</code>: The input data consists of one or more XML
-   *           Localization Interchange File Format (XLIFF) files (.xlf). Amazon Translate supports only XLIFF version 1.2.</p>
+   *           Localization Interchange File Format (XLIFF) files (.xlf). Amazon Translate supports only
+   *           XLIFF version 1.2.</p>
    *             </li>
    *          </ul>
    *          <important>
@@ -852,6 +853,7 @@ export namespace GetParallelDataResponse {
 export enum TerminologyDataFormat {
   CSV = "CSV",
   TMX = "TMX",
+  TSV = "TSV",
 }
 
 export interface GetTerminologyRequest {
@@ -861,9 +863,14 @@ export interface GetTerminologyRequest {
   Name: string | undefined;
 
   /**
-   * <p>The data format of the custom terminology being retrieved, either CSV or TMX.</p>
+   * <p>The data format of the custom terminology being retrieved.</p>
+   *          <p>If you don't specify this parameter, Amazon Translate returns a file that has the same
+   *       format as the file that was imported to create the terminology. </p>
+   *          <p>If you specify this parameter when you retrieve a multi-directional terminology resource,
+   *       you must specify the same format as that of the input file that was imported to create it.
+   *       Otherwise, Amazon Translate throws an error.</p>
    */
-  TerminologyDataFormat: TerminologyDataFormat | string | undefined;
+  TerminologyDataFormat?: TerminologyDataFormat | string;
 }
 
 export namespace GetTerminologyRequest {
@@ -899,6 +906,11 @@ export namespace TerminologyDataLocation {
   });
 }
 
+export enum Directionality {
+  MULTI = "MULTI",
+  UNI = "UNI",
+}
+
 /**
  * <p>The properties of the custom terminology.</p>
  */
@@ -925,8 +937,8 @@ export interface TerminologyProperties {
   SourceLanguageCode?: string;
 
   /**
-   * <p>The language codes for the target languages available with the custom terminology file.
-   *       All possible target languages are returned in array.</p>
+   * <p>The language codes for the target languages available with the custom terminology
+   *       resource. All possible target languages are returned in array.</p>
    */
   TargetLanguageCodes?: string[];
 
@@ -954,6 +966,39 @@ export interface TerminologyProperties {
    * <p>The time at which the custom terminology was last update, based on the timestamp.</p>
    */
   LastUpdatedAt?: Date;
+
+  /**
+   * <p>The directionality of your terminology resource indicates whether it has one source
+   *       language (uni-directional) or multiple (multi-directional). </p>
+   *          <dl>
+   *             <dt>UNI</dt>
+   *             <dd>
+   *                <p>The terminology resource has one source language (the first column in a CSV file),
+   *             and all of its other languages are target languages.</p>
+   *             </dd>
+   *             <dt>MULTI</dt>
+   *             <dd>
+   *                <p>Any language in the terminology resource can be the source language.</p>
+   *             </dd>
+   *          </dl>
+   */
+  Directionality?: Directionality | string;
+
+  /**
+   * <p>Additional information from Amazon Translate about the terminology resource.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The number of terms in the input file that Amazon Translate skipped when you created or
+   *       updated the terminology resource.</p>
+   */
+  SkippedTermCount?: number;
+
+  /**
+   * <p>The format of the custom terminology input file.</p>
+   */
+  Format?: TerminologyDataFormat | string;
 }
 
 export namespace TerminologyProperties {
@@ -976,6 +1021,14 @@ export interface GetTerminologyResponse {
    *       is returned in a presigned url that has a 30 minute expiration.</p>
    */
   TerminologyDataLocation?: TerminologyDataLocation;
+
+  /**
+   * <p>The Amazon S3 location of a file that provides any errors or warnings that were produced
+   *       by your input file. This file was created when Amazon Translate attempted to create a
+   *       terminology resource. The location is returned as a presigned URL to that has a 30 minute
+   *       expiration.</p>
+   */
+  AuxiliaryDataLocation?: TerminologyDataLocation;
 }
 
 export namespace GetTerminologyResponse {
@@ -1003,9 +1056,32 @@ export interface TerminologyData {
   File: Uint8Array | undefined;
 
   /**
-   * <p>The data format of the custom terminology. Either CSV or TMX.</p>
+   * <p>The data format of the custom terminology.</p>
    */
   Format: TerminologyDataFormat | string | undefined;
+
+  /**
+   * <p>The directionality of your terminology resource indicates whether it has one source
+   *       language (uni-directional) or multiple (multi-directional).</p>
+   *          <dl>
+   *             <dt>UNI</dt>
+   *             <dd>
+   *                <p>The terminology resource has one source language (for example, the first column in a
+   *             CSV file), and all of its other languages are target languages. </p>
+   *             </dd>
+   *             <dt>MULTI</dt>
+   *             <dd>
+   *                <p>Any language in the terminology resource can be the source language or a target
+   *             language. A single multi-directional terminology resource can be used for jobs that
+   *             translate different language pairs. For example, if the terminology contains terms in
+   *             English and Spanish, then it can be used for jobs that translate English to Spanish and
+   *             jobs that translate Spanish to English.</p>
+   *             </dd>
+   *          </dl>
+   *          <p>When you create a custom terminology resource without specifying the directionality, it
+   *       behaves as uni-directional terminology, although this parameter will have a null value.</p>
+   */
+  Directionality?: Directionality | string;
 }
 
 export namespace TerminologyData {
@@ -1062,6 +1138,14 @@ export interface ImportTerminologyResponse {
    * <p>The properties of the custom terminology being imported.</p>
    */
   TerminologyProperties?: TerminologyProperties;
+
+  /**
+   * <p>The Amazon S3 location of a file that provides any errors or warnings that were produced
+   *       by your input file. This file was created when Amazon Translate attempted to create a
+   *       terminology resource. The location is returned as a presigned URL to that has a 30 minute
+   *       expiration.</p>
+   */
+  AuxiliaryDataLocation?: TerminologyDataLocation;
 }
 
 export namespace ImportTerminologyResponse {

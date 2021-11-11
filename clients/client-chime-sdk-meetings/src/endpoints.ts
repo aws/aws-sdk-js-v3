@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "meetings-chime.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "meetings-chime-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "meetings-chime.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "meetings-chime-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

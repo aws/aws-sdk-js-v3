@@ -99,6 +99,10 @@ const partitionHash: PartitionHash = {
         hostname: "networkmanager.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "networkmanager-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -108,6 +112,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "networkmanager.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "networkmanager-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

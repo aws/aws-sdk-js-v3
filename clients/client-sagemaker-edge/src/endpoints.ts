@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "edge.sagemaker.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "edge.sagemaker-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "edge.sagemaker.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "edge.sagemaker-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

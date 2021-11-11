@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "mediapackage-vod.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "mediapackage-vod-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "mediapackage-vod.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "mediapackage-vod-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

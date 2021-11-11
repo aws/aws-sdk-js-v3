@@ -21,6 +21,7 @@ import {
   Placement,
   ResourceType,
   SelfServicePortal,
+  Subnet,
   SubnetAssociation,
   SubnetIpv6CidrBlockAssociation,
   Tag,
@@ -94,6 +95,27 @@ import {
   SnapshotTaskDetail,
   VirtualizationType,
 } from "./models_3";
+
+export interface DescribeSubnetsResult {
+  /**
+   * <p>Information about one or more subnets.</p>
+   */
+  Subnets?: Subnet[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeSubnetsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeSubnetsResult): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeTagsRequest {
   /**
@@ -10009,36 +10031,6 @@ export namespace InstanceCreditSpecificationRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: InstanceCreditSpecificationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyInstanceCreditSpecificationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *                 Idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Information about the credit option for CPU usage.</p>
-   */
-  InstanceCreditSpecifications: InstanceCreditSpecificationRequest[] | undefined;
-}
-
-export namespace ModifyInstanceCreditSpecificationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyInstanceCreditSpecificationRequest): any => ({
     ...obj,
   });
 }

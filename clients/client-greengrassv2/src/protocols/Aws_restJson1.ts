@@ -3370,6 +3370,7 @@ const serializeAws_restJson1ComponentRunWith = (input: ComponentRunWith, context
       input.systemResourceLimits !== null && {
         systemResourceLimits: serializeAws_restJson1SystemResourceLimits(input.systemResourceLimits, context),
       }),
+    ...(input.windowsUser !== undefined && input.windowsUser !== null && { windowsUser: input.windowsUser }),
   };
 };
 
@@ -3952,6 +3953,7 @@ const deserializeAws_restJson1ComponentRunWith = (output: any, context: __SerdeC
       output.systemResourceLimits !== undefined && output.systemResourceLimits !== null
         ? deserializeAws_restJson1SystemResourceLimits(output.systemResourceLimits, context)
         : undefined,
+    windowsUser: __expectString(output.windowsUser),
   } as any;
 };
 

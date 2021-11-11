@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "databrew.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "databrew-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "databrew.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "databrew-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

@@ -280,10 +280,7 @@ export enum CRAllocationStrategy {
 
 /**
  * <p>Provides information used to select Amazon Machine Images (AMIs) for instances in the compute environment. If
- *     <code>Ec2Configuration</code> isn't specified, the default is currently <code>ECS_AL1</code> (<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami">Amazon Linux</a>) for
- *    non-GPU, non AWSGraviton instances. Starting on March 31, 2021, this default will be changing to <code>ECS_AL2</code>
- *     (<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami">Amazon Linux
- *     2</a>).</p>
+ *     <code>Ec2Configuration</code> isn't specified, the default is <code>ECS_AL2</code> (<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami">Amazon Linux 2</a>).</p>
  *          <note>
  *             <p>This object isn't applicable to jobs that are running on Fargate resources.</p>
  *          </note>
@@ -291,15 +288,14 @@ export enum CRAllocationStrategy {
 export interface Ec2Configuration {
   /**
    * <p>The image type to match with the instance type to select an AMI. If the <code>imageIdOverride</code> parameter
-   *    isn't specified, then a recent <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized AMI</a> (<code>ECS_AL1</code>) is
-   *    used. Starting on March 31, 2021, this default will be changing to <code>ECS_AL2</code> (<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami">Amazon Linux 2</a>).</p>
+   *    isn't specified, then a recent <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami">Amazon ECS-optimized Amazon Linux 2 AMI</a>
+   *     (<code>ECS_AL2</code>) is used.</p>
    *          <dl>
    *             <dt>ECS_AL2</dt>
    *             <dd>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami">Amazon Linux
-   *        2</a>− Default for all Amazon Web Services Graviton-based instance families (for example, <code>C6g</code>,
-   *        <code>M6g</code>, <code>R6g</code>, and <code>T4g</code>) and can be used for all non-GPU instance types.</p>
+   *        2</a>− Default for all non-GPU instance families.</p>
    *             </dd>
    *             <dt>ECS_AL2_NVIDIA</dt>
    *             <dd>
@@ -311,10 +307,8 @@ export interface Ec2Configuration {
    *             <dt>ECS_AL1</dt>
    *             <dd>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami">Amazon
-   *        Linux</a>−Default for all non-GPU, non Amazon Web Services Graviton instance families. Amazon Linux is reaching the
-   *       end-of-life of standard support. For more information, see <a href="http://aws.amazon.com/amazon-linux-ami/">Amazon
-   *        Linux AMI</a>.</p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami">Amazon Linux</a>.
+   *       Amazon Linux is reaching the end-of-life of standard support. For more information, see <a href="http://aws.amazon.com/amazon-linux-ami/">Amazon Linux AMI</a>.</p>
    *             </dd>
    *          </dl>
    */
@@ -562,10 +556,10 @@ export interface ComputeResource {
   /**
    * <p>Key-value pair tags to be applied to EC2 resources that are launched in the compute environment. For Batch,
    *    these take the form of "String1": "String2", where String1 is the tag key and String2 is the tag value−for
-   *    example, <code>{ "Name": "Batch Instance - C4OnDemand" }</code>. This is helpful for recognizing your Batch instances in the
-   *    Amazon EC2 console. These tags can't be updated or removed after the compute environment is created.Aany changes to these
-   *    tags require that you create a new compute environment and remove the old compute environment. These tags aren't seen
-   *    when using the Batch <code>ListTagsForResource</code> API operation.</p>
+   *    example, <code>{ "Name": "Batch Instance - C4OnDemand" }</code>. This is helpful for recognizing your Batch
+   *    instances in the Amazon EC2 console. These tags can't be updated or removed after the compute environment is created. Any
+   *    changes to these tags require that you create a new compute environment and remove the old compute environment. These
+   *    tags aren't seen when using the Batch <code>ListTagsForResource</code> API operation.</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be
    *     specified.</p>
@@ -631,7 +625,10 @@ export interface ComputeResource {
 
   /**
    * <p>Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment.
-   *    If <code>Ec2Configuration</code> isn't specified, the default is <code>ECS_AL1</code>.</p>
+   *    If <code>Ec2Configuration</code> isn't specified, the default is <code>ECS_AL2</code>.</p>
+   *
+   *          <p>One or two values can be provided.</p>
+   *
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be
    *     specified.</p>
@@ -690,6 +687,18 @@ export interface CreateComputeEnvironmentRequest {
   state?: CEState | string;
 
   /**
+   * <p>The maximum number of vCPUs for an
+   *    unmanaged compute environment. This parameter is only used for fair share scheduling to reserve vCPU capacity for new
+   *    share identifiers. If this parameter is not provided for a fair share job queue, no vCPU capacity will be
+   *    reserved.</p>
+   *
+   *          <note>
+   *             <p>This parameter is only supported when the <code>type</code> parameter is set to <code>UNMANAGED</code>/</p>
+   *          </note>
+   */
+  unmanagedvCpus?: number;
+
+  /**
    * <p>Details about the compute resources managed by the compute environment. This parameter is required for managed
    *    compute environments. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
    */
@@ -721,7 +730,7 @@ export interface CreateComputeEnvironmentRequest {
   /**
    * <p>The tags that you apply to the compute environment to help you categorize and organize your resources. Each tag
    *    consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General
-   *    Reference</i>.</p>
+   *     Reference</i>.</p>
    *          <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations. These tags don't
    *    propagate to the underlying compute resources.</p>
    */
@@ -817,6 +826,18 @@ export interface CreateJobQueueRequest {
   state?: JQState | string;
 
   /**
+   * <p>Amazon Resource Name (ARN) of the fair share scheduling
+   *    policy. If this parameter is specified, the job queue will use a fair share scheduling policy. If this parameter is
+   *    not specified, the job queue will use a first in, first out (FIFO) scheduling policy. Once a job queue is created,
+   *    the fair share scheduling policy can be replaced but not removed. The format is
+   *      <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i>
+   *             </code>.
+   *    For example,
+   *    <code>aws:aws:batch:us-west-2:012345678910:scheduling-policy/MySchedulingPolicy</code>.</p>
+   */
+  schedulingPolicyArn?: string;
+
+  /**
    * <p>The priority of the job queue. Job queues with a higher priority (or a higher integer value for the
    *     <code>priority</code> parameter) are evaluated first when associated with the same compute environment. Priority is
    *    determined in descending order. For example, a job queue with a priority value of <code>10</code> is given scheduling
@@ -878,6 +899,151 @@ export namespace CreateJobQueueResponse {
 }
 
 /**
+ * <p>Specifies the weights for the fair share identifiers for the fair share policy. Fair share identifiers that are
+ *    not included have a default weight of <code>1.0</code>.</p>
+ */
+export interface ShareAttributes {
+  /**
+   * <p>A fair share identifier or fair share identifier prefix. If the string ends with '*' then this entry specifies
+   *    the weight factor to use for fair share identifiers that begin with that prefix. The list of fair share identifiers
+   *    in a fair share policy cannot overlap. For example you cannot have one that specifies a <code>shareIdentifier</code>
+   *    of <code>UserA*</code> and another that specifies a <code>shareIdentifier</code> of <code>UserA-1</code>.</p>
+   *          <p>There can be no more than 500 fair share identifiers active in a job queue.</p>
+   *          <p>The string is limited to 255 alphanumeric characters, optionally followed by '*'.</p>
+   */
+  shareIdentifier: string | undefined;
+
+  /**
+   * <p>The weight factor for the fair share
+   *    identifier. The default value is 1.0. A lower value has a higher priority for compute resources. For example, jobs
+   *    using a share identifier with a weight factor of 0.125 (1/8) will get 8 times the compute resources of jobs using a
+   *    share identifier with a weight factor of 1.</p>
+   *          <p>The smallest supported value is 0.0001 and the largest supported value is 999.9999.</p>
+   */
+  weightFactor?: number;
+}
+
+export namespace ShareAttributes {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ShareAttributes): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The fair share policy for a scheduling
+ *    policy.</p>
+ */
+export interface FairsharePolicy {
+  /**
+   * <p>The time period to use to calculate a
+   *    fair share percentage for each fair share identifier in use, in seconds. A value of zero (0) indicates that only
+   *    current usage should be measured; if there are four evenly weighted fair share identifiers then each can only use up
+   *    to 25% of the available CPU resources, even if some of the fair share identifiers have no currently running jobs. The
+   *    decay allows for more recently run jobs to have more weight than jobs that ran earlier. The maximum supported value
+   *    is 604800 (1 week).</p>
+   */
+  shareDecaySeconds?: number;
+
+  /**
+   * <p>A value used to reserve some of the
+   *    available maximum vCPU for fair share identifiers that have not yet been used.</p>
+   *          <p>The reserved ratio is
+   *     <code>(<i>computeReservation</i>/100)^<i>ActiveFairShares</i>
+   *             </code> where
+   *      <code>
+   *                <i>ActiveFairShares</i>
+   *             </code> is the number of active fair share identifiers.</p>
+   *          <p>For example, a <code>computeReservation</code> value of 50 indicates that Batch should reserve 50% of the
+   *    maximum available vCPU if there is only one fair share identifier, 25% if there are two fair share identifiers, and
+   *    12.5% if there are three fair share identifiers. A <code>computeReservation</code> value of 25 indicates that Batch
+   *    should reserve 25% of the maximum available vCPU if there is only one fair share identifier, 6.25% if there are two
+   *    fair share identifiers, and 1.56% if there are three fair share identifiers.</p>
+   *
+   *          <p>The minimum value is 0 and the maximum value is 99.</p>
+   */
+  computeReservation?: number;
+
+  /**
+   * <p>Array of <code>SharedIdentifier</code>
+   *    objects that contain the weights for the fair
+   *    share identifiers for the fair share policy.
+   *    Fair share identifiers that
+   *    are not included have a default weight of <code>1.0</code>.</p>
+   */
+  shareDistribution?: ShareAttributes[];
+}
+
+export namespace FairsharePolicy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FairsharePolicy): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateSchedulingPolicyRequest {
+  /**
+   * <p>The name of the scheduling
+   *    policy. Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The fair share policy of the scheduling
+   *    policy.</p>
+   */
+  fairsharePolicy?: FairsharePolicy;
+
+  /**
+   * <p>The tags that you apply to the scheduling policy to help you categorize and organize your resources. Each tag
+   *    consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General
+   *     Reference</i>.</p>
+   *          <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations.</p>
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace CreateSchedulingPolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateSchedulingPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateSchedulingPolicyResponse {
+  /**
+   * <p>The name of the scheduling
+   *    policy.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the scheduling policy.
+   *    The format is
+   *      <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i>
+   *             </code>.
+   *    For example,
+   *    <code>aws:aws:batch:us-west-2:012345678910:scheduling-policy/MySchedulingPolicy</code>.</p>
+   */
+  arn: string | undefined;
+}
+
+export namespace CreateSchedulingPolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateSchedulingPolicyResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Contains the parameters for <code>DeleteComputeEnvironment</code>.</p>
  */
 export interface DeleteComputeEnvironmentRequest {
@@ -933,6 +1099,34 @@ export namespace DeleteJobQueueResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteJobQueueResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteSchedulingPolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the scheduling policy to
+   *    delete.</p>
+   */
+  arn: string | undefined;
+}
+
+export namespace DeleteSchedulingPolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteSchedulingPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteSchedulingPolicyResponse {}
+
+export namespace DeleteSchedulingPolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteSchedulingPolicyResponse): any => ({
     ...obj,
   });
 }
@@ -1031,6 +1225,11 @@ export interface ComputeEnvironmentDetail {
   computeEnvironmentArn: string | undefined;
 
   /**
+   * <p>The maximum number of VCPUs expected to be used for an unmanaged compute environment.</p>
+   */
+  unmanagedvCpus?: number;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.</p>
    */
   ecsClusterArn: string | undefined;
@@ -1101,8 +1300,8 @@ export interface DescribeComputeEnvironmentsResponse {
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>DescribeComputeEnvironments</code> request. When
-   *    the results of a <code>DescribeJobDefinitions</code> request exceed <code>maxResults</code>, this value can be used
-   *    to retrieve the next page of results. This value is <code>null</code> when there are no more results to
+   *    the results of a <code>DescribeComputeEnvironments</code> request exceed <code>maxResults</code>, this value can be
+   *    used to retrieve the next page of results. This value is <code>null</code> when there are no more results to
    *    return.</p>
    */
   nextToken?: string;
@@ -1701,8 +1900,9 @@ export interface ResourceRequirement {
    *       resources, you must specify at least one vCPU. This is required but can be specified in several places; it must be
    *       specified for each node at least once.</p>
    *                <p>For jobs that are running on Fargate resources, then <code>value</code> must match one of the supported
-   *       values and the <code>MEMORY</code> values must be one of the values supported for that VCPU value. The supported
-   *       values are 0.25, 0.5, 1, 2, and 4</p>
+   *       values and the <code>MEMORY</code> values must be one of the values supported for that
+   *        <code>VCPU</code>
+   *       value. The supported values are 0.25, 0.5, 1, 2, and 4</p>
    *                <dl>
    *                   <dt>value = 0.25</dt>
    *                   <dd>
@@ -1804,9 +2004,9 @@ export interface EFSAuthorizationConfig {
 
   /**
    * <p>Whether or not to use the Batch job IAM role defined in a job definition when mounting the Amazon EFS file system.
-   *    If enabled, transit encryption must be enabled in the <code>EFSVolumeConfiguration</code>. If this
-   *    parameter is omitted, the default value of <code>DISABLED</code> is used. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints">Using Amazon EFS Access Points</a> in
-   *    the <i>Batch User Guide</i>. EFS IAM authorization requires that <code>TransitEncryption</code> be
+   *    If enabled, transit encryption must be enabled in the <code>EFSVolumeConfiguration</code>. If this parameter is
+   *    omitted, the default value of <code>DISABLED</code> is used. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints">Using Amazon EFS Access Points</a> in the
+   *     <i>Batch User Guide</i>. EFS IAM authorization requires that <code>TransitEncryption</code> be
    *     <code>ENABLED</code> and that a <code>JobRoleArn</code> is specified.</p>
    */
   iam?: EFSAuthorizationConfigIAM | string;
@@ -1987,38 +2187,26 @@ export interface ContainerProperties {
   /**
    * @deprecated
    *
-   * <p>The number of vCPUs reserved for the job. Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to
-   *     <code>CpuShares</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the
-   *     <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. The number of vCPUs must
-   *    be specified but can be specified in several places. You must specify it at least once for each node.</p>
-   *          <p>This parameter is supported on EC2 resources but isn't supported for jobs that run on Fargate resources. For
-   *    these resources, use <code>resourceRequirement</code> instead. You can use this parameter or
-   *     <code>resourceRequirements</code> structure but not both.</p>
-   *          <note>
-   *             <p>This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided. For
-   *     jobs that run on Fargate resources, you must specify the vCPU requirement for the job using
-   *      <code>resourceRequirements</code>.</p>
-   *          </note>
+   * <p>This parameter is deprecated, use <code>resourceRequirements</code> to specify the vCPU requirements for the job
+   *    definition. It's not supported for jobs that run on Fargate resources. For jobs run on EC2 resources, it specifies
+   *    the number of vCPUs reserved for the job.</p>
+   *
+   *          <p>Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to <code>CpuShares</code> in the
+   *    <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>--cpu-shares</code> option to
+   *     <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. The number of vCPUs must be specified but can be specified
+   *    in several places. You must specify it at least once for each node.</p>
    */
   vcpus?: number;
 
   /**
    * @deprecated
    *
-   * <p>This parameter indicates the memory hard limit (in MiB) for a container. If your container attempts to exceed
-   *    the specified number, it's terminated. You must specify at least 4 MiB of memory for a job using this parameter. The
-   *    memory hard limit can be specified in several places. It must be specified for each node at least once.</p>
-   *          <p>This parameter maps to <code>Memory</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the
-   *    <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>--memory</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-   *    run</a>.</p>
-   *          <p>This parameter is supported on EC2 resources but isn't supported on Fargate resources. For Fargate
-   *    resources, you should specify the memory requirement using <code>resourceRequirement</code>. You can also do this for
-   *    EC2 resources.</p>
-   *          <note>
-   *             <p>If you're trying to maximize your resource utilization by providing your jobs as much memory as possible for a
-   *     particular instance type, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html">Memory
-   *      Management</a> in the <i>Batch User Guide</i>.</p>
-   *          </note>
+   * <p>This parameter is deprecated, use
+   *     <code>resourceRequirements</code> to specify the memory requirements for the job definition. It's not supported for
+   *    jobs that run on Fargate resources. For jobs run on EC2 resources, it specifies the memory hard
+   *    limit (in MiB) for a container. If your container attempts to exceed the specified number, it's terminated. You must
+   *    specify at least 4 MiB of memory for a job using this parameter. The memory hard limit can be specified in several
+   *    places. It must be specified for each node at least once.</p>
    */
   memory?: number;
 
@@ -2254,8 +2442,11 @@ export interface EvaluateOnExit {
   /**
    * <p>Contains a glob pattern to match against the <code>StatusReason</code> returned for a job. The pattern can be up
    *    to 512 characters in length. It can contain letters, numbers, periods (.), colons (:), and white space (including
-   *    spaces or tabs). It can optionally end with an asterisk (*) so that only the start of the string needs to be an exact
-   *    match.</p>
+   *    spaces or tabs).
+   *    It can optionally end with an
+   *    asterisk (*) so that only the start of the string needs to be an exact match.</p>
+   *
+   *          <p>The string can be between 1 and 512 characters in length.</p>
    */
   onStatusReason?: string;
 
@@ -2264,6 +2455,8 @@ export interface EvaluateOnExit {
    *    512 characters in length. It can contain letters, numbers, periods (.), colons (:), and white space (including spaces
    *    and tabs). It can optionally end with an asterisk (*) so that only the start of the string needs to be an exact
    *    match.</p>
+   *
+   *          <p>The string can be between 1 and 512 characters in length.</p>
    */
   onReason?: string;
 
@@ -2271,6 +2464,8 @@ export interface EvaluateOnExit {
    * <p>Contains a glob pattern to match against the decimal representation of the <code>ExitCode</code> returned for a
    *    job. The pattern can be up to 512 characters in length. It can contain only numbers, and can optionally end with an
    *    asterisk (*) so that only the start of the string needs to be an exact match.</p>
+   *
+   *          <p>The string can be between 1 and 512 characters in length.</p>
    */
   onExitCode?: string;
 
@@ -2362,11 +2557,19 @@ export interface JobDefinition {
   status?: string;
 
   /**
-   * <p>The type of job definition. If the job is run on Fargate resources, then <code>multinode</code> isn't
-   *    supported. For more information about multi-node parallel jobs, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html">Creating a multi-node parallel job definition</a> in the
-   *     <i>Batch User Guide</i>.</p>
+   * <p>The type of job definition, either
+   *     <code>container</code> or <code>multinode</code>. If the job is run on Fargate resources, then
+   *     <code>multinode</code> isn't supported. For more information about multi-node parallel jobs, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html">Creating a multi-node parallel job definition</a>
+   *    in the <i>Batch User Guide</i>.</p>
    */
   type: string | undefined;
+
+  /**
+   * <p>The scheduling priority of the job
+   *    definition. This will only affect jobs in job queues with a fair share policy. Jobs with a higher scheduling priority
+   *    will be scheduled before jobs with a lower scheduling priority.</p>
+   */
+  schedulingPriority?: number;
 
   /**
    * <p>Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are
@@ -2525,6 +2728,15 @@ export interface JobQueueDetail {
   state: JQState | string | undefined;
 
   /**
+   * <p>Amazon Resource Name (ARN) of the scheduling policy. The format is
+   *      <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i>
+   *             </code>.
+   *    For example,
+   *    <code>aws:aws:batch:us-west-2:012345678910:scheduling-policy/MySchedulingPolicy</code>.</p>
+   */
+  schedulingPolicyArn?: string;
+
+  /**
    * <p>The status of the job queue (for example, <code>CREATING</code> or <code>VALID</code>).</p>
    */
   status?: JQStatus | string;
@@ -2620,7 +2832,7 @@ export interface ContainerDetail {
   /**
    * <p>The number of vCPUs reserved for the container. For jobs that run on EC2 resources, you can specify the vCPU
    *    requirement for the job using <code>resourceRequirements</code>, but you can't specify the vCPU requirements in both
-   *    the <code>vcpus</code> and <code>resourceRequirement</code> object. This parameter maps to <code>CpuShares</code> in
+   *    the <code>vcpus</code> and <code>resourceRequirements</code> object. This parameter maps to <code>CpuShares</code> in
    *    the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>--cpu-shares</code> option to
    *     <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. Each vCPU is equivalent to 1,024 CPU shares. You must
    *    specify at least one vCPU. This is required but can be specified in several places. It must be specified for each
@@ -2633,7 +2845,7 @@ export interface ContainerDetail {
   vcpus?: number;
 
   /**
-   * <p>For jobs run on EC2 resources that didn't specify memory requirements using <code>ResourceRequirement</code>,
+   * <p>For jobs run on EC2 resources that didn't specify memory requirements using <code>resourceRequirements</code>,
    *    the number of MiB of memory reserved for the job. For other jobs, including all run on Fargate resources, see
    *     <code>resourceRequirements</code>.</p>
    */
@@ -2650,7 +2862,9 @@ export interface ContainerDetail {
   jobRoleArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the execution role that Batch can assume. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html">Batch execution IAM role</a> in the
+   * <p>The Amazon Resource Name (ARN) of the
+   *    execution
+   *    role that Batch can assume. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html">Batch execution IAM role</a> in the
    *     <i>Batch User Guide</i>.</p>
    */
   executionRoleArn?: string;
@@ -2909,6 +3123,17 @@ export interface JobDetail {
   status: JobStatus | string | undefined;
 
   /**
+   * <p>The share identifier for the job.</p>
+   */
+  shareIdentifier?: string;
+
+  /**
+   * <p>The scheduling policy of the job definition. This will only affect jobs in job queues with a fair share policy.
+   *    Jobs with a higher scheduling priority will be scheduled before jobs with a lower scheduling priority.</p>
+   */
+  schedulingPriority?: number;
+
+  /**
    * <p>A list of job attempts associated with this job.</p>
    */
   attempts?: AttemptDetail[];
@@ -3029,6 +3254,82 @@ export namespace DescribeJobsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeJobsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeSchedulingPoliciesRequest {
+  /**
+   * <p>A list of up to 100 scheduling policy
+   *    Amazon Resource Name (ARN) entries.</p>
+   */
+  arns: string[] | undefined;
+}
+
+export namespace DescribeSchedulingPoliciesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeSchedulingPoliciesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object representing a scheduling
+ *    policy.</p>
+ */
+export interface SchedulingPolicyDetail {
+  /**
+   * <p>The name of the scheduling
+   *    policy.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the scheduling policy. An example would be
+   *      <code>arn:<i>aws</i>:batch:<i>us-east-1</i>:<i>123456789012</i>:scheduling-policy/<i>HighPriority</i>
+   *             </code>
+   *          </p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The fair share policy for the scheduling
+   *    policy.</p>
+   */
+  fairsharePolicy?: FairsharePolicy;
+
+  /**
+   * <p>The tags that you apply to the scheduling policy to help you categorize and organize your resources. Each tag
+   *    consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General
+   *     Reference</i>.</p>
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace SchedulingPolicyDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SchedulingPolicyDetail): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeSchedulingPoliciesResponse {
+  /**
+   * <p>The list of scheduling
+   *    policies.</p>
+   */
+  schedulingPolicies?: SchedulingPolicyDetail[];
+}
+
+export namespace DescribeSchedulingPoliciesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeSchedulingPoliciesResponse): any => ({
     ...obj,
   });
 }
@@ -3319,10 +3620,88 @@ export namespace ListJobsResponse {
   });
 }
 
+export interface ListSchedulingPoliciesRequest {
+  /**
+   * <p>The maximum number of results returned by <code>ListSchedulingPolicies</code> in paginated output. When this
+   *    parameter is used, <code>ListSchedulingPolicies</code> only returns <code>maxResults</code> results in a single page
+   *    and a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending
+   *    another <code>ListSchedulingPolicies</code> request with the returned <code>nextToken</code> value. This value can be
+   *    between 1 and 100. If this parameter isn't used, then
+   *     <code>ListSchedulingPolicies</code> returns up to 100 results and a <code>nextToken</code> value
+   *    if applicable.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated <code>ListSchedulingPolicies</code> request
+   *    where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues
+   *    from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code>
+   *    when there are no more results to return.</p>
+   *          <note>
+   *             <p>This token should be treated as an opaque identifier that's only used to
+   *  retrieve the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
+   */
+  nextToken?: string;
+}
+
+export namespace ListSchedulingPoliciesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSchedulingPoliciesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object containing the details of a scheduling policy returned in a <code>ListSchedulingPolicy</code>
+ *    action.</p>
+ */
+export interface SchedulingPolicyListingDetail {
+  /**
+   * <p>Amazon Resource Name (ARN) of the scheduling policy.</p>
+   */
+  arn: string | undefined;
+}
+
+export namespace SchedulingPolicyListingDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SchedulingPolicyListingDetail): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSchedulingPoliciesResponse {
+  /**
+   * <p>A list of scheduling policies that match
+   *    the request.</p>
+   */
+  schedulingPolicies?: SchedulingPolicyListingDetail[];
+
+  /**
+   * <p>The <code>nextToken</code> value to include in a future <code>ListSchedulingPolicies</code> request. When the
+   *    results of a <code>ListSchedulingPolicies</code> request exceed <code>maxResults</code>, this value can be used to
+   *    retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListSchedulingPoliciesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSchedulingPoliciesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource that tags are listed for. Batch resources that support tags are compute environments, jobs, job definitions, and job
-   *  queues. ARNs for child jobs of array and multi-node parallel (MNP) jobs are not supported.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the resource that tags are listed for. Batch resources that support tags are compute environments, jobs, job definitions, job queues,
+   *  and scheduling policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs are not supported.</p>
    */
   resourceArn: string | undefined;
 }
@@ -3382,6 +3761,15 @@ export interface RegisterJobDefinitionRequest {
    *    from the job definition.</p>
    */
   parameters?: { [key: string]: string };
+
+  /**
+   * <p>The scheduling priority for jobs that are
+   *    submitted with this job definition. This will only affect jobs in job queues with a fair share policy. Jobs with a
+   *    higher scheduling priority will be scheduled before jobs with a lower scheduling priority.</p>
+   *
+   *          <p>The minimum supported value is 0 and the maximum supported value is 9999.</p>
+   */
+  schedulingPriority?: number;
 
   /**
    * <p>An object with various properties specific to single-node container-based jobs. If the job definition's
@@ -3485,34 +3873,32 @@ export interface ContainerOverrides {
   /**
    * @deprecated
    *
-   * <p>This parameter indicates the number of vCPUs reserved for the container.It overrides the <code>vcpus</code>
-   *    parameter that's set in the job definition, but doesn't override any vCPU requirement specified in the
-   *     <code>resourceRequirement</code> structure in the job definition. To override vCPU requirements that are specified
-   *    in the <code>ResourceRequirement</code> structure in the job definition, <code>ResourceRequirement</code> must be
+   * <p>This parameter is deprecated, use
+   *     <code>resourceRequirements</code> to  override the <code>vcpus</code> parameter that's set in the
+   *    job definition. It's not supported for jobs
+   *    that run on Fargate resources. For jobs run on EC2 resources, it overrides the <code>vcpus</code> parameter set in
+   *    the job definition, but doesn't override any vCPU requirement specified in the
+   *     <code>resourceRequirements</code> structure in the job definition. To override vCPU requirements that are specified
+   *    in the <code>resourceRequirements</code> structure in the job definition, <code>resourceRequirements</code> must be
    *    specified in the <code>SubmitJob</code> request, with <code>type</code> set to <code>VCPU</code> and
-   *     <code>value</code> set to the new value.</p>
-   *          <p>This parameter maps to <code>CpuShares</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the
-   *    <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.
-   *    Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one vCPU.</p>
-   *          <note>
-   *             <p>This parameter is supported for jobs that run on EC2 resources, but isn't supported for jobs that run on
-   *     Fargate resources. For Fargate resources, you can only use <code>resourceRequirement</code>. For EC2 resources,
-   *     you can use either this parameter or <code>resourceRequirement</code> but not both.</p>
-   *          </note>
+   *     <code>value</code> set to the new value. For
+   *    more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't override job definition
+   *     resource requirements</a> in the <i>Batch User Guide</i>.</p>
    */
   vcpus?: number;
 
   /**
    * @deprecated
    *
-   * <p>This parameter indicates the amount of memory (in MiB) that's reserved for the job. It overrides the
+   * <p>This parameter is deprecated, use
+   *     <code>resourceRequirements</code> to override the memory requirements specified in the job definition. It's not
+   *    supported for jobs that run on Fargate resources. For jobs run on EC2 resources, it overrides the
    *     <code>memory</code> parameter set in the job definition, but doesn't override any memory requirement specified in
-   *    the <code>ResourceRequirement</code> structure in the job definition. To override memory requirements that are
-   *    specified in the <code>ResourceRequirement</code> structure in the job definition, <code>ResourceRequirement</code>
+   *    the <code>resourceRequirements</code> structure in the job definition. To override memory requirements that are
+   *    specified in the <code>resourceRequirements</code> structure in the job definition, <code>resourceRequirements</code>
    *    must be specified in the <code>SubmitJob</code> request, with <code>type</code> set to <code>MEMORY</code> and
-   *     <code>value</code> set to the new value.</p>
-   *          <p>This parameter is supported for jobs that run on EC2 resources, but isn't supported for jobs that run on Fargate
-   *    resources. For these resources, use <code>resourceRequirement</code> instead.</p>
+   *     <code>value</code> set to the new value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't override job definition
+   *     resource requirements</a> in the <i>Batch User Guide</i>.</p>
    */
   memory?: number;
 
@@ -3646,6 +4032,22 @@ export interface SubmitJobRequest {
   jobQueue: string | undefined;
 
   /**
+   * <p>The share identifier for the
+   *    job.</p>
+   */
+  shareIdentifier?: string;
+
+  /**
+   * <p>The scheduling priority for the job. This
+   *    will only affect jobs in job queues with a fair share policy. Jobs with a higher scheduling priority will be
+   *    scheduled before jobs with a lower scheduling priority. This will override any scheduling priority in the job
+   *    definition.</p>
+   *
+   *          <p>The minimum supported value is 0 and the maximum supported value is 9999.</p>
+   */
+  schedulingPriorityOverride?: number;
+
+  /**
    * <p>The array properties for the submitted job, such as the size of the array. The array size can be between 2 and
    *    10,000. If you specify array properties for a job, it becomes an array job. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html">Array Jobs</a> in the
    *    <i>Batch User Guide</i>.</p>
@@ -3722,7 +4124,7 @@ export interface SubmitJobRequest {
   /**
    * <p>The tags that you apply to the job request to help you categorize and organize your resources. Each tag consists
    *    of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General
-   *    Reference</i>.</p>
+   *     Reference</i>.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -3764,15 +4166,15 @@ export namespace SubmitJobResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that tags are added to. Batch resources that support tags are compute environments, jobs, job definitions, and job
-   *  queues. ARNs for child jobs of array and multi-node parallel (MNP) jobs are not supported.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource that tags are added to. Batch resources that support tags are compute environments, jobs, job definitions, job queues,
+   *  and scheduling policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs are not supported.</p>
    */
   resourceArn: string | undefined;
 
   /**
    * <p>The tags that you apply to the resource to help you categorize and organize your resources. Each tag consists of
    *    a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General
-   *    Reference</i>.</p>
+   *     Reference</i>.</p>
    */
   tags: { [key: string]: string } | undefined;
 }
@@ -3836,8 +4238,8 @@ export namespace TerminateJobResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource from which to delete tags. Batch resources that support tags are compute environments, jobs, job definitions, and job
-   *  queues. ARNs for child jobs of array and multi-node parallel (MNP) jobs are not supported.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource from which to delete tags. Batch resources that support tags are compute environments, jobs, job definitions, job queues,
+   *  and scheduling policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs are not supported.</p>
    */
   resourceArn: string | undefined;
 
@@ -3951,6 +4353,15 @@ export interface UpdateComputeEnvironmentRequest {
   state?: CEState | string;
 
   /**
+   * <p>The maximum number of vCPUs expected to
+   *    be used for an unmanaged compute environment. This parameter should not be specified for a managed compute
+   *    environment. This parameter is only used for fair share scheduling to reserve vCPU capacity for new share
+   *    identifiers. If this parameter is not provided for a fair share job queue, no vCPU capacity will be
+   *    reserved.</p>
+   */
+  unmanagedvCpus?: number;
+
+  /**
    * <p>Details of the compute resources managed by the compute environment. Required for a managed compute environment.
    *    For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
    *     Environments</a> in the <i>Batch User Guide</i>.</p>
@@ -4026,6 +4437,16 @@ export interface UpdateJobQueueRequest {
   state?: JQState | string;
 
   /**
+   * <p>Amazon Resource Name (ARN) of the fair share scheduling policy. Once a job queue is created, the fair share scheduling policy can
+   *    be replaced but not removed. The format is
+   *      <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i>
+   *             </code>.
+   *    For example,
+   *    <code>aws:aws:batch:us-west-2:012345678910:scheduling-policy/MySchedulingPolicy</code>.</p>
+   */
+  schedulingPolicyArn?: string;
+
+  /**
    * <p>The priority of the job queue. Job queues with a higher priority (or a higher integer value for the
    *     <code>priority</code> parameter) are evaluated first when associated with the same compute environment. Priority is
    *    determined in descending order, for example, a job queue with a priority value of <code>10</code> is given scheduling
@@ -4075,6 +4496,39 @@ export namespace UpdateJobQueueResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateJobQueueResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateSchedulingPolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the scheduling policy to update.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The fair share
+   *    policy.</p>
+   */
+  fairsharePolicy?: FairsharePolicy;
+}
+
+export namespace UpdateSchedulingPolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateSchedulingPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateSchedulingPolicyResponse {}
+
+export namespace UpdateSchedulingPolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateSchedulingPolicyResponse): any => ({
     ...obj,
   });
 }

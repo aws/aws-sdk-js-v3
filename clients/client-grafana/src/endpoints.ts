@@ -169,6 +169,10 @@ const partitionHash: PartitionHash = {
         hostname: "grafana.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "grafana-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -178,6 +182,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "grafana.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "grafana-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

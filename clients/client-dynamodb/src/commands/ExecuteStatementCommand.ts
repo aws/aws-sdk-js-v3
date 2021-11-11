@@ -22,9 +22,8 @@ export interface ExecuteStatementCommandInput extends ExecuteStatementInput {}
 export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, __MetadataBearer {}
 
 /**
- * <p>
- * This operation allows you to perform reads and singleton writes on data stored in DynamoDB, using PartiQL.
- * </p>
+ * <p>This operation allows you to perform reads and singleton writes on data stored in
+ *             DynamoDB, using PartiQL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

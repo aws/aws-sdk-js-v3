@@ -36,12 +36,12 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * 			only the desired count, deployment configuration, task placement constraints and
  * 			strategies, and health check grace period can be updated using this API. If the network
  * 			configuration, platform version, or task definition need to be updated, a new CodeDeploy
- * 			deployment should be created. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html">CreateDeployment</a> in the <i>CodeDeploy API Reference</i>.</p>
+ * 			deployment is created. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html">CreateDeployment</a> in the <i>CodeDeploy API Reference</i>.</p>
  * 		       <p>For services using an external deployment controller, you can update only the desired
  * 			count, task placement constraints and strategies, and health check grace period using
  * 			this API. If the launch type, load balancer, network configuration, platform version, or
- * 			task definition need to be updated, you should create a new task set. For more
- * 			information, see <a>CreateTaskSet</a>.</p>
+ * 			task definition need to be updated, create a new task set. For more information, see
+ * 				<a>CreateTaskSet</a>.</p>
  * 		       <p>You can add to or subtract from the number of instantiations of a task definition in a
  * 			service by specifying the cluster that the service is running in and a new
  * 				<code>desiredCount</code> parameter.</p>
@@ -51,7 +51,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * 			configuration) to determine the deployment strategy.</p>
  * 		       <note>
  * 			         <p>If your updated Docker image uses the same tag as what is in the existing task
- * 				definition for your service (for example, <code>my_image:latest</code>), you do not
+ * 				definition for your service (for example, <code>my_image:latest</code>), you don't
  * 				need to create a new revision of your task definition. You can update the service
  * 				using the <code>forceNewDeployment</code> option. The new tasks launched by the
  * 				deployment pull the current image/tag combination from your repository when they
@@ -67,15 +67,15 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * 						<code>desiredCount</code> temporarily during a deployment. For example, if
  * 						<code>desiredCount</code> is four tasks, a minimum of 50% allows the
  * 					scheduler to stop two existing tasks before starting two new tasks. Tasks for
- * 					services that do not use a load balancer are considered healthy if they are in
- * 					the <code>RUNNING</code> state. Tasks for services that use a load balancer are
- * 					considered healthy if they are in the <code>RUNNING</code> state and the
- * 					container instance they are hosted on is reported as healthy by the load
+ * 					services that don't use a load balancer are considered healthy if they're in the
+ * 						<code>RUNNING</code> state. Tasks for services that use a load balancer are
+ * 					considered healthy if they're in the <code>RUNNING</code> state and the
+ * 					container instance they're hosted on is reported as healthy by the load
  * 					balancer.</p>
  * 			         </li>
  *             <li>
  * 				           <p>The <code>maximumPercent</code> parameter represents an upper limit on the
- * 					number of running tasks during a deployment, which enables you to define the
+ * 					number of running tasks during a deployment. You can use it to define the
  * 					deployment batch size. For example, if <code>desiredCount</code> is four tasks,
  * 					a maximum of 200% starts four new tasks before stopping the four older tasks
  * 					(provided that the cluster resources required to do this are available).</p>
@@ -83,22 +83,22 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *          </ul>
  * 		       <p>When <a>UpdateService</a> stops a task during a deployment, the equivalent
  * 			of <code>docker stop</code> is issued to the containers running in the task. This
- * 			results in a <code>SIGTERM</code> and a 30-second timeout, after which
+ * 			results in a <code>SIGTERM</code> and a 30-second timeout. After this,
  * 				<code>SIGKILL</code> is sent and the containers are forcibly stopped. If the
  * 			container handles the <code>SIGTERM</code> gracefully and exits within 30 seconds from
  * 			receiving it, no <code>SIGKILL</code> is sent.</p>
  * 		       <p>When the service scheduler launches new tasks, it determines task placement in your
- * 			cluster with the following logic:</p>
+ * 			cluster with the following logic.</p>
  * 		       <ul>
  *             <li>
  * 				           <p>Determine which of the container instances in your cluster can support your
- * 					service's task definition (for example, they have the required CPU, memory,
- * 					ports, and container instance attributes).</p>
+ * 					service's task definition. For example, they have the required CPU, memory,
+ * 					ports, and container instance attributes.</p>
  * 			         </li>
  *             <li>
  * 				           <p>By default, the service scheduler attempts to balance tasks across
- * 					Availability Zones in this manner (although you can choose a different placement
- * 					strategy):</p>
+ * 					Availability Zones in this manner even though you can choose a different
+ * 					placement strategy.</p>
  * 				           <ul>
  *                   <li>
  * 						               <p>Sort the valid container instances by the fewest number of running

@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "airflow.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "airflow-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "airflow.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "airflow-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

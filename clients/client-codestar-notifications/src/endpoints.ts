@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "codestar-notifications.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "codestar-notifications-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "codestar-notifications.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "codestar-notifications-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

@@ -94,7 +94,43 @@ import {
   SpotInstanceRequest,
   SpotPlacement,
 } from "./models_3";
-import { CapacityReservationSpecification, OperationType, Purchase, VolumeModification } from "./models_4";
+import {
+  CapacityReservationSpecification,
+  InstanceCreditSpecificationRequest,
+  OperationType,
+  Purchase,
+  VolumeModification,
+} from "./models_4";
+
+export interface ModifyInstanceCreditSpecificationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *                 Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Information about the credit option for CPU usage.</p>
+   */
+  InstanceCreditSpecifications: InstanceCreditSpecificationRequest[] | undefined;
+}
+
+export namespace ModifyInstanceCreditSpecificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyInstanceCreditSpecificationRequest): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Describes the burstable performance instance whose credit option for CPU usage was
@@ -2759,7 +2795,7 @@ export interface ProvisionByoipCidrRequest {
   PoolTagSpecifications?: TagSpecification[];
 
   /**
-   * <para>Reserved.</para>
+   * <p>Reserved.</p>
    */
   MultiRegion?: boolean;
 }
@@ -3928,6 +3964,8 @@ export interface ReplaceRouteRequest {
    * <p>The ID of a VPC peering connection.</p>
    */
   VpcPeeringConnectionId?: string;
+
+  CoreNetworkArn?: string;
 }
 
 export namespace ReplaceRouteRequest {

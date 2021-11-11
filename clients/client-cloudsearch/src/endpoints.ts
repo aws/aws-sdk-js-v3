@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "cloudsearch.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "cloudsearch-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "cloudsearch.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "cloudsearch-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

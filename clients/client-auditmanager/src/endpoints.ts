@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "auditmanager.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "auditmanager-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "auditmanager.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "auditmanager-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

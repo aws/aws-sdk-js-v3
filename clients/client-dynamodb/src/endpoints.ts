@@ -178,6 +178,10 @@ const partitionHash: PartitionHash = {
         hostname: "dynamodb.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "dynamodb-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -187,6 +191,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "dynamodb.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "dynamodb-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

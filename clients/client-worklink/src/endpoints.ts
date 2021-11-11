@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "worklink.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "worklink-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "worklink.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "worklink-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

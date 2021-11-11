@@ -32,10 +32,10 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  *             <ul>
  *                <li>
  *                   <p>When you call the <code>DescribeEvents</code> operation and specify an entity
- *                   for the <code>entityValues</code> parameter, AWS Health might return public
+ *                   for the <code>entityValues</code> parameter, Health might return public
  *                   events that aren't specific to that resource. For example, if you call
  *                      <code>DescribeEvents</code> and specify an ID for an Amazon Elastic Compute Cloud (Amazon EC2)
- *                   instance, AWS Health might return events that aren't specific to that resource or
+ *                   instance, Health might return events that aren't specific to that resource or
  *                   service. To get events that are specific to a service, use the
  *                      <code>services</code> parameter in the <code>filter</code> object. For more
  *                   information, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>.</p>

@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "redshift-data.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "redshift-data-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "redshift-data.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "redshift-data-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

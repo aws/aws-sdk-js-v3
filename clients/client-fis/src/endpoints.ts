@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "fis.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "fis-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "fis.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "fis-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

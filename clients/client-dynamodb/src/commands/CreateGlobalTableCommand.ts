@@ -25,71 +25,60 @@ export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput,
  * <p>Creates a global table from an existing table. A global table creates a replication
  *             relationship between two or more DynamoDB tables with the same table name in the
  *             provided Regions. </p>
- *          <note>
- *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
- *          </note>
+ *         <note>
+ *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+ *                     2017.11.29</a> of global tables.</p>
+ *         </note>
  *
- *          <p>If you want to add a new replica table to a global table, each of the following conditions
- *    must be true:</p>
- *          <ul>
- *             <li>
- *                <p>The table must have the same primary key as all of the other replicas.</p>
- *             </li>
- *             <li>
- *                <p>The table must have the same name as all of the other replicas.</p>
- *             </li>
- *             <li>
- *                <p>The table must have DynamoDB Streams enabled, with the stream containing both the new and the old
- *      images of the item.</p>
- *             </li>
- *             <li>
- *                <p>None of the replica tables in the global table can contain any data.</p>
- *             </li>
- *          </ul>
- *          <p>
- *      If global secondary indexes are specified, then the following conditions must also be met:
- *    </p>
+ *         <p>If you want to add a new replica table to a global table, each of the following
+ *             conditions must be true:</p>
  *         <ul>
  *             <li>
- *                <p>
- *                The global secondary indexes must have the same name.
- *             </p>
+ *                 <p>The table must have the same primary key as all of the other replicas.</p>
  *             </li>
  *             <li>
- *                <p>
- *                The global secondary indexes must have the same hash key and sort key (if present).
- *             </p>
+ *                 <p>The table must have the same name as all of the other replicas.</p>
+ *             </li>
+ *             <li>
+ *                 <p>The table must have DynamoDB Streams enabled, with the stream containing both
+ *                     the new and the old images of the item.</p>
+ *             </li>
+ *             <li>
+ *                 <p>None of the replica tables in the global table can contain any data.</p>
  *             </li>
  *          </ul>
- *          <p>
- *      If local secondary indexes are specified, then the following conditions must also be met:
- *    </p>
+ *         <p> If global secondary indexes are specified, then the following conditions must also be
+ *             met: </p>
  *         <ul>
  *             <li>
- *                <p>
- *                The local secondary indexes must have the same name.
- *             </p>
+ *                 <p> The global secondary indexes must have the same name. </p>
  *             </li>
  *             <li>
- *                <p>
- *                The local secondary indexes must have the same hash key and sort key (if present).
- *             </p>
+ *                 <p> The global secondary indexes must have the same hash key and sort key (if
+ *                     present). </p>
+ *             </li>
+ *          </ul>
+ *         <p> If local secondary indexes are specified, then the following conditions must also be
+ *             met: </p>
+ *         <ul>
+ *             <li>
+ *                 <p> The local secondary indexes must have the same name. </p>
+ *             </li>
+ *             <li>
+ *                 <p> The local secondary indexes must have the same hash key and sort key (if
+ *                     present). </p>
  *             </li>
  *          </ul>
  *
- *          <important>
- *             <p>
- *        Write capacity settings should be set consistently across your replica tables and
- *        secondary indexes. DynamoDB strongly recommends enabling auto scaling to manage the write
- *        capacity settings for all of your global tables replicas and indexes.
- *     </p>
- *             <p>
- *        If you prefer to manage write capacity settings manually, you should provision equal
- *        replicated write capacity units to your replica tables. You should also provision
- *        equal replicated write capacity units to matching secondary indexes across
- *        your global table.
- *     </p>
- *          </important>
+ *         <important>
+ *             <p> Write capacity settings should be set consistently across your replica tables and
+ *                 secondary indexes. DynamoDB strongly recommends enabling auto scaling to manage the
+ *                 write capacity settings for all of your global tables replicas and indexes. </p>
+ *             <p> If you prefer to manage write capacity settings manually, you should provision
+ *                 equal replicated write capacity units to your replica tables. You should also
+ *                 provision equal replicated write capacity units to matching secondary indexes across
+ *                 your global table. </p>
+ *         </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

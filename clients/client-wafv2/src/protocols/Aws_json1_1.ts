@@ -139,6 +139,9 @@ import {
   BlockAction,
   Body,
   ByteMatchStatement,
+  CaptchaAction,
+  CaptchaConfig,
+  CaptchaResponse,
   CheckCapacityRequest,
   CheckCapacityResponse,
   Condition,
@@ -204,6 +207,7 @@ import {
   GetWebACLResponse,
   HTTPHeader,
   HTTPRequest,
+  ImmunityTimeProperty,
   IPSet,
   IPSetForwardedIPConfig,
   IPSetReferenceStatement,
@@ -5259,6 +5263,24 @@ const serializeAws_json1_1ByteMatchStatement = (input: ByteMatchStatement, conte
   };
 };
 
+const serializeAws_json1_1CaptchaAction = (input: CaptchaAction, context: __SerdeContext): any => {
+  return {
+    ...(input.CustomRequestHandling !== undefined &&
+      input.CustomRequestHandling !== null && {
+        CustomRequestHandling: serializeAws_json1_1CustomRequestHandling(input.CustomRequestHandling, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1CaptchaConfig = (input: CaptchaConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.ImmunityTimeProperty !== undefined &&
+      input.ImmunityTimeProperty !== null && {
+        ImmunityTimeProperty: serializeAws_json1_1ImmunityTimeProperty(input.ImmunityTimeProperty, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1CheckCapacityRequest = (input: CheckCapacityRequest, context: __SerdeContext): any => {
   return {
     ...(input.Rules !== undefined &&
@@ -5362,6 +5384,10 @@ const serializeAws_json1_1CreateRuleGroupRequest = (input: CreateRuleGroupReques
 
 const serializeAws_json1_1CreateWebACLRequest = (input: CreateWebACLRequest, context: __SerdeContext): any => {
   return {
+    ...(input.CaptchaConfig !== undefined &&
+      input.CaptchaConfig !== null && {
+        CaptchaConfig: serializeAws_json1_1CaptchaConfig(input.CaptchaConfig, context),
+      }),
     ...(input.CustomResponseBodies !== undefined &&
       input.CustomResponseBodies !== null && {
         CustomResponseBodies: serializeAws_json1_1CustomResponseBodies(input.CustomResponseBodies, context),
@@ -5722,6 +5748,12 @@ const serializeAws_json1_1GetWebACLRequest = (input: GetWebACLRequest, context: 
     ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.Scope !== undefined && input.Scope !== null && { Scope: input.Scope }),
+  };
+};
+
+const serializeAws_json1_1ImmunityTimeProperty = (input: ImmunityTimeProperty, context: __SerdeContext): any => {
+  return {
+    ...(input.ImmunityTime !== undefined && input.ImmunityTime !== null && { ImmunityTime: input.ImmunityTime }),
   };
 };
 
@@ -6129,6 +6161,10 @@ const serializeAws_json1_1Rule = (input: Rule, context: __SerdeContext): any => 
   return {
     ...(input.Action !== undefined &&
       input.Action !== null && { Action: serializeAws_json1_1RuleAction(input.Action, context) }),
+    ...(input.CaptchaConfig !== undefined &&
+      input.CaptchaConfig !== null && {
+        CaptchaConfig: serializeAws_json1_1CaptchaConfig(input.CaptchaConfig, context),
+      }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.OverrideAction !== undefined &&
       input.OverrideAction !== null && {
@@ -6152,6 +6188,8 @@ const serializeAws_json1_1RuleAction = (input: RuleAction, context: __SerdeConte
       input.Allow !== null && { Allow: serializeAws_json1_1AllowAction(input.Allow, context) }),
     ...(input.Block !== undefined &&
       input.Block !== null && { Block: serializeAws_json1_1BlockAction(input.Block, context) }),
+    ...(input.Captcha !== undefined &&
+      input.Captcha !== null && { Captcha: serializeAws_json1_1CaptchaAction(input.Captcha, context) }),
     ...(input.Count !== undefined &&
       input.Count !== null && { Count: serializeAws_json1_1CountAction(input.Count, context) }),
   };
@@ -6435,6 +6473,10 @@ const serializeAws_json1_1UpdateRuleGroupRequest = (input: UpdateRuleGroupReques
 
 const serializeAws_json1_1UpdateWebACLRequest = (input: UpdateWebACLRequest, context: __SerdeContext): any => {
   return {
+    ...(input.CaptchaConfig !== undefined &&
+      input.CaptchaConfig !== null && {
+        CaptchaConfig: serializeAws_json1_1CaptchaConfig(input.CaptchaConfig, context),
+      }),
     ...(input.CustomResponseBodies !== undefined &&
       input.CustomResponseBodies !== null && {
         CustomResponseBodies: serializeAws_json1_1CustomResponseBodies(input.CustomResponseBodies, context),
@@ -6573,6 +6615,32 @@ const deserializeAws_json1_1ByteMatchStatement = (output: any, context: __SerdeC
       output.TextTransformations !== undefined && output.TextTransformations !== null
         ? deserializeAws_json1_1TextTransformations(output.TextTransformations, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CaptchaAction = (output: any, context: __SerdeContext): CaptchaAction => {
+  return {
+    CustomRequestHandling:
+      output.CustomRequestHandling !== undefined && output.CustomRequestHandling !== null
+        ? deserializeAws_json1_1CustomRequestHandling(output.CustomRequestHandling, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CaptchaConfig = (output: any, context: __SerdeContext): CaptchaConfig => {
+  return {
+    ImmunityTimeProperty:
+      output.ImmunityTimeProperty !== undefined && output.ImmunityTimeProperty !== null
+        ? deserializeAws_json1_1ImmunityTimeProperty(output.ImmunityTimeProperty, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CaptchaResponse = (output: any, context: __SerdeContext): CaptchaResponse => {
+  return {
+    FailureReason: __expectString(output.FailureReason),
+    ResponseCode: __expectInt32(output.ResponseCode),
+    SolveTimestamp: __expectLong(output.SolveTimestamp),
   } as any;
 };
 
@@ -7114,6 +7182,12 @@ const deserializeAws_json1_1HTTPRequest = (output: any, context: __SerdeContext)
         : undefined,
     Method: __expectString(output.Method),
     URI: __expectString(output.URI),
+  } as any;
+};
+
+const deserializeAws_json1_1ImmunityTimeProperty = (output: any, context: __SerdeContext): ImmunityTimeProperty => {
+  return {
+    ImmunityTime: __expectLong(output.ImmunityTime),
   } as any;
 };
 
@@ -7792,6 +7866,10 @@ const deserializeAws_json1_1Rule = (output: any, context: __SerdeContext): Rule 
       output.Action !== undefined && output.Action !== null
         ? deserializeAws_json1_1RuleAction(output.Action, context)
         : undefined,
+    CaptchaConfig:
+      output.CaptchaConfig !== undefined && output.CaptchaConfig !== null
+        ? deserializeAws_json1_1CaptchaConfig(output.CaptchaConfig, context)
+        : undefined,
     Name: __expectString(output.Name),
     OverrideAction:
       output.OverrideAction !== undefined && output.OverrideAction !== null
@@ -7822,6 +7900,10 @@ const deserializeAws_json1_1RuleAction = (output: any, context: __SerdeContext):
     Block:
       output.Block !== undefined && output.Block !== null
         ? deserializeAws_json1_1BlockAction(output.Block, context)
+        : undefined,
+    Captcha:
+      output.Captcha !== undefined && output.Captcha !== null
+        ? deserializeAws_json1_1CaptchaAction(output.Captcha, context)
         : undefined,
     Count:
       output.Count !== undefined && output.Count !== null
@@ -7930,6 +8012,10 @@ const deserializeAws_json1_1RuleSummary = (output: any, context: __SerdeContext)
 const deserializeAws_json1_1SampledHTTPRequest = (output: any, context: __SerdeContext): SampledHTTPRequest => {
   return {
     Action: __expectString(output.Action),
+    CaptchaResponse:
+      output.CaptchaResponse !== undefined && output.CaptchaResponse !== null
+        ? deserializeAws_json1_1CaptchaResponse(output.CaptchaResponse, context)
+        : undefined,
     Labels:
       output.Labels !== undefined && output.Labels !== null
         ? deserializeAws_json1_1Labels(output.Labels, context)
@@ -8356,6 +8442,10 @@ const deserializeAws_json1_1WebACL = (output: any, context: __SerdeContext): Web
   return {
     ARN: __expectString(output.ARN),
     Capacity: __expectLong(output.Capacity),
+    CaptchaConfig:
+      output.CaptchaConfig !== undefined && output.CaptchaConfig !== null
+        ? deserializeAws_json1_1CaptchaConfig(output.CaptchaConfig, context)
+        : undefined,
     CustomResponseBodies:
       output.CustomResponseBodies !== undefined && output.CustomResponseBodies !== null
         ? deserializeAws_json1_1CustomResponseBodies(output.CustomResponseBodies, context)

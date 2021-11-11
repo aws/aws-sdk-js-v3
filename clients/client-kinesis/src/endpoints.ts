@@ -149,6 +149,10 @@ const partitionHash: PartitionHash = {
         hostname: "kinesis.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "kinesis-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -158,6 +162,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "kinesis.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "kinesis-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

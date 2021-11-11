@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "snow-device-management.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "snow-device-management-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "snow-device-management.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "snow-device-management-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

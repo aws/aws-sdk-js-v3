@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "finspace-api.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "finspace-api-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "finspace-api.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "finspace-api-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

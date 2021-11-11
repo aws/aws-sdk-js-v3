@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "projects.iot1click.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "projects.iot1click-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "projects.iot1click.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "projects.iot1click-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

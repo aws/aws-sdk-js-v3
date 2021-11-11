@@ -22,9 +22,12 @@ export interface BatchExecuteStatementCommandInput extends BatchExecuteStatement
 export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatementOutput, __MetadataBearer {}
 
 /**
- * <p>
- * This operation allows you to perform batch reads and writes on data stored in DynamoDB, using PartiQL.
- * </p>
+ * <p>This operation allows you to perform batch reads or writes on data stored in DynamoDB,
+ *             using PartiQL.</p>
+ *         <note>
+ *             <p>The entire batch must consist of either read statements or write statements, you
+ *                 cannot mix both in one batch.</p>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
