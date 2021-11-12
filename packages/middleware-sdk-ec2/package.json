@@ -22,7 +22,6 @@
     "@aws-sdk/signature-v4": "3.40.0",
     "@aws-sdk/types": "3.40.0",
     "@aws-sdk/util-format-url": "3.40.0",
-    "@aws-sdk/util-uri-escape": "3.37.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
