@@ -13,7 +13,7 @@ import {
   PORT,
   PROJECT_TEMPLATES_DIR,
 } from "./constants";
-import { loadTestScope } from "./load-test-scope";
+import { loadPackageContext } from "./load-test-scope";
 import { localPublishChangedPackages, spawnLocalRegistry } from "./local-registry";
 import { updateReport } from "./reporter";
 import { sleep, validateRuntime } from "./utils";
@@ -76,28 +76,28 @@ export const sizeReport = async (options: SizeReportOptions) => {
   // Preparing the runtime.
   await validateRuntime();
 
-  const packages = await loadWorkspacePackages({ since: options.since });
+  const changedPackages = await loadWorkspacePackages({ since: options.since });
   console.info("starting generating size report for changed packages");
   if (!(options?.skipLocalPublish ?? false)) {
-    await validatePackagesAlreadyBuilt(packages);
+    await validatePackagesAlreadyBuilt(changedPackages);
     await localPublishChangedPackages();
   }
-  let testScope = await loadTestScope(options?.scopeConfigPath);
-  const packageNames = packages.map((pkg) => pkg.name);
-  testScope = testScope.filter((perTestScope) => packageNames.includes(perTestScope.package));
-  console.info(`Found ${testScope.length} packages in the defined scope have size test scope.`);
+  const testScope = await loadPackageContext(options?.scopeConfigPath);
+  const changedPackageNames = changedPackages.map((pkg) => pkg.name);
+  const packageContextToTest = testScope.filter((perTestScope) => changedPackageNames.includes(perTestScope.package));
+  console.info(`Found ${packageContextToTest.length} packages in the defined scope have size test scope.`);
   const localRegistryProcess = spawnLocalRegistry(PORT);
 
   // Wait for the register to spin up.
   await sleep(1000);
   const sizeReportContext = await getSizeReportContext({ port: PORT });
   const tasks = new Listr(
-    testScope.map((packageScope) => ({
-      title: packageScope.package,
+    packageContextToTest.map((packageContext) => ({
+      title: packageContext.package,
       task: getPackageSizeReportRunner({
         ...sizeReportContext,
-        packageName: packageScope.package,
-        packageScope,
+        packageName: packageContext.package,
+        packageContext,
       }),
     })),
     { concurrent: 10 }

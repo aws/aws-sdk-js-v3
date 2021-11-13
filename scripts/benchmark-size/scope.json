@@ -19,33 +19,9 @@
   { "package": "@aws-sdk/smithy-client" },
   { "package": "@aws-sdk/types" },
   {
-    "package": "@aws-sdk/lib-dynamodb",
-    "dependencies": [
-      {
-        "name": "@aws-sdk/smithy-client",
-        "version": "ci"
-      },
-      {
-        "name": "@aws-sdk/client-dynamodb",
-        "version": "ci"
-      },
-      {
-        "name": "@aws-sdk/types",
-        "version": "ci"
-      }
-    ]
+    "package": "@aws-sdk/lib-dynamodb"
   },
   {
-    "package": "@aws-sdk/lib-storage",
-    "dependencies": [
-      {
-        "name": "@aws-sdk/client-s3",
-        "version": "ci"
-      },
-      {
-        "name": "@aws-sdk/abort-controller",
-        "version": "ci"
-      }
-    ]
+    "package": "@aws-sdk/lib-storage"
   }
 ]

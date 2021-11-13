@@ -4,12 +4,10 @@ import { join } from "path";
 export interface NpmSize {
   publishSize: number;
   installSize: number;
-  publishFiles: number;
-  installFiles: number;
 }
 
 /**
- * Replicate the same config of Bundlephobia
+ * Replicate the same config of PackagePhobia
  */
 export const calculateNpmSize = (packageDir: string, packageName: string): NpmSize => {
   const nodeModules = join(packageDir, "node_modules");
@@ -20,9 +18,6 @@ export const calculateNpmSize = (packageDir: string, packageName: string): NpmSi
   return {
     installSize,
     publishSize,
-    publishFiles: publishFiles.size,
-    // Subtract 1 to exclude `node_modules` root dir
-    installFiles: installFiles.size - 1,
   };
 };
 

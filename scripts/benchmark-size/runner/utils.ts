@@ -1,4 +1,5 @@
 import exec from "execa";
+import { promises as fsPromise, existsSync } from "fs";
 
 import { PROJECT_ROOT } from "./constants";
 
@@ -58,3 +59,6 @@ export const readSize = (value: string | number): number => {
   }
   return parseFloat(digits) * (unit ? multiplier[unit] : 1);
 };
+
+export const isFile = async (path: string): Promise<boolean> =>
+  existsSync(path) && (await fsPromise.lstat(path)).isFile();

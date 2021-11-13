@@ -1,7 +1,6 @@
 {
   "default": {
-    "publishSize": { "limit": "1 mb", "hike": "3 %" },
-    "publishFiles": { "limit": "500", "hike": "3 %" }
+    "publishSize": { "limit": "1 mb", "hike": "10 %" }
   },
   "@aws-sdk/client-ec2": {
     "publishSize": { "limit": "10 mb" }

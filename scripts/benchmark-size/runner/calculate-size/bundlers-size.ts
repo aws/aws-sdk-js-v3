@@ -21,12 +21,6 @@ export const getWebpackSize = async (context: BundlerSizeReportContext): Promise
   const webpackInstance = webpack({
     entry: context.entryPoint,
     output: { path: webpackOutputDir, filename: "index.js" },
-    resolve: {
-      alias: {
-        events: false,
-        url: false,
-      },
-    },
   });
   const run = promisify(webpackInstance.run);
   const webpackStats = await run.call(webpackInstance);

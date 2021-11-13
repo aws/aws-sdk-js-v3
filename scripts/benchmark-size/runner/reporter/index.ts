@@ -5,14 +5,13 @@ import { PackageSizeReportOutput } from "../calculate-size";
 import { prettifySize } from "../utils";
 import { LimitValidator } from "./limit";
 
-const HEADER = `| Package | Version | Publish Size | Publish Files | Webpack | Rollup | EsBuild |
-| :------ | :------ | :----------- | :------------ | :------ | :----- | ------- |`;
+const HEADER = `| Package | Version | Publish Size | browser:Webpack | browser:Rollup | browser:EsBuild |
+| :------ | :------ | :----------- | :------ | :----- | :------- |`;
 
 export type Column =
   | "package"
   | "version"
   | "publishSize"
-  | "publishFiles"
   | "webpackCompatibility"
   | "rollupCompatibility"
   | "esbuildCompatibility";
@@ -21,7 +20,6 @@ export const columns: Column[] = [
   "package",
   "version",
   "publishSize",
-  "publishFiles",
   "webpackCompatibility",
   "rollupCompatibility",
   "esbuildCompatibility",
@@ -88,10 +86,9 @@ const populateLineContent = (
   package: report.name,
   version: report.version,
   publishSize: prettifySize(report.publishSize),
-  publishFiles: report.publishFiles,
-  webpackCompatibility: `${report.webpackSize ? "✅" : "❌"}(${options.webpackVersion})`,
-  rollupCompatibility: `${report.rollupSize ? "✅" : "❌"}(${options.rollupVersion})`,
-  esbuildCompatibility: `${report.esbuildSize ? "✅" : "❌"}(${options.esbuildVersion})`,
+  webpackCompatibility: `${report.webpackSize ? `✅(${options.webpackVersion})` : "N/A"}`,
+  rollupCompatibility: `${report.rollupSize ? `✅(${options.rollupVersion})` : "N/A"}`,
+  esbuildCompatibility: `${report.esbuildSize ? `✅(${options.esbuildVersion})` : "N/A"}`,
 });
 
 export const updateReport = (

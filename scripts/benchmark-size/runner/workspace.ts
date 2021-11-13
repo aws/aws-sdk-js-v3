@@ -1,8 +1,9 @@
 import exec from "execa";
-import { lstatSync, readFileSync } from "fs";
+import { promises as fsPromise } from "fs";
 import { join } from "path";
 
 import { PROJECT_ROOT } from "./constants";
+import { isFile } from "./utils";
 
 export interface WorkspacePackage {
   name: string;
@@ -63,31 +64,36 @@ export const loadWorkspacePackages = async (options?: {
 /**
  * Validate whether given list of workspace packages are fully built and ready to be published.
  */
-export const validatePackagesAlreadyBuilt = (packages: WorkspacePackage[]): void => {
-  const isBuild = (packageDir: string): boolean => {
+export const validatePackagesAlreadyBuilt = async (packages: WorkspacePackage[]): Promise<void> => {
+  const isBuilt = async (packageDir: string): Promise<boolean> => {
     let packageJson: { [key: string]: any };
     try {
       const packageJsonFile = join(packageDir, "package.json");
-      packageJson = JSON.parse(readFileSync(packageJsonFile, { encoding: "utf8" }));
+      packageJson = JSON.parse(await fsPromise.readFile(packageJsonFile, { encoding: "utf8" }));
     } catch (e) {
       console.error(`Enable to read package.json file of package ${packageDir}`);
       return false;
     }
     const { main, module: mod, types } = packageJson;
-    if (main && !lstatSync(join(packageDir, main)).isFile()) {
+    if (main && !(await isFile(join(packageDir, main)))) {
       return false;
     }
-    if (mod && !lstatSync(join(packageDir, mod)).isFile()) {
+    if (mod && !(await isFile(join(packageDir, mod)))) {
       return false;
     }
-    if (types && !lstatSync(join(packageDir, types)).isFile()) {
+    if (types && !(await isFile(join(packageDir, types)))) {
       return false;
     }
     return true;
   };
 
-  const notBuilt = packages.filter((pkg) => !isBuild(pkg.location)).map((pkg) => pkg.name);
-  if (notBuilt?.length > 0) {
+  const notBuilt: string[] = [];
+  for (const pkg of packages) {
+    if (!(await isBuilt(pkg.location))) {
+      notBuilt.push(pkg.name);
+    }
+  }
+  if (notBuilt.length > 0) {
     throw new Error(`Please make sure these packages are fully built: ${notBuilt.join(", ")}`);
   }
 };

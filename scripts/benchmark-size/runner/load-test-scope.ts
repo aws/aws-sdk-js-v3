@@ -3,20 +3,20 @@ import { readFileSync } from "fs";
 import { DEFAULT_TEST_SCOPE } from "./constants";
 import { loadWorkspacePackages } from "./workspace";
 
-export type PackageTestScope = {
+export type PackageContext = {
   package: string;
   dependencies?: { name: string; version: string }[];
   skipBundlerTests?: boolean;
 };
 
-export const loadTestScope = async (scopeConfigPath: string = DEFAULT_TEST_SCOPE): Promise<PackageTestScope[]> => {
+export const loadPackageContext = async (scopeConfigPath: string = DEFAULT_TEST_SCOPE): Promise<PackageContext[]> => {
   console.info(`loading test scopes from ${scopeConfigPath}`);
   const rawConfig: Array<unknown> = JSON.parse(readFileSync(scopeConfigPath, "utf8"));
   if (!Array.isArray(rawConfig)) {
     throw new Error(`test scope config is invalid, expect array`);
   }
-  const scope: PackageTestScope[] = [];
-  for (const pkgScope of rawConfig as Array<Partial<PackageTestScope>>) {
+  const scope: PackageContext[] = [];
+  for (const pkgScope of rawConfig as Array<Partial<PackageContext>>) {
     if (!pkgScope.package) {
       throw new Error("'package' entry is required for each scope configuration entry");
     }
@@ -33,7 +33,7 @@ export const loadTestScope = async (scopeConfigPath: string = DEFAULT_TEST_SCOPE
   }
   // Later config entry should overwrite the previous config entry
   const packageNames: Set<string> = new Set();
-  const deduplicatedScope: PackageTestScope[] = [];
+  const deduplicatedScope: PackageContext[] = [];
   scope.reverse().forEach((scope) => {
     if (packageNames.has(scope.package)) {
       return;
