@@ -1,3 +1,5 @@
 CHANGELOG.md
 **/*/CHANGELOG.md
 .github/*
+**/*.hbs
+**/*/report.md

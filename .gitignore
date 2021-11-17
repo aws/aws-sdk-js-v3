@@ -52,3 +52,5 @@ codegen/*/.project
 codegen/*/.classpath
 codegen/*/.settings/
 codegen/*/bin
+
+benchmark/size/raw
