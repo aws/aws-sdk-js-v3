@@ -1,7 +1,7 @@
-const { IAM } = require("../../../clients/client-iam");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@iam" }, function (scenario, callback) {
+  const { IAM } = require("../../../clients/client-iam");
   this.iam = new IAM({});
   callback();
 });

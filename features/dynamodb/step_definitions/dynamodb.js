@@ -1,7 +1,7 @@
 const jmespath = require("jmespath");
-const { DynamoDB, waitForTableExists, waitForTableNotExists } = require("../../../clients/client-dynamodb");
 
 function waitForTableExistsCallback(world, callback) {
+  const { waitForTableExists } = require("../../../clients/client-dynamodb");
   waitForTableExists({ client: world.service }, { TableName: world.tableName }).then(
     function (data) {
       callback();
@@ -13,6 +13,7 @@ function waitForTableExistsCallback(world, callback) {
 }
 
 function waitForTableNotExistsWithCallback(world, callback) {
+  const { waitForTableNotExists } = require("../../../clients/client-dynamodb");
   waitForTableNotExists({ client: world.service }, { TableName: world.tableName }).then(
     function (data) {
       callback();
@@ -26,6 +27,7 @@ function waitForTableNotExistsWithCallback(world, callback) {
 const { Before, Given, Then, When } = require("cucumber");
 
 Before({ tags: "@dynamodb" }, function (scenario, next) {
+  const { DynamoDB } = require("../../../clients/client-dynamodb");
   this.service = new DynamoDB({
     maxRetries: 2,
   });

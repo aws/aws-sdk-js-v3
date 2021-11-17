@@ -1,7 +1,7 @@
-const { Glacier } = require("../../../clients/client-glacier");
 const { Before, Given, Then, When } = require("cucumber");
 
 Before({ tags: "@glacier" }, function (scenario, callback) {
+  const { Glacier } = require("../../../clients/client-glacier");
   this.service = new Glacier({});
   callback();
 });

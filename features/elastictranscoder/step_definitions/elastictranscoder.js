@@ -1,9 +1,9 @@
-const { ElasticTranscoder } = require("../../../clients/client-elastic-transcoder");
-const { S3 } = require("../../../clients/client-s3");
-const { IAM } = require("../../../clients/client-iam");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@elastictranscoder" }, function (scenario, callback) {
+  const { S3 } = require("../../../clients/client-s3");
+  const { IAM } = require("../../../clients/client-iam");
+  const { ElasticTranscoder } = require("../../../clients/client-elastictranscoder");
   this.iam = new IAM({});
   this.s3 = new S3({});
   this.service = new ElasticTranscoder({});

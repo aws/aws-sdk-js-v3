@@ -1,7 +1,7 @@
-const { DirectConnect } = require("../../../clients/client-direct-connect");
 const { Before, Given } = require("cucumber");
 
 Before({ tags: "@directconnect" }, function (scenario, callback) {
+  const { DirectConnect } = require("../../../clients/client-directconnect");
   this.service = new DirectConnect({});
   callback();
 });

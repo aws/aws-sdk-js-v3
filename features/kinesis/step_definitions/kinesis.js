@@ -1,7 +1,7 @@
-const { Kinesis } = require("../../../clients/client-kinesis");
 const { Before, Given } = require("cucumber");
 
 Before({ tags: "@kinesis" }, function (scenario, callback) {
+  const { Kinesis } = require("../../../clients/client-kinesis");
   this.service = new Kinesis({});
   callback();
 });
