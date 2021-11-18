@@ -2405,6 +2405,9 @@
           "target": "com.amazonaws.appstream#InvalidParameterCombinationException"
         },
         {
+          "target": "com.amazonaws.appstream#OperationNotPermittedException"
+        },
+        {
           "target": "com.amazonaws.appstream#ResourceNotFoundException"
         }
       ],
@@ -2658,7 +2661,7 @@
           "min": 0,
           "max": 128
         },
-        "smithy.api#pattern": "(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]"
+        "smithy.api#pattern": "^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$"
       }
     },
     "com.amazonaws.appstream#EmbedHostDomains": {
@@ -4062,6 +4065,10 @@
           {
             "value": "WINDOWS_SERVER_2019",
             "name": "WINDOWS_SERVER_2019"
+          },
+          {
+            "value": "AMAZON_LINUX2",
+            "name": "AMAZON_LINUX2"
           }
         ]
       }
@@ -4849,7 +4856,7 @@
           "min": 2,
           "max": 32
         },
-        "smithy.api#pattern": "[\\w+=,.@-]*"
+        "smithy.api#pattern": "^[\\w+=,.@-]*$"
       }
     },
     "com.amazonaws.appstream#String": {
@@ -5718,7 +5725,7 @@
           "min": 1,
           "max": 128
         },
-        "smithy.api#pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+        "smithy.api#pattern": "^[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+$",
         "smithy.api#sensitive": {}
       }
     },
