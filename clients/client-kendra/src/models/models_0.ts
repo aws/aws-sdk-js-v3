@@ -191,46 +191,21 @@ export namespace AdditionalResultAttribute {
  * <p>The value of a custom document attribute. You can only provide one
  *             value for a custom attribute.</p>
  */
-export type DocumentAttributeValue =
-  | DocumentAttributeValue.DateValueMember
-  | DocumentAttributeValue.LongValueMember
-  | DocumentAttributeValue.StringListValueMember
-  | DocumentAttributeValue.StringValueMember
-  | DocumentAttributeValue.$UnknownMember;
-
-export namespace DocumentAttributeValue {
+export interface DocumentAttributeValue {
   /**
    * <p>A string, such as "department".</p>
    */
-  export interface StringValueMember {
-    StringValue: string;
-    StringListValue?: never;
-    LongValue?: never;
-    DateValue?: never;
-    $unknown?: never;
-  }
+  StringValue?: string;
 
   /**
    * <p>A list of strings. </p>
    */
-  export interface StringListValueMember {
-    StringValue?: never;
-    StringListValue: string[];
-    LongValue?: never;
-    DateValue?: never;
-    $unknown?: never;
-  }
+  StringListValue?: string[];
 
   /**
    * <p>A long integer value.</p>
    */
-  export interface LongValueMember {
-    StringValue?: never;
-    StringListValue?: never;
-    LongValue: number;
-    DateValue?: never;
-    $unknown?: never;
-  }
+  LongValue?: number;
 
   /**
    * <p>A date expressed as an ISO 8601 string.</p>
@@ -240,48 +215,16 @@ export namespace DocumentAttributeValue {
    *             for March 25th 2012 at 12:30PM (plus 10 seconds) in
    *             Central European Time.</p>
    */
-  export interface DateValueMember {
-    StringValue?: never;
-    StringListValue?: never;
-    LongValue?: never;
-    DateValue: Date;
-    $unknown?: never;
-  }
+  DateValue?: Date;
+}
 
-  export interface $UnknownMember {
-    StringValue?: never;
-    StringListValue?: never;
-    LongValue?: never;
-    DateValue?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    StringValue: (value: string) => T;
-    StringListValue: (value: string[]) => T;
-    LongValue: (value: number) => T;
-    DateValue: (value: Date) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: DocumentAttributeValue, visitor: Visitor<T>): T => {
-    if (value.StringValue !== undefined) return visitor.StringValue(value.StringValue);
-    if (value.StringListValue !== undefined) return visitor.StringListValue(value.StringListValue);
-    if (value.LongValue !== undefined) return visitor.LongValue(value.LongValue);
-    if (value.DateValue !== undefined) return visitor.DateValue(value.DateValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
+export namespace DocumentAttributeValue {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DocumentAttributeValue): any => {
-    if (obj.StringValue !== undefined) return { StringValue: obj.StringValue };
-    if (obj.StringListValue !== undefined) return { StringListValue: obj.StringListValue };
-    if (obj.LongValue !== undefined) return { LongValue: obj.LongValue };
-    if (obj.DateValue !== undefined) return { DateValue: obj.DateValue };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
+  export const filterSensitiveLog = (obj: DocumentAttributeValue): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -305,7 +248,6 @@ export namespace DocumentAttribute {
    */
   export const filterSensitiveLog = (obj: DocumentAttribute): any => ({
     ...obj,
-    ...(obj.Value && { Value: DocumentAttributeValue.filterSensitiveLog(obj.Value) }),
   });
 }
 
@@ -631,7 +573,6 @@ export namespace DocumentInfo {
    */
   export const filterSensitiveLog = (obj: DocumentInfo): any => ({
     ...obj,
-    ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => DocumentAttribute.filterSensitiveLog(item)) }),
   });
 }
 
@@ -929,7 +870,6 @@ export namespace Document {
    */
   export const filterSensitiveLog = (obj: Document): any => ({
     ...obj,
-    ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => DocumentAttribute.filterSensitiveLog(item)) }),
   });
 }
 
@@ -6567,9 +6507,6 @@ export namespace DocumentAttributeValueCountPair {
    */
   export const filterSensitiveLog = (obj: DocumentAttributeValueCountPair): any => ({
     ...obj,
-    ...(obj.DocumentAttributeValue && {
-      DocumentAttributeValue: DocumentAttributeValue.filterSensitiveLog(obj.DocumentAttributeValue),
-    }),
   });
 }
 
@@ -6603,11 +6540,6 @@ export namespace FacetResult {
    */
   export const filterSensitiveLog = (obj: FacetResult): any => ({
     ...obj,
-    ...(obj.DocumentAttributeValueCountPairs && {
-      DocumentAttributeValueCountPairs: obj.DocumentAttributeValueCountPairs.map((item) =>
-        DocumentAttributeValueCountPair.filterSensitiveLog(item)
-      ),
-    }),
   });
 }
 
@@ -6721,9 +6653,6 @@ export namespace QueryResultItem {
    */
   export const filterSensitiveLog = (obj: QueryResultItem): any => ({
     ...obj,
-    ...(obj.DocumentAttributes && {
-      DocumentAttributes: obj.DocumentAttributes.map((item) => DocumentAttribute.filterSensitiveLog(item)),
-    }),
   });
 }
 
@@ -7391,20 +7320,6 @@ export namespace AttributeFilter {
    */
   export const filterSensitiveLog = (obj: AttributeFilter): any => ({
     ...obj,
-    ...(obj.AndAllFilters && {
-      AndAllFilters: obj.AndAllFilters.map((item) => AttributeFilter.filterSensitiveLog(item)),
-    }),
-    ...(obj.OrAllFilters && { OrAllFilters: obj.OrAllFilters.map((item) => AttributeFilter.filterSensitiveLog(item)) }),
-    ...(obj.NotFilter && { NotFilter: AttributeFilter.filterSensitiveLog(obj.NotFilter) }),
-    ...(obj.EqualsTo && { EqualsTo: DocumentAttribute.filterSensitiveLog(obj.EqualsTo) }),
-    ...(obj.ContainsAll && { ContainsAll: DocumentAttribute.filterSensitiveLog(obj.ContainsAll) }),
-    ...(obj.ContainsAny && { ContainsAny: DocumentAttribute.filterSensitiveLog(obj.ContainsAny) }),
-    ...(obj.GreaterThan && { GreaterThan: DocumentAttribute.filterSensitiveLog(obj.GreaterThan) }),
-    ...(obj.GreaterThanOrEquals && {
-      GreaterThanOrEquals: DocumentAttribute.filterSensitiveLog(obj.GreaterThanOrEquals),
-    }),
-    ...(obj.LessThan && { LessThan: DocumentAttribute.filterSensitiveLog(obj.LessThan) }),
-    ...(obj.LessThanOrEquals && { LessThanOrEquals: DocumentAttribute.filterSensitiveLog(obj.LessThanOrEquals) }),
   });
 }
 
@@ -7511,6 +7426,5 @@ export namespace QueryRequest {
    */
   export const filterSensitiveLog = (obj: QueryRequest): any => ({
     ...obj,
-    ...(obj.AttributeFilter && { AttributeFilter: AttributeFilter.filterSensitiveLog(obj.AttributeFilter) }),
   });
 }

@@ -6,7 +6,6 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
@@ -5849,15 +5848,16 @@ const serializeAws_json1_1DocumentAttributeStringListValue = (input: string[], c
 };
 
 const serializeAws_json1_1DocumentAttributeValue = (input: DocumentAttributeValue, context: __SerdeContext): any => {
-  return DocumentAttributeValue.visit(input, {
-    DateValue: (value) => ({ DateValue: Math.round(value.getTime() / 1000) }),
-    LongValue: (value) => ({ LongValue: value }),
-    StringListValue: (value) => ({
-      StringListValue: serializeAws_json1_1DocumentAttributeStringListValue(value, context),
-    }),
-    StringValue: (value) => ({ StringValue: value }),
-    _: (name, value) => ({ name: value } as any),
-  });
+  return {
+    ...(input.DateValue !== undefined &&
+      input.DateValue !== null && { DateValue: Math.round(input.DateValue.getTime() / 1000) }),
+    ...(input.LongValue !== undefined && input.LongValue !== null && { LongValue: input.LongValue }),
+    ...(input.StringListValue !== undefined &&
+      input.StringListValue !== null && {
+        StringListValue: serializeAws_json1_1DocumentAttributeStringListValue(input.StringListValue, context),
+      }),
+    ...(input.StringValue !== undefined && input.StringValue !== null && { StringValue: input.StringValue }),
+  };
 };
 
 const serializeAws_json1_1DocumentIdList = (input: string[], context: __SerdeContext): any => {
@@ -8170,7 +8170,7 @@ const deserializeAws_json1_1DocumentAttribute = (output: any, context: __SerdeCo
     Key: __expectString(output.Key),
     Value:
       output.Value !== undefined && output.Value !== null
-        ? deserializeAws_json1_1DocumentAttributeValue(__expectUnion(output.Value), context)
+        ? deserializeAws_json1_1DocumentAttributeValue(output.Value, context)
         : undefined,
   } as any;
 };
@@ -8198,23 +8198,18 @@ const deserializeAws_json1_1DocumentAttributeStringListValue = (output: any, con
 };
 
 const deserializeAws_json1_1DocumentAttributeValue = (output: any, context: __SerdeContext): DocumentAttributeValue => {
-  if (output.DateValue !== undefined && output.DateValue !== null) {
-    return {
-      DateValue: __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateValue))),
-    };
-  }
-  if (__expectLong(output.LongValue) !== undefined) {
-    return { LongValue: __expectLong(output.LongValue) as any };
-  }
-  if (output.StringListValue !== undefined && output.StringListValue !== null) {
-    return {
-      StringListValue: deserializeAws_json1_1DocumentAttributeStringListValue(output.StringListValue, context),
-    };
-  }
-  if (__expectString(output.StringValue) !== undefined) {
-    return { StringValue: __expectString(output.StringValue) as any };
-  }
-  return { $unknown: Object.entries(output)[0] };
+  return {
+    DateValue:
+      output.DateValue !== undefined && output.DateValue !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateValue)))
+        : undefined,
+    LongValue: __expectLong(output.LongValue),
+    StringListValue:
+      output.StringListValue !== undefined && output.StringListValue !== null
+        ? deserializeAws_json1_1DocumentAttributeStringListValue(output.StringListValue, context)
+        : undefined,
+    StringValue: __expectString(output.StringValue),
+  } as any;
 };
 
 const deserializeAws_json1_1DocumentAttributeValueCountPair = (
@@ -8225,7 +8220,7 @@ const deserializeAws_json1_1DocumentAttributeValueCountPair = (
     Count: __expectInt32(output.Count),
     DocumentAttributeValue:
       output.DocumentAttributeValue !== undefined && output.DocumentAttributeValue !== null
-        ? deserializeAws_json1_1DocumentAttributeValue(__expectUnion(output.DocumentAttributeValue), context)
+        ? deserializeAws_json1_1DocumentAttributeValue(output.DocumentAttributeValue, context)
         : undefined,
   } as any;
 };
