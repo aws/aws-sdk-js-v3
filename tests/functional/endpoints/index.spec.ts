@@ -11,7 +11,8 @@ const getClientPackageName = (sdkId: string) =>
 describe("endpoints", () => {
   for (const { sdkId, region, useFipsEndpoint, useDualstackEndpoint, hostname } of testCases) {
     const clientPackageName = getClientPackageName(sdkId);
-    it(`testing "${clientPackageName}" with region: ${region}`, async () => {
+    const testSetup = JSON.stringify({ region, useFipsEndpoint, useDualstackEndpoint });
+    it(`testing "${clientPackageName}" with ${testSetup}`, async () => {
       const { defaultRegionInfoProvider } = await import(
         join("..", "..", "..", "clients", clientPackageName, "src", "endpoints")
       );
