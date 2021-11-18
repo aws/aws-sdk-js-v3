@@ -1,7 +1,7 @@
-const { STS } = require("../../../clients/client-sts");
 const { Before, Given } = require("cucumber");
 
 Before({ tags: "@sts" }, function (scenario, callback) {
+  const { STS } = require("../../../clients/client-sts");
   this.service = new STS({});
   callback();
 });

@@ -1,9 +1,9 @@
 const url = require("url");
 const http = require("http");
-const { S3 } = require("../../../clients/client-s3");
 const { Before, Then } = require("cucumber");
 
 Before({ tags: "@s3 or @proxy" }, function (scenario, callback) {
+  const { S3 } = require("../../../clients/client-s3");
   setupProxyServer.call(this);
 
   this.service = this.s3 = new S3({
@@ -11,12 +11,12 @@ Before({ tags: "@s3 or @proxy" }, function (scenario, callback) {
       proxy: "http://localhost:" + this.proxyPort,
     },
   });
-
+  this.S3 = S3;
   callback();
 });
 
 Then("I teardown the local proxy server", function (callback) {
-  this.service = this.s3 = new S3();
+  this.service = this.s3 = new this.S3();
   this.proxyServer.close(callback);
 });
 

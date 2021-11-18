@@ -1,7 +1,7 @@
-const { AutoScaling } = require("../../../clients/client-auto-scaling");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@autoscaling" }, function (scenario, callback) {
+  const { AutoScaling } = require("../../../clients/client-auto-scaling");
   this.service = new AutoScaling({ region: "us-east-1" });
   callback();
 });

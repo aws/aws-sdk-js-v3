@@ -1,7 +1,7 @@
-const { ElastiCache } = require("../../../clients/client-elasticache");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@elasticache" }, function (scenario, callback) {
+  const { ElastiCache } = require("../../../clients/client-elasticache");
   this.service = new ElastiCache({});
   callback();
 });

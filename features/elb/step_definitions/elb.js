@@ -1,7 +1,7 @@
-const { ElasticLoadBalancing } = require("../../../clients/client-elastic-load-balancing");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@elasticloadbalancing" }, function (scenario, callback) {
+  const { ElasticLoadBalancing } = require("../../../clients/client-elasticloadbalancing");
   this.service = new ElasticLoadBalancing({});
   callback();
 });

@@ -1,8 +1,13 @@
-const { S3 } = require("../../../clients/client-s3");
-const { Given, Then, When } = require("cucumber");
+const { Before, Given, Then, When } = require("cucumber");
+
+Before({ tags: "@buckets" }, function (scenario, callback) {
+  const { S3 } = require("../../../clients/client-s3");
+  this.S3 = S3;
+  callback();
+});
 
 Given("I am using the S3 {string} region", function (region, callback) {
-  this.s3 = new S3({
+  this.s3 = new this.S3({
     region: region,
   });
   callback();
@@ -11,7 +16,7 @@ Given("I am using the S3 {string} region", function (region, callback) {
 Given(
   "I am using the S3 {string} region with signatureVersion {string}",
   function (region, signatureVersion, callback) {
-    this.s3 = new S3({
+    this.s3 = new this.S3({
       region: region,
       signatureVersion: signatureVersion,
     });
@@ -37,7 +42,7 @@ When("I create a bucket with the location constraint {string}", function (locati
 
 Then("the bucket should exist in region {string}", function (location, next) {
   // Bug: https://github.com/aws/aws-sdk-js-v3/issues/1799
-  this.waitForBucketExists(new S3({ region: location }), { Bucket: this.bucket }, next);
+  this.waitForBucketExists(new this.S3({ region: location }), { Bucket: this.bucket }, next);
 });
 
 Then("the bucket should have a location constraint of {string}", function (loc, callback) {
@@ -56,7 +61,7 @@ Then("the bucket should have a location constraint of {string}", function (loc, 
 
 When("I delete the bucket in region {string}", function (location, callback) {
   // Bug: https://github.com/aws/aws-sdk-js-v3/issues/1799
-  this.request(new S3({ region: location }), "deleteBucket", { Bucket: this.bucket }, callback);
+  this.request(new this.S3({ region: location }), "deleteBucket", { Bucket: this.bucket }, callback);
 });
 
 When("I put a transition lifecycle configuration on the bucket with prefix {string}", function (prefix, callback) {
@@ -216,7 +221,7 @@ When("I create a bucket with a DNS compatible name that contains a dot", functio
 });
 
 Given("I force path style requests", function (callback) {
-  this.s3 = new S3({
+  this.s3 = new this.S3({
     forcePathStyle: true,
   });
   callback();

@@ -1,7 +1,7 @@
-const { Route53 } = require("../../../clients/client-route-53");
 const { Before, Then, When } = require("cucumber");
 
 Before({ tags: "@route53" }, function (scenario, callback) {
+  const { Route53 } = require("../../../clients/client-route53");
   this.service = new Route53({});
   callback();
 });

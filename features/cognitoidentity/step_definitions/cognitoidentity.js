@@ -1,7 +1,7 @@
-const { CognitoIdentity } = require("../../../clients/client-cognito-identity");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@cognitoidentity" }, function (scenario, callback) {
+  const { CognitoIdentity } = require("../../../clients/client-cognitoidentity");
   this.service = new CognitoIdentity({});
   callback();
 });

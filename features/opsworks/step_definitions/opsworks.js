@@ -1,9 +1,9 @@
-const { IAM } = require("../../../clients/client-iam");
-const { OpsWorks } = require("../../../clients/client-opsworks");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@opsworks" }, function (scenario, callback) {
+  const { IAM } = require("../../../clients/client-iam");
   this.iam = new IAM({ region: "us-west-2" });
+  const { OpsWorks } = require("../../../clients/client-opsworks");
   this.service = new OpsWorks({ region: "us-west-2" });
   callback();
 });

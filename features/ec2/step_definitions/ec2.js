@@ -1,7 +1,7 @@
-const { EC2, waitForVolumeAvailable } = require("../../../clients/client-ec2");
 const { Before, Given, Then } = require("cucumber");
 
 const waitForVolumeAvailableCallback = (ec2, volumeId, callback) => {
+  const { waitForVolumeAvailable } = require("../../../clients/client-ec2");
   waitForVolumeAvailable({ client: ec2 }, { VolumeIds: [volumeId] }).then(
     function (data) {
       callback();
@@ -13,6 +13,7 @@ const waitForVolumeAvailableCallback = (ec2, volumeId, callback) => {
 };
 
 Before({ tags: "@ec2" }, function (scenario, callback) {
+  const { EC2 } = require("../../../clients/client-ec2");
   this.service = new EC2({});
   callback();
 });
@@ -34,6 +35,7 @@ Given("I describe the EC2 instance {string}", function (instanceId, callback) {
 });
 
 Given("I attempt to copy an encrypted snapshot across regions", function (callback) {
+  const { EC2 } = require("../../../clients/client-ec2");
   const self = this;
   let volId, srcSnapId, dstSnapId, params;
   const sourceRegion = "us-west-2";
