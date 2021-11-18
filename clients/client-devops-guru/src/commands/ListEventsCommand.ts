@@ -22,9 +22,8 @@ export interface ListEventsCommandInput extends ListEventsRequest {}
 export interface ListEventsCommandOutput extends ListEventsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    		Returns a list of the events emitted by the resources that are evaluated by DevOps Guru. You can use filters to specify which events are returned.
- *    	</p>
+ * <p> Returns a list of the events emitted by the resources that are evaluated by DevOps Guru.
+ * 			You can use filters to specify which events are returned. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

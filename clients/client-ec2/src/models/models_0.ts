@@ -5777,6 +5777,15 @@ export type _InstanceType =
   | "c6gn.large"
   | "c6gn.medium"
   | "c6gn.xlarge"
+  | "c6i.12xlarge"
+  | "c6i.16xlarge"
+  | "c6i.24xlarge"
+  | "c6i.2xlarge"
+  | "c6i.32xlarge"
+  | "c6i.4xlarge"
+  | "c6i.8xlarge"
+  | "c6i.large"
+  | "c6i.xlarge"
   | "cc1.4xlarge"
   | "cc2.8xlarge"
   | "cg1.4xlarge"
@@ -5817,6 +5826,14 @@ export type _InstanceType =
   | "g4dn.8xlarge"
   | "g4dn.metal"
   | "g4dn.xlarge"
+  | "g5.12xlarge"
+  | "g5.16xlarge"
+  | "g5.24xlarge"
+  | "g5.2xlarge"
+  | "g5.48xlarge"
+  | "g5.4xlarge"
+  | "g5.8xlarge"
+  | "g5.xlarge"
   | "h1.16xlarge"
   | "h1.2xlarge"
   | "h1.4xlarge"
@@ -7210,6 +7227,12 @@ export interface Subnet {
    * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
    */
   OutpostArn?: string;
+
+  /**
+   * <p>Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet
+   *             should return synthetic IPv6 addresses for IPv4-only destinations.</p>
+   */
+  EnableDns64?: boolean;
 }
 
 export namespace Subnet {

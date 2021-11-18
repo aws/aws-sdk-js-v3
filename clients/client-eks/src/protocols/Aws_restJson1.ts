@@ -98,6 +98,7 @@ import {
   UpdateNodegroupVersionCommandOutput,
 } from "../commands/UpdateNodegroupVersionCommand";
 import {
+  AccessDeniedException,
   Addon,
   AddonHealth,
   AddonInfo,
@@ -1142,6 +1143,7 @@ export const serializeAws_restJson1RegisterClusterCommand = async (
         connectorConfig: serializeAws_restJson1ConnectorConfigRequest(input.connectorConfig, context),
       }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2418,6 +2420,14 @@ const deserializeAws_restJson1DeregisterClusterCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.eks#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ClientException":
     case "com.amazonaws.eks#ClientException":
       response = {
@@ -3764,6 +3774,14 @@ const deserializeAws_restJson1RegisterClusterCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.eks#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ClientException":
     case "com.amazonaws.eks#ClientException":
       response = {
@@ -4412,6 +4430,23 @@ const deserializeAws_restJson1UpdateNodegroupVersionCommandError = async (
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
+};
+
+const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
+  }
+  return contents;
 };
 
 const deserializeAws_restJson1BadRequestExceptionResponse = async (

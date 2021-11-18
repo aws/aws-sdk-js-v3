@@ -57,10 +57,18 @@ import {
   CreateBackendConfigCommandInput,
   CreateBackendConfigCommandOutput,
 } from "./commands/CreateBackendConfigCommand";
+import {
+  CreateBackendStorageCommandInput,
+  CreateBackendStorageCommandOutput,
+} from "./commands/CreateBackendStorageCommand";
 import { CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
 import { DeleteBackendAPICommandInput, DeleteBackendAPICommandOutput } from "./commands/DeleteBackendAPICommand";
 import { DeleteBackendAuthCommandInput, DeleteBackendAuthCommandOutput } from "./commands/DeleteBackendAuthCommand";
 import { DeleteBackendCommandInput, DeleteBackendCommandOutput } from "./commands/DeleteBackendCommand";
+import {
+  DeleteBackendStorageCommandInput,
+  DeleteBackendStorageCommandOutput,
+} from "./commands/DeleteBackendStorageCommand";
 import { DeleteTokenCommandInput, DeleteTokenCommandOutput } from "./commands/DeleteTokenCommand";
 import {
   GenerateBackendAPIModelsCommandInput,
@@ -74,9 +82,15 @@ import {
 import { GetBackendAuthCommandInput, GetBackendAuthCommandOutput } from "./commands/GetBackendAuthCommand";
 import { GetBackendCommandInput, GetBackendCommandOutput } from "./commands/GetBackendCommand";
 import { GetBackendJobCommandInput, GetBackendJobCommandOutput } from "./commands/GetBackendJobCommand";
+import { GetBackendStorageCommandInput, GetBackendStorageCommandOutput } from "./commands/GetBackendStorageCommand";
 import { GetTokenCommandInput, GetTokenCommandOutput } from "./commands/GetTokenCommand";
 import { ImportBackendAuthCommandInput, ImportBackendAuthCommandOutput } from "./commands/ImportBackendAuthCommand";
+import {
+  ImportBackendStorageCommandInput,
+  ImportBackendStorageCommandOutput,
+} from "./commands/ImportBackendStorageCommand";
 import { ListBackendJobsCommandInput, ListBackendJobsCommandOutput } from "./commands/ListBackendJobsCommand";
+import { ListS3BucketsCommandInput, ListS3BucketsCommandOutput } from "./commands/ListS3BucketsCommand";
 import { RemoveAllBackendsCommandInput, RemoveAllBackendsCommandOutput } from "./commands/RemoveAllBackendsCommand";
 import {
   RemoveBackendConfigCommandInput,
@@ -89,6 +103,10 @@ import {
   UpdateBackendConfigCommandOutput,
 } from "./commands/UpdateBackendConfigCommand";
 import { UpdateBackendJobCommandInput, UpdateBackendJobCommandOutput } from "./commands/UpdateBackendJobCommand";
+import {
+  UpdateBackendStorageCommandInput,
+  UpdateBackendStorageCommandOutput,
+} from "./commands/UpdateBackendStorageCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -97,10 +115,12 @@ export type ServiceInputTypes =
   | CreateBackendAuthCommandInput
   | CreateBackendCommandInput
   | CreateBackendConfigCommandInput
+  | CreateBackendStorageCommandInput
   | CreateTokenCommandInput
   | DeleteBackendAPICommandInput
   | DeleteBackendAuthCommandInput
   | DeleteBackendCommandInput
+  | DeleteBackendStorageCommandInput
   | DeleteTokenCommandInput
   | GenerateBackendAPIModelsCommandInput
   | GetBackendAPICommandInput
@@ -108,15 +128,19 @@ export type ServiceInputTypes =
   | GetBackendAuthCommandInput
   | GetBackendCommandInput
   | GetBackendJobCommandInput
+  | GetBackendStorageCommandInput
   | GetTokenCommandInput
   | ImportBackendAuthCommandInput
+  | ImportBackendStorageCommandInput
   | ListBackendJobsCommandInput
+  | ListS3BucketsCommandInput
   | RemoveAllBackendsCommandInput
   | RemoveBackendConfigCommandInput
   | UpdateBackendAPICommandInput
   | UpdateBackendAuthCommandInput
   | UpdateBackendConfigCommandInput
-  | UpdateBackendJobCommandInput;
+  | UpdateBackendJobCommandInput
+  | UpdateBackendStorageCommandInput;
 
 export type ServiceOutputTypes =
   | CloneBackendCommandOutput
@@ -124,10 +148,12 @@ export type ServiceOutputTypes =
   | CreateBackendAuthCommandOutput
   | CreateBackendCommandOutput
   | CreateBackendConfigCommandOutput
+  | CreateBackendStorageCommandOutput
   | CreateTokenCommandOutput
   | DeleteBackendAPICommandOutput
   | DeleteBackendAuthCommandOutput
   | DeleteBackendCommandOutput
+  | DeleteBackendStorageCommandOutput
   | DeleteTokenCommandOutput
   | GenerateBackendAPIModelsCommandOutput
   | GetBackendAPICommandOutput
@@ -135,15 +161,19 @@ export type ServiceOutputTypes =
   | GetBackendAuthCommandOutput
   | GetBackendCommandOutput
   | GetBackendJobCommandOutput
+  | GetBackendStorageCommandOutput
   | GetTokenCommandOutput
   | ImportBackendAuthCommandOutput
+  | ImportBackendStorageCommandOutput
   | ListBackendJobsCommandOutput
+  | ListS3BucketsCommandOutput
   | RemoveAllBackendsCommandOutput
   | RemoveBackendConfigCommandOutput
   | UpdateBackendAPICommandOutput
   | UpdateBackendAuthCommandOutput
   | UpdateBackendConfigCommandOutput
-  | UpdateBackendJobCommandOutput;
+  | UpdateBackendJobCommandOutput
+  | UpdateBackendStorageCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

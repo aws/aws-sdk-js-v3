@@ -5,6 +5,7 @@ export * from "./ListAgentStatusesPaginator";
 export * from "./ListApprovedOriginsPaginator";
 export * from "./ListBotsPaginator";
 export * from "./ListContactFlowsPaginator";
+export * from "./ListContactReferencesPaginator";
 export * from "./ListHoursOfOperationsPaginator";
 export * from "./ListInstanceAttributesPaginator";
 export * from "./ListInstanceStorageConfigsPaginator";

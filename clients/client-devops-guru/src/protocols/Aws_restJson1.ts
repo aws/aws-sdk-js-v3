@@ -36,6 +36,18 @@ import { DescribeAnomalyCommandInput, DescribeAnomalyCommandOutput } from "../co
 import { DescribeFeedbackCommandInput, DescribeFeedbackCommandOutput } from "../commands/DescribeFeedbackCommand";
 import { DescribeInsightCommandInput, DescribeInsightCommandOutput } from "../commands/DescribeInsightCommand";
 import {
+  DescribeOrganizationHealthCommandInput,
+  DescribeOrganizationHealthCommandOutput,
+} from "../commands/DescribeOrganizationHealthCommand";
+import {
+  DescribeOrganizationOverviewCommandInput,
+  DescribeOrganizationOverviewCommandOutput,
+} from "../commands/DescribeOrganizationOverviewCommand";
+import {
+  DescribeOrganizationResourceCollectionHealthCommandInput,
+  DescribeOrganizationResourceCollectionHealthCommandOutput,
+} from "../commands/DescribeOrganizationResourceCollectionHealthCommand";
+import {
   DescribeResourceCollectionHealthCommandInput,
   DescribeResourceCollectionHealthCommandOutput,
 } from "../commands/DescribeResourceCollectionHealthCommand";
@@ -59,6 +71,10 @@ import {
   ListNotificationChannelsCommandOutput,
 } from "../commands/ListNotificationChannelsCommand";
 import {
+  ListOrganizationInsightsCommandInput,
+  ListOrganizationInsightsCommandOutput,
+} from "../commands/ListOrganizationInsightsCommand";
+import {
   ListRecommendationsCommandInput,
   ListRecommendationsCommandOutput,
 } from "../commands/ListRecommendationsCommand";
@@ -68,6 +84,10 @@ import {
   RemoveNotificationChannelCommandOutput,
 } from "../commands/RemoveNotificationChannelCommand";
 import { SearchInsightsCommandInput, SearchInsightsCommandOutput } from "../commands/SearchInsightsCommand";
+import {
+  SearchOrganizationInsightsCommandInput,
+  SearchOrganizationInsightsCommandOutput,
+} from "../commands/SearchOrganizationInsightsCommand";
 import {
   StartCostEstimationCommandInput,
   StartCostEstimationCommandOutput,
@@ -82,6 +102,8 @@ import {
 } from "../commands/UpdateServiceIntegrationCommand";
 import {
   AccessDeniedException,
+  AccountHealth,
+  AccountInsightHealth,
   AnomalyReportedTimeRange,
   AnomalySourceDetails,
   AnomalyTimeRange,
@@ -89,6 +111,7 @@ import {
   CloudFormationCollectionFilter,
   CloudFormationCostEstimationResourceCollectionFilter,
   CloudFormationHealth,
+  CloudWatchMetricsDataSummary,
   CloudWatchMetricsDetail,
   CloudWatchMetricsDimension,
   ConflictException,
@@ -118,10 +141,12 @@ import {
   ProactiveAnomalySummary,
   ProactiveInsight,
   ProactiveInsightSummary,
+  ProactiveOrganizationInsightSummary,
   ReactiveAnomaly,
   ReactiveAnomalySummary,
   ReactiveInsight,
   ReactiveInsightSummary,
+  ReactiveOrganizationInsightSummary,
   Recommendation,
   RecommendationRelatedAnomaly,
   RecommendationRelatedAnomalyResource,
@@ -133,6 +158,7 @@ import {
   ResourceCollectionFilter,
   ResourceNotFoundException,
   SearchInsightsFilters,
+  SearchOrganizationInsightsFilters,
   ServiceCollection,
   ServiceHealth,
   ServiceInsightHealth,
@@ -143,6 +169,7 @@ import {
   SnsChannelConfig,
   StartTimeRange,
   ThrottlingException,
+  TimestampMetricValuePair,
   UpdateCloudFormationCollectionFilter,
   UpdateResourceCollectionFilter,
   UpdateServiceIntegrationConfig,
@@ -239,6 +266,9 @@ export const serializeAws_restJson1DescribeAnomalyCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  const query: any = {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+  };
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -247,6 +277,7 @@ export const serializeAws_restJson1DescribeAnomalyCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -291,12 +322,113 @@ export const serializeAws_restJson1DescribeInsightCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  const query: any = {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+  };
   let body: any;
   return new __HttpRequest({
     protocol,
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeOrganizationHealthCommand = async (
+  input: DescribeOrganizationHealthCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organization/health";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined &&
+      input.AccountIds !== null && { AccountIds: serializeAws_restJson1AccountIdList(input.AccountIds, context) }),
+    ...(input.OrganizationalUnitIds !== undefined &&
+      input.OrganizationalUnitIds !== null && {
+        OrganizationalUnitIds: serializeAws_restJson1OrganizationalUnitIdList(input.OrganizationalUnitIds, context),
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeOrganizationOverviewCommand = async (
+  input: DescribeOrganizationOverviewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organization/overview";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined &&
+      input.AccountIds !== null && { AccountIds: serializeAws_restJson1AccountIdList(input.AccountIds, context) }),
+    ...(input.FromTime !== undefined &&
+      input.FromTime !== null && { FromTime: Math.round(input.FromTime.getTime() / 1000) }),
+    ...(input.OrganizationalUnitIds !== undefined &&
+      input.OrganizationalUnitIds !== null && {
+        OrganizationalUnitIds: serializeAws_restJson1OrganizationalUnitIdList(input.OrganizationalUnitIds, context),
+      }),
+    ...(input.ToTime !== undefined && input.ToTime !== null && { ToTime: Math.round(input.ToTime.getTime() / 1000) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeOrganizationResourceCollectionHealthCommand = async (
+  input: DescribeOrganizationResourceCollectionHealthCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organization/health/resource-collection";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined &&
+      input.AccountIds !== null && { AccountIds: serializeAws_restJson1AccountIdList(input.AccountIds, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.OrganizationResourceCollectionType !== undefined &&
+      input.OrganizationResourceCollectionType !== null && {
+        OrganizationResourceCollectionType: input.OrganizationResourceCollectionType,
+      }),
+    ...(input.OrganizationalUnitIds !== undefined &&
+      input.OrganizationalUnitIds !== null && {
+        OrganizationalUnitIds: serializeAws_restJson1OrganizationalUnitIdList(input.OrganizationalUnitIds, context),
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -437,6 +569,7 @@ export const serializeAws_restJson1ListAnomaliesForInsightCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.StartTimeRange !== undefined &&
@@ -466,6 +599,7 @@ export const serializeAws_restJson1ListEventsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/events";
   let body: any;
   body = JSON.stringify({
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
     ...(input.Filters !== undefined &&
       input.Filters !== null && { Filters: serializeAws_restJson1ListEventsFilters(input.Filters, context) }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -535,6 +669,46 @@ export const serializeAws_restJson1ListNotificationChannelsCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListOrganizationInsightsCommand = async (
+  input: ListOrganizationInsightsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organization/insights";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined &&
+      input.AccountIds !== null && {
+        AccountIds: serializeAws_restJson1ListInsightsAccountIdList(input.AccountIds, context),
+      }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.OrganizationalUnitIds !== undefined &&
+      input.OrganizationalUnitIds !== null && {
+        OrganizationalUnitIds: serializeAws_restJson1ListInsightsOrganizationalUnitIdList(
+          input.OrganizationalUnitIds,
+          context
+        ),
+      }),
+    ...(input.StatusFilter !== undefined &&
+      input.StatusFilter !== null && {
+        StatusFilter: serializeAws_restJson1ListInsightsStatusFilter(input.StatusFilter, context),
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListRecommendationsCommand = async (
   input: ListRecommendationsCommandInput,
   context: __SerdeContext
@@ -546,6 +720,7 @@ export const serializeAws_restJson1ListRecommendationsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/recommendations";
   let body: any;
   body = JSON.stringify({
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
     ...(input.InsightId !== undefined && input.InsightId !== null && { InsightId: input.InsightId }),
     ...(input.Locale !== undefined && input.Locale !== null && { Locale: input.Locale }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
@@ -629,6 +804,45 @@ export const serializeAws_restJson1SearchInsightsCommand = async (
   body = JSON.stringify({
     ...(input.Filters !== undefined &&
       input.Filters !== null && { Filters: serializeAws_restJson1SearchInsightsFilters(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.StartTimeRange !== undefined &&
+      input.StartTimeRange !== null && {
+        StartTimeRange: serializeAws_restJson1StartTimeRange(input.StartTimeRange, context),
+      }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1SearchOrganizationInsightsCommand = async (
+  input: SearchOrganizationInsightsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organization/insights/search";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined &&
+      input.AccountIds !== null && {
+        AccountIds: serializeAws_restJson1SearchInsightsAccountIdList(input.AccountIds, context),
+      }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && {
+        Filters: serializeAws_restJson1SearchOrganizationInsightsFilters(input.Filters, context),
+      }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.StartTimeRange !== undefined &&
@@ -1247,6 +1461,271 @@ const deserializeAws_restJson1DescribeInsightCommandError = async (
     case "com.amazonaws.devopsguru#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.devopsguru#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.devopsguru#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeOrganizationHealthCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationHealthCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeOrganizationHealthCommandError(output, context);
+  }
+  const contents: DescribeOrganizationHealthCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    MetricsAnalyzed: undefined,
+    OpenProactiveInsights: undefined,
+    OpenReactiveInsights: undefined,
+    ResourceHours: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.MetricsAnalyzed !== undefined && data.MetricsAnalyzed !== null) {
+    contents.MetricsAnalyzed = __expectInt32(data.MetricsAnalyzed);
+  }
+  if (data.OpenProactiveInsights !== undefined && data.OpenProactiveInsights !== null) {
+    contents.OpenProactiveInsights = __expectInt32(data.OpenProactiveInsights);
+  }
+  if (data.OpenReactiveInsights !== undefined && data.OpenReactiveInsights !== null) {
+    contents.OpenReactiveInsights = __expectInt32(data.OpenReactiveInsights);
+  }
+  if (data.ResourceHours !== undefined && data.ResourceHours !== null) {
+    contents.ResourceHours = __expectLong(data.ResourceHours);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeOrganizationHealthCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationHealthCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.devopsguru#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.devopsguru#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.devopsguru#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.devopsguru#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeOrganizationOverviewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationOverviewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeOrganizationOverviewCommandError(output, context);
+  }
+  const contents: DescribeOrganizationOverviewCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ProactiveInsights: undefined,
+    ReactiveInsights: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ProactiveInsights !== undefined && data.ProactiveInsights !== null) {
+    contents.ProactiveInsights = __expectInt32(data.ProactiveInsights);
+  }
+  if (data.ReactiveInsights !== undefined && data.ReactiveInsights !== null) {
+    contents.ReactiveInsights = __expectInt32(data.ReactiveInsights);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeOrganizationOverviewCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationOverviewCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.devopsguru#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.devopsguru#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.devopsguru#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.devopsguru#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeOrganizationResourceCollectionHealthCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationResourceCollectionHealthCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeOrganizationResourceCollectionHealthCommandError(output, context);
+  }
+  const contents: DescribeOrganizationResourceCollectionHealthCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Account: undefined,
+    CloudFormation: undefined,
+    NextToken: undefined,
+    Service: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Account !== undefined && data.Account !== null) {
+    contents.Account = deserializeAws_restJson1AccountHealths(data.Account, context);
+  }
+  if (data.CloudFormation !== undefined && data.CloudFormation !== null) {
+    contents.CloudFormation = deserializeAws_restJson1CloudFormationHealths(data.CloudFormation, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.Service !== undefined && data.Service !== null) {
+    contents.Service = deserializeAws_restJson1ServiceHealths(data.Service, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeOrganizationResourceCollectionHealthCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationResourceCollectionHealthCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.devopsguru#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.devopsguru#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2007,6 +2486,93 @@ const deserializeAws_restJson1ListNotificationChannelsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListOrganizationInsightsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOrganizationInsightsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListOrganizationInsightsCommandError(output, context);
+  }
+  const contents: ListOrganizationInsightsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    NextToken: undefined,
+    ProactiveInsights: undefined,
+    ReactiveInsights: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.ProactiveInsights !== undefined && data.ProactiveInsights !== null) {
+    contents.ProactiveInsights = deserializeAws_restJson1ProactiveOrganizationInsights(data.ProactiveInsights, context);
+  }
+  if (data.ReactiveInsights !== undefined && data.ReactiveInsights !== null) {
+    contents.ReactiveInsights = deserializeAws_restJson1ReactiveOrganizationInsights(data.ReactiveInsights, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListOrganizationInsightsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOrganizationInsightsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.devopsguru#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.devopsguru#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.devopsguru#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.devopsguru#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListRecommendationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2310,6 +2876,93 @@ const deserializeAws_restJson1SearchInsightsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchInsightsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.devopsguru#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.devopsguru#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.devopsguru#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.devopsguru#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1SearchOrganizationInsightsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchOrganizationInsightsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SearchOrganizationInsightsCommandError(output, context);
+  }
+  const contents: SearchOrganizationInsightsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    NextToken: undefined,
+    ProactiveInsights: undefined,
+    ReactiveInsights: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.ProactiveInsights !== undefined && data.ProactiveInsights !== null) {
+    contents.ProactiveInsights = deserializeAws_restJson1ProactiveInsights(data.ProactiveInsights, context);
+  }
+  if (data.ReactiveInsights !== undefined && data.ReactiveInsights !== null) {
+    contents.ReactiveInsights = deserializeAws_restJson1ReactiveInsights(data.ReactiveInsights, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1SearchOrganizationInsightsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchOrganizationInsightsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2783,6 +3436,17 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1AccountIdList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1CloudFormationCollection = (
   input: CloudFormationCollection,
   context: __SerdeContext
@@ -2893,6 +3557,17 @@ const serializeAws_restJson1ListEventsFilters = (input: ListEventsFilters, conte
   };
 };
 
+const serializeAws_restJson1ListInsightsAccountIdList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1ListInsightsAnyStatusFilter = (
   input: ListInsightsAnyStatusFilter,
   context: __SerdeContext
@@ -2924,6 +3599,17 @@ const serializeAws_restJson1ListInsightsOngoingStatusFilter = (
   return {
     ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
+};
+
+const serializeAws_restJson1ListInsightsOrganizationalUnitIdList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1ListInsightsStatusFilter = (
@@ -2961,6 +3647,17 @@ const serializeAws_restJson1OpsCenterIntegrationConfig = (
   };
 };
 
+const serializeAws_restJson1OrganizationalUnitIdList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1ResourceCollection = (input: ResourceCollection, context: __SerdeContext): any => {
   return {
     ...(input.CloudFormation !== undefined &&
@@ -2970,7 +3667,38 @@ const serializeAws_restJson1ResourceCollection = (input: ResourceCollection, con
   };
 };
 
+const serializeAws_restJson1SearchInsightsAccountIdList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1SearchInsightsFilters = (input: SearchInsightsFilters, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceCollection !== undefined &&
+      input.ResourceCollection !== null && {
+        ResourceCollection: serializeAws_restJson1ResourceCollection(input.ResourceCollection, context),
+      }),
+    ...(input.ServiceCollection !== undefined &&
+      input.ServiceCollection !== null && {
+        ServiceCollection: serializeAws_restJson1ServiceCollection(input.ServiceCollection, context),
+      }),
+    ...(input.Severities !== undefined &&
+      input.Severities !== null && { Severities: serializeAws_restJson1InsightSeverities(input.Severities, context) }),
+    ...(input.Statuses !== undefined &&
+      input.Statuses !== null && { Statuses: serializeAws_restJson1InsightStatuses(input.Statuses, context) }),
+  };
+};
+
+const serializeAws_restJson1SearchOrganizationInsightsFilters = (
+  input: SearchOrganizationInsightsFilters,
+  context: __SerdeContext
+): any => {
   return {
     ...(input.ResourceCollection !== undefined &&
       input.ResourceCollection !== null && {
@@ -3073,6 +3801,34 @@ const serializeAws_restJson1UpdateStackNames = (input: string[], context: __Serd
       }
       return entry;
     });
+};
+
+const deserializeAws_restJson1AccountHealth = (output: any, context: __SerdeContext): AccountHealth => {
+  return {
+    AccountId: __expectString(output.AccountId),
+    Insight:
+      output.Insight !== undefined && output.Insight !== null
+        ? deserializeAws_restJson1AccountInsightHealth(output.Insight, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AccountHealths = (output: any, context: __SerdeContext): AccountHealth[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AccountHealth(entry, context);
+    });
+};
+
+const deserializeAws_restJson1AccountInsightHealth = (output: any, context: __SerdeContext): AccountInsightHealth => {
+  return {
+    OpenProactiveInsights: __expectInt32(output.OpenProactiveInsights),
+    OpenReactiveInsights: __expectInt32(output.OpenReactiveInsights),
+  } as any;
 };
 
 const deserializeAws_restJson1AnomalyReportedTimeRange = (
@@ -3184,6 +3940,19 @@ const deserializeAws_restJson1CloudFormationHealths = (
     });
 };
 
+const deserializeAws_restJson1CloudWatchMetricsDataSummary = (
+  output: any,
+  context: __SerdeContext
+): CloudWatchMetricsDataSummary => {
+  return {
+    StatusCode: __expectString(output.StatusCode),
+    TimestampMetricValuePairList:
+      output.TimestampMetricValuePairList !== undefined && output.TimestampMetricValuePairList !== null
+        ? deserializeAws_restJson1TimestampMetricValuePairList(output.TimestampMetricValuePairList, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1CloudWatchMetricsDetail = (
   output: any,
   context: __SerdeContext
@@ -3192,6 +3961,10 @@ const deserializeAws_restJson1CloudWatchMetricsDetail = (
     Dimensions:
       output.Dimensions !== undefined && output.Dimensions !== null
         ? deserializeAws_restJson1CloudWatchMetricsDimensions(output.Dimensions, context)
+        : undefined,
+    MetricDataSummary:
+      output.MetricDataSummary !== undefined && output.MetricDataSummary !== null
+        ? deserializeAws_restJson1CloudWatchMetricsDataSummary(output.MetricDataSummary, context)
         : undefined,
     MetricName: __expectString(output.MetricName),
     Namespace: __expectString(output.Namespace),
@@ -3545,6 +4318,50 @@ const deserializeAws_restJson1ProactiveInsightSummary = (
   } as any;
 };
 
+const deserializeAws_restJson1ProactiveOrganizationInsights = (
+  output: any,
+  context: __SerdeContext
+): ProactiveOrganizationInsightSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ProactiveOrganizationInsightSummary(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ProactiveOrganizationInsightSummary = (
+  output: any,
+  context: __SerdeContext
+): ProactiveOrganizationInsightSummary => {
+  return {
+    AccountId: __expectString(output.AccountId),
+    Id: __expectString(output.Id),
+    InsightTimeRange:
+      output.InsightTimeRange !== undefined && output.InsightTimeRange !== null
+        ? deserializeAws_restJson1InsightTimeRange(output.InsightTimeRange, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    OrganizationalUnitId: __expectString(output.OrganizationalUnitId),
+    PredictionTimeRange:
+      output.PredictionTimeRange !== undefined && output.PredictionTimeRange !== null
+        ? deserializeAws_restJson1PredictionTimeRange(output.PredictionTimeRange, context)
+        : undefined,
+    ResourceCollection:
+      output.ResourceCollection !== undefined && output.ResourceCollection !== null
+        ? deserializeAws_restJson1ResourceCollection(output.ResourceCollection, context)
+        : undefined,
+    ServiceCollection:
+      output.ServiceCollection !== undefined && output.ServiceCollection !== null
+        ? deserializeAws_restJson1ServiceCollection(output.ServiceCollection, context)
+        : undefined,
+    Severity: __expectString(output.Severity),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
 const deserializeAws_restJson1ReactiveAnomalies = (output: any, context: __SerdeContext): ReactiveAnomalySummary[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -3649,6 +4466,46 @@ const deserializeAws_restJson1ReactiveInsightSummary = (
         ? deserializeAws_restJson1InsightTimeRange(output.InsightTimeRange, context)
         : undefined,
     Name: __expectString(output.Name),
+    ResourceCollection:
+      output.ResourceCollection !== undefined && output.ResourceCollection !== null
+        ? deserializeAws_restJson1ResourceCollection(output.ResourceCollection, context)
+        : undefined,
+    ServiceCollection:
+      output.ServiceCollection !== undefined && output.ServiceCollection !== null
+        ? deserializeAws_restJson1ServiceCollection(output.ServiceCollection, context)
+        : undefined,
+    Severity: __expectString(output.Severity),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_restJson1ReactiveOrganizationInsights = (
+  output: any,
+  context: __SerdeContext
+): ReactiveOrganizationInsightSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ReactiveOrganizationInsightSummary(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ReactiveOrganizationInsightSummary = (
+  output: any,
+  context: __SerdeContext
+): ReactiveOrganizationInsightSummary => {
+  return {
+    AccountId: __expectString(output.AccountId),
+    Id: __expectString(output.Id),
+    InsightTimeRange:
+      output.InsightTimeRange !== undefined && output.InsightTimeRange !== null
+        ? deserializeAws_restJson1InsightTimeRange(output.InsightTimeRange, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    OrganizationalUnitId: __expectString(output.OrganizationalUnitId),
     ResourceCollection:
       output.ResourceCollection !== undefined && output.ResourceCollection !== null
         ? deserializeAws_restJson1ResourceCollection(output.ResourceCollection, context)
@@ -3961,6 +4818,33 @@ const deserializeAws_restJson1StackNames = (output: any, context: __SerdeContext
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1TimestampMetricValuePair = (
+  output: any,
+  context: __SerdeContext
+): TimestampMetricValuePair => {
+  return {
+    MetricValue: __limitedParseDouble(output.MetricValue),
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TimestampMetricValuePairList = (
+  output: any,
+  context: __SerdeContext
+): TimestampMetricValuePair[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TimestampMetricValuePair(entry, context);
     });
 };
 

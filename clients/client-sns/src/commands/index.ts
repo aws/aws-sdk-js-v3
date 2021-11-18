@@ -25,6 +25,7 @@ export * from "./ListSubscriptionsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ListTopicsCommand";
 export * from "./OptInPhoneNumberCommand";
+export * from "./PublishBatchCommand";
 export * from "./PublishCommand";
 export * from "./RemovePermissionCommand";
 export * from "./SetEndpointAttributesCommand";

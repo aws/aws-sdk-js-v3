@@ -237,11 +237,12 @@ export class EKS extends EKSClient {
 
   /**
    * <p>Creates an Amazon EKS add-on.</p>
-   *         <p>Amazon EKS add-ons help to automate the provisioning and lifecycle management of common
-   *             operational software for Amazon EKS clusters. Amazon EKS add-ons can only be used with Amazon EKS
-   *             clusters running version 1.18 with platform version <code>eks.3</code> or later because
+   *         <p>Amazon EKS add-ons help to automate the provisioning and lifecycle management
+   *             of common operational software for Amazon EKS clusters. Amazon EKS
+   *             add-ons require clusters running version 1.18 or later because Amazon EKS
    *             add-ons rely on the Server-side Apply Kubernetes feature, which is only available in
-   *             Kubernetes 1.18 and later.</p>
+   *             Kubernetes 1.18 and later. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in
+   *             the <i>Amazon EKS User Guide</i>.</p>
    */
   public createAddon(args: CreateAddonCommandInput, options?: __HttpHandlerOptions): Promise<CreateAddonCommandOutput>;
   public createAddon(args: CreateAddonCommandInput, cb: (err: any, data?: CreateAddonCommandOutput) => void): void;
@@ -1074,7 +1075,7 @@ export class EKS extends EKSClient {
    *             </code> to add it to the Amazon EKS control plane.</p>
    *         <p>Second, a <a href="https://amazon-eks.s3.us-west-2.amazonaws.com/eks-connector/manifests/eks-connector/latest/eks-connector.yaml">Manifest</a> containing the <code>activationID</code> and <code>activationCode</code> must be applied to the Kubernetes cluster through it's native provider to provide visibility.</p>
    *
-   *         <p>After the Manifest is updated and applied, then the connected cluster is visible to the Amazon EKS control plane. If the Manifest is not applied within a set amount of time,
+   *         <p>After the Manifest is updated and applied, then the connected cluster is visible to the Amazon EKS control plane. If the Manifest is not applied within three days,
    *             then the connected cluster will no longer be visible and must be deregistered. See <a>DeregisterCluster</a>.</p>
    */
   public registerCluster(

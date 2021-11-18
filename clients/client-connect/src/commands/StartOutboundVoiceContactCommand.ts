@@ -38,8 +38,9 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  *          </note>
  *          <note>
  *             <p>Campaign calls are not allowed by default. Before you can make a call with
- *     <code>TrafficType</code> = <code>CAMPAIGN</code>, you must submit a service quota increase request. For more information, see
- *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+ *      <code>TrafficType</code> = <code>CAMPAIGN</code>, you must submit a service quota increase
+ *     request. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a>
+ *     in the <i>Amazon Connect Administrator Guide</i>. </p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

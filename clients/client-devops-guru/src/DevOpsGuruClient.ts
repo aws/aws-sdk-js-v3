@@ -65,6 +65,18 @@ import { DescribeAnomalyCommandInput, DescribeAnomalyCommandOutput } from "./com
 import { DescribeFeedbackCommandInput, DescribeFeedbackCommandOutput } from "./commands/DescribeFeedbackCommand";
 import { DescribeInsightCommandInput, DescribeInsightCommandOutput } from "./commands/DescribeInsightCommand";
 import {
+  DescribeOrganizationHealthCommandInput,
+  DescribeOrganizationHealthCommandOutput,
+} from "./commands/DescribeOrganizationHealthCommand";
+import {
+  DescribeOrganizationOverviewCommandInput,
+  DescribeOrganizationOverviewCommandOutput,
+} from "./commands/DescribeOrganizationOverviewCommand";
+import {
+  DescribeOrganizationResourceCollectionHealthCommandInput,
+  DescribeOrganizationResourceCollectionHealthCommandOutput,
+} from "./commands/DescribeOrganizationResourceCollectionHealthCommand";
+import {
   DescribeResourceCollectionHealthCommandInput,
   DescribeResourceCollectionHealthCommandOutput,
 } from "./commands/DescribeResourceCollectionHealthCommand";
@@ -88,6 +100,10 @@ import {
   ListNotificationChannelsCommandOutput,
 } from "./commands/ListNotificationChannelsCommand";
 import {
+  ListOrganizationInsightsCommandInput,
+  ListOrganizationInsightsCommandOutput,
+} from "./commands/ListOrganizationInsightsCommand";
+import {
   ListRecommendationsCommandInput,
   ListRecommendationsCommandOutput,
 } from "./commands/ListRecommendationsCommand";
@@ -97,6 +113,10 @@ import {
   RemoveNotificationChannelCommandOutput,
 } from "./commands/RemoveNotificationChannelCommand";
 import { SearchInsightsCommandInput, SearchInsightsCommandOutput } from "./commands/SearchInsightsCommand";
+import {
+  SearchOrganizationInsightsCommandInput,
+  SearchOrganizationInsightsCommandOutput,
+} from "./commands/SearchOrganizationInsightsCommand";
 import {
   StartCostEstimationCommandInput,
   StartCostEstimationCommandOutput,
@@ -118,6 +138,9 @@ export type ServiceInputTypes =
   | DescribeAnomalyCommandInput
   | DescribeFeedbackCommandInput
   | DescribeInsightCommandInput
+  | DescribeOrganizationHealthCommandInput
+  | DescribeOrganizationOverviewCommandInput
+  | DescribeOrganizationResourceCollectionHealthCommandInput
   | DescribeResourceCollectionHealthCommandInput
   | DescribeServiceIntegrationCommandInput
   | GetCostEstimationCommandInput
@@ -126,10 +149,12 @@ export type ServiceInputTypes =
   | ListEventsCommandInput
   | ListInsightsCommandInput
   | ListNotificationChannelsCommandInput
+  | ListOrganizationInsightsCommandInput
   | ListRecommendationsCommandInput
   | PutFeedbackCommandInput
   | RemoveNotificationChannelCommandInput
   | SearchInsightsCommandInput
+  | SearchOrganizationInsightsCommandInput
   | StartCostEstimationCommandInput
   | UpdateResourceCollectionCommandInput
   | UpdateServiceIntegrationCommandInput;
@@ -141,6 +166,9 @@ export type ServiceOutputTypes =
   | DescribeAnomalyCommandOutput
   | DescribeFeedbackCommandOutput
   | DescribeInsightCommandOutput
+  | DescribeOrganizationHealthCommandOutput
+  | DescribeOrganizationOverviewCommandOutput
+  | DescribeOrganizationResourceCollectionHealthCommandOutput
   | DescribeResourceCollectionHealthCommandOutput
   | DescribeServiceIntegrationCommandOutput
   | GetCostEstimationCommandOutput
@@ -149,10 +177,12 @@ export type ServiceOutputTypes =
   | ListEventsCommandOutput
   | ListInsightsCommandOutput
   | ListNotificationChannelsCommandOutput
+  | ListOrganizationInsightsCommandOutput
   | ListRecommendationsCommandOutput
   | PutFeedbackCommandOutput
   | RemoveNotificationChannelCommandOutput
   | SearchInsightsCommandOutput
+  | SearchOrganizationInsightsCommandOutput
   | StartCostEstimationCommandOutput
   | UpdateResourceCollectionCommandOutput
   | UpdateServiceIntegrationCommandOutput;
@@ -306,22 +336,20 @@ type DevOpsGuruClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface DevOpsGuruClientResolvedConfig extends DevOpsGuruClientResolvedConfigType {}
 
 /**
- * <p> Amazon DevOps Guru is a fully managed service that helps you identify anomalous behavior in business
- * 			critical operational applications. You specify the AWS resources that you want DevOps Guru to cover,
- * 			then the Amazon CloudWatch metrics and AWS CloudTrail events related to those resources are analyzed. When
- * 			anomalous behavior is detected, DevOps Guru creates an <i>insight</i> that includes
- * 			recommendations, related events, and related metrics that can help you improve your
- * 			operational applications. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html">What is Amazon DevOps Guru</a>. </p>
+ * <p> Amazon DevOps Guru is a fully managed service that helps you identify anomalous behavior in
+ * 			business critical operational applications. You specify the Amazon Web Services resources that you
+ * 			want DevOps Guru to cover, then the Amazon CloudWatch metrics and Amazon Web Services CloudTrail events related to those
+ * 			resources are analyzed. When anomalous behavior is detected, DevOps Guru creates an
+ * 				<i>insight</i> that includes recommendations, related events, and
+ * 			related metrics that can help you improve your operational applications. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html">What is Amazon DevOps Guru</a>. </p>
  *
- * 		       <p>
- * 			You can specify 1 or 2 Amazon Simple Notification Service topics so you are notified every time a new insight is created. You can also enable DevOps Guru to generate
- * 			an OpsItem in AWS Systems Manager for each insight to help you manage and track your work addressing insights.
- * 		</p>
+ * 		       <p> You can specify 1 or 2 Amazon Simple Notification Service topics so you are notified every time a new insight
+ * 			is created. You can also enable DevOps Guru to generate an OpsItem in Amazon Web Services Systems Manager for each
+ * 			insight to help you manage and track your work addressing insights. </p>
  *
- * 		       <p>
- * 			To learn about the DevOps Guru workflow, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html#how-it-works">How DevOps Guru works</a>. To
- * 			learn about DevOps Guru concepts, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/concepts.html">Concepts in DevOps Guru</a>.
- * 		</p>
+ * 		       <p> To learn about the DevOps Guru workflow, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html#how-it-works">How DevOps Guru works</a>. To
+ * 			learn about DevOps Guru concepts, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/concepts.html">Concepts in DevOps Guru</a>. </p>
  */
 export class DevOpsGuruClient extends __Client<
   __HttpHandlerOptions,

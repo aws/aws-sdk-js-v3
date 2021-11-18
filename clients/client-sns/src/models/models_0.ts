@@ -12,8 +12,8 @@ export interface AddPermissionInput {
   Label: string | undefined;
 
   /**
-   * <p>The account IDs of the users (principals) who will be given access to the
-   *             specified actions. The users must have account, but do not need to be signed up for
+   * <p>The Amazon Web Services account IDs of the users (principals) who will be given access to the
+   *             specified actions. The users must have Amazon Web Services account, but do not need to be signed up for
    *             this service.</p>
    */
   AWSAccountId: string[] | undefined;
@@ -158,8 +158,7 @@ export namespace CheckIfPhoneNumberIsOptedOutResponse {
 }
 
 /**
- * <p>Indicates that the rate at which requests have been submitted for this action exceeds
- *             the limit for your account.</p>
+ * <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
  */
 export interface ThrottledException extends __SmithyException, $MetadataBearer {
   name: "ThrottledException";
@@ -231,8 +230,8 @@ export namespace ConfirmSubscriptionResponse {
 }
 
 /**
- * <p>Indicates that the number of filter polices in your account exceeds the limit. To
- *             add more filter polices, submit an SNS Limit Increase case in the Amazon Web Services Support
+ * <p>Indicates that the number of filter polices in your Amazon Web Services account exceeds the limit. To
+ *             add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support
  *             Center.</p>
  */
 export interface FilterPolicyLimitExceededException extends __SmithyException, $MetadataBearer {
@@ -431,7 +430,7 @@ export namespace CreateSMSSandboxPhoneNumberResult {
 
 /**
  * <p>Indicates that the specified phone number opted out of receiving SMS messages from
- *             your account. You can't send SMS messages to phone numbers that opt out.</p>
+ *             your Amazon Web Services account. You can't send SMS messages to phone numbers that opt out.</p>
  */
 export interface OptedOutException extends __SmithyException, $MetadataBearer {
   name: "OptedOutException";
@@ -920,6 +919,18 @@ export interface GetPlatformApplicationAttributesResponse {
    *         <ul>
    *             <li>
    *                 <p>
+   *                     <code>AppleCertificateExpiryDate</code> – The expiry date of the SSL certificate used to configure certificate-based authentication.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>ApplePlatformTeamID</code> – The Apple developer account ID used to configure token-based authentication.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>ApplePlatformBundleID</code> – The app identifier used to configure token-based authentication.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
    *                     <code>EventEndpointCreated</code> – Topic ARN to which EndpointCreated
    *                     event notifications should be sent.</p>
    *             </li>
@@ -1007,7 +1018,7 @@ export namespace GetSMSSandboxAccountStatusInput {
 
 export interface GetSMSSandboxAccountStatusResult {
   /**
-   * <p>Indicates whether the calling account is in the SMS sandbox.</p>
+   * <p>Indicates whether the calling Amazon Web Services account is in the SMS sandbox.</p>
    */
   IsInSandbox: boolean | undefined;
 }
@@ -1072,7 +1083,7 @@ export interface GetSubscriptionAttributesResponse {
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>Owner</code> – The account ID of the subscription's
+   *                     <code>Owner</code> – The Amazon Web Services account ID of the subscription's
    *                     owner.</p>
    *             </li>
    *             <li>
@@ -1175,7 +1186,7 @@ export interface GetTopicAttributesResponse {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>Owner</code> – The account ID of the topic's owner.</p>
+   *                   <code>Owner</code> – The Amazon Web Services account ID of the topic's owner.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -1289,11 +1300,11 @@ export namespace ListEndpointsByPlatformApplicationInput {
 }
 
 /**
- * <p>Endpoint for mobile app and device.</p>
+ * <p>The endpoint for mobile app and device.</p>
  */
 export interface Endpoint {
   /**
-   * <p>EndpointArn for mobile app and device.</p>
+   * <p>The <code>EndpointArn</code> for mobile app and device.</p>
    */
   EndpointArn?: string;
 
@@ -1601,10 +1612,10 @@ export enum SMSSandboxPhoneNumberVerificationStatus {
 
 /**
  * <p>A verified or pending destination phone number in the SMS sandbox.</p>
- *         <p>When you start using Amazon SNS to send SMS messages, your account is in the
+ *         <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
  *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
  *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
- *                 account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send
+ *                 Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send
  *                 SMS messages only to verified destination phone numbers. For more information, including how to
  *                 move out of the sandbox to send messages without restrictions,
  *                 see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in
@@ -1934,14 +1945,13 @@ export namespace EndpointDisabledException {
 }
 
 /**
- * <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ * <p>Indicates that a request parameter does not comply with the associated constraints.</p>
  */
 export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
   /**
-   * <p>The parameter value is invalid.</p>
+   * <p>The parameter of an entry in a request doesn't abide by the specification. </p>
    */
   message?: string;
 }
@@ -2096,12 +2106,12 @@ export namespace PlatformApplicationDisabledException {
 /**
  * <p>The user-specified message attribute value. For string data types, the value attribute
  *             has the same restrictions on the content as the message body. For more information, see
- *                 <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a>.</p>
+ *             <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a>.</p>
  *         <p>Name, type, and value must not be empty or null. In addition, the message body should
  *             not be empty or null. All parts of the message attribute, including name, type, and
  *             value, are included in the message size restriction, which is currently 256 KB (262,144
  *             bytes). For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html">Amazon SNS message attributes</a> and
- *                 <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Publishing
+ *             <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Publishing
  *                 to a mobile phone</a> in the <i>Amazon SNS Developer Guide.</i>
  *          </p>
  */
@@ -2115,7 +2125,7 @@ export interface MessageAttributeValue {
 
   /**
    * <p>Strings are Unicode with UTF8 binary encoding. For a list of code values, see <a href="https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable
-   *                 Characters</a>.</p>
+   *             Characters</a>.</p>
    */
   StringValue?: string;
 
@@ -2266,7 +2276,7 @@ export interface PublishInput {
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) topics. The
    *                 <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters
-   *             (a-z, A-Z, 0-9) and punctuation
+   *             <code>(a-z, A-Z, 0-9)</code> and punctuation
    *             <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
    *         <p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token
    *             used for deduplication of sent messages. If a message with a particular
@@ -2281,8 +2291,9 @@ export interface PublishInput {
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) topics. The
-   *                 <code>MessageGroupId</code> can contain up to 128 alphanumeric characters (a-z, A-Z,
-   *             0-9) and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *             <code>MessageGroupId</code> can contain up to 128 alphanumeric characters
+   *             <code>(a-z, A-Z, 0-9)</code> and punctuation
+   *             <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
    *         <p>The <code>MessageGroupId</code> is a tag that specifies that a message belongs to a
    *             specific message group. Messages that belong to the same message group are processed in
    *             a FIFO manner (however, messages in different message groups might be processed out of
@@ -2325,6 +2336,315 @@ export namespace PublishResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: PublishResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
+ */
+export interface BatchEntryIdsNotDistinctException extends __SmithyException, $MetadataBearer {
+  name: "BatchEntryIdsNotDistinctException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace BatchEntryIdsNotDistinctException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchEntryIdsNotDistinctException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The length of all the batch messages put together is more than the limit.</p>
+ */
+export interface BatchRequestTooLongException extends __SmithyException, $MetadataBearer {
+  name: "BatchRequestTooLongException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace BatchRequestTooLongException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchRequestTooLongException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The batch request doesn't contain any entries.</p>
+ */
+export interface EmptyBatchRequestException extends __SmithyException, $MetadataBearer {
+  name: "EmptyBatchRequestException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace EmptyBatchRequestException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EmptyBatchRequestException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification. </p>
+ */
+export interface InvalidBatchEntryIdException extends __SmithyException, $MetadataBearer {
+  name: "InvalidBatchEntryIdException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidBatchEntryIdException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidBatchEntryIdException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the details of a single Amazon SNS message along with an <code>Id</code> that identifies a message within the batch. </p>
+ */
+export interface PublishBatchRequestEntry {
+  /**
+   * <p>An identifier for the message in this batch.</p>
+   *         <note>
+   *             <p>The <code>Ids</code> of a batch request must be unique within a request. </p>
+   *             <p>This identifier can have up to 80 characters. The following characters are accepted: alphanumeric characters, hyphens(-), and underscores (_). </p>
+   *         </note>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The body of the message.</p>
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The subject of the batch message.</p>
+   */
+  Subject?: string;
+
+  /**
+   * <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different message for each protocol. For example, using one publish action, you can send a short message to your SMS subscribers and a longer message to your email subscribers. If you set <code>MessageStructure</code> to <code>json</code>, the value of the <code>Message</code> parameter must: </p>
+   *         <ul>
+   *             <li>
+   *                <p>be a syntactically valid JSON object; and</p>
+   *             </li>
+   *             <li>
+   *                <p>contain at least a top-level JSON key of "default" with a value that is a string.</p>
+   *             </li>
+   *          </ul>
+   *         <p>You can define other top-level keys that define the message you want to send to a
+   *             specific transport protocol (e.g. http). </p>
+   */
+  MessageStructure?: string;
+
+  /**
+   * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html">Amazon SNS message attributes</a> in the Amazon SNS Developer Guide.</p>
+   */
+  MessageAttributes?: { [key: string]: MessageAttributeValue };
+
+  /**
+   * <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
+   *         <p>The token used for deduplication of messages within a 5-minute minimum deduplication interval. If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, subsequent messages with the same <code>MessageDeduplicationId</code> are accepted successfully but aren't delivered.</p>
+   *         <ul>
+   *             <li>
+   *                <p>Every message must have a unique <code>MessageDeduplicationId</code>.</p>
+   *                 <ul>
+   *                   <li>
+   *                      <p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your topic, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>If you don't provide a <code>MessageDeduplicationId</code> and the topic doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>If the topic has a <code>ContentBasedDeduplication</code> set, your
+   *                                 <code>MessageDeduplicationId</code> overrides the generated one. </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication interval are treated as duplicates and only one copy of the message is delivered.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you send one message with <code>ContentBasedDeduplication</code> enabled, and then another
+   *                     message with a <code>MessageDeduplicationId</code> that is the same as the one
+   *                     generated for the first <code>MessageDeduplicationId</code>, the two messages
+   *                     are treated as duplicates and only one copy of the message is delivered. </p>
+   *             </li>
+   *          </ul>
+   *         <note>
+   *             <p>The <code>MessageDeduplicationId</code> is available to the consumer of the message (this can be useful for troubleshooting delivery issues).</p>
+   *             <p>If a message is sent successfully but the acknowledgement is lost and the message is resent with the same <code>MessageDeduplicationId</code> after the deduplication interval, Amazon SNS can't detect duplicate messages. </p>
+   *             <p>Amazon SNS continues to keep track of the message deduplication ID even after the message is received and deleted. </p>
+   *         </note>
+   *         <p>The length of <code>MessageDeduplicationId</code> is 128 characters.</p>
+   *         <p>
+   *             <code>MessageDeduplicationId</code> can contain alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   */
+  MessageDeduplicationId?: string;
+
+  /**
+   * <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
+   *         <p>The tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). To interleave multiple ordered streams within a single topic, use <code>MessageGroupId</code> values (for example, session data for multiple users). In this scenario, multiple consumers can process the topic, but the session data of each user is processed in a FIFO fashion. </p>
+   *         <p>You must associate a non-empty <code>MessageGroupId</code> with a message. If you don't provide a <code>MessageGroupId</code>, the action fails. </p>
+   *         <p>The length of <code>MessageGroupId</code> is 128 characters.</p>
+   *         <p>
+   *             <code>MessageGroupId</code> can contain alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *
+   *
+   *         <important>
+   *             <p>
+   *                <code>MessageGroupId</code> is required for FIFO topics. You can't use it for standard topics. </p>
+   *          </important>
+   */
+  MessageGroupId?: string;
+}
+
+export namespace PublishBatchRequestEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PublishBatchRequestEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface PublishBatchInput {
+  /**
+   * <p>The Amazon resource name (ARN) of the topic you want to batch publish to.</p>
+   */
+  TopicArn: string | undefined;
+
+  /**
+   * <p>A list of <code>PublishBatch</code> request entries to be sent to the SNS topic.</p>
+   */
+  PublishBatchRequestEntries: PublishBatchRequestEntry[] | undefined;
+}
+
+export namespace PublishBatchInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PublishBatchInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Gives a detailed description of failed messages in the batch.</p>
+ */
+export interface BatchResultErrorEntry {
+  /**
+   * <p>The <code>Id</code> of an entry in a batch request</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>An error code representing why the action failed on this entry.</p>
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>A message explaining why the action failed on this entry.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>Specifies whether the error happened due to the caller of the batch API action.</p>
+   */
+  SenderFault: boolean | undefined;
+}
+
+export namespace BatchResultErrorEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchResultErrorEntry): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Encloses data related to a successful message in a batch request for topic.</p>
+ */
+export interface PublishBatchResultEntry {
+  /**
+   * <p>The <code>Id</code> of an entry in a batch request.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>An identifier for the message.</p>
+   */
+  MessageId?: string;
+
+  /**
+   * <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
+   *         <p>The large, non-consecutive number that Amazon SNS assigns to each message.</p>
+   *         <p>The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code> continues to increase for a particular <code>MessageGroupId</code>.</p>
+   */
+  SequenceNumber?: string;
+}
+
+export namespace PublishBatchResultEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PublishBatchResultEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface PublishBatchResponse {
+  /**
+   * <p>A list of successful <code>PublishBatch</code> responses.</p>
+   */
+  Successful?: PublishBatchResultEntry[];
+
+  /**
+   * <p>A list of failed <code>PublishBatch</code> responses. </p>
+   */
+  Failed?: BatchResultErrorEntry[];
+}
+
+export namespace PublishBatchResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PublishBatchResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The batch request contains more entries than permissible.</p>
+ */
+export interface TooManyEntriesInBatchRequestException extends __SmithyException, $MetadataBearer {
+  name: "TooManyEntriesInBatchRequestException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TooManyEntriesInBatchRequestException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TooManyEntriesInBatchRequestException): any => ({
     ...obj,
   });
 }
@@ -2414,24 +2734,46 @@ export interface SetPlatformApplicationAttributesInput {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>PlatformCredential</code> – The credential received from the
-   *                     notification service. For <code>APNS</code> and <code>APNS_SANDBOX</code>,
-   *                         <code>PlatformCredential</code> is <code>private key</code>. For
-   *                         <code>GCM</code> (Firebase Cloud Messaging), <code>PlatformCredential</code>
-   *                     is <code>API key</code>. For <code>ADM</code>, <code>PlatformCredential</code>
-   *                     is <code>client secret</code>.</p>
+   *                   <code>PlatformCredential</code> – The credential received from the notification service.</p>
+   *                 <ul>
+   *                   <li>
+   *                      <p>For ADM, <code>PlatformCredential</code>is client secret.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>For Apple Services using certificate credentials, <code>PlatformCredential</code> is private key.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>For Apple Services using token credentials, <code>PlatformCredential</code> is signing key.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>For GCM (Firebase Cloud Messaging), <code>PlatformCredential</code> is API key. </p>
+   *                   </li>
+   *                </ul>
    *             </li>
+   *          </ul>
+   *         <ul>
    *             <li>
-   *                 <p>
-   *                     <code>PlatformPrincipal</code> – The principal received from the
-   *                     notification service. For <code>APNS</code> and <code>APNS_SANDBOX</code>,
-   *                         <code>PlatformPrincipal</code> is <code>SSL certificate</code>. For
-   *                         <code>GCM</code> (Firebase Cloud Messaging), there is no
-   *                         <code>PlatformPrincipal</code>. For <code>ADM</code>,
-   *                         <code>PlatformPrincipal</code> is <code>client id</code>.</p>
+   *                <p>
+   *                   <code>PlatformPrincipal</code> – The principal received from the notification service.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>For ADM, <code>PlatformPrincipal</code>is client id.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>For Apple Services using certificate credentials, <code>PlatformPrincipal</code> is SSL certificate.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>For Apple Services using token credentials, <code>PlatformPrincipal</code> is signing key ID.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>For GCM (Firebase Cloud Messaging), there is no <code>PlatformPrincipal</code>. </p>
+   *                   </li>
+   *                </ul>
    *             </li>
+   *          </ul>
+   *         <ul>
    *             <li>
-   *                 <p>
+   *                    <p>
    *                     <code>EventEndpointCreated</code> – Topic ARN to which
    *                         <code>EndpointCreated</code> event notifications are sent.</p>
    *             </li>
@@ -2468,6 +2810,17 @@ export interface SetPlatformApplicationAttributesInput {
    *                     of successfully delivered messages.</p>
    *             </li>
    *          </ul>
+   *         <p>The following attributes only apply to <code>APNs</code> token-based authentication:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ApplePlatformTeamID</code> – The identifier that's assigned to your Apple developer account team.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ApplePlatformBundleID</code> – The bundle identifier that's assigned to your iOS app.</p>
+   *             </li>
+   *          </ul>
    */
   Attributes: { [key: string]: string } | undefined;
 }
@@ -2486,7 +2839,7 @@ export namespace SetPlatformApplicationAttributesInput {
  */
 export interface SetSMSAttributesInput {
   /**
-   * <p>The default settings for sending SMS messages from your account. You can set values
+   * <p>The default settings for sending SMS messages from your Amazon Web Services account. You can set values
    *             for the following attribute names:</p>
    *         <p>
    *             <code>MonthlySpendLimit</code> – The maximum amount in USD that you are willing to spend
@@ -2531,15 +2884,14 @@ export interface SetSMSAttributesInput {
    *             <li>
    *                 <p>
    *                     <code>Transactional</code> – Critical messages that support customer
-   *                     transactions, such as one-time passcodes for multi-factor authentication. Amazon
-   *                     SNS optimizes the message delivery to achieve the highest reliability.</p>
+   *                     transactions, such as one-time passcodes for multi-factor authentication. Amazon SNS optimizes the message delivery to achieve the highest reliability.</p>
    *             </li>
    *          </ul>
    *         <p>
    *             <code>UsageReportS3Bucket</code> – The name of the Amazon S3 bucket to receive daily SMS
    *             usage reports from Amazon SNS. Each day, Amazon SNS will deliver a usage report as a CSV file to
    *             the bucket. The report includes the following information for each SMS message that was
-   *             successfully delivered by your account:</p>
+   *             successfully delivered by your Amazon Web Services account:</p>
    *         <ul>
    *             <li>
    *                 <p>Time that the message was published (in UTC)</p>

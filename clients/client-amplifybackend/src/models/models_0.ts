@@ -205,7 +205,7 @@ export interface CreateBackendRequest {
   BackendEnvironmentName: string | undefined;
 
   /**
-   * <p>The resource configuration for the create backend request.</p>
+   * <p>The resource configuration for creating backend storage.</p>
    */
   ResourceConfig?: ResourceConfig;
 
@@ -1077,6 +1077,140 @@ export namespace CreateBackendConfigResponse {
   });
 }
 
+export enum AuthenticatedElement {
+  CREATE_AND_UPDATE = "CREATE_AND_UPDATE",
+  DELETE = "DELETE",
+  READ = "READ",
+}
+
+export enum UnAuthenticatedElement {
+  CREATE_AND_UPDATE = "CREATE_AND_UPDATE",
+  DELETE = "DELETE",
+  READ = "READ",
+}
+
+/**
+ * <p>Describes the read, write, and delete permissions users have against your storage S3 bucket.</p>
+ */
+export interface BackendStoragePermissions {
+  /**
+   * <p>Lists all authenticated user read, write, and delete permissions for your S3 bucket.</p>
+   */
+  Authenticated: (AuthenticatedElement | string)[] | undefined;
+
+  /**
+   * <p>Lists all unauthenticated user read, write, and delete permissions for your S3 bucket.</p>
+   */
+  UnAuthenticated?: (UnAuthenticatedElement | string)[];
+}
+
+export namespace BackendStoragePermissions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BackendStoragePermissions): any => ({
+    ...obj,
+  });
+}
+
+export enum ServiceName {
+  S3 = "S3",
+}
+
+/**
+ * <p>The resource configuration for creating backend storage.</p>
+ */
+export interface CreateBackendStorageResourceConfig {
+  /**
+   * <p>The name of the S3 bucket.</p>
+   */
+  BucketName?: string;
+
+  /**
+   * <p>The authorization configuration for the storage S3 bucket.</p>
+   */
+  Permissions: BackendStoragePermissions | undefined;
+
+  /**
+   * <p>The name of the storage service.</p>
+   */
+  ServiceName: ServiceName | string | undefined;
+}
+
+export namespace CreateBackendStorageResourceConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateBackendStorageResourceConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request body for CreateBackendStorage.</p>
+ */
+export interface CreateBackendStorageRequest {
+  /**
+   * <p>The app ID.</p>
+   */
+  AppId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment.</p>
+   */
+  BackendEnvironmentName: string | undefined;
+
+  /**
+   * <p>The resource configuration for creating backend storage.</p>
+   */
+  ResourceConfig: CreateBackendStorageResourceConfig | undefined;
+
+  /**
+   * <p>The name of the storage resource.</p>
+   */
+  ResourceName: string | undefined;
+}
+
+export namespace CreateBackendStorageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateBackendStorageRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateBackendStorageResponse {
+  /**
+   * <p>The app ID.</p>
+   */
+  AppId?: string;
+
+  /**
+   * <p>The name of the backend environment.</p>
+   */
+  BackendEnvironmentName?: string;
+
+  /**
+   * <p>The ID for the job.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>The current status of the request.</p>
+   */
+  Status?: string;
+}
+
+export namespace CreateBackendStorageResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateBackendStorageResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateTokenRequest {
   /**
    * <p>The app ID.</p>
@@ -1327,6 +1461,71 @@ export namespace DeleteBackendAuthResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteBackendAuthResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request body for DeleteBackendStorage.</p>
+ */
+export interface DeleteBackendStorageRequest {
+  /**
+   * <p>The app ID.</p>
+   */
+  AppId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment.</p>
+   */
+  BackendEnvironmentName: string | undefined;
+
+  /**
+   * <p>The name of the storage resource.</p>
+   */
+  ResourceName: string | undefined;
+
+  /**
+   * <p>The name of the storage service.</p>
+   */
+  ServiceName: ServiceName | string | undefined;
+}
+
+export namespace DeleteBackendStorageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteBackendStorageRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteBackendStorageResponse {
+  /**
+   * <p>The app ID.</p>
+   */
+  AppId?: string;
+
+  /**
+   * <p>The name of the backend environment.</p>
+   */
+  BackendEnvironmentName?: string;
+
+  /**
+   * <p>The ID for the job.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>The current status of the request.</p>
+   */
+  Status?: string;
+}
+
+export namespace DeleteBackendStorageResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteBackendStorageResponse): any => ({
     ...obj,
   });
 }
@@ -1775,6 +1974,100 @@ export namespace GetBackendJobResponse {
   });
 }
 
+/**
+ * <p>The request body for GetBackendStorage.</p>
+ */
+export interface GetBackendStorageRequest {
+  /**
+   * <p>The app ID.</p>
+   */
+  AppId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment.</p>
+   */
+  BackendEnvironmentName: string | undefined;
+
+  /**
+   * <p>The name of the storage resource.</p>
+   */
+  ResourceName: string | undefined;
+}
+
+export namespace GetBackendStorageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetBackendStorageRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The details for a backend storage resource.</p>
+ */
+export interface GetBackendStorageResourceConfig {
+  /**
+   * <p>The name of the S3 bucket.</p>
+   */
+  BucketName?: string;
+
+  /**
+   * <p>Returns True if the storage resource has been imported.</p>
+   */
+  Imported: boolean | undefined;
+
+  /**
+   * <p>The authorization configuration for the storage S3 bucket.</p>
+   */
+  Permissions?: BackendStoragePermissions;
+
+  /**
+   * <p>The name of the storage service.</p>
+   */
+  ServiceName: ServiceName | string | undefined;
+}
+
+export namespace GetBackendStorageResourceConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetBackendStorageResourceConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBackendStorageResponse {
+  /**
+   * <p>The app ID.</p>
+   */
+  AppId?: string;
+
+  /**
+   * <p>The name of the backend environment.</p>
+   */
+  BackendEnvironmentName?: string;
+
+  /**
+   * <p>The resource configuration for the backend storage resource.</p>
+   */
+  ResourceConfig?: GetBackendStorageResourceConfig;
+
+  /**
+   * <p>The name of the storage resource.</p>
+   */
+  ResourceName?: string;
+}
+
+export namespace GetBackendStorageResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetBackendStorageResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetTokenRequest {
   /**
    * <p>The app ID.</p>
@@ -1913,6 +2206,71 @@ export namespace ImportBackendAuthResponse {
 }
 
 /**
+ * <p>The request body for ImportBackendStorage.</p>
+ */
+export interface ImportBackendStorageRequest {
+  /**
+   * <p>The app ID.</p>
+   */
+  AppId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment.</p>
+   */
+  BackendEnvironmentName: string | undefined;
+
+  /**
+   * <p>The name of the S3 bucket.</p>
+   */
+  BucketName?: string;
+
+  /**
+   * <p>The name of the storage service.</p>
+   */
+  ServiceName: ServiceName | string | undefined;
+}
+
+export namespace ImportBackendStorageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportBackendStorageRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ImportBackendStorageResponse {
+  /**
+   * <p>The app ID.</p>
+   */
+  AppId?: string;
+
+  /**
+   * <p>The name of the backend environment.</p>
+   */
+  BackendEnvironmentName?: string;
+
+  /**
+   * <p>The ID for the job.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>The current status of the request.</p>
+   */
+  Status?: string;
+}
+
+export namespace ImportBackendStorageResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportBackendStorageResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The request body for ListBackendJobs.</p>
  */
 export interface ListBackendJobsRequest {
@@ -2032,6 +2390,70 @@ export namespace ListBackendJobsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListBackendJobsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request body for S3Buckets.</p>
+ */
+export interface ListS3BucketsRequest {
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListS3BucketsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListS3BucketsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the metadata of the S3 bucket.</p>
+ */
+export interface S3BucketInfo {
+  /**
+   * <p>The creation date of the S3 bucket.</p>
+   */
+  CreationDate?: string;
+
+  /**
+   * <p>The name of the S3 bucket.</p>
+   */
+  Name?: string;
+}
+
+export namespace S3BucketInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3BucketInfo): any => ({
+    ...obj,
+  });
+}
+
+export interface ListS3BucketsResponse {
+  /**
+   * <p>The list of S3 buckets.</p>
+   */
+  Buckets?: S3BucketInfo[];
+
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListS3BucketsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListS3BucketsResponse): any => ({
     ...obj,
   });
 }
@@ -2661,6 +3083,95 @@ export namespace UpdateBackendJobResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateBackendJobResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The resource configuration for updating backend storage.</p>
+ */
+export interface UpdateBackendStorageResourceConfig {
+  /**
+   * <p>The authorization configuration for the storage S3 bucket.</p>
+   */
+  Permissions: BackendStoragePermissions | undefined;
+
+  /**
+   * <p>The name of the storage service.</p>
+   */
+  ServiceName: ServiceName | string | undefined;
+}
+
+export namespace UpdateBackendStorageResourceConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateBackendStorageResourceConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request body for UpdateBackendStorage.</p>
+ */
+export interface UpdateBackendStorageRequest {
+  /**
+   * <p>The app ID.</p>
+   */
+  AppId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment.</p>
+   */
+  BackendEnvironmentName: string | undefined;
+
+  /**
+   * <p>The resource configuration for updating backend storage.</p>
+   */
+  ResourceConfig: UpdateBackendStorageResourceConfig | undefined;
+
+  /**
+   * <p>The name of the storage resource.</p>
+   */
+  ResourceName: string | undefined;
+}
+
+export namespace UpdateBackendStorageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateBackendStorageRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateBackendStorageResponse {
+  /**
+   * <p>The app ID.</p>
+   */
+  AppId?: string;
+
+  /**
+   * <p>The name of the backend environment.</p>
+   */
+  BackendEnvironmentName?: string;
+
+  /**
+   * <p>The ID for the job.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>The current status of the request.</p>
+   */
+  Status?: string;
+}
+
+export namespace UpdateBackendStorageResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateBackendStorageResponse): any => ({
     ...obj,
   });
 }

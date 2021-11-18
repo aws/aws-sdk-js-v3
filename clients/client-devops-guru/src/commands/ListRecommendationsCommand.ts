@@ -22,9 +22,8 @@ export interface ListRecommendationsCommandInput extends ListRecommendationsRequ
 export interface ListRecommendationsCommandOutput extends ListRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    		Returns a list of a specified insight's recommendations. Each recommendation includes a list of related metrics and a list of related events.
- *    	</p>
+ * <p> Returns a list of a specified insight's recommendations. Each recommendation includes
+ * 			a list of related metrics and a list of related events. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -326,11 +326,55 @@ export interface AdvancedFieldSelector {
    *                      <code>resources.type</code>
    *                   </b> - This ﬁeld is required.
    *                   <code>resources.type</code> can only use the <code>Equals</code> operator, and the
-   *                value can be one of the following: <code>AWS::S3::Object</code>,
-   *                   <code>AWS::S3::AccessPoint</code>,
-   *                   <code>AWS::Lambda::Function</code>, <code>AWS::DynamoDB::Table</code>,
-   *                   <code>AWS::S3Outposts::Object</code>, <code>AWS::ManagedBlockchain::Node</code>,
-   *                   <code>AWS::S3ObjectLambda::AccessPoint</code>, or <code>AWS::EC2::Snapshot</code>.
+   *             value can be one of the following:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::S3::Object</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::Lambda::Function</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::DynamoDB::Table</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::S3Outposts::Object</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::ManagedBlockchain::Node</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::S3ObjectLambda::AccessPoint</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::EC2::Snapshot</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::S3::AccessPoint</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::DynamoDB::Stream</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>
    *                You can have only one <code>resources.type</code> ﬁeld per selector. To log data
    *                events on more than one resource type, add another selector.</p>
    *             </li>
@@ -339,7 +383,7 @@ export interface AdvancedFieldSelector {
    *                   <b>
    *                      <code>resources.ARN</code>
    *                   </b> - You can use any operator with
-   *                resources.ARN, but if you use <code>Equals</code> or <code>NotEquals</code>, the
+   *                <code>resources.ARN</code>, but if you use <code>Equals</code> or <code>NotEquals</code>, the
    *                value must exactly match the ARN of a valid resource of the type you've speciﬁed in
    *                the template as the value of resources.type. For example, if resources.type equals
    *                   <code>AWS::S3::Object</code>, the ARN must be in one of the following formats. To
@@ -391,7 +435,7 @@ export interface AdvancedFieldSelector {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>arn:<partition>:dynamodb:<region>:<account_ID>:table:<table_name></code>
+   *                         <code>arn:<partition>:dynamodb:<region>:<account_ID>:table/<table_name></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -432,6 +476,15 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:ec2:<region>::snapshot/<snapshot_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::DynamoDB::Stream</code>, and the operator is set to
+   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:dynamodb:<region>:<account_ID>:table/<table_name>/stream/<date_time></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1635,12 +1688,60 @@ export namespace GetEventSelectorsRequest {
 export interface DataResource {
   /**
    * <p>The resource type in which you want to log data events. You can specify
-   *             <code>AWS::S3::Object</code>, <code>AWS::Lambda::Function</code>, or
-   *             <code>AWS::DynamoDB::Table</code> resources.</p>
-   *          <p>The <code>AWS::S3Outposts::Object</code>, <code>AWS::ManagedBlockchain::Node</code>,
-   *             <code>AWS::S3ObjectLambda::AccessPoint</code>, and <code>AWS::EC2::Snapshot</code> resource types are not valid in basic
-   *          event selectors. To log data events on these resource types, use advanced event
-   *          selectors.</p>
+   *          the following <i>basic</i> event selector resource types:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::S3::Object</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::Lambda::Function</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::DynamoDB::Table</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>The following resource types are also availble through <i>advanced</i> event selectors.
+   *          Basic event selector resource types are valid in advanced event selectors, but
+   *          advanced event selector resource types are not valid in basic event selectors.
+   *          For more information, see <a>AdvancedFieldSelector$Field</a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::S3Outposts::Object</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::ManagedBlockchain::Node</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::S3ObjectLambda::AccessPoint</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::EC2::Snapshot</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::S3::AccessPoint</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::DynamoDB::Stream</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Type?: string;
 
@@ -1836,6 +1937,7 @@ export namespace GetInsightSelectorsRequest {
 
 export enum InsightType {
   ApiCallRateInsight = "ApiCallRateInsight",
+  ApiErrorRateInsight = "ApiErrorRateInsight",
 }
 
 /**

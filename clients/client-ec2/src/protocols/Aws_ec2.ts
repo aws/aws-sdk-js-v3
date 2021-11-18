@@ -46008,6 +46008,13 @@ const serializeAws_ec2ModifySubnetAttributeRequest = (
   if (input.CustomerOwnedIpv4Pool !== undefined && input.CustomerOwnedIpv4Pool !== null) {
     entries["CustomerOwnedIpv4Pool"] = input.CustomerOwnedIpv4Pool;
   }
+  if (input.EnableDns64 !== undefined && input.EnableDns64 !== null) {
+    const memberEntries = serializeAws_ec2AttributeBooleanValue(input.EnableDns64, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `EnableDns64.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -73478,6 +73485,7 @@ const deserializeAws_ec2Subnet = (output: any, context: __SerdeContext): Subnet 
     Tags: undefined,
     SubnetArn: undefined,
     OutpostArn: undefined,
+    EnableDns64: undefined,
   };
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
@@ -73541,6 +73549,9 @@ const deserializeAws_ec2Subnet = (output: any, context: __SerdeContext): Subnet 
   }
   if (output["outpostArn"] !== undefined) {
     contents.OutpostArn = __expectString(output["outpostArn"]);
+  }
+  if (output["enableDns64"] !== undefined) {
+    contents.EnableDns64 = __parseBoolean(output["enableDns64"]);
   }
   return contents;
 };

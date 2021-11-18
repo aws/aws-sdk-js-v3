@@ -1,5 +1,26 @@
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
+/**
+ * <p>You don't have permissions to perform the requested operation. The user or role that
+ *             is making the request must have at least one IAM permissions policy attached that
+ *             grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+ *                 Management</a> in the <i>IAM User Guide</i>. </p>
+ */
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
+  name: "AccessDeniedException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
+    ...obj,
+  });
+}
+
 export enum AddonIssueCode {
   ACCESS_DENIED = "AccessDenied",
   ADMISSION_REQUEST_DENIED = "AdmissionRequestDenied",
@@ -69,7 +90,8 @@ export type AddonStatus =
   | "UPDATING";
 
 /**
- * <p>An Amazon EKS add-on.</p>
+ * <p>An Amazon EKS add-on. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in
+ *             the <i>Amazon EKS User Guide</i>.</p>
  */
 export interface Addon {
   /**
@@ -928,7 +950,8 @@ export namespace CreateAddonRequest {
 
 export interface CreateAddonResponse {
   /**
-   * <p>An Amazon EKS add-on.</p>
+   * <p>An Amazon EKS add-on. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in
+   *             the <i>Amazon EKS User Guide</i>.</p>
    */
   addon?: Addon;
 }
@@ -955,7 +978,7 @@ export interface KubernetesNetworkConfigRequest {
    *         <ul>
    *             <li>
    *                 <p>Within one of the following private IP address blocks: 10.0.0.0/8,
-   *                     172.16.0.0.0/12, or 192.168.0.0/16.</p>
+   *                     172.16.0.0/12, or 192.168.0.0/16.</p>
    *             </li>
    *             <li>
    *                 <p>Doesn't overlap with any CIDR block assigned to the VPC that you selected for
@@ -1241,7 +1264,7 @@ export interface ConnectorConfigResponse {
   provider?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the role that is used by the EKS connector to communicate with AWS services from the connected Kubernetes cluster.</p>
+   * <p>The Amazon Resource Name (ARN) of the role to communicate with services from the connected Kubernetes cluster.</p>
    */
   roleArn?: string;
 }
@@ -1860,6 +1883,25 @@ export interface NodegroupScalingConfig {
 
   /**
    * <p>The current number of nodes that the managed node group should maintain.</p>
+   *          <important>
+   *             <p>If you use Cluster Autoscaler, you shouldn't change the desiredSize value
+   *                 directly, as this can cause the Cluster Autoscaler to suddenly scale up or scale
+   *                 down.</p>
+   *         </important>
+   *         <p>Whenever this parameter changes, the number of worker nodes in the node group is
+   *             updated to the specified size. If this parameter is given a value that is smaller than
+   *             the current number of running worker nodes, the necessary number of worker nodes are
+   *             terminated to match the given value.
+   *
+   *             When using CloudFormation, no action occurs if you remove this parameter from your CFN
+   *             template.</p>
+   *         <p>This parameter can be different from minSize in some cases, such as when starting with
+   *             extra hosts for testing. This parameter can also be different when you want to start
+   *             with an estimated number of needed hosts, but let Cluster Autoscaler reduce the number
+   *             if there are too many. When Cluster Autoscaler is used, the desiredSize parameter is
+   *             altered by Cluster Autoscaler (but can be out-of-date for short periods of time).
+   *             Cluster Autoscaler doesn't scale a managed node group lower than minSize or higher than
+   *             maxSize.</p>
    */
   desiredSize?: number;
 }
@@ -2207,7 +2249,7 @@ export interface Issue {
    *                 <p>
    *                   <b>NodeCreationFailure</b>: Your launched instances
    *                     are unable to register with your Amazon EKS cluster. Common causes of this failure
-   *                     are insufficient <a href="https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html">node IAM role</a>
+   *                     are insufficient <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html">node IAM role</a>
    *                     permissions or lack of outbound internet access for the nodes. </p>
    *             </li>
    *          </ul>
@@ -2493,7 +2535,8 @@ export namespace DeleteAddonRequest {
 
 export interface DeleteAddonResponse {
   /**
-   * <p>An Amazon EKS add-on.</p>
+   * <p>An Amazon EKS add-on. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in
+   *             the <i>Amazon EKS User Guide</i>.</p>
    */
   addon?: Addon;
 }
@@ -2670,7 +2713,8 @@ export namespace DescribeAddonRequest {
 
 export interface DescribeAddonResponse {
   /**
-   * <p>An Amazon EKS add-on.</p>
+   * <p>An Amazon EKS add-on. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in
+   *             the <i>Amazon EKS User Guide</i>.</p>
    */
   addon?: Addon;
 }
@@ -3623,7 +3667,7 @@ export namespace ConnectorConfigRequest {
 
 export interface RegisterClusterRequest {
   /**
-   * <p>Define a unique name for this cluster within your AWS account.</p>
+   * <p>Define a unique name for this cluster for your Region.</p>
    */
   name: string | undefined;
 
@@ -3636,6 +3680,14 @@ export interface RegisterClusterRequest {
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientRequestToken?: string;
+
+  /**
+   * <p>The metadata that you apply to the cluster to assist with categorization and
+   *             organization. Each tag consists of a key and an optional value, both of which you
+   *             define. Cluster tags do not propagate to any other resources associated with the
+   *             cluster.</p>
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace RegisterClusterRequest {

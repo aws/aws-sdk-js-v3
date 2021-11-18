@@ -100,6 +100,7 @@ import {
 } from "../commands/ListTagsForResourceCommand";
 import { ListTopicsCommandInput, ListTopicsCommandOutput } from "../commands/ListTopicsCommand";
 import { OptInPhoneNumberCommandInput, OptInPhoneNumberCommandOutput } from "../commands/OptInPhoneNumberCommand";
+import { PublishBatchCommandInput, PublishBatchCommandOutput } from "../commands/PublishBatchCommand";
 import { PublishCommandInput, PublishCommandOutput } from "../commands/PublishCommand";
 import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "../commands/RemovePermissionCommand";
 import {
@@ -127,6 +128,9 @@ import {
 import {
   AddPermissionInput,
   AuthorizationErrorException,
+  BatchEntryIdsNotDistinctException,
+  BatchRequestTooLongException,
+  BatchResultErrorEntry,
   CheckIfPhoneNumberIsOptedOutInput,
   CheckIfPhoneNumberIsOptedOutResponse,
   ConcurrentAccessException,
@@ -145,6 +149,7 @@ import {
   DeleteSMSSandboxPhoneNumberInput,
   DeleteSMSSandboxPhoneNumberResult,
   DeleteTopicInput,
+  EmptyBatchRequestException,
   Endpoint,
   EndpointDisabledException,
   FilterPolicyLimitExceededException,
@@ -161,6 +166,7 @@ import {
   GetTopicAttributesInput,
   GetTopicAttributesResponse,
   InternalErrorException,
+  InvalidBatchEntryIdException,
   InvalidParameterException,
   InvalidParameterValueException,
   InvalidSecurityException,
@@ -197,6 +203,10 @@ import {
   PhoneNumberInformation,
   PlatformApplication,
   PlatformApplicationDisabledException,
+  PublishBatchInput,
+  PublishBatchRequestEntry,
+  PublishBatchResponse,
+  PublishBatchResultEntry,
   PublishInput,
   PublishResponse,
   RemovePermissionInput,
@@ -219,6 +229,7 @@ import {
   TagResourceRequest,
   TagResourceResponse,
   ThrottledException,
+  TooManyEntriesInBatchRequestException,
   Topic,
   TopicLimitExceededException,
   UnsubscribeInput,
@@ -674,6 +685,22 @@ export const serializeAws_queryPublishCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryPublishInput(input, context),
     Action: "Publish",
+    Version: "2010-03-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryPublishBatchCommand = async (
+  input: PublishBatchCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryPublishBatchInput(input, context),
+    Action: "PublishBatch",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3201,6 +3228,204 @@ const deserializeAws_queryPublishCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryPublishBatchCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PublishBatchCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryPublishBatchCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryPublishBatchResponse(data.PublishBatchResult, context);
+  const response: PublishBatchCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryPublishBatchCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PublishBatchCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
+      response = {
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BatchEntryIdsNotDistinctException":
+    case "com.amazonaws.sns#BatchEntryIdsNotDistinctException":
+      response = {
+        ...(await deserializeAws_queryBatchEntryIdsNotDistinctExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BatchRequestTooLongException":
+    case "com.amazonaws.sns#BatchRequestTooLongException":
+      response = {
+        ...(await deserializeAws_queryBatchRequestTooLongExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EmptyBatchRequestException":
+    case "com.amazonaws.sns#EmptyBatchRequestException":
+      response = {
+        ...(await deserializeAws_queryEmptyBatchRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EndpointDisabledException":
+    case "com.amazonaws.sns#EndpointDisabledException":
+      response = {
+        ...(await deserializeAws_queryEndpointDisabledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
+      response = {
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidBatchEntryIdException":
+    case "com.amazonaws.sns#InvalidBatchEntryIdException":
+      response = {
+        ...(await deserializeAws_queryInvalidBatchEntryIdExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.sns#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidSecurityException":
+    case "com.amazonaws.sns#InvalidSecurityException":
+      response = {
+        ...(await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KMSAccessDeniedException":
+    case "com.amazonaws.sns#KMSAccessDeniedException":
+      response = {
+        ...(await deserializeAws_queryKMSAccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KMSDisabledException":
+    case "com.amazonaws.sns#KMSDisabledException":
+      response = {
+        ...(await deserializeAws_queryKMSDisabledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KMSInvalidStateException":
+    case "com.amazonaws.sns#KMSInvalidStateException":
+      response = {
+        ...(await deserializeAws_queryKMSInvalidStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KMSNotFoundException":
+    case "com.amazonaws.sns#KMSNotFoundException":
+      response = {
+        ...(await deserializeAws_queryKMSNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KMSOptInRequired":
+    case "com.amazonaws.sns#KMSOptInRequired":
+      response = {
+        ...(await deserializeAws_queryKMSOptInRequiredResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KMSThrottlingException":
+    case "com.amazonaws.sns#KMSThrottlingException":
+      response = {
+        ...(await deserializeAws_queryKMSThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.sns#NotFoundException":
+      response = {
+        ...(await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PlatformApplicationDisabledException":
+    case "com.amazonaws.sns#PlatformApplicationDisabledException":
+      response = {
+        ...(await deserializeAws_queryPlatformApplicationDisabledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyEntriesInBatchRequestException":
+    case "com.amazonaws.sns#TooManyEntriesInBatchRequestException":
+      response = {
+        ...(await deserializeAws_queryTooManyEntriesInBatchRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryRemovePermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4168,6 +4393,36 @@ const deserializeAws_queryAuthorizationErrorExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_queryBatchEntryIdsNotDistinctExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<BatchEntryIdsNotDistinctException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryBatchEntryIdsNotDistinctException(body.Error, context);
+  const contents: BatchEntryIdsNotDistinctException = {
+    name: "BatchEntryIdsNotDistinctException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryBatchRequestTooLongExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<BatchRequestTooLongException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryBatchRequestTooLongException(body.Error, context);
+  const contents: BatchRequestTooLongException = {
+    name: "BatchRequestTooLongException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryConcurrentAccessExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4176,6 +4431,21 @@ const deserializeAws_queryConcurrentAccessExceptionResponse = async (
   const deserialized: any = deserializeAws_queryConcurrentAccessException(body.Error, context);
   const contents: ConcurrentAccessException = {
     name: "ConcurrentAccessException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryEmptyBatchRequestExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EmptyBatchRequestException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryEmptyBatchRequestException(body.Error, context);
+  const contents: EmptyBatchRequestException = {
+    name: "EmptyBatchRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4222,6 +4492,21 @@ const deserializeAws_queryInternalErrorExceptionResponse = async (
   const contents: InternalErrorException = {
     name: "InternalErrorException",
     $fault: "server",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryInvalidBatchEntryIdExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidBatchEntryIdException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInvalidBatchEntryIdException(body.Error, context);
+  const contents: InvalidBatchEntryIdException = {
+    name: "InvalidBatchEntryIdException",
+    $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   };
@@ -4491,6 +4776,21 @@ const deserializeAws_queryThrottledExceptionResponse = async (
   const deserialized: any = deserializeAws_queryThrottledException(body.Error, context);
   const contents: ThrottledException = {
     name: "ThrottledException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryTooManyEntriesInBatchRequestExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyEntriesInBatchRequestException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryTooManyEntriesInBatchRequestException(body.Error, context);
+  const contents: TooManyEntriesInBatchRequestException = {
+    name: "TooManyEntriesInBatchRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4986,6 +5286,70 @@ const serializeAws_queryOptInPhoneNumberInput = (input: OptInPhoneNumberInput, c
   return entries;
 };
 
+const serializeAws_queryPublishBatchInput = (input: PublishBatchInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.TopicArn !== undefined && input.TopicArn !== null) {
+    entries["TopicArn"] = input.TopicArn;
+  }
+  if (input.PublishBatchRequestEntries !== undefined && input.PublishBatchRequestEntries !== null) {
+    const memberEntries = serializeAws_queryPublishBatchRequestEntryList(input.PublishBatchRequestEntries, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `PublishBatchRequestEntries.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryPublishBatchRequestEntry = (input: PublishBatchRequestEntry, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Id !== undefined && input.Id !== null) {
+    entries["Id"] = input.Id;
+  }
+  if (input.Message !== undefined && input.Message !== null) {
+    entries["Message"] = input.Message;
+  }
+  if (input.Subject !== undefined && input.Subject !== null) {
+    entries["Subject"] = input.Subject;
+  }
+  if (input.MessageStructure !== undefined && input.MessageStructure !== null) {
+    entries["MessageStructure"] = input.MessageStructure;
+  }
+  if (input.MessageAttributes !== undefined && input.MessageAttributes !== null) {
+    const memberEntries = serializeAws_queryMessageAttributeMap(input.MessageAttributes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MessageAttributes.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MessageDeduplicationId !== undefined && input.MessageDeduplicationId !== null) {
+    entries["MessageDeduplicationId"] = input.MessageDeduplicationId;
+  }
+  if (input.MessageGroupId !== undefined && input.MessageGroupId !== null) {
+    entries["MessageGroupId"] = input.MessageGroupId;
+  }
+  return entries;
+};
+
+const serializeAws_queryPublishBatchRequestEntryList = (
+  input: PublishBatchRequestEntry[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_queryPublishBatchRequestEntry(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_queryPublishInput = (input: PublishInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.TopicArn !== undefined && input.TopicArn !== null) {
@@ -5270,6 +5634,68 @@ const deserializeAws_queryAuthorizationErrorException = (
   return contents;
 };
 
+const deserializeAws_queryBatchEntryIdsNotDistinctException = (
+  output: any,
+  context: __SerdeContext
+): BatchEntryIdsNotDistinctException => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryBatchRequestTooLongException = (
+  output: any,
+  context: __SerdeContext
+): BatchRequestTooLongException => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryBatchResultErrorEntry = (output: any, context: __SerdeContext): BatchResultErrorEntry => {
+  const contents: any = {
+    Id: undefined,
+    Code: undefined,
+    Message: undefined,
+    SenderFault: undefined,
+  };
+  if (output["Id"] !== undefined) {
+    contents.Id = __expectString(output["Id"]);
+  }
+  if (output["Code"] !== undefined) {
+    contents.Code = __expectString(output["Code"]);
+  }
+  if (output["Message"] !== undefined) {
+    contents.Message = __expectString(output["Message"]);
+  }
+  if (output["SenderFault"] !== undefined) {
+    contents.SenderFault = __parseBoolean(output["SenderFault"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryBatchResultErrorEntryList = (
+  output: any,
+  context: __SerdeContext
+): BatchResultErrorEntry[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryBatchResultErrorEntry(entry, context);
+    });
+};
+
 const deserializeAws_queryCheckIfPhoneNumberIsOptedOutResponse = (
   output: any,
   context: __SerdeContext
@@ -5355,6 +5781,19 @@ const deserializeAws_queryDeleteSMSSandboxPhoneNumberResult = (
   context: __SerdeContext
 ): DeleteSMSSandboxPhoneNumberResult => {
   const contents: any = {};
+  return contents;
+};
+
+const deserializeAws_queryEmptyBatchRequestException = (
+  output: any,
+  context: __SerdeContext
+): EmptyBatchRequestException => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
   return contents;
 };
 
@@ -5513,6 +5952,19 @@ const deserializeAws_queryGetTopicAttributesResponse = (
 };
 
 const deserializeAws_queryInternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidBatchEntryIdException = (
+  output: any,
+  context: __SerdeContext
+): InvalidBatchEntryIdException => {
   const contents: any = {
     message: undefined,
   };
@@ -5994,6 +6446,64 @@ const deserializeAws_queryPlatformApplicationDisabledException = (
   return contents;
 };
 
+const deserializeAws_queryPublishBatchResponse = (output: any, context: __SerdeContext): PublishBatchResponse => {
+  const contents: any = {
+    Successful: undefined,
+    Failed: undefined,
+  };
+  if (output.Successful === "") {
+    contents.Successful = [];
+  }
+  if (output["Successful"] !== undefined && output["Successful"]["member"] !== undefined) {
+    contents.Successful = deserializeAws_queryPublishBatchResultEntryList(
+      __getArrayIfSingleItem(output["Successful"]["member"]),
+      context
+    );
+  }
+  if (output.Failed === "") {
+    contents.Failed = [];
+  }
+  if (output["Failed"] !== undefined && output["Failed"]["member"] !== undefined) {
+    contents.Failed = deserializeAws_queryBatchResultErrorEntryList(
+      __getArrayIfSingleItem(output["Failed"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryPublishBatchResultEntry = (output: any, context: __SerdeContext): PublishBatchResultEntry => {
+  const contents: any = {
+    Id: undefined,
+    MessageId: undefined,
+    SequenceNumber: undefined,
+  };
+  if (output["Id"] !== undefined) {
+    contents.Id = __expectString(output["Id"]);
+  }
+  if (output["MessageId"] !== undefined) {
+    contents.MessageId = __expectString(output["MessageId"]);
+  }
+  if (output["SequenceNumber"] !== undefined) {
+    contents.SequenceNumber = __expectString(output["SequenceNumber"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryPublishBatchResultEntryList = (
+  output: any,
+  context: __SerdeContext
+): PublishBatchResultEntry[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryPublishBatchResultEntry(entry, context);
+    });
+};
+
 const deserializeAws_queryPublishResponse = (output: any, context: __SerdeContext): PublishResponse => {
   const contents: any = {
     MessageId: undefined,
@@ -6196,6 +6706,19 @@ const deserializeAws_queryTagResourceResponse = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryThrottledException = (output: any, context: __SerdeContext): ThrottledException => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryTooManyEntriesInBatchRequestException = (
+  output: any,
+  context: __SerdeContext
+): TooManyEntriesInBatchRequestException => {
   const contents: any = {
     message: undefined,
   };

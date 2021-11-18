@@ -22,9 +22,8 @@ export interface ListAnomaliesForInsightCommandInput extends ListAnomaliesForIns
 export interface ListAnomaliesForInsightCommandOutput extends ListAnomaliesForInsightResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    		Returns a list of the anomalies that belong to an insight that you specify using its ID.
- *    	</p>
+ * <p> Returns a list of the anomalies that belong to an insight that you specify using its
+ * 			ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

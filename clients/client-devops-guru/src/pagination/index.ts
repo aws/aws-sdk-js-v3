@@ -1,3 +1,4 @@
+export * from "./DescribeOrganizationResourceCollectionHealthPaginator";
 export * from "./DescribeResourceCollectionHealthPaginator";
 export * from "./GetCostEstimationPaginator";
 export * from "./GetResourceCollectionPaginator";
@@ -6,5 +7,7 @@ export * from "./ListAnomaliesForInsightPaginator";
 export * from "./ListEventsPaginator";
 export * from "./ListInsightsPaginator";
 export * from "./ListNotificationChannelsPaginator";
+export * from "./ListOrganizationInsightsPaginator";
 export * from "./ListRecommendationsPaginator";
 export * from "./SearchInsightsPaginator";
+export * from "./SearchOrganizationInsightsPaginator";

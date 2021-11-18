@@ -134,6 +134,11 @@ import {
   DescribeAgentStatusCommandOutput,
 } from "./commands/DescribeAgentStatusCommand";
 import {
+  DescribeContactCommand,
+  DescribeContactCommandInput,
+  DescribeContactCommandOutput,
+} from "./commands/DescribeContactCommand";
+import {
   DescribeContactFlowCommand,
   DescribeContactFlowCommandInput,
   DescribeContactFlowCommandOutput,
@@ -269,6 +274,11 @@ import {
   ListContactFlowsCommandInput,
   ListContactFlowsCommandOutput,
 } from "./commands/ListContactFlowsCommand";
+import {
+  ListContactReferencesCommand,
+  ListContactReferencesCommandInput,
+  ListContactReferencesCommandOutput,
+} from "./commands/ListContactReferencesCommand";
 import {
   ListHoursOfOperationsCommand,
   ListHoursOfOperationsCommandInput,
@@ -421,6 +431,11 @@ import {
   UpdateContactAttributesCommandOutput,
 } from "./commands/UpdateContactAttributesCommand";
 import {
+  UpdateContactCommand,
+  UpdateContactCommandInput,
+  UpdateContactCommandOutput,
+} from "./commands/UpdateContactCommand";
+import {
   UpdateContactFlowContentCommand,
   UpdateContactFlowContentCommandInput,
   UpdateContactFlowContentCommandOutput,
@@ -430,6 +445,11 @@ import {
   UpdateContactFlowNameCommandInput,
   UpdateContactFlowNameCommandOutput,
 } from "./commands/UpdateContactFlowNameCommand";
+import {
+  UpdateContactScheduleCommand,
+  UpdateContactScheduleCommandInput,
+  UpdateContactScheduleCommandOutput,
+} from "./commands/UpdateContactScheduleCommand";
 import {
   UpdateHoursOfOperationCommand,
   UpdateHoursOfOperationCommandInput,
@@ -553,7 +573,7 @@ import { ConnectClient } from "./ConnectClient";
  *     Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  *          <p>You can
  *    connect
- *    programmatically to an Amazon Web Services service by using an endpoint. For a list of Amazon Connect endpoints, see
+ *    programmatically to an AWS service by using an endpoint. For a list of Amazon Connect endpoints, see
  *     <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
  *    Endpoints</a>.</p>
  *          <note>
@@ -964,7 +984,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Creates an Amazon Web Services resource association with an Amazon Connect instance.</p>
+   * <p>Creates an AWS resource association with an Amazon Connect instance.</p>
    */
   public createIntegrationAssociation(
     args: CreateIntegrationAssociationCommandInput,
@@ -1280,7 +1300,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Deletes an Amazon Web Services resource association from an Amazon Connect instance. The association must not have
+   * <p>Deletes an AWS resource association from an Amazon Connect instance. The association must not have
    *    any use cases associated with it.</p>
    */
   public deleteIntegrationAssociation(
@@ -1494,6 +1514,42 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: DescribeAgentStatusCommandOutput) => void
   ): Promise<DescribeAgentStatusCommandOutput> | void {
     const command = new DescribeAgentStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Describes the specified contact. </p>
+   *          <important>
+   *             <p>Contact information is available in Amazon Connect for 24 months, and then it is deleted.</p>
+   *          </important>
+   */
+  public describeContact(
+    args: DescribeContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeContactCommandOutput>;
+  public describeContact(
+    args: DescribeContactCommandInput,
+    cb: (err: any, data?: DescribeContactCommandOutput) => void
+  ): void;
+  public describeContact(
+    args: DescribeContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeContactCommandOutput) => void
+  ): void;
+  public describeContact(
+    args: DescribeContactCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeContactCommandOutput) => void),
+    cb?: (err: any, data?: DescribeContactCommandOutput) => void
+  ): Promise<DescribeContactCommandOutput> | void {
+    const command = new DescribeContactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2374,8 +2430,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the
-   *    instance. </p>
+   *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently
+   *    associated with the instance. </p>
    */
   public listBots(args: ListBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListBotsCommandOutput>;
   public listBots(args: ListBotsCommandInput, cb: (err: any, data?: ListBotsCommandOutput) => void): void;
@@ -2426,6 +2482,40 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: ListContactFlowsCommandOutput) => void
   ): Promise<ListContactFlowsCommandOutput> | void {
     const command = new ListContactFlowsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>For the specified <code>referenceTypes</code>, returns a list of references associated with
+   *    the contact. </p>
+   */
+  public listContactReferences(
+    args: ListContactReferencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContactReferencesCommandOutput>;
+  public listContactReferences(
+    args: ListContactReferencesCommandInput,
+    cb: (err: any, data?: ListContactReferencesCommandOutput) => void
+  ): void;
+  public listContactReferences(
+    args: ListContactReferencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListContactReferencesCommandOutput) => void
+  ): void;
+  public listContactReferences(
+    args: ListContactReferencesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListContactReferencesCommandOutput) => void),
+    cb?: (err: any, data?: ListContactReferencesCommandOutput) => void
+  ): Promise<ListContactReferencesCommandOutput> | void {
+    const command = new ListContactReferencesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2574,7 +2664,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Provides summary information about the Amazon Web Services resource associations for the specified Amazon Connect
+   * <p>Provides summary information about the AWS resource associations for the specified Amazon Connect
    *    instance.</p>
    */
   public listIntegrationAssociations(
@@ -2959,8 +3049,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Provides summary information about the security profiles for the specified Amazon Connect
+   * <p>Provides summary information about the security profiles for the specified Amazon Connect
    *    instance.</p>
    *          <p>For more information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the
    *     <i>Amazon Connect Administrator Guide</i>.</p>
@@ -3247,7 +3336,7 @@ export class Connect extends ConnectClient {
   /**
    * <p> Initiates real-time message streaming for a new chat contact.</p>
    *          <p> For more information about message streaming, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat message
-   *    streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *     streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public startContactStreaming(
     args: StartContactStreamingCommandInput,
@@ -3295,8 +3384,9 @@ export class Connect extends ConnectClient {
    *          </note>
    *          <note>
    *             <p>Campaign calls are not allowed by default. Before you can make a call with
-   *     <code>TrafficType</code> = <code>CAMPAIGN</code>, you must submit a service quota increase request. For more information, see
-   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+   *      <code>TrafficType</code> = <code>CAMPAIGN</code>, you must submit a service quota increase
+   *     request. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a>
+   *     in the <i>Amazon Connect Administrator Guide</i>. </p>
    *          </note>
    */
   public startOutboundVoiceContact(
@@ -3329,7 +3419,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Initiates a contact flow to start a new task.</p>
+   * <p>Initiates a contact flow to start a new task immediately or at a future date and
+   *    time.</p>
    */
   public startTaskContact(
     args: StartTaskContactCommandInput,
@@ -3497,8 +3588,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Adds the specified tags to the specified resource.</p>
-   *          <p>The supported resource types are users, routing profiles, queues, quick connects,
-   *    contact flows, agent status, and hours of operation.</p>
+   *          <p>The supported resource types are users, routing profiles, queues, quick connects, contact
+   *    flows, agent status, and hours of operation.</p>
    *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based
    *     Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
@@ -3580,6 +3671,44 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: UpdateAgentStatusCommandOutput) => void
   ): Promise<UpdateAgentStatusCommandOutput> | void {
     const command = new UpdateAgentStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Adds or updates user defined contact information associated with the specified contact. At
+   *    least one field to be updated must be present in the request.</p>
+   *          <important>
+   *             <p>You can add or update user-defined contact information for both ongoing and completed
+   *     contacts.</p>
+   *          </important>
+   */
+  public updateContact(
+    args: UpdateContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContactCommandOutput>;
+  public updateContact(
+    args: UpdateContactCommandInput,
+    cb: (err: any, data?: UpdateContactCommandOutput) => void
+  ): void;
+  public updateContact(
+    args: UpdateContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateContactCommandOutput) => void
+  ): void;
+  public updateContact(
+    args: UpdateContactCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateContactCommandOutput) => void),
+    cb?: (err: any, data?: UpdateContactCommandOutput) => void
+  ): Promise<UpdateContactCommandOutput> | void {
+    const command = new UpdateContactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3699,6 +3828,38 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: UpdateContactFlowNameCommandOutput) => void
   ): Promise<UpdateContactFlowNameCommandOutput> | void {
     const command = new UpdateContactFlowNameCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the scheduled time of a task contact that is already scheduled.</p>
+   */
+  public updateContactSchedule(
+    args: UpdateContactScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContactScheduleCommandOutput>;
+  public updateContactSchedule(
+    args: UpdateContactScheduleCommandInput,
+    cb: (err: any, data?: UpdateContactScheduleCommandOutput) => void
+  ): void;
+  public updateContactSchedule(
+    args: UpdateContactScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateContactScheduleCommandOutput) => void
+  ): void;
+  public updateContactSchedule(
+    args: UpdateContactScheduleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateContactScheduleCommandOutput) => void),
+    cb?: (err: any, data?: UpdateContactScheduleCommandOutput) => void
+  ): Promise<UpdateContactScheduleCommandOutput> | void {
+    const command = new UpdateContactScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

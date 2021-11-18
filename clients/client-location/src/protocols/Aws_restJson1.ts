@@ -4,6 +4,7 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
@@ -183,6 +184,7 @@ import {
   ServiceQuotaExceededException,
   Step,
   ThrottlingException,
+  TimeZone,
   TruckDimensions,
   TruckWeight,
   ValidationException,
@@ -1910,6 +1912,7 @@ export const serializeAws_restJson1SearchPlaceIndexForPositionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.Language !== undefined && input.Language !== null && { Language: input.Language }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.Position !== undefined &&
       input.Position !== null && { Position: serializeAws_restJson1Position(input.Position, context) }),
@@ -1962,6 +1965,7 @@ export const serializeAws_restJson1SearchPlaceIndexForTextCommand = async (
       input.FilterCountries !== null && {
         FilterCountries: serializeAws_restJson1CountryCodeList(input.FilterCountries, context),
       }),
+    ...(input.Language !== undefined && input.Language !== null && { Language: input.Language }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.Text !== undefined && input.Text !== null && { Text: input.Text }),
   });
@@ -7877,6 +7881,7 @@ const deserializeAws_restJson1Place = (output: any, context: __SerdeContext): Pl
       output.Geometry !== undefined && output.Geometry !== null
         ? deserializeAws_restJson1PlaceGeometry(output.Geometry, context)
         : undefined,
+    Interpolated: __expectBoolean(output.Interpolated),
     Label: __expectString(output.Label),
     Municipality: __expectString(output.Municipality),
     Neighborhood: __expectString(output.Neighborhood),
@@ -7884,6 +7889,10 @@ const deserializeAws_restJson1Place = (output: any, context: __SerdeContext): Pl
     Region: __expectString(output.Region),
     Street: __expectString(output.Street),
     SubRegion: __expectString(output.SubRegion),
+    TimeZone:
+      output.TimeZone !== undefined && output.TimeZone !== null
+        ? deserializeAws_restJson1TimeZone(output.TimeZone, context)
+        : undefined,
   } as any;
 };
 
@@ -7912,6 +7921,7 @@ const deserializeAws_restJson1SearchForPositionResult = (
   context: __SerdeContext
 ): SearchForPositionResult => {
   return {
+    Distance: __limitedParseDouble(output.Distance),
     Place:
       output.Place !== undefined && output.Place !== null
         ? deserializeAws_restJson1Place(output.Place, context)
@@ -7935,10 +7945,12 @@ const deserializeAws_restJson1SearchForPositionResultList = (
 
 const deserializeAws_restJson1SearchForTextResult = (output: any, context: __SerdeContext): SearchForTextResult => {
   return {
+    Distance: __limitedParseDouble(output.Distance),
     Place:
       output.Place !== undefined && output.Place !== null
         ? deserializeAws_restJson1Place(output.Place, context)
         : undefined,
+    Relevance: __limitedParseDouble(output.Relevance),
   } as any;
 };
 
@@ -7962,6 +7974,7 @@ const deserializeAws_restJson1SearchPlaceIndexForPositionSummary = (
 ): SearchPlaceIndexForPositionSummary => {
   return {
     DataSource: __expectString(output.DataSource),
+    Language: __expectString(output.Language),
     MaxResults: __expectInt32(output.MaxResults),
     Position:
       output.Position !== undefined && output.Position !== null
@@ -7988,6 +8001,7 @@ const deserializeAws_restJson1SearchPlaceIndexForTextSummary = (
       output.FilterCountries !== undefined && output.FilterCountries !== null
         ? deserializeAws_restJson1CountryCodeList(output.FilterCountries, context)
         : undefined,
+    Language: __expectString(output.Language),
     MaxResults: __expectInt32(output.MaxResults),
     ResultBBox:
       output.ResultBBox !== undefined && output.ResultBBox !== null
@@ -8034,6 +8048,13 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1TimeZone = (output: any, context: __SerdeContext): TimeZone => {
+  return {
+    Name: __expectString(output.Name),
+    Offset: __expectInt32(output.Offset),
+  } as any;
 };
 
 const deserializeAws_restJson1ValidationExceptionField = (

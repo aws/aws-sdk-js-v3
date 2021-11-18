@@ -22,10 +22,9 @@ export interface DescribeAccountOverviewCommandInput extends DescribeAccountOver
 export interface DescribeAccountOverviewCommandOutput extends DescribeAccountOverviewResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    		For the time range passed in, returns the number of open reactive insight that were created, the number of open proactive insights
- *    		that were created, and the Mean Time to Recover (MTTR) for all closed reactive insights.
- *    	</p>
+ * <p> For the time range passed in, returns the number of open reactive insight that were
+ * 			created, the number of open proactive insights that were created, and the Mean Time to Recover (MTTR) for all
+ * 			closed reactive insights. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
