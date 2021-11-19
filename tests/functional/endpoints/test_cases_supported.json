@@ -11189,7 +11189,7 @@
     "region": "us-gov-east-1",
     "useFipsEndpoint": true,
     "useDualstackEndpoint": false,
-    "hostname": "streams.dynamodb-fips.us-gov-east-1.amazonaws.com"
+    "hostname": "streams.dynamodb.us-gov-east-1.amazonaws.com"
   },
   {
     "endpointPrefix": "streams.dynamodb",
