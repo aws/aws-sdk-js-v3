@@ -126,6 +126,7 @@ import {
   DescribeAgentStatusCommandInput,
   DescribeAgentStatusCommandOutput,
 } from "./commands/DescribeAgentStatusCommand";
+import { DescribeContactCommandInput, DescribeContactCommandOutput } from "./commands/DescribeContactCommand";
 import {
   DescribeContactFlowCommandInput,
   DescribeContactFlowCommandOutput,
@@ -208,6 +209,10 @@ import {
 } from "./commands/ListApprovedOriginsCommand";
 import { ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
 import { ListContactFlowsCommandInput, ListContactFlowsCommandOutput } from "./commands/ListContactFlowsCommand";
+import {
+  ListContactReferencesCommandInput,
+  ListContactReferencesCommandOutput,
+} from "./commands/ListContactReferencesCommand";
 import {
   ListHoursOfOperationsCommandInput,
   ListHoursOfOperationsCommandOutput,
@@ -303,6 +308,7 @@ import {
   UpdateContactAttributesCommandInput,
   UpdateContactAttributesCommandOutput,
 } from "./commands/UpdateContactAttributesCommand";
+import { UpdateContactCommandInput, UpdateContactCommandOutput } from "./commands/UpdateContactCommand";
 import {
   UpdateContactFlowContentCommandInput,
   UpdateContactFlowContentCommandOutput,
@@ -311,6 +317,10 @@ import {
   UpdateContactFlowNameCommandInput,
   UpdateContactFlowNameCommandOutput,
 } from "./commands/UpdateContactFlowNameCommand";
+import {
+  UpdateContactScheduleCommandInput,
+  UpdateContactScheduleCommandOutput,
+} from "./commands/UpdateContactScheduleCommand";
 import {
   UpdateHoursOfOperationCommandInput,
   UpdateHoursOfOperationCommandOutput,
@@ -425,6 +435,7 @@ export type ServiceInputTypes =
   | DeleteUserCommandInput
   | DeleteUserHierarchyGroupCommandInput
   | DescribeAgentStatusCommandInput
+  | DescribeContactCommandInput
   | DescribeContactFlowCommandInput
   | DescribeHoursOfOperationCommandInput
   | DescribeInstanceAttributeCommandInput
@@ -453,6 +464,7 @@ export type ServiceInputTypes =
   | ListApprovedOriginsCommandInput
   | ListBotsCommandInput
   | ListContactFlowsCommandInput
+  | ListContactReferencesCommandInput
   | ListHoursOfOperationsCommandInput
   | ListInstanceAttributesCommandInput
   | ListInstanceStorageConfigsCommandInput
@@ -488,8 +500,10 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAgentStatusCommandInput
   | UpdateContactAttributesCommandInput
+  | UpdateContactCommandInput
   | UpdateContactFlowContentCommandInput
   | UpdateContactFlowNameCommandInput
+  | UpdateContactScheduleCommandInput
   | UpdateHoursOfOperationCommandInput
   | UpdateInstanceAttributeCommandInput
   | UpdateInstanceStorageConfigCommandInput
@@ -543,6 +557,7 @@ export type ServiceOutputTypes =
   | DeleteUserCommandOutput
   | DeleteUserHierarchyGroupCommandOutput
   | DescribeAgentStatusCommandOutput
+  | DescribeContactCommandOutput
   | DescribeContactFlowCommandOutput
   | DescribeHoursOfOperationCommandOutput
   | DescribeInstanceAttributeCommandOutput
@@ -571,6 +586,7 @@ export type ServiceOutputTypes =
   | ListApprovedOriginsCommandOutput
   | ListBotsCommandOutput
   | ListContactFlowsCommandOutput
+  | ListContactReferencesCommandOutput
   | ListHoursOfOperationsCommandOutput
   | ListInstanceAttributesCommandOutput
   | ListInstanceStorageConfigsCommandOutput
@@ -606,8 +622,10 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAgentStatusCommandOutput
   | UpdateContactAttributesCommandOutput
+  | UpdateContactCommandOutput
   | UpdateContactFlowContentCommandOutput
   | UpdateContactFlowNameCommandOutput
+  | UpdateContactScheduleCommandOutput
   | UpdateHoursOfOperationCommandOutput
   | UpdateInstanceAttributeCommandOutput
   | UpdateInstanceStorageConfigCommandOutput
@@ -790,7 +808,7 @@ export interface ConnectClientResolvedConfig extends ConnectClientResolvedConfig
  *     Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  *          <p>You can
  *    connect
- *    programmatically to an Amazon Web Services service by using an endpoint. For a list of Amazon Connect endpoints, see
+ *    programmatically to an AWS service by using an endpoint. For a list of Amazon Connect endpoints, see
  *     <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
  *    Endpoints</a>.</p>
  *          <note>

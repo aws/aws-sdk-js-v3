@@ -307,6 +307,7 @@ import {
   WAFInvalidPermissionPolicyException,
   WAFInvalidResourceException,
   WAFLimitsExceededException,
+  WAFLogDestinationPermissionIssueException,
   WAFNonexistentItemException,
   WAFOptimisticLockException,
   WAFServiceLinkedRoleErrorException,
@@ -4015,6 +4016,14 @@ const deserializeAws_json1_1PutLoggingConfigurationCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "WAFLogDestinationPermissionIssueException":
+    case "com.amazonaws.wafv2#WAFLogDestinationPermissionIssueException":
+      response = {
+        ...(await deserializeAws_json1_1WAFLogDestinationPermissionIssueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafv2#WAFNonexistentItemException":
       response = {
@@ -5086,6 +5095,21 @@ const deserializeAws_json1_1WAFLimitsExceededExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1WAFLimitsExceededException(body, context);
   const contents: WAFLimitsExceededException = {
     name: "WAFLimitsExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1WAFLogDestinationPermissionIssueExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<WAFLogDestinationPermissionIssueException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1WAFLogDestinationPermissionIssueException(body, context);
+  const contents: WAFLogDestinationPermissionIssueException = {
+    name: "WAFLogDestinationPermissionIssueException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -8370,6 +8394,15 @@ const deserializeAws_json1_1WAFLimitsExceededException = (
   output: any,
   context: __SerdeContext
 ): WAFLimitsExceededException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1WAFLogDestinationPermissionIssueException = (
+  output: any,
+  context: __SerdeContext
+): WAFLogDestinationPermissionIssueException => {
   return {
     Message: __expectString(output.Message),
   } as any;

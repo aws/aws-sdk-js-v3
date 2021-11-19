@@ -1635,6 +1635,7 @@ export enum ParameterExceptionField {
   JSON_MATCH_SCOPE = "JSON_MATCH_SCOPE",
   LABEL_MATCH_STATEMENT = "LABEL_MATCH_STATEMENT",
   LOGGING_FILTER = "LOGGING_FILTER",
+  LOG_DESTINATION = "LOG_DESTINATION",
   MANAGED_RULE_SET = "MANAGED_RULE_SET",
   MANAGED_RULE_SET_STATEMENT = "MANAGED_RULE_SET_STATEMENT",
   METRIC_NAME = "METRIC_NAME",
@@ -3480,10 +3481,13 @@ export namespace LoggingFilter {
 }
 
 /**
- * <p>Defines an association between Amazon Kinesis Data Firehose destinations and a web ACL
+ * <p>Defines an association between logging destinations and a web ACL
  *          resource, for logging from WAF. As part of the association, you can specify parts of
  *          the standard logging fields to keep out of the logs and you can specify filters so that you
  *          log only a subset of the logging records. </p>
+ *          <p>For information about configuring web ACL logging destinations, see
+ *            <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging web ACL traffic information</a>
+ *                in the <i>WAF Developer Guide</i>.</p>
  */
 export interface LoggingConfiguration {
   /**
@@ -3493,14 +3497,14 @@ export interface LoggingConfiguration {
   ResourceArn: string | undefined;
 
   /**
-   * <p>The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate
+   * <p>The Amazon Resource Names (ARNs) of the logging destinations that you want to associate
    *          with the web ACL.</p>
    */
   LogDestinationConfigs: string[] | undefined;
 
   /**
    * <p>The parts of the request that you want to keep out of the logs. For
-   *           example, if you redact the <code>SingleHeader</code> field, the <code>HEADER</code> field in the firehose will be <code>xxx</code>. </p>
+   *           example, if you redact the <code>SingleHeader</code> field, the <code>HEADER</code> field in the logs will be <code>xxx</code>. </p>
    *          <note>
    *            <p>You can specify only the following fields for redaction: <code>UriPath</code>, <code>QueryString</code>, <code>SingleHeader</code>, <code>Method</code>, and <code>JsonBody</code>.</p>
    *          </note>
@@ -5165,6 +5169,26 @@ export namespace PutLoggingConfigurationResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: PutLoggingConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The operation failed because you don't have the permissions that your logging configuration requires. For information, see
+ *            <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging web ACL traffic information</a>
+ *                in the <i>WAF Developer Guide</i>.</p>
+ */
+export interface WAFLogDestinationPermissionIssueException extends __SmithyException, $MetadataBearer {
+  name: "WAFLogDestinationPermissionIssueException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace WAFLogDestinationPermissionIssueException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WAFLogDestinationPermissionIssueException): any => ({
     ...obj,
   });
 }

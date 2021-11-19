@@ -6,6 +6,7 @@ import {
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
@@ -97,6 +98,7 @@ import {
   DescribeAgentStatusCommandInput,
   DescribeAgentStatusCommandOutput,
 } from "../commands/DescribeAgentStatusCommand";
+import { DescribeContactCommandInput, DescribeContactCommandOutput } from "../commands/DescribeContactCommand";
 import {
   DescribeContactFlowCommandInput,
   DescribeContactFlowCommandOutput,
@@ -179,6 +181,10 @@ import {
 } from "../commands/ListApprovedOriginsCommand";
 import { ListBotsCommandInput, ListBotsCommandOutput } from "../commands/ListBotsCommand";
 import { ListContactFlowsCommandInput, ListContactFlowsCommandOutput } from "../commands/ListContactFlowsCommand";
+import {
+  ListContactReferencesCommandInput,
+  ListContactReferencesCommandOutput,
+} from "../commands/ListContactReferencesCommand";
 import {
   ListHoursOfOperationsCommandInput,
   ListHoursOfOperationsCommandOutput,
@@ -274,6 +280,7 @@ import {
   UpdateContactAttributesCommandInput,
   UpdateContactAttributesCommandOutput,
 } from "../commands/UpdateContactAttributesCommand";
+import { UpdateContactCommandInput, UpdateContactCommandOutput } from "../commands/UpdateContactCommand";
 import {
   UpdateContactFlowContentCommandInput,
   UpdateContactFlowContentCommandOutput,
@@ -282,6 +289,10 @@ import {
   UpdateContactFlowNameCommandInput,
   UpdateContactFlowNameCommandOutput,
 } from "../commands/UpdateContactFlowNameCommand";
+import {
+  UpdateContactScheduleCommandInput,
+  UpdateContactScheduleCommandOutput,
+} from "../commands/UpdateContactScheduleCommand";
 import {
   UpdateHoursOfOperationCommandInput,
   UpdateHoursOfOperationCommandOutput,
@@ -366,13 +377,16 @@ import {
 } from "../commands/UpdateUserSecurityProfilesCommand";
 import {
   AccessDeniedException,
+  AgentInfo,
   AgentStatus,
   AgentStatusSummary,
   AnswerMachineDetectionConfig,
+  AttachmentReference,
   Attribute,
   Channel,
   ChatMessage,
   ChatStreamingConfiguration,
+  Contact,
   ContactFlow,
   ContactFlowNotPublishedException,
   ContactFlowSummary,
@@ -390,10 +404,8 @@ import {
   HierarchyGroup,
   HierarchyGroupSummary,
   HierarchyLevel,
-  HierarchyLevelUpdate,
   HierarchyPath,
   HierarchyStructure,
-  HierarchyStructureUpdate,
   HistoricalMetric,
   HistoricalMetricData,
   HistoricalMetricResult,
@@ -426,6 +438,7 @@ import {
   ProblemDetail,
   PromptSummary,
   Queue,
+  QueueInfo,
   QueueQuickConnectConfig,
   QueueReference,
   QueueSummary,
@@ -433,6 +446,7 @@ import {
   QuickConnectConfig,
   QuickConnectSummary,
   Reference,
+  ReferenceSummary,
   ResourceConflictException,
   ResourceInUseException,
   ResourceNotFoundException,
@@ -448,6 +462,7 @@ import {
   ServiceQuotaExceededException,
   Threshold,
   ThrottlingException,
+  UrlReference,
   UseCase,
   User,
   UserIdentityInfo,
@@ -457,6 +472,7 @@ import {
   UserSummary,
   VoiceRecordingConfiguration,
 } from "../models/models_0";
+import { HierarchyLevelUpdate, HierarchyStructureUpdate } from "../models/models_1";
 
 export const serializeAws_restJson1AssociateApprovedOriginCommand = async (
   input: AssociateApprovedOriginCommandInput,
@@ -1605,6 +1621,44 @@ export const serializeAws_restJson1DescribeAgentStatusCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeContactCommand = async (
+  input: DescribeContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contacts/{InstanceId}/{ContactId}";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.ContactId !== undefined) {
+    const labelValue: string = input.ContactId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ContactId.");
+    }
+    resolvedPath = resolvedPath.replace("{ContactId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ContactId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeContactFlowCommand = async (
   input: DescribeContactFlowCommandInput,
   context: __SerdeContext
@@ -2668,6 +2722,52 @@ export const serializeAws_restJson1ListContactFlowsCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListContactReferencesCommand = async (
+  input: ListContactReferencesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/contact/references/{InstanceId}/{ContactId}";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.ContactId !== undefined) {
+    const labelValue: string = input.ContactId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ContactId.");
+    }
+    resolvedPath = resolvedPath.replace("{ContactId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ContactId.");
+  }
+  const query: any = {
+    ...(input.ReferenceTypes !== undefined && {
+      referenceTypes: (input.ReferenceTypes || []).map((_entry) => _entry as any),
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListHoursOfOperationsCommand = async (
   input: ListHoursOfOperationsCommandInput,
   context: __SerdeContext
@@ -3618,6 +3718,8 @@ export const serializeAws_restJson1StartTaskContactCommand = async (
       input.PreviousContactId !== null && { PreviousContactId: input.PreviousContactId }),
     ...(input.References !== undefined &&
       input.References !== null && { References: serializeAws_restJson1ContactReferences(input.References, context) }),
+    ...(input.ScheduledTime !== undefined &&
+      input.ScheduledTime !== null && { ScheduledTime: Math.round(input.ScheduledTime.getTime() / 1000) }),
   });
   return new __HttpRequest({
     protocol,
@@ -3852,6 +3954,52 @@ export const serializeAws_restJson1UpdateAgentStatusCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateContactCommand = async (
+  input: UpdateContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contacts/{InstanceId}/{ContactId}";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.ContactId !== undefined) {
+    const labelValue: string = input.ContactId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ContactId.");
+    }
+    resolvedPath = resolvedPath.replace("{ContactId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ContactId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.References !== undefined &&
+      input.References !== null && { References: serializeAws_restJson1ContactReferences(input.References, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateContactAttributesCommand = async (
   input: UpdateContactAttributesCommandInput,
   context: __SerdeContext
@@ -3957,6 +4105,33 @@ export const serializeAws_restJson1UpdateContactFlowNameCommand = async (
   body = JSON.stringify({
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateContactScheduleCommand = async (
+  input: UpdateContactScheduleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/schedule";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ContactId !== undefined && input.ContactId !== null && { ContactId: input.ContactId }),
+    ...(input.InstanceId !== undefined && input.InstanceId !== null && { InstanceId: input.InstanceId }),
+    ...(input.ScheduledTime !== undefined &&
+      input.ScheduledTime !== null && { ScheduledTime: Math.round(input.ScheduledTime.getTime() / 1000) }),
   });
   return new __HttpRequest({
     protocol,
@@ -7720,6 +7895,93 @@ const deserializeAws_restJson1DescribeAgentStatusCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeContactCommandError(output, context);
+  }
+  const contents: DescribeContactCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Contact: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Contact !== undefined && data.Contact !== null) {
+    contents.Contact = deserializeAws_restJson1Contact(data.Contact, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeContactCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeContactCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribeContactFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -10061,6 +10323,97 @@ const deserializeAws_restJson1ListContactFlowsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListContactFlowsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListContactReferencesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListContactReferencesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListContactReferencesCommandError(output, context);
+  }
+  const contents: ListContactReferencesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    NextToken: undefined,
+    ReferenceSummaryList: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.ReferenceSummaryList !== undefined && data.ReferenceSummaryList !== null) {
+    contents.ReferenceSummaryList = deserializeAws_restJson1ReferenceSummaryList(data.ReferenceSummaryList, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListContactReferencesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListContactReferencesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -13099,6 +13452,89 @@ const deserializeAws_restJson1UpdateAgentStatusCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateContactCommandError(output, context);
+  }
+  const contents: UpdateContactCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateContactCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContactCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateContactAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -13319,6 +13755,97 @@ const deserializeAws_restJson1UpdateContactFlowNameCommandError = async (
     case "com.amazonaws.connect#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateContactScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContactScheduleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateContactScheduleCommandError(output, context);
+  }
+  const contents: UpdateContactScheduleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateContactScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContactScheduleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.connect#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -16021,6 +16548,16 @@ const serializeAws_restJson1VoiceRecordingConfiguration = (
   };
 };
 
+const deserializeAws_restJson1AgentInfo = (output: any, context: __SerdeContext): AgentInfo => {
+  return {
+    ConnectedToAgentTimestamp:
+      output.ConnectedToAgentTimestamp !== undefined && output.ConnectedToAgentTimestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ConnectedToAgentTimestamp)))
+        : undefined,
+    Id: __expectString(output.Id),
+  } as any;
+};
+
 const deserializeAws_restJson1AgentStatus = (output: any, context: __SerdeContext): AgentStatus => {
   return {
     AgentStatusARN: __expectString(output.AgentStatusARN),
@@ -16057,6 +16594,14 @@ const deserializeAws_restJson1AgentStatusSummaryList = (output: any, context: __
     });
 };
 
+const deserializeAws_restJson1AttachmentReference = (output: any, context: __SerdeContext): AttachmentReference => {
+  return {
+    Name: __expectString(output.Name),
+    Status: __expectString(output.Status),
+    Value: __expectString(output.Value),
+  } as any;
+};
+
 const deserializeAws_restJson1Attribute = (output: any, context: __SerdeContext): Attribute => {
   return {
     AttributeType: __expectString(output.AttributeType),
@@ -16085,6 +16630,43 @@ const deserializeAws_restJson1AttributesList = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1Attribute(entry, context);
     });
+};
+
+const deserializeAws_restJson1Contact = (output: any, context: __SerdeContext): Contact => {
+  return {
+    AgentInfo:
+      output.AgentInfo !== undefined && output.AgentInfo !== null
+        ? deserializeAws_restJson1AgentInfo(output.AgentInfo, context)
+        : undefined,
+    Arn: __expectString(output.Arn),
+    Channel: __expectString(output.Channel),
+    Description: __expectString(output.Description),
+    DisconnectTimestamp:
+      output.DisconnectTimestamp !== undefined && output.DisconnectTimestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DisconnectTimestamp)))
+        : undefined,
+    Id: __expectString(output.Id),
+    InitialContactId: __expectString(output.InitialContactId),
+    InitiationMethod: __expectString(output.InitiationMethod),
+    InitiationTimestamp:
+      output.InitiationTimestamp !== undefined && output.InitiationTimestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.InitiationTimestamp)))
+        : undefined,
+    LastUpdateTimestamp:
+      output.LastUpdateTimestamp !== undefined && output.LastUpdateTimestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTimestamp)))
+        : undefined,
+    Name: __expectString(output.Name),
+    PreviousContactId: __expectString(output.PreviousContactId),
+    QueueInfo:
+      output.QueueInfo !== undefined && output.QueueInfo !== null
+        ? deserializeAws_restJson1QueueInfo(output.QueueInfo, context)
+        : undefined,
+    ScheduledTimestamp:
+      output.ScheduledTimestamp !== undefined && output.ScheduledTimestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ScheduledTimestamp)))
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1ContactFlow = (output: any, context: __SerdeContext): ContactFlow => {
@@ -16793,6 +17375,16 @@ const deserializeAws_restJson1Queue = (output: any, context: __SerdeContext): Qu
   } as any;
 };
 
+const deserializeAws_restJson1QueueInfo = (output: any, context: __SerdeContext): QueueInfo => {
+  return {
+    EnqueueTimestamp:
+      output.EnqueueTimestamp !== undefined && output.EnqueueTimestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EnqueueTimestamp)))
+        : undefined,
+    Id: __expectString(output.Id),
+  } as any;
+};
+
 const deserializeAws_restJson1QueueQuickConnectConfig = (
   output: any,
   context: __SerdeContext
@@ -16885,6 +17477,31 @@ const deserializeAws_restJson1QuickConnectSummaryList = (
         return null as any;
       }
       return deserializeAws_restJson1QuickConnectSummary(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ReferenceSummary = (output: any, context: __SerdeContext): ReferenceSummary => {
+  if (output.Attachment !== undefined && output.Attachment !== null) {
+    return {
+      Attachment: deserializeAws_restJson1AttachmentReference(output.Attachment, context),
+    };
+  }
+  if (output.Url !== undefined && output.Url !== null) {
+    return {
+      Url: deserializeAws_restJson1UrlReference(output.Url, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restJson1ReferenceSummaryList = (output: any, context: __SerdeContext): ReferenceSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ReferenceSummary(__expectUnion(entry), context);
     });
 };
 
@@ -17056,6 +17673,13 @@ const deserializeAws_restJson1Threshold = (output: any, context: __SerdeContext)
   return {
     Comparison: __expectString(output.Comparison),
     ThresholdValue: __limitedParseDouble(output.ThresholdValue),
+  } as any;
+};
+
+const deserializeAws_restJson1UrlReference = (output: any, context: __SerdeContext): UrlReference => {
+  return {
+    Name: __expectString(output.Name),
+    Value: __expectString(output.Value),
   } as any;
 };
 

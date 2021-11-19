@@ -1106,6 +1106,12 @@ export interface ModifySubnetAttributeRequest {
    *         <p>You must set this value when you specify <code>true</code> for <code>MapCustomerOwnedIpOnLaunch</code>.</p>
    */
   CustomerOwnedIpv4Pool?: string;
+
+  /**
+   * <p>Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet
+   *             should return synthetic IPv6 addresses for IPv4-only destinations.</p>
+   */
+  EnableDns64?: AttributeBooleanValue;
 }
 
 export namespace ModifySubnetAttributeRequest {

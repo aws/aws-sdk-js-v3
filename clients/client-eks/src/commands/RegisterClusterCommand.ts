@@ -30,7 +30,7 @@ export interface RegisterClusterCommandOutput extends RegisterClusterResponse, _
  *             </code> to add it to the Amazon EKS control plane.</p>
  *         <p>Second, a <a href="https://amazon-eks.s3.us-west-2.amazonaws.com/eks-connector/manifests/eks-connector/latest/eks-connector.yaml">Manifest</a> containing the <code>activationID</code> and <code>activationCode</code> must be applied to the Kubernetes cluster through it's native provider to provide visibility.</p>
  *
- *         <p>After the Manifest is updated and applied, then the connected cluster is visible to the Amazon EKS control plane. If the Manifest is not applied within a set amount of time,
+ *         <p>After the Manifest is updated and applied, then the connected cluster is visible to the Amazon EKS control plane. If the Manifest is not applied within three days,
  *             then the connected cluster will no longer be visible and must be deregistered. See <a>DeregisterCluster</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

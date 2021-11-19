@@ -22,10 +22,9 @@ export interface UpdateServiceIntegrationCommandInput extends UpdateServiceInteg
 export interface UpdateServiceIntegrationCommandOutput extends UpdateServiceIntegrationResponse, __MetadataBearer {}
 
 /**
- * <p>
- * 			Enables or disables integration with a service that can be integrated with DevOps Guru. The one service that can be integrated with
- * 			DevOps Guru is AWS Systems Manager, which can be used to create an OpsItem for each generated insight.
- * 		</p>
+ * <p> Enables or disables integration with a service that can be integrated with DevOps Guru. The
+ * 			one service that can be integrated with DevOps Guru is Amazon Web Services Systems Manager, which can be used to create
+ * 			an OpsItem for each generated insight. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

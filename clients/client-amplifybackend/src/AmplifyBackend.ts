@@ -26,6 +26,11 @@ import {
   CreateBackendConfigCommandInput,
   CreateBackendConfigCommandOutput,
 } from "./commands/CreateBackendConfigCommand";
+import {
+  CreateBackendStorageCommand,
+  CreateBackendStorageCommandInput,
+  CreateBackendStorageCommandOutput,
+} from "./commands/CreateBackendStorageCommand";
 import { CreateTokenCommand, CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
 import {
   DeleteBackendAPICommand,
@@ -42,6 +47,11 @@ import {
   DeleteBackendCommandInput,
   DeleteBackendCommandOutput,
 } from "./commands/DeleteBackendCommand";
+import {
+  DeleteBackendStorageCommand,
+  DeleteBackendStorageCommandInput,
+  DeleteBackendStorageCommandOutput,
+} from "./commands/DeleteBackendStorageCommand";
 import { DeleteTokenCommand, DeleteTokenCommandInput, DeleteTokenCommandOutput } from "./commands/DeleteTokenCommand";
 import {
   GenerateBackendAPIModelsCommand,
@@ -69,6 +79,11 @@ import {
   GetBackendJobCommandInput,
   GetBackendJobCommandOutput,
 } from "./commands/GetBackendJobCommand";
+import {
+  GetBackendStorageCommand,
+  GetBackendStorageCommandInput,
+  GetBackendStorageCommandOutput,
+} from "./commands/GetBackendStorageCommand";
 import { GetTokenCommand, GetTokenCommandInput, GetTokenCommandOutput } from "./commands/GetTokenCommand";
 import {
   ImportBackendAuthCommand,
@@ -76,10 +91,20 @@ import {
   ImportBackendAuthCommandOutput,
 } from "./commands/ImportBackendAuthCommand";
 import {
+  ImportBackendStorageCommand,
+  ImportBackendStorageCommandInput,
+  ImportBackendStorageCommandOutput,
+} from "./commands/ImportBackendStorageCommand";
+import {
   ListBackendJobsCommand,
   ListBackendJobsCommandInput,
   ListBackendJobsCommandOutput,
 } from "./commands/ListBackendJobsCommand";
+import {
+  ListS3BucketsCommand,
+  ListS3BucketsCommandInput,
+  ListS3BucketsCommandOutput,
+} from "./commands/ListS3BucketsCommand";
 import {
   RemoveAllBackendsCommand,
   RemoveAllBackendsCommandInput,
@@ -110,6 +135,11 @@ import {
   UpdateBackendJobCommandInput,
   UpdateBackendJobCommandOutput,
 } from "./commands/UpdateBackendJobCommand";
+import {
+  UpdateBackendStorageCommand,
+  UpdateBackendStorageCommandInput,
+  UpdateBackendStorageCommandOutput,
+} from "./commands/UpdateBackendStorageCommand";
 
 /**
  * <p>AWS Amplify Admin API</p>
@@ -273,6 +303,38 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * <p>Creates a backend storage resource.</p>
+   */
+  public createBackendStorage(
+    args: CreateBackendStorageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBackendStorageCommandOutput>;
+  public createBackendStorage(
+    args: CreateBackendStorageCommandInput,
+    cb: (err: any, data?: CreateBackendStorageCommandOutput) => void
+  ): void;
+  public createBackendStorage(
+    args: CreateBackendStorageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateBackendStorageCommandOutput) => void
+  ): void;
+  public createBackendStorage(
+    args: CreateBackendStorageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBackendStorageCommandOutput) => void),
+    cb?: (err: any, data?: CreateBackendStorageCommandOutput) => void
+  ): Promise<CreateBackendStorageCommandOutput> | void {
+    const command = new CreateBackendStorageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Generates a one-time challenge code to authenticate a user into your Amplify Admin UI.</p>
    */
   public createToken(args: CreateTokenCommandInput, options?: __HttpHandlerOptions): Promise<CreateTokenCommandOutput>;
@@ -384,6 +446,38 @@ export class AmplifyBackend extends AmplifyBackendClient {
     cb?: (err: any, data?: DeleteBackendAuthCommandOutput) => void
   ): Promise<DeleteBackendAuthCommandOutput> | void {
     const command = new DeleteBackendAuthCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes the specified backend storage resource.</p>
+   */
+  public deleteBackendStorage(
+    args: DeleteBackendStorageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBackendStorageCommandOutput>;
+  public deleteBackendStorage(
+    args: DeleteBackendStorageCommandInput,
+    cb: (err: any, data?: DeleteBackendStorageCommandOutput) => void
+  ): void;
+  public deleteBackendStorage(
+    args: DeleteBackendStorageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBackendStorageCommandOutput) => void
+  ): void;
+  public deleteBackendStorage(
+    args: DeleteBackendStorageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBackendStorageCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBackendStorageCommandOutput) => void
+  ): Promise<DeleteBackendStorageCommandOutput> | void {
+    const command = new DeleteBackendStorageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -607,6 +701,38 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * <p>Gets details for a backend storage resource.</p>
+   */
+  public getBackendStorage(
+    args: GetBackendStorageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBackendStorageCommandOutput>;
+  public getBackendStorage(
+    args: GetBackendStorageCommandInput,
+    cb: (err: any, data?: GetBackendStorageCommandOutput) => void
+  ): void;
+  public getBackendStorage(
+    args: GetBackendStorageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBackendStorageCommandOutput) => void
+  ): void;
+  public getBackendStorage(
+    args: GetBackendStorageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBackendStorageCommandOutput) => void),
+    cb?: (err: any, data?: GetBackendStorageCommandOutput) => void
+  ): Promise<GetBackendStorageCommandOutput> | void {
+    const command = new GetBackendStorageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets the challenge token based on the given appId and sessionId.</p>
    */
   public getToken(args: GetTokenCommandInput, options?: __HttpHandlerOptions): Promise<GetTokenCommandOutput>;
@@ -665,6 +791,38 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * <p>Imports an existing backend storage resource.</p>
+   */
+  public importBackendStorage(
+    args: ImportBackendStorageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportBackendStorageCommandOutput>;
+  public importBackendStorage(
+    args: ImportBackendStorageCommandInput,
+    cb: (err: any, data?: ImportBackendStorageCommandOutput) => void
+  ): void;
+  public importBackendStorage(
+    args: ImportBackendStorageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportBackendStorageCommandOutput) => void
+  ): void;
+  public importBackendStorage(
+    args: ImportBackendStorageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportBackendStorageCommandOutput) => void),
+    cb?: (err: any, data?: ImportBackendStorageCommandOutput) => void
+  ): Promise<ImportBackendStorageCommandOutput> | void {
+    const command = new ImportBackendStorageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the jobs for the backend of an Amplify app.</p>
    */
   public listBackendJobs(
@@ -686,6 +844,38 @@ export class AmplifyBackend extends AmplifyBackendClient {
     cb?: (err: any, data?: ListBackendJobsCommandOutput) => void
   ): Promise<ListBackendJobsCommandOutput> | void {
     const command = new ListBackendJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>The list of S3 buckets in your account.</p>
+   */
+  public listS3Buckets(
+    args: ListS3BucketsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListS3BucketsCommandOutput>;
+  public listS3Buckets(
+    args: ListS3BucketsCommandInput,
+    cb: (err: any, data?: ListS3BucketsCommandOutput) => void
+  ): void;
+  public listS3Buckets(
+    args: ListS3BucketsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListS3BucketsCommandOutput) => void
+  ): void;
+  public listS3Buckets(
+    args: ListS3BucketsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListS3BucketsCommandOutput) => void),
+    cb?: (err: any, data?: ListS3BucketsCommandOutput) => void
+  ): Promise<ListS3BucketsCommandOutput> | void {
+    const command = new ListS3BucketsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -878,6 +1068,38 @@ export class AmplifyBackend extends AmplifyBackendClient {
     cb?: (err: any, data?: UpdateBackendJobCommandOutput) => void
   ): Promise<UpdateBackendJobCommandOutput> | void {
     const command = new UpdateBackendJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an existing backend storage resource.</p>
+   */
+  public updateBackendStorage(
+    args: UpdateBackendStorageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBackendStorageCommandOutput>;
+  public updateBackendStorage(
+    args: UpdateBackendStorageCommandInput,
+    cb: (err: any, data?: UpdateBackendStorageCommandOutput) => void
+  ): void;
+  public updateBackendStorage(
+    args: UpdateBackendStorageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateBackendStorageCommandOutput) => void
+  ): void;
+  public updateBackendStorage(
+    args: UpdateBackendStorageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBackendStorageCommandOutput) => void),
+    cb?: (err: any, data?: UpdateBackendStorageCommandOutput) => void
+  ): Promise<UpdateBackendStorageCommandOutput> | void {
+    const command = new UpdateBackendStorageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

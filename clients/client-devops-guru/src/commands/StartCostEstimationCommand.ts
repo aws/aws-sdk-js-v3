@@ -22,7 +22,8 @@ export interface StartCostEstimationCommandInput extends StartCostEstimationRequ
 export interface StartCostEstimationCommandOutput extends StartCostEstimationResponse, __MetadataBearer {}
 
 /**
- * <p>Starts the creation of an estimate of the monthly cost to analyze your AWS resources.</p>
+ * <p>Starts the creation of an estimate of the monthly cost to analyze your Amazon Web Services
+ * 			resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

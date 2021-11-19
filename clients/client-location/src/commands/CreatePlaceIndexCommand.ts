@@ -22,8 +22,9 @@ export interface CreatePlaceIndexCommandInput extends CreatePlaceIndexRequest {}
 export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a place index resource in your AWS account, which supports functions with
- *          geospatial data sourced from your chosen data provider.</p>
+ * <p>Creates a place index resource in your AWS account. Use a place index resource to
+ *             geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation,
+ *             and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

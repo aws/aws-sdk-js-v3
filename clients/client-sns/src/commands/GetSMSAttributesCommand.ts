@@ -22,7 +22,7 @@ export interface GetSMSAttributesCommandInput extends GetSMSAttributesInput {}
 export interface GetSMSAttributesCommandOutput extends GetSMSAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the settings for sending SMS messages from your account.</p>
+ * <p>Returns the settings for sending SMS messages from your Amazon Web Services account.</p>
  *         <p>These settings are set with the <code>SetSMSAttributes</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

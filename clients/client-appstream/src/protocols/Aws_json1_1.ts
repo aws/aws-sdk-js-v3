@@ -3072,6 +3072,14 @@ const deserializeAws_json1_1DescribeUsersCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {

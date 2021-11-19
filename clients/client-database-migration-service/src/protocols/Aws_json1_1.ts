@@ -290,6 +290,7 @@ import {
   EventCategoryGroup,
   EventSubscription,
   Filter,
+  GcpMySQLSettings,
   IBMDb2Settings,
   ImportCertificateMessage,
   ImportCertificateResponse,
@@ -5301,6 +5302,10 @@ const serializeAws_json1_1CreateEndpointMessage = (input: CreateEndpointMessage,
       input.ExternalTableDefinition !== null && { ExternalTableDefinition: input.ExternalTableDefinition }),
     ...(input.ExtraConnectionAttributes !== undefined &&
       input.ExtraConnectionAttributes !== null && { ExtraConnectionAttributes: input.ExtraConnectionAttributes }),
+    ...(input.GcpMySQLSettings !== undefined &&
+      input.GcpMySQLSettings !== null && {
+        GcpMySQLSettings: serializeAws_json1_1GcpMySQLSettings(input.GcpMySQLSettings, context),
+      }),
     ...(input.IBMDb2Settings !== undefined &&
       input.IBMDb2Settings !== null && {
         IBMDb2Settings: serializeAws_json1_1IBMDb2Settings(input.IBMDb2Settings, context),
@@ -5925,6 +5930,34 @@ const serializeAws_json1_1FilterValueList = (input: string[], context: __SerdeCo
     });
 };
 
+const serializeAws_json1_1GcpMySQLSettings = (input: GcpMySQLSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.AfterConnectScript !== undefined &&
+      input.AfterConnectScript !== null && { AfterConnectScript: input.AfterConnectScript }),
+    ...(input.CleanSourceMetadataOnMismatch !== undefined &&
+      input.CleanSourceMetadataOnMismatch !== null && {
+        CleanSourceMetadataOnMismatch: input.CleanSourceMetadataOnMismatch,
+      }),
+    ...(input.DatabaseName !== undefined && input.DatabaseName !== null && { DatabaseName: input.DatabaseName }),
+    ...(input.EventsPollInterval !== undefined &&
+      input.EventsPollInterval !== null && { EventsPollInterval: input.EventsPollInterval }),
+    ...(input.MaxFileSize !== undefined && input.MaxFileSize !== null && { MaxFileSize: input.MaxFileSize }),
+    ...(input.ParallelLoadThreads !== undefined &&
+      input.ParallelLoadThreads !== null && { ParallelLoadThreads: input.ParallelLoadThreads }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
+    ...(input.SecretsManagerAccessRoleArn !== undefined &&
+      input.SecretsManagerAccessRoleArn !== null && { SecretsManagerAccessRoleArn: input.SecretsManagerAccessRoleArn }),
+    ...(input.SecretsManagerSecretId !== undefined &&
+      input.SecretsManagerSecretId !== null && { SecretsManagerSecretId: input.SecretsManagerSecretId }),
+    ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
+    ...(input.ServerTimezone !== undefined &&
+      input.ServerTimezone !== null && { ServerTimezone: input.ServerTimezone }),
+    ...(input.TargetDbType !== undefined && input.TargetDbType !== null && { TargetDbType: input.TargetDbType }),
+    ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
+  };
+};
+
 const serializeAws_json1_1IBMDb2Settings = (input: IBMDb2Settings, context: __SerdeContext): any => {
   return {
     ...(input.CurrentLsn !== undefined && input.CurrentLsn !== null && { CurrentLsn: input.CurrentLsn }),
@@ -6123,6 +6156,10 @@ const serializeAws_json1_1ModifyEndpointMessage = (input: ModifyEndpointMessage,
       input.ExternalTableDefinition !== null && { ExternalTableDefinition: input.ExternalTableDefinition }),
     ...(input.ExtraConnectionAttributes !== undefined &&
       input.ExtraConnectionAttributes !== null && { ExtraConnectionAttributes: input.ExtraConnectionAttributes }),
+    ...(input.GcpMySQLSettings !== undefined &&
+      input.GcpMySQLSettings !== null && {
+        GcpMySQLSettings: serializeAws_json1_1GcpMySQLSettings(input.GcpMySQLSettings, context),
+      }),
     ...(input.IBMDb2Settings !== undefined &&
       input.IBMDb2Settings !== null && {
         IBMDb2Settings: serializeAws_json1_1IBMDb2Settings(input.IBMDb2Settings, context),
@@ -6643,6 +6680,10 @@ const serializeAws_json1_1S3Settings = (input: S3Settings, context: __SerdeConte
       input.TimestampColumnName !== null && { TimestampColumnName: input.TimestampColumnName }),
     ...(input.UseCsvNoSupValue !== undefined &&
       input.UseCsvNoSupValue !== null && { UseCsvNoSupValue: input.UseCsvNoSupValue }),
+    ...(input.UseTaskStartTimeForFullLoadTimestamp !== undefined &&
+      input.UseTaskStartTimeForFullLoadTimestamp !== null && {
+        UseTaskStartTimeForFullLoadTimestamp: input.UseTaskStartTimeForFullLoadTimestamp,
+      }),
   };
 };
 
@@ -7433,6 +7474,10 @@ const deserializeAws_json1_1Endpoint = (output: any, context: __SerdeContext): E
     ExternalId: __expectString(output.ExternalId),
     ExternalTableDefinition: __expectString(output.ExternalTableDefinition),
     ExtraConnectionAttributes: __expectString(output.ExtraConnectionAttributes),
+    GcpMySQLSettings:
+      output.GcpMySQLSettings !== undefined && output.GcpMySQLSettings !== null
+        ? deserializeAws_json1_1GcpMySQLSettings(output.GcpMySQLSettings, context)
+        : undefined,
     IBMDb2Settings:
       output.IBMDb2Settings !== undefined && output.IBMDb2Settings !== null
         ? deserializeAws_json1_1IBMDb2Settings(output.IBMDb2Settings, context)
@@ -7633,6 +7678,25 @@ const deserializeAws_json1_1EventSubscriptionsList = (output: any, context: __Se
       }
       return deserializeAws_json1_1EventSubscription(entry, context);
     });
+};
+
+const deserializeAws_json1_1GcpMySQLSettings = (output: any, context: __SerdeContext): GcpMySQLSettings => {
+  return {
+    AfterConnectScript: __expectString(output.AfterConnectScript),
+    CleanSourceMetadataOnMismatch: __expectBoolean(output.CleanSourceMetadataOnMismatch),
+    DatabaseName: __expectString(output.DatabaseName),
+    EventsPollInterval: __expectInt32(output.EventsPollInterval),
+    MaxFileSize: __expectInt32(output.MaxFileSize),
+    ParallelLoadThreads: __expectInt32(output.ParallelLoadThreads),
+    Password: __expectString(output.Password),
+    Port: __expectInt32(output.Port),
+    SecretsManagerAccessRoleArn: __expectString(output.SecretsManagerAccessRoleArn),
+    SecretsManagerSecretId: __expectString(output.SecretsManagerSecretId),
+    ServerName: __expectString(output.ServerName),
+    ServerTimezone: __expectString(output.ServerTimezone),
+    TargetDbType: __expectString(output.TargetDbType),
+    Username: __expectString(output.Username),
+  } as any;
 };
 
 const deserializeAws_json1_1IBMDb2Settings = (output: any, context: __SerdeContext): IBMDb2Settings => {
@@ -8651,6 +8715,7 @@ const deserializeAws_json1_1S3Settings = (output: any, context: __SerdeContext):
     ServiceAccessRoleArn: __expectString(output.ServiceAccessRoleArn),
     TimestampColumnName: __expectString(output.TimestampColumnName),
     UseCsvNoSupValue: __expectBoolean(output.UseCsvNoSupValue),
+    UseTaskStartTimeForFullLoadTimestamp: __expectBoolean(output.UseTaskStartTimeForFullLoadTimestamp),
   } as any;
 };
 

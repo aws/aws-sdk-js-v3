@@ -1057,9 +1057,9 @@ export interface CreateAssociationRequest {
   AssociationName?: string;
 
   /**
-   * <p>Specify the target for the association. This target is required for associations that use an
-   *    Automation runbook and target resources by using rate controls. Automation is a capability of
-   *    Amazon Web Services Systems Manager.</p>
+   * <p>Choose the parameter that will define how your automation will branch out. This target is
+   *    required for associations that use an Automation runbook and target resources by using rate
+   *    controls. Automation is a capability of Amazon Web Services Systems Manager.</p>
    */
   AutomationTargetParameterName?: string;
 
@@ -1256,9 +1256,9 @@ export interface AssociationDescription {
   DocumentVersion?: string;
 
   /**
-   * <p>Specify the target for the association. This target is required for associations that use an
-   *    Automation runbook and target resources by using rate controls. Automation is a capability of
-   *    Amazon Web Services Systems Manager.</p>
+   * <p>Choose the parameter that will define how your automation will branch out. This target is
+   *    required for associations that use an Automation runbook and target resources by using rate
+   *    controls. Automation is a capability of Amazon Web Services Systems Manager.</p>
    */
   AutomationTargetParameterName?: string;
 
@@ -3109,6 +3109,7 @@ export enum OperatingSystem {
   Debian = "DEBIAN",
   MacOS = "MACOS",
   OracleLinux = "ORACLE_LINUX",
+  Raspbian = "RASPBIAN",
   RedhatEnterpriseLinux = "REDHAT_ENTERPRISE_LINUX",
   Suse = "SUSE",
   Ubuntu = "UBUNTU",
@@ -9114,7 +9115,7 @@ export interface ParameterStringFilter {
    *          <p>The <code>ParameterStringFilter</code> object is used by the <a>DescribeParameters</a> and <a>GetParametersByPath</a> API operations.
    *    However, not all of the pattern values listed for <code>Key</code> can be used with both
    *    operations.</p>
-   *          <p>For <code>DescribeActions</code>, all of the listed patterns are valid except
+   *          <p>For <code>DescribeParameters</code>, all of the listed patterns are valid except
    *     <code>Label</code>.</p>
    *          <p>For <code>GetParametersByPath</code>, the following patterns listed for <code>Key</code>
    *    aren't valid: <code>tag</code>, <code>DataType</code>, <code>Name</code>, <code>Path</code>, and

@@ -3637,6 +3637,7 @@ const serializeAws_json1_1HomeDirectoryMappings = (input: HomeDirectoryMapEntry[
 const serializeAws_json1_1IdentityProviderDetails = (input: IdentityProviderDetails, context: __SerdeContext): any => {
   return {
     ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Function !== undefined && input.Function !== null && { Function: input.Function }),
     ...(input.InvocationRole !== undefined &&
       input.InvocationRole !== null && { InvocationRole: input.InvocationRole }),
     ...(input.Url !== undefined && input.Url !== null && { Url: input.Url }),
@@ -4424,6 +4425,7 @@ const deserializeAws_json1_1IdentityProviderDetails = (
 ): IdentityProviderDetails => {
   return {
     DirectoryId: __expectString(output.DirectoryId),
+    Function: __expectString(output.Function),
     InvocationRole: __expectString(output.InvocationRole),
     Url: __expectString(output.Url),
   } as any;

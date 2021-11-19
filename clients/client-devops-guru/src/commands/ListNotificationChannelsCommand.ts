@@ -22,11 +22,10 @@ export interface ListNotificationChannelsCommandInput extends ListNotificationCh
 export interface ListNotificationChannelsCommandOutput extends ListNotificationChannelsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    		Returns a list of notification channels configured for DevOps Guru. Each notification channel is used to notify you when
- *    		DevOps Guru generates an insight that contains information about how to improve your operations. The one
- *       	supported notification channel is Amazon Simple Notification Service (Amazon SNS).
- *    	</p>
+ * <p> Returns a list of notification channels configured for DevOps Guru. Each notification
+ * 			channel is used to notify you when DevOps Guru generates an insight that contains information
+ * 			about how to improve your operations. The one
+ *       	supported notification channel is Amazon Simple Notification Service (Amazon SNS). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

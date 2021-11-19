@@ -31,6 +31,21 @@ import {
   DescribeInsightCommandOutput,
 } from "./commands/DescribeInsightCommand";
 import {
+  DescribeOrganizationHealthCommand,
+  DescribeOrganizationHealthCommandInput,
+  DescribeOrganizationHealthCommandOutput,
+} from "./commands/DescribeOrganizationHealthCommand";
+import {
+  DescribeOrganizationOverviewCommand,
+  DescribeOrganizationOverviewCommandInput,
+  DescribeOrganizationOverviewCommandOutput,
+} from "./commands/DescribeOrganizationOverviewCommand";
+import {
+  DescribeOrganizationResourceCollectionHealthCommand,
+  DescribeOrganizationResourceCollectionHealthCommandInput,
+  DescribeOrganizationResourceCollectionHealthCommandOutput,
+} from "./commands/DescribeOrganizationResourceCollectionHealthCommand";
+import {
   DescribeResourceCollectionHealthCommand,
   DescribeResourceCollectionHealthCommandInput,
   DescribeResourceCollectionHealthCommandOutput,
@@ -67,6 +82,11 @@ import {
   ListNotificationChannelsCommandOutput,
 } from "./commands/ListNotificationChannelsCommand";
 import {
+  ListOrganizationInsightsCommand,
+  ListOrganizationInsightsCommandInput,
+  ListOrganizationInsightsCommandOutput,
+} from "./commands/ListOrganizationInsightsCommand";
+import {
   ListRecommendationsCommand,
   ListRecommendationsCommandInput,
   ListRecommendationsCommandOutput,
@@ -82,6 +102,11 @@ import {
   SearchInsightsCommandInput,
   SearchInsightsCommandOutput,
 } from "./commands/SearchInsightsCommand";
+import {
+  SearchOrganizationInsightsCommand,
+  SearchOrganizationInsightsCommandInput,
+  SearchOrganizationInsightsCommandOutput,
+} from "./commands/SearchOrganizationInsightsCommand";
 import {
   StartCostEstimationCommand,
   StartCostEstimationCommandInput,
@@ -100,36 +125,32 @@ import {
 import { DevOpsGuruClient } from "./DevOpsGuruClient";
 
 /**
- * <p> Amazon DevOps Guru is a fully managed service that helps you identify anomalous behavior in business
- * 			critical operational applications. You specify the AWS resources that you want DevOps Guru to cover,
- * 			then the Amazon CloudWatch metrics and AWS CloudTrail events related to those resources are analyzed. When
- * 			anomalous behavior is detected, DevOps Guru creates an <i>insight</i> that includes
- * 			recommendations, related events, and related metrics that can help you improve your
- * 			operational applications. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html">What is Amazon DevOps Guru</a>. </p>
+ * <p> Amazon DevOps Guru is a fully managed service that helps you identify anomalous behavior in
+ * 			business critical operational applications. You specify the Amazon Web Services resources that you
+ * 			want DevOps Guru to cover, then the Amazon CloudWatch metrics and Amazon Web Services CloudTrail events related to those
+ * 			resources are analyzed. When anomalous behavior is detected, DevOps Guru creates an
+ * 				<i>insight</i> that includes recommendations, related events, and
+ * 			related metrics that can help you improve your operational applications. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html">What is Amazon DevOps Guru</a>. </p>
  *
- * 		       <p>
- * 			You can specify 1 or 2 Amazon Simple Notification Service topics so you are notified every time a new insight is created. You can also enable DevOps Guru to generate
- * 			an OpsItem in AWS Systems Manager for each insight to help you manage and track your work addressing insights.
- * 		</p>
+ * 		       <p> You can specify 1 or 2 Amazon Simple Notification Service topics so you are notified every time a new insight
+ * 			is created. You can also enable DevOps Guru to generate an OpsItem in Amazon Web Services Systems Manager for each
+ * 			insight to help you manage and track your work addressing insights. </p>
  *
- * 		       <p>
- * 			To learn about the DevOps Guru workflow, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html#how-it-works">How DevOps Guru works</a>. To
- * 			learn about DevOps Guru concepts, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/concepts.html">Concepts in DevOps Guru</a>.
- * 		</p>
+ * 		       <p> To learn about the DevOps Guru workflow, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html#how-it-works">How DevOps Guru works</a>. To
+ * 			learn about DevOps Guru concepts, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/concepts.html">Concepts in DevOps Guru</a>. </p>
  */
 export class DevOpsGuru extends DevOpsGuruClient {
   /**
-   * <p>
-   * 			Adds a notification channel to DevOps Guru. A notification channel is used to notify you about important DevOps Guru events, such as when an insight is generated.
-   * 		</p>
-   *
+   * <p> Adds a notification channel to DevOps Guru. A notification channel is used to notify you
+   * 			about important DevOps Guru events, such as when an insight is generated. </p>
    * 		       <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
    * 				to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account.
    * 				For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html">Permissions
    * 				for cross account Amazon SNS topics</a>.</p>
-   * 				     <p>If you use an Amazon SNS topic that is encrypted by an AWS Key Management Service customer-managed key (CMK), then you must add permissions
+   * 				     <p>If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management Service customer-managed key (CMK), then you must add permissions
    * 				to the CMK. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html">Permissions for
-   * 				AWS KMS–encrypted Amazon SNS topics</a>.</p>
+   * 				Amazon Web Services KMS–encrypted Amazon SNS topics</a>.</p>
    */
   public addNotificationChannel(
     args: AddNotificationChannelCommandInput,
@@ -161,10 +182,9 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>
-   *    		Returns the number of open reactive insights, the number of open proactive insights, and the number of metrics analyzed in your AWS account.
-   *    		Use these numbers to gauge the health of operations in your AWS account.
-   *    	</p>
+   * <p> Returns the number of open reactive insights, the number of open proactive insights,
+   * 			and the number of metrics analyzed in your Amazon Web Services account. Use these numbers to gauge the
+   * 			health of operations in your Amazon Web Services account. </p>
    */
   public describeAccountHealth(
     args: DescribeAccountHealthCommandInput,
@@ -196,10 +216,9 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>
-   *    		For the time range passed in, returns the number of open reactive insight that were created, the number of open proactive insights
-   *    		that were created, and the Mean Time to Recover (MTTR) for all closed reactive insights.
-   *    	</p>
+   * <p> For the time range passed in, returns the number of open reactive insight that were
+   * 			created, the number of open proactive insights that were created, and the Mean Time to Recover (MTTR) for all
+   * 			closed reactive insights. </p>
    */
   public describeAccountOverview(
     args: DescribeAccountOverviewCommandInput,
@@ -231,9 +250,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>
-   *    		Returns details about an anomaly that you specify using its ID.
-   *    	</p>
+   * <p> Returns details about an anomaly that you specify using its ID. </p>
    */
   public describeAnomaly(
     args: DescribeAnomalyCommandInput,
@@ -265,8 +282,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>
-   * 			Returns the most recent feedback submitted in the current AWS account and Region.
+   * <p> Returns the most recent feedback submitted in the current Amazon Web Services account and Region.
    * 		</p>
    */
   public describeFeedback(
@@ -299,9 +315,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>
-   *    		Returns details about an insight that you specify using its ID.
-   *    	</p>
+   * <p> Returns details about an insight that you specify using its ID. </p>
    */
   public describeInsight(
     args: DescribeInsightCommandInput,
@@ -333,11 +347,112 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>
-   *    		Returns the number of open proactive insights, open reactive insights, and the Mean Time to Recover (MTTR) for all closed insights in
-   *    		resource collections in your account. You specify the type of AWS resources collection. The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the AWS resources that are defined in the stacks. You can specify up to 500 AWS CloudFormation stacks.
-   *    	</p>
+   * <p>Returns active insights, predictive insights, and resource hours analyzed in last
+   * 			hour.</p>
+   */
+  public describeOrganizationHealth(
+    args: DescribeOrganizationHealthCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeOrganizationHealthCommandOutput>;
+  public describeOrganizationHealth(
+    args: DescribeOrganizationHealthCommandInput,
+    cb: (err: any, data?: DescribeOrganizationHealthCommandOutput) => void
+  ): void;
+  public describeOrganizationHealth(
+    args: DescribeOrganizationHealthCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeOrganizationHealthCommandOutput) => void
+  ): void;
+  public describeOrganizationHealth(
+    args: DescribeOrganizationHealthCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOrganizationHealthCommandOutput) => void),
+    cb?: (err: any, data?: DescribeOrganizationHealthCommandOutput) => void
+  ): Promise<DescribeOrganizationHealthCommandOutput> | void {
+    const command = new DescribeOrganizationHealthCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns an overview of your organization's history based on the specified time range.
+   * 			The overview includes the total reactive and proactive insights.</p>
+   */
+  public describeOrganizationOverview(
+    args: DescribeOrganizationOverviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeOrganizationOverviewCommandOutput>;
+  public describeOrganizationOverview(
+    args: DescribeOrganizationOverviewCommandInput,
+    cb: (err: any, data?: DescribeOrganizationOverviewCommandOutput) => void
+  ): void;
+  public describeOrganizationOverview(
+    args: DescribeOrganizationOverviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeOrganizationOverviewCommandOutput) => void
+  ): void;
+  public describeOrganizationOverview(
+    args: DescribeOrganizationOverviewCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOrganizationOverviewCommandOutput) => void),
+    cb?: (err: any, data?: DescribeOrganizationOverviewCommandOutput) => void
+  ): Promise<DescribeOrganizationOverviewCommandOutput> | void {
+    const command = new DescribeOrganizationOverviewCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides an overview of your system's health. If additional member accounts are part
+   * 			of your organization, you can filter those accounts using the <code>AccountIds</code>
+   * 			field.</p>
+   */
+  public describeOrganizationResourceCollectionHealth(
+    args: DescribeOrganizationResourceCollectionHealthCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeOrganizationResourceCollectionHealthCommandOutput>;
+  public describeOrganizationResourceCollectionHealth(
+    args: DescribeOrganizationResourceCollectionHealthCommandInput,
+    cb: (err: any, data?: DescribeOrganizationResourceCollectionHealthCommandOutput) => void
+  ): void;
+  public describeOrganizationResourceCollectionHealth(
+    args: DescribeOrganizationResourceCollectionHealthCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeOrganizationResourceCollectionHealthCommandOutput) => void
+  ): void;
+  public describeOrganizationResourceCollectionHealth(
+    args: DescribeOrganizationResourceCollectionHealthCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeOrganizationResourceCollectionHealthCommandOutput) => void),
+    cb?: (err: any, data?: DescribeOrganizationResourceCollectionHealthCommandOutput) => void
+  ): Promise<DescribeOrganizationResourceCollectionHealthCommandOutput> | void {
+    const command = new DescribeOrganizationResourceCollectionHealthCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p> Returns the number of open proactive insights, open reactive insights, and the Mean Time to Recover (MTTR)
+   * 			for all closed insights in resource collections in your account. You specify the type of
+   * 			Amazon Web Services resources collection. The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
+   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   public describeResourceCollectionHealth(
     args: DescribeResourceCollectionHealthCommandInput,
@@ -369,11 +484,9 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>
-   * 			Returns the integration status of services that are integrated with DevOps Guru.
+   * <p> Returns the integration status of services that are integrated with DevOps Guru.
    * 			The one service that can be integrated with DevOps Guru
-   *       	is AWS Systems Manager, which can be used to create an OpsItem for each generated insight.
-   * 		</p>
+   *       	is Amazon Web Services Systems Manager, which can be used to create an OpsItem for each generated insight. </p>
    */
   public describeServiceIntegration(
     args: DescribeServiceIntegrationCommandInput,
@@ -405,7 +518,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>Returns an estimate of the monthly cost for DevOps Guru to analyze your AWS resources.
+   * <p>Returns an estimate of the monthly cost for DevOps Guru to analyze your Amazon Web Services resources.
    * 			For more information,
    * 			see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html">Estimate your
    * 			Amazon DevOps Guru costs</a> and
@@ -441,10 +554,9 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>
-   *    		Returns lists AWS resources that are of the specified resource collection type. The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the AWS resources that are defined in the stacks. You can specify up to 500 AWS CloudFormation stacks.
-   *    	</p>
+   * <p> Returns lists Amazon Web Services resources that are of the specified resource collection type.
+   * 			The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
+   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   public getResourceCollection(
     args: GetResourceCollectionCommandInput,
@@ -476,9 +588,8 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>
-   *    		Returns a list of the anomalies that belong to an insight that you specify using its ID.
-   *    	</p>
+   * <p> Returns a list of the anomalies that belong to an insight that you specify using its
+   * 			ID. </p>
    */
   public listAnomaliesForInsight(
     args: ListAnomaliesForInsightCommandInput,
@@ -510,9 +621,8 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>
-   *    		Returns a list of the events emitted by the resources that are evaluated by DevOps Guru. You can use filters to specify which events are returned.
-   *    	</p>
+   * <p> Returns a list of the events emitted by the resources that are evaluated by DevOps Guru.
+   * 			You can use filters to specify which events are returned. </p>
    */
   public listEvents(args: ListEventsCommandInput, options?: __HttpHandlerOptions): Promise<ListEventsCommandOutput>;
   public listEvents(args: ListEventsCommandInput, cb: (err: any, data?: ListEventsCommandOutput) => void): void;
@@ -538,10 +648,9 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>
-   *    		Returns a list of insights in your AWS account. You can specify which insights are returned by their start time and
-   *    		status (<code>ONGOING</code>, <code>CLOSED</code>, or <code>ANY</code>).
-   *    	</p>
+   * <p> Returns a list of insights in your Amazon Web Services account. You can specify which insights are
+   * 			returned by their start time and status (<code>ONGOING</code>, <code>CLOSED</code>, or
+   * 				<code>ANY</code>). </p>
    */
   public listInsights(
     args: ListInsightsCommandInput,
@@ -570,11 +679,10 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>
-   *    		Returns a list of notification channels configured for DevOps Guru. Each notification channel is used to notify you when
-   *    		DevOps Guru generates an insight that contains information about how to improve your operations. The one
-   *       	supported notification channel is Amazon Simple Notification Service (Amazon SNS).
-   *    	</p>
+   * <p> Returns a list of notification channels configured for DevOps Guru. Each notification
+   * 			channel is used to notify you when DevOps Guru generates an insight that contains information
+   * 			about how to improve your operations. The one
+   *       	supported notification channel is Amazon Simple Notification Service (Amazon SNS). </p>
    */
   public listNotificationChannels(
     args: ListNotificationChannelsCommandInput,
@@ -606,9 +714,40 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>
-   *    		Returns a list of a specified insight's recommendations. Each recommendation includes a list of related metrics and a list of related events.
-   *    	</p>
+   * <p>Returns a list of insights associated with the account or OU Id.</p>
+   */
+  public listOrganizationInsights(
+    args: ListOrganizationInsightsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOrganizationInsightsCommandOutput>;
+  public listOrganizationInsights(
+    args: ListOrganizationInsightsCommandInput,
+    cb: (err: any, data?: ListOrganizationInsightsCommandOutput) => void
+  ): void;
+  public listOrganizationInsights(
+    args: ListOrganizationInsightsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOrganizationInsightsCommandOutput) => void
+  ): void;
+  public listOrganizationInsights(
+    args: ListOrganizationInsightsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOrganizationInsightsCommandOutput) => void),
+    cb?: (err: any, data?: ListOrganizationInsightsCommandOutput) => void
+  ): Promise<ListOrganizationInsightsCommandOutput> | void {
+    const command = new ListOrganizationInsightsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p> Returns a list of a specified insight's recommendations. Each recommendation includes
+   * 			a list of related metrics and a list of related events. </p>
    */
   public listRecommendations(
     args: ListRecommendationsCommandInput,
@@ -640,9 +779,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>
-   *    		Collects customer feedback about the specified insight.
-   *    	</p>
+   * <p> Collects customer feedback about the specified insight. </p>
    */
   public putFeedback(args: PutFeedbackCommandInput, options?: __HttpHandlerOptions): Promise<PutFeedbackCommandOutput>;
   public putFeedback(args: PutFeedbackCommandInput, cb: (err: any, data?: PutFeedbackCommandOutput) => void): void;
@@ -668,10 +805,9 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>
-   *    		Removes a notification channel from DevOps Guru. A notification channel is used to notify you when DevOps Guru generates an insight
-   *    		that contains information about how to improve your operations.
-   *    	</p>
+   * <p> Removes a notification channel from DevOps Guru. A notification channel is used to notify
+   * 			you when DevOps Guru generates an insight that contains information about how to improve your
+   * 			operations. </p>
    */
   public removeNotificationChannel(
     args: RemoveNotificationChannelCommandInput,
@@ -703,15 +839,14 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>
-   *    		Returns a list of insights in your AWS account. You can specify which insights are returned by their start time, one or more statuses
-   *    		(<code>ONGOING</code>, <code>CLOSED</code>, and <code>CLOSED</code>), one or more severities (<code>LOW</code>, <code>MEDIUM</code>,
-   *    		and <code>HIGH</code>), and type (<code>REACTIVE</code> or <code>PROACTIVE</code>).
-   *    	</p>
-   *    	     <p>
-   *    		Use the <code>Filters</code> parameter to specify status and severity
-   *    		search parameters. Use the <code>Type</code> parameter to specify <code>REACTIVE</code> or <code>PROACTIVE</code> in your search.
-   *    	</p>
+   * <p> Returns a list of insights in your Amazon Web Services account. You can specify which insights are
+   * 			returned by their start time, one or more statuses (<code>ONGOING</code>,
+   * 				<code>CLOSED</code>, and <code>CLOSED</code>), one or more severities
+   * 				(<code>LOW</code>, <code>MEDIUM</code>, and <code>HIGH</code>), and type
+   * 				(<code>REACTIVE</code> or <code>PROACTIVE</code>). </p>
+   * 		       <p> Use the <code>Filters</code> parameter to specify status and severity search
+   * 			parameters. Use the <code>Type</code> parameter to specify <code>REACTIVE</code> or
+   * 				<code>PROACTIVE</code> in your search. </p>
    */
   public searchInsights(
     args: SearchInsightsCommandInput,
@@ -743,7 +878,47 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>Starts the creation of an estimate of the monthly cost to analyze your AWS resources.</p>
+   * <p> Returns a list of insights in your organization. You can specify which insights are
+   * 			returned by their start time, one or more statuses (<code>ONGOING</code>,
+   * 				<code>CLOSED</code>, and <code>CLOSED</code>), one or more severities
+   * 				(<code>LOW</code>, <code>MEDIUM</code>, and <code>HIGH</code>), and type
+   * 				(<code>REACTIVE</code> or <code>PROACTIVE</code>). </p>
+   * 		       <p> Use the <code>Filters</code> parameter to specify status and severity search
+   * 			parameters. Use the <code>Type</code> parameter to specify <code>REACTIVE</code> or
+   * 				<code>PROACTIVE</code> in your search. </p>
+   */
+  public searchOrganizationInsights(
+    args: SearchOrganizationInsightsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchOrganizationInsightsCommandOutput>;
+  public searchOrganizationInsights(
+    args: SearchOrganizationInsightsCommandInput,
+    cb: (err: any, data?: SearchOrganizationInsightsCommandOutput) => void
+  ): void;
+  public searchOrganizationInsights(
+    args: SearchOrganizationInsightsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchOrganizationInsightsCommandOutput) => void
+  ): void;
+  public searchOrganizationInsights(
+    args: SearchOrganizationInsightsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchOrganizationInsightsCommandOutput) => void),
+    cb?: (err: any, data?: SearchOrganizationInsightsCommandOutput) => void
+  ): Promise<SearchOrganizationInsightsCommandOutput> | void {
+    const command = new SearchOrganizationInsightsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts the creation of an estimate of the monthly cost to analyze your Amazon Web Services
+   * 			resources.</p>
    */
   public startCostEstimation(
     args: StartCostEstimationCommandInput,
@@ -776,9 +951,9 @@ export class DevOpsGuru extends DevOpsGuruClient {
 
   /**
    * <p> Updates the collection of resources that DevOps Guru analyzes.
-   * 			The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the AWS resources that are defined in the stacks. You can specify up to 500 AWS CloudFormation stacks. This method also creates the IAM role required for you
-   * 			to use DevOps Guru. </p>
+   * 			The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
+   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. This method also creates the IAM role required for
+   * 			you to use DevOps Guru. </p>
    */
   public updateResourceCollection(
     args: UpdateResourceCollectionCommandInput,
@@ -810,10 +985,9 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
-   * <p>
-   * 			Enables or disables integration with a service that can be integrated with DevOps Guru. The one service that can be integrated with
-   * 			DevOps Guru is AWS Systems Manager, which can be used to create an OpsItem for each generated insight.
-   * 		</p>
+   * <p> Enables or disables integration with a service that can be integrated with DevOps Guru. The
+   * 			one service that can be integrated with DevOps Guru is Amazon Web Services Systems Manager, which can be used to create
+   * 			an OpsItem for each generated insight. </p>
    */
   public updateServiceIntegration(
     args: UpdateServiceIntegrationCommandInput,

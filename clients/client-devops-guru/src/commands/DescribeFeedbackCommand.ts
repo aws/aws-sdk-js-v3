@@ -22,8 +22,7 @@ export interface DescribeFeedbackCommandInput extends DescribeFeedbackRequest {}
 export interface DescribeFeedbackCommandOutput extends DescribeFeedbackResponse, __MetadataBearer {}
 
 /**
- * <p>
- * 			Returns the most recent feedback submitted in the current AWS account and Region.
+ * <p> Returns the most recent feedback submitted in the current Amazon Web Services account and Region.
  * 		</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

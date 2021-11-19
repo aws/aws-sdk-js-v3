@@ -18149,6 +18149,7 @@ const serializeAws_json1_1StartSessionRequest = (input: StartSessionRequest, con
       input.Parameters !== null && {
         Parameters: serializeAws_json1_1SessionManagerParameters(input.Parameters, context),
       }),
+    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
     ...(input.Target !== undefined && input.Target !== null && { Target: input.Target }),
   };
 };
@@ -24155,11 +24156,13 @@ const deserializeAws_json1_1Session = (output: any, context: __SerdeContext): Se
       output.EndDate !== undefined && output.EndDate !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndDate)))
         : undefined,
+    MaxSessionDuration: __expectString(output.MaxSessionDuration),
     OutputUrl:
       output.OutputUrl !== undefined && output.OutputUrl !== null
         ? deserializeAws_json1_1SessionManagerOutputUrl(output.OutputUrl, context)
         : undefined,
     Owner: __expectString(output.Owner),
+    Reason: __expectString(output.Reason),
     SessionId: __expectString(output.SessionId),
     StartDate:
       output.StartDate !== undefined && output.StartDate !== null

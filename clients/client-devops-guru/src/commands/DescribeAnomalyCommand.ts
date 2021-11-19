@@ -22,9 +22,7 @@ export interface DescribeAnomalyCommandInput extends DescribeAnomalyRequest {}
 export interface DescribeAnomalyCommandOutput extends DescribeAnomalyResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    		Returns details about an anomaly that you specify using its ID.
- *    	</p>
+ * <p> Returns details about an anomaly that you specify using its ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

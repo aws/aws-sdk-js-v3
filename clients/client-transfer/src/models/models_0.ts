@@ -589,6 +589,11 @@ export interface IdentityProviderDetails {
    * <p>The identifier of the Amazon Web ServicesDirectory Service directory that you want to stop sharing.</p>
    */
   DirectoryId?: string;
+
+  /**
+   * <p>The ARN for a lambda function to use for the Identity provider.</p>
+   */
+  Function?: string;
 }
 
 export namespace IdentityProviderDetails {
@@ -603,6 +608,7 @@ export namespace IdentityProviderDetails {
 export enum IdentityProviderType {
   API_GATEWAY = "API_GATEWAY",
   AWS_DIRECTORY_SERVICE = "AWS_DIRECTORY_SERVICE",
+  AWS_LAMBDA = "AWS_LAMBDA",
   SERVICE_MANAGED = "SERVICE_MANAGED",
 }
 
@@ -808,6 +814,8 @@ export interface CreateServerRequest {
    *          <p>Use the <code>API_GATEWAY</code> value to integrate with an identity provider of your choosing. The
    *       <code>API_GATEWAY</code> setting requires you to provide an API Gateway endpoint URL to call
    *       for authentication using the <code>IdentityProviderDetails</code> parameter.</p>
+   *          <p>Use the <code>LAMBDA</code> value to directly use a Lambda function as your identity provider. If you choose this value,
+   *       you must specify the ARN for the lambda function in the <code>Function</code> parameter for the <code>IdentityProviderDetails</code> data type.</p>
    */
   IdentityProviderType?: IdentityProviderType | string;
 
@@ -2069,6 +2077,8 @@ export interface DescribedServer {
    *          <p>Use the <code>API_GATEWAY</code> value to integrate with an identity provider of your choosing. The
    *       <code>API_GATEWAY</code> setting requires you to provide an API Gateway endpoint URL to call
    *       for authentication using the <code>IdentityProviderDetails</code> parameter.</p>
+   *          <p>Use the <code>LAMBDA</code> value to directly use a Lambda function as your identity provider. If you choose this value,
+   *       you must specify the ARN for the lambda function in the <code>Function</code> parameter for the <code>IdentityProviderDetails</code> data type.</p>
    */
   IdentityProviderType?: IdentityProviderType | string;
 
@@ -2757,6 +2767,8 @@ export interface ListedServer {
    *          <p>Use the <code>API_GATEWAY</code> value to integrate with an identity provider of your choosing. The
    *       <code>API_GATEWAY</code> setting requires you to provide an API Gateway endpoint URL to call
    *       for authentication using the <code>IdentityProviderDetails</code> parameter.</p>
+   *          <p>Use the <code>LAMBDA</code> value to directly use a Lambda function as your identity provider. If you choose this value,
+   *       you must specify the ARN for the lambda function in the <code>Function</code> parameter for the <code>IdentityProviderDetails</code> data type.</p>
    */
   IdentityProviderType?: IdentityProviderType | string;
 

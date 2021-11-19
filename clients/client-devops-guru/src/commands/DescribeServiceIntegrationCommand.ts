@@ -22,11 +22,9 @@ export interface DescribeServiceIntegrationCommandInput extends DescribeServiceI
 export interface DescribeServiceIntegrationCommandOutput extends DescribeServiceIntegrationResponse, __MetadataBearer {}
 
 /**
- * <p>
- * 			Returns the integration status of services that are integrated with DevOps Guru.
+ * <p> Returns the integration status of services that are integrated with DevOps Guru.
  * 			The one service that can be integrated with DevOps Guru
- *       	is AWS Systems Manager, which can be used to create an OpsItem for each generated insight.
- * 		</p>
+ *       	is Amazon Web Services Systems Manager, which can be used to create an OpsItem for each generated insight. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -47,9 +47,9 @@ export interface BatchExecuteStatementInput {
   Sqls: string[] | undefined;
 
   /**
-   * <p>The cluster identifier. This parameter is required when authenticating using either Secrets Manager or temporary credentials. </p>
+   * <p>The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials. </p>
    */
-  ClusterIdentifier: string | undefined;
+  ClusterIdentifier?: string;
 
   /**
    * <p>The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager. </p>
@@ -57,7 +57,7 @@ export interface BatchExecuteStatementInput {
   SecretArn?: string;
 
   /**
-   * <p>The database user name. This parameter is required when authenticating using temporary credentials. </p>
+   * <p>The database user name. This parameter is required when connecting to a cluster and authenticating using temporary credentials. </p>
    */
   DbUser?: string;
 
@@ -99,7 +99,7 @@ export interface BatchExecuteStatementOutput {
   CreatedAt?: Date;
 
   /**
-   * <p>The cluster identifier. </p>
+   * <p>The cluster identifier. This parameter is not returned when connecting to a serverless endpoint. </p>
    */
   ClusterIdentifier?: string;
 
@@ -178,6 +178,24 @@ export namespace CancelStatementResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CancelStatementResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Connection to a database failed.</p>
+ */
+export interface DatabaseConnectionException extends __SmithyException, $MetadataBearer {
+  name: "DatabaseConnectionException";
+  $fault: "server";
+  Message: string | undefined;
+}
+
+export namespace DatabaseConnectionException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DatabaseConnectionException): any => ({
     ...obj,
   });
 }
@@ -434,7 +452,7 @@ export interface SubStatementData {
   RedshiftQueryId?: number;
 
   /**
-   * <p>A value that indicates whether the statement has a result set. The result set can be empty.</p>
+   * <p>A value that indicates whether the statement has a result set. The result set can be empty. The value is true for an empty result set.</p>
    */
   HasResultSet?: boolean;
 }
@@ -529,7 +547,8 @@ export interface DescribeStatementResponse {
   RedshiftPid?: number;
 
   /**
-   * <p>A value that indicates whether the statement has a result set. The result set can be empty. </p>
+   * <p>A value that indicates whether the statement has a result set. The result set can be empty. The value is true for an empty result set.
+   *       The value is true if any substatement returns a result set.</p>
    */
   HasResultSet?: boolean;
 
@@ -578,9 +597,9 @@ export namespace DescribeStatementResponse {
 
 export interface DescribeTableRequest {
   /**
-   * <p>The cluster identifier. This parameter is required when authenticating using either Secrets Manager or temporary credentials. </p>
+   * <p>The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials. </p>
    */
-  ClusterIdentifier: string | undefined;
+  ClusterIdentifier?: string;
 
   /**
    * <p>The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager. </p>
@@ -588,7 +607,7 @@ export interface DescribeTableRequest {
   SecretArn?: string;
 
   /**
-   * <p>The database user name. This parameter is required when authenticating using temporary credentials. </p>
+   * <p>The database user name. This parameter is required when connecting to a cluster and authenticating using temporary credentials. </p>
    */
   DbUser?: string;
 
@@ -694,9 +713,9 @@ export interface ExecuteStatementInput {
   Sql: string | undefined;
 
   /**
-   * <p>The cluster identifier. This parameter is required when authenticating using either Secrets Manager or temporary credentials. </p>
+   * <p>The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials. </p>
    */
-  ClusterIdentifier: string | undefined;
+  ClusterIdentifier?: string;
 
   /**
    * <p>The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager. </p>
@@ -704,7 +723,7 @@ export interface ExecuteStatementInput {
   SecretArn?: string;
 
   /**
-   * <p>The database user name. This parameter is required when authenticating using temporary credentials. </p>
+   * <p>The database user name. This parameter is required when connecting to a cluster and authenticating using temporary credentials. </p>
    */
   DbUser?: string;
 
@@ -750,7 +769,7 @@ export interface ExecuteStatementOutput {
   CreatedAt?: Date;
 
   /**
-   * <p>The cluster identifier. </p>
+   * <p>The cluster identifier. This parameter is not returned when connecting to a serverless endpoint. </p>
    */
   ClusterIdentifier?: string;
 
@@ -973,9 +992,9 @@ export namespace GetStatementResultResponse {
 
 export interface ListDatabasesRequest {
   /**
-   * <p>The cluster identifier. This parameter is required when authenticating using either Secrets Manager or temporary credentials. </p>
+   * <p>The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials. </p>
    */
-  ClusterIdentifier: string | undefined;
+  ClusterIdentifier?: string;
 
   /**
    * <p>The name of the database. This parameter is required when authenticating using either Secrets Manager or temporary credentials. </p>
@@ -988,7 +1007,7 @@ export interface ListDatabasesRequest {
   SecretArn?: string;
 
   /**
-   * <p>The database user name. This parameter is required when authenticating using temporary credentials. </p>
+   * <p>The database user name. This parameter is required when connecting to a cluster and authenticating using temporary credentials. </p>
    */
   DbUser?: string;
 
@@ -1036,9 +1055,9 @@ export namespace ListDatabasesResponse {
 
 export interface ListSchemasRequest {
   /**
-   * <p>The cluster identifier. This parameter is required when authenticating using either Secrets Manager or temporary credentials. </p>
+   * <p>The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials. </p>
    */
-  ClusterIdentifier: string | undefined;
+  ClusterIdentifier?: string;
 
   /**
    * <p>The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager. </p>
@@ -1046,7 +1065,7 @@ export interface ListSchemasRequest {
   SecretArn?: string;
 
   /**
-   * <p>The database user name. This parameter is required when authenticating using temporary credentials. </p>
+   * <p>The database user name. This parameter is required when connecting to a cluster and authenticating using temporary credentials. </p>
    */
   DbUser?: string;
 
@@ -1263,9 +1282,9 @@ export namespace ListStatementsResponse {
 
 export interface ListTablesRequest {
   /**
-   * <p>The cluster identifier. This parameter is required when authenticating using either Secrets Manager or temporary credentials. </p>
+   * <p>The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials. </p>
    */
-  ClusterIdentifier: string | undefined;
+  ClusterIdentifier?: string;
 
   /**
    * <p>The name or ARN of the secret that enables access to the database. This parameter is required when authenticating using Secrets Manager. </p>
@@ -1273,7 +1292,7 @@ export interface ListTablesRequest {
   SecretArn?: string;
 
   /**
-   * <p>The database user name. This parameter is required when authenticating using temporary credentials. </p>
+   * <p>The database user name. This parameter is required when connecting to a cluster and authenticating using temporary credentials. </p>
    */
   DbUser?: string;
 

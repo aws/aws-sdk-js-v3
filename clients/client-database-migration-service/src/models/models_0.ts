@@ -682,7 +682,7 @@ export namespace DynamoDbSettings {
 }
 
 /**
- * <p>Provides information that defines an Elasticsearch endpoint.</p>
+ * <p>Provides information that defines an OpenSearch endpoint.</p>
  */
 export interface ElasticsearchSettings {
   /**
@@ -692,7 +692,7 @@ export interface ElasticsearchSettings {
   ServiceAccessRoleArn: string | undefined;
 
   /**
-   * <p>The endpoint for the Elasticsearch cluster. DMS uses HTTPS if a transport
+   * <p>The endpoint for the OpenSearch cluster. DMS uses HTTPS if a transport
    *          protocol (http/https) is not specified.</p>
    */
   EndpointUri: string | undefined;
@@ -701,7 +701,7 @@ export interface ElasticsearchSettings {
    * <p>The maximum percentage of records that can fail to be written before a full load
    *             operation stops.</p>
    *          <p>To avoid early failure, this counter is only effective after 1000 records
-   *          are transferred. Elasticsearch also has the concept of error monitoring during the
+   *          are transferred. OpenSearch also has the concept of error monitoring during the
    *          last 10 minutes of an Observation Window. If transfer of all records fail in the
    *          last 10 minutes, the full load operation stops. </p>
    */
@@ -709,7 +709,7 @@ export interface ElasticsearchSettings {
 
   /**
    * <p>The maximum number of seconds for which DMS retries failed API requests to the
-   *          Elasticsearch cluster.</p>
+   *          OpenSearch cluster.</p>
    */
   ErrorRetryDuration?: number;
 }
@@ -726,6 +726,139 @@ export namespace ElasticsearchSettings {
 export enum ReplicationEndpointTypeValue {
   SOURCE = "source",
   TARGET = "target",
+}
+
+export enum TargetDbType {
+  MULTIPLE_DATABASES = "multiple-databases",
+  SPECIFIC_DATABASE = "specific-database",
+}
+
+/**
+ * <p>Settings in JSON format for the source GCP MySQL endpoint.</p>
+ */
+export interface GcpMySQLSettings {
+  /**
+   * <p>Specifies a script to run immediately after DMS connects to the endpoint.
+   *          The migration task continues running regardless if the SQL statement succeeds or fails.</p>
+   *
+   *          <p>For this parameter, provide the code of the script itself, not the name of a file containing the script. </p>
+   */
+  AfterConnectScript?: string;
+
+  /**
+   * <p>Adjusts the behavior of DMS when migrating from an SQL Server source database
+   *          that is hosted as part of an Always On availability group cluster. If you need DMS
+   *          to poll all the nodes in the Always On cluster for transaction backups, set this attribute to <code>false</code>. </p>
+   */
+  CleanSourceMetadataOnMismatch?: boolean;
+
+  /**
+   * <p>Database name for the endpoint. For a MySQL source or target endpoint, don't explicitly specify
+   *          the database using the <code>DatabaseName</code> request parameter on either the <code>CreateEndpoint</code>
+   *          or <code>ModifyEndpoint</code> API call. Specifying <code>DatabaseName</code> when you create or modify a
+   *          MySQL endpoint replicates all the task tables to this single database. For MySQL endpoints, you specify
+   *          the database only when you specify the schema in the table-mapping rules of the DMS task. </p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * <p>Specifies how often to check the binary log for new changes/events when the database is idle. The default is five seconds.</p>
+   *          <p>Example: <code>eventsPollInterval=5;</code>
+   *          </p>
+   *          <p>In the example, DMS checks for changes in the binary logs every five seconds. </p>
+   */
+  EventsPollInterval?: number;
+
+  /**
+   * <p>Specifies where to migrate source tables on the target, either to a single database or multiple databases.</p>
+   *          <p>Example: <code>targetDbType=MULTIPLE_DATABASES</code>
+   *          </p>
+   */
+  TargetDbType?: TargetDbType | string;
+
+  /**
+   * <p>Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.</p>
+   *          <p>Example: <code>maxFileSize=512</code>
+   *          </p>
+   */
+  MaxFileSize?: number;
+
+  /**
+   * <p>Improves performance when loading data into the MySQL-compatible target database. Specifies how many
+   *          threads to use to load the data into the MySQL-compatible target database. Setting a large number of
+   *          threads can have an adverse effect on database performance, because a separate connection is required
+   *          for each thread. The default is one.</p>
+   *
+   *          <p>Example: <code>parallelLoadThreads=1</code>
+   *          </p>
+   */
+  ParallelLoadThreads?: number;
+
+  /**
+   * <p>Endpoint connection password.</p>
+   */
+  Password?: string;
+
+  /**
+   * <p></p>
+   */
+  Port?: number;
+
+  /**
+   * <p>Endpoint TCP port.</p>
+   */
+  ServerName?: string;
+
+  /**
+   * <p>Specifies the time zone for the source MySQL database.</p>
+   *
+   *          <p>Example: <code>serverTimezone=US/Pacific;</code>
+   *          </p>
+   *
+   *          <p>Note: Do not enclose time zones in single quotes.</p>
+   */
+  ServerTimezone?: string;
+
+  /**
+   * <p>Endpoint connection user name.</p>
+   */
+  Username?: string;
+
+  /**
+   * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
+   *          as the trusted entity and grants the required permissions to access the value in
+   *          <code>SecretsManagerSecret.</code> The role must allow the <code>iam:PassRole</code> action.
+   *          <code>SecretsManagerSecret</code> has the value of the Amazon Web Services Secrets Manager secret
+   *          that allows access to the MySQL endpoint.</p>
+   *          <note>
+   *             <p>You can specify one of two sets of values for these permissions. You can specify
+   *             the values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify clear-text
+   *             values for <code>UserName</code>, <code>Password</code>, <code>ServerName</code>, and <code>Port</code>.
+   *             You can't specify both. For more information on creating this <code>SecretsManagerSecret</code>
+   *             and the <code>SecretsManagerAccessRoleArn</code> and <code>SecretsManagerSecretId</code> required to
+   *             access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access Database Migration Service resources</a> in the
+   *             Database Migration Service User Guide.
+   *
+   *       </p>
+   *          </note>
+   */
+  SecretsManagerAccessRoleArn?: string;
+
+  /**
+   * <p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
+   *          that contains the MySQL endpoint connection details. </p>
+   */
+  SecretsManagerSecretId?: string;
+}
+
+export namespace GcpMySQLSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GcpMySQLSettings): any => ({
+    ...obj,
+    ...(obj.Password && { Password: SENSITIVE_STRING }),
+  });
 }
 
 /**
@@ -1321,11 +1454,6 @@ export namespace MongoDbSettings {
   });
 }
 
-export enum TargetDbType {
-  MULTIPLE_DATABASES = "multiple-databases",
-  SPECIFIC_DATABASE = "specific-database",
-}
-
 /**
  * <p>Provides information that defines a MySQL endpoint.</p>
  */
@@ -1359,7 +1487,7 @@ export interface MySQLSettings {
 
   /**
    * <p>Specifies how often to check the binary log for new
-   *          changes/events when the database is idle.</p>
+   *          changes/events when the database is idle. The default is five seconds.</p>
    *          <p>Example: <code>eventsPollInterval=5;</code>
    *          </p>
    *          <p>In the example, DMS checks for changes in the binary
@@ -1387,7 +1515,7 @@ export interface MySQLSettings {
    * <p>Improves performance when loading data into the MySQL-compatible target database.
    *          Specifies how many threads to use to load the data into the MySQL-compatible target
    *          database. Setting a large number of threads can have an adverse effect on database
-   *          performance, because a separate connection is required for each thread.</p>
+   *          performance, because a separate connection is required for each thread. The default is one.</p>
    *          <p>Example: <code>parallelLoadThreads=1</code>
    *          </p>
    */
@@ -2009,7 +2137,7 @@ export interface PostgreSQLSettings {
   Password?: string;
 
   /**
-   * <p>Endpoint TCP port.</p>
+   * <p>Endpoint TCP port. The default is 5432.</p>
    */
   Port?: number;
 
@@ -2906,6 +3034,17 @@ export interface S3Settings {
   CdcPath?: string;
 
   /**
+   * <p>When set to true, this parameter uses the task start time as the timestamp column value instead of
+   *          the time data is written to target. For full load, when <code>useTaskStartTimeForFullLoadTimestamp</code>
+   *          is set to <code>true</code>, each row of the timestamp column contains the task start time. For CDC loads,
+   *          each row of the timestamp column contains the transaction commit time.</p>
+   *
+   *          <p>When <code>useTaskStartTimeForFullLoadTimestamp</code> is set to <code>false</code>, the full load timestamp
+   *          in the timestamp column increments with the time data arrives at the target. </p>
+   */
+  UseTaskStartTimeForFullLoadTimestamp?: boolean;
+
+  /**
    * <p>A value that enables DMS to specify a predefined (canned) access control list for
    *          objects created in an Amazon S3 bucket as .csv or .parquet files. For more information
    *          about Amazon S3 canned ACLs, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
@@ -3025,7 +3164,7 @@ export interface SybaseSettings {
   Password?: string;
 
   /**
-   * <p>Endpoint TCP port.</p>
+   * <p>Endpoint TCP port. The default is 5000.</p>
    */
   Port?: number;
 
@@ -3094,8 +3233,8 @@ export interface CreateEndpointMessage {
   /**
    * <p>The type of engine for the endpoint. Valid values, depending on the
    *          <code>EndpointType</code> value, include <code>"mysql"</code>, <code>"oracle"</code>,
-   *          <code>"postgres"</code>, <code>"mariadb"</code>, <code>"aurora"</code>,
-   *          <code>"aurora-postgresql"</code>, <code>"redshift"</code>, <code>"s3"</code>,
+   *           <code>"postgres"</code>, <code>"mariadb"</code>, <code>"aurora"</code>,
+   *           <code>"aurora-postgresql"</code>, <code>"opensearch"</code>, <code>"redshift"</code>, <code>"s3"</code>,
    *          <code>"db2"</code>, <code>"azuredb"</code>, <code>"sybase"</code>, <code>"dynamodb"</code>, <code>"mongodb"</code>,
    *          <code>"kinesis"</code>, <code>"kafka"</code>, <code>"elasticsearch"</code>, <code>"docdb"</code>,
    *          <code>"sqlserver"</code>, and <code>"neptune"</code>.</p>
@@ -3242,8 +3381,8 @@ export interface CreateEndpointMessage {
   KafkaSettings?: KafkaSettings;
 
   /**
-   * <p>Settings in JSON format for the target Elasticsearch endpoint. For more information
-   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration">Extra Connection Attributes When Using Elasticsearch as a Target for DMS</a> in
+   * <p>Settings in JSON format for the target OpenSearch endpoint. For more information
+   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration">Extra Connection Attributes When Using OpenSearch as a Target for DMS</a> in
    *           the <i>Database Migration Service User Guide</i>.</p>
    */
   ElasticsearchSettings?: ElasticsearchSettings;
@@ -3343,6 +3482,11 @@ export interface CreateEndpointMessage {
    * <p>Settings in JSON format for the target Redis endpoint.</p>
    */
   RedisSettings?: RedisSettings;
+
+  /**
+   * <p>Settings in JSON format for the source GCP MySQL endpoint.</p>
+   */
+  GcpMySQLSettings?: GcpMySQLSettings;
 }
 
 export namespace CreateEndpointMessage {
@@ -3367,6 +3511,7 @@ export namespace CreateEndpointMessage {
     ...(obj.IBMDb2Settings && { IBMDb2Settings: IBMDb2Settings.filterSensitiveLog(obj.IBMDb2Settings) }),
     ...(obj.DocDbSettings && { DocDbSettings: DocDbSettings.filterSensitiveLog(obj.DocDbSettings) }),
     ...(obj.RedisSettings && { RedisSettings: RedisSettings.filterSensitiveLog(obj.RedisSettings) }),
+    ...(obj.GcpMySQLSettings && { GcpMySQLSettings: GcpMySQLSettings.filterSensitiveLog(obj.GcpMySQLSettings) }),
   });
 }
 
@@ -3407,7 +3552,7 @@ export interface Endpoint {
   /**
    * <p>The database engine name. Valid values, depending on the EndpointType, include
    *             <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-   *             <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>,
+   *             <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>, <code>"opensearch"</code>,
    *             <code>"redshift"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"azuredb"</code>,
    *             <code>"sybase"</code>, <code>"dynamodb"</code>, <code>"mongodb"</code>,
    *             <code>"kinesis"</code>, <code>"kafka"</code>, <code>"elasticsearch"</code>,
@@ -3506,25 +3651,7 @@ export interface Endpoint {
   S3Settings?: S3Settings;
 
   /**
-   * <p>The settings in JSON format for the DMS transfer type of source endpoint. </p>
-   *          <p>Possible settings include the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ServiceAccessRoleArn</code> -  - The Amazon Resource Name (ARN) used by the service access IAM role.
-   *                  The role must allow the <code>iam:PassRole</code> action.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BucketName</code> - The name of the S3 bucket to use.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Shorthand syntax for these settings is as follows:
-   *             <code>ServiceAccessRoleArn=string,BucketName=string,</code>
-   *          </p>
-   *          <p>JSON syntax for these settings is as follows: <code>{ "ServiceAccessRoleArn":
-   *             "string", "BucketName": "string"} </code>
-   *          </p>
+   * <p>The settings for the DMS Transfer type source. For more information, see the DmsTransferSettings structure.  </p>
    */
   DmsTransferSettings?: DmsTransferSettings;
 
@@ -3547,7 +3674,7 @@ export interface Endpoint {
   KafkaSettings?: KafkaSettings;
 
   /**
-   * <p>The settings for the Elasticsearch source endpoint. For more information, see the
+   * <p>The settings for the OpenSearch source endpoint. For more information, see the
    *             <code>ElasticsearchSettings</code> structure.</p>
    */
   ElasticsearchSettings?: ElasticsearchSettings;
@@ -3610,6 +3737,11 @@ export interface Endpoint {
    *          <code>RedisSettings</code> structure.</p>
    */
   RedisSettings?: RedisSettings;
+
+  /**
+   * <p>Settings in JSON format for the source GCP MySQL endpoint.</p>
+   */
+  GcpMySQLSettings?: GcpMySQLSettings;
 }
 
 export namespace Endpoint {
@@ -3633,6 +3765,7 @@ export namespace Endpoint {
     ...(obj.IBMDb2Settings && { IBMDb2Settings: IBMDb2Settings.filterSensitiveLog(obj.IBMDb2Settings) }),
     ...(obj.DocDbSettings && { DocDbSettings: DocDbSettings.filterSensitiveLog(obj.DocDbSettings) }),
     ...(obj.RedisSettings && { RedisSettings: RedisSettings.filterSensitiveLog(obj.RedisSettings) }),
+    ...(obj.GcpMySQLSettings && { GcpMySQLSettings: GcpMySQLSettings.filterSensitiveLog(obj.GcpMySQLSettings) }),
   });
 }
 
@@ -3910,7 +4043,7 @@ export namespace KMSAccessDeniedFault {
 }
 
 /**
- * <p>The specified master key (CMK) isn't enabled.</p>
+ * <p>The specified KMS key isn't enabled.</p>
  */
 export interface KMSDisabledFault extends __SmithyException, $MetadataBearer {
   name: "KMSDisabledFault";
@@ -5243,7 +5376,7 @@ export namespace CreateReplicationTaskResponse {
 
 export interface DeleteCertificateMessage {
   /**
-   * <p>The Amazon Resource Name (ARN) of the deleted certificate.</p>
+   * <p>The Amazon Resource Name (ARN) of the certificate.</p>
    */
   CertificateArn: string | undefined;
 }
@@ -5280,7 +5413,8 @@ export interface Certificate {
   CertificatePem?: string;
 
   /**
-   * <p>The location of an imported Oracle Wallet certificate for use with SSL.</p>
+   * <p>The location of an imported Oracle Wallet certificate for use with SSL. Example: <code>filebase64("${path.root}/rds-ca-2019-root.sso")</code>
+   *          </p>
    */
   CertificateWallet?: Uint8Array;
 
@@ -5844,7 +5978,8 @@ export namespace Filter {
 
 export interface DescribeCertificatesMessage {
   /**
-   * <p>Filters applied to the certificates described in the form of key-value pairs.</p>
+   * <p>Filters applied to the certificates described in the form of key-value pairs.
+   *           Valid values are <code>certificate-arn</code> and <code>certificate-id</code>.</p>
    */
   Filters?: Filter[];
 
@@ -6361,7 +6496,7 @@ export interface DescribeEventsMessage {
   EventCategories?: string[];
 
   /**
-   * <p>Filters applied to events.</p>
+   * <p>Filters applied to events. The only valid filter is <code>replication-instance-id</code>.</p>
    */
   Filters?: Filter[];
 
@@ -6470,6 +6605,7 @@ export interface DescribeEventSubscriptionsMessage {
 
   /**
    * <p>Filters applied to event subscriptions.</p>
+   *          <p>Valid filter names: event-subscription-arn |  event-subscription-id </p>
    */
   Filters?: Filter[];
 
@@ -7725,8 +7861,9 @@ export interface ImportCertificateMessage {
 
   /**
    * <p>The location of an imported Oracle Wallet certificate for use with SSL. Provide the name of a <code>.sso</code> file
-   *           using the <code>fileb://</code> prefix. You can't provide the certificate inline.
-   *       </p>
+   *           using the <code>fileb://</code> prefix. You can't provide the certificate inline.</p>
+   *           <p>Example: <code>filebase64("${path.root}/rds-ca-2019-root.sso")</code>
+   *          </p>
    */
   CertificateWallet?: Uint8Array;
 
@@ -7853,7 +7990,7 @@ export interface ModifyEndpointMessage {
    * <p>The type of engine for the endpoint. Valid values, depending on the EndpointType,
    *          include
    *          <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-   *          <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>,
+   *          <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>, <code>"opensearch"</code>,
    *          <code>"redshift"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"azuredb"</code>,
    *          <code>"sybase"</code>, <code>"dynamodb"</code>, <code>"mongodb"</code>,
    *          <code>"kinesis"</code>, <code>"kafka"</code>, <code>"elasticsearch"</code>,
@@ -7977,8 +8114,8 @@ export interface ModifyEndpointMessage {
   KafkaSettings?: KafkaSettings;
 
   /**
-   * <p>Settings in JSON format for the target Elasticsearch endpoint. For more information
-   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration">Extra Connection Attributes When Using Elasticsearch as a Target for DMS</a> in
+   * <p>Settings in JSON format for the target OpenSearch endpoint. For more information
+   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration">Extra Connection Attributes When Using OpenSearch as a Target for DMS</a> in
    *          the <i>Database Migration Service User Guide.</i>
    *          </p>
    */
@@ -8094,6 +8231,11 @@ export interface ModifyEndpointMessage {
    *          are replaced with the exact settings that you specify. </p>
    */
   ExactSettings?: boolean;
+
+  /**
+   * <p>Settings in JSON format for the source GCP MySQL endpoint.</p>
+   */
+  GcpMySQLSettings?: GcpMySQLSettings;
 }
 
 export namespace ModifyEndpointMessage {
@@ -8118,6 +8260,7 @@ export namespace ModifyEndpointMessage {
     ...(obj.IBMDb2Settings && { IBMDb2Settings: IBMDb2Settings.filterSensitiveLog(obj.IBMDb2Settings) }),
     ...(obj.DocDbSettings && { DocDbSettings: DocDbSettings.filterSensitiveLog(obj.DocDbSettings) }),
     ...(obj.RedisSettings && { RedisSettings: RedisSettings.filterSensitiveLog(obj.RedisSettings) }),
+    ...(obj.GcpMySQLSettings && { GcpMySQLSettings: GcpMySQLSettings.filterSensitiveLog(obj.GcpMySQLSettings) }),
   });
 }
 
@@ -8801,7 +8944,13 @@ export interface StartReplicationTaskMessage {
   ReplicationTaskArn: string | undefined;
 
   /**
-   * <p>A type of replication task.</p>
+   * <p>The type of replication task to start.</p>
+   *          <p>When the migration type is <code>full-load</code> or <code>full-load-and-cdc</code>, the only valid value
+   *            for the first run of the task is <code>start-replication</code>. You use <code>reload-target</code> to restart
+   *        the task and <code>resume-processing</code> to resume the task.</p>
+   *          <p>When the migration type is <code>cdc</code>, you use <code>start-replication</code> to start or restart
+   *        the task, and <code>resume-processing</code> to resume the task. <code>reload-target</code> is not a valid value for
+   *        a task with migration type of <code>cdc</code>.</p>
    */
   StartReplicationTaskType: StartReplicationTaskTypeValue | string | undefined;
 

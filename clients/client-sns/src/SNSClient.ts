@@ -130,6 +130,7 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
 import { OptInPhoneNumberCommandInput, OptInPhoneNumberCommandOutput } from "./commands/OptInPhoneNumberCommand";
+import { PublishBatchCommandInput, PublishBatchCommandOutput } from "./commands/PublishBatchCommand";
 import { PublishCommandInput, PublishCommandOutput } from "./commands/PublishCommand";
 import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
 import {
@@ -184,6 +185,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListTopicsCommandInput
   | OptInPhoneNumberCommandInput
+  | PublishBatchCommandInput
   | PublishCommandInput
   | RemovePermissionCommandInput
   | SetEndpointAttributesCommandInput
@@ -225,6 +227,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListTopicsCommandOutput
   | OptInPhoneNumberCommandOutput
+  | PublishBatchCommandOutput
   | PublishCommandOutput
   | RemovePermissionCommandOutput
   | SetEndpointAttributesCommandOutput

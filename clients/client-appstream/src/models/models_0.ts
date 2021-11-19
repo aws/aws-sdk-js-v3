@@ -1634,7 +1634,7 @@ export namespace NetworkAccessConfiguration {
   });
 }
 
-export type PlatformType = "WINDOWS" | "WINDOWS_SERVER_2016" | "WINDOWS_SERVER_2019";
+export type PlatformType = "AMAZON_LINUX2" | "WINDOWS" | "WINDOWS_SERVER_2016" | "WINDOWS_SERVER_2019";
 
 export enum ImageBuilderState {
   DELETING = "DELETING",

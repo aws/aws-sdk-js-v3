@@ -693,6 +693,11 @@ export interface Session {
   Owner?: string;
 
   /**
+   * <p>The reason for connecting to the instance.</p>
+   */
+  Reason?: string;
+
+  /**
    * <p>Reserved for future use.</p>
    */
   Details?: string;
@@ -701,6 +706,11 @@ export interface Session {
    * <p>Reserved for future use.</p>
    */
   OutputUrl?: SessionManagerOutputUrl;
+
+  /**
+   * <p>The maximum duration of a session before it terminates.</p>
+   */
+  MaxSessionDuration?: string;
 }
 
 export namespace Session {
@@ -9669,6 +9679,11 @@ export interface StartSessionRequest {
   DocumentName?: string;
 
   /**
+   * <p>The reason for connecting to the instance. This value is included in the details for the Amazon CloudWatch Events event created when you start the session.</p>
+   */
+  Reason?: string;
+
+  /**
    * <p>Reserved for future use.</p>
    */
   Parameters?: { [key: string]: string[] };
@@ -9981,9 +9996,9 @@ export interface UpdateAssociationRequest {
   AssociationVersion?: string;
 
   /**
-   * <p>Specify the target for the association. This target is required for associations that use an
-   *    Automation runbook and target resources by using rate controls. Automation is a capability of
-   *    Amazon Web Services Systems Manager.</p>
+   * <p>Choose the parameter that will define how your automation will branch out. This target is
+   *    required for associations that use an Automation runbook and target resources by using rate
+   *    controls. Automation is a capability of Amazon Web Services Systems Manager.</p>
    */
   AutomationTargetParameterName?: string;
 

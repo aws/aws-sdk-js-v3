@@ -22,9 +22,7 @@ export interface DescribeInsightCommandInput extends DescribeInsightRequest {}
 export interface DescribeInsightCommandOutput extends DescribeInsightResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    		Returns details about an insight that you specify using its ID.
- *    	</p>
+ * <p> Returns details about an insight that you specify using its ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

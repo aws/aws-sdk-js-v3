@@ -22,7 +22,7 @@ export interface GetCostEstimationCommandInput extends GetCostEstimationRequest 
 export interface GetCostEstimationCommandOutput extends GetCostEstimationResponse, __MetadataBearer {}
 
 /**
- * <p>Returns an estimate of the monthly cost for DevOps Guru to analyze your AWS resources.
+ * <p>Returns an estimate of the monthly cost for DevOps Guru to analyze your Amazon Web Services resources.
  * 			For more information,
  * 			see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html">Estimate your
  * 			Amazon DevOps Guru costs</a> and

@@ -26,8 +26,7 @@ export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __M
  *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters:
  *                 <code>DeparturePostiton</code> and <code>DestinationPosition</code>. Requires that
  *             you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a
- *                 route calculator resource</a>
- *          </p>
+ *                 route calculator resource</a>.</p>
  *         <p>By default, a request that doesn't specify a departure time uses the best time of day
  *             to travel with the best traffic conditions when calculating the route.</p>
  *         <p>Additional options include:</p>
@@ -40,7 +39,7 @@ export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __M
  *                 <note>
  *                     <p>You can't specify both <code>DepartureTime</code> and
  *                             <code>DepartureNow</code> in a single request. Specifying both
- *                         parameters returns an error message.</p>
+ *                         parameters returns a validation error.</p>
  *                 </note>
  *             </li>
  *             <li>

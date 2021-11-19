@@ -22,9 +22,7 @@ export interface PutFeedbackCommandInput extends PutFeedbackRequest {}
 export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    		Collects customer feedback about the specified insight.
- *    	</p>
+ * <p> Collects customer feedback about the specified insight. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
