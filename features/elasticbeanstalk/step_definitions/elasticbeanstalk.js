@@ -1,7 +1,7 @@
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@elasticbeanstalk" }, function (scenario, callback) {
-  const { ElasticBeanstalk } = require("../../../clients/client-elasticbeanstalk");
+  const { ElasticBeanstalk } = require("../../../clients/client-elastic-beanstalk");
   this.service = new ElasticBeanstalk({});
   callback();
 });

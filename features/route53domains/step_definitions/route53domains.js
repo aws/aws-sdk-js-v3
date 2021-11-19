@@ -1,7 +1,7 @@
 const { Before, Given } = require("cucumber");
 
 Before({ tags: "@route53domains" }, function (scenario, callback) {
-  const { Route53Domains } = require("../../../clients/client-route53domains");
+  const { Route53Domains } = require("../../../clients/client-route-53-domains");
   this.service = new Route53Domains({ region: "us-east-1" });
   callback();
 });
