@@ -77,6 +77,14 @@ const partitionHash: PartitionHash = {
         hostname: "runtime-fips.lex.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "runtime.lex-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "runtime.lex.{region}.api.aws",
+        tags: ["dualstack"],
+      },
     ],
   },
   "aws-cn": {
@@ -140,6 +148,14 @@ const partitionHash: PartitionHash = {
       {
         hostname: "runtime-fips.lex.{region}.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "runtime.lex-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "runtime.lex.{region}.api.aws",
+        tags: ["dualstack"],
       },
     ],
   },

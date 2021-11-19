@@ -115,6 +115,14 @@ const partitionHash: PartitionHash = {
         hostname: "fips.eks.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "eks-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "eks.{region}.api.aws",
+        tags: ["dualstack"],
+      },
     ],
   },
   "aws-cn": {
@@ -178,6 +186,14 @@ const partitionHash: PartitionHash = {
       {
         hostname: "eks.{region}.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "eks-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "eks.{region}.api.aws",
+        tags: ["dualstack"],
       },
     ],
   },

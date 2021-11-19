@@ -176,6 +176,14 @@ const partitionHash: PartitionHash = {
         hostname: "elasticache.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "elasticache-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "elasticache.{region}.api.aws",
+        tags: ["dualstack"],
+      },
     ],
   },
 };

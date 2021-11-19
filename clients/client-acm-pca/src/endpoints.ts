@@ -200,6 +200,14 @@ const partitionHash: PartitionHash = {
         hostname: "acm-pca.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "acm-pca-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "acm-pca.{region}.api.aws",
+        tags: ["dualstack"],
+      },
     ],
   },
 };

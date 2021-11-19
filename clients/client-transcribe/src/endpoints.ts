@@ -146,6 +146,14 @@ const partitionHash: PartitionHash = {
         hostname: "fips.transcribe.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "transcribe-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "transcribe.{region}.api.aws",
+        tags: ["dualstack"],
+      },
     ],
   },
   "aws-cn": {
@@ -209,6 +217,14 @@ const partitionHash: PartitionHash = {
       {
         hostname: "fips.transcribe.{region}.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "transcribe-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "transcribe.{region}.api.aws",
+        tags: ["dualstack"],
       },
     ],
   },

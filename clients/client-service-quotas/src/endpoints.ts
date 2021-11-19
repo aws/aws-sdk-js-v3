@@ -135,6 +135,14 @@ const partitionHash: PartitionHash = {
         hostname: "servicequotas.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "servicequotas-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "servicequotas.{region}.api.aws",
+        tags: ["dualstack"],
+      },
     ],
   },
 };

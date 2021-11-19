@@ -327,6 +327,14 @@ const partitionHash: PartitionHash = {
         hostname: "ecr-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "api.ecr-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "api.ecr.{region}.api.aws",
+        tags: ["dualstack"],
+      },
     ],
   },
   "aws-cn": {
@@ -399,6 +407,14 @@ const partitionHash: PartitionHash = {
       {
         hostname: "ecr-fips.{region}.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "api.ecr-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "api.ecr.{region}.api.aws",
+        tags: ["dualstack"],
       },
     ],
   },

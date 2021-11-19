@@ -187,6 +187,14 @@ const partitionHash: PartitionHash = {
         hostname: "elasticloadbalancing.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "elasticloadbalancing-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "elasticloadbalancing.{region}.api.aws",
+        tags: ["dualstack"],
+      },
     ],
   },
 };

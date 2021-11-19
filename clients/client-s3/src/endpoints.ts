@@ -409,6 +409,10 @@ const partitionHash: PartitionHash = {
         tags: [],
       },
       {
+        hostname: "s3-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
         hostname: "s3-fips.dualstack.{region}.amazonaws.com",
         tags: ["dualstack", "fips"],
       },
@@ -425,6 +429,14 @@ const partitionHash: PartitionHash = {
       {
         hostname: "s3.{region}.amazonaws.com.cn",
         tags: [],
+      },
+      {
+        hostname: "s3-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "s3-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
       },
       {
         hostname: "s3.dualstack.{region}.amazonaws.com.cn",
@@ -467,6 +479,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "s3.{region}.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "s3-fips.{region}.amazonaws.com",
+        tags: ["fips"],
       },
       {
         hostname: "s3-fips.dualstack.{region}.amazonaws.com",

@@ -187,6 +187,14 @@ const partitionHash: PartitionHash = {
         hostname: "config.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "config-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "config.{region}.api.aws",
+        tags: ["dualstack"],
+      },
     ],
   },
 };

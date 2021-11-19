@@ -103,6 +103,14 @@ const partitionHash: PartitionHash = {
         hostname: "runtime-fips.sagemaker.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "runtime.sagemaker-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "runtime.sagemaker.{region}.api.aws",
+        tags: ["dualstack"],
+      },
     ],
   },
   "aws-cn": {
@@ -166,6 +174,14 @@ const partitionHash: PartitionHash = {
       {
         hostname: "runtime.sagemaker.{region}.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "runtime.sagemaker-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "runtime.sagemaker.{region}.api.aws",
+        tags: ["dualstack"],
       },
     ],
   },

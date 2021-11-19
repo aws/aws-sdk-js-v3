@@ -187,6 +187,14 @@ const partitionHash: PartitionHash = {
         hostname: "guardduty.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "guardduty-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "guardduty.{region}.api.aws",
+        tags: ["dualstack"],
+      },
     ],
   },
 };

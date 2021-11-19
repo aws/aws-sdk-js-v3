@@ -123,6 +123,14 @@ const partitionHash: PartitionHash = {
         hostname: "identitystore.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "identitystore-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "identitystore.{region}.api.aws",
+        tags: ["dualstack"],
+      },
     ],
   },
 };

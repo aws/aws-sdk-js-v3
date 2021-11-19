@@ -210,6 +210,14 @@ const partitionHash: PartitionHash = {
         hostname: "dynamodb.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "dynamodb-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "dynamodb.{region}.api.aws",
+        tags: ["dualstack"],
+      },
     ],
   },
 };
