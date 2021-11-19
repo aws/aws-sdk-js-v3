@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-sts",
   "description": "AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native",
-  "version": "3.41.0",
+  "version": "3.42.0",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.json",

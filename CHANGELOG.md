@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.42.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.41.0...v3.42.0) (2021-11-19)
+
+
+### Bug Fixes
+
+* **client-kendra:** change incorrectly modeled DocumentAttributeValue to structure ([#3040](https://github.com/aws/aws-sdk-js-v3/issues/3040)) ([e497f38](https://github.com/aws/aws-sdk-js-v3/commit/e497f38810458847a016e910c1418e4f31939e66))
+* **clients:** merge default variants by comparing tags ([#3044](https://github.com/aws/aws-sdk-js-v3/issues/3044)) ([d65a310](https://github.com/aws/aws-sdk-js-v3/commit/d65a310ed5a471e72633a18ae6f3c98390e20783))
+* **lib-storage:** add events polyfill ([#3017](https://github.com/aws/aws-sdk-js-v3/issues/3017)) ([fff5e2a](https://github.com/aws/aws-sdk-js-v3/commit/fff5e2a3e2f5c1e0f3b22ea1f3b6cc28cd2658f0))
+* **middleware-sdk-ec2:** remove double encoding of presigned url ([#3022](https://github.com/aws/aws-sdk-js-v3/issues/3022)) ([7cf73ea](https://github.com/aws/aws-sdk-js-v3/commit/7cf73eac3103b0a0ad7c0d84c04882f07a576245))
+* **middleware-sdk-s3-control:** do not validate for FIPS in S3 Outposts ([#3027](https://github.com/aws/aws-sdk-js-v3/issues/3027)) ([b30d338](https://github.com/aws/aws-sdk-js-v3/commit/b30d338c6c0e4843c1d622c7eb59f4e64f78956b))
+
+
+### Features
+
+* **clients:** update clients as of 11/18/2021 ([#3039](https://github.com/aws/aws-sdk-js-v3/issues/3039)) ([d2b2c45](https://github.com/aws/aws-sdk-js-v3/commit/d2b2c453315fc7bff798c1fb97c792e59274b4d6))
+
+
+
+
+
 # [3.41.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.40.1...v3.41.0) (2021-11-11)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/karma-credential-loader",
-  "version": "3.41.0",
+  "version": "3.42.0",
   "private": true,
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
