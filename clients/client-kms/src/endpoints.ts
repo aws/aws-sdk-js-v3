@@ -335,6 +335,7 @@ const partitionHash: PartitionHash = {
       "ap-southeast-1-fips",
       "ap-southeast-2",
       "ap-southeast-2-fips",
+      "ap-southeast-3-fips",
       "ca-central-1",
       "ca-central-1-fips",
       "eu-central-1",
