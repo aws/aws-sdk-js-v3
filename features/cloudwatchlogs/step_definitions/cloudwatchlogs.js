@@ -1,7 +1,7 @@
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@cloudwatchlogs" }, function (scenario, callback) {
-  const { CloudWatchLogs } = require("../../../clients/client-cloudwatchlogs");
+  const { CloudWatchLogs } = require("../../../clients/client-cloudwatch-logs");
   this.service = new CloudWatchLogs({});
   callback();
 });

@@ -1,7 +1,7 @@
 const { Before, When } = require("cucumber");
 
 Before({ tags: "@storagegateway" }, function (scenario, callback) {
-  const { StorageGateway } = require("../../../clients/client-storagegateway");
+  const { StorageGateway } = require("../../../clients/client-storage-gateway");
   this.service = new StorageGateway({ region: "us-east-1" });
   callback();
 });
