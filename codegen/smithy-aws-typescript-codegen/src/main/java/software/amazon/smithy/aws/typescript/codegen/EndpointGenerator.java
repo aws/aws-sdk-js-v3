@@ -138,7 +138,7 @@ final class EndpointGenerator implements Runnable {
                         }
                     });
                     writer.write("regionRegex: $S,", partition.regionRegex);
-                    writer.write("variants: $L,", ArrayNode.prettyPrintJson(partition.getVariants()));
+                    writer.write("variants: $L,", ArrayNode.prettyPrintJson(partition.variants));
                     partition.getPartitionEndpoint().ifPresent(
                         endpoint -> writer.write("endpoint: $S,", endpoint));
                 });
@@ -199,7 +199,7 @@ final class EndpointGenerator implements Runnable {
     }
 
     private final class Partition {
-        final ObjectNode defaults;
+        final ArrayNode variants;
         final String dnsSuffix;
         final String identifier;
         final String regionRegex;
@@ -210,7 +210,8 @@ final class EndpointGenerator implements Runnable {
             this.config = config;
             // Resolve the partition defaults + the service defaults.
             ObjectNode partitionDefaults = config.expectObjectMember("defaults");
-            defaults = partitionDefaults.merge(getService().getObjectMember("defaults").orElse(Node.objectNode()));
+            ObjectNode serviceDefaults = getService().getObjectMember("defaults").orElse(Node.objectNode());
+            ObjectNode defaults = partitionDefaults.merge(serviceDefaults);
 
             dnsSuffix = config.expectStringMember("dnsSuffix").getValue();
             identifier = partition;
@@ -219,10 +220,12 @@ final class EndpointGenerator implements Runnable {
             // Resolve the template to use for this service in this partition.
             String hostname = defaults.expectStringMember("hostname").getValue();
             hostnameTemplate = getResolvedHostname(hostname, dnsSuffix, endpointPrefix);
-        }
 
-        ObjectNode getDefaults() {
-            return defaults;
+            ArrayNode mergedVariants = getMergedVariants(
+                partitionDefaults.getArrayMember("variants").orElse(Node.arrayNode()),
+                serviceDefaults.getArrayMember("variants").orElse(Node.arrayNode())
+            );
+            variants = getVariants(mergedVariants);
         }
 
         ObjectNode getService() {
@@ -243,22 +246,37 @@ final class EndpointGenerator implements Runnable {
             return regions;
         }
 
-        ArrayNode getVariants() {
+        private ArrayNode getVariants(ArrayNode mergedVariants) {
             List<Node> allVariants = new ArrayList<Node>();
 
             allVariants.add(getDefaultVariant(hostnameTemplate));
-            if (defaults.containsMember("variants")) {
-                ArrayNode variants = defaults.expectArrayMember("variants");
-                variants.forEach(variant -> {
-                    ObjectNode variantNode = variant.expectObjectNode();
-                    String hostname = variantNode.expectStringMember("hostname").getValue();
-                    String dnsSuffix = variantNode.getStringMemberOrDefault("dnsSuffix", this.dnsSuffix);
-                    String resolvedHostname = getResolvedHostname(hostname, dnsSuffix, endpointPrefix);
-                    allVariants.add(variantNode.withMember("hostname", resolvedHostname).withoutMember("dnsSuffix"));
-                });
-            }
+            mergedVariants.forEach(mergedVariant -> {
+                ObjectNode variantNode = mergedVariant.expectObjectNode();
+                String hostname = variantNode.expectStringMember("hostname").getValue();
+                String dnsSuffix = variantNode.getStringMemberOrDefault("dnsSuffix", this.dnsSuffix);
+                String resolvedHostname = getResolvedHostname(hostname, dnsSuffix, endpointPrefix);
+                allVariants.add(variantNode.withMember("hostname", resolvedHostname).withoutMember("dnsSuffix"));
+            });
 
             return ArrayNode.fromNodes(allVariants);
+        }
+
+        private ArrayNode getMergedVariants(ArrayNode partitionVariants, ArrayNode serviceVariants) {
+            List<Node> mergedVariants = new ArrayList<Node>();
+
+            partitionVariants.forEach(partitionVariant -> {
+                ObjectNode partitionVariantNode = partitionVariant.expectObjectNode();
+                ArrayNode tags = partitionVariantNode.expectArrayMember("tags");
+                Node equivalentServiceVariantNode = serviceVariants.getElements().stream()
+                    .filter(serviceVariantNode -> tags.equals(
+                        serviceVariantNode.expectObjectNode().expectArrayMember("tags")))
+                    .findFirst()
+                    .orElse(null);
+                mergedVariants.add((equivalentServiceVariantNode == null)
+                    ? partitionVariantNode : equivalentServiceVariantNode);
+            });
+
+            return ArrayNode.fromNodes(mergedVariants);
         }
 
         Optional<String> getPartitionEndpoint() {

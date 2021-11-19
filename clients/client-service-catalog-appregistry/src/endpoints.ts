@@ -200,6 +200,14 @@ const partitionHash: PartitionHash = {
         hostname: "servicecatalog-appregistry.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "servicecatalog-appregistry-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "servicecatalog-appregistry.{region}.api.aws",
+        tags: ["dualstack"],
+      },
     ],
   },
 };

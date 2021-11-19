@@ -200,6 +200,14 @@ const partitionHash: PartitionHash = {
         hostname: "elasticmapreduce.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "elasticmapreduce-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "elasticmapreduce.{region}.api.aws",
+        tags: ["dualstack"],
+      },
     ],
   },
 };

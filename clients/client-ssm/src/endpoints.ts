@@ -200,6 +200,14 @@ const partitionHash: PartitionHash = {
         hostname: "ssm.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "ssm-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "ssm.{region}.api.aws",
+        tags: ["dualstack"],
+      },
     ],
   },
 };

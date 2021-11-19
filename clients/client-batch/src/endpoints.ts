@@ -115,6 +115,14 @@ const partitionHash: PartitionHash = {
         hostname: "fips.batch.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "batch-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "batch.{region}.api.aws",
+        tags: ["dualstack"],
+      },
     ],
   },
   "aws-cn": {
@@ -178,6 +186,14 @@ const partitionHash: PartitionHash = {
       {
         hostname: "batch.{region}.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "batch-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "batch.{region}.api.aws",
+        tags: ["dualstack"],
       },
     ],
   },
