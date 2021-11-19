@@ -2,15 +2,6 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
-  "ca-central-1-fips": {
-    variants: [
-      {
-        hostname: "dynamodb-fips.ca-central-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "ca-central-1",
-  },
   local: {
     variants: [
       {
@@ -20,59 +11,29 @@ const regionHash: RegionHash = {
     ],
     signingRegion: "us-east-1",
   },
-  "us-east-1-fips": {
+  "us-gov-east-1": {
     variants: [
       {
-        hostname: "dynamodb-fips.us-east-1.amazonaws.com",
+        hostname: "streams.dynamodb.us-gov-east-1.amazonaws.com",
         tags: [],
       },
+      {
+        hostname: "streams.dynamodb.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
     ],
-    signingRegion: "us-east-1",
   },
-  "us-east-2-fips": {
+  "us-gov-west-1": {
     variants: [
       {
-        hostname: "dynamodb-fips.us-east-2.amazonaws.com",
+        hostname: "streams.dynamodb.us-gov-west-1.amazonaws.com",
         tags: [],
       },
-    ],
-    signingRegion: "us-east-2",
-  },
-  "us-gov-east-1-fips": {
-    variants: [
       {
-        hostname: "dynamodb.us-gov-east-1.amazonaws.com",
-        tags: [],
+        hostname: "streams.dynamodb.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
-    signingRegion: "us-gov-east-1",
-  },
-  "us-gov-west-1-fips": {
-    variants: [
-      {
-        hostname: "dynamodb.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
-  "us-west-1-fips": {
-    variants: [
-      {
-        hostname: "dynamodb-fips.us-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-1",
-  },
-  "us-west-2-fips": {
-    variants: [
-      {
-        hostname: "dynamodb-fips.us-west-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-2",
   },
 };
 
@@ -88,7 +49,6 @@ const partitionHash: PartitionHash = {
       "ap-southeast-1",
       "ap-southeast-2",
       "ca-central-1",
-      "ca-central-1-fips",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -99,13 +59,9 @@ const partitionHash: PartitionHash = {
       "me-south-1",
       "sa-east-1",
       "us-east-1",
-      "us-east-1-fips",
       "us-east-2",
-      "us-east-2-fips",
       "us-west-1",
-      "us-west-1-fips",
       "us-west-2",
-      "us-west-2-fips",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     variants: [
@@ -186,7 +142,7 @@ const partitionHash: PartitionHash = {
         tags: [],
       },
       {
-        hostname: "streams.dynamodb-fips.{region}.amazonaws.com",
+        hostname: "streams.dynamodb.{region}.amazonaws.com",
         tags: ["fips"],
       },
       {
