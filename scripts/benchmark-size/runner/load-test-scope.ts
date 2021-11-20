@@ -41,6 +41,6 @@ export const loadPackageContext = async (scopeConfigPath: string = DEFAULT_TEST_
     packageNames.add(scope.package);
     deduplicatedScope.unshift(scope);
   });
-  console.log(`loaded ${deduplicatedScope.length} local packages within test scope`);
+  console.info(`loaded ${deduplicatedScope.length} local packages within test scope`);
   return deduplicatedScope;
 };
