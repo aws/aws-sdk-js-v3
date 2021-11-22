@@ -20,7 +20,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        "classpath"("software.amazon.smithy:smithy-cli:1.12.+")
+        "classpath"("software.amazon.smithy:smithy-cli:${rootProject.extra["smithyVersion"]}")
     }
 }
 
