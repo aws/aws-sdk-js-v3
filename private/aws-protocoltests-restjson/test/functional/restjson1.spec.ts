@@ -7715,7 +7715,7 @@ it("RestJsonHttpWithEmptyStructurePayload:Request", async () => {
 /**
  * Serializes a payload targeting a structure
  */
-it.skip("RestJsonTestPayloadStructure:Request", async () => {
+it("RestJsonTestPayloadStructure:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -7757,7 +7757,11 @@ it.skip("RestJsonTestPayloadStructure:Request", async () => {
 /**
  * Serializes an request with header members but no payload
  */
+<<<<<<< HEAD
 it.skip("RestJsonHttpWithHeadersButNoPayload:Request", async () => {
+=======
+it("RestJsonHttpWithHeadersButNoPayload:Request", async () => {
+>>>>>>> e2c63c12e4 (chore(protocol_tests): bump smithy to 1.14.x)
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
