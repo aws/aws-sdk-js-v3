@@ -76,4 +76,8 @@ export * from "./SimpleScalarPropertiesCommand";
 export * from "./StreamingTraitsCommand";
 export * from "./StreamingTraitsRequireLengthCommand";
 export * from "./StreamingTraitsWithMediaTypeCommand";
+export * from "./TestBodyStructureCommand";
+export * from "./TestNoPayloadCommand";
+export * from "./TestPayloadBlobCommand";
+export * from "./TestPayloadStructureCommand";
 export * from "./TimestampFormatHeadersCommand";
