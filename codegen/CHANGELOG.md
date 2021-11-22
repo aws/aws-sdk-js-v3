@@ -1,5 +1,11 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.7.1 (2021-11-04)
+
+### Bug Fixes
+
+* Fixed generator to not rely on unreleased features.
+
 ## 0.7.0 (2021-11-03)
 
 ### Features
