@@ -301,6 +301,14 @@ final class AwsProtocolUtils {
         if (testCase.getId().equals("RestJsonNoInputAndOutput")) {
             return true;
         }
+        // TODO: Remove when server protocol tests are fixed in
+        // https://github.com/aws/aws-sdk-js-v3/issues/3058
+        // TODO: Move to filter specific to server protocol tests if added in
+        // https://github.com/awslabs/smithy-typescript/issues/470
+        if (testCase.getId().equals("RestJsonTestPayloadStructure")
+            || testCase.getId().equals("RestJsonHttpWithHeadersButNoPayload")) {
+            return true;
+        }
         return false;
     }
 
@@ -329,11 +337,6 @@ final class AwsProtocolUtils {
 
         //TODO: reenable when the SSDK uses RE2 and not built-in regex for pattern constraints
         if (testCase.getId().equals("RestJsonMalformedPatternReDOSString")) {
-            return true;
-        }
-        //TODO: broken in Smithy 1.12.0, remove after next Smithy release
-        if (testCase.getId().equals("RestJsonMalformedLengthBlobOverride_case1")
-            || testCase.getId().equals("RestJsonMalformedRequiredQueryNoValue")) {
             return true;
         }
 

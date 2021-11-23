@@ -371,6 +371,26 @@ import {
   StreamingTraitsWithMediaTypeCommandOutput,
 } from "./commands/StreamingTraitsWithMediaTypeCommand";
 import {
+  TestBodyStructureCommand,
+  TestBodyStructureCommandInput,
+  TestBodyStructureCommandOutput,
+} from "./commands/TestBodyStructureCommand";
+import {
+  TestNoPayloadCommand,
+  TestNoPayloadCommandInput,
+  TestNoPayloadCommandOutput,
+} from "./commands/TestNoPayloadCommand";
+import {
+  TestPayloadBlobCommand,
+  TestPayloadBlobCommandInput,
+  TestPayloadBlobCommandOutput,
+} from "./commands/TestPayloadBlobCommand";
+import {
+  TestPayloadStructureCommand,
+  TestPayloadStructureCommandInput,
+  TestPayloadStructureCommandOutput,
+} from "./commands/TestPayloadStructureCommand";
+import {
   TimestampFormatHeadersCommand,
   TimestampFormatHeadersCommandInput,
   TimestampFormatHeadersCommandOutput,
@@ -2752,6 +2772,155 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     cb?: (err: any, data?: StreamingTraitsWithMediaTypeCommandOutput) => void
   ): Promise<StreamingTraitsWithMediaTypeCommandOutput> | void {
     const command = new StreamingTraitsWithMediaTypeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This example operation serializes a structure in the HTTP body.
+   *
+   * It should ensure Content-Type: application/json is
+   * used in all requests and that an "empty" body is
+   * an empty JSON document ({}).
+   *
+   */
+  public testBodyStructure(
+    args: TestBodyStructureCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestBodyStructureCommandOutput>;
+  public testBodyStructure(
+    args: TestBodyStructureCommandInput,
+    cb: (err: any, data?: TestBodyStructureCommandOutput) => void
+  ): void;
+  public testBodyStructure(
+    args: TestBodyStructureCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestBodyStructureCommandOutput) => void
+  ): void;
+  public testBodyStructure(
+    args: TestBodyStructureCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestBodyStructureCommandOutput) => void),
+    cb?: (err: any, data?: TestBodyStructureCommandOutput) => void
+  ): Promise<TestBodyStructureCommandOutput> | void {
+    const command = new TestBodyStructureCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This example operation serializes a request without an HTTP body.
+   *
+   * These tests are to ensure we do not attach a body or related headers
+   * (Content-Length, Content-Type) to operations that semantically
+   * cannot produce an HTTP body.
+   *
+   */
+  public testNoPayload(
+    args: TestNoPayloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestNoPayloadCommandOutput>;
+  public testNoPayload(
+    args: TestNoPayloadCommandInput,
+    cb: (err: any, data?: TestNoPayloadCommandOutput) => void
+  ): void;
+  public testNoPayload(
+    args: TestNoPayloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestNoPayloadCommandOutput) => void
+  ): void;
+  public testNoPayload(
+    args: TestNoPayloadCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestNoPayloadCommandOutput) => void),
+    cb?: (err: any, data?: TestNoPayloadCommandOutput) => void
+  ): Promise<TestNoPayloadCommandOutput> | void {
+    const command = new TestNoPayloadCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This example operation serializes a payload targeting a blob.
+   *
+   * The Blob shape is not structured content and we cannot
+   * make assumptions about what data will be sent. This test ensures
+   * only a generic "Content-Type: application/octet-stream" header
+   * is used, and that we are not treating an empty body as an
+   * empty JSON document.
+   *
+   */
+  public testPayloadBlob(
+    args: TestPayloadBlobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestPayloadBlobCommandOutput>;
+  public testPayloadBlob(
+    args: TestPayloadBlobCommandInput,
+    cb: (err: any, data?: TestPayloadBlobCommandOutput) => void
+  ): void;
+  public testPayloadBlob(
+    args: TestPayloadBlobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestPayloadBlobCommandOutput) => void
+  ): void;
+  public testPayloadBlob(
+    args: TestPayloadBlobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestPayloadBlobCommandOutput) => void),
+    cb?: (err: any, data?: TestPayloadBlobCommandOutput) => void
+  ): Promise<TestPayloadBlobCommandOutput> | void {
+    const command = new TestPayloadBlobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This example operation serializes a payload targeting a structure.
+   *
+   * This enforces the same requirements as TestBodyStructure
+   * but with the body specified by the @httpPayload trait.
+   *
+   */
+  public testPayloadStructure(
+    args: TestPayloadStructureCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestPayloadStructureCommandOutput>;
+  public testPayloadStructure(
+    args: TestPayloadStructureCommandInput,
+    cb: (err: any, data?: TestPayloadStructureCommandOutput) => void
+  ): void;
+  public testPayloadStructure(
+    args: TestPayloadStructureCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestPayloadStructureCommandOutput) => void
+  ): void;
+  public testPayloadStructure(
+    args: TestPayloadStructureCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestPayloadStructureCommandOutput) => void),
+    cb?: (err: any, data?: TestPayloadStructureCommandOutput) => void
+  ): Promise<TestPayloadStructureCommandOutput> | void {
+    const command = new TestPayloadStructureCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

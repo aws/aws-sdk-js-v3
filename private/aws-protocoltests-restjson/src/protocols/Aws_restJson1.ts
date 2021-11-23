@@ -255,6 +255,13 @@ import {
   StreamingTraitsWithMediaTypeCommandInput,
   StreamingTraitsWithMediaTypeCommandOutput,
 } from "../commands/StreamingTraitsWithMediaTypeCommand";
+import { TestBodyStructureCommandInput, TestBodyStructureCommandOutput } from "../commands/TestBodyStructureCommand";
+import { TestNoPayloadCommandInput, TestNoPayloadCommandOutput } from "../commands/TestNoPayloadCommand";
+import { TestPayloadBlobCommandInput, TestPayloadBlobCommandOutput } from "../commands/TestPayloadBlobCommand";
+import {
+  TestPayloadStructureCommandInput,
+  TestPayloadStructureCommandOutput,
+} from "../commands/TestPayloadStructureCommand";
 import {
   TimestampFormatHeadersCommandInput,
   TimestampFormatHeadersCommandOutput,
@@ -268,11 +275,13 @@ import {
   InvalidGreeting,
   MyUnion,
   NestedPayload,
+  PayloadConfig,
   RecursiveShapesInputOutputNested1,
   RecursiveShapesInputOutputNested2,
   RenamedGreeting,
   SimpleUnion,
   StructureListMember,
+  TestConfig,
 } from "../models/models_0";
 
 export const serializeAws_restJson1AllQueryStringTypesCommand = async (
@@ -2645,6 +2654,107 @@ export const serializeAws_restJson1StreamingTraitsWithMediaTypeCommand = async (
   if (input.blob !== undefined) {
     body = input.blob;
   }
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1TestBodyStructureCommand = async (
+  input: TestBodyStructureCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.testId) && { "x-amz-test-id": input.testId! }),
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/body";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.testConfig !== undefined &&
+      input.testConfig !== null && { testConfig: serializeAws_restJson1TestConfig(input.testConfig, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1TestNoPayloadCommand = async (
+  input: TestNoPayloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.testId) && { "x-amz-test-id": input.testId! }),
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/no_payload";
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1TestPayloadBlobCommand = async (
+  input: TestPayloadBlobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/octet-stream",
+    ...(isSerializableHeaderValue(input.contentType) && { "content-type": input.contentType! }),
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/blob_payload";
+  let body: any;
+  if (input.data !== undefined) {
+    body = input.data;
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1TestPayloadStructureCommand = async (
+  input: TestPayloadStructureCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.testId) && { "x-amz-test-id": input.testId! }),
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/payload";
+  let body: any;
+  if (input.payloadConfig !== undefined) {
+    body = serializeAws_restJson1PayloadConfig(input.payloadConfig, context);
+  }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6433,6 +6543,202 @@ const deserializeAws_restJson1StreamingTraitsWithMediaTypeCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1TestBodyStructureCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestBodyStructureCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1TestBodyStructureCommandError(output, context);
+  }
+  const contents: TestBodyStructureCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    testConfig: undefined,
+    testId: undefined,
+  };
+  if (output.headers["x-amz-test-id"] !== undefined) {
+    contents.testId = output.headers["x-amz-test-id"];
+  }
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.testConfig !== undefined && data.testConfig !== null) {
+    contents.testConfig = deserializeAws_restJson1TestConfig(data.testConfig, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1TestBodyStructureCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestBodyStructureCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1TestNoPayloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestNoPayloadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1TestNoPayloadCommandError(output, context);
+  }
+  const contents: TestNoPayloadCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    testId: undefined,
+  };
+  if (output.headers["x-amz-test-id"] !== undefined) {
+    contents.testId = output.headers["x-amz-test-id"];
+  }
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1TestNoPayloadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestNoPayloadCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1TestPayloadBlobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestPayloadBlobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1TestPayloadBlobCommandError(output, context);
+  }
+  const contents: TestPayloadBlobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    contentType: undefined,
+    data: undefined,
+  };
+  if (output.headers["content-type"] !== undefined) {
+    contents.contentType = output.headers["content-type"];
+  }
+  const data: any = await collectBody(output.body, context);
+  contents.data = data;
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1TestPayloadBlobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestPayloadBlobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1TestPayloadStructureCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestPayloadStructureCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1TestPayloadStructureCommandError(output, context);
+  }
+  const contents: TestPayloadStructureCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    payloadConfig: undefined,
+    testId: undefined,
+  };
+  if (output.headers["x-amz-test-id"] !== undefined) {
+    contents.testId = output.headers["x-amz-test-id"];
+  }
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  contents.payloadConfig = deserializeAws_restJson1PayloadConfig(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1TestPayloadStructureCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestPayloadStructureCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1TimestampFormatHeadersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6651,6 +6957,12 @@ const serializeAws_restJson1NestedPayload = (input: NestedPayload, context: __Se
   };
 };
 
+const serializeAws_restJson1PayloadConfig = (input: PayloadConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.data !== undefined && input.data !== null && { data: input.data }),
+  };
+};
+
 const serializeAws_restJson1RecursiveShapesInputOutputNested1 = (
   input: RecursiveShapesInputOutputNested1,
   context: __SerdeContext
@@ -6785,6 +7097,12 @@ const serializeAws_restJson1StructureListMember = (input: StructureListMember, c
   return {
     ...(input.a !== undefined && input.a !== null && { value: input.a }),
     ...(input.b !== undefined && input.b !== null && { other: input.b }),
+  };
+};
+
+const serializeAws_restJson1TestConfig = (input: TestConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.timeout !== undefined && input.timeout !== null && { timeout: input.timeout }),
   };
 };
 
@@ -7062,6 +7380,12 @@ const deserializeAws_restJson1NestedPayload = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_restJson1PayloadConfig = (output: any, context: __SerdeContext): PayloadConfig => {
+  return {
+    data: __expectInt32(output.data),
+  } as any;
+};
+
 const deserializeAws_restJson1RecursiveShapesInputOutputNested1 = (
   output: any,
   context: __SerdeContext
@@ -7154,6 +7478,12 @@ const deserializeAws_restJson1StructureListMember = (output: any, context: __Ser
   return {
     a: __expectString(output.value),
     b: __expectString(output.other),
+  } as any;
+};
+
+const deserializeAws_restJson1TestConfig = (output: any, context: __SerdeContext): TestConfig => {
+  return {
+    timeout: __expectInt32(output.timeout),
   } as any;
 };
 

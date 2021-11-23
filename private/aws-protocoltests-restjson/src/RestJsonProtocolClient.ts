@@ -257,6 +257,13 @@ import {
   StreamingTraitsWithMediaTypeCommandInput,
   StreamingTraitsWithMediaTypeCommandOutput,
 } from "./commands/StreamingTraitsWithMediaTypeCommand";
+import { TestBodyStructureCommandInput, TestBodyStructureCommandOutput } from "./commands/TestBodyStructureCommand";
+import { TestNoPayloadCommandInput, TestNoPayloadCommandOutput } from "./commands/TestNoPayloadCommand";
+import { TestPayloadBlobCommandInput, TestPayloadBlobCommandOutput } from "./commands/TestPayloadBlobCommand";
+import {
+  TestPayloadStructureCommandInput,
+  TestPayloadStructureCommandOutput,
+} from "./commands/TestPayloadStructureCommand";
 import {
   TimestampFormatHeadersCommandInput,
   TimestampFormatHeadersCommandOutput,
@@ -342,6 +349,10 @@ export type ServiceInputTypes =
   | StreamingTraitsCommandInput
   | StreamingTraitsRequireLengthCommandInput
   | StreamingTraitsWithMediaTypeCommandInput
+  | TestBodyStructureCommandInput
+  | TestNoPayloadCommandInput
+  | TestPayloadBlobCommandInput
+  | TestPayloadStructureCommandInput
   | TimestampFormatHeadersCommandInput;
 
 export type ServiceOutputTypes =
@@ -423,6 +434,10 @@ export type ServiceOutputTypes =
   | StreamingTraitsCommandOutput
   | StreamingTraitsRequireLengthCommandOutput
   | StreamingTraitsWithMediaTypeCommandOutput
+  | TestBodyStructureCommandOutput
+  | TestNoPayloadCommandOutput
+  | TestPayloadBlobCommandOutput
+  | TestPayloadStructureCommandOutput
   | TimestampFormatHeadersCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
