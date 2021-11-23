@@ -336,11 +336,6 @@ final class AwsProtocolUtils {
         if (testCase.getId().equals("RestJsonMalformedPatternReDOSString")) {
             return true;
         }
-        //TODO: broken in Smithy 1.12.0, remove after next Smithy release
-        if (testCase.getId().equals("RestJsonMalformedLengthBlobOverride_case1")
-            || testCase.getId().equals("RestJsonMalformedRequiredQueryNoValue")) {
-            return true;
-        }
 
         return false;
     }
