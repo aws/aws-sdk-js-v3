@@ -1,5 +1,19 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.8.0 (2021-11-23)
+
+### Features
+
+* Updated EndpointGenerator to merge variants from partition defaults and service defaults using tags as unique key. ([#2989](https://github.com/aws/aws-sdk-js-v3/pull/2989), [#2990](https://github.com/aws/aws-sdk-js-v3/pull/2990), [#3044](https://github.com/aws/aws-sdk-js-v3/pull/3044))
+* Centralized Smithy version for Smithy dependencies including Smithy CLI. ([#3011](https://github.com/aws/aws-sdk-js-v3/pull/3011), [#3054](https://github.com/aws/aws-sdk-js-v3/pull/3054))
+* Updated Smithy version to `1.14.x`. ([#3053](https://github.com/aws/aws-sdk-js-v3/pull/3053))
+
+## 0.7.1 (2021-11-04)
+
+### Bug Fixes
+
+* Fixed generator to not rely on unreleased features.
+
 ## 0.7.0 (2021-11-03)
 
 ### Features
