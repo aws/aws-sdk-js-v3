@@ -301,6 +301,11 @@ final class AwsProtocolUtils {
         if (testCase.getId().equals("RestJsonNoInputAndOutput")) {
             return true;
         }
+        // TODO: https://github.com/aws/aws-sdk-js-v3/issues/3058
+        if (testCase.getId().equals("RestJsonTestPayloadStructure")
+            || testCase.getId().equals("RestJsonHttpWithHeadersButNoPayload")) {
+            return true;
+        }
         return false;
     }
 
