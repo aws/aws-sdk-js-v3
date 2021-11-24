@@ -7715,7 +7715,7 @@ it("RestJsonHttpWithEmptyStructurePayload:Request", async () => {
 /**
  * Serializes a payload targeting a structure
  */
-it.skip("RestJsonTestPayloadStructure:Request", async () => {
+it("RestJsonTestPayloadStructure:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -7757,7 +7757,7 @@ it.skip("RestJsonTestPayloadStructure:Request", async () => {
 /**
  * Serializes an request with header members but no payload
  */
-it.skip("RestJsonHttpWithHeadersButNoPayload:Request", async () => {
+it("RestJsonHttpWithHeadersButNoPayload:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
