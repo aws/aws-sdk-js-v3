@@ -6161,7 +6161,7 @@ it("RestJsonNoInputAndNoOutput:Response", async () => {
  * serialize any data in the payload, they should omit a payload
  * altogether.
  */
-it.skip("RestJsonNoInputAndOutput:Request", async () => {
+it("RestJsonNoInputAndOutput:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),

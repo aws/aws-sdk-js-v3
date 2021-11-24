@@ -298,9 +298,6 @@ final class AwsProtocolUtils {
         if (testCase.getId().equals("QueryCustomizedError")) {
             return true;
         }
-        if (testCase.getId().equals("RestJsonNoInputAndOutput")) {
-            return true;
-        }
         // TODO: Remove when server protocol tests are fixed in
         // https://github.com/aws/aws-sdk-js-v3/issues/3058
         // TODO: Move to filter specific to server protocol tests if added in
