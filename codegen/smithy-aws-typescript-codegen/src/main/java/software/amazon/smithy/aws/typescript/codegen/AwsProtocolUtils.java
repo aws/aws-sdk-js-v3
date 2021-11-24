@@ -298,14 +298,6 @@ final class AwsProtocolUtils {
         if (testCase.getId().equals("QueryCustomizedError")) {
             return true;
         }
-        // TODO: Remove when server protocol tests are fixed in
-        // https://github.com/aws/aws-sdk-js-v3/issues/3058
-        // TODO: Move to filter specific to server protocol tests if added in
-        // https://github.com/awslabs/smithy-typescript/issues/470
-        if (testCase.getId().equals("RestJsonTestPayloadStructure")
-            || testCase.getId().equals("RestJsonHttpWithHeadersButNoPayload")) {
-            return true;
-        }
         return false;
     }
 
