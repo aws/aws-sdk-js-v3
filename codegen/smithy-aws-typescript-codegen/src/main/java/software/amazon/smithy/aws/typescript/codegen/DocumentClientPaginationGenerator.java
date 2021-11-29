@@ -44,12 +44,10 @@ final class DocumentClientPaginationGenerator implements Runnable {
     private final TypeScriptWriter writer;
     private final PaginationInfo paginatedInfo;
 
-    private final Symbol serviceSymbol;
-    private final Symbol operationSymbol;
-    private final Symbol inputSymbol;
-    private final Symbol outputSymbol;
-
     private final String operationName;
+    private final String inputTypeName;
+    private final String outputTypeName;
+
     private final String methodName;
     private final String paginationType;
 
@@ -60,15 +58,15 @@ final class DocumentClientPaginationGenerator implements Runnable {
             SymbolProvider symbolProvider,
             TypeScriptWriter writer
     ) {
-
         this.writer = writer;
 
-        this.serviceSymbol = symbolProvider.toSymbol(service);
-        this.operationSymbol = symbolProvider.toSymbol(operation);
-        this.inputSymbol = symbolProvider.toSymbol(operation).expectProperty("inputType", Symbol.class);
-        this.outputSymbol = symbolProvider.toSymbol(operation).expectProperty("outputType", Symbol.class);
+        Symbol operationSymbol = symbolProvider.toSymbol(operation);
+        Symbol inputSymbol = symbolProvider.toSymbol(operation).expectProperty("inputType", Symbol.class);
+        Symbol outputSymbol = symbolProvider.toSymbol(operation).expectProperty("outputType", Symbol.class);
 
-        this.operationName = operation.getId().getName();
+        this.operationName = DocumentClientUtils.getModifiedName(operationSymbol.getName());
+        this.inputTypeName = DocumentClientUtils.getModifiedName(inputSymbol.getName());
+        this.outputTypeName = DocumentClientUtils.getModifiedName(outputSymbol.getName());
 
         // e.g. listObjects
         this.methodName = Character.toLowerCase(operationName.charAt(0)) + operationName.substring(1);
@@ -84,15 +82,11 @@ final class DocumentClientPaginationGenerator implements Runnable {
     @Override
     public void run() {
         // Import Service Types
-        // writer.addImport(operationSymbol.getName(),
-        //         operationSymbol.getName(),
-        //         operationSymbol.getNamespace());
-        // writer.addImport(inputSymbol.getName(),
-        //         inputSymbol.getName(),
-        //         inputSymbol.getNamespace());
-        // writer.addImport(outputSymbol.getName(),
-        //         outputSymbol.getName(),
-        //         outputSymbol.getNamespace());
+        String commandFileLocation = Paths.get(".", DocumentClientUtils.CLIENT_COMMANDS_FOLDER,
+            DocumentClientUtils.getModifiedName(operationName)).toString();
+        writer.addImport(operationName, operationName, commandFileLocation);
+        writer.addImport(inputTypeName, inputTypeName, commandFileLocation);
+        writer.addImport(outputTypeName, outputTypeName, commandFileLocation);
         writer.addImport(
             DocumentClientUtils.CLIENT_NAME,
             DocumentClientUtils.CLIENT_NAME,
@@ -169,9 +163,6 @@ final class DocumentClientPaginationGenerator implements Runnable {
     }
 
     private void writePager() {
-        String inputTypeName = inputSymbol.getName();
-        String outputTypeName = outputSymbol.getName();
-
         String inputTokenName = paginatedInfo.getPaginatedTrait().getInputToken().get();
         String outputTokenName = paginatedInfo.getPaginatedTrait().getOutputToken().get();
 
@@ -229,8 +220,8 @@ final class DocumentClientPaginationGenerator implements Runnable {
         writer.writeDocs("@private");
         writer.openBlock(
                 "const makePagedRequest = async (client: $L, input: $L, ...args: any): Promise<$L> => {",
-                "}", DocumentClientUtils.CLIENT_FULL_NAME, inputSymbol.getName(),
-                outputSymbol.getName(), () -> {
+                "}", DocumentClientUtils.CLIENT_FULL_NAME, inputTypeName,
+                outputTypeName, () -> {
             writer.write("// @ts-ignore");
             writer.write("return await client.$L(input, ...args);", methodName);
         });
@@ -244,10 +235,10 @@ final class DocumentClientPaginationGenerator implements Runnable {
         writer.writeDocs("@private");
         writer.openBlock(
                 "const makePagedClientRequest = async (client: $L, input: $L, ...args: any): Promise<$L> => {",
-                "}", DocumentClientUtils.CLIENT_NAME, inputSymbol.getName(),
-                outputSymbol.getName(), () -> {
+                "}", DocumentClientUtils.CLIENT_NAME, inputTypeName,
+                outputTypeName, () -> {
             writer.write("// @ts-ignore");
-            writer.write("return await client.send(new $L(input), ...args);", operationSymbol.getName());
+            writer.write("return await client.send(new $L(input), ...args);", operationName);
         });
     }
 }
