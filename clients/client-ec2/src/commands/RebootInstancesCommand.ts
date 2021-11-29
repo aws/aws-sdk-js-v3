@@ -25,8 +25,8 @@ export interface RebootInstancesCommandOutput extends __MetadataBearer {}
  *             ignored.</p>
  *         <p>If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a
  *             hard reboot.</p>
- *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Getting console output and
- *             rebooting instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Troubleshoot an unreachable
+ *             instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

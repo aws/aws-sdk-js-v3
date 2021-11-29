@@ -22,7 +22,7 @@ export interface ListKafkaVersionsCommandInput extends ListKafkaVersionsRequest 
 export interface ListKafkaVersionsCommandOutput extends ListKafkaVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of Kafka versions.</p>
+ * <p>Returns a list of Apache Kafka versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

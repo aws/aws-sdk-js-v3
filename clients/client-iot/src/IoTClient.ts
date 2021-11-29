@@ -315,6 +315,10 @@ import {
   DescribeJobTemplateCommandOutput,
 } from "./commands/DescribeJobTemplateCommand";
 import {
+  DescribeManagedJobTemplateCommandInput,
+  DescribeManagedJobTemplateCommandOutput,
+} from "./commands/DescribeManagedJobTemplateCommand";
+import {
   DescribeMitigationActionCommandInput,
   DescribeMitigationActionCommandOutput,
 } from "./commands/DescribeMitigationActionCommand";
@@ -451,6 +455,10 @@ import {
 } from "./commands/ListJobExecutionsForThingCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import { ListJobTemplatesCommandInput, ListJobTemplatesCommandOutput } from "./commands/ListJobTemplatesCommand";
+import {
+  ListManagedJobTemplatesCommandInput,
+  ListManagedJobTemplatesCommandOutput,
+} from "./commands/ListManagedJobTemplatesCommand";
 import {
   ListMitigationActionsCommandInput,
   ListMitigationActionsCommandOutput,
@@ -791,6 +799,7 @@ export type ServiceInputTypes =
   | DescribeJobCommandInput
   | DescribeJobExecutionCommandInput
   | DescribeJobTemplateCommandInput
+  | DescribeManagedJobTemplateCommandInput
   | DescribeMitigationActionCommandInput
   | DescribeProvisioningTemplateCommandInput
   | DescribeProvisioningTemplateVersionCommandInput
@@ -847,6 +856,7 @@ export type ServiceInputTypes =
   | ListJobExecutionsForThingCommandInput
   | ListJobTemplatesCommandInput
   | ListJobsCommandInput
+  | ListManagedJobTemplatesCommandInput
   | ListMitigationActionsCommandInput
   | ListOTAUpdatesCommandInput
   | ListOutgoingCertificatesCommandInput
@@ -1027,6 +1037,7 @@ export type ServiceOutputTypes =
   | DescribeJobCommandOutput
   | DescribeJobExecutionCommandOutput
   | DescribeJobTemplateCommandOutput
+  | DescribeManagedJobTemplateCommandOutput
   | DescribeMitigationActionCommandOutput
   | DescribeProvisioningTemplateCommandOutput
   | DescribeProvisioningTemplateVersionCommandOutput
@@ -1083,6 +1094,7 @@ export type ServiceOutputTypes =
   | ListJobExecutionsForThingCommandOutput
   | ListJobTemplatesCommandOutput
   | ListJobsCommandOutput
+  | ListManagedJobTemplatesCommandOutput
   | ListMitigationActionsCommandOutput
   | ListOTAUpdatesCommandOutput
   | ListOutgoingCertificatesCommandOutput

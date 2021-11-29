@@ -24,7 +24,7 @@ export interface GetProgrammaticAccessCredentialsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Request programmatic credentials to use with Habanero SDK.</p>
+ * <p>Request programmatic credentials to use with FinSpace SDK.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -22,14 +22,19 @@ export interface DescribeDBClustersCommandInput extends DescribeDBClustersMessag
 export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about provisioned Aurora DB clusters. This API supports pagination.</p>
- *          <p>For more information on Amazon Aurora, see
+ * <p>Returns information about Amazon Aurora DB clusters and Multi-AZ DB clusters. This API supports pagination.</p>
+ *          <p>For more information on Amazon Aurora DB clusters, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
- *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *          </p>
+ *          <p>For more information on Multi-AZ DB clusters, see
+ *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+ *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
  *          </p>
  *          <note>
- *             <p>This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.</p>
+ *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
  *          </note>
+ *          <p>This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,6 +28,102 @@ import {
   ResultAttribute,
 } from "./models_1";
 
+export interface UpdateMaintenanceWindowRequest {
+  /**
+   * <p>The ID of the maintenance window to update.</p>
+   */
+  WindowId: string | undefined;
+
+  /**
+   * <p>The name of the maintenance window.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>An optional description for the update request.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The time zone that the scheduled maintenance window executions are based on, in Internet
+   *    Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "UTC", or
+   *    "Asia/Seoul". For more information, see the <a href="https://www.iana.org/time-zones">Time
+   *     Zone Database</a> on the IANA website.</p>
+   */
+  StartDate?: string;
+
+  /**
+   * <p>The date and time, in ISO-8601 Extended format, for when you want the maintenance window to
+   *    become inactive. <code>EndDate</code> allows you to set a date and time in the future when the
+   *    maintenance window will no longer run.</p>
+   */
+  EndDate?: string;
+
+  /**
+   * <p>The schedule of the maintenance window in the form of a cron or rate expression.</p>
+   */
+  Schedule?: string;
+
+  /**
+   * <p>The time zone that the scheduled maintenance window executions are based on, in Internet
+   *    Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "UTC", or
+   *    "Asia/Seoul". For more information, see the <a href="https://www.iana.org/time-zones">Time
+   *     Zone Database</a> on the IANA website.</p>
+   */
+  ScheduleTimezone?: string;
+
+  /**
+   * <p>The number of days to wait after the date and time specified by a cron expression before
+   *    running the maintenance window.</p>
+   *          <p>For example, the following cron expression schedules a maintenance window to run the third
+   *    Tuesday of every month at 11:30 PM.</p>
+   *          <p>
+   *             <code>cron(30 23 ? * TUE#3 *)</code>
+   *          </p>
+   *          <p>If the schedule offset is <code>2</code>, the maintenance window won't run until two days
+   *    later.</p>
+   */
+  ScheduleOffset?: number;
+
+  /**
+   * <p>The duration of the maintenance window in hours.</p>
+   */
+  Duration?: number;
+
+  /**
+   * <p>The number of hours before the end of the maintenance window that Amazon Web Services Systems Manager stops scheduling
+   *    new tasks for execution.</p>
+   */
+  Cutoff?: number;
+
+  /**
+   * <p>Whether targets must be registered with the maintenance window before tasks can be defined
+   *    for those targets.</p>
+   */
+  AllowUnassociatedTargets?: boolean;
+
+  /**
+   * <p>Whether the maintenance window is enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>If <code>True</code>, then all fields that are required by the <a>CreateMaintenanceWindow</a> operation are also required for this API request. Optional
+   *    fields that aren't specified are set to null. </p>
+   */
+  Replace?: boolean;
+}
+
+export namespace UpdateMaintenanceWindowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateMaintenanceWindowRequest): any => ({
+    ...obj,
+    ...(obj.Description && { Description: SENSITIVE_STRING }),
+  });
+}
+
 export interface UpdateMaintenanceWindowResult {
   /**
    * <p>The ID of the created maintenance window.</p>

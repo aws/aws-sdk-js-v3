@@ -16,6 +16,7 @@ import {
 
 import { AnalyzeDocumentCommandInput, AnalyzeDocumentCommandOutput } from "../commands/AnalyzeDocumentCommand";
 import { AnalyzeExpenseCommandInput, AnalyzeExpenseCommandOutput } from "../commands/AnalyzeExpenseCommand";
+import { AnalyzeIDCommandInput, AnalyzeIDCommandOutput } from "../commands/AnalyzeIDCommand";
 import { DetectDocumentTextCommandInput, DetectDocumentTextCommandOutput } from "../commands/DetectDocumentTextCommand";
 import {
   GetDocumentAnalysisCommandInput,
@@ -44,6 +45,9 @@ import {
   AnalyzeDocumentResponse,
   AnalyzeExpenseRequest,
   AnalyzeExpenseResponse,
+  AnalyzeIDDetections,
+  AnalyzeIDRequest,
+  AnalyzeIDResponse,
   BadDocumentException,
   Block,
   BoundingBox,
@@ -72,6 +76,8 @@ import {
   HumanLoopDataAttributes,
   HumanLoopQuotaExceededException,
   IdempotentParameterMismatchException,
+  IdentityDocument,
+  IdentityDocumentField,
   InternalServerError,
   InvalidJobIdException,
   InvalidKMSKeyException,
@@ -80,6 +86,7 @@ import {
   LimitExceededException,
   LineItemFields,
   LineItemGroup,
+  NormalizedValue,
   NotificationChannel,
   OutputConfig,
   Point,
@@ -120,6 +127,19 @@ export const serializeAws_json1_1AnalyzeExpenseCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AnalyzeExpenseRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1AnalyzeIDCommand = async (
+  input: AnalyzeIDCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Textract.AnalyzeID",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AnalyzeIDRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -361,6 +381,124 @@ const deserializeAws_json1_1AnalyzeExpenseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AnalyzeExpenseCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.textract#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BadDocumentException":
+    case "com.amazonaws.textract#BadDocumentException":
+      response = {
+        ...(await deserializeAws_json1_1BadDocumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DocumentTooLargeException":
+    case "com.amazonaws.textract#DocumentTooLargeException":
+      response = {
+        ...(await deserializeAws_json1_1DocumentTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.textract#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.textract#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidS3ObjectException":
+    case "com.amazonaws.textract#InvalidS3ObjectException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.textract#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedDocumentException":
+    case "com.amazonaws.textract#UnsupportedDocumentException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedDocumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1AnalyzeIDCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AnalyzeIDCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1AnalyzeIDCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AnalyzeIDResponse(data, context);
+  const response: AnalyzeIDCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AnalyzeIDCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AnalyzeIDCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1562,6 +1700,15 @@ const serializeAws_json1_1AnalyzeExpenseRequest = (input: AnalyzeExpenseRequest,
   };
 };
 
+const serializeAws_json1_1AnalyzeIDRequest = (input: AnalyzeIDRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DocumentPages !== undefined &&
+      input.DocumentPages !== null && {
+        DocumentPages: serializeAws_json1_1DocumentPages(input.DocumentPages, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1ContentClassifiers = (
   input: (ContentClassifier | string)[],
   context: __SerdeContext
@@ -1599,6 +1746,17 @@ const serializeAws_json1_1DocumentLocation = (input: DocumentLocation, context: 
     ...(input.S3Object !== undefined &&
       input.S3Object !== null && { S3Object: serializeAws_json1_1S3Object(input.S3Object, context) }),
   };
+};
+
+const serializeAws_json1_1DocumentPages = (input: Document[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Document(entry, context);
+    });
 };
 
 const serializeAws_json1_1FeatureTypes = (input: (FeatureType | string)[], context: __SerdeContext): any => {
@@ -1793,6 +1951,31 @@ const deserializeAws_json1_1AnalyzeExpenseResponse = (output: any, context: __Se
     ExpenseDocuments:
       output.ExpenseDocuments !== undefined && output.ExpenseDocuments !== null
         ? deserializeAws_json1_1ExpenseDocumentList(output.ExpenseDocuments, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AnalyzeIDDetections = (output: any, context: __SerdeContext): AnalyzeIDDetections => {
+  return {
+    Confidence: __limitedParseFloat32(output.Confidence),
+    NormalizedValue:
+      output.NormalizedValue !== undefined && output.NormalizedValue !== null
+        ? deserializeAws_json1_1NormalizedValue(output.NormalizedValue, context)
+        : undefined,
+    Text: __expectString(output.Text),
+  } as any;
+};
+
+const deserializeAws_json1_1AnalyzeIDResponse = (output: any, context: __SerdeContext): AnalyzeIDResponse => {
+  return {
+    AnalyzeIDModelVersion: __expectString(output.AnalyzeIDModelVersion),
+    DocumentMetadata:
+      output.DocumentMetadata !== undefined && output.DocumentMetadata !== null
+        ? deserializeAws_json1_1DocumentMetadata(output.DocumentMetadata, context)
+        : undefined,
+    IdentityDocuments:
+      output.IdentityDocuments !== undefined && output.IdentityDocuments !== null
+        ? deserializeAws_json1_1IdentityDocumentList(output.IdentityDocuments, context)
         : undefined,
   } as any;
 };
@@ -2105,6 +2288,54 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
   } as any;
 };
 
+const deserializeAws_json1_1IdentityDocument = (output: any, context: __SerdeContext): IdentityDocument => {
+  return {
+    DocumentIndex: __expectInt32(output.DocumentIndex),
+    IdentityDocumentFields:
+      output.IdentityDocumentFields !== undefined && output.IdentityDocumentFields !== null
+        ? deserializeAws_json1_1IdentityDocumentFieldList(output.IdentityDocumentFields, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1IdentityDocumentField = (output: any, context: __SerdeContext): IdentityDocumentField => {
+  return {
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? deserializeAws_json1_1AnalyzeIDDetections(output.Type, context)
+        : undefined,
+    ValueDetection:
+      output.ValueDetection !== undefined && output.ValueDetection !== null
+        ? deserializeAws_json1_1AnalyzeIDDetections(output.ValueDetection, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1IdentityDocumentFieldList = (
+  output: any,
+  context: __SerdeContext
+): IdentityDocumentField[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1IdentityDocumentField(entry, context);
+    });
+};
+
+const deserializeAws_json1_1IdentityDocumentList = (output: any, context: __SerdeContext): IdentityDocument[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1IdentityDocument(entry, context);
+    });
+};
+
 const deserializeAws_json1_1IdList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -2203,6 +2434,13 @@ const deserializeAws_json1_1LineItemList = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1LineItemFields(entry, context);
     });
+};
+
+const deserializeAws_json1_1NormalizedValue = (output: any, context: __SerdeContext): NormalizedValue => {
+  return {
+    Value: __expectString(output.Value),
+    ValueType: __expectString(output.ValueType),
+  } as any;
 };
 
 const deserializeAws_json1_1Pages = (output: any, context: __SerdeContext): number[] => {

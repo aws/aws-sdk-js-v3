@@ -5512,6 +5512,11 @@ export interface UpdateDomainConfigRequest {
    * <p>Specifies Auto-Tune options.</p>
    */
   AutoTuneOptions?: AutoTuneOptions;
+
+  /**
+   * <p>This flag, when set to True, specifies whether the <code>UpdateDomain</code> request should return the results of validation checks (DryRunResults) without actually applying the change.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace UpdateDomainConfigRequest {
@@ -5526,6 +5531,30 @@ export namespace UpdateDomainConfigRequest {
   });
 }
 
+export interface DryRunResults {
+  /**
+   * <p>
+   *       Specifies the way in which Amazon OpenSearch Service applies the update.
+   *       Possible responses are <code>Blue/Green</code> (the update requires a blue/green deployment), <code>DynamicUpdate</code> (no blue/green required), <code>Undetermined</code> (the domain is undergoing an update and can't predict the deployment type; try again after the update is complete), and <code>None</code> (the request doesn't include any configuration changes).
+   *     </p>
+   */
+  DeploymentType?: string;
+
+  /**
+   * <p>Contains an optional message associated with the DryRunResults.</p>
+   */
+  Message?: string;
+}
+
+export namespace DryRunResults {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DryRunResults): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The result of an <code>UpdateDomain</code> request. Contains the status of the domain
  *       being updated.
@@ -5536,6 +5565,11 @@ export interface UpdateDomainConfigResponse {
    * <p>The status of the updated domain.</p>
    */
   DomainConfig: DomainConfig | undefined;
+
+  /**
+   * <p>Contains result of DryRun. </p>
+   */
+  DryRunResults?: DryRunResults;
 }
 
 export namespace UpdateDomainConfigResponse {

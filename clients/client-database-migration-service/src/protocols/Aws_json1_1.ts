@@ -6645,6 +6645,8 @@ const serializeAws_json1_1S3Settings = (input: S3Settings, context: __SerdeConte
       input.DatePartitionEnabled !== null && { DatePartitionEnabled: input.DatePartitionEnabled }),
     ...(input.DatePartitionSequence !== undefined &&
       input.DatePartitionSequence !== null && { DatePartitionSequence: input.DatePartitionSequence }),
+    ...(input.DatePartitionTimezone !== undefined &&
+      input.DatePartitionTimezone !== null && { DatePartitionTimezone: input.DatePartitionTimezone }),
     ...(input.DictPageSizeLimit !== undefined &&
       input.DictPageSizeLimit !== null && { DictPageSizeLimit: input.DictPageSizeLimit }),
     ...(input.EnableStatistics !== undefined &&
@@ -8698,6 +8700,7 @@ const deserializeAws_json1_1S3Settings = (output: any, context: __SerdeContext):
     DatePartitionDelimiter: __expectString(output.DatePartitionDelimiter),
     DatePartitionEnabled: __expectBoolean(output.DatePartitionEnabled),
     DatePartitionSequence: __expectString(output.DatePartitionSequence),
+    DatePartitionTimezone: __expectString(output.DatePartitionTimezone),
     DictPageSizeLimit: __expectInt32(output.DictPageSizeLimit),
     EnableStatistics: __expectBoolean(output.EnableStatistics),
     EncodingType: __expectString(output.EncodingType),

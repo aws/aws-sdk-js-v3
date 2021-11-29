@@ -29,9 +29,8 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *    within the environment. This is based on the compute resource specification that you define or the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch template</a> that you
  *    specify when you create the compute environment. Either, you can choose to use EC2 On-Demand Instances and EC2 Spot
  *    Instances. Or, you can use Fargate and Fargate Spot capacity in your managed compute environment. You can
- *    optionally set a maximum price so that Spot Instances only launch
- *    when
- *    the Spot Instance price is less than a specified percentage of the On-Demand price.</p>
+ *    optionally set a maximum price so that Spot Instances only launch when the Spot Instance price is less than a
+ *    specified percentage of the On-Demand price.</p>
  *          <note>
  *             <p>Multi-node parallel jobs aren't supported on Spot Instances.</p>
  *          </note>

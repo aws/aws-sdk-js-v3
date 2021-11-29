@@ -775,6 +775,11 @@ export namespace Endpoint {
   });
 }
 
+export enum DataTieringStatus {
+  DISABLED = "disabled",
+  ENABLED = "enabled",
+}
+
 /**
  * <p>The name of the Global datastore and role of this replication group in the Global datastore.</p>
  */
@@ -1354,6 +1359,12 @@ export interface ReplicationGroup {
    * <p>The date and time when the cluster was created.</p>
    */
   ReplicationGroupCreateTime?: Date;
+
+  /**
+   * <p>Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html">Data tiering</a>.</p>
+   */
+  DataTiering?: DataTieringStatus | string;
 }
 
 export namespace ReplicationGroup {
@@ -1603,9 +1614,13 @@ export interface Snapshot {
    *                   <li>
    *                      <p>Current generation: </p>
    *
-   *     						           <p>
+   * 					                <p>
    *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   * 						               <p>
+   *
+   *
+   *
+   *
+   * 					                <p>
    *                         <code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
@@ -1614,9 +1629,8 @@ export interface Snapshot {
    * 							<code>cache.m6g.12xlarge</code>,
    * 							<code>cache.m6g.16xlarge</code>
    *
+   * 					                </p>
    *
-   *
-   * 						               </p>
    *
    * 						               <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
@@ -1645,7 +1659,20 @@ export interface Snapshot {
    *     						<code>cache.m4.4xlarge</code>,
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
-   *     					            <p>
+   *
+   * 					                <p>
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):</p>
+   *
+   *
+   * 					                <p>
+   * 					                   <code>cache.t4g.micro</code>,
+   * 					        <code>cache.t4g.small</code>,
+   * 					        <code>cache.t4g.medium</code>
+   * 					                </p>
+   *
+   *
+   *
+   * 					                <p>
    *                         <b>T3 node types:</b>
    * 					                   <code>cache.t3.micro</code>,
    *     						<code>cache.t3.small</code>,
@@ -1704,31 +1731,76 @@ export interface Snapshot {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Memory optimized:</p>
-   * 				           <ul>
+   *                <p>Memory optimized with data tiering:</p>
+   * 		             <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   * 											          <p>
+   *
+   * 		                   <p>
+   *                         <b>R6gd node types</b> (available only for Redis engine version 6.2 onward).</p>
+   *
+   *
+   *
+   *
+   * 		                   <p>
+   *
+   * 		                      <code>cache.r6gd.xlarge</code>,
+   * 		                    <code>cache.r6gd.2xlarge</code>,
+   * 		                    <code>cache.r6gd.4xlarge</code>,
+   * 		                    <code>cache.r6gd.8xlarge</code>,
+   * 		                    <code>cache.r6gd.12xlarge</code>,
+   * 		                    <code>cache.r6gd.16xlarge</code>
+   *
+   *
+   *
+   *
+   *
+   *
+   * 		                   </p>
+   *
+   * 		                </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Memory optimized:</p>
+   *
+   *
+   * 		            <ul>
+   *                   <li>
+   *                      <p>Current generation: </p>
+   *
+   *
+   *
+   *
+   * 		                    <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
    *
    *
    *
-   *
-   * 						               <p>
-   * 							                 <code>cache.r6g.large</code>,
-   * 							<code>cache.r6g.xlarge</code>,
-   * 							<code>cache.r6g.2xlarge</code>,
-   * 							<code>cache.r6g.4xlarge</code>,
-   * 							<code>cache.r6g.8xlarge</code>,
-   * 							<code>cache.r6g.12xlarge</code>,
-   * 							<code>cache.r6g.16xlarge</code>
-   *
+   * 		                    <p>
+   * 		                        <code>cache.r6g.large</code>,
+   * 		                        <code>cache.r6g.xlarge</code>,
+   * 		                        <code>cache.r6g.2xlarge</code>,
+   * 		                        <code>cache.r6g.4xlarge</code>,
+   * 		                        <code>cache.r6g.8xlarge</code>,
+   * 		                        <code>cache.r6g.12xlarge</code>,
+   * 		                        <code>cache.r6g.16xlarge</code>
    *
    *
    *
    *
    *
-   * 						               </p>
+   *
+   * 		                    </p>
+   * 		                    <note>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         </p>
+   *                      </note>
+   *
+   *
+   *
+   *
+   *
    * 						               <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
@@ -1915,7 +1987,8 @@ export interface Snapshot {
   VpcId?: string;
 
   /**
-   * <p>This parameter is currently disabled.</p>
+   * <p> If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next auto minor version upgrade campaign. This parameter is disabled for previous versions.
+   *         </p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
@@ -1962,6 +2035,12 @@ export interface Snapshot {
    * <p>The ARN (Amazon Resource Name) of the snapshot.</p>
    */
   ARN?: string;
+
+  /**
+   * <p>Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html">Data tiering</a>.</p>
+   */
+  DataTiering?: DataTieringStatus | string;
 }
 
 export namespace Snapshot {
@@ -2211,10 +2290,13 @@ export interface CreateCacheClusterMessage {
    *                   <li>
    *                      <p>Current generation: </p>
    *
-   *     						           <p>
-   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   * 						               <p>
-   *                         <code>cache.m6g.large</code>,
+   *
+   *
+   *
+   * 					                <p>
+   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *
+   * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
    * 							<code>cache.m6g.4xlarge</code>,
@@ -2253,7 +2335,16 @@ export interface CreateCacheClusterMessage {
    *     						<code>cache.m4.4xlarge</code>,
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
-   *     					            <p>
+   *
+   * 					                <p>
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
+   * 					        <code>cache.t4g.micro</code>,
+   * 					        <code>cache.t4g.small</code>,
+   * 					        <code>cache.t4g.medium</code>
+   * 					                </p>
+   *
+   *
+   * 					                <p>
    *                         <b>T3 node types:</b>
    * 					                   <code>cache.t3.micro</code>,
    *     						<code>cache.t3.small</code>,
@@ -2312,13 +2403,47 @@ export interface CreateCacheClusterMessage {
    *                </ul>
    *             </li>
    *             <li>
+   *                <p>Memory optimized with data tiering:</p>
+   * 		             <ul>
+   *                   <li>
+   *                      <p>Current generation: </p>
+   *
+   * 		                   <p>
+   *                         <b>R6gd node types</b> (available only for Redis engine version 6.2 onward).</p>
+   *
+   *
+   *
+   *
+   * 		                   <p>
+   *
+   * 		                      <code>cache.r6gd.xlarge</code>,
+   * 		                    <code>cache.r6gd.2xlarge</code>,
+   * 		                    <code>cache.r6gd.4xlarge</code>,
+   * 		                    <code>cache.r6gd.8xlarge</code>,
+   * 		                    <code>cache.r6gd.12xlarge</code>,
+   * 		                    <code>cache.r6gd.16xlarge</code>
+   *
+   *
+   *
+   *
+   *
+   *
+   * 		                   </p>
+   *
+   * 		                </li>
+   *                </ul>
+   *             </li>
+   *             <li>
    *                <p>Memory optimized:</p>
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
+   *
+   *
+   *
+   *
    * 											          <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   *
    *
    *
    *
@@ -2515,7 +2640,8 @@ export interface CreateCacheClusterMessage {
   NotificationTopicArn?: string;
 
   /**
-   * <p>This parameter is currently disabled.</p>
+   * <p> If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next auto minor version upgrade campaign. This parameter is disabled for previous versions.
+   *             </p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
@@ -2607,10 +2733,12 @@ export namespace CreateCacheClusterMessage {
  *                   <li>
  *                      <p>Current generation: </p>
  *
- *     						           <p>
- *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
- * 						               <p>
- *                         <code>cache.m6g.large</code>,
+ *
+ *
+ *
+ *
+ * 					                <p>
+ *                         <b>M6g node types:</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward): 	<code>cache.m6g.large</code>,
  * 							<code>cache.m6g.xlarge</code>,
  * 							<code>cache.m6g.2xlarge</code>,
  * 							<code>cache.m6g.4xlarge</code>,
@@ -2649,7 +2777,15 @@ export namespace CreateCacheClusterMessage {
  *     						<code>cache.m4.4xlarge</code>,
  *     						<code>cache.m4.10xlarge</code>
  *                      </p>
- *     					            <p>
+ *
+ * 					                <p>
+ *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+ * 					        <code>cache.t4g.micro</code>,
+ * 					        <code>cache.t4g.small</code>,
+ * 					        <code>cache.t4g.medium</code>
+ * 					                </p>
+ *
+ * 					                <p>
  *                         <b>T3 node types:</b>
  * 					                   <code>cache.t3.micro</code>,
  *     						<code>cache.t3.small</code>,
@@ -2708,11 +2844,45 @@ export namespace CreateCacheClusterMessage {
  *                </ul>
  *             </li>
  *             <li>
+ *                <p>Memory optimized with data tiering:</p>
+ * 		             <ul>
+ *                   <li>
+ *                      <p>Current generation: </p>
+ *
+ * 		                   <p>
+ *                         <b>R6gd node types</b> (available only for Redis engine version 6.2 onward).</p>
+ *
+ *
+ *
+ *
+ * 		                   <p>
+ *
+ * 		                      <code>cache.r6gd.xlarge</code>,
+ * 		                    <code>cache.r6gd.2xlarge</code>,
+ * 		                    <code>cache.r6gd.4xlarge</code>,
+ * 		                    <code>cache.r6gd.8xlarge</code>,
+ * 		                    <code>cache.r6gd.12xlarge</code>,
+ * 		                    <code>cache.r6gd.16xlarge</code>
+ *
+ *
+ *
+ *
+ *
+ *
+ * 		                   </p>
+ *
+ * 		                </li>
+ *                </ul>
+ *             </li>
+ *             <li>
  *                <p>Memory optimized:</p>
  * 				           <ul>
  *                   <li>
  *                      <p>Current generation: </p>
- * 											          <p>
+ *
+ *
+ *
+ * 					                <p>
  *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
  *
  *
@@ -3052,10 +3222,12 @@ export interface CacheCluster {
    *                   <li>
    *                      <p>Current generation: </p>
    *
-   *     						           <p>
-   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   * 						               <p>
-   *                         <code>cache.m6g.large</code>,
+   *
+   *
+   *
+   *
+   * 					                <p>
+   *                         <b>M6g node types:</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward): 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
    * 							<code>cache.m6g.4xlarge</code>,
@@ -3094,7 +3266,16 @@ export interface CacheCluster {
    *     						<code>cache.m4.4xlarge</code>,
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
-   *     					            <p>
+   *
+   *
+   * 					                <p>
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   * 					        <code>cache.t4g.micro</code>,
+   * 					        <code>cache.t4g.small</code>,
+   * 					        <code>cache.t4g.medium</code>
+   * 					                </p>
+   *
+   * 					                <p>
    *                         <b>T3 node types:</b>
    * 					                   <code>cache.t3.micro</code>,
    *     						<code>cache.t3.small</code>,
@@ -3153,12 +3334,47 @@ export interface CacheCluster {
    *                </ul>
    *             </li>
    *             <li>
+   *                <p>Memory optimized with data tiering:</p>
+   * 		             <ul>
+   *                   <li>
+   *                      <p>Current generation: </p>
+   *
+   * 		                   <p>
+   *                         <b>R6gd node types</b> (available only for Redis engine version 6.2 onward).</p>
+   *
+   *
+   *
+   *
+   * 		                   <p>
+   *
+   * 		                      <code>cache.r6gd.xlarge</code>,
+   * 		                    <code>cache.r6gd.2xlarge</code>,
+   * 		                    <code>cache.r6gd.4xlarge</code>,
+   * 		                    <code>cache.r6gd.8xlarge</code>,
+   * 		                    <code>cache.r6gd.12xlarge</code>,
+   * 		                    <code>cache.r6gd.16xlarge</code>
+   *
+   *
+   *
+   *
+   *
+   *
+   * 		                   </p>
+   *
+   * 		                </li>
+   *                </ul>
+   *             </li>
+   *             <li>
    *                <p>Memory optimized:</p>
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   * 											          <p>
+   *
+   *
+   *
+   * 					                <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
+   *
    *
    *
    *
@@ -3386,7 +3602,8 @@ export interface CacheCluster {
   CacheNodes?: CacheNode[];
 
   /**
-   * <p>This parameter is currently disabled.</p>
+   * <p> If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next auto minor version upgrade campaign. This parameter is disabled for previous versions.
+   *         </p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
@@ -3631,8 +3848,9 @@ export interface CreateCacheParameterGroupMessage {
    *     <code>redis3.2</code> |
    *     <code>redis4.0</code> |
    *      <code>redis5.0</code> |
-   *       <code>redis6.x</code> |
-   *     </p>
+   *       <code>redis6.0</code> |
+   *             <code>redis6.2</code>
+   *          </p>
    */
   CacheParameterGroupFamily: string | undefined;
 
@@ -3676,7 +3894,7 @@ export interface CacheParameterGroup {
    *     <code>redis3.2</code> |
    *     <code>redis4.0</code> |
    *      <code>redis5.0</code> |
-   *       <code>redis6.x</code> |
+   *       <code>redis6.0</code> |
    *     </p>
    */
   CacheParameterGroupFamily?: string;
@@ -4492,10 +4710,13 @@ export interface CreateReplicationGroupMessage {
    *                   <li>
    *                      <p>Current generation: </p>
    *
-   *     						           <p>
-   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   * 						               <p>
-   *                         <code>cache.m6g.large</code>,
+   *
+   *
+   *
+   *
+   * 					                <p>
+   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   * 						<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
    * 							<code>cache.m6g.4xlarge</code>,
@@ -4534,7 +4755,15 @@ export interface CreateReplicationGroupMessage {
    *     						<code>cache.m4.4xlarge</code>,
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
-   *     					            <p>
+   *
+   *
+   * 					                <p>
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
+   * 					        <code>cache.t4g.micro</code>,
+   * 					        <code>cache.t4g.small</code>,
+   * 					        <code>cache.t4g.medium</code>
+   * 					                </p>
+   * 					                <p>
    *                         <b>T3 node types:</b>
    * 					                   <code>cache.t3.micro</code>,
    *     						<code>cache.t3.small</code>,
@@ -4593,11 +4822,46 @@ export interface CreateReplicationGroupMessage {
    *                </ul>
    *             </li>
    *             <li>
+   *                <p>Memory optimized with data tiering:</p>
+   * 		             <ul>
+   *                   <li>
+   *                      <p>Current generation: </p>
+   *
+   * 		                   <p>
+   *                         <b>R6gd node types</b> (available only for Redis engine version 6.2 onward).</p>
+   *
+   *
+   *
+   *
+   * 		                   <p>
+   *
+   * 		                      <code>cache.r6gd.xlarge</code>,
+   * 		                    <code>cache.r6gd.2xlarge</code>,
+   * 		                    <code>cache.r6gd.4xlarge</code>,
+   * 		                    <code>cache.r6gd.8xlarge</code>,
+   * 		                    <code>cache.r6gd.12xlarge</code>,
+   * 		                    <code>cache.r6gd.16xlarge</code>
+   *
+   *
+   *
+   *
+   *
+   *
+   * 		                   </p>
+   *
+   * 		                </li>
+   *                </ul>
+   *             </li>
+   *             <li>
    *                <p>Memory optimized:</p>
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   * 											          <p>
+   *
+   *
+   *
+   *
+   * 					                <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
    *
    *
@@ -4850,7 +5114,8 @@ export interface CreateReplicationGroupMessage {
   NotificationTopicArn?: string;
 
   /**
-   * <p>This parameter is currently disabled.</p>
+   * <p> If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next auto minor version upgrade campaign. This parameter is disabled for previous versions.
+   *         </p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
@@ -4949,6 +5214,12 @@ export interface CreateReplicationGroupMessage {
    * <p>Specifies the destination, format and type of the logs.</p>
    */
   LogDeliveryConfigurations?: LogDeliveryConfigurationRequest[];
+
+  /**
+   * <p>Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html">Data tiering</a>.</p>
+   */
+  DataTieringEnabled?: boolean;
 }
 
 export namespace CreateReplicationGroupMessage {
@@ -5283,6 +5554,11 @@ export interface User {
   Engine?: string;
 
   /**
+   * <p>The minimum engine version required, which is Redis 6.0</p>
+   */
+  MinimumEngineVersion?: string;
+
+  /**
    * <p>Access permissions string used for this user.</p>
    */
   AccessString?: string;
@@ -5441,6 +5717,11 @@ export interface UserGroup {
    * <p>The list of user IDs that belong to the user group.</p>
    */
   UserIds?: string[];
+
+  /**
+   * <p>The minimum engine version required, which is Redis 6.0</p>
+   */
+  MinimumEngineVersion?: string;
 
   /**
    * <p>A list of updates being applied to the user group.</p>
@@ -6144,8 +6425,9 @@ export interface CacheEngineVersion {
    *     <code>redis3.2</code> |
    *     <code>redis4.0</code> |
    *      <code>redis5.0</code> |
-   *       <code>redis6.x</code> |
-   *     </p>
+   *       <code>redis6.0</code> |
+   *             <code>redis6.2</code>
+   *          </p>
    */
   CacheParameterGroupFamily?: string;
 
@@ -6223,7 +6505,8 @@ export interface DescribeCacheEngineVersionsMessage {
    *     <code>redis4.0</code> |
    *      <code>redis5.0</code> |
    *       <code>redis6.x</code> |
-   *     </p>
+   *             <code>redis6.2</code>
+   *          </p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
@@ -6699,7 +6982,8 @@ export interface DescribeEngineDefaultParametersMessage {
    *     <code>redis4.0</code> |
    *      <code>redis5.0</code> |
    *       <code>redis6.x</code> |
-   *     </p>
+   *             <code>redis6.2</code>
+   *          </p>
    */
   CacheParameterGroupFamily: string | undefined;
 
@@ -6745,8 +7029,9 @@ export interface EngineDefaults {
    *     <code>redis3.2</code> |
    *     <code>redis4.0</code> |
    *      <code>redis5.0</code> |
-   *       <code>redis6.x</code> |
-   *     </p>
+   *       <code>redis6.0</code> |
+   *             <code>redis6.2</code>
+   *          </p>
    */
   CacheParameterGroupFamily?: string;
 
@@ -7067,10 +7352,14 @@ export interface DescribeReservedCacheNodesMessage {
    *                   <li>
    *                      <p>Current generation: </p>
    *
-   *     						           <p>
-   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   * 						               <p>
-   *                         <code>cache.m6g.large</code>,
+   *
+   *
+   *
+   *
+   *
+   * 					                <p>
+   *                         <b>M6g node types:</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   * 					        <code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
    * 							<code>cache.m6g.4xlarge</code>,
@@ -7109,7 +7398,16 @@ export interface DescribeReservedCacheNodesMessage {
    *     						<code>cache.m4.4xlarge</code>,
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
-   *     					            <p>
+   *
+   * 					                <p>
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   * 					        <code>cache.t4g.micro</code>,
+   * 					        <code>cache.t4g.small</code>,
+   * 					        <code>cache.t4g.medium</code>
+   * 					                </p>
+   *
+   *
+   * 					                <p>
    *                         <b>T3 node types:</b>
    * 					                   <code>cache.t3.micro</code>,
    *     						<code>cache.t3.small</code>,
@@ -7168,11 +7466,45 @@ export interface DescribeReservedCacheNodesMessage {
    *                </ul>
    *             </li>
    *             <li>
+   *                <p>Memory optimized with data tiering:</p>
+   * 		             <ul>
+   *                   <li>
+   *                      <p>Current generation: </p>
+   *
+   * 		                   <p>
+   *                         <b>R6gd node types</b> (available only for Redis engine version 6.2 onward).</p>
+   *
+   *
+   *
+   *
+   * 		                   <p>
+   *
+   * 		                      <code>cache.r6gd.xlarge</code>,
+   * 		                    <code>cache.r6gd.2xlarge</code>,
+   * 		                    <code>cache.r6gd.4xlarge</code>,
+   * 		                    <code>cache.r6gd.8xlarge</code>,
+   * 		                    <code>cache.r6gd.12xlarge</code>,
+   * 		                    <code>cache.r6gd.16xlarge</code>
+   *
+   *
+   *
+   *
+   *
+   *
+   * 		                   </p>
+   *
+   * 		                </li>
+   *                </ul>
+   *             </li>
+   *             <li>
    *                <p>Memory optimized:</p>
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   * 											          <p>
+   *
+   *
+   *
+   * 					                <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
    *
    *
@@ -7373,10 +7705,12 @@ export interface ReservedCacheNode {
    *                   <li>
    *                      <p>Current generation: </p>
    *
-   *     						           <p>
-   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   * 						               <p>
-   *                         <code>cache.m6g.large</code>,
+   *
+   *
+   *
+   *
+   * 					                <p>
+   *                         <b>M6g node types:</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
    * 							<code>cache.m6g.4xlarge</code>,
@@ -7415,6 +7749,13 @@ export interface ReservedCacheNode {
    *     						<code>cache.m4.4xlarge</code>,
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
+   *
+   * 					                <p>
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
+   * 					        <code>cache.t4g.micro</code>,
+   * 					        <code>cache.t4g.small</code>,
+   * 					        <code>cache.t4g.medium</code>
+   * 					                </p>
    *     					            <p>
    *                         <b>T3 node types:</b>
    * 					                   <code>cache.t3.micro</code>,
@@ -7474,11 +7815,45 @@ export interface ReservedCacheNode {
    *                </ul>
    *             </li>
    *             <li>
+   *                <p>Memory optimized with data tiering:</p>
+   * 		             <ul>
+   *                   <li>
+   *                      <p>Current generation: </p>
+   *
+   * 		                   <p>
+   *                         <b>R6gd node types</b> (available only for Redis engine version 6.2 onward).</p>
+   *
+   *
+   *
+   *
+   * 		                   <p>
+   *
+   * 		                      <code>cache.r6gd.xlarge</code>,
+   * 		                    <code>cache.r6gd.2xlarge</code>,
+   * 		                    <code>cache.r6gd.4xlarge</code>,
+   * 		                    <code>cache.r6gd.8xlarge</code>,
+   * 		                    <code>cache.r6gd.12xlarge</code>,
+   * 		                    <code>cache.r6gd.16xlarge</code>
+   *
+   *
+   *
+   *
+   *
+   *
+   * 		                   </p>
+   *
+   * 		                </li>
+   *                </ul>
+   *             </li>
+   *             <li>
    *                <p>Memory optimized:</p>
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   * 											          <p>
+   *
+   *
+   *
+   * 					                <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
    *
    *
@@ -7690,10 +8065,13 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *                   <li>
    *                      <p>Current generation: </p>
    *
-   *     						           <p>
-   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   * 						               <p>
-   *                         <code>cache.m6g.large</code>,
+   *
+   *
+   *
+   *
+   *
+   * 					                <p>
+   *                         <b>M6g node types:</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward)	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
    * 							<code>cache.m6g.4xlarge</code>,
@@ -7732,7 +8110,16 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *     						<code>cache.m4.4xlarge</code>,
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
-   *     					            <p>
+   *
+   * 					                <p>
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   * 					        <code>cache.t4g.micro</code>,
+   * 					        <code>cache.t4g.small</code>,
+   * 					        <code>cache.t4g.medium</code>
+   * 					                </p>
+   *
+   *
+   * 					                <p>
    *                         <b>T3 node types:</b>
    * 					                   <code>cache.t3.micro</code>,
    *     						<code>cache.t3.small</code>,
@@ -7791,12 +8178,48 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *                </ul>
    *             </li>
    *             <li>
+   *                <p>Memory optimized with data tiering:</p>
+   * 		             <ul>
+   *                   <li>
+   *                      <p>Current generation: </p>
+   *
+   * 		                   <p>
+   *                         <b>R6gd node types</b> (available only for Redis engine version 6.2 onward).</p>
+   *
+   *
+   *
+   *
+   * 		                   <p>
+   *
+   * 		                      <code>cache.r6gd.xlarge</code>,
+   * 		                    <code>cache.r6gd.2xlarge</code>,
+   * 		                    <code>cache.r6gd.4xlarge</code>,
+   * 		                    <code>cache.r6gd.8xlarge</code>,
+   * 		                    <code>cache.r6gd.12xlarge</code>,
+   * 		                    <code>cache.r6gd.16xlarge</code>
+   *
+   *
+   *
+   *
+   *
+   *
+   * 		                   </p>
+   *
+   * 		                </li>
+   *                </ul>
+   *             </li>
+   *             <li>
    *                <p>Memory optimized:</p>
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   * 											          <p>
+   *
+   *
+   *
+   *
+   * 					                <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
+   *
    *
    *
    *
@@ -7966,10 +8389,13 @@ export interface ReservedCacheNodesOffering {
    *                   <li>
    *                      <p>Current generation: </p>
    *
-   *     						           <p>
-   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   * 						               <p>
-   *                         <code>cache.m6g.large</code>,
+   *
+   *
+   *
+   *
+   *
+   * 					                <p>
+   *                         <b>M6g node types:</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward): 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
    * 							<code>cache.m6g.4xlarge</code>,
@@ -8008,7 +8434,15 @@ export interface ReservedCacheNodesOffering {
    *     						<code>cache.m4.4xlarge</code>,
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
-   *     					            <p>
+   *
+   * 					                <p>
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
+   * 					     <code>cache.t4g.micro</code>,
+   * 					        <code>cache.t4g.small</code>,
+   * 					        <code>cache.t4g.medium</code>
+   * 					                </p>
+   *
+   * 					                <p>
    *                         <b>T3 node types:</b>
    * 					                   <code>cache.t3.micro</code>,
    *     						<code>cache.t3.small</code>,
@@ -8067,12 +8501,48 @@ export interface ReservedCacheNodesOffering {
    *                </ul>
    *             </li>
    *             <li>
+   *                <p>Memory optimized with data tiering:</p>
+   * 		             <ul>
+   *                   <li>
+   *                      <p>Current generation: </p>
+   *
+   * 		                   <p>
+   *                         <b>R6gd node types</b> (available only for Redis engine version 6.2 onward).</p>
+   *
+   *
+   *
+   *
+   * 		                   <p>
+   *
+   * 		                      <code>cache.r6gd.xlarge</code>,
+   * 		                    <code>cache.r6gd.2xlarge</code>,
+   * 		                    <code>cache.r6gd.4xlarge</code>,
+   * 		                    <code>cache.r6gd.8xlarge</code>,
+   * 		                    <code>cache.r6gd.12xlarge</code>,
+   * 		                    <code>cache.r6gd.16xlarge</code>
+   *
+   *
+   *
+   *
+   *
+   *
+   * 		                   </p>
+   *
+   * 		                </li>
+   *                </ul>
+   *             </li>
+   *             <li>
    *                <p>Memory optimized:</p>
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   * 											          <p>
+   *
+   *
+   *
+   *
+   * 					                <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
+   *
    *
    *
    *
@@ -9622,7 +10092,8 @@ export interface ModifyCacheClusterMessage {
   EngineVersion?: string;
 
   /**
-   * <p>This parameter is currently disabled.</p>
+   * <p> If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next auto minor version upgrade campaign. This parameter is disabled for previous versions.
+   *         </p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
@@ -10100,7 +10571,8 @@ export interface ModifyReplicationGroupMessage {
   EngineVersion?: string;
 
   /**
-   * <p>This parameter is currently disabled.</p>
+   * <p> If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next auto minor version upgrade campaign. This parameter is disabled for previous versions.
+   *         </p>
    */
   AutoMinorVersionUpgrade?: boolean;
 

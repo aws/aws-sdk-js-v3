@@ -22,8 +22,7 @@ export interface UpdateSchedulingPolicyCommandInput extends UpdateSchedulingPoli
 export interface UpdateSchedulingPolicyCommandOutput extends UpdateSchedulingPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a scheduling
- *    policy.</p>
+ * <p>Updates a scheduling policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

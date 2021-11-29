@@ -31,6 +31,10 @@ import {
 } from "../commands/DeleteReplicationConfigurationTemplateCommand";
 import { DeleteSourceServerCommandInput, DeleteSourceServerCommandOutput } from "../commands/DeleteSourceServerCommand";
 import {
+  DeleteVcenterClientCommandInput,
+  DeleteVcenterClientCommandOutput,
+} from "../commands/DeleteVcenterClientCommand";
+import {
   DescribeJobLogItemsCommandInput,
   DescribeJobLogItemsCommandOutput,
 } from "../commands/DescribeJobLogItemsCommand";
@@ -43,6 +47,10 @@ import {
   DescribeSourceServersCommandInput,
   DescribeSourceServersCommandOutput,
 } from "../commands/DescribeSourceServersCommand";
+import {
+  DescribeVcenterClientsCommandInput,
+  DescribeVcenterClientsCommandOutput,
+} from "../commands/DescribeVcenterClientsCommand";
 import {
   DisconnectFromServiceCommandInput,
   DisconnectFromServiceCommandOutput,
@@ -67,6 +75,7 @@ import {
   RetryDataReplicationCommandOutput,
 } from "../commands/RetryDataReplicationCommand";
 import { StartCutoverCommandInput, StartCutoverCommandOutput } from "../commands/StartCutoverCommand";
+import { StartReplicationCommandInput, StartReplicationCommandOutput } from "../commands/StartReplicationCommand";
 import { StartTestCommandInput, StartTestCommandOutput } from "../commands/StartTestCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
@@ -86,6 +95,10 @@ import {
   UpdateReplicationConfigurationTemplateCommandInput,
   UpdateReplicationConfigurationTemplateCommandOutput,
 } from "../commands/UpdateReplicationConfigurationTemplateCommand";
+import {
+  UpdateSourceServerReplicationTypeCommandInput,
+  UpdateSourceServerReplicationTypeCommandOutput,
+} from "../commands/UpdateSourceServerReplicationTypeCommand";
 import {
   AccessDeniedException,
   ChangeServerLifeCycleStateSourceServerLifecycle,
@@ -115,18 +128,22 @@ import {
   LifeCycleLastTestFinalized,
   LifeCycleLastTestInitiated,
   LifeCycleLastTestReverted,
+  LifeCycleState,
   NetworkInterface,
   OS,
   ParticipatingServer,
   ReplicationConfigurationReplicatedDisk,
   ReplicationConfigurationTemplate,
+  ReplicationType,
   ResourceNotFoundException,
+  ServiceQuotaExceededException,
   SourceProperties,
   SourceServer,
   ThrottlingException,
   UninitializedAccountException,
   ValidationException,
   ValidationExceptionField,
+  VcenterClient,
 } from "../models/models_0";
 
 export const serializeAws_restJson1ChangeServerLifeCycleStateCommand = async (
@@ -298,6 +315,31 @@ export const serializeAws_restJson1DeleteSourceServerCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteVcenterClientCommand = async (
+  input: DeleteVcenterClientCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteVcenterClient";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.vcenterClientID !== undefined &&
+      input.vcenterClientID !== null && { vcenterClientID: input.vcenterClientID }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeJobLogItemsCommand = async (
   input: DescribeJobLogItemsCommandInput,
   context: __SerdeContext
@@ -410,6 +452,31 @@ export const serializeAws_restJson1DescribeSourceServersCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeVcenterClientsCommand = async (
+  input: DescribeVcenterClientsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeVcenterClients";
+  const query: any = {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -633,6 +700,31 @@ export const serializeAws_restJson1StartCutoverCommand = async (
       }),
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartReplicationCommand = async (
+  input: StartReplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StartReplication";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.sourceServerID !== undefined &&
+      input.sourceServerID !== null && { sourceServerID: input.sourceServerID }),
   });
   return new __HttpRequest({
     protocol,
@@ -942,6 +1034,34 @@ export const serializeAws_restJson1UpdateReplicationConfigurationTemplateCommand
   });
 };
 
+export const serializeAws_restJson1UpdateSourceServerReplicationTypeCommand = async (
+  input: UpdateSourceServerReplicationTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateSourceServerReplicationType";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.replicationType !== undefined &&
+      input.replicationType !== null && { replicationType: input.replicationType }),
+    ...(input.sourceServerID !== undefined &&
+      input.sourceServerID !== null && { sourceServerID: input.sourceServerID }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const deserializeAws_restJson1ChangeServerLifeCycleStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -956,9 +1076,11 @@ export const deserializeAws_restJson1ChangeServerLifeCycleStateCommand = async (
     isArchived: undefined,
     launchedInstance: undefined,
     lifeCycle: undefined,
+    replicationType: undefined,
     sourceProperties: undefined,
     sourceServerID: undefined,
     tags: undefined,
+    vcenterClientID: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
@@ -976,6 +1098,9 @@ export const deserializeAws_restJson1ChangeServerLifeCycleStateCommand = async (
   if (data.lifeCycle !== undefined && data.lifeCycle !== null) {
     contents.lifeCycle = deserializeAws_restJson1LifeCycle(data.lifeCycle, context);
   }
+  if (data.replicationType !== undefined && data.replicationType !== null) {
+    contents.replicationType = __expectString(data.replicationType);
+  }
   if (data.sourceProperties !== undefined && data.sourceProperties !== null) {
     contents.sourceProperties = deserializeAws_restJson1SourceProperties(data.sourceProperties, context);
   }
@@ -984,6 +1109,9 @@ export const deserializeAws_restJson1ChangeServerLifeCycleStateCommand = async (
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.vcenterClientID !== undefined && data.vcenterClientID !== null) {
+    contents.vcenterClientID = __expectString(data.vcenterClientID);
   }
   return Promise.resolve(contents);
 };
@@ -1380,6 +1508,73 @@ const deserializeAws_restJson1DeleteSourceServerCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DeleteVcenterClientCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVcenterClientCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteVcenterClientCommandError(output, context);
+  }
+  const contents: DeleteVcenterClientCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteVcenterClientCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVcenterClientCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      response = {
+        ...(await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribeJobLogItemsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1656,6 +1851,81 @@ const deserializeAws_restJson1DescribeSourceServersCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeVcenterClientsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVcenterClientsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeVcenterClientsCommandError(output, context);
+  }
+  const contents: DescribeVcenterClientsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    items: undefined,
+    nextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.items !== undefined && data.items !== null) {
+    contents.items = deserializeAws_restJson1VcenterClientList(data.items, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeVcenterClientsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVcenterClientsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      response = {
+        ...(await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DisconnectFromServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1670,9 +1940,11 @@ export const deserializeAws_restJson1DisconnectFromServiceCommand = async (
     isArchived: undefined,
     launchedInstance: undefined,
     lifeCycle: undefined,
+    replicationType: undefined,
     sourceProperties: undefined,
     sourceServerID: undefined,
     tags: undefined,
+    vcenterClientID: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
@@ -1690,6 +1962,9 @@ export const deserializeAws_restJson1DisconnectFromServiceCommand = async (
   if (data.lifeCycle !== undefined && data.lifeCycle !== null) {
     contents.lifeCycle = deserializeAws_restJson1LifeCycle(data.lifeCycle, context);
   }
+  if (data.replicationType !== undefined && data.replicationType !== null) {
+    contents.replicationType = __expectString(data.replicationType);
+  }
   if (data.sourceProperties !== undefined && data.sourceProperties !== null) {
     contents.sourceProperties = deserializeAws_restJson1SourceProperties(data.sourceProperties, context);
   }
@@ -1698,6 +1973,9 @@ export const deserializeAws_restJson1DisconnectFromServiceCommand = async (
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.vcenterClientID !== undefined && data.vcenterClientID !== null) {
+    contents.vcenterClientID = __expectString(data.vcenterClientID);
   }
   return Promise.resolve(contents);
 };
@@ -1769,9 +2047,11 @@ export const deserializeAws_restJson1FinalizeCutoverCommand = async (
     isArchived: undefined,
     launchedInstance: undefined,
     lifeCycle: undefined,
+    replicationType: undefined,
     sourceProperties: undefined,
     sourceServerID: undefined,
     tags: undefined,
+    vcenterClientID: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
@@ -1789,6 +2069,9 @@ export const deserializeAws_restJson1FinalizeCutoverCommand = async (
   if (data.lifeCycle !== undefined && data.lifeCycle !== null) {
     contents.lifeCycle = deserializeAws_restJson1LifeCycle(data.lifeCycle, context);
   }
+  if (data.replicationType !== undefined && data.replicationType !== null) {
+    contents.replicationType = __expectString(data.replicationType);
+  }
   if (data.sourceProperties !== undefined && data.sourceProperties !== null) {
     contents.sourceProperties = deserializeAws_restJson1SourceProperties(data.sourceProperties, context);
   }
@@ -1797,6 +2080,9 @@ export const deserializeAws_restJson1FinalizeCutoverCommand = async (
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.vcenterClientID !== undefined && data.vcenterClientID !== null) {
+    contents.vcenterClientID = __expectString(data.vcenterClientID);
   }
   return Promise.resolve(contents);
 };
@@ -2238,9 +2524,11 @@ export const deserializeAws_restJson1MarkAsArchivedCommand = async (
     isArchived: undefined,
     launchedInstance: undefined,
     lifeCycle: undefined,
+    replicationType: undefined,
     sourceProperties: undefined,
     sourceServerID: undefined,
     tags: undefined,
+    vcenterClientID: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
@@ -2258,6 +2546,9 @@ export const deserializeAws_restJson1MarkAsArchivedCommand = async (
   if (data.lifeCycle !== undefined && data.lifeCycle !== null) {
     contents.lifeCycle = deserializeAws_restJson1LifeCycle(data.lifeCycle, context);
   }
+  if (data.replicationType !== undefined && data.replicationType !== null) {
+    contents.replicationType = __expectString(data.replicationType);
+  }
   if (data.sourceProperties !== undefined && data.sourceProperties !== null) {
     contents.sourceProperties = deserializeAws_restJson1SourceProperties(data.sourceProperties, context);
   }
@@ -2266,6 +2557,9 @@ export const deserializeAws_restJson1MarkAsArchivedCommand = async (
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.vcenterClientID !== undefined && data.vcenterClientID !== null) {
+    contents.vcenterClientID = __expectString(data.vcenterClientID);
   }
   return Promise.resolve(contents);
 };
@@ -2337,9 +2631,11 @@ export const deserializeAws_restJson1RetryDataReplicationCommand = async (
     isArchived: undefined,
     launchedInstance: undefined,
     lifeCycle: undefined,
+    replicationType: undefined,
     sourceProperties: undefined,
     sourceServerID: undefined,
     tags: undefined,
+    vcenterClientID: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.arn !== undefined && data.arn !== null) {
@@ -2357,6 +2653,9 @@ export const deserializeAws_restJson1RetryDataReplicationCommand = async (
   if (data.lifeCycle !== undefined && data.lifeCycle !== null) {
     contents.lifeCycle = deserializeAws_restJson1LifeCycle(data.lifeCycle, context);
   }
+  if (data.replicationType !== undefined && data.replicationType !== null) {
+    contents.replicationType = __expectString(data.replicationType);
+  }
   if (data.sourceProperties !== undefined && data.sourceProperties !== null) {
     contents.sourceProperties = deserializeAws_restJson1SourceProperties(data.sourceProperties, context);
   }
@@ -2365,6 +2664,9 @@ export const deserializeAws_restJson1RetryDataReplicationCommand = async (
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.vcenterClientID !== undefined && data.vcenterClientID !== null) {
+    contents.vcenterClientID = __expectString(data.vcenterClientID);
   }
   return Promise.resolve(contents);
 };
@@ -2456,6 +2758,129 @@ const deserializeAws_restJson1StartCutoverCommandError = async (
     case "com.amazonaws.mgn#ConflictException":
       response = {
         ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      response = {
+        ...(await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1StartReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartReplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartReplicationCommandError(output, context);
+  }
+  const contents: StartReplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    arn: undefined,
+    dataReplicationInfo: undefined,
+    isArchived: undefined,
+    launchedInstance: undefined,
+    lifeCycle: undefined,
+    replicationType: undefined,
+    sourceProperties: undefined,
+    sourceServerID: undefined,
+    tags: undefined,
+    vcenterClientID: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.dataReplicationInfo !== undefined && data.dataReplicationInfo !== null) {
+    contents.dataReplicationInfo = deserializeAws_restJson1DataReplicationInfo(data.dataReplicationInfo, context);
+  }
+  if (data.isArchived !== undefined && data.isArchived !== null) {
+    contents.isArchived = __expectBoolean(data.isArchived);
+  }
+  if (data.launchedInstance !== undefined && data.launchedInstance !== null) {
+    contents.launchedInstance = deserializeAws_restJson1LaunchedInstance(data.launchedInstance, context);
+  }
+  if (data.lifeCycle !== undefined && data.lifeCycle !== null) {
+    contents.lifeCycle = deserializeAws_restJson1LifeCycle(data.lifeCycle, context);
+  }
+  if (data.replicationType !== undefined && data.replicationType !== null) {
+    contents.replicationType = __expectString(data.replicationType);
+  }
+  if (data.sourceProperties !== undefined && data.sourceProperties !== null) {
+    contents.sourceProperties = deserializeAws_restJson1SourceProperties(data.sourceProperties, context);
+  }
+  if (data.sourceServerID !== undefined && data.sourceServerID !== null) {
+    contents.sourceServerID = __expectString(data.sourceServerID);
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.vcenterClientID !== undefined && data.vcenterClientID !== null) {
+    contents.vcenterClientID = __expectString(data.vcenterClientID);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartReplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartReplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.mgn#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3195,6 +3620,121 @@ const deserializeAws_restJson1UpdateReplicationConfigurationTemplateCommandError
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateSourceServerReplicationTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSourceServerReplicationTypeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateSourceServerReplicationTypeCommandError(output, context);
+  }
+  const contents: UpdateSourceServerReplicationTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    arn: undefined,
+    dataReplicationInfo: undefined,
+    isArchived: undefined,
+    launchedInstance: undefined,
+    lifeCycle: undefined,
+    replicationType: undefined,
+    sourceProperties: undefined,
+    sourceServerID: undefined,
+    tags: undefined,
+    vcenterClientID: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.dataReplicationInfo !== undefined && data.dataReplicationInfo !== null) {
+    contents.dataReplicationInfo = deserializeAws_restJson1DataReplicationInfo(data.dataReplicationInfo, context);
+  }
+  if (data.isArchived !== undefined && data.isArchived !== null) {
+    contents.isArchived = __expectBoolean(data.isArchived);
+  }
+  if (data.launchedInstance !== undefined && data.launchedInstance !== null) {
+    contents.launchedInstance = deserializeAws_restJson1LaunchedInstance(data.launchedInstance, context);
+  }
+  if (data.lifeCycle !== undefined && data.lifeCycle !== null) {
+    contents.lifeCycle = deserializeAws_restJson1LifeCycle(data.lifeCycle, context);
+  }
+  if (data.replicationType !== undefined && data.replicationType !== null) {
+    contents.replicationType = __expectString(data.replicationType);
+  }
+  if (data.sourceProperties !== undefined && data.sourceProperties !== null) {
+    contents.sourceProperties = deserializeAws_restJson1SourceProperties(data.sourceProperties, context);
+  }
+  if (data.sourceServerID !== undefined && data.sourceServerID !== null) {
+    contents.sourceServerID = __expectString(data.sourceServerID);
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.vcenterClientID !== undefined && data.vcenterClientID !== null) {
+    contents.vcenterClientID = __expectString(data.vcenterClientID);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateSourceServerReplicationTypeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSourceServerReplicationTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      response = {
+        ...(await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3291,6 +3831,43 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   }
   if (data.resourceType !== undefined && data.resourceType !== null) {
     contents.resourceType = __expectString(data.resourceType);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const contents: ServiceQuotaExceededException = {
+    name: "ServiceQuotaExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    code: undefined,
+    message: undefined,
+    quotaCode: undefined,
+    resourceId: undefined,
+    resourceType: undefined,
+    serviceCode: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.code !== undefined && data.code !== null) {
+    contents.code = __expectString(data.code);
+  }
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
+  }
+  if (data.quotaCode !== undefined && data.quotaCode !== null) {
+    contents.quotaCode = __expectString(data.quotaCode);
+  }
+  if (data.resourceId !== undefined && data.resourceId !== null) {
+    contents.resourceId = __expectString(data.resourceId);
+  }
+  if (data.resourceType !== undefined && data.resourceType !== null) {
+    contents.resourceType = __expectString(data.resourceType);
+  }
+  if (data.serviceCode !== undefined && data.serviceCode !== null) {
+    contents.serviceCode = __expectString(data.serviceCode);
   }
   return contents;
 };
@@ -3414,6 +3991,14 @@ const serializeAws_restJson1DescribeSourceServersRequestFilters = (
 ): any => {
   return {
     ...(input.isArchived !== undefined && input.isArchived !== null && { isArchived: input.isArchived }),
+    ...(input.lifeCycleStates !== undefined &&
+      input.lifeCycleStates !== null && {
+        lifeCycleStates: serializeAws_restJson1LifeCycleStates(input.lifeCycleStates, context),
+      }),
+    ...(input.replicationTypes !== undefined &&
+      input.replicationTypes !== null && {
+        replicationTypes: serializeAws_restJson1ReplicationTypes(input.replicationTypes, context),
+      }),
     ...(input.sourceServerIDs !== undefined &&
       input.sourceServerIDs !== null && {
         sourceServerIDs: serializeAws_restJson1DescribeSourceServersRequestFiltersIDs(input.sourceServerIDs, context),
@@ -3439,6 +4024,17 @@ const serializeAws_restJson1Licensing = (input: Licensing, context: __SerdeConte
   return {
     ...(input.osByol !== undefined && input.osByol !== null && { osByol: input.osByol }),
   };
+};
+
+const serializeAws_restJson1LifeCycleStates = (input: (LifeCycleState | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1ReplicationConfigurationReplicatedDisk = (
@@ -3480,6 +4076,17 @@ const serializeAws_restJson1ReplicationConfigurationTemplateIDs = (input: string
 };
 
 const serializeAws_restJson1ReplicationServersSecurityGroupsIDs = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1ReplicationTypes = (input: (ReplicationType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3576,6 +4183,7 @@ const deserializeAws_restJson1DataReplicationInfo = (output: any, context: __Ser
     dataReplicationState: __expectString(output.dataReplicationState),
     etaDateTime: __expectString(output.etaDateTime),
     lagDuration: __expectString(output.lagDuration),
+    lastSnapshotDateTime: __expectString(output.lastSnapshotDateTime),
     replicatedDisks:
       output.replicatedDisks !== undefined && output.replicatedDisks !== null
         ? deserializeAws_restJson1DataReplicationInfoReplicatedDisks(output.replicatedDisks, context)
@@ -3671,6 +4279,7 @@ const deserializeAws_restJson1IdentificationHints = (output: any, context: __Ser
     awsInstanceID: __expectString(output.awsInstanceID),
     fqdn: __expectString(output.fqdn),
     hostname: __expectString(output.hostname),
+    vmPath: __expectString(output.vmPath),
     vmWareUuid: __expectString(output.vmWareUuid),
   } as any;
 };
@@ -4046,6 +4655,7 @@ const deserializeAws_restJson1SourceServer = (output: any, context: __SerdeConte
       output.lifeCycle !== undefined && output.lifeCycle !== null
         ? deserializeAws_restJson1LifeCycle(output.lifeCycle, context)
         : undefined,
+    replicationType: __expectString(output.replicationType),
     sourceProperties:
       output.sourceProperties !== undefined && output.sourceProperties !== null
         ? deserializeAws_restJson1SourceProperties(output.sourceProperties, context)
@@ -4055,6 +4665,7 @@ const deserializeAws_restJson1SourceServer = (output: any, context: __SerdeConte
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagsMap(output.tags, context)
         : undefined,
+    vcenterClientID: __expectString(output.vcenterClientID),
   } as any;
 };
 
@@ -4102,6 +4713,36 @@ const deserializeAws_restJson1ValidationExceptionFieldList = (
         return null as any;
       }
       return deserializeAws_restJson1ValidationExceptionField(entry, context);
+    });
+};
+
+const deserializeAws_restJson1VcenterClient = (output: any, context: __SerdeContext): VcenterClient => {
+  return {
+    arn: __expectString(output.arn),
+    datacenterName: __expectString(output.datacenterName),
+    hostname: __expectString(output.hostname),
+    lastSeenDatetime: __expectString(output.lastSeenDatetime),
+    sourceServerTags:
+      output.sourceServerTags !== undefined && output.sourceServerTags !== null
+        ? deserializeAws_restJson1TagsMap(output.sourceServerTags, context)
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1TagsMap(output.tags, context)
+        : undefined,
+    vcenterClientID: __expectString(output.vcenterClientID),
+    vcenterUUID: __expectString(output.vcenterUUID),
+  } as any;
+};
+
+const deserializeAws_restJson1VcenterClientList = (output: any, context: __SerdeContext): VcenterClient[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1VcenterClient(entry, context);
     });
 };
 

@@ -139,11 +139,11 @@ export namespace Ami {
 }
 
 /**
- * <p>Describes the configuration for a launch permission. The launch permission modification request is sent to the
- * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a>
+ * <p>Describes the configuration for a launch permission. The launch permission modification
+ * 			request is sent to the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a>
  * 			API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public,
- * 			set the launch permission authorized accounts to <code>all</code>. See the examples for making an AMI public at
- * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a>.</p>
+ * 			set the launch permission authorized accounts to <code>all</code>. See the examples for making an AMI
+ * 			public at <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a>.</p>
  */
 export interface LaunchPermissionConfiguration {
   /**
@@ -155,6 +155,18 @@ export interface LaunchPermissionConfiguration {
    * <p>The name of the group.</p>
    */
   userGroups?: string[];
+
+  /**
+   * <p>The ARN for an Amazon Web Services Organization that you want to share your AMI with. For more information, see
+   * 			<a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html">What is Organizations?</a>.</p>
+   */
+  organizationArns?: string[];
+
+  /**
+   * <p>The ARN for an Organizations organizational unit (OU) that you want to share your AMI with. For more
+   * 			information about key concepts for Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html">Organizations terminology and concepts</a>.</p>
+   */
+  organizationalUnitArns?: string[];
 }
 
 export namespace LaunchPermissionConfiguration {
@@ -176,7 +188,7 @@ export interface AmiDistributionConfiguration {
   name?: string;
 
   /**
-   * <p>The description of the distribution configuration. Minimum and maximum length are in characters.</p>
+   * <p>The description of the AMI distribution configuration. Minimum and maximum length are in characters.</p>
    */
   description?: string;
 

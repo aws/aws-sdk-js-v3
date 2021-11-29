@@ -44,9 +44,6 @@ import {
   VpcPeeringConnection,
 } from "./models_0";
 import {
-  CapacityReservationPreference,
-  CapacityReservationTarget,
-  ConnectionNotification,
   DiskImageFormat,
   DnsEntry,
   PlatformValues,
@@ -68,6 +65,7 @@ import {
   VpcEndpoint,
 } from "./models_1";
 import {
+  ConnectionNotification,
   ConversionTask,
   DnsNameState,
   ExportTaskS3Location,
@@ -89,12 +87,281 @@ import {
   AttributeBooleanValue,
   BootModeValues,
   ImportImageLicenseConfigurationResponse,
-  InstanceAttributeName,
   LaunchPermission,
   SnapshotDetail,
   SnapshotTaskDetail,
+  StaleSecurityGroup,
   VirtualizationType,
 } from "./models_3";
+
+export interface DescribeStaleSecurityGroupsResult {
+  /**
+   * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the stale security groups.</p>
+   */
+  StaleSecurityGroupSet?: StaleSecurityGroup[];
+}
+
+export namespace DescribeStaleSecurityGroupsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeStaleSecurityGroupsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeStoreImageTasksRequest {
+  /**
+   * <p>The AMI IDs for which to show progress. Up to 20 AMI IDs can be included in a request.</p>
+   */
+  ImageIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>task-state</code> - Returns tasks in a certain state (<code>InProgress</code> |
+   *             <code>Completed</code> | <code>Failed</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bucket</code> - Returns task information for tasks that targeted a specific
+   *           bucket. For the filter value, specify the bucket name.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *       results, make another call with the returned <code>NextToken</code> value. This value can be
+   *       between 1 and 200. You cannot specify this parameter and the <code>ImageIDs</code> parameter
+   *       in the same call.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeStoreImageTasksRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeStoreImageTasksRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The information about the AMI store task, including the progress of the task.</p>
+ */
+export interface StoreImageTaskResult {
+  /**
+   * <p>The ID of the AMI that is being stored.</p>
+   */
+  AmiId?: string;
+
+  /**
+   * <p>The time the task started.</p>
+   */
+  TaskStartTime?: Date;
+
+  /**
+   * <p>The name of the Amazon S3 bucket that contains the stored AMI object.</p>
+   */
+  Bucket?: string;
+
+  /**
+   * <p>The name of the stored AMI object in the bucket.</p>
+   */
+  S3objectKey?: string;
+
+  /**
+   * <p>The progress of the task as a percentage.</p>
+   */
+  ProgressPercentage?: number;
+
+  /**
+   * <p>The state of the store task (<code>InProgress</code>, <code>Completed</code>, or
+   *         <code>Failed</code>).</p>
+   */
+  StoreTaskState?: string;
+
+  /**
+   * <p>If the tasks fails, the reason for the failure is returned. If the task succeeds,
+   *         <code>null</code> is returned.</p>
+   */
+  StoreTaskFailureReason?: string;
+}
+
+export namespace StoreImageTaskResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StoreImageTaskResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeStoreImageTasksResult {
+  /**
+   * <p>The information about the AMI store tasks.</p>
+   */
+  StoreImageTaskResults?: StoreImageTaskResult[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
+   *       when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeStoreImageTasksResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeStoreImageTasksResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeSubnetsRequest {
+  /**
+   * <p>One or more filters.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>availability-zone</code> - The Availability Zone for the subnet. You can also use
+   *                     <code>availabilityZone</code> as the filter name.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>availability-zone-id</code> - The ID of the Availability Zone for the subnet.
+   *                     You can also use <code>availabilityZoneId</code> as the filter name.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>available-ip-address-count</code> - The number of IPv4 addresses in the
+   *                     subnet that are available.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>cidr-block</code> - The IPv4 CIDR block of the subnet. The CIDR block you
+   *                     specify must exactly match the subnet's CIDR block for information to be
+   *                     returned for the subnet. You can also use <code>cidr</code> or
+   *                     <code>cidrBlock</code> as the filter names.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>default-for-az</code> - Indicates whether this is the default subnet for the
+   *                     Availability Zone (<code>true</code> | <code>false</code>). You can also use
+   *                     <code>defaultForAz</code> as the filter name.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR
+   *                     block associated with the subnet.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ipv6-cidr-block-association.association-id</code> - An association ID
+   *                     for an IPv6 CIDR block associated with the subnet.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR
+   *                     block associated with the subnet.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ipv6-native</code> - Indicates whether this is an IPv6 only subnet (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the subnet.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>subnet-arn</code> - The Amazon Resource Name (ARN) of the subnet.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>subnet-id</code> - The ID of the subnet.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>vpc-id</code> - The ID of the VPC for the subnet.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>One or more subnet IDs.</p>
+   * 		       <p>Default: Describes all your subnets.</p>
+   */
+  SubnetIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeSubnetsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeSubnetsRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeSubnetsResult {
   /**
@@ -9791,246 +10058,6 @@ export namespace BlobAttributeValue {
    * @internal
    */
   export const filterSensitiveLog = (obj: BlobAttributeValue): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyInstanceAttributeRequest {
-  /**
-   * <p>Enable or disable source/destination checks, which ensure that the instance
-   *             is either the source or the destination of any traffic that it receives.
-   *             If the value is <code>true</code>, source/destination checks are enabled;
-   *             otherwise, they are disabled. The default value is <code>true</code>.
-   *             You must disable source/destination checks if the instance runs services
-   *             such as network address translation, routing, or firewalls.</p>
-   */
-  SourceDestCheck?: AttributeBooleanValue;
-
-  /**
-   * <p>The name of the attribute.</p>
-   */
-  Attribute?: InstanceAttributeName | string;
-
-  /**
-   * <p>Modifies the <code>DeleteOnTermination</code> attribute for volumes that are currently
-   *             attached. The volume must be owned by the caller. If no value is specified for
-   *                 <code>DeleteOnTermination</code>, the default is <code>true</code> and the volume is
-   *             deleted when the instance is terminated.</p>
-   *         <p>To add instance store volumes to an Amazon EBS-backed instance, you must add them when
-   *             you launch the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Updating the block device mapping when launching an instance</a> in the
-   *             <i>Amazon EC2 User Guide</i>.</p>
-   */
-  BlockDeviceMappings?: InstanceBlockDeviceMappingSpecification[];
-
-  /**
-   * <p>If the value is <code>true</code>, you can't terminate the instance using the Amazon
-   *             EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot
-   *             Instances.</p>
-   */
-  DisableApiTermination?: AttributeBooleanValue;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Specifies whether the instance is optimized for Amazon EBS I/O. This optimization
-   *             provides dedicated throughput to Amazon EBS and an optimized configuration stack to
-   *             provide optimal EBS I/O performance. This optimization isn't available with all instance
-   *             types. Additional usage charges apply when using an EBS Optimized instance.</p>
-   */
-  EbsOptimized?: AttributeBooleanValue;
-
-  /**
-   * <p>Set to <code>true</code> to enable enhanced networking with ENA for the
-   *             instance.</p>
-   *         <p>This option is supported only for HVM instances. Specifying this option with a PV
-   *             instance can make it unreachable.</p>
-   */
-  EnaSupport?: AttributeBooleanValue;
-
-  /**
-   * <p>[EC2-VPC] Replaces the security groups of the instance with the specified security groups.
-   *             You must specify at least one security group, even if it's just the default security group for the VPC. You must
-   *             specify the security group ID, not the security group name.</p>
-   */
-  Groups?: string[];
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>Specifies whether an instance stops or terminates when you initiate shutdown from the
-   *             instance (using the operating system command for system shutdown).</p>
-   */
-  InstanceInitiatedShutdownBehavior?: AttributeValue;
-
-  /**
-   * <p>Changes the instance type to the specified value. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
-   *             types</a> in the <i>Amazon EC2 User Guide</i>. If the instance type is not valid,
-   *             the error returned is <code>InvalidInstanceAttributeValue</code>.</p>
-   */
-  InstanceType?: AttributeValue;
-
-  /**
-   * <p>Changes the instance's kernel to the specified value. We recommend that you use
-   *             PV-GRUB instead of kernels and RAM disks. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">PV-GRUB</a>.</p>
-   */
-  Kernel?: AttributeValue;
-
-  /**
-   * <p>Changes the instance's RAM disk to the specified value. We recommend that you use
-   *             PV-GRUB instead of kernels and RAM disks. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">PV-GRUB</a>.</p>
-   */
-  Ramdisk?: AttributeValue;
-
-  /**
-   * <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual
-   *             Function interface for the instance.</p>
-   *         <p>There is no way to disable enhanced networking with the Intel 82599 Virtual Function
-   *             interface at this time.</p>
-   *         <p>This option is supported only for HVM instances. Specifying this option with a PV
-   *             instance can make it unreachable.</p>
-   */
-  SriovNetSupport?: AttributeValue;
-
-  /**
-   * <p>Changes the instance's user data to the specified value. If you are using an Amazon Web Services SDK
-   *             or command line tool, base64-encoding is performed for you, and you can load the text
-   *             from a file. Otherwise, you must provide base64-encoded text.</p>
-   */
-  UserData?: BlobAttributeValue;
-
-  /**
-   * <p>A new value for the attribute. Use only with the <code>kernel</code>,
-   *                 <code>ramdisk</code>, <code>userData</code>, <code>disableApiTermination</code>, or
-   *                 <code>instanceInitiatedShutdownBehavior</code> attribute.</p>
-   */
-  Value?: string;
-}
-
-export namespace ModifyInstanceAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyInstanceAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an instance's Capacity Reservation targeting option. You can specify only one parameter
- * 			at a time. If you specify <code>CapacityReservationPreference</code> and
- * 			<code>CapacityReservationTarget</code>, the request fails.</p>
- * 			      <p>Use the <code>CapacityReservationPreference</code> parameter to configure the instance
- * 			to run as an On-Demand Instance or to run in any <code>open</code> Capacity Reservation that has
- * 			matching attributes (instance type, platform, Availability Zone). Use the
- * 			<code>CapacityReservationTarget</code> parameter to explicitly target a specific
- * 			   	Capacity Reservation or a Capacity Reservation group.</p>
- */
-export interface CapacityReservationSpecification {
-  /**
-   * <p>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</p>
-   * 		       <ul>
-   *             <li>
-   *                <p>
-   *                   <code>open</code> - The instance can run in any <code>open</code> Capacity Reservation that has matching attributes
-   * 				(instance type, platform, Availability Zone).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>none</code> - The instance avoids running in a Capacity Reservation even if one is available. The
-   * 					instance runs as an On-Demand Instance.</p>
-   *             </li>
-   *          </ul>
-   */
-  CapacityReservationPreference?: CapacityReservationPreference | string;
-
-  /**
-   * <p>Information about the target Capacity Reservation or Capacity Reservation group.</p>
-   */
-  CapacityReservationTarget?: CapacityReservationTarget;
-}
-
-export namespace CapacityReservationSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CapacityReservationSpecification): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyInstanceCapacityReservationAttributesRequest {
-  /**
-   * <p>The ID of the instance to be modified.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>Information about the Capacity Reservation targeting option.</p>
-   */
-  CapacityReservationSpecification: CapacityReservationSpecification | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace ModifyInstanceCapacityReservationAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyInstanceCapacityReservationAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyInstanceCapacityReservationAttributesResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  Return?: boolean;
-}
-
-export namespace ModifyInstanceCapacityReservationAttributesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyInstanceCapacityReservationAttributesResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the credit option for CPU usage of a burstable performance instance.</p>
- */
-export interface InstanceCreditSpecificationRequest {
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The credit option for CPU usage of the instance. Valid values are
-   *                 <code>standard</code> and <code>unlimited</code>.</p>
-   *         <p>T3 instances with <code>host</code> tenancy do not support the <code>unlimited</code>
-   *             CPU credit option.</p>
-   */
-  CpuCredits?: string;
-}
-
-export namespace InstanceCreditSpecificationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceCreditSpecificationRequest): any => ({
     ...obj,
   });
 }

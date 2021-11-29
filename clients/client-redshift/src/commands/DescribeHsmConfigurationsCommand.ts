@@ -11,7 +11,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeHsmConfigurationsMessage, HsmConfigurationMessage } from "../models/models_0";
+import { DescribeHsmConfigurationsMessage } from "../models/models_0";
+import { HsmConfigurationMessage } from "../models/models_1";
 import {
   deserializeAws_queryDescribeHsmConfigurationsCommand,
   serializeAws_queryDescribeHsmConfigurationsCommand,

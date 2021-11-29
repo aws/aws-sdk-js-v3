@@ -41,6 +41,10 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *          to determine whether the request succeeded.</p>
  *          <p>Note that if <code>CompleteMultipartUpload</code> fails, applications should be prepared
  *          to retry the failed requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html">Amazon S3 Error Best Practices</a>.</p>
+ *          <important>
+ *             <p>You cannot use <code>Content-Type: application/x-www-form-urlencoded</code> with Complete
+ *             Multipart Upload requests. Also, if you do not provide a <code>Content-Type</code> header, <code>CompleteMultipartUpload</code> returns a 200 OK response.</p>
+ *          </important>
  *          <p>For more information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
  *             Upload</a>.</p>
  *          <p>For information about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and

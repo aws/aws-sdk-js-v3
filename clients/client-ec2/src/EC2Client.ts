@@ -1372,6 +1372,10 @@ import {
   ModifyNetworkInterfaceAttributeCommandOutput,
 } from "./commands/ModifyNetworkInterfaceAttributeCommand";
 import {
+  ModifyPrivateDnsNameOptionsCommandInput,
+  ModifyPrivateDnsNameOptionsCommandOutput,
+} from "./commands/ModifyPrivateDnsNameOptionsCommand";
+import {
   ModifyReservedInstancesCommandInput,
   ModifyReservedInstancesCommandOutput,
 } from "./commands/ModifyReservedInstancesCommand";
@@ -2033,6 +2037,7 @@ export type ServiceInputTypes =
   | ModifyLaunchTemplateCommandInput
   | ModifyManagedPrefixListCommandInput
   | ModifyNetworkInterfaceAttributeCommandInput
+  | ModifyPrivateDnsNameOptionsCommandInput
   | ModifyReservedInstancesCommandInput
   | ModifySecurityGroupRulesCommandInput
   | ModifySnapshotAttributeCommandInput
@@ -2508,6 +2513,7 @@ export type ServiceOutputTypes =
   | ModifyLaunchTemplateCommandOutput
   | ModifyManagedPrefixListCommandOutput
   | ModifyNetworkInterfaceAttributeCommandOutput
+  | ModifyPrivateDnsNameOptionsCommandOutput
   | ModifyReservedInstancesCommandOutput
   | ModifySecurityGroupRulesCommandOutput
   | ModifySnapshotAttributeCommandOutput

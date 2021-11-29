@@ -2637,6 +2637,112 @@ export namespace SendMessagesResponse {
 }
 
 /**
+ * <p>Send OTP message request parameters.</p>
+ */
+export interface SendOTPMessageRequestParameters {
+  /**
+   * <p>The attempts allowed to validate an OTP.</p>
+   */
+  AllowedAttempts?: number;
+
+  /**
+   * <p>The brand name that will be substituted into the OTP message body. Should be owned by calling AWS account.</p>
+   */
+  BrandName: string | undefined;
+
+  /**
+   * <p>Channel type for the OTP message. Supported values: [SMS].</p>
+   */
+  Channel: string | undefined;
+
+  /**
+   * <p>The number of characters in the generated OTP.</p>
+   */
+  CodeLength?: number;
+
+  /**
+   * <p>The destination identity to send OTP to.</p>
+   */
+  DestinationIdentity: string | undefined;
+
+  /**
+   * <p>A unique Entity ID received from DLT after entity registration is approved.</p>
+   */
+  EntityId?: string;
+
+  /**
+   * <p>The language to be used for the outgoing message body containing the OTP.</p>
+   */
+  Language?: string;
+
+  /**
+   * <p>The origination identity used to send OTP from.</p>
+   */
+  OriginationIdentity: string | undefined;
+
+  /**
+   * <p>Developer-specified reference identifier. Required to match during OTP verification.</p>
+   */
+  ReferenceId: string | undefined;
+
+  /**
+   * <p>A unique Template ID received from DLT after entity registration is approved.</p>
+   */
+  TemplateId?: string;
+
+  /**
+   * <p>The time in minutes before the OTP is no longer valid.</p>
+   */
+  ValidityPeriod?: number;
+}
+
+export namespace SendOTPMessageRequestParameters {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendOTPMessageRequestParameters): any => ({
+    ...obj,
+  });
+}
+
+export interface SendOTPMessageRequest {
+  /**
+   * <p>The unique ID of your Amazon Pinpoint application.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>Send OTP message request parameters.</p>
+   */
+  SendOTPMessageRequestParameters: SendOTPMessageRequestParameters | undefined;
+}
+
+export namespace SendOTPMessageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendOTPMessageRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SendOTPMessageResponse {
+  /**
+   * <p>Provides information about the results of a request to send a message to an endpoint address.</p>
+   */
+  MessageResponse: MessageResponse | undefined;
+}
+
+export namespace SendOTPMessageResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendOTPMessageResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Specifies the configuration and other settings for a message to send to all the endpoints that are associated with a list of users.</p>
  */
 export interface SendUsersMessageRequest {
@@ -3908,6 +4014,91 @@ export namespace UpdateVoiceTemplateResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateVoiceTemplateResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Verify OTP message request.</p>
+ */
+export interface VerifyOTPMessageRequestParameters {
+  /**
+   * <p>The destination identity to send OTP to.</p>
+   */
+  DestinationIdentity: string | undefined;
+
+  /**
+   * <p>The OTP the end user provided for verification.</p>
+   */
+  Otp: string | undefined;
+
+  /**
+   * <p>The reference identifier provided when the OTP was previously sent.</p>
+   */
+  ReferenceId: string | undefined;
+}
+
+export namespace VerifyOTPMessageRequestParameters {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VerifyOTPMessageRequestParameters): any => ({
+    ...obj,
+  });
+}
+
+export interface VerifyOTPMessageRequest {
+  /**
+   * <p>The unique ID of your Amazon Pinpoint application.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>Verify OTP message request.</p>
+   */
+  VerifyOTPMessageRequestParameters: VerifyOTPMessageRequestParameters | undefined;
+}
+
+export namespace VerifyOTPMessageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VerifyOTPMessageRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Verify OTP Message Response.</p>
+ */
+export interface VerificationResponse {
+  /**
+   * <p>Specifies whether the OTP is valid or not.</p>
+   */
+  Valid?: boolean;
+}
+
+export namespace VerificationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VerificationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface VerifyOTPMessageResponse {
+  /**
+   * <p>Verify OTP Message Response.</p>
+   */
+  VerificationResponse: VerificationResponse | undefined;
+}
+
+export namespace VerifyOTPMessageResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VerifyOTPMessageResponse): any => ({
     ...obj,
   });
 }

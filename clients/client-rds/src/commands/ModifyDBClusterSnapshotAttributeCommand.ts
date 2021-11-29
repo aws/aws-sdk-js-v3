@@ -43,9 +43,6 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  *         <p>To view which Amazon Web Services accounts have access to copy or restore a manual DB cluster
  *             snapshot, or whether a manual DB cluster snapshot is public or private, use the <a>DescribeDBClusterSnapshotAttributes</a> API action. The accounts are
  *             returned as values for the <code>restore</code> attribute.</p>
- *         <note>
- *             <p>This action only applies to Aurora DB clusters.</p>
- *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

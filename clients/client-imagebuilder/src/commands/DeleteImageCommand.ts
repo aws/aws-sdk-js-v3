@@ -39,7 +39,7 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
  *                   </i>.</p>
  * 			         </li>
  *             <li>
- * 				           <p>To delete a container image from Amazon ECR, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.comAmazonECR/latest/userguide/delete_image.html">Deleting
+ * 				           <p>To delete a container image from Amazon ECR, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/delete_image.html">Deleting
  * 						an image</a> in the <i>Amazon ECR User Guide</i>.</p>
  * 			         </li>
  *          </ul>

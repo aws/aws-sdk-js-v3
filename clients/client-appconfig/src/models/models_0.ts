@@ -28,12 +28,98 @@ export namespace Application {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ * <p>Detailed information about the bad request exception error when creating a hosted configuration version.</p>
+ */
+export interface InvalidConfigurationDetail {
+  /**
+   * <p>The invalid or out-of-range validation constraint in your JSON schema that failed validation.</p>
+   */
+  Constraint?: string;
+
+  /**
+   * <p>Location of the validation constraint in the configuration JSON schema that failed validation.</p>
+   */
+  Location?: string;
+
+  /**
+   * <p>The reason for an invalid configuration error.</p>
+   */
+  Reason?: string;
+
+  /**
+   * <p>The type of error for an invalid configuration.</p>
+   */
+  Type?: string;
+}
+
+export namespace InvalidConfigurationDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidConfigurationDetail): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Detailed information about the input that failed to satisfy the constraints specified by an AWS service.</p>
+ */
+export type BadRequestDetails = BadRequestDetails.InvalidConfigurationMember | BadRequestDetails.$UnknownMember;
+
+export namespace BadRequestDetails {
+  /**
+   * <p>Detailed information about the bad request exception error when creating a hosted configuration version.</p>
+   */
+  export interface InvalidConfigurationMember {
+    InvalidConfiguration: InvalidConfigurationDetail[];
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    InvalidConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    InvalidConfiguration: (value: InvalidConfigurationDetail[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: BadRequestDetails, visitor: Visitor<T>): T => {
+    if (value.InvalidConfiguration !== undefined) return visitor.InvalidConfiguration(value.InvalidConfiguration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BadRequestDetails): any => {
+    if (obj.InvalidConfiguration !== undefined)
+      return {
+        InvalidConfiguration: obj.InvalidConfiguration.map((item) =>
+          InvalidConfigurationDetail.filterSensitiveLog(item)
+        ),
+      };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
+export enum BadRequestReason {
+  INVALID_CONFIGURATION = "InvalidConfiguration",
+}
+
+/**
+ * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  */
 export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   Message?: string;
+  Reason?: BadRequestReason | string;
+  /**
+   * <p>Detailed information about the input that failed to satisfy the constraints specified by an AWS service.</p>
+   */
+  Details?: BadRequestDetails;
 }
 
 export namespace BadRequestException {
@@ -42,6 +128,7 @@ export namespace BadRequestException {
    */
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
+    ...(obj.Details && { Details: BadRequestDetails.filterSensitiveLog(obj.Details) }),
   });
 }
 
@@ -97,8 +184,8 @@ export enum ValidatorType {
 }
 
 /**
- * <p>A validator provides a syntactic or semantic check to ensure the configuration you want
- *          to deploy functions as intended. To validate your application configuration data, you
+ * <p>A validator provides a syntactic or semantic check to ensure the configuration that you
+ *          want to deploy functions as intended. To validate your application configuration data, you
  *          provide a schema or a Lambda function that runs against the configuration. The
  *          configuration deployment or update can only proceed when the configuration data is
  *          valid.</p>
@@ -112,7 +199,7 @@ export interface Validator {
   Type: ValidatorType | string | undefined;
 
   /**
-   * <p>Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda
+   * <p>Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda
    *          function.</p>
    */
   Content: string | undefined;
@@ -156,7 +243,7 @@ export interface ConfigurationProfile {
 
   /**
    * <p>The ARN of an IAM role with permission to access the configuration at the specified
-   *          LocationUri.</p>
+   *             <code>LocationUri</code>.</p>
    */
   RetrievalRoleArn?: string;
 
@@ -164,6 +251,13 @@ export interface ConfigurationProfile {
    * <p>A list of methods for validating the configuration.</p>
    */
   Validators?: Validator[];
+
+  /**
+   * <p>The type of configurations that the configuration profile contains. A configuration can
+   *          be a feature flag used for enabling or disabling new features or a free-form configuration
+   *          used for distributing configurations to your application. </p>
+   */
+  Type?: string;
 }
 
 export namespace ConfigurationProfile {
@@ -193,19 +287,28 @@ export interface CreateConfigurationProfileRequest {
   Description?: string;
 
   /**
-   * <p>A URI to locate the configuration. You can specify a Systems Manager (SSM) document, an SSM
-   *          Parameter Store parameter, or an Amazon S3 object. For an SSM document, specify either the
-   *          document name in the format <code>ssm-document://<Document_name></code> or the Amazon
-   *          Resource Name (ARN). For a parameter, specify either the parameter name in the format
+   * <p>A URI to locate the configuration. You can specify the AppConfig hosted configuration
+   *          store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the
+   *          hosted configuration store and for feature flags, specify <code>hosted</code>. For an SSM
+   *          document, specify either the document name in the format
+   *             <code>ssm-document://<Document_name></code> or the Amazon Resource Name (ARN). For
+   *          a parameter, specify either the parameter name in the format
    *             <code>ssm-parameter://<Parameter_name></code> or the ARN. For an Amazon S3 object,
    *          specify the URI in the following format: <code>s3://<bucket>/<objectKey>
-   *          </code>. Here is an example: s3://my-bucket/my-app/us-east-1/my-config.json</p>
+   *          </code>. Here is an example:
+   *          <code>s3://my-bucket/my-app/us-east-1/my-config.json</code>
+   *          </p>
    */
   LocationUri: string | undefined;
 
   /**
    * <p>The ARN of an IAM role with permission to access the configuration at the specified
-   *          LocationUri.</p>
+   *             <code>LocationUri</code>.</p>
+   *          <important>
+   *             <p>A retrieval role ARN is not required for configurations stored in the AppConfig
+   *             hosted configuration store. It is required for all other sources that store your
+   *             configuration. </p>
+   *          </important>
    */
   RetrievalRoleArn?: string;
 
@@ -220,6 +323,13 @@ export interface CreateConfigurationProfileRequest {
    *          define.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The type of configurations that the configuration profile contains. A configuration can
+   *          be a feature flag used for enabling or disabling new features or a free-form configuration
+   *          used for distributing configurations to your application.</p>
+   */
+  Type?: string;
 }
 
 export namespace CreateConfigurationProfileRequest {
@@ -290,7 +400,7 @@ export interface CreateDeploymentStrategyRequest {
   GrowthFactor: number | undefined;
 
   /**
-   * <p>The algorithm used to define how percentage grows over time. AWS AppConfig supports the
+   * <p>The algorithm used to define how percentage grows over time. AppConfig supports the
    *          following growth types:</p>
    *          <p>
    *             <b>Linear</b>: For this type, AppConfig processes the
@@ -378,8 +488,8 @@ export interface DeploymentStrategy {
   GrowthFactor?: number;
 
   /**
-   * <p>The amount of time AppConfig monitored for alarms before considering the deployment to be
-   *          complete and no longer eligible for automatic roll back.</p>
+   * <p>The amount of time that AppConfig monitored for alarms before considering the deployment
+   *          to be complete and no longer eligible for automatic rollback.</p>
    */
   FinalBakeTimeInMinutes?: number;
 
@@ -403,12 +513,12 @@ export namespace DeploymentStrategy {
  */
 export interface Monitor {
   /**
-   * <p>ARN of the Amazon CloudWatch alarm.</p>
+   * <p>Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.</p>
    */
-  AlarmArn?: string;
+  AlarmArn: string | undefined;
 
   /**
-   * <p>ARN of an IAM role for AppConfig to monitor <code>AlarmArn</code>.</p>
+   * <p>ARN of an Identity and Access Management (IAM) role for AppConfig to monitor <code>AlarmArn</code>.</p>
    */
   AlarmRoleArn?: string;
 }
@@ -553,15 +663,15 @@ export interface CreateHostedConfigurationVersionRequest {
 
   /**
    * <p>A standard MIME type describing the format of the configuration content. For more
-   *          information, see <a href="https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
+   *          information, see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
    */
   ContentType: string | undefined;
 
   /**
    * <p>An optional locking token used to prevent race conditions from overwriting configuration
    *          updates when creating a new version. To ensure your data is not overwritten when creating
-   *          multiple hosted configuration versions in rapid succession, specify the version of the
-   *          latest hosted configuration version.</p>
+   *          multiple hosted configuration versions in rapid succession, specify the version number of
+   *          the latest hosted configuration version.</p>
    */
   LatestVersionNumber?: number;
 }
@@ -604,7 +714,7 @@ export interface HostedConfigurationVersion {
 
   /**
    * <p>A standard MIME type describing the format of the configuration content. For more
-   *          information, see <a href="https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
+   *          information, see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
    */
   ContentType?: string;
 }
@@ -645,7 +755,7 @@ export namespace PayloadTooLargeException {
 }
 
 /**
- * <p>The number of hosted configuration versions exceeds the limit for the AppConfig
+ * <p>The number of hosted configuration versions exceeds the limit for the AppConfig hosted
  *          configuration store. Delete one or more versions and try again.</p>
  */
 export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
@@ -718,12 +828,12 @@ export namespace DeleteDeploymentStrategyRequest {
 
 export interface DeleteEnvironmentRequest {
   /**
-   * <p>The application ID that includes the environment you want to delete.</p>
+   * <p>The application ID that includes the environment that you want to delete.</p>
    */
   ApplicationId: string | undefined;
 
   /**
-   * <p>The ID of the environment you want to delete.</p>
+   * <p>The ID of the environment that you want to delete.</p>
    */
   EnvironmentId: string | undefined;
 }
@@ -782,6 +892,14 @@ export namespace GetApplicationRequest {
 export interface Configuration {
   /**
    * <p>The content of the configuration or the configuration data.</p>
+   *          <important>
+   *             <p>Compare the configuration version numbers of the configuration cached locally on your
+   *             machine and the configuration number in the the header. If the configuration numbers are
+   *             the same, the content can be ignored. The <code>Content</code> section only appears if
+   *             the system finds new or updated configuration data. If the system doesn't find new or
+   *             updated configuration data, then the <code>Content</code> section is not
+   *             returned.</p>
+   *          </important>
    */
   Content?: Uint8Array;
 
@@ -827,8 +945,9 @@ export interface GetConfigurationRequest {
   Configuration: string | undefined;
 
   /**
-   * <p>A unique ID to identify the client for the configuration. This ID enables AppConfig to
-   *          deploy the configuration in intervals, as defined in the deployment strategy.</p>
+   * <p>The clientId parameter in the following command is a unique, user-specified ID to
+   *          identify the client for the configuration. This ID enables AppConfig to deploy the
+   *          configuration in intervals, as defined in the deployment strategy. </p>
    */
   ClientId: string | undefined;
 
@@ -836,8 +955,8 @@ export interface GetConfigurationRequest {
    * <p>The configuration version returned in the most recent <code>GetConfiguration</code>
    *          response.</p>
    *          <important>
-   *             <p>AWS AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter
-   *             to identify the configuration version on your clients. If you don’t send
+   *             <p>AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter to
+   *             identify the configuration version on your clients. If you don’t send
    *                <code>ClientConfigurationVersion</code> with each call to
    *                <code>GetConfiguration</code>, your clients receive the current configuration. You
    *             are charged each time your clients receive a configuration.</p>
@@ -847,8 +966,8 @@ export interface GetConfigurationRequest {
    *             calls to <code>GetConfiguration</code> must pass this value by using the
    *                <code>ClientConfigurationVersion</code> parameter. </p>
    *          </important>
-   *          <p>For more information about working with configurations, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig-retrieving-the-configuration.html">Retrieving the Configuration</a> in the
-   *          <i>AWS AppConfig User Guide</i>.</p>
+   *          <p>For more information about working with configurations, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration.html">Retrieving the
+   *             Configuration</a> in the <i>AppConfig User Guide</i>.</p>
    */
   ClientConfigurationVersion?: string;
 }
@@ -870,7 +989,7 @@ export interface GetConfigurationProfileRequest {
   ApplicationId: string | undefined;
 
   /**
-   * <p>The ID of the configuration profile you want to get.</p>
+   * <p>The ID of the configuration profile that you want to get.</p>
    */
   ConfigurationProfileId: string | undefined;
 }
@@ -906,20 +1025,20 @@ export enum TriggeredBy {
 export interface DeploymentEvent {
   /**
    * <p>The type of deployment event. Deployment event types include the start, stop, or
-   *          completion of a deployment; a percentage update; the start or stop of a bake period; the
-   *          start or completion of a rollback.</p>
+   *          completion of a deployment; a percentage update; the start or stop of a bake period; and
+   *          the start or completion of a rollback.</p>
    */
   EventType?: DeploymentEventType | string;
 
   /**
-   * <p>The entity that triggered the deployment event. Events can be triggered by a user, AWS
+   * <p>The entity that triggered the deployment event. Events can be triggered by a user,
    *          AppConfig, an Amazon CloudWatch alarm, or an internal error.</p>
    */
   TriggeredBy?: TriggeredBy | string;
 
   /**
    * <p>A description of the deployment event. Descriptions include, but are not limited to, the
-   *          user account or the CloudWatch alarm ARN that initiated a rollback, the percentage of hosts
+   *          user account or the Amazon CloudWatch alarm ARN that initiated a rollback, the percentage of hosts
    *          that received the deployment, or in the case of an internal error, a recommendation to
    *          attempt a new deployment.</p>
    */
@@ -1012,8 +1131,8 @@ export interface Deployment {
   GrowthFactor?: number;
 
   /**
-   * <p>The amount of time AppConfig monitored for alarms before considering the deployment to be
-   *          complete and no longer eligible for automatic roll back.</p>
+   * <p>The amount of time that AppConfig monitored for alarms before considering the deployment
+   *          to be complete and no longer eligible for automatic rollback.</p>
    */
   FinalBakeTimeInMinutes?: number;
 
@@ -1102,7 +1221,7 @@ export interface GetEnvironmentRequest {
   ApplicationId: string | undefined;
 
   /**
-   * <p>The ID of the environment you wnat to get.</p>
+   * <p>The ID of the environment that you want to get.</p>
    */
   EnvironmentId: string | undefined;
 }
@@ -1172,7 +1291,11 @@ export interface ListApplicationsRequest {
   MaxResults?: number;
 
   /**
-   * <p>A token to start the list. Use this token to get the next set of results.</p>
+   * <p>A token to start the list. Next token is a pagination token generated by AppConfig to
+   *          describe what page the previous List call ended on. For the first List request, the
+   *          nextToken should not be set. On subsequent calls, the nextToken parameter should be set to
+   *          the previous responses nextToken value. Use this token to get the next set of results.
+   *       </p>
    */
   NextToken?: string;
 }
@@ -1214,6 +1337,13 @@ export interface ConfigurationProfileSummary {
    * <p>The types of validators in the configuration profile.</p>
    */
   ValidatorTypes?: (ValidatorType | string)[];
+
+  /**
+   * <p>The type of configurations that the configuration profile contains. A configuration can
+   *          be a feature flag used for enabling or disabling new features or a free-form configuration
+   *          used to introduce changes to your application.</p>
+   */
+  Type?: string;
 }
 
 export namespace ConfigurationProfileSummary {
@@ -1263,6 +1393,12 @@ export interface ListConfigurationProfilesRequest {
    * <p>A token to start the list. Use this token to get the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A filter based on the type of configurations that the configuration profile contains. A
+   *          configuration can be a feature flag or a free-form configuration.</p>
+   */
+  Type?: string;
 }
 
 export namespace ListConfigurationProfilesRequest {
@@ -1310,8 +1446,8 @@ export interface DeploymentSummary {
   GrowthFactor?: number;
 
   /**
-   * <p>The amount of time AppConfig monitors for alarms before considering the deployment to be
-   *          complete and no longer eligible for automatic roll back.</p>
+   * <p>The amount of time that AppConfig monitors for alarms before considering the deployment
+   *          to be complete and no longer eligible for automatic rollback.</p>
    */
   FinalBakeTimeInMinutes?: number;
 
@@ -1518,7 +1654,7 @@ export interface HostedConfigurationVersionSummary {
 
   /**
    * <p>A standard MIME type describing the format of the configuration content. For more
-   *          information, see <a href="https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
+   *          information, see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
    */
   ContentType?: string;
 }
@@ -1787,7 +1923,7 @@ export interface UpdateConfigurationProfileRequest {
 
   /**
    * <p>The ARN of an IAM role with permission to access the configuration at the specified
-   *          LocationUri.</p>
+   *             <code>LocationUri</code>.</p>
    */
   RetrievalRoleArn?: string;
 
@@ -1824,8 +1960,8 @@ export interface UpdateDeploymentStrategyRequest {
   DeploymentDurationInMinutes?: number;
 
   /**
-   * <p>The amount of time AppConfig monitors for alarms before considering the deployment to be
-   *          complete and no longer eligible for automatic roll back.</p>
+   * <p>The amount of time that AppConfig monitors for alarms before considering the deployment
+   *          to be complete and no longer eligible for automatic rollback.</p>
    */
   FinalBakeTimeInMinutes?: number;
 
@@ -1836,7 +1972,7 @@ export interface UpdateDeploymentStrategyRequest {
   GrowthFactor?: number;
 
   /**
-   * <p>The algorithm used to define how percentage grows over time. AWS AppConfig supports the
+   * <p>The algorithm used to define how percentage grows over time. AppConfig supports the
    *          following growth types:</p>
    *          <p>
    *             <b>Linear</b>: For this type, AppConfig processes the

@@ -249,9 +249,68 @@ import { LambdaClient } from "./LambdaClient";
  *          <p>
  *             <b>Overview</b>
  *          </p>
- *          <p>This is the <i>Lambda API Reference</i>. The Lambda Developer Guide provides additional
- *       information. For the service overview, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">What is
- *         Lambda</a>, and for information about how the service works, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">Lambda: How it Works</a> in the <b>Lambda Developer Guide</b>.</p>
+ *          <p>Lambda is a compute service that lets you run code without provisioning or managing servers.
+ *         Lambda runs your code on a high-availability compute infrastructure and performs all of the
+ *       administration of the compute resources, including server and operating system maintenance, capacity provisioning
+ *       and automatic scaling, code monitoring and logging. With Lambda, you can run code for virtually any
+ *       type of application or backend service. For more information about the Lambda service, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">What is Lambda</a> in the <b>Lambda Developer Guide</b>.</p>
+ *          <p>The <i>Lambda API Reference</i> provides information about
+ *       each of the API methods, including details about the parameters in each API request and
+ *       response. </p>
+ *          <p></p>
+ *          <p>You can use Software Development Kits (SDKs), Integrated Development Environment (IDE) Toolkits, and command
+ *       line tools to access the API. For installation instructions, see <a href="http://aws.amazon.com/tools/">Tools for
+ *         Amazon Web Services</a>. </p>
+ *          <p>For a list of Region-specific endpoints that Lambda supports,
+ *       see <a href="https://docs.aws.amazon.com/general/latest/gr/lambda-service.html/">Lambda
+ *         endpoints and quotas </a> in the <i>Amazon Web Services General Reference.</i>. </p>
+ *          <p>When making the API calls, you will need to
+ *       authenticate your request by providing a signature. Lambda supports signature version 4. For more information,
+ *       see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 signing process</a> in the
+ *       <i>Amazon Web Services General Reference.</i>. </p>
+ *          <p>
+ *             <b>CA certificates</b>
+ *          </p>
+ *
+ *          <p>Because Amazon Web Services SDKs use the CA certificates from your computer, changes to the certificates on the Amazon Web Services servers
+ *         can cause connection failures when you attempt to use an SDK. You can prevent these failures by keeping your
+ *         computer's CA certificates and operating system up-to-date. If you encounter this issue in a corporate
+ *         environment and do not manage your own computer, you might need to ask an administrator to assist with the
+ *         update process. The following list shows minimum operating system and Java versions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Microsoft Windows versions that have updates from January 2005 or later installed contain at least one
+ *             of the required CAs in their trust list. </p>
+ *             </li>
+ *             <li>
+ *                <p>Mac OS X 10.4 with Java for Mac OS X 10.4 Release 5 (February 2007), Mac OS X 10.5 (October 2007), and
+ *             later versions contain at least one of the required CAs in their trust list. </p>
+ *             </li>
+ *             <li>
+ *                <p>Red Hat Enterprise Linux 5 (March 2007), 6, and 7 and CentOS 5, 6, and 7 all contain at least one of the
+ *             required CAs in their default trusted CA list. </p>
+ *             </li>
+ *             <li>
+ *                <p>Java 1.4.2_12 (May 2006), 5 Update 2 (March 2005), and all later versions, including Java 6 (December
+ *             2006), 7, and 8, contain at least one of the required CAs in their default trusted CA list. </p>
+ *             </li>
+ *          </ul>
+ *          <p>When accessing the Lambda management console or Lambda API endpoints, whether through browsers or
+ *         programmatically, you will need to ensure your client machines support any of the following CAs: </p>
+ *          <ul>
+ *             <li>
+ *                <p>Amazon Root CA 1</p>
+ *             </li>
+ *             <li>
+ *                <p>Starfield Services Root Certificate Authority - G2</p>
+ *             </li>
+ *             <li>
+ *                <p>Starfield Class 2 Certification Authority</p>
+ *             </li>
+ *          </ul>
+ *          <p>Root certificates from the first two authorities are available from <a href="https://www.amazontrust.com/repository/">Amazon trust services</a>, but keeping your computer
+ *         up-to-date is the more straightforward solution. To learn more about ACM-provided certificates, see <a href="http://aws.amazon.com/certificate-manager/faqs/#certificates">Amazon Web Services Certificate Manager FAQs.</a>
+ *          </p>
  */
 export class Lambda extends LambdaClient {
   /**
@@ -403,42 +462,42 @@ export class Lambda extends LambdaClient {
   /**
    * <p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the
    *       event source and triggers the function.</p>
-   *          <p>For details about each event source type, see the following topics. </p>
+   *          <p>For details about how to configure different event sources, see the following topics. </p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping">
-   *             Configuring a Dynamo DB stream as an event source</a>
+   *             Amazon DynamoDB Streams</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping">
-   *             Configuring a Kinesis stream as an event source</a>
+   *             Amazon Kinesis</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource"> Configuring an
-   *               Amazon SQS queue as an event source</a>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource">
+   *             Amazon SQS</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping">
-   *             Configuring an MQ broker as an event source</a>
+   *             Amazon MQ and RabbitMQ</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html"> Configuring MSK as an event
-   *             source</a>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">
+   *             Amazon MSK</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html"> Configuring Self-Managed Apache Kafka
-   *             as an event source</a>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html">
+   *             Apache Kafka</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -464,6 +523,45 @@ export class Lambda extends LambdaClient {
    *             <li>
    *                <p>
    *                   <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For information about which configuration parameters apply to each event source, see the following topics.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params">
+   *           Amazon DynamoDB Streams</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params">
+   *           Amazon Kinesis</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params">
+   *           Amazon SQS</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params">
+   *           Amazon MQ and RabbitMQ</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms">
+   *           Amazon MSK</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms">
+   *           Apache Kafka</a>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -2160,6 +2258,45 @@ export class Lambda extends LambdaClient {
   /**
    * <p>Updates an event source mapping. You can change the function that Lambda invokes, or pause
    *       invocation and resume later from the same location.</p>
+   *          <p>For details about how to configure different event sources, see the following topics. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping">
+   *             Amazon DynamoDB Streams</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping">
+   *             Amazon Kinesis</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource">
+   *             Amazon SQS</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping">
+   *             Amazon MQ and RabbitMQ</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">
+   *             Amazon MSK</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html">
+   *             Apache Kafka</a>
+   *                </p>
+   *             </li>
+   *          </ul>
    *
    *          <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p>
    *          <ul>
@@ -2182,6 +2319,45 @@ export class Lambda extends LambdaClient {
    *             <li>
    *                <p>
    *                   <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For information about which configuration parameters apply to each event source, see the following topics.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params">
+   *           Amazon DynamoDB Streams</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params">
+   *           Amazon Kinesis</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params">
+   *           Amazon SQS</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params">
+   *           Amazon MQ and RabbitMQ</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms">
+   *           Amazon MSK</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms">
+   *           Apache Kafka</a>
+   *                </p>
    *             </li>
    *          </ul>
    */

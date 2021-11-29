@@ -49,15 +49,23 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import { CancelOrderCommandInput, CancelOrderCommandOutput } from "./commands/CancelOrderCommand";
 import { CreateOrderCommandInput, CreateOrderCommandOutput } from "./commands/CreateOrderCommand";
 import { CreateOutpostCommandInput, CreateOutpostCommandOutput } from "./commands/CreateOutpostCommand";
+import { CreateSiteCommandInput, CreateSiteCommandOutput } from "./commands/CreateSiteCommand";
 import { DeleteOutpostCommandInput, DeleteOutpostCommandOutput } from "./commands/DeleteOutpostCommand";
 import { DeleteSiteCommandInput, DeleteSiteCommandOutput } from "./commands/DeleteSiteCommand";
+import { GetCatalogItemCommandInput, GetCatalogItemCommandOutput } from "./commands/GetCatalogItemCommand";
+import { GetOrderCommandInput, GetOrderCommandOutput } from "./commands/GetOrderCommand";
 import { GetOutpostCommandInput, GetOutpostCommandOutput } from "./commands/GetOutpostCommand";
 import {
   GetOutpostInstanceTypesCommandInput,
   GetOutpostInstanceTypesCommandOutput,
 } from "./commands/GetOutpostInstanceTypesCommand";
+import { GetSiteAddressCommandInput, GetSiteAddressCommandOutput } from "./commands/GetSiteAddressCommand";
+import { GetSiteCommandInput, GetSiteCommandOutput } from "./commands/GetSiteCommand";
+import { ListCatalogItemsCommandInput, ListCatalogItemsCommandOutput } from "./commands/ListCatalogItemsCommand";
+import { ListOrdersCommandInput, ListOrdersCommandOutput } from "./commands/ListOrdersCommand";
 import { ListOutpostsCommandInput, ListOutpostsCommandOutput } from "./commands/ListOutpostsCommand";
 import { ListSitesCommandInput, ListSitesCommandOutput } from "./commands/ListSitesCommand";
 import {
@@ -66,33 +74,61 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateSiteAddressCommandInput, UpdateSiteAddressCommandOutput } from "./commands/UpdateSiteAddressCommand";
+import { UpdateSiteCommandInput, UpdateSiteCommandOutput } from "./commands/UpdateSiteCommand";
+import {
+  UpdateSiteRackPhysicalPropertiesCommandInput,
+  UpdateSiteRackPhysicalPropertiesCommandOutput,
+} from "./commands/UpdateSiteRackPhysicalPropertiesCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | CancelOrderCommandInput
   | CreateOrderCommandInput
   | CreateOutpostCommandInput
+  | CreateSiteCommandInput
   | DeleteOutpostCommandInput
   | DeleteSiteCommandInput
+  | GetCatalogItemCommandInput
+  | GetOrderCommandInput
   | GetOutpostCommandInput
   | GetOutpostInstanceTypesCommandInput
+  | GetSiteAddressCommandInput
+  | GetSiteCommandInput
+  | ListCatalogItemsCommandInput
+  | ListOrdersCommandInput
   | ListOutpostsCommandInput
   | ListSitesCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | UpdateSiteAddressCommandInput
+  | UpdateSiteCommandInput
+  | UpdateSiteRackPhysicalPropertiesCommandInput;
 
 export type ServiceOutputTypes =
+  | CancelOrderCommandOutput
   | CreateOrderCommandOutput
   | CreateOutpostCommandOutput
+  | CreateSiteCommandOutput
   | DeleteOutpostCommandOutput
   | DeleteSiteCommandOutput
+  | GetCatalogItemCommandOutput
+  | GetOrderCommandOutput
   | GetOutpostCommandOutput
   | GetOutpostInstanceTypesCommandOutput
+  | GetSiteAddressCommandOutput
+  | GetSiteCommandOutput
+  | ListCatalogItemsCommandOutput
+  | ListOrdersCommandOutput
   | ListOutpostsCommandOutput
   | ListSitesCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | UpdateSiteAddressCommandOutput
+  | UpdateSiteCommandOutput
+  | UpdateSiteRackPhysicalPropertiesCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -243,10 +279,10 @@ type OutpostsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
 export interface OutpostsClientResolvedConfig extends OutpostsClientResolvedConfigType {}
 
 /**
- * <p>AWS Outposts is a fully managed service that extends AWS infrastructure, APIs, and tools
- *       to customer premises. By providing local access to AWS managed infrastructure, AWS Outposts
+ * <p>Amazon Web Services Outposts is a fully managed service that extends Amazon Web Services infrastructure, APIs, and tools
+ *       to customer premises. By providing local access to Amazon Web Services managed infrastructure, Amazon Web Services Outposts
  *       enables customers to build and run applications on premises using the same programming
- *       interfaces as in AWS Regions, while using local compute and storage resources for lower
+ *       interfaces as in Amazon Web Services Regions, while using local compute and storage resources for lower
  *       latency and local data processing needs.</p>
  */
 export class OutpostsClient extends __Client<

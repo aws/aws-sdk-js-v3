@@ -40,6 +40,121 @@ export enum Action {
 }
 
 /**
+ * <p>Describes the S3 location.</p>
+ */
+export interface S3Location {
+  /**
+   * <p>The S3 bucket of the S3 object.</p>
+   */
+  S3Bucket: string | undefined;
+
+  /**
+   * <p>The S3 key of the S3 object.</p>
+   */
+  S3Key: string | undefined;
+}
+
+export namespace S3Location {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3Location): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the details of the script.</p>
+ */
+export interface ScriptDetails {
+  /**
+   * <p>The S3 object location for the script.</p>
+   */
+  ScriptS3Location: S3Location | undefined;
+
+  /**
+   * <p>The run path for the script.</p>
+   */
+  ExecutablePath: string | undefined;
+
+  /**
+   * <p>The runtime parameters passed to the run path for the script.</p>
+   */
+  ExecutableParameters?: string;
+
+  /**
+   * <p>The run timeout, in seconds, for the script.</p>
+   */
+  TimeoutInSeconds: number | undefined;
+}
+
+export namespace ScriptDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ScriptDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an app block.</p>
+ *          <p>App blocks are an Amazon AppStream 2.0 resource that stores the details about the
+ *            virtual hard disk in an S3 bucket. It also stores the setup script with details about
+ *            how to mount the virtual hard disk. The virtual hard disk includes the application
+ *            binaries and other files necessary to launch your applications. Multiple applications
+ *            can be assigned to a single app block.</p>
+ *          <p>This is only supported for Elastic fleets.</p>
+ */
+export interface AppBlock {
+  /**
+   * <p>The name of the app block.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The ARN of the app block.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The description of the app block.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The display name of the app block.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The source S3 location of the app block.</p>
+   */
+  SourceS3Location?: S3Location;
+
+  /**
+   * <p>The setup script details of the app block.</p>
+   */
+  SetupScriptDetails: ScriptDetails | undefined;
+
+  /**
+   * <p>The created time of the app block.</p>
+   */
+  CreatedTime?: Date;
+}
+
+export namespace AppBlock {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AppBlock): any => ({
+    ...obj,
+  });
+}
+
+export type PlatformType = "AMAZON_LINUX2" | "WINDOWS" | "WINDOWS_SERVER_2016" | "WINDOWS_SERVER_2019";
+
+/**
  * <p>Describes an application in the application catalog.</p>
  */
 export interface Application {
@@ -77,6 +192,46 @@ export interface Application {
    * <p>Additional attributes that describe the application.</p>
    */
   Metadata?: { [key: string]: string };
+
+  /**
+   * <p>The working directory for the application.</p>
+   */
+  WorkingDirectory?: string;
+
+  /**
+   * <p>The description of the application.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ARN of the application.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The app block ARN of the application.</p>
+   */
+  AppBlockArn?: string;
+
+  /**
+   * <p>The S3 location of the application icon.</p>
+   */
+  IconS3Location?: S3Location;
+
+  /**
+   * <p>The platforms on which the application can run.</p>
+   */
+  Platforms?: (PlatformType | string)[];
+
+  /**
+   * <p>The instance families for the application.</p>
+   */
+  InstanceFamilies?: string[];
+
+  /**
+   * <p>The time at which the application was created within the app block.</p>
+   */
+  CreatedTime?: Date;
 }
 
 export namespace Application {
@@ -84,6 +239,35 @@ export namespace Application {
    * @internal
    */
   export const filterSensitiveLog = (obj: Application): any => ({
+    ...obj,
+  });
+}
+
+export enum ApplicationAttribute {
+  LAUNCH_PARAMETERS = "LAUNCH_PARAMETERS",
+  WORKING_DIRECTORY = "WORKING_DIRECTORY",
+}
+
+/**
+ * <p>Describes the application fleet association.</p>
+ */
+export interface ApplicationFleetAssociation {
+  /**
+   * <p>The name of the fleet associated with the application.</p>
+   */
+  FleetName: string | undefined;
+
+  /**
+   * <p>The ARN of the application associated with the fleet.</p>
+   */
+  ApplicationArn: string | undefined;
+}
+
+export namespace ApplicationFleetAssociation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ApplicationFleetAssociation): any => ({
     ...obj,
   });
 }
@@ -142,34 +326,41 @@ export namespace ApplicationSettingsResponse {
   });
 }
 
-export interface AssociateFleetRequest {
+export interface AssociateApplicationFleetRequest {
   /**
-   * <p>The name of the fleet. </p>
+   * <p>The name of the fleet.</p>
    */
   FleetName: string | undefined;
 
   /**
-   * <p>The name of the stack.</p>
+   * <p>The ARN of the application.</p>
    */
-  StackName: string | undefined;
+  ApplicationArn: string | undefined;
 }
 
-export namespace AssociateFleetRequest {
+export namespace AssociateApplicationFleetRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AssociateFleetRequest): any => ({
+  export const filterSensitiveLog = (obj: AssociateApplicationFleetRequest): any => ({
     ...obj,
   });
 }
 
-export interface AssociateFleetResult {}
+export interface AssociateApplicationFleetResult {
+  /**
+   * <p>If fleet name is specified, this returns the list of applications that are associated
+   *             to it. If application ARN is specified, this returns the list of fleets to which it is
+   *             associated.</p>
+   */
+  ApplicationFleetAssociation?: ApplicationFleetAssociation;
+}
 
-export namespace AssociateFleetResult {
+export namespace AssociateApplicationFleetResult {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AssociateFleetResult): any => ({
+  export const filterSensitiveLog = (obj: AssociateApplicationFleetResult): any => ({
     ...obj,
   });
 }
@@ -196,10 +387,10 @@ export namespace ConcurrentModificationException {
 }
 
 /**
- * <p>The image can't be updated because it's not compatible for updates.</p>
+ * <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
  */
-export interface IncompatibleImageException extends __SmithyException, $MetadataBearer {
-  name: "IncompatibleImageException";
+export interface InvalidParameterCombinationException extends __SmithyException, $MetadataBearer {
+  name: "InvalidParameterCombinationException";
   $fault: "client";
   /**
    * <p>The error message in the exception.</p>
@@ -207,32 +398,11 @@ export interface IncompatibleImageException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace IncompatibleImageException {
+export namespace InvalidParameterCombinationException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: IncompatibleImageException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
- */
-export interface InvalidAccountStatusException extends __SmithyException, $MetadataBearer {
-  name: "InvalidAccountStatusException";
-  $fault: "client";
-  /**
-   * <p>The error message in the exception.</p>
-   */
-  Message?: string;
-}
-
-export namespace InvalidAccountStatusException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidAccountStatusException): any => ({
+  export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
     ...obj,
   });
 }
@@ -296,6 +466,80 @@ export namespace ResourceNotFoundException {
    * @internal
    */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateFleetRequest {
+  /**
+   * <p>The name of the fleet. </p>
+   */
+  FleetName: string | undefined;
+
+  /**
+   * <p>The name of the stack.</p>
+   */
+  StackName: string | undefined;
+}
+
+export namespace AssociateFleetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateFleetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateFleetResult {}
+
+export namespace AssociateFleetResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateFleetResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The image can't be updated because it's not compatible for updates.</p>
+ */
+export interface IncompatibleImageException extends __SmithyException, $MetadataBearer {
+  name: "IncompatibleImageException";
+  $fault: "client";
+  /**
+   * <p>The error message in the exception.</p>
+   */
+  Message?: string;
+}
+
+export namespace IncompatibleImageException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IncompatibleImageException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+ */
+export interface InvalidAccountStatusException extends __SmithyException, $MetadataBearer {
+  name: "InvalidAccountStatusException";
+  $fault: "client";
+  /**
+   * <p>The error message in the exception.</p>
+   */
+  Message?: string;
+}
+
+export namespace InvalidAccountStatusException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidAccountStatusException): any => ({
     ...obj,
   });
 }
@@ -417,27 +661,6 @@ export namespace BatchAssociateUserStackResult {
   export const filterSensitiveLog = (obj: BatchAssociateUserStackResult): any => ({
     ...obj,
     ...(obj.errors && { errors: obj.errors.map((item) => UserStackAssociationError.filterSensitiveLog(item)) }),
-  });
-}
-
-/**
- * <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
- */
-export interface InvalidParameterCombinationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterCombinationException";
-  $fault: "client";
-  /**
-   * <p>The error message in the exception.</p>
-   */
-  Message?: string;
-}
-
-export namespace InvalidParameterCombinationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
-    ...obj,
   });
 }
 
@@ -620,6 +843,145 @@ export namespace ResourceNotAvailableException {
   });
 }
 
+export interface CreateAppBlockRequest {
+  /**
+   * <p>The name of the app block.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the app block.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The display name of the app block. This is not displayed to the user.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The source S3 location of the app block.</p>
+   */
+  SourceS3Location: S3Location | undefined;
+
+  /**
+   * <p>The setup script details of the app block.</p>
+   */
+  SetupScriptDetails: ScriptDetails | undefined;
+
+  /**
+   * <p>The tags assigned to the app block.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace CreateAppBlockRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateAppBlockRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateAppBlockResult {
+  /**
+   * <p>The app block.</p>
+   */
+  AppBlock?: AppBlock;
+}
+
+export namespace CreateAppBlockResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateAppBlockResult): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateApplicationRequest {
+  /**
+   * <p>The name of the application. This name is visible to users when display name is not specified.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The display name of the application. This name is visible to users in the application catalog.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The description of the application.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The location in S3 of the application icon.</p>
+   */
+  IconS3Location: S3Location | undefined;
+
+  /**
+   * <p>The launch path of the application.</p>
+   */
+  LaunchPath: string | undefined;
+
+  /**
+   * <p>The working directory of the application.</p>
+   */
+  WorkingDirectory?: string;
+
+  /**
+   * <p>The launch parameters of the application.</p>
+   */
+  LaunchParameters?: string;
+
+  /**
+   * <p>The platforms the application supports. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for Elastic fleets.</p>
+   */
+  Platforms: (PlatformType | string)[] | undefined;
+
+  /**
+   * <p>The instance families the application supports. Valid values are GENERAL_PURPOSE and GRAPHICS_G4.</p>
+   */
+  InstanceFamilies: string[] | undefined;
+
+  /**
+   * <p>The app block ARN to which the application should be associated</p>
+   */
+  AppBlockArn: string | undefined;
+
+  /**
+   * <p>The tags assigned to the application.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace CreateApplicationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateApplicationResult {
+  /**
+   * <p>Describes an application in the application catalog.</p>
+   */
+  Application?: Application;
+}
+
+export namespace CreateApplicationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateApplicationResult): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Describes the credentials for the service account used by the fleet or image builder to connect to the directory.</p>
  */
@@ -778,6 +1140,7 @@ export namespace DomainJoinInfo {
 
 export enum FleetType {
   ALWAYS_ON = "ALWAYS_ON",
+  ELASTIC = "ELASTIC",
   ON_DEMAND = "ON_DEMAND",
 }
 
@@ -929,6 +1292,15 @@ export interface CreateFleetRequest {
    *                <p>stream.graphics-pro.16xlarge</p>
    *             </li>
    *          </ul>
+   *         <p>The following instance types are available for Elastic fleets:</p>
+   *         <ul>
+   *             <li>
+   *                <p>stream.standard.small</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.standard.medium</p>
+   *             </li>
+   *          </ul>
    */
   InstanceType: string | undefined;
 
@@ -951,12 +1323,12 @@ export interface CreateFleetRequest {
   FleetType?: FleetType | string;
 
   /**
-   * <p>The desired capacity for the fleet.</p>
+   * <p>The desired capacity for the fleet. This is not allowed for Elastic fleets. For Elastic fleets, specify MaxConcurrentSessions instead.</p>
    */
-  ComputeCapacity: ComputeCapacity | undefined;
+  ComputeCapacity?: ComputeCapacity;
 
   /**
-   * <p>The VPC configuration for the fleet.</p>
+   * <p>The VPC configuration for the fleet. This is required for Elastic fleets, but not required for other fleet types. Elastic fleets require that you specify at least two subnets in different availability zones.</p>
    */
   VpcConfig?: VpcConfig;
 
@@ -988,7 +1360,7 @@ export interface CreateFleetRequest {
   EnableDefaultInternetAccess?: boolean;
 
   /**
-   * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
+   * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. This is not allowed for Elastic fleets. </p>
    */
   DomainJoinInfo?: DomainJoinInfo;
 
@@ -1035,6 +1407,23 @@ export interface CreateFleetRequest {
    *         <p>The default value is <code>APP</code>.</p>
    */
   StreamView?: StreamView | string;
+
+  /**
+   * <p>The fleet platform. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for Elastic
+   *             fleets. </p>
+   */
+  Platform?: PlatformType | string;
+
+  /**
+   * <p>The maximum concurrent sessions of the Elastic fleet. This is required for Elastic
+   *             fleets, and not allowed for other fleet types.</p>
+   */
+  MaxConcurrentSessions?: number;
+
+  /**
+   * <p>The USB device filter strings that specify which USB devices a user can redirect to the fleet streaming session, when using the Windows native client. This is allowed but not required for Elastic fleets.</p>
+   */
+  UsbDeviceFilterStrings?: string[];
 }
 
 export namespace CreateFleetRequest {
@@ -1347,6 +1736,21 @@ export interface Fleet {
    *         <p>The default value is <code>APP</code>.</p>
    */
   StreamView?: StreamView | string;
+
+  /**
+   * <p>The platform of the fleet.</p>
+   */
+  Platform?: PlatformType | string;
+
+  /**
+   * <p>The maximum number of concurrent sessions for the fleet.</p>
+   */
+  MaxConcurrentSessions?: number;
+
+  /**
+   * <p>The USB device filter strings associated with the fleet.</p>
+   */
+  UsbDeviceFilterStrings?: string[];
 }
 
 export namespace Fleet {
@@ -1633,8 +2037,6 @@ export namespace NetworkAccessConfiguration {
     ...obj,
   });
 }
-
-export type PlatformType = "AMAZON_LINUX2" | "WINDOWS" | "WINDOWS_SERVER_2016" | "WINDOWS_SERVER_2019";
 
 export enum ImageBuilderState {
   DELETING = "DELETING",
@@ -2612,6 +3014,81 @@ export namespace CreateUserResult {
   });
 }
 
+export interface DeleteAppBlockRequest {
+  /**
+   * <p>The name of the app block.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteAppBlockRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteAppBlockRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteAppBlockResult {}
+
+export namespace DeleteAppBlockResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteAppBlockResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified resource is in use.</p>
+ */
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
+  name: "ResourceInUseException";
+  $fault: "client";
+  /**
+   * <p>The error message in the exception.</p>
+   */
+  Message?: string;
+}
+
+export namespace ResourceInUseException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteApplicationRequest {
+  /**
+   * <p>The name of the application.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteApplicationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteApplicationResult {}
+
+export namespace DeleteApplicationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteApplicationResult): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteDirectoryConfigRequest {
   /**
    * <p>The name of the directory configuration.</p>
@@ -2635,27 +3112,6 @@ export namespace DeleteDirectoryConfigResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteDirectoryConfigResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The specified resource is in use.</p>
- */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
-  /**
-   * <p>The error message in the exception.</p>
-   */
-  Message?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
 }
@@ -2865,6 +3321,158 @@ export namespace DeleteUserResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteUserResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAppBlocksRequest {
+  /**
+   * <p>The ARNs of the app blocks.</p>
+   */
+  Arns?: string[];
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this
+   *             operation.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum size of each page of results.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeAppBlocksRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAppBlocksRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAppBlocksResult {
+  /**
+   * <p>The app blocks in the list.</p>
+   */
+  AppBlocks?: AppBlock[];
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this
+   *             operation.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeAppBlocksResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAppBlocksResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeApplicationFleetAssociationsRequest {
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  FleetName?: string;
+
+  /**
+   * <p>The ARN of the application.</p>
+   */
+  ApplicationArn?: string;
+
+  /**
+   * <p>The maximum size of each page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this
+   *             operation.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeApplicationFleetAssociationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeApplicationFleetAssociationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeApplicationFleetAssociationsResult {
+  /**
+   * <p>The application fleet associations in the list.</p>
+   */
+  ApplicationFleetAssociations?: ApplicationFleetAssociation[];
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this
+   *             operation.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeApplicationFleetAssociationsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeApplicationFleetAssociationsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeApplicationsRequest {
+  /**
+   * <p>The ARNs for the applications.</p>
+   */
+  Arns?: string[];
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this
+   *             operation.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum size of each page of results.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeApplicationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeApplicationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeApplicationsResult {
+  /**
+   * <p>The applications in the list.</p>
+   */
+  Applications?: Application[];
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this
+   *             operation.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeApplicationsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeApplicationsResult): any => ({
     ...obj,
   });
 }
@@ -3668,6 +4276,38 @@ export namespace DisableUserResult {
   });
 }
 
+export interface DisassociateApplicationFleetRequest {
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  FleetName: string | undefined;
+
+  /**
+   * <p>The ARN of the application.</p>
+   */
+  ApplicationArn: string | undefined;
+}
+
+export namespace DisassociateApplicationFleetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateApplicationFleetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateApplicationFleetResult {}
+
+export namespace DisassociateApplicationFleetResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateApplicationFleetResult): any => ({
+    ...obj,
+  });
+}
+
 export interface DisassociateFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -3767,6 +4407,7 @@ export namespace ExpireSessionResult {
 export enum FleetAttribute {
   DOMAIN_JOIN_INFO = "DOMAIN_JOIN_INFO",
   IAM_ROLE_ARN = "IAM_ROLE_ARN",
+  USB_DEVICE_FILTER_STRINGS = "USB_DEVICE_FILTER_STRINGS",
   VPC_CONFIGURATION = "VPC_CONFIGURATION",
   VPC_CONFIGURATION_SECURITY_GROUP_IDS = "VPC_CONFIGURATION_SECURITY_GROUP_IDS",
 }
@@ -4079,6 +4720,78 @@ export namespace UntagResourceResponse {
   });
 }
 
+export interface UpdateApplicationRequest {
+  /**
+   * <p>The name of the application. This name is visible to users when display name is not specified.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The display name of the application. This name is visible to users in the application catalog.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The description of the application.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The icon S3 location of the application.</p>
+   */
+  IconS3Location?: S3Location;
+
+  /**
+   * <p>The launch path of the application.</p>
+   */
+  LaunchPath?: string;
+
+  /**
+   * <p>The working directory of the application.</p>
+   */
+  WorkingDirectory?: string;
+
+  /**
+   * <p>The launch parameters of the application.</p>
+   */
+  LaunchParameters?: string;
+
+  /**
+   * <p>The ARN of the app block.</p>
+   */
+  AppBlockArn?: string;
+
+  /**
+   * <p>The attributes to delete for an application.</p>
+   */
+  AttributesToDelete?: (ApplicationAttribute | string)[];
+}
+
+export namespace UpdateApplicationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateApplicationResult {
+  /**
+   * <p>Describes an application in the application catalog.</p>
+   */
+  Application?: Application;
+}
+
+export namespace UpdateApplicationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateApplicationResult): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateDirectoryConfigRequest {
   /**
    * <p>The name of the Directory Config object.</p>
@@ -4244,16 +4957,25 @@ export interface UpdateFleetRequest {
    *                <p>stream.graphics-pro.16xlarge</p>
    *             </li>
    *          </ul>
+   *         <p>The following instance types are available for Elastic fleets:</p>
+   *         <ul>
+   *             <li>
+   *                <p>stream.standard.small</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.standard.medium</p>
+   *             </li>
+   *          </ul>
    */
   InstanceType?: string;
 
   /**
-   * <p>The desired capacity for the fleet.</p>
+   * <p>The desired capacity for the fleet. This is not allowed for Elastic fleets.</p>
    */
   ComputeCapacity?: ComputeCapacity;
 
   /**
-   * <p>The VPC configuration for the fleet.</p>
+   * <p>The VPC configuration for the fleet. This is required for Elastic fleets, but not required for other fleet types. Elastic fleets require that you specify at least two subnets in different availability zones. </p>
    */
   VpcConfig?: VpcConfig;
 
@@ -4333,6 +5055,21 @@ export interface UpdateFleetRequest {
    *         <p>The default value is <code>APP</code>.</p>
    */
   StreamView?: StreamView | string;
+
+  /**
+   * <p>The platform of the fleet. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for Elastic fleets. </p>
+   */
+  Platform?: PlatformType | string;
+
+  /**
+   * <p>The maximum number of concurrent sessions for a fleet.</p>
+   */
+  MaxConcurrentSessions?: number;
+
+  /**
+   * <p>The USB device filter strings that specify which USB devices a user can redirect to the fleet streaming session, when using the Windows native client. This is allowed but not required for Elastic fleets.</p>
+   */
+  UsbDeviceFilterStrings?: string[];
 }
 
 export namespace UpdateFleetRequest {

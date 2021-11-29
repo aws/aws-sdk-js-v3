@@ -404,6 +404,8 @@ export namespace CompletedPart {
 export interface CompletedMultipartUpload {
   /**
    * <p>Array of CompletedPart data types.</p>
+   *          <p>If you do not supply a valid <code>Part</code> with your request, the service sends back an HTTP
+   *          400 response.</p>
    */
   Parts?: CompletedPart[];
 }
@@ -5053,6 +5055,16 @@ export interface LifecycleRuleAndOperator {
    *          apply.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Minimum object size to which the rule applies.</p>
+   */
+  ObjectSizeGreaterThan?: number;
+
+  /**
+   * <p>Maximum object size to which the rule applies.</p>
+   */
+  ObjectSizeLessThan?: number;
 }
 
 export namespace LifecycleRuleAndOperator {
@@ -5071,6 +5083,8 @@ export namespace LifecycleRuleAndOperator {
  */
 export type LifecycleRuleFilter =
   | LifecycleRuleFilter.AndMember
+  | LifecycleRuleFilter.ObjectSizeGreaterThanMember
+  | LifecycleRuleFilter.ObjectSizeLessThanMember
   | LifecycleRuleFilter.PrefixMember
   | LifecycleRuleFilter.TagMember
   | LifecycleRuleFilter.$UnknownMember;
@@ -5087,6 +5101,8 @@ export namespace LifecycleRuleFilter {
   export interface PrefixMember {
     Prefix: string;
     Tag?: never;
+    ObjectSizeGreaterThan?: never;
+    ObjectSizeLessThan?: never;
     And?: never;
     $unknown?: never;
   }
@@ -5097,6 +5113,32 @@ export namespace LifecycleRuleFilter {
   export interface TagMember {
     Prefix?: never;
     Tag: Tag;
+    ObjectSizeGreaterThan?: never;
+    ObjectSizeLessThan?: never;
+    And?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Minimum object size to which the rule applies.</p>
+   */
+  export interface ObjectSizeGreaterThanMember {
+    Prefix?: never;
+    Tag?: never;
+    ObjectSizeGreaterThan: number;
+    ObjectSizeLessThan?: never;
+    And?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Maximum object size to which the rule applies.</p>
+   */
+  export interface ObjectSizeLessThanMember {
+    Prefix?: never;
+    Tag?: never;
+    ObjectSizeGreaterThan?: never;
+    ObjectSizeLessThan: number;
     And?: never;
     $unknown?: never;
   }
@@ -5109,6 +5151,8 @@ export namespace LifecycleRuleFilter {
   export interface AndMember {
     Prefix?: never;
     Tag?: never;
+    ObjectSizeGreaterThan?: never;
+    ObjectSizeLessThan?: never;
     And: LifecycleRuleAndOperator;
     $unknown?: never;
   }
@@ -5116,6 +5160,8 @@ export namespace LifecycleRuleFilter {
   export interface $UnknownMember {
     Prefix?: never;
     Tag?: never;
+    ObjectSizeGreaterThan?: never;
+    ObjectSizeLessThan?: never;
     And?: never;
     $unknown: [string, any];
   }
@@ -5123,6 +5169,8 @@ export namespace LifecycleRuleFilter {
   export interface Visitor<T> {
     Prefix: (value: string) => T;
     Tag: (value: Tag) => T;
+    ObjectSizeGreaterThan: (value: number) => T;
+    ObjectSizeLessThan: (value: number) => T;
     And: (value: LifecycleRuleAndOperator) => T;
     _: (name: string, value: any) => T;
   }
@@ -5130,6 +5178,8 @@ export namespace LifecycleRuleFilter {
   export const visit = <T>(value: LifecycleRuleFilter, visitor: Visitor<T>): T => {
     if (value.Prefix !== undefined) return visitor.Prefix(value.Prefix);
     if (value.Tag !== undefined) return visitor.Tag(value.Tag);
+    if (value.ObjectSizeGreaterThan !== undefined) return visitor.ObjectSizeGreaterThan(value.ObjectSizeGreaterThan);
+    if (value.ObjectSizeLessThan !== undefined) return visitor.ObjectSizeLessThan(value.ObjectSizeLessThan);
     if (value.And !== undefined) return visitor.And(value.And);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
@@ -5140,6 +5190,8 @@ export namespace LifecycleRuleFilter {
   export const filterSensitiveLog = (obj: LifecycleRuleFilter): any => {
     if (obj.Prefix !== undefined) return { Prefix: obj.Prefix };
     if (obj.Tag !== undefined) return { Tag: Tag.filterSensitiveLog(obj.Tag) };
+    if (obj.ObjectSizeGreaterThan !== undefined) return { ObjectSizeGreaterThan: obj.ObjectSizeGreaterThan };
+    if (obj.ObjectSizeLessThan !== undefined) return { ObjectSizeLessThan: obj.ObjectSizeLessThan };
     if (obj.And !== undefined) return { And: LifecycleRuleAndOperator.filterSensitiveLog(obj.And) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
@@ -5158,6 +5210,14 @@ export interface NoncurrentVersionExpiration {
    *             Amazon S3 Calculates When an Object Became Noncurrent</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   NoncurrentDays?: number;
+
+  /**
+   * <p>Specifies how many noncurrent versions Amazon S3 will retain. If there are this many more recent
+   *          noncurrent versions, Amazon S3 will take the associated action. For more information about noncurrent
+   *          versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration elements</a>
+   *          in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  NewerNoncurrentVersions?: number;
 }
 
 export namespace NoncurrentVersionExpiration {
@@ -5194,6 +5254,14 @@ export interface NoncurrentVersionTransition {
    * <p>The class of storage used to store the object.</p>
    */
   StorageClass?: TransitionStorageClass | string;
+
+  /**
+   * <p>Specifies how many noncurrent versions Amazon S3 will retain. If there are this many more recent
+   *          noncurrent versions, Amazon S3 will take the associated action. For more information about noncurrent
+   *          versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration elements</a>
+   *          in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  NewerNoncurrentVersions?: number;
 }
 
 export namespace NoncurrentVersionTransition {

@@ -19,12 +19,24 @@ import {
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
+import {
+  CreateAutoPredictorCommandInput,
+  CreateAutoPredictorCommandOutput,
+} from "../commands/CreateAutoPredictorCommand";
 import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "../commands/CreateDatasetCommand";
 import { CreateDatasetGroupCommandInput, CreateDatasetGroupCommandOutput } from "../commands/CreateDatasetGroupCommand";
 import {
   CreateDatasetImportJobCommandInput,
   CreateDatasetImportJobCommandOutput,
 } from "../commands/CreateDatasetImportJobCommand";
+import {
+  CreateExplainabilityCommandInput,
+  CreateExplainabilityCommandOutput,
+} from "../commands/CreateExplainabilityCommand";
+import {
+  CreateExplainabilityExportCommandInput,
+  CreateExplainabilityExportCommandOutput,
+} from "../commands/CreateExplainabilityExportCommand";
 import { CreateForecastCommandInput, CreateForecastCommandOutput } from "../commands/CreateForecastCommand";
 import {
   CreateForecastExportJobCommandInput,
@@ -41,6 +53,14 @@ import {
   DeleteDatasetImportJobCommandInput,
   DeleteDatasetImportJobCommandOutput,
 } from "../commands/DeleteDatasetImportJobCommand";
+import {
+  DeleteExplainabilityCommandInput,
+  DeleteExplainabilityCommandOutput,
+} from "../commands/DeleteExplainabilityCommand";
+import {
+  DeleteExplainabilityExportCommandInput,
+  DeleteExplainabilityExportCommandOutput,
+} from "../commands/DeleteExplainabilityExportCommand";
 import { DeleteForecastCommandInput, DeleteForecastCommandOutput } from "../commands/DeleteForecastCommand";
 import {
   DeleteForecastExportJobCommandInput,
@@ -52,6 +72,10 @@ import {
 } from "../commands/DeletePredictorBacktestExportJobCommand";
 import { DeletePredictorCommandInput, DeletePredictorCommandOutput } from "../commands/DeletePredictorCommand";
 import { DeleteResourceTreeCommandInput, DeleteResourceTreeCommandOutput } from "../commands/DeleteResourceTreeCommand";
+import {
+  DescribeAutoPredictorCommandInput,
+  DescribeAutoPredictorCommandOutput,
+} from "../commands/DescribeAutoPredictorCommand";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "../commands/DescribeDatasetCommand";
 import {
   DescribeDatasetGroupCommandInput,
@@ -61,6 +85,14 @@ import {
   DescribeDatasetImportJobCommandInput,
   DescribeDatasetImportJobCommandOutput,
 } from "../commands/DescribeDatasetImportJobCommand";
+import {
+  DescribeExplainabilityCommandInput,
+  DescribeExplainabilityCommandOutput,
+} from "../commands/DescribeExplainabilityCommand";
+import {
+  DescribeExplainabilityExportCommandInput,
+  DescribeExplainabilityExportCommandOutput,
+} from "../commands/DescribeExplainabilityExportCommand";
 import { DescribeForecastCommandInput, DescribeForecastCommandOutput } from "../commands/DescribeForecastCommand";
 import {
   DescribeForecastExportJobCommandInput,
@@ -78,6 +110,14 @@ import {
   ListDatasetImportJobsCommandOutput,
 } from "../commands/ListDatasetImportJobsCommand";
 import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "../commands/ListDatasetsCommand";
+import {
+  ListExplainabilitiesCommandInput,
+  ListExplainabilitiesCommandOutput,
+} from "../commands/ListExplainabilitiesCommand";
+import {
+  ListExplainabilityExportsCommandInput,
+  ListExplainabilityExportsCommandOutput,
+} from "../commands/ListExplainabilityExportsCommand";
 import {
   ListForecastExportJobsCommandInput,
   ListForecastExportJobsCommandOutput,
@@ -97,14 +137,22 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateDatasetGroupCommandInput, UpdateDatasetGroupCommandOutput } from "../commands/UpdateDatasetGroupCommand";
 import {
+  AdditionalDataset,
+  AttributeConfig,
   CategoricalParameterRange,
   ContinuousParameterRange,
+  CreateAutoPredictorRequest,
+  CreateAutoPredictorResponse,
   CreateDatasetGroupRequest,
   CreateDatasetGroupResponse,
   CreateDatasetImportJobRequest,
   CreateDatasetImportJobResponse,
   CreateDatasetRequest,
   CreateDatasetResponse,
+  CreateExplainabilityExportRequest,
+  CreateExplainabilityExportResponse,
+  CreateExplainabilityRequest,
+  CreateExplainabilityResponse,
   CreateForecastExportJobRequest,
   CreateForecastExportJobResponse,
   CreateForecastRequest,
@@ -113,6 +161,7 @@ import {
   CreatePredictorBacktestExportJobResponse,
   CreatePredictorRequest,
   CreatePredictorResponse,
+  DataConfig,
   DataDestination,
   DatasetGroupSummary,
   DatasetImportJobSummary,
@@ -121,17 +170,25 @@ import {
   DeleteDatasetGroupRequest,
   DeleteDatasetImportJobRequest,
   DeleteDatasetRequest,
+  DeleteExplainabilityExportRequest,
+  DeleteExplainabilityRequest,
   DeleteForecastExportJobRequest,
   DeleteForecastRequest,
   DeletePredictorBacktestExportJobRequest,
   DeletePredictorRequest,
   DeleteResourceTreeRequest,
+  DescribeAutoPredictorRequest,
+  DescribeAutoPredictorResponse,
   DescribeDatasetGroupRequest,
   DescribeDatasetGroupResponse,
   DescribeDatasetImportJobRequest,
   DescribeDatasetImportJobResponse,
   DescribeDatasetRequest,
   DescribeDatasetResponse,
+  DescribeExplainabilityExportRequest,
+  DescribeExplainabilityExportResponse,
+  DescribeExplainabilityRequest,
+  DescribeExplainabilityResponse,
   DescribeForecastExportJobRequest,
   DescribeForecastExportJobResponse,
   DescribeForecastRequest,
@@ -144,6 +201,10 @@ import {
   ErrorMetric,
   EvaluationParameters,
   EvaluationResult,
+  ExplainabilityConfig,
+  ExplainabilityExportSummary,
+  ExplainabilityInfo,
+  ExplainabilitySummary,
   Featurization,
   FeaturizationConfig,
   FeaturizationMethod,
@@ -164,6 +225,10 @@ import {
   ListDatasetImportJobsResponse,
   ListDatasetsRequest,
   ListDatasetsResponse,
+  ListExplainabilitiesRequest,
+  ListExplainabilitiesResponse,
+  ListExplainabilityExportsRequest,
+  ListExplainabilityExportsResponse,
   ListForecastExportJobsRequest,
   ListForecastExportJobsResponse,
   ListForecastsRequest,
@@ -180,6 +245,7 @@ import {
   PredictorExecution,
   PredictorExecutionDetails,
   PredictorSummary,
+  ReferencePredictorSummary,
   ResourceAlreadyExistsException,
   ResourceInUseException,
   ResourceNotFoundException,
@@ -200,6 +266,19 @@ import {
   WeightedQuantileLoss,
   WindowSummary,
 } from "../models/models_0";
+
+export const serializeAws_json1_1CreateAutoPredictorCommand = async (
+  input: CreateAutoPredictorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonForecast.CreateAutoPredictor",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateAutoPredictorRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_json1_1CreateDatasetCommand = async (
   input: CreateDatasetCommandInput,
@@ -237,6 +316,32 @@ export const serializeAws_json1_1CreateDatasetImportJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDatasetImportJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateExplainabilityCommand = async (
+  input: CreateExplainabilityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonForecast.CreateExplainability",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateExplainabilityRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateExplainabilityExportCommand = async (
+  input: CreateExplainabilityExportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonForecast.CreateExplainabilityExport",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateExplainabilityExportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -331,6 +436,32 @@ export const serializeAws_json1_1DeleteDatasetImportJobCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteExplainabilityCommand = async (
+  input: DeleteExplainabilityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonForecast.DeleteExplainability",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteExplainabilityRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteExplainabilityExportCommand = async (
+  input: DeleteExplainabilityExportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonForecast.DeleteExplainabilityExport",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteExplainabilityExportRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteForecastCommand = async (
   input: DeleteForecastCommandInput,
   context: __SerdeContext
@@ -396,6 +527,19 @@ export const serializeAws_json1_1DeleteResourceTreeCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeAutoPredictorCommand = async (
+  input: DescribeAutoPredictorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonForecast.DescribeAutoPredictor",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeAutoPredictorRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeDatasetCommand = async (
   input: DescribeDatasetCommandInput,
   context: __SerdeContext
@@ -432,6 +576,32 @@ export const serializeAws_json1_1DescribeDatasetImportJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDatasetImportJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeExplainabilityCommand = async (
+  input: DescribeExplainabilityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonForecast.DescribeExplainability",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeExplainabilityRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeExplainabilityExportCommand = async (
+  input: DescribeExplainabilityExportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonForecast.DescribeExplainabilityExport",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeExplainabilityExportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -536,6 +706,32 @@ export const serializeAws_json1_1ListDatasetsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDatasetsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListExplainabilitiesCommand = async (
+  input: ListExplainabilitiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonForecast.ListExplainabilities",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListExplainabilitiesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListExplainabilityExportsCommand = async (
+  input: ListExplainabilityExportsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonForecast.ListExplainabilityExports",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListExplainabilityExportsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -654,6 +850,92 @@ export const serializeAws_json1_1UpdateDatasetGroupCommand = async (
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateDatasetGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_json1_1CreateAutoPredictorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAutoPredictorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateAutoPredictorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateAutoPredictorResponse(data, context);
+  const response: CreateAutoPredictorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateAutoPredictorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAutoPredictorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.forecast#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateDatasetCommand = async (
@@ -833,6 +1115,178 @@ const deserializeAws_json1_1CreateDatasetImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetImportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.forecast#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateExplainabilityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateExplainabilityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateExplainabilityCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateExplainabilityResponse(data, context);
+  const response: CreateExplainabilityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateExplainabilityCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateExplainabilityCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.forecast#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateExplainabilityExportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateExplainabilityExportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateExplainabilityExportCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateExplainabilityExportResponse(data, context);
+  const response: CreateExplainabilityExportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateExplainabilityExportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateExplainabilityExportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1443,6 +1897,140 @@ const deserializeAws_json1_1DeleteDatasetImportJobCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteExplainabilityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteExplainabilityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteExplainabilityCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteExplainabilityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteExplainabilityCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteExplainabilityCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteExplainabilityExportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteExplainabilityExportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteExplainabilityExportCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteExplainabilityExportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteExplainabilityExportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteExplainabilityExportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeleteForecastCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1778,6 +2366,68 @@ const deserializeAws_json1_1DeleteResourceTreeCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeAutoPredictorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAutoPredictorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeAutoPredictorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeAutoPredictorResponse(data, context);
+  const response: DescribeAutoPredictorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeAutoPredictorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAutoPredictorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1923,6 +2573,130 @@ const deserializeAws_json1_1DescribeDatasetImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetImportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeExplainabilityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeExplainabilityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeExplainabilityCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeExplainabilityResponse(data, context);
+  const response: DescribeExplainabilityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeExplainabilityCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeExplainabilityCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeExplainabilityExportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeExplainabilityExportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeExplainabilityExportCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeExplainabilityExportResponse(data, context);
+  const response: DescribeExplainabilityExportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeExplainabilityExportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeExplainabilityExportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2427,6 +3201,130 @@ const deserializeAws_json1_1ListDatasetsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.forecast#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListExplainabilitiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExplainabilitiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListExplainabilitiesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListExplainabilitiesResponse(data, context);
+  const response: ListExplainabilitiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListExplainabilitiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExplainabilitiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.forecast#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListExplainabilityExportsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExplainabilityExportsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListExplainabilityExportsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListExplainabilityExportsResponse(data, context);
+  const response: ListExplainabilityExportsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListExplainabilityExportsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExplainabilityExportsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidNextTokenException":
     case "com.amazonaws.forecast#InvalidNextTokenException":
       response = {
@@ -3121,6 +4019,27 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_json1_1AdditionalDataset = (input: AdditionalDataset, context: __SerdeContext): any => {
+  return {
+    ...(input.Configuration !== undefined &&
+      input.Configuration !== null && {
+        Configuration: serializeAws_json1_1Configuration(input.Configuration, context),
+      }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1AdditionalDatasets = (input: AdditionalDataset[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1AdditionalDataset(entry, context);
+    });
+};
+
 const serializeAws_json1_1ArnList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -3129,6 +4048,27 @@ const serializeAws_json1_1ArnList = (input: string[], context: __SerdeContext): 
         return null as any;
       }
       return entry;
+    });
+};
+
+const serializeAws_json1_1AttributeConfig = (input: AttributeConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.AttributeName !== undefined && input.AttributeName !== null && { AttributeName: input.AttributeName }),
+    ...(input.Transformations !== undefined &&
+      input.Transformations !== null && {
+        Transformations: serializeAws_json1_1Transformations(input.Transformations, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1AttributeConfigs = (input: AttributeConfig[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1AttributeConfig(entry, context);
     });
 };
 
@@ -3157,6 +4097,18 @@ const serializeAws_json1_1CategoricalParameterRanges = (
     });
 };
 
+const serializeAws_json1_1Configuration = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_json1_1Values(value, context),
+    };
+  }, {});
+};
+
 const serializeAws_json1_1ContinuousParameterRange = (
   input: ContinuousParameterRange,
   context: __SerdeContext
@@ -3181,6 +4133,40 @@ const serializeAws_json1_1ContinuousParameterRanges = (
       }
       return serializeAws_json1_1ContinuousParameterRange(entry, context);
     });
+};
+
+const serializeAws_json1_1CreateAutoPredictorRequest = (
+  input: CreateAutoPredictorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataConfig !== undefined &&
+      input.DataConfig !== null && { DataConfig: serializeAws_json1_1DataConfig(input.DataConfig, context) }),
+    ...(input.EncryptionConfig !== undefined &&
+      input.EncryptionConfig !== null && {
+        EncryptionConfig: serializeAws_json1_1EncryptionConfig(input.EncryptionConfig, context),
+      }),
+    ...(input.ExplainPredictor !== undefined &&
+      input.ExplainPredictor !== null && { ExplainPredictor: input.ExplainPredictor }),
+    ...(input.ForecastDimensions !== undefined &&
+      input.ForecastDimensions !== null && {
+        ForecastDimensions: serializeAws_json1_1ForecastDimensions(input.ForecastDimensions, context),
+      }),
+    ...(input.ForecastFrequency !== undefined &&
+      input.ForecastFrequency !== null && { ForecastFrequency: input.ForecastFrequency }),
+    ...(input.ForecastHorizon !== undefined &&
+      input.ForecastHorizon !== null && { ForecastHorizon: input.ForecastHorizon }),
+    ...(input.ForecastTypes !== undefined &&
+      input.ForecastTypes !== null && {
+        ForecastTypes: serializeAws_json1_1ForecastTypes(input.ForecastTypes, context),
+      }),
+    ...(input.OptimizationMetric !== undefined &&
+      input.OptimizationMetric !== null && { OptimizationMetric: input.OptimizationMetric }),
+    ...(input.PredictorName !== undefined && input.PredictorName !== null && { PredictorName: input.PredictorName }),
+    ...(input.ReferencePredictorArn !== undefined &&
+      input.ReferencePredictorArn !== null && { ReferencePredictorArn: input.ReferencePredictorArn }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+  };
 };
 
 const serializeAws_json1_1CreateDatasetGroupRequest = (
@@ -3230,6 +4216,45 @@ const serializeAws_json1_1CreateDatasetRequest = (input: CreateDatasetRequest, c
       }),
     ...(input.Schema !== undefined &&
       input.Schema !== null && { Schema: serializeAws_json1_1Schema(input.Schema, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateExplainabilityExportRequest = (
+  input: CreateExplainabilityExportRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Destination !== undefined &&
+      input.Destination !== null && { Destination: serializeAws_json1_1DataDestination(input.Destination, context) }),
+    ...(input.ExplainabilityArn !== undefined &&
+      input.ExplainabilityArn !== null && { ExplainabilityArn: input.ExplainabilityArn }),
+    ...(input.ExplainabilityExportName !== undefined &&
+      input.ExplainabilityExportName !== null && { ExplainabilityExportName: input.ExplainabilityExportName }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateExplainabilityRequest = (
+  input: CreateExplainabilityRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataSource !== undefined &&
+      input.DataSource !== null && { DataSource: serializeAws_json1_1DataSource(input.DataSource, context) }),
+    ...(input.EnableVisualization !== undefined &&
+      input.EnableVisualization !== null && { EnableVisualization: input.EnableVisualization }),
+    ...(input.EndDateTime !== undefined && input.EndDateTime !== null && { EndDateTime: input.EndDateTime }),
+    ...(input.ExplainabilityConfig !== undefined &&
+      input.ExplainabilityConfig !== null && {
+        ExplainabilityConfig: serializeAws_json1_1ExplainabilityConfig(input.ExplainabilityConfig, context),
+      }),
+    ...(input.ExplainabilityName !== undefined &&
+      input.ExplainabilityName !== null && { ExplainabilityName: input.ExplainabilityName }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.Schema !== undefined &&
+      input.Schema !== null && { Schema: serializeAws_json1_1Schema(input.Schema, context) }),
+    ...(input.StartDateTime !== undefined && input.StartDateTime !== null && { StartDateTime: input.StartDateTime }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
@@ -3320,6 +4345,21 @@ const serializeAws_json1_1CreatePredictorRequest = (input: CreatePredictorReques
   };
 };
 
+const serializeAws_json1_1DataConfig = (input: DataConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalDatasets !== undefined &&
+      input.AdditionalDatasets !== null && {
+        AdditionalDatasets: serializeAws_json1_1AdditionalDatasets(input.AdditionalDatasets, context),
+      }),
+    ...(input.AttributeConfigs !== undefined &&
+      input.AttributeConfigs !== null && {
+        AttributeConfigs: serializeAws_json1_1AttributeConfigs(input.AttributeConfigs, context),
+      }),
+    ...(input.DatasetGroupArn !== undefined &&
+      input.DatasetGroupArn !== null && { DatasetGroupArn: input.DatasetGroupArn }),
+  };
+};
+
 const serializeAws_json1_1DataDestination = (input: DataDestination, context: __SerdeContext): any => {
   return {
     ...(input.S3Config !== undefined &&
@@ -3357,6 +4397,26 @@ const serializeAws_json1_1DeleteDatasetImportJobRequest = (
 const serializeAws_json1_1DeleteDatasetRequest = (input: DeleteDatasetRequest, context: __SerdeContext): any => {
   return {
     ...(input.DatasetArn !== undefined && input.DatasetArn !== null && { DatasetArn: input.DatasetArn }),
+  };
+};
+
+const serializeAws_json1_1DeleteExplainabilityExportRequest = (
+  input: DeleteExplainabilityExportRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ExplainabilityExportArn !== undefined &&
+      input.ExplainabilityExportArn !== null && { ExplainabilityExportArn: input.ExplainabilityExportArn }),
+  };
+};
+
+const serializeAws_json1_1DeleteExplainabilityRequest = (
+  input: DeleteExplainabilityRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ExplainabilityArn !== undefined &&
+      input.ExplainabilityArn !== null && { ExplainabilityArn: input.ExplainabilityArn }),
   };
 };
 
@@ -3403,6 +4463,15 @@ const serializeAws_json1_1DeleteResourceTreeRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeAutoPredictorRequest = (
+  input: DescribeAutoPredictorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PredictorArn !== undefined && input.PredictorArn !== null && { PredictorArn: input.PredictorArn }),
+  };
+};
+
 const serializeAws_json1_1DescribeDatasetGroupRequest = (
   input: DescribeDatasetGroupRequest,
   context: __SerdeContext
@@ -3426,6 +4495,26 @@ const serializeAws_json1_1DescribeDatasetImportJobRequest = (
 const serializeAws_json1_1DescribeDatasetRequest = (input: DescribeDatasetRequest, context: __SerdeContext): any => {
   return {
     ...(input.DatasetArn !== undefined && input.DatasetArn !== null && { DatasetArn: input.DatasetArn }),
+  };
+};
+
+const serializeAws_json1_1DescribeExplainabilityExportRequest = (
+  input: DescribeExplainabilityExportRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ExplainabilityExportArn !== undefined &&
+      input.ExplainabilityExportArn !== null && { ExplainabilityExportArn: input.ExplainabilityExportArn }),
+  };
+};
+
+const serializeAws_json1_1DescribeExplainabilityRequest = (
+  input: DescribeExplainabilityRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ExplainabilityArn !== undefined &&
+      input.ExplainabilityArn !== null && { ExplainabilityArn: input.ExplainabilityArn }),
   };
 };
 
@@ -3479,6 +4568,15 @@ const serializeAws_json1_1EvaluationParameters = (input: EvaluationParameters, c
       input.BackTestWindowOffset !== null && { BackTestWindowOffset: input.BackTestWindowOffset }),
     ...(input.NumberOfBacktestWindows !== undefined &&
       input.NumberOfBacktestWindows !== null && { NumberOfBacktestWindows: input.NumberOfBacktestWindows }),
+  };
+};
+
+const serializeAws_json1_1ExplainabilityConfig = (input: ExplainabilityConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.TimePointGranularity !== undefined &&
+      input.TimePointGranularity !== null && { TimePointGranularity: input.TimePointGranularity }),
+    ...(input.TimeSeriesGranularity !== undefined &&
+      input.TimeSeriesGranularity !== null && { TimeSeriesGranularity: input.TimeSeriesGranularity }),
   };
 };
 
@@ -3680,6 +4778,30 @@ const serializeAws_json1_1ListDatasetsRequest = (input: ListDatasetsRequest, con
   };
 };
 
+const serializeAws_json1_1ListExplainabilitiesRequest = (
+  input: ListExplainabilitiesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListExplainabilityExportsRequest = (
+  input: ListExplainabilityExportsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1ListForecastExportJobsRequest = (
   input: ListForecastExportJobsRequest,
   context: __SerdeContext
@@ -3859,6 +4981,18 @@ const serializeAws_json1_1TrainingParameters = (input: { [key: string]: string }
   }, {});
 };
 
+const serializeAws_json1_1Transformations = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
@@ -3890,6 +5024,27 @@ const serializeAws_json1_1Values = (input: string[], context: __SerdeContext): a
     });
 };
 
+const deserializeAws_json1_1AdditionalDataset = (output: any, context: __SerdeContext): AdditionalDataset => {
+  return {
+    Configuration:
+      output.Configuration !== undefined && output.Configuration !== null
+        ? deserializeAws_json1_1Configuration(output.Configuration, context)
+        : undefined,
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_json1_1AdditionalDatasets = (output: any, context: __SerdeContext): AdditionalDataset[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AdditionalDataset(entry, context);
+    });
+};
+
 const deserializeAws_json1_1ArnList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -3898,6 +5053,27 @@ const deserializeAws_json1_1ArnList = (output: any, context: __SerdeContext): st
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_json1_1AttributeConfig = (output: any, context: __SerdeContext): AttributeConfig => {
+  return {
+    AttributeName: __expectString(output.AttributeName),
+    Transformations:
+      output.Transformations !== undefined && output.Transformations !== null
+        ? deserializeAws_json1_1Transformations(output.Transformations, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AttributeConfigs = (output: any, context: __SerdeContext): AttributeConfig[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AttributeConfig(entry, context);
     });
 };
 
@@ -3928,6 +5104,18 @@ const deserializeAws_json1_1CategoricalParameterRanges = (
     });
 };
 
+const deserializeAws_json1_1Configuration = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_json1_1Values(value, context),
+    };
+  }, {});
+};
+
 const deserializeAws_json1_1ContinuousParameterRange = (
   output: any,
   context: __SerdeContext
@@ -3954,6 +5142,15 @@ const deserializeAws_json1_1ContinuousParameterRanges = (
     });
 };
 
+const deserializeAws_json1_1CreateAutoPredictorResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateAutoPredictorResponse => {
+  return {
+    PredictorArn: __expectString(output.PredictorArn),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateDatasetGroupResponse = (
   output: any,
   context: __SerdeContext
@@ -3975,6 +5172,24 @@ const deserializeAws_json1_1CreateDatasetImportJobResponse = (
 const deserializeAws_json1_1CreateDatasetResponse = (output: any, context: __SerdeContext): CreateDatasetResponse => {
   return {
     DatasetArn: __expectString(output.DatasetArn),
+  } as any;
+};
+
+const deserializeAws_json1_1CreateExplainabilityExportResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateExplainabilityExportResponse => {
+  return {
+    ExplainabilityExportArn: __expectString(output.ExplainabilityExportArn),
+  } as any;
+};
+
+const deserializeAws_json1_1CreateExplainabilityResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateExplainabilityResponse => {
+  return {
+    ExplainabilityArn: __expectString(output.ExplainabilityArn),
   } as any;
 };
 
@@ -4008,6 +5223,20 @@ const deserializeAws_json1_1CreatePredictorResponse = (
 ): CreatePredictorResponse => {
   return {
     PredictorArn: __expectString(output.PredictorArn),
+  } as any;
+};
+
+const deserializeAws_json1_1DataConfig = (output: any, context: __SerdeContext): DataConfig => {
+  return {
+    AdditionalDatasets:
+      output.AdditionalDatasets !== undefined && output.AdditionalDatasets !== null
+        ? deserializeAws_json1_1AdditionalDatasets(output.AdditionalDatasets, context)
+        : undefined,
+    AttributeConfigs:
+      output.AttributeConfigs !== undefined && output.AttributeConfigs !== null
+        ? deserializeAws_json1_1AttributeConfigs(output.AttributeConfigs, context)
+        : undefined,
+    DatasetGroupArn: __expectString(output.DatasetGroupArn),
   } as any;
 };
 
@@ -4118,6 +5347,54 @@ const deserializeAws_json1_1DataSource = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_json1_1DescribeAutoPredictorResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeAutoPredictorResponse => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DataConfig:
+      output.DataConfig !== undefined && output.DataConfig !== null
+        ? deserializeAws_json1_1DataConfig(output.DataConfig, context)
+        : undefined,
+    DatasetImportJobArns:
+      output.DatasetImportJobArns !== undefined && output.DatasetImportJobArns !== null
+        ? deserializeAws_json1_1ArnList(output.DatasetImportJobArns, context)
+        : undefined,
+    EncryptionConfig:
+      output.EncryptionConfig !== undefined && output.EncryptionConfig !== null
+        ? deserializeAws_json1_1EncryptionConfig(output.EncryptionConfig, context)
+        : undefined,
+    EstimatedTimeRemainingInMinutes: __expectLong(output.EstimatedTimeRemainingInMinutes),
+    ExplainabilityInfo:
+      output.ExplainabilityInfo !== undefined && output.ExplainabilityInfo !== null
+        ? deserializeAws_json1_1ExplainabilityInfo(output.ExplainabilityInfo, context)
+        : undefined,
+    ForecastFrequency: __expectString(output.ForecastFrequency),
+    ForecastHorizon: __expectInt32(output.ForecastHorizon),
+    ForecastTypes:
+      output.ForecastTypes !== undefined && output.ForecastTypes !== null
+        ? deserializeAws_json1_1ForecastTypes(output.ForecastTypes, context)
+        : undefined,
+    LastModificationTime:
+      output.LastModificationTime !== undefined && output.LastModificationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
+        : undefined,
+    Message: __expectString(output.Message),
+    OptimizationMetric: __expectString(output.OptimizationMetric),
+    PredictorArn: __expectString(output.PredictorArn),
+    PredictorName: __expectString(output.PredictorName),
+    ReferencePredictorSummary:
+      output.ReferencePredictorSummary !== undefined && output.ReferencePredictorSummary !== null
+        ? deserializeAws_json1_1ReferencePredictorSummary(output.ReferencePredictorSummary, context)
+        : undefined,
+    Status: __expectString(output.Status),
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeDatasetGroupResponse = (
   output: any,
   context: __SerdeContext
@@ -4203,6 +5480,68 @@ const deserializeAws_json1_1DescribeDatasetResponse = (
       output.Schema !== undefined && output.Schema !== null
         ? deserializeAws_json1_1Schema(output.Schema, context)
         : undefined,
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeExplainabilityExportResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeExplainabilityExportResponse => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    Destination:
+      output.Destination !== undefined && output.Destination !== null
+        ? deserializeAws_json1_1DataDestination(output.Destination, context)
+        : undefined,
+    ExplainabilityArn: __expectString(output.ExplainabilityArn),
+    ExplainabilityExportArn: __expectString(output.ExplainabilityExportArn),
+    ExplainabilityExportName: __expectString(output.ExplainabilityExportName),
+    LastModificationTime:
+      output.LastModificationTime !== undefined && output.LastModificationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
+        : undefined,
+    Message: __expectString(output.Message),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeExplainabilityResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeExplainabilityResponse => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DataSource:
+      output.DataSource !== undefined && output.DataSource !== null
+        ? deserializeAws_json1_1DataSource(output.DataSource, context)
+        : undefined,
+    EnableVisualization: __expectBoolean(output.EnableVisualization),
+    EndDateTime: __expectString(output.EndDateTime),
+    EstimatedTimeRemainingInMinutes: __expectLong(output.EstimatedTimeRemainingInMinutes),
+    ExplainabilityArn: __expectString(output.ExplainabilityArn),
+    ExplainabilityConfig:
+      output.ExplainabilityConfig !== undefined && output.ExplainabilityConfig !== null
+        ? deserializeAws_json1_1ExplainabilityConfig(output.ExplainabilityConfig, context)
+        : undefined,
+    ExplainabilityName: __expectString(output.ExplainabilityName),
+    LastModificationTime:
+      output.LastModificationTime !== undefined && output.LastModificationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
+        : undefined,
+    Message: __expectString(output.Message),
+    ResourceArn: __expectString(output.ResourceArn),
+    Schema:
+      output.Schema !== undefined && output.Schema !== null
+        ? deserializeAws_json1_1Schema(output.Schema, context)
+        : undefined,
+    StartDateTime: __expectString(output.StartDateTime),
     Status: __expectString(output.Status),
   } as any;
 };
@@ -4329,6 +5668,7 @@ const deserializeAws_json1_1DescribePredictorResponse = (
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
         : undefined,
+    IsAutoPredictor: __expectBoolean(output.IsAutoPredictor),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
@@ -4393,6 +5733,91 @@ const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeCon
       output.TestWindows !== undefined && output.TestWindows !== null
         ? deserializeAws_json1_1TestWindows(output.TestWindows, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1Explainabilities = (output: any, context: __SerdeContext): ExplainabilitySummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ExplainabilitySummary(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ExplainabilityConfig = (output: any, context: __SerdeContext): ExplainabilityConfig => {
+  return {
+    TimePointGranularity: __expectString(output.TimePointGranularity),
+    TimeSeriesGranularity: __expectString(output.TimeSeriesGranularity),
+  } as any;
+};
+
+const deserializeAws_json1_1ExplainabilityExports = (
+  output: any,
+  context: __SerdeContext
+): ExplainabilityExportSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ExplainabilityExportSummary(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ExplainabilityExportSummary = (
+  output: any,
+  context: __SerdeContext
+): ExplainabilityExportSummary => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    Destination:
+      output.Destination !== undefined && output.Destination !== null
+        ? deserializeAws_json1_1DataDestination(output.Destination, context)
+        : undefined,
+    ExplainabilityExportArn: __expectString(output.ExplainabilityExportArn),
+    ExplainabilityExportName: __expectString(output.ExplainabilityExportName),
+    LastModificationTime:
+      output.LastModificationTime !== undefined && output.LastModificationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
+        : undefined,
+    Message: __expectString(output.Message),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1ExplainabilityInfo = (output: any, context: __SerdeContext): ExplainabilityInfo => {
+  return {
+    ExplainabilityArn: __expectString(output.ExplainabilityArn),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1ExplainabilitySummary = (output: any, context: __SerdeContext): ExplainabilitySummary => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    ExplainabilityArn: __expectString(output.ExplainabilityArn),
+    ExplainabilityConfig:
+      output.ExplainabilityConfig !== undefined && output.ExplainabilityConfig !== null
+        ? deserializeAws_json1_1ExplainabilityConfig(output.ExplainabilityConfig, context)
+        : undefined,
+    ExplainabilityName: __expectString(output.ExplainabilityName),
+    LastModificationTime:
+      output.LastModificationTime !== undefined && output.LastModificationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
+        : undefined,
+    Message: __expectString(output.Message),
+    ResourceArn: __expectString(output.ResourceArn),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -4538,6 +5963,7 @@ const deserializeAws_json1_1Forecasts = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1ForecastSummary = (output: any, context: __SerdeContext): ForecastSummary => {
   return {
+    CreatedUsingAutoPredictor: __expectBoolean(output.CreatedUsingAutoPredictor),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
@@ -4572,6 +5998,7 @@ const deserializeAws_json1_1GetAccuracyMetricsResponse = (
 ): GetAccuracyMetricsResponse => {
   return {
     AutoMLOverrideStrategy: __expectString(output.AutoMLOverrideStrategy),
+    IsAutoPredictor: __expectBoolean(output.IsAutoPredictor),
     OptimizationMetric: __expectString(output.OptimizationMetric),
     PredictorEvaluationResults:
       output.PredictorEvaluationResults !== undefined && output.PredictorEvaluationResults !== null
@@ -4677,6 +6104,32 @@ const deserializeAws_json1_1ListDatasetsResponse = (output: any, context: __Serd
     Datasets:
       output.Datasets !== undefined && output.Datasets !== null
         ? deserializeAws_json1_1Datasets(output.Datasets, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListExplainabilitiesResponse = (
+  output: any,
+  context: __SerdeContext
+): ListExplainabilitiesResponse => {
+  return {
+    Explainabilities:
+      output.Explainabilities !== undefined && output.Explainabilities !== null
+        ? deserializeAws_json1_1Explainabilities(output.Explainabilities, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListExplainabilityExportsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListExplainabilityExportsResponse => {
+  return {
+    ExplainabilityExports:
+      output.ExplainabilityExports !== undefined && output.ExplainabilityExports !== null
+        ? deserializeAws_json1_1ExplainabilityExports(output.ExplainabilityExports, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
@@ -4870,6 +6323,7 @@ const deserializeAws_json1_1PredictorSummary = (output: any, context: __SerdeCon
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DatasetGroupArn: __expectString(output.DatasetGroupArn),
+    IsAutoPredictor: __expectBoolean(output.IsAutoPredictor),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
@@ -4877,7 +6331,21 @@ const deserializeAws_json1_1PredictorSummary = (output: any, context: __SerdeCon
     Message: __expectString(output.Message),
     PredictorArn: __expectString(output.PredictorArn),
     PredictorName: __expectString(output.PredictorName),
+    ReferencePredictorSummary:
+      output.ReferencePredictorSummary !== undefined && output.ReferencePredictorSummary !== null
+        ? deserializeAws_json1_1ReferencePredictorSummary(output.ReferencePredictorSummary, context)
+        : undefined,
     Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1ReferencePredictorSummary = (
+  output: any,
+  context: __SerdeContext
+): ReferencePredictorSummary => {
+  return {
+    Arn: __expectString(output.Arn),
+    State: __expectString(output.State),
   } as any;
 };
 
@@ -5035,6 +6503,18 @@ const deserializeAws_json1_1TestWindowSummary = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1TrainingParameters = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
+};
+
+const deserializeAws_json1_1Transformations = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;

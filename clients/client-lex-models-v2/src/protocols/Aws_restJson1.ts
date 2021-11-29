@@ -10462,6 +10462,7 @@ const serializeAws_restJson1UtteranceAggregationDuration = (
 
 const serializeAws_restJson1VoiceSettings = (input: VoiceSettings, context: __SerdeContext): any => {
   return {
+    ...(input.engine !== undefined && input.engine !== null && { engine: input.engine }),
     ...(input.voiceId !== undefined && input.voiceId !== null && { voiceId: input.voiceId }),
   };
 };
@@ -11663,6 +11664,7 @@ const deserializeAws_restJson1UtteranceAggregationDuration = (
 
 const deserializeAws_restJson1VoiceSettings = (output: any, context: __SerdeContext): VoiceSettings => {
   return {
+    engine: __expectString(output.engine),
     voiceId: __expectString(output.voiceId),
   } as any;
 };

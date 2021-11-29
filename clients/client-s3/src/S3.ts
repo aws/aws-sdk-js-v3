@@ -518,6 +518,10 @@ export class S3 extends S3Client {
    *          to determine whether the request succeeded.</p>
    *          <p>Note that if <code>CompleteMultipartUpload</code> fails, applications should be prepared
    *          to retry the failed requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html">Amazon S3 Error Best Practices</a>.</p>
+   *          <important>
+   *             <p>You cannot use <code>Content-Type: application/x-www-form-urlencoded</code> with Complete
+   *             Multipart Upload requests. Also, if you do not provide a <code>Content-Type</code> header, <code>CompleteMultipartUpload</code> returns a 200 OK response.</p>
+   *          </important>
    *          <p>For more information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
    *             Upload</a>.</p>
    *          <p>For information about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
@@ -3489,13 +3493,16 @@ export class S3 extends S3Client {
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>You need the <code>s3:GetObjectVersion</code> permission to access a specific version of an object.
-   *             </p>
+   *                   <p>
+   *                     If you supply a <code>versionId</code>, you need the <code>s3:GetObjectVersion</code> permission to
+   *                     access a specific version of an object. If you request a specific version, you do not need to have
+   *                     the <code>s3:GetObject</code> permission.
+   *                 </p>
    *                </li>
    *                <li>
    *                   <p>If the current version of the object is a delete marker, Amazon S3 behaves as if the
-   *             object was deleted and includes <code>x-amz-delete-marker: true</code> in the
-   *             response.</p>
+   *                   object was deleted and includes <code>x-amz-delete-marker: true</code> in the
+   *                   response.</p>
    *                </li>
    *             </ul>
    *          </note>

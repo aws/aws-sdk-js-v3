@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateContactRequest, UpdateContactResponse } from "../models/models_0";
+import { UpdateContactRequest, UpdateContactResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateContactCommand,
   serializeAws_restJson1UpdateContactCommand,
@@ -23,7 +23,7 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Adds or updates user defined contact information associated with the specified contact. At
+ *          <p>Adds or updates user-defined contact information associated with the specified contact. At
  *    least one field to be updated must be present in the request.</p>
  *          <important>
  *             <p>You can add or update user-defined contact information for both ongoing and completed

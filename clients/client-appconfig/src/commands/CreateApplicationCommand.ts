@@ -22,10 +22,11 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends Application, __MetadataBearer {}
 
 /**
- * <p>An application in AppConfig is a logical unit of code that provides capabilities for your
- *          customers. For example, an application can be a microservice that runs on Amazon EC2 instances,
- *          a mobile application installed by your users, a serverless application using Amazon API
- *          Gateway and AWS Lambda, or any system you run on behalf of others.</p>
+ * <p>Creates an application. An application in AppConfig is a logical unit of code that
+ *          provides capabilities for your customers. For example, an application can be a microservice
+ *          that runs on Amazon EC2 instances, a mobile application installed by your users, a serverless
+ *          application using Amazon API Gateway and Lambda, or any system you run on behalf of
+ *          others.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

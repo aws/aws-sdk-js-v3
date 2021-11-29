@@ -75,8 +75,10 @@ export interface CreateDatabaseRequest {
   DatabaseName: string | undefined;
 
   /**
-   * <p>The KMS key for the database. If the KMS key is not specified, the database will be encrypted with a Timestream
-   *          managed KMS key located in your account. Refer to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">AWS managed KMS keys</a> for more info.</p>
+   * <p>The KMS key for the database.
+   *          If the KMS key is not specified, the database will be encrypted with a Timestream
+   *          managed KMS key located in your account.
+   *          Refer to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed KMS keys</a> for more info.</p>
    */
   KmsKeyId?: string;
 
@@ -251,6 +253,88 @@ export namespace ValidationException {
   });
 }
 
+export enum S3EncryptionOption {
+  SSE_KMS = "SSE_KMS",
+  SSE_S3 = "SSE_S3",
+}
+
+/**
+ * <p>Configuration specifing an S3 location.</p>
+ */
+export interface S3Configuration {
+  /**
+   * <p>>Bucket name of the customer S3 bucket.</p>
+   */
+  BucketName?: string;
+
+  /**
+   * <p>Object key preview for the customer S3 location.</p>
+   */
+  ObjectKeyPrefix?: string;
+
+  /**
+   * <p>Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key.</p>
+   */
+  EncryptionOption?: S3EncryptionOption | string;
+
+  /**
+   * <p>KMS key id for the customer s3 location when encrypting with a KMS managed key.</p>
+   */
+  KmsKeyId?: string;
+}
+
+export namespace S3Configuration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3Configuration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The location to write error reports for records rejected, asynchronously, during magnetic store writes.</p>
+ */
+export interface MagneticStoreRejectedDataLocation {
+  /**
+   * <p>Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes.</p>
+   */
+  S3Configuration?: S3Configuration;
+}
+
+export namespace MagneticStoreRejectedDataLocation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MagneticStoreRejectedDataLocation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The set of properties on a table for configuring magnetic store writes.</p>
+ */
+export interface MagneticStoreWriteProperties {
+  /**
+   * <p>A flag to enable magnetic store writes.</p>
+   */
+  EnableMagneticStoreWrites: boolean | undefined;
+
+  /**
+   * <p>The location to write error reports for records rejected asynchronously during magnetic store writes.</p>
+   */
+  MagneticStoreRejectedDataLocation?: MagneticStoreRejectedDataLocation;
+}
+
+export namespace MagneticStoreWriteProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MagneticStoreWriteProperties): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Retention properties contain the duration for which your time series data must be stored in the magnetic store and the memory store.
  *       </p>
@@ -298,6 +382,11 @@ export interface CreateTableRequest {
    *    </p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Contains properties to set on the table when enabling magnetic store writes.</p>
+   */
+  MagneticStoreWriteProperties?: MagneticStoreWriteProperties;
 }
 
 export namespace CreateTableRequest {
@@ -363,6 +452,11 @@ export interface Table {
    * <p>The time when the Timestream table was last updated.</p>
    */
   LastUpdatedTime?: Date;
+
+  /**
+   * <p>Contains properties to set on the table when enabling magnetic store writes.</p>
+   */
+  MagneticStoreWriteProperties?: MagneticStoreWriteProperties;
 }
 
 export namespace Table {
@@ -734,7 +828,41 @@ export enum MeasureValueType {
   BIGINT = "BIGINT",
   BOOLEAN = "BOOLEAN",
   DOUBLE = "DOUBLE",
+  MULTI = "MULTI",
+  TIMESTAMP = "TIMESTAMP",
   VARCHAR = "VARCHAR",
+}
+
+/**
+ * <p> MeasureValue represents the data attribute of the time series. For example, the CPU utilization of an EC2 instance or the RPM of a wind turbine are measures. MeasureValue has both name and value. </p>
+ *          <p> MeasureValue is only allowed for type <code>MULTI</code>. Using <code>MULTI</code> type, you can pass multiple data attributes associated with the same time series in a single record </p>
+ */
+export interface MeasureValue {
+  /**
+   * <p> Name of the MeasureValue.  </p>
+   *          <p> For constraints on MeasureValue names, refer to <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.naming">
+   *       Naming Constraints</a> in the Timestream developer guide.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p> Value for the MeasureValue. </p>
+   */
+  Value: string | undefined;
+
+  /**
+   * <p>Contains the data type of the MeasureValue for the time series data point.</p>
+   */
+  Type: MeasureValueType | string | undefined;
+}
+
+export namespace MeasureValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MeasureValue): any => ({
+    ...obj,
+  });
 }
 
 export enum TimeUnit {
@@ -755,6 +883,14 @@ export enum TimeUnit {
  *        In addition, the record contains the timestamp when the measure was collected that
  *        the timestamp unit which represents the granularity of the timestamp.
  *        </p>
+ *          <p>
+ *         Records have a <code>Version</code> field, which is a 64-bit <code>long</code> that you can use for updating data points.
+ *         Writes of a duplicate record with the same dimension,
+ *         timestamp, and measure name
+ *         but different measure value will only succeed if the <code>Version</code> attribute of the record in the write request
+ *         is higher than that of the existing record.
+ *         Timestream defaults to a <code>Version</code> of <code>1</code> for records without the <code>Version</code> field.
+ *      </p>
  */
 export interface _Record {
   /**
@@ -776,7 +912,7 @@ export interface _Record {
 
   /**
    * <p>
-   * Contains the data type of the measure value for the time series data point.
+   * Contains the data type of the measure value for the time series data point. Default type is <code>DOUBLE</code>.
    * </p>
    */
   MeasureValueType?: MeasureValueType | string;
@@ -794,6 +930,7 @@ export interface _Record {
   /**
    * <p>
    * The granularity of the timestamp unit. It indicates if the time value is in seconds, milliseconds, nanoseconds or other supported values.
+   * Default is <code>MILLISECONDS</code>.
    * </p>
    */
   TimeUnit?: TimeUnit | string;
@@ -801,9 +938,20 @@ export interface _Record {
   /**
    * <p>64-bit attribute used for record updates.
    *          Write requests for duplicate data with a higher version number will update the existing measure value and version.
-   *          In cases where the measure value is the same, <code>Version</code> will still be updated . Default value is to 1.</p>
+   *          In cases where the measure value is the same, <code>Version</code> will still be updated . Default value is <code>1</code>.</p>
+   *
+   *          <note>
+   *             <p>
+   *                <code>Version</code> must be <code>1</code> or greater, or you will receive a <code>ValidationException</code> error.</p>
+   *          </note>
    */
   Version?: number;
+
+  /**
+   * <p> Contains the list of MeasureValue for time series data points. </p>
+   *          <p> This is only allowed for type <code>MULTI</code>. For scalar values, use <code>MeasureValue</code> attribute of the Record directly. </p>
+   */
+  MeasureValues?: MeasureValue[];
 }
 
 export namespace _Record {
@@ -811,6 +959,35 @@ export namespace _Record {
    * @internal
    */
   export const filterSensitiveLog = (obj: _Record): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information on the records ingested by this request.</p>
+ */
+export interface RecordsIngested {
+  /**
+   * <p>Total count of successfully ingested records.</p>
+   */
+  Total?: number;
+
+  /**
+   * <p>Count of records ingested into the memory store.</p>
+   */
+  MemoryStore?: number;
+
+  /**
+   * <p>Count of records ingested into the magnetic store.</p>
+   */
+  MagneticStore?: number;
+}
+
+export namespace RecordsIngested {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RecordsIngested): any => ({
     ...obj,
   });
 }
@@ -835,10 +1012,22 @@ export interface RejectedRecord {
    *       </p>
    *          <ul>
    *             <li>
-   *                <p>
-   *                  Records with duplicate data where there are multiple records with the same dimensions,
-   *          timestamps, and measure names but different measure values.
+   *                <p>Records with duplicate data where there are multiple records with the same dimensions,
+   *                   timestamps, and measure names but:
    *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Measure values are different</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Version is not present in the request <i>or</i>
+   *                      the value of version in the new record is equal to or lower than the existing value</p>
+   *                   </li>
+   *                </ul>
+   *                <p>
+   *                   If Timestream rejects data for this case, the <code>ExistingVersion</code> field in the <code>RejectedRecords</code>
+   *                   response will indicate the current record’s version.
+   *                   To force an update, you can resend the request with a version for the record set to a value greater than the <code>ExistingVersion</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -891,10 +1080,22 @@ export namespace RejectedRecord {
  *       </p>
  *          <ul>
  *             <li>
- *                <p>
- *                  Records with duplicate data where there are multiple records with the same dimensions,
- *          timestamps, and measure names but different measure values.
- *                </p>
+ *                <p>Records with duplicate data where there are multiple records with the same dimensions,
+ *                   timestamps, and measure names but:
+ *                   </p>
+ *                   <ul>
+ *                   <li>
+ *                      <p>Measure values are different</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Version is not present in the request <i>or</i>
+ *                         the value of version in the new record is equal to or lower than the existing value</p>
+ *                   </li>
+ *                </ul>
+ *                   <p>
+ *                   In this case, if Timestream rejects data, the <code>ExistingVersion</code> field in the <code>RejectedRecords</code>
+ *                   response will indicate the current record’s version.
+ *                   To force an update, you can resend the request with a version for the record set to a value greater than the <code>ExistingVersion</code>.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -908,7 +1109,7 @@ export namespace RejectedRecord {
  *             </li>
  *          </ul>
  *          <p>
- *          For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Access Management</a> in the Timestream Developer Guide.
+ *          For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Quotas</a> in the Timestream Developer Guide.
  *          </p>
  */
 export interface RejectedRecordsException extends __SmithyException, $MetadataBearer {
@@ -1073,14 +1274,19 @@ export interface UpdateTableRequest {
   DatabaseName: string | undefined;
 
   /**
-   * <p>The name of the Timesream table.</p>
+   * <p>The name of the Timestream table.</p>
    */
   TableName: string | undefined;
 
   /**
    * <p>The retention duration of the memory store and the magnetic store.</p>
    */
-  RetentionProperties: RetentionProperties | undefined;
+  RetentionProperties?: RetentionProperties;
+
+  /**
+   * <p>Contains properties to set on the table when enabling magnetic store writes.</p>
+   */
+  MagneticStoreWriteProperties?: MagneticStoreWriteProperties;
 }
 
 export namespace UpdateTableRequest {
@@ -1115,21 +1321,25 @@ export interface WriteRecordsRequest {
   DatabaseName: string | undefined;
 
   /**
-   * <p>The name of the Timesream table.</p>
+   * <p>The name of the Timestream table.</p>
    */
   TableName: string | undefined;
 
   /**
-   * <p>A record containing the common measure and dimension attributes
+   * <p>A record containing the common measure, dimension, time,
+   *          and version attributes
    *        shared across all the records in the request. The measure and dimension
-   *        attributes specified in here will be merged with the measure and dimension
+   *        attributes specified will be merged with the measure and dimension
    *        attributes in the records object when the data is written into Timestream.
+   *        Dimensions may not overlap,
+   *        or a <code>ValidationException</code> will be thrown.
+   *          In other words, a record must contain dimensions with unique names.
    *        </p>
    */
   CommonAttributes?: _Record;
 
   /**
-   * <p>An array of records containing the unique dimension and measure
+   * <p>An array of records containing the unique measure, dimension, time, and version
    *        attributes for each time series data point.
    *        </p>
    */
@@ -1141,6 +1351,22 @@ export namespace WriteRecordsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: WriteRecordsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface WriteRecordsResponse {
+  /**
+   * <p>Information on the records ingested by this request.</p>
+   */
+  RecordsIngested?: RecordsIngested;
+}
+
+export namespace WriteRecordsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WriteRecordsResponse): any => ({
     ...obj,
   });
 }

@@ -26,8 +26,9 @@ export interface CreateCertificateFromCsrCommandOutput extends CreateCertificate
  *          request.</p>
  *          <p>
  *             <b>Note:</b> The CSR must include a public key that is either an
- *          RSA key with a length of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384
- *          curves. </p>
+ *          RSA key with a length of at least 2048 bits or an ECC key from NIST P-256, NIST P-384, or NIST P-512
+ *          curves. For supported certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms">
+ *             Certificate signing algorithms supported by IoT</a>.</p>
  *          <p>
  *             <b>Note:</b> Reusing the same certificate signing request (CSR)
  *          results in a distinct certificate.</p>

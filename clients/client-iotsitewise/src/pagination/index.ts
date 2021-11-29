@@ -12,3 +12,4 @@ export * from "./ListGatewaysPaginator";
 export * from "./ListPortalsPaginator";
 export * from "./ListProjectAssetsPaginator";
 export * from "./ListProjectsPaginator";
+export * from "./ListTimeSeriesPaginator";

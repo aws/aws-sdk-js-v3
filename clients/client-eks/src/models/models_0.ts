@@ -142,8 +142,8 @@ export interface Addon {
 
   /**
    * <p>The metadata that you apply to the add-on to assist with categorization and
-   *             organization. Each tag consists of a key and an optional value, both of which you
-   *             define. Add-on tags do not propagate to any other resources associated with the cluster.
+   *             organization. Each tag consists of a key and an optional value. You define both.
+   *             Add-on tags do not propagate to any other resources associated with the cluster.
    *         </p>
    */
   tags?: { [key: string]: string };
@@ -825,8 +825,7 @@ export interface AssociateIdentityProviderConfigRequest {
 
   /**
    * <p>The metadata to apply to the configuration to assist with categorization and
-   *             organization. Each tag consists of a key and an optional value, both of which you
-   *             define.</p>
+   *             organization. Each tag consists of a key and an optional value. You define both.</p>
    */
   tags?: { [key: string]: string };
 
@@ -934,7 +933,7 @@ export interface CreateAddonRequest {
 
   /**
    * <p>The metadata to apply to the cluster to assist with categorization and organization.
-   *             Each tag consists of a key and an optional value, both of which you define. </p>
+   *             Each tag consists of a key and an optional value. You define both.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -1161,11 +1160,11 @@ export interface CreateClusterRequest {
   roleArn: string | undefined;
 
   /**
-   * <p>The VPC configuration used by the cluster control plane. Amazon EKS VPC resources have
+   * <p>The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have
    *             specific requirements to work properly with Kubernetes. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC
    *                 Considerations</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group Considerations</a> in the
    *             <i>Amazon EKS User Guide</i>. You must specify at least two subnets. You can specify up to five
-   *             security groups, but we recommend that you use a dedicated security group for your
+   *             security groups. However, we recommend that you use a dedicated security group for your
    *             cluster control plane.</p>
    */
   resourcesVpcConfig: VpcConfigRequest | undefined;
@@ -1197,7 +1196,7 @@ export interface CreateClusterRequest {
 
   /**
    * <p>The metadata to apply to the cluster to assist with categorization and organization.
-   *             Each tag consists of a key and an optional value, both of which you define.</p>
+   *             Each tag consists of a key and an optional value. You define both.</p>
    */
   tags?: { [key: string]: string };
 
@@ -1495,8 +1494,8 @@ export interface Cluster {
 
   /**
    * <p>The metadata that you apply to the cluster to assist with categorization and
-   *             organization. Each tag consists of a key and an optional value, both of which you
-   *             define. Cluster tags do not propagate to any other resources associated with the
+   *             organization. Each tag consists of a key and an optional value. You define both.
+   *             Cluster tags do not propagate to any other resources associated with the
    *             cluster.</p>
    */
   tags?: { [key: string]: string };
@@ -1685,8 +1684,8 @@ export interface CreateFargateProfileRequest {
 
   /**
    * <p>The metadata to apply to the Fargate profile to assist with categorization and
-   *             organization. Each tag consists of a key and an optional value, both of which you
-   *             define. Fargate profile tags do not propagate to any other resources associated with the
+   *             organization. Each tag consists of a key and an optional value. You define both.
+   *             Fargate profile tags do not propagate to any other resources associated with the
    *             Fargate profile, such as the pods that are scheduled with it.</p>
    */
   tags?: { [key: string]: string };
@@ -1751,8 +1750,8 @@ export interface FargateProfile {
 
   /**
    * <p>The metadata applied to the Fargate profile to assist with categorization and
-   *             organization. Each tag consists of a key and an optional value, both of which you
-   *             define. Fargate profile tags do not propagate to any other resources associated with the
+   *             organization. Each tag consists of a key and an optional value. You define both.
+   *             Fargate profile tags do not propagate to any other resources associated with the
    *             Fargate profile, such as the pods that are scheduled with it.</p>
    */
   tags?: { [key: string]: string };
@@ -2071,8 +2070,8 @@ export interface CreateNodegroupRequest {
 
   /**
    * <p>The metadata to apply to the node group to assist with categorization and
-   *             organization. Each tag consists of a key and an optional value, both of which you
-   *             define. Node group tags do not propagate to any other resources associated with the node
+   *             organization. Each tag consists of a key and an optional value. You
+   *             define both. Node group tags do not propagate to any other resources associated with the node
    *             group, such as the Amazon EC2 instances or subnets.</p>
    */
   tags?: { [key: string]: string };
@@ -2473,7 +2472,7 @@ export interface Nodegroup {
 
   /**
    * <p>The metadata applied to the node group to assist with categorization and organization.
-   *             Each tag consists of a key and an optional value, both of which you define. Node group
+   *             Each tag consists of a key and an optional value. You define both. Node group
    *             tags do not propagate to any other resources associated with the node group, such as the
    *             Amazon EC2 instances or subnets. </p>
    */
@@ -2982,8 +2981,7 @@ export interface OidcIdentityProviderConfig {
 
   /**
    * <p>The metadata to apply to the provider configuration to assist with categorization and
-   *             organization. Each tag consists of a key and an optional value, both of which you
-   *             defined.</p>
+   *             organization. Each tag consists of a key and an optional value. You define both.</p>
    */
   tags?: { [key: string]: string };
 
@@ -3263,7 +3261,7 @@ export interface ListClustersRequest {
   nextToken?: string;
 
   /**
-   * <p>Indicates whether connected clusters are included in the returned list. Default value is 'ALL'.</p>
+   * <p>Indicates whether external clusters are included in the returned list. Use '<code>all</code>' to return connected clusters, or blank to return only Amazon EKS clusters. '<code>all</code>' must be in lowercase otherwise an error occurs.</p>
    */
   include?: string[];
 }
@@ -3711,6 +3709,24 @@ export namespace RegisterClusterResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: RegisterClusterResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Required resources (such as Service Linked Roles) were created and are still propagating. Retry later.</p>
+ */
+export interface ResourcePropagationDelayException extends __SmithyException, $MetadataBearer {
+  name: "ResourcePropagationDelayException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourcePropagationDelayException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourcePropagationDelayException): any => ({
     ...obj,
   });
 }

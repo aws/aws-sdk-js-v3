@@ -26,16 +26,16 @@ export interface CreateRecordingConfigurationCommandOutput
 /**
  * <p>Creates a new recording configuration, used to enable recording to Amazon S3.</p>
  *          <p>
- *             <b>Known issue:</b> In the us-east-1 region, if you use the Amazon Web Services
- *       CLI to create a recording configuration, it returns success even if the S3 bucket is in a
- *       different region. In this case, the <code>state</code> of the recording configuration is
- *         <code>CREATE_FAILED</code> (instead of <code>ACTIVE</code>). (In other regions, the CLI
- *       correctly returns failure if the bucket is in a different region.)</p>
+ *             <b>Known issue:</b> In the us-east-1 region, if you use the
+ *         Amazon Web Services CLI to create a recording configuration, it returns success even if the
+ *       S3 bucket is in a different region. In this case, the <code>state</code> of the recording
+ *       configuration is <code>CREATE_FAILED</code> (instead of <code>ACTIVE</code>). (In other
+ *       regions, the CLI correctly returns failure if the bucket is in a different region.)</p>
  *          <p>
- *             <b>Workaround:</b> Ensure that your S3 bucket is in the same region as the recording
- *       configuration. If you create a recording configuration in a different region as your S3
- *       bucket, delete that recording configuration and create a new one with an S3 bucket from the
- *       correct region.</p>
+ *             <b>Workaround:</b> Ensure that your S3 bucket is in the same
+ *       region as the recording configuration. If you create a recording configuration in a different
+ *       region as your S3 bucket, delete that recording configuration and create a new one with an S3
+ *       bucket from the correct region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

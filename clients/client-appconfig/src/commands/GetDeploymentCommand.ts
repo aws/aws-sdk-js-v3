@@ -22,7 +22,7 @@ export interface GetDeploymentCommandInput extends GetDeploymentRequest {}
 export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer {}
 
 /**
- * <p>Retrieve information about a configuration deployment.</p>
+ * <p>Retrieves information about a configuration deployment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

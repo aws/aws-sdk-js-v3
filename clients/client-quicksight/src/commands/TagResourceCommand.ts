@@ -32,17 +32,18 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * 			replaces the previous value for that tag.</p>
  * 		       <p>You can associate as many as 50 tags with a resource. Amazon QuickSight supports tagging on data
  * 			set, data source, dashboard, and template. </p>
- * 		       <p>Tagging for Amazon QuickSight works in a similar way to tagging for other AWS services, except for
+ * 		       <p>Tagging for Amazon QuickSight works in a similar way to tagging for other Amazon Web Services services, except for
  * 			the following:</p>
  * 		       <ul>
  *             <li>
- *                <p>You can't use tags to track AWS costs for Amazon QuickSight. This restriction is because Amazon QuickSight
- * 					costs are based on users and SPICE capacity, which aren't taggable
- * 					resources.</p>
- *             </li>
+ * 				           <p>You can't use tags to track costs for Amazon QuickSight. This isn't
+ * 				possible because you can't tag the resources that Amazon QuickSight costs are based
+ * 				on, for example Amazon QuickSight storage capacity (SPICE), number of users, type
+ * 				of users, and usage metrics.</p>
+ * 			         </li>
  *             <li>
- *                <p>Amazon QuickSight doesn't currently support the Tag Editor for Resource Groups.</p>
- *             </li>
+ * 				           <p>Amazon QuickSight doesn't currently support the tag editor for Resource Groups.</p>
+ * 				        </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

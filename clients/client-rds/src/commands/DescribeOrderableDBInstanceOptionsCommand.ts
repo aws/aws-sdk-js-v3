@@ -24,7 +24,7 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a list of orderable DB instance options for the specified engine.</p>
+ * <p>Returns a list of orderable DB instance options for the specified DB engine, DB engine version, and DB instance class.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

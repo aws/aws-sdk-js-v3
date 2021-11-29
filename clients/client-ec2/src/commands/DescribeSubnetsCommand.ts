@@ -12,8 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeSubnetsRequest } from "../models/models_3";
-import { DescribeSubnetsResult } from "../models/models_4";
+import { DescribeSubnetsRequest, DescribeSubnetsResult } from "../models/models_4";
 import { deserializeAws_ec2DescribeSubnetsCommand, serializeAws_ec2DescribeSubnetsCommand } from "../protocols/Aws_ec2";
 
 export interface DescribeSubnetsCommandInput extends DescribeSubnetsRequest {}

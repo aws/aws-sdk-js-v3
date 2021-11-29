@@ -22,7 +22,7 @@ export interface CreateChangesetCommandInput extends CreateChangesetRequest {}
 export interface CreateChangesetCommandOutput extends CreateChangesetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new changeset in a FinSpace dataset.</p>
+ * <p>Creates a new Changeset in a FinSpace Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

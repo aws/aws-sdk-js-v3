@@ -147,7 +147,7 @@ export interface GetRecommendationsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the campaign to use for getting recommendations.</p>
    */
-  campaignArn: string | undefined;
+  campaignArn?: string;
 
   /**
    * <p>The item ID to provide recommendations for.</p>
@@ -193,6 +193,12 @@ export interface GetRecommendationsRequest {
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering Recommendations</a>.</p>
    */
   filterValues?: { [key: string]: string };
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recommender to use to get recommendations. Provide a recommender ARN if you
+   *     created a Domain dataset group with a recommender for a domain use case.</p>
+   */
+  recommenderArn?: string;
 }
 
 export namespace GetRecommendationsRequest {
@@ -208,7 +214,7 @@ export namespace GetRecommendationsRequest {
 
 export interface GetRecommendationsResponse {
   /**
-   * <p>A list of recommendations sorted in ascending order by prediction score. There can be a
+   * <p>A list of recommendations sorted in descending order by prediction score. There can be a
    *       maximum of 500 items in the list.</p>
    */
   itemList?: PredictedItem[];

@@ -22,8 +22,8 @@ export interface ExecuteChangeSetCommandInput extends ExecuteChangeSetInput {}
 export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a stack using the input information that was provided when the specified
- *          change set was created. After the call successfully completes, CloudFormation starts
+ * <p>Updates a stack using the input information that was provided when the specified change
+ *          set was created. After the call successfully completes, CloudFormation starts
  *          updating the stack. Use the <a>DescribeStacks</a> action to view the status of
  *          the update.</p>
  *          <p>When you execute a change set, CloudFormation deletes all other change sets

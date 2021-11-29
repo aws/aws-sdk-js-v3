@@ -1057,85 +1057,6 @@ export enum BackupTypeFilter {
   USER = "USER",
 }
 
-export enum BatchStatementErrorCodeEnum {
-  AccessDenied = "AccessDenied",
-  ConditionalCheckFailed = "ConditionalCheckFailed",
-  DuplicateItem = "DuplicateItem",
-  InternalServerError = "InternalServerError",
-  ItemCollectionSizeLimitExceeded = "ItemCollectionSizeLimitExceeded",
-  ProvisionedThroughputExceeded = "ProvisionedThroughputExceeded",
-  RequestLimitExceeded = "RequestLimitExceeded",
-  ResourceNotFound = "ResourceNotFound",
-  ThrottlingError = "ThrottlingError",
-  TransactionConflict = "TransactionConflict",
-  ValidationError = "ValidationError",
-}
-
-/**
- * <p> An error associated with a statement in a PartiQL batch that was run. </p>
- */
-export interface BatchStatementError {
-  /**
-   * <p> The error code associated with the failed PartiQL batch statement. </p>
-   */
-  Code?: BatchStatementErrorCodeEnum | string;
-
-  /**
-   * <p> The error message associated with the PartiQL batch resposne. </p>
-   */
-  Message?: string;
-}
-
-export namespace BatchStatementError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchStatementError): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An error occurred on the server side.</p>
- */
-export interface InternalServerError extends __SmithyException, $MetadataBearer {
-  name: "InternalServerError";
-  $fault: "server";
-  /**
-   * <p>The server encountered an internal error trying to fulfill the request.</p>
-   */
-  message?: string;
-}
-
-export namespace InternalServerError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Throughput exceeds the current throughput quota for your account. Please contact
- *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
- *             quota increase.</p>
- */
-export interface RequestLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "RequestLimitExceeded";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace RequestLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestLimitExceeded): any => ({
-    ...obj,
-  });
-}
-
 export type ReturnConsumedCapacity = "INDEXES" | "NONE" | "TOTAL";
 
 /**
@@ -1219,6 +1140,85 @@ export namespace ConsumedCapacity {
    * @internal
    */
   export const filterSensitiveLog = (obj: ConsumedCapacity): any => ({
+    ...obj,
+  });
+}
+
+export enum BatchStatementErrorCodeEnum {
+  AccessDenied = "AccessDenied",
+  ConditionalCheckFailed = "ConditionalCheckFailed",
+  DuplicateItem = "DuplicateItem",
+  InternalServerError = "InternalServerError",
+  ItemCollectionSizeLimitExceeded = "ItemCollectionSizeLimitExceeded",
+  ProvisionedThroughputExceeded = "ProvisionedThroughputExceeded",
+  RequestLimitExceeded = "RequestLimitExceeded",
+  ResourceNotFound = "ResourceNotFound",
+  ThrottlingError = "ThrottlingError",
+  TransactionConflict = "TransactionConflict",
+  ValidationError = "ValidationError",
+}
+
+/**
+ * <p> An error associated with a statement in a PartiQL batch that was run. </p>
+ */
+export interface BatchStatementError {
+  /**
+   * <p> The error code associated with the failed PartiQL batch statement. </p>
+   */
+  Code?: BatchStatementErrorCodeEnum | string;
+
+  /**
+   * <p> The error message associated with the PartiQL batch resposne. </p>
+   */
+  Message?: string;
+}
+
+export namespace BatchStatementError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchStatementError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An error occurred on the server side.</p>
+ */
+export interface InternalServerError extends __SmithyException, $MetadataBearer {
+  name: "InternalServerError";
+  $fault: "server";
+  /**
+   * <p>The server encountered an internal error trying to fulfill the request.</p>
+   */
+  message?: string;
+}
+
+export namespace InternalServerError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InternalServerError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Throughput exceeds the current throughput quota for your account. Please contact
+ *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+ *             quota increase.</p>
+ */
+export interface RequestLimitExceeded extends __SmithyException, $MetadataBearer {
+  name: "RequestLimitExceeded";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace RequestLimitExceeded {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RequestLimitExceeded): any => ({
     ...obj,
   });
 }
@@ -7054,6 +7054,35 @@ export interface ExecuteStatementInput {
    *             statement response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Determines the level of detail about either provisioned or on-demand throughput
+   *             consumption that is returned in the response:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>INDEXES</code> - The response includes the aggregate
+   *                         <code>ConsumedCapacity</code> for the operation, together with
+   *                         <code>ConsumedCapacity</code> for each table and secondary index that was
+   *                     accessed.</p>
+   *                 <p>Note that some operations, such as <code>GetItem</code> and
+   *                         <code>BatchGetItem</code>, do not access any indexes at all. In these cases,
+   *                     specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code>
+   *                     information for table(s).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>TOTAL</code> - The response includes only the aggregate
+   *                         <code>ConsumedCapacity</code> for the operation.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the
+   *                     response.</p>
+   *             </li>
+   *          </ul>
+   */
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
 }
 
 export namespace ExecuteStatementInput {
@@ -7149,8 +7178,8 @@ export interface GetItemInput {
   ConsistentRead?: boolean;
 
   /**
-   * <p>Determines the level of detail about provisioned throughput consumption that is
-   *             returned in the response:</p>
+   * <p>Determines the level of detail about either provisioned or on-demand throughput
+   *             consumption that is returned in the response:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -7443,6 +7472,15 @@ export interface ExecuteStatementOutput {
    *             request to get the remaining results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The capacity units consumed by an operation. The data returned includes the total
+   *             provisioned throughput consumed, along with statistics for the table and any indexes
+   *             involved in the operation. <code>ConsumedCapacity</code> is only returned if the request
+   *             asked for it. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
+   */
+  ConsumedCapacity?: ConsumedCapacity;
 }
 
 export namespace ExecuteStatementOutput {
@@ -7608,6 +7646,35 @@ export interface BatchExecuteStatementInput {
    * <p>The list of PartiQL statements representing the batch to run.</p>
    */
   Statements: BatchStatementRequest[] | undefined;
+
+  /**
+   * <p>Determines the level of detail about either provisioned or on-demand throughput
+   *             consumption that is returned in the response:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>INDEXES</code> - The response includes the aggregate
+   *                         <code>ConsumedCapacity</code> for the operation, together with
+   *                         <code>ConsumedCapacity</code> for each table and secondary index that was
+   *                     accessed.</p>
+   *                 <p>Note that some operations, such as <code>GetItem</code> and
+   *                         <code>BatchGetItem</code>, do not access any indexes at all. In these cases,
+   *                     specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code>
+   *                     information for table(s).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>TOTAL</code> - The response includes only the aggregate
+   *                         <code>ConsumedCapacity</code> for the operation.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the
+   *                     response.</p>
+   *             </li>
+   *          </ul>
+   */
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
 }
 
 export namespace BatchExecuteStatementInput {
@@ -7625,6 +7692,12 @@ export interface BatchExecuteStatementOutput {
    * <p>The response to each PartiQL statement in the batch.</p>
    */
   Responses?: BatchStatementResponse[];
+
+  /**
+   * <p>The capacity units consumed by the entire operation. The values of the list are
+   *             ordered according to the ordering of the statements.</p>
+   */
+  ConsumedCapacity?: ConsumedCapacity[];
 }
 
 export namespace BatchExecuteStatementOutput {
@@ -7648,6 +7721,12 @@ export interface ExecuteTransactionInput {
    *             statement response.</p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is
+   *             returned in the response. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactGetItems.html">TransactGetItems</a> and <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html">TransactWriteItems</a>.</p>
+   */
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
 }
 
 export namespace ExecuteTransactionInput {
@@ -7667,6 +7746,12 @@ export interface ExecuteTransactionOutput {
    * <p>The response to a PartiQL transaction.</p>
    */
   Responses?: ItemResponse[];
+
+  /**
+   * <p>The capacity units consumed by the entire operation. The values of the list are
+   *             ordered according to the ordering of the statements.</p>
+   */
+  ConsumedCapacity?: ConsumedCapacity[];
 }
 
 export namespace ExecuteTransactionOutput {
@@ -8081,8 +8166,8 @@ export interface BatchGetItemInput {
   RequestItems: { [key: string]: KeysAndAttributes } | undefined;
 
   /**
-   * <p>Determines the level of detail about provisioned throughput consumption that is
-   *             returned in the response:</p>
+   * <p>Determines the level of detail about either provisioned or on-demand throughput
+   *             consumption that is returned in the response:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -9389,8 +9474,8 @@ export interface ScanInput {
   ExclusiveStartKey?: { [key: string]: AttributeValue };
 
   /**
-   * <p>Determines the level of detail about provisioned throughput consumption that is
-   *             returned in the response:</p>
+   * <p>Determines the level of detail about either provisioned or on-demand throughput
+   *             consumption that is returned in the response:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -9663,8 +9748,8 @@ export interface BatchWriteItemInput {
   RequestItems: { [key: string]: WriteRequest[] } | undefined;
 
   /**
-   * <p>Determines the level of detail about provisioned throughput consumption that is
-   *             returned in the response:</p>
+   * <p>Determines the level of detail about either provisioned or on-demand throughput
+   *             consumption that is returned in the response:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -9775,8 +9860,8 @@ export interface DeleteItemInput {
   ReturnValues?: ReturnValue | string;
 
   /**
-   * <p>Determines the level of detail about provisioned throughput consumption that is
-   *             returned in the response:</p>
+   * <p>Determines the level of detail about either provisioned or on-demand throughput
+   *             consumption that is returned in the response:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -10018,8 +10103,8 @@ export interface PutItemInput {
   ReturnValues?: ReturnValue | string;
 
   /**
-   * <p>Determines the level of detail about provisioned throughput consumption that is
-   *             returned in the response:</p>
+   * <p>Determines the level of detail about either provisioned or on-demand throughput
+   *             consumption that is returned in the response:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -10352,8 +10437,8 @@ export interface QueryInput {
   ExclusiveStartKey?: { [key: string]: AttributeValue };
 
   /**
-   * <p>Determines the level of detail about provisioned throughput consumption that is
-   *             returned in the response:</p>
+   * <p>Determines the level of detail about either provisioned or on-demand throughput
+   *             consumption that is returned in the response:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -10863,8 +10948,8 @@ export interface UpdateItemInput {
   ReturnValues?: ReturnValue | string;
 
   /**
-   * <p>Determines the level of detail about provisioned throughput consumption that is
-   *             returned in the response:</p>
+   * <p>Determines the level of detail about either provisioned or on-demand throughput
+   *             consumption that is returned in the response:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -11207,8 +11292,8 @@ export interface TransactWriteItemsInput {
   TransactItems: TransactWriteItem[] | undefined;
 
   /**
-   * <p>Determines the level of detail about provisioned throughput consumption that is
-   *             returned in the response:</p>
+   * <p>Determines the level of detail about either provisioned or on-demand throughput
+   *             consumption that is returned in the response:</p>
    *         <ul>
    *             <li>
    *                 <p>

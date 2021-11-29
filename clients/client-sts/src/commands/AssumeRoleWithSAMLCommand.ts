@@ -28,7 +28,7 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *          credentials or configuration. For a comparison of <code>AssumeRoleWithSAML</code> with the
  *          other API operations that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
  *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
- *             STS API operations</a> in the <i>IAM User Guide</i>.</p>
+ *             Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.</p>
  *          <p>The temporary security credentials returned by this operation consist of an access key
  *          ID, a secret access key, and a security token. Applications can use these temporary
  *          security credentials to sign calls to Amazon Web Services services.</p>
@@ -50,15 +50,15 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *          console URL. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using IAM Roles</a> in the
  *             <i>IAM User Guide</i>.</p>
  *          <note>
- *            <p>
- *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-role-chaining">Role chaining</a> limits your CLI or Amazon Web Services API
- *                role session to a maximum of one hour. When you use the <code>AssumeRole</code> API
- *                operation to assume a role, you can specify the duration of your role session with
- *                the <code>DurationSeconds</code> parameter. You can specify a parameter value of up
- *                to 43200 seconds (12 hours), depending on the maximum session duration setting for
- *                your role. However, if you assume a role using role chaining and provide a
- *                <code>DurationSeconds</code> parameter value greater than one hour, the
- *                operation fails.</p>
+ *             <p>
+ *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-role-chaining">Role chaining</a> limits your CLI or Amazon Web Services API role
+ *             session to a maximum of one hour. When you use the <code>AssumeRole</code> API operation
+ *             to assume a role, you can specify the duration of your role session with the
+ *                <code>DurationSeconds</code> parameter. You can specify a parameter value of up to
+ *             43200 seconds (12 hours), depending on the maximum session duration setting for your
+ *             role. However, if you assume a role using role chaining and provide a
+ *                <code>DurationSeconds</code> parameter value greater than one hour, the operation
+ *             fails.</p>
  *          </note>
  *          <p>
  *             <b>Permissions</b>
@@ -110,9 +110,9 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *             request are to the upper size limit.
  *             </p>
  *          </note>
- *          <p>You can pass a session tag with the same key as a tag that is
- *          attached to the role. When you do, session tags override the role's tags with the same
- *          key.</p>
+ *
+ *          <p>You can pass a session tag with the same key as a tag that is attached to the role. When
+ *          you do, session tags override the role's tags with the same key.</p>
  *          <p>An administrator must grant you the permissions necessary to pass session tags. The
  *          administrator can also create granular permissions to allow you to pass only specific
  *          session tags. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html">Tutorial: Using Tags

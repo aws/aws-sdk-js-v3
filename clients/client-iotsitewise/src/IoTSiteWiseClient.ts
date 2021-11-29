@@ -51,6 +51,10 @@ import {
 
 import { AssociateAssetsCommandInput, AssociateAssetsCommandOutput } from "./commands/AssociateAssetsCommand";
 import {
+  AssociateTimeSeriesToAssetPropertyCommandInput,
+  AssociateTimeSeriesToAssetPropertyCommandOutput,
+} from "./commands/AssociateTimeSeriesToAssetPropertyCommand";
+import {
   BatchAssociateProjectAssetsCommandInput,
   BatchAssociateProjectAssetsCommandOutput,
 } from "./commands/BatchAssociateProjectAssetsCommand";
@@ -76,6 +80,7 @@ import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./com
 import { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
 import { DeletePortalCommandInput, DeletePortalCommandOutput } from "./commands/DeletePortalCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
+import { DeleteTimeSeriesCommandInput, DeleteTimeSeriesCommandOutput } from "./commands/DeleteTimeSeriesCommand";
 import {
   DescribeAccessPolicyCommandInput,
   DescribeAccessPolicyCommandOutput,
@@ -106,7 +111,12 @@ import {
   DescribeStorageConfigurationCommandInput,
   DescribeStorageConfigurationCommandOutput,
 } from "./commands/DescribeStorageConfigurationCommand";
+import { DescribeTimeSeriesCommandInput, DescribeTimeSeriesCommandOutput } from "./commands/DescribeTimeSeriesCommand";
 import { DisassociateAssetsCommandInput, DisassociateAssetsCommandOutput } from "./commands/DisassociateAssetsCommand";
+import {
+  DisassociateTimeSeriesFromAssetPropertyCommandInput,
+  DisassociateTimeSeriesFromAssetPropertyCommandOutput,
+} from "./commands/DisassociateTimeSeriesFromAssetPropertyCommand";
 import {
   GetAssetPropertyAggregatesCommandInput,
   GetAssetPropertyAggregatesCommandOutput,
@@ -143,6 +153,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListTimeSeriesCommandInput, ListTimeSeriesCommandOutput } from "./commands/ListTimeSeriesCommand";
 import {
   PutDefaultEncryptionConfigurationCommandInput,
   PutDefaultEncryptionConfigurationCommandOutput,
@@ -173,6 +184,7 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | AssociateAssetsCommandInput
+  | AssociateTimeSeriesToAssetPropertyCommandInput
   | BatchAssociateProjectAssetsCommandInput
   | BatchDisassociateProjectAssetsCommandInput
   | BatchPutAssetPropertyValueCommandInput
@@ -190,6 +202,7 @@ export type ServiceInputTypes =
   | DeleteGatewayCommandInput
   | DeletePortalCommandInput
   | DeleteProjectCommandInput
+  | DeleteTimeSeriesCommandInput
   | DescribeAccessPolicyCommandInput
   | DescribeAssetCommandInput
   | DescribeAssetModelCommandInput
@@ -202,7 +215,9 @@ export type ServiceInputTypes =
   | DescribePortalCommandInput
   | DescribeProjectCommandInput
   | DescribeStorageConfigurationCommandInput
+  | DescribeTimeSeriesCommandInput
   | DisassociateAssetsCommandInput
+  | DisassociateTimeSeriesFromAssetPropertyCommandInput
   | GetAssetPropertyAggregatesCommandInput
   | GetAssetPropertyValueCommandInput
   | GetAssetPropertyValueHistoryCommandInput
@@ -218,6 +233,7 @@ export type ServiceInputTypes =
   | ListProjectAssetsCommandInput
   | ListProjectsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTimeSeriesCommandInput
   | PutDefaultEncryptionConfigurationCommandInput
   | PutLoggingOptionsCommandInput
   | PutStorageConfigurationCommandInput
@@ -235,6 +251,7 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AssociateAssetsCommandOutput
+  | AssociateTimeSeriesToAssetPropertyCommandOutput
   | BatchAssociateProjectAssetsCommandOutput
   | BatchDisassociateProjectAssetsCommandOutput
   | BatchPutAssetPropertyValueCommandOutput
@@ -252,6 +269,7 @@ export type ServiceOutputTypes =
   | DeleteGatewayCommandOutput
   | DeletePortalCommandOutput
   | DeleteProjectCommandOutput
+  | DeleteTimeSeriesCommandOutput
   | DescribeAccessPolicyCommandOutput
   | DescribeAssetCommandOutput
   | DescribeAssetModelCommandOutput
@@ -264,7 +282,9 @@ export type ServiceOutputTypes =
   | DescribePortalCommandOutput
   | DescribeProjectCommandOutput
   | DescribeStorageConfigurationCommandOutput
+  | DescribeTimeSeriesCommandOutput
   | DisassociateAssetsCommandOutput
+  | DisassociateTimeSeriesFromAssetPropertyCommandOutput
   | GetAssetPropertyAggregatesCommandOutput
   | GetAssetPropertyValueCommandOutput
   | GetAssetPropertyValueHistoryCommandOutput
@@ -280,6 +300,7 @@ export type ServiceOutputTypes =
   | ListProjectAssetsCommandOutput
   | ListProjectsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTimeSeriesCommandOutput
   | PutDefaultEncryptionConfigurationCommandOutput
   | PutLoggingOptionsCommandOutput
   | PutStorageConfigurationCommandOutput

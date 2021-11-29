@@ -71,6 +71,8 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
       input.filterValues !== null && { filterValues: serializeAws_restJson1FilterValues(input.filterValues, context) }),
     ...(input.itemId !== undefined && input.itemId !== null && { itemId: input.itemId }),
     ...(input.numResults !== undefined && input.numResults !== null && { numResults: input.numResults }),
+    ...(input.recommenderArn !== undefined &&
+      input.recommenderArn !== null && { recommenderArn: input.recommenderArn }),
     ...(input.userId !== undefined && input.userId !== null && { userId: input.userId }),
   });
   return new __HttpRequest({

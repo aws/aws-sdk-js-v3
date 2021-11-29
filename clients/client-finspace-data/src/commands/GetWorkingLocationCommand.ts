@@ -22,8 +22,8 @@ export interface GetWorkingLocationCommandInput extends GetWorkingLocationReques
 export interface GetWorkingLocationCommandOutput extends GetWorkingLocationResponse, __MetadataBearer {}
 
 /**
- * <p>A temporary Amazon S3 location to copy your files from a source location to stage or use
- *       as a scratch space in Habanero notebook.</p>
+ * <p>A temporary Amazon S3 location, where you can copy your files from a source location to stage or use
+ *       as a scratch space in FinSpace notebook.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

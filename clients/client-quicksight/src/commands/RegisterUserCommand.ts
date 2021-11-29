@@ -22,8 +22,7 @@ export interface RegisterUserCommandInput extends RegisterUserRequest {}
 export interface RegisterUserCommandOutput extends RegisterUserResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon QuickSight user, whose identity is associated with the AWS Identity
- * 			and Access Management (IAM) identity or role specified in the request. </p>
+ * <p>Creates an Amazon QuickSight user, whose identity is associated with the Identity and Access Management (IAM) identity or role specified in the request. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

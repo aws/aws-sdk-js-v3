@@ -4,6 +4,7 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseFloat32 as __limitedParseFloat32,
   parseRfc3339DateTime as __parseRfc3339DateTime,
@@ -101,6 +102,7 @@ import {
 } from "../commands/ValidateConfigurationCommand";
 import {
   Application,
+  BadRequestDetails,
   BadRequestException,
   ConfigurationProfileSummary,
   ConflictException,
@@ -110,6 +112,7 @@ import {
   Environment,
   HostedConfigurationVersionSummary,
   InternalServerException,
+  InvalidConfigurationDetail,
   Monitor,
   PayloadTooLargeException,
   ResourceNotFoundException,
@@ -172,6 +175,7 @@ export const serializeAws_restJson1CreateConfigurationProfileCommand = async (
     ...(input.RetrievalRoleArn !== undefined &&
       input.RetrievalRoleArn !== null && { RetrievalRoleArn: input.RetrievalRoleArn }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
     ...(input.Validators !== undefined &&
       input.Validators !== null && { Validators: serializeAws_restJson1ValidatorList(input.Validators, context) }),
   });
@@ -826,6 +830,7 @@ export const serializeAws_restJson1ListConfigurationProfilesCommand = async (
   const query: any = {
     ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { next_token: input.NextToken }),
+    ...(input.Type !== undefined && { type: input.Type }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1481,6 +1486,7 @@ export const deserializeAws_restJson1CreateConfigurationProfileCommand = async (
     LocationUri: undefined,
     Name: undefined,
     RetrievalRoleArn: undefined,
+    Type: undefined,
     Validators: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
@@ -1501,6 +1507,9 @@ export const deserializeAws_restJson1CreateConfigurationProfileCommand = async (
   }
   if (data.RetrievalRoleArn !== undefined && data.RetrievalRoleArn !== null) {
     contents.RetrievalRoleArn = __expectString(data.RetrievalRoleArn);
+  }
+  if (data.Type !== undefined && data.Type !== null) {
+    contents.Type = __expectString(data.Type);
   }
   if (data.Validators !== undefined && data.Validators !== null) {
     contents.Validators = deserializeAws_restJson1ValidatorList(data.Validators, context);
@@ -2378,6 +2387,7 @@ export const deserializeAws_restJson1GetConfigurationProfileCommand = async (
     LocationUri: undefined,
     Name: undefined,
     RetrievalRoleArn: undefined,
+    Type: undefined,
     Validators: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
@@ -2398,6 +2408,9 @@ export const deserializeAws_restJson1GetConfigurationProfileCommand = async (
   }
   if (data.RetrievalRoleArn !== undefined && data.RetrievalRoleArn !== null) {
     contents.RetrievalRoleArn = __expectString(data.RetrievalRoleArn);
+  }
+  if (data.Type !== undefined && data.Type !== null) {
+    contents.Type = __expectString(data.Type);
   }
   if (data.Validators !== undefined && data.Validators !== null) {
     contents.Validators = deserializeAws_restJson1ValidatorList(data.Validators, context);
@@ -3895,6 +3908,7 @@ export const deserializeAws_restJson1UpdateConfigurationProfileCommand = async (
     LocationUri: undefined,
     Name: undefined,
     RetrievalRoleArn: undefined,
+    Type: undefined,
     Validators: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
@@ -3915,6 +3929,9 @@ export const deserializeAws_restJson1UpdateConfigurationProfileCommand = async (
   }
   if (data.RetrievalRoleArn !== undefined && data.RetrievalRoleArn !== null) {
     contents.RetrievalRoleArn = __expectString(data.RetrievalRoleArn);
+  }
+  if (data.Type !== undefined && data.Type !== null) {
+    contents.Type = __expectString(data.Type);
   }
   if (data.Validators !== undefined && data.Validators !== null) {
     contents.Validators = deserializeAws_restJson1ValidatorList(data.Validators, context);
@@ -4240,11 +4257,19 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
     name: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
+    Details: undefined,
     Message: undefined,
+    Reason: undefined,
   };
   const data: any = parsedOutput.body;
+  if (data.Details !== undefined && data.Details !== null) {
+    contents.Details = deserializeAws_restJson1BadRequestDetails(__expectUnion(data.Details), context);
+  }
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
+  }
+  if (data.Reason !== undefined && data.Reason !== null) {
+    contents.Reason = __expectString(data.Reason);
   }
   return contents;
 };
@@ -4417,6 +4442,18 @@ const deserializeAws_restJson1ApplicationList = (output: any, context: __SerdeCo
     });
 };
 
+const deserializeAws_restJson1BadRequestDetails = (output: any, context: __SerdeContext): BadRequestDetails => {
+  if (output.InvalidConfiguration !== undefined && output.InvalidConfiguration !== null) {
+    return {
+      InvalidConfiguration: deserializeAws_restJson1InvalidConfigurationDetailList(
+        output.InvalidConfiguration,
+        context
+      ),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
 const deserializeAws_restJson1ConfigurationProfileSummary = (
   output: any,
   context: __SerdeContext
@@ -4426,6 +4463,7 @@ const deserializeAws_restJson1ConfigurationProfileSummary = (
     Id: __expectString(output.Id),
     LocationUri: __expectString(output.LocationUri),
     Name: __expectString(output.Name),
+    Type: __expectString(output.Type),
     ValidatorTypes:
       output.ValidatorTypes !== undefined && output.ValidatorTypes !== null
         ? deserializeAws_restJson1ValidatorTypeList(output.ValidatorTypes, context)
@@ -4576,6 +4614,32 @@ const deserializeAws_restJson1HostedConfigurationVersionSummaryList = (
         return null as any;
       }
       return deserializeAws_restJson1HostedConfigurationVersionSummary(entry, context);
+    });
+};
+
+const deserializeAws_restJson1InvalidConfigurationDetail = (
+  output: any,
+  context: __SerdeContext
+): InvalidConfigurationDetail => {
+  return {
+    Constraint: __expectString(output.Constraint),
+    Location: __expectString(output.Location),
+    Reason: __expectString(output.Reason),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1InvalidConfigurationDetailList = (
+  output: any,
+  context: __SerdeContext
+): InvalidConfigurationDetail[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1InvalidConfigurationDetail(entry, context);
     });
 };
 

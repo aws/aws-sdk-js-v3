@@ -25,7 +25,7 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * <p>
  *         Detaches an Aurora secondary cluster from an Aurora global database cluster. The cluster becomes a
  *         standalone cluster with read-write capability instead of being read-only and receiving data from a
- *         primary cluster in a different region.
+ *         primary cluster in a different Region.
  *       </p>
  *          <note>
  *            <p>This action only applies to Aurora DB clusters.</p>

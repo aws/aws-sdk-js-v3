@@ -29,7 +29,7 @@ export interface CreateAccountCustomizationCommandOutput extends CreateAccountCu
  *                 Guide.</i>
  *          </p>
  *         <p>You can create customizations for your Amazon Web Services account or, if you specify a namespace, for
- *             a Amazon QuickSight namespace instead. Customizations that apply to a namespace always override
+ *             a QuickSight namespace instead. Customizations that apply to a namespace always override
  *             customizations that apply to an Amazon Web Services account. To find out which customizations apply, use
  *             the <code>DescribeAccountCustomization</code> API operation.</p>
  *         <p>Before you use the <code>CreateAccountCustomization</code> API operation to add a theme
@@ -38,12 +38,14 @@ export interface CreateAccountCustomizationCommandOutput extends CreateAccountCu
  *             even if you make it the default theme.
  *             To check if the theme is shared, view the current permissions by using the
  *             <code>
- *                <a>DescribeThemePermissions</a>
- *             </code> API operation.
+ *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeThemePermissions.html">DescribeThemePermissions</a>
+ *             </code>
+ *             API operation.
  *             To share the theme, grant permissions by using the
  *             <code>
- *                <a>UpdateThemePermissions</a>
- *             </code> API operation. </p>
+ *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateThemePermissions.html">UpdateThemePermissions</a>
+ *             </code>
+ *             API operation. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

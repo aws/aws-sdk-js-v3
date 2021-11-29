@@ -10,6 +10,7 @@ import {
   AnalyzeExpenseCommandInput,
   AnalyzeExpenseCommandOutput,
 } from "./commands/AnalyzeExpenseCommand";
+import { AnalyzeIDCommand, AnalyzeIDCommandInput, AnalyzeIDCommandOutput } from "./commands/AnalyzeIDCommand";
 import {
   DetectDocumentTextCommand,
   DetectDocumentTextCommandInput,
@@ -116,7 +117,8 @@ export class Textract extends TextractClient {
   }
 
   /**
-   * <p>Analyzes an input document for financially related relationships between text.</p>
+   * <p>
+   *             <code>AnalyzeExpense</code> synchronously analyzes an input document for financially related relationships between text.</p>
    *          <p>Information is returned as <code>ExpenseDocuments</code> and seperated as follows.</p>
    *          <ul>
    *             <li>
@@ -150,6 +152,34 @@ export class Textract extends TextractClient {
     cb?: (err: any, data?: AnalyzeExpenseCommandOutput) => void
   ): Promise<AnalyzeExpenseCommandOutput> | void {
     const command = new AnalyzeExpenseCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Analyzes identity documents for relevant information. This information is extracted
+   *          and returned as <code>IdentityDocumentFields</code>, which records both the normalized
+   *          field and value of the extracted text.</p>
+   */
+  public analyzeID(args: AnalyzeIDCommandInput, options?: __HttpHandlerOptions): Promise<AnalyzeIDCommandOutput>;
+  public analyzeID(args: AnalyzeIDCommandInput, cb: (err: any, data?: AnalyzeIDCommandOutput) => void): void;
+  public analyzeID(
+    args: AnalyzeIDCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AnalyzeIDCommandOutput) => void
+  ): void;
+  public analyzeID(
+    args: AnalyzeIDCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AnalyzeIDCommandOutput) => void),
+    cb?: (err: any, data?: AnalyzeIDCommandOutput) => void
+  ): Promise<AnalyzeIDCommandOutput> | void {
+    const command = new AnalyzeIDCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

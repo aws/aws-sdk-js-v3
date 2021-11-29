@@ -21,20 +21,19 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
 
 /**
  * <p>Returns a set of temporary security credentials that you can use to access Amazon Web Services
- *             resources that you might not normally have access to. These temporary credentials
- *             consist of an access key ID, a secret access key, and a security token. Typically, you
- *             use <code>AssumeRole</code> within your account or for cross-account access. For a
- *             comparison of <code>AssumeRole</code> with other API operations that produce temporary
- *             credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
- *                 Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing
- *                 the STS API operations</a> in the
- *             <i>IAM User Guide</i>.</p>
+ *          resources that you might not normally have access to. These temporary credentials consist
+ *          of an access key ID, a secret access key, and a security token. Typically, you use
+ *             <code>AssumeRole</code> within your account or for cross-account access. For a
+ *          comparison of <code>AssumeRole</code> with other API operations that produce temporary
+ *          credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
+ *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
+ *             Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.</p>
  *          <p>
  *             <b>Permissions</b>
  *          </p>
  *          <p>The temporary security credentials created by <code>AssumeRole</code> can be used to
  *          make API calls to any Amazon Web Services service with the following exception: You cannot call the
- *          STS <code>GetFederationToken</code> or <code>GetSessionToken</code> API
+ *          Amazon Web Services STS <code>GetFederationToken</code> or <code>GetSessionToken</code> API
  *          operations.</p>
  *          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
  *          this operation. You can pass a single JSON policy document to use as an inline session
@@ -48,28 +47,35 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *          by the identity-based policy of the role that is being assumed. For more information, see
  *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
  *             Policies</a> in the <i>IAM User Guide</i>.</p>
- *          <p>To assume a role from a different account, your account must be trusted by the
+ *          <p>When you create a role, you create two policies: A role trust policy that specifies
+ *          <i>who</i> can assume the role and a permissions policy that specifies
+ *          <i>what</i> can be done with the role. You specify the trusted principal
+ *          who is allowed to assume the role in the role trust policy.</p>
+ *          <p>To assume a role from a different account, your Amazon Web Services account must be trusted by the
  *          role. The trust relationship is defined in the role's trust policy when the role is
  *          created. That trust policy states which accounts are allowed to delegate that access to
  *          users in the account. </p>
  *          <p>A user who wants to access a role in a different account must also have permissions that
  *          are delegated from the user account administrator. The administrator must attach a policy
  *          that allows the user to call <code>AssumeRole</code> for the ARN of the role in the other
- *          account. If the user is in the same account as the role, then you can do either of the
+ *          account.</p>
+ *          <p>To allow a user to assume a role in the same account, you can do either of the
  *          following:</p>
  *          <ul>
  *             <li>
- *                <p>Attach a policy to the user (identical to the previous user in a different
- *                account).</p>
+ *                <p>Attach a policy to the user that allows the user to call
+ *                <code>AssumeRole</code> (as long as the role's trust policy trusts the account).</p>
  *             </li>
  *             <li>
  *                <p>Add the user as a principal directly in the role's trust policy.</p>
  *             </li>
  *          </ul>
- *          <p>In this case, the trust policy acts as an IAM resource-based policy. Users in the same
- *          account as the role do not need explicit permission to assume the role. For more
- *          information about trust policies and resource-based policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM Policies</a> in
- *          the <i>IAM User Guide</i>.</p>
+ *          <p>You can do either because the role’s trust policy acts as an IAM resource-based
+ *          policy. When a resource-based policy grants access to a principal in the same account, no
+ *          additional identity-based policy is required. For more information about trust policies and
+ *          resource-based policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM Policies</a> in the
+ *             <i>IAM User Guide</i>.</p>
+ *
  *          <p>
  *             <b>Tags</b>
  *          </p>

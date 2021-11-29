@@ -22,7 +22,7 @@ export interface GetConfigurationProfileCommandInput extends GetConfigurationPro
 export interface GetConfigurationProfileCommandOutput extends ConfigurationProfile, __MetadataBearer {}
 
 /**
- * <p>Retrieve information about a configuration profile.</p>
+ * <p>Retrieves information about a configuration profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

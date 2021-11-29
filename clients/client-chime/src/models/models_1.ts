@@ -61,6 +61,81 @@ import {
   VoiceConnectorSettings,
 } from "./models_0";
 
+export interface GetRetentionSettingsResponse {
+  /**
+   * <p>The retention settings.</p>
+   */
+  RetentionSettings?: RetentionSettings;
+
+  /**
+   * <p>The timestamp representing the time at which the specified items are permanently deleted, in ISO 8601 format.</p>
+   */
+  InitiateDeletionTimestamp?: Date;
+}
+
+export namespace GetRetentionSettingsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetRetentionSettingsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetRoomRequest {
+  /**
+   * <p>The Amazon Chime account ID.</p>
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The room ID.</p>
+   */
+  RoomId: string | undefined;
+}
+
+export namespace GetRoomRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetRoomRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetRoomResponse {
+  /**
+   * <p>The room details.</p>
+   */
+  Room?: Room;
+}
+
+export namespace GetRoomResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetRoomResponse): any => ({
+    ...obj,
+    ...(obj.Room && { Room: Room.filterSensitiveLog(obj.Room) }),
+  });
+}
+
+export interface GetSipMediaApplicationRequest {
+  /**
+   * <p>The SIP media application ID.</p>
+   */
+  SipMediaApplicationId: string | undefined;
+}
+
+export namespace GetSipMediaApplicationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSipMediaApplicationRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface GetSipMediaApplicationResponse {
   /**
    * <p>The SIP media application details.</p>

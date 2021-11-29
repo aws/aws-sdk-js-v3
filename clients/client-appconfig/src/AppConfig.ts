@@ -164,29 +164,25 @@ import {
 } from "./commands/ValidateConfigurationCommand";
 
 /**
- * <fullname>AWS AppConfig</fullname>
- *          <p>Use AWS AppConfig, a capability of AWS Systems Manager, to create, manage, and quickly deploy
- *          application configurations. AppConfig supports controlled deployments to applications of any
- *          size and includes built-in validation checks and monitoring. You can use AppConfig with
- *          applications hosted on Amazon EC2 instances, AWS Lambda, containers, mobile applications, or IoT
+ * <p>Use AppConfig, a capability of Amazon Web Services Systems Manager, to create, manage, and quickly deploy
+ *          application configurations. AppConfig supports controlled deployments to applications of
+ *          any size and includes built-in validation checks and monitoring. You can use AppConfig with
+ *          applications hosted on Amazon EC2 instances, Lambda, containers, mobile applications, or IoT
  *          devices.</p>
- *
  *          <p>To prevent errors when deploying application configurations, especially for production
- *          systems where a simple typo could cause an unexpected outage, AppConfig includes validators.
- *          A validator provides a syntactic or semantic check to ensure that the configuration you
- *          want to deploy works as intended. To validate your application configuration data, you
- *          provide a schema or a Lambda function that runs against the configuration. The
- *          configuration deployment or update can only proceed when the configuration data is
- *          valid.</p>
- *
+ *          systems where a simple typo could cause an unexpected outage, AppConfig includes
+ *          validators. A validator provides a syntactic or semantic check to ensure that the
+ *          configuration you want to deploy works as intended. To validate your application
+ *          configuration data, you provide a schema or a Lambda function that runs against the
+ *          configuration. The configuration deployment or update can only proceed when the
+ *          configuration data is valid.</p>
  *          <p>During a configuration deployment, AppConfig monitors the application to ensure that the
- *          deployment is successful. If the system encounters an error, AppConfig rolls back the change
- *          to minimize impact for your application users. You can configure a deployment strategy for
- *          each application or environment that includes deployment criteria, including velocity, bake
- *          time, and alarms to monitor. Similar to error monitoring, if a deployment triggers an
- *          alarm, AppConfig automatically rolls back to the previous version. </p>
- *
- *          <p>AppConfig supports multiple use cases. Here are some examples.</p>
+ *          deployment is successful. If the system encounters an error, AppConfig rolls back the
+ *          change to minimize impact for your application users. You can configure a deployment
+ *          strategy for each application or environment that includes deployment criteria, including
+ *          velocity, bake time, and alarms to monitor. Similar to error monitoring, if a deployment
+ *          triggers an alarm, AppConfig automatically rolls back to the previous version. </p>
+ *          <p>AppConfig supports multiple use cases. Here are some examples:</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -207,19 +203,20 @@ import {
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Operational issues</b>: Use AppConfig to reduce stress
- *                on your application when a dependency or other external factor impacts the
+ *                   <b>Operational issues</b>: Use AppConfig to reduce
+ *                stress on your application when a dependency or other external factor impacts the
  *                system.</p>
  *             </li>
  *          </ul>
- *          <p>This reference is intended to be used with the <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html">AWS AppConfig User Guide</a>.</p>
+ *          <p>This reference is intended to be used with the <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html">AppConfig User Guide</a>.</p>
  */
 export class AppConfig extends AppConfigClient {
   /**
-   * <p>An application in AppConfig is a logical unit of code that provides capabilities for your
-   *          customers. For example, an application can be a microservice that runs on Amazon EC2 instances,
-   *          a mobile application installed by your users, a serverless application using Amazon API
-   *          Gateway and AWS Lambda, or any system you run on behalf of others.</p>
+   * <p>Creates an application. An application in AppConfig is a logical unit of code that
+   *          provides capabilities for your customers. For example, an application can be a microservice
+   *          that runs on Amazon EC2 instances, a mobile application installed by your users, a serverless
+   *          application using Amazon API Gateway and Lambda, or any system you run on behalf of
+   *          others.</p>
    */
   public createApplication(
     args: CreateApplicationCommandInput,
@@ -251,24 +248,28 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Information that enables AppConfig to access the configuration source. Valid
-   *          configuration sources include Systems Manager (SSM) documents, SSM Parameter Store parameters, and
-   *          Amazon S3 objects. A configuration profile includes the following information.</p>
+   * <p>Creates a configuration profile, which is information that enables AppConfig to access
+   *          the configuration source. Valid configuration sources include the AppConfig hosted
+   *          configuration store, Amazon Web Services Systems Manager (SSM) documents, SSM Parameter Store parameters, Amazon S3
+   *          objects, or any <a href="http://docs.aws.amazon.com/codepipeline/latest/userguide/integrations-action-type.html#integrations-source">integration source
+   *             action</a> supported by CodePipeline. A configuration profile includes the following
+   *          information:</p>
+   *
    *          <ul>
    *             <li>
-   *                <p>The Uri location of the configuration data.</p>
+   *                <p>The URI location of the configuration data.</p>
    *             </li>
    *             <li>
-   *                <p>The AWS Identity and Access Management (IAM) role that provides access to the configuration data.</p>
+   *                <p>The Identity and Access Management (IAM) role that provides access to the configuration data.</p>
    *             </li>
    *             <li>
    *                <p>A validator for the configuration data. Available validators include either a JSON
-   *                Schema or an AWS Lambda function.</p>
+   *                Schema or an Lambda function.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig-creating-configuration-and-profile.html">Create a
-   *             Configuration and a Configuration Profile</a> in the
-   *             <i>AWS AppConfig User Guide</i>.</p>
+   *          <p>For more information, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html">Create a
+   *             Configuration and a Configuration Profile</a> in the <i>AppConfig User
+   *             Guide</i>.</p>
    */
   public createConfigurationProfile(
     args: CreateConfigurationProfileCommandInput,
@@ -300,10 +301,10 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>A deployment strategy defines important criteria for rolling out your configuration to
-   *          the designated targets. A deployment strategy includes: the overall duration required, a
-   *          percentage of targets to receive the deployment during each interval, an algorithm that
-   *          defines how percentage grows, and bake time.</p>
+   * <p>Creates a deployment strategy that defines important criteria for rolling out your
+   *          configuration to the designated targets. A deployment strategy includes the overall
+   *          duration required, a percentage of targets to receive the deployment during each interval,
+   *          an algorithm that defines how percentage grows, and bake time.</p>
    */
   public createDeploymentStrategy(
     args: CreateDeploymentStrategyCommandInput,
@@ -335,13 +336,14 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>For each application, you define one or more environments. An environment is a logical
-   *          deployment group of AppConfig targets, such as applications in a <code>Beta</code> or
-   *             <code>Production</code> environment. You can also define environments for application
-   *          subcomponents such as the <code>Web</code>, <code>Mobile</code> and <code>Back-end</code>
-   *          components for your application. You can configure Amazon CloudWatch alarms for each environment.
-   *          The system monitors alarms during a configuration deployment. If an alarm is triggered, the
-   *          system rolls back the configuration.</p>
+   * <p>Creates an environment. For each application, you define one or more environments. An
+   *          environment is a logical deployment group of AppConfig targets, such as applications in a
+   *             <code>Beta</code> or <code>Production</code> environment. You can also define
+   *          environments for application subcomponents such as the <code>Web</code>,
+   *             <code>Mobile</code> and <code>Back-end</code> components for your application. You can
+   *          configure Amazon CloudWatch alarms for each environment. The system monitors alarms during a
+   *          configuration deployment. If an alarm is triggered, the system rolls back the
+   *          configuration.</p>
    */
   public createEnvironment(
     args: CreateEnvironmentCommandInput,
@@ -373,7 +375,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Create a new configuration in the AppConfig configuration store.</p>
+   * <p>Creates a new configuration in the AppConfig hosted configuration store.</p>
    */
   public createHostedConfigurationVersion(
     args: CreateHostedConfigurationVersionCommandInput,
@@ -405,7 +407,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Delete an application. Deleting an application does not delete a configuration from a
+   * <p>Deletes an application. Deleting an application does not delete a configuration from a
    *          host.</p>
    */
   public deleteApplication(
@@ -438,7 +440,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Delete a configuration profile. Deleting a configuration profile does not delete a
+   * <p>Deletes a configuration profile. Deleting a configuration profile does not delete a
    *          configuration from a host.</p>
    */
   public deleteConfigurationProfile(
@@ -471,7 +473,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Delete a deployment strategy. Deleting a deployment strategy does not delete a
+   * <p>Deletes a deployment strategy. Deleting a deployment strategy does not delete a
    *          configuration from a host.</p>
    */
   public deleteDeploymentStrategy(
@@ -504,7 +506,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Delete an environment. Deleting an environment does not delete a configuration from a
+   * <p>Deletes an environment. Deleting an environment does not delete a configuration from a
    *          host.</p>
    */
   public deleteEnvironment(
@@ -537,7 +539,8 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Delete a version of a configuration from the AppConfig configuration store.</p>
+   * <p>Deletes a version of a configuration from the AppConfig hosted configuration
+   *          store.</p>
    */
   public deleteHostedConfigurationVersion(
     args: DeleteHostedConfigurationVersionCommandInput,
@@ -569,7 +572,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Retrieve information about an application.</p>
+   * <p>Retrieves information about an application.</p>
    */
   public getApplication(
     args: GetApplicationCommandInput,
@@ -601,10 +604,10 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Receive information about a configuration.</p>
+   * <p>Retrieves information about a configuration.</p>
    *          <important>
-   *             <p>AWS AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter
-   *             to identify the configuration version on your clients. If you don’t send
+   *             <p>AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter to
+   *             identify the configuration version on your clients. If you don’t send
    *                <code>ClientConfigurationVersion</code> with each call to
    *                <code>GetConfiguration</code>, your clients receive the current configuration. You
    *             are charged each time your clients receive a configuration.</p>
@@ -645,7 +648,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Retrieve information about a configuration profile.</p>
+   * <p>Retrieves information about a configuration profile.</p>
    */
   public getConfigurationProfile(
     args: GetConfigurationProfileCommandInput,
@@ -677,7 +680,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Retrieve information about a configuration deployment.</p>
+   * <p>Retrieves information about a configuration deployment.</p>
    */
   public getDeployment(
     args: GetDeploymentCommandInput,
@@ -709,9 +712,9 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Retrieve information about a deployment strategy. A deployment strategy defines
+   * <p>Retrieves information about a deployment strategy. A deployment strategy defines
    *          important criteria for rolling out your configuration to the designated targets. A
-   *          deployment strategy includes: the overall duration required, a percentage of targets to
+   *          deployment strategy includes the overall duration required, a percentage of targets to
    *          receive the deployment during each interval, an algorithm that defines how percentage
    *          grows, and bake time.</p>
    */
@@ -745,7 +748,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Retrieve information about an environment. An environment is a logical deployment group
+   * <p>Retrieves information about an environment. An environment is a logical deployment group
    *          of AppConfig applications, such as applications in a <code>Production</code> environment or
    *          in an <code>EU_Region</code> environment. Each configuration deployment targets an
    *          environment. You can enable one or more Amazon CloudWatch alarms for an environment. If an alarm is
@@ -781,7 +784,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Get information about a specific configuration version.</p>
+   * <p>Retrieves information about a specific configuration version.</p>
    */
   public getHostedConfigurationVersion(
     args: GetHostedConfigurationVersionCommandInput,
@@ -813,7 +816,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>List all applications in your AWS account.</p>
+   * <p>Lists all applications in your Amazon Web Services account.</p>
    */
   public listApplications(
     args: ListApplicationsCommandInput,
@@ -909,7 +912,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>List deployment strategies.</p>
+   * <p>Lists deployment strategies.</p>
    */
   public listDeploymentStrategies(
     args: ListDeploymentStrategiesCommandInput,
@@ -941,7 +944,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>List the environments for an application.</p>
+   * <p>Lists the environments for an application.</p>
    */
   public listEnvironments(
     args: ListEnvironmentsCommandInput,
@@ -973,7 +976,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>View a list of configurations stored in the AppConfig configuration store by
+   * <p>Lists configurations stored in the AppConfig hosted configuration store by
    *          version.</p>
    */
   public listHostedConfigurationVersions(
@@ -1104,9 +1107,11 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Metadata to assign to an AppConfig resource. Tags help organize and categorize your
-   *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
-   *          define. You can specify a maximum of 50 tags for a resource.</p>
+   * <p>Assigns
+   *          metadata
+   *          to an AppConfig resource. Tags help organize and categorize your AppConfig resources. Each
+   *          tag consists of a key and an optional value, both of which you define. You can specify a
+   *          maximum of 50 tags for a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;

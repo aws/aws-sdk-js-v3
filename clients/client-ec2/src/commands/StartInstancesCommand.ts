@@ -37,8 +37,8 @@ export interface StartInstancesCommandOutput extends StartInstancesResult, __Met
  *             supported on Dedicated Hosts. Before you start the instance, either change its CPU credit
  *             option to <code>standard</code>, or change its tenancy to <code>default</code> or <code>dedicated</code>.</p>
  *
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stopping instances</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stop and start your instance</a>
+ *             in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

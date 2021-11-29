@@ -39,6 +39,7 @@ import {
 } from "../commands/StopMeetingTranscriptionCommand";
 import {
   Attendee,
+  AudioFeatures,
   BadRequestException,
   CreateAttendeeError,
   CreateAttendeeRequestItem,
@@ -48,6 +49,7 @@ import {
   LimitExceededException,
   MediaPlacement,
   Meeting,
+  MeetingFeaturesConfiguration,
   NotFoundException,
   NotificationsConfiguration,
   ServiceUnavailableException,
@@ -147,6 +149,10 @@ export const serializeAws_restJson1CreateMeetingCommand = async (
     ...(input.ExternalMeetingId !== undefined &&
       input.ExternalMeetingId !== null && { ExternalMeetingId: input.ExternalMeetingId }),
     ...(input.MediaRegion !== undefined && input.MediaRegion !== null && { MediaRegion: input.MediaRegion }),
+    ...(input.MeetingFeatures !== undefined &&
+      input.MeetingFeatures !== null && {
+        MeetingFeatures: serializeAws_restJson1MeetingFeaturesConfiguration(input.MeetingFeatures, context),
+      }),
     ...(input.MeetingHostId !== undefined && input.MeetingHostId !== null && { MeetingHostId: input.MeetingHostId }),
     ...(input.NotificationsConfiguration !== undefined &&
       input.NotificationsConfiguration !== null && {
@@ -189,6 +195,10 @@ export const serializeAws_restJson1CreateMeetingWithAttendeesCommand = async (
     ...(input.ExternalMeetingId !== undefined &&
       input.ExternalMeetingId !== null && { ExternalMeetingId: input.ExternalMeetingId }),
     ...(input.MediaRegion !== undefined && input.MediaRegion !== null && { MediaRegion: input.MediaRegion }),
+    ...(input.MeetingFeatures !== undefined &&
+      input.MeetingFeatures !== null && {
+        MeetingFeatures: serializeAws_restJson1MeetingFeaturesConfiguration(input.MeetingFeatures, context),
+      }),
     ...(input.MeetingHostId !== undefined && input.MeetingHostId !== null && { MeetingHostId: input.MeetingHostId }),
     ...(input.NotificationsConfiguration !== undefined &&
       input.NotificationsConfiguration !== null && {
@@ -1527,6 +1537,12 @@ const deserializeAws_restJson1UnprocessableEntityExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1AudioFeatures = (input: AudioFeatures, context: __SerdeContext): any => {
+  return {
+    ...(input.EchoReduction !== undefined && input.EchoReduction !== null && { EchoReduction: input.EchoReduction }),
+  };
+};
+
 const serializeAws_restJson1CreateAttendeeRequestItem = (
   input: CreateAttendeeRequestItem,
   context: __SerdeContext
@@ -1570,6 +1586,8 @@ const serializeAws_restJson1EngineTranscribeMedicalSettings = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.ContentIdentificationType !== undefined &&
+      input.ContentIdentificationType !== null && { ContentIdentificationType: input.ContentIdentificationType }),
     ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
     ...(input.Region !== undefined && input.Region !== null && { Region: input.Region }),
     ...(input.Specialty !== undefined && input.Specialty !== null && { Specialty: input.Specialty }),
@@ -1584,7 +1602,21 @@ const serializeAws_restJson1EngineTranscribeSettings = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.ContentIdentificationType !== undefined &&
+      input.ContentIdentificationType !== null && { ContentIdentificationType: input.ContentIdentificationType }),
+    ...(input.ContentRedactionType !== undefined &&
+      input.ContentRedactionType !== null && { ContentRedactionType: input.ContentRedactionType }),
+    ...(input.EnablePartialResultsStabilization !== undefined &&
+      input.EnablePartialResultsStabilization !== null && {
+        EnablePartialResultsStabilization: input.EnablePartialResultsStabilization,
+      }),
     ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.LanguageModelName !== undefined &&
+      input.LanguageModelName !== null && { LanguageModelName: input.LanguageModelName }),
+    ...(input.PartialResultsStability !== undefined &&
+      input.PartialResultsStability !== null && { PartialResultsStability: input.PartialResultsStability }),
+    ...(input.PiiEntityTypes !== undefined &&
+      input.PiiEntityTypes !== null && { PiiEntityTypes: input.PiiEntityTypes }),
     ...(input.Region !== undefined && input.Region !== null && { Region: input.Region }),
     ...(input.VocabularyFilterMethod !== undefined &&
       input.VocabularyFilterMethod !== null && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
@@ -1592,6 +1624,16 @@ const serializeAws_restJson1EngineTranscribeSettings = (
       input.VocabularyFilterName !== null && { VocabularyFilterName: input.VocabularyFilterName }),
     ...(input.VocabularyName !== undefined &&
       input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
+  };
+};
+
+const serializeAws_restJson1MeetingFeaturesConfiguration = (
+  input: MeetingFeaturesConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Audio !== undefined &&
+      input.Audio !== null && { Audio: serializeAws_restJson1AudioFeatures(input.Audio, context) }),
   };
 };
 
@@ -1648,6 +1690,12 @@ const deserializeAws_restJson1AttendeeList = (output: any, context: __SerdeConte
     });
 };
 
+const deserializeAws_restJson1AudioFeatures = (output: any, context: __SerdeContext): AudioFeatures => {
+  return {
+    EchoReduction: __expectString(output.EchoReduction),
+  } as any;
+};
+
 const deserializeAws_restJson1BatchCreateAttendeeErrorList = (
   output: any,
   context: __SerdeContext
@@ -1691,8 +1739,24 @@ const deserializeAws_restJson1Meeting = (output: any, context: __SerdeContext): 
         ? deserializeAws_restJson1MediaPlacement(output.MediaPlacement, context)
         : undefined,
     MediaRegion: __expectString(output.MediaRegion),
+    MeetingFeatures:
+      output.MeetingFeatures !== undefined && output.MeetingFeatures !== null
+        ? deserializeAws_restJson1MeetingFeaturesConfiguration(output.MeetingFeatures, context)
+        : undefined,
     MeetingHostId: __expectString(output.MeetingHostId),
     MeetingId: __expectString(output.MeetingId),
+  } as any;
+};
+
+const deserializeAws_restJson1MeetingFeaturesConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MeetingFeaturesConfiguration => {
+  return {
+    Audio:
+      output.Audio !== undefined && output.Audio !== null
+        ? deserializeAws_restJson1AudioFeatures(output.Audio, context)
+        : undefined,
   } as any;
 };
 

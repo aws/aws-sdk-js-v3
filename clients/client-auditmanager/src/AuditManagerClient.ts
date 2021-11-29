@@ -134,11 +134,20 @@ import {
   GetEvidenceFoldersByAssessmentControlCommandOutput,
 } from "./commands/GetEvidenceFoldersByAssessmentControlCommand";
 import {
+  GetInsightsByAssessmentCommandInput,
+  GetInsightsByAssessmentCommandOutput,
+} from "./commands/GetInsightsByAssessmentCommand";
+import { GetInsightsCommandInput, GetInsightsCommandOutput } from "./commands/GetInsightsCommand";
+import {
   GetOrganizationAdminAccountCommandInput,
   GetOrganizationAdminAccountCommandOutput,
 } from "./commands/GetOrganizationAdminAccountCommand";
 import { GetServicesInScopeCommandInput, GetServicesInScopeCommandOutput } from "./commands/GetServicesInScopeCommand";
 import { GetSettingsCommandInput, GetSettingsCommandOutput } from "./commands/GetSettingsCommand";
+import {
+  ListAssessmentControlInsightsByControlDomainCommandInput,
+  ListAssessmentControlInsightsByControlDomainCommandOutput,
+} from "./commands/ListAssessmentControlInsightsByControlDomainCommand";
 import {
   ListAssessmentFrameworksCommandInput,
   ListAssessmentFrameworksCommandOutput,
@@ -152,6 +161,18 @@ import {
   ListAssessmentReportsCommandOutput,
 } from "./commands/ListAssessmentReportsCommand";
 import { ListAssessmentsCommandInput, ListAssessmentsCommandOutput } from "./commands/ListAssessmentsCommand";
+import {
+  ListControlDomainInsightsByAssessmentCommandInput,
+  ListControlDomainInsightsByAssessmentCommandOutput,
+} from "./commands/ListControlDomainInsightsByAssessmentCommand";
+import {
+  ListControlDomainInsightsCommandInput,
+  ListControlDomainInsightsCommandOutput,
+} from "./commands/ListControlDomainInsightsCommand";
+import {
+  ListControlInsightsByControlDomainCommandInput,
+  ListControlInsightsByControlDomainCommandOutput,
+} from "./commands/ListControlInsightsByControlDomainCommand";
 import { ListControlsCommandInput, ListControlsCommandOutput } from "./commands/ListControlsCommand";
 import {
   ListKeywordsForDataSourceCommandInput,
@@ -233,13 +254,19 @@ export type ServiceInputTypes =
   | GetEvidenceFolderCommandInput
   | GetEvidenceFoldersByAssessmentCommandInput
   | GetEvidenceFoldersByAssessmentControlCommandInput
+  | GetInsightsByAssessmentCommandInput
+  | GetInsightsCommandInput
   | GetOrganizationAdminAccountCommandInput
   | GetServicesInScopeCommandInput
   | GetSettingsCommandInput
+  | ListAssessmentControlInsightsByControlDomainCommandInput
   | ListAssessmentFrameworkShareRequestsCommandInput
   | ListAssessmentFrameworksCommandInput
   | ListAssessmentReportsCommandInput
   | ListAssessmentsCommandInput
+  | ListControlDomainInsightsByAssessmentCommandInput
+  | ListControlDomainInsightsCommandInput
+  | ListControlInsightsByControlDomainCommandInput
   | ListControlsCommandInput
   | ListKeywordsForDataSourceCommandInput
   | ListNotificationsCommandInput
@@ -290,13 +317,19 @@ export type ServiceOutputTypes =
   | GetEvidenceFolderCommandOutput
   | GetEvidenceFoldersByAssessmentCommandOutput
   | GetEvidenceFoldersByAssessmentControlCommandOutput
+  | GetInsightsByAssessmentCommandOutput
+  | GetInsightsCommandOutput
   | GetOrganizationAdminAccountCommandOutput
   | GetServicesInScopeCommandOutput
   | GetSettingsCommandOutput
+  | ListAssessmentControlInsightsByControlDomainCommandOutput
   | ListAssessmentFrameworkShareRequestsCommandOutput
   | ListAssessmentFrameworksCommandOutput
   | ListAssessmentReportsCommandOutput
   | ListAssessmentsCommandOutput
+  | ListControlDomainInsightsByAssessmentCommandOutput
+  | ListControlDomainInsightsCommandOutput
+  | ListControlInsightsByControlDomainCommandOutput
   | ListControlsCommandOutput
   | ListKeywordsForDataSourceCommandOutput
   | ListNotificationsCommandOutput

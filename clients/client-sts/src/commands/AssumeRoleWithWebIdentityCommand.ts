@@ -44,7 +44,7 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *             <code>AssumeRoleWithWebIdentity</code> with the other API operations that produce
  *          temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
  *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
- *             STS API operations</a> in the <i>IAM User Guide</i>.</p>
+ *             Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.</p>
  *          <p>The temporary security credentials returned by this API consist of an access key ID, a
  *          secret access key, and a security token. Applications can use these temporary security
  *          credentials to sign calls to Amazon Web Services service API operations.</p>
@@ -102,9 +102,9 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *             request are to the upper size limit.
  *             </p>
  *          </note>
- *          <p>You can pass a session tag with the same key as a tag that is
- *          attached to the role. When you do, the session tag overrides the role tag with the same
- *          key.</p>
+ *
+ *          <p>You can pass a session tag with the same key as a tag that is attached to the role. When
+ *          you do, the session tag overrides the role tag with the same key.</p>
  *          <p>An administrator must grant you the permissions necessary to pass session tags. The
  *          administrator can also create granular permissions to allow you to pass only specific
  *          session tags. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html">Tutorial: Using Tags

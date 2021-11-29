@@ -22,7 +22,7 @@ export interface GetHostedConfigurationVersionCommandInput extends GetHostedConf
 export interface GetHostedConfigurationVersionCommandOutput extends HostedConfigurationVersion, __MetadataBearer {}
 
 /**
- * <p>Get information about a specific configuration version.</p>
+ * <p>Retrieves information about a specific configuration version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

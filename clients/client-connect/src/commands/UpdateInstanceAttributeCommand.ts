@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateInstanceAttributeRequest } from "../models/models_0";
+import { UpdateInstanceAttributeRequest } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateInstanceAttributeCommand,
   serializeAws_restJson1UpdateInstanceAttributeCommand,

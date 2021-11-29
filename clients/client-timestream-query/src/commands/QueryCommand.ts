@@ -21,8 +21,36 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
 
 /**
  * <p>
- *             Query is a synchronous operation that enables you to execute a query. Query will timeout after 60 seconds. You must update the default timeout in the SDK to support a timeout of 60 seconds. The result set will be truncated to 1MB. Service quotas apply. For more information, see Quotas in the Timestream Developer Guide.
- *         </p>
+ *             <code>Query</code> is a synchronous operation that enables you to run a query against
+ *             your Amazon Timestream data. <code>Query</code> will time out after 60 seconds.
+ *             You must update the default timeout in the SDK to support a timeout of 60 seconds. See
+ *             the <a href="https://docs.aws.amazon.com/Timestream/latest/developerguide/code-samples.run-query.html">code
+ *                 sample</a> for details. </p>
+ *         <p>Your query request will fail in the following cases:</p>
+ *         <ul>
+ *             <li>
+ *                 <p> If you submit a <code>Query</code> request with the same client token outside
+ *                     of the 5-minute idempotency window. </p>
+ *             </li>
+ *             <li>
+ *                 <p> If you submit a <code>Query</code> request with the same client token, but
+ *                     change other parameters, within the 5-minute idempotency window. </p>
+ *             </li>
+ *             <li>
+ *                 <p> If the size of the row (including the query metadata) exceeds 1 MB, then the
+ *                     query will fail with the following error message: </p>
+ *                 <p>
+ *                   <code>Query aborted as max page response size has been exceeded by the output
+ *                         result row</code>
+ *                 </p>
+ *             </li>
+ *             <li>
+ *                 <p> If the IAM principal of the query initiator and the result reader are not the
+ *                     same and/or the query initiator and the result reader do not have the same query
+ *                     string in the query requests, the query will fail with an <code>Invalid
+ *                         pagination token</code> error. </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

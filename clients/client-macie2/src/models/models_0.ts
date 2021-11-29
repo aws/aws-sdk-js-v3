@@ -6,7 +6,7 @@ export enum AdminStatus {
 }
 
 /**
- * <p>Provides information about the delegated Amazon Macie administrator account for an Amazon Web Services organization.</p>
+ * <p>Provides information about the delegated Amazon Macie administrator account for an organization in Organizations.</p>
  */
 export interface AdminAccount {
   /**
@@ -15,7 +15,7 @@ export interface AdminAccount {
   accountId?: string;
 
   /**
-   * <p>The current status of the account as the delegated administrator of Amazon Macie for the organization.</p>
+   * <p>The current status of the account as the delegated Amazon Macie administrator account for the organization.</p>
    */
   status?: AdminStatus | string;
 }
@@ -2197,7 +2197,7 @@ export enum RelationshipStatus {
 }
 
 /**
- * <p>Provides information about an Amazon Macie membership invitation that was received by an account.</p>
+ * <p>Provides information about an Amazon Macie membership invitation.</p>
  */
 export interface Invitation {
   /**
@@ -2206,7 +2206,7 @@ export interface Invitation {
   accountId?: string;
 
   /**
-   * <p>The unique identifier for the invitation. Amazon Macie uses this identifier to validate the inviter account with the invitee account.</p>
+   * <p>The unique identifier for the invitation.</p>
    */
   invitationId?: string;
 
@@ -2216,7 +2216,7 @@ export interface Invitation {
   invitedAt?: Date;
 
   /**
-   * <p>The status of the relationship between the account that sent the invitation (<i>inviter account</i>) and the account that received the invitation (<i>invitee account</i>).</p>
+   * <p>The status of the relationship between the account that sent the invitation and the account that received the invitation.</p>
    */
   relationshipStatus?: RelationshipStatus | string;
 }
@@ -2728,7 +2728,7 @@ export interface Member {
   email?: string;
 
   /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.</p>
+   * <p>The date and time, in UTC and extended ISO 8601 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if an invitation hasn't been sent to the account.</p>
    */
   invitedAt?: Date;
 
@@ -3869,7 +3869,7 @@ export interface SeverityLevel {
   occurrencesThreshold: number | undefined;
 
   /**
-   * <p>The severity to assign to a finding if the number of occurrences is greater than or equal to the specified threshold (occurrencesThreshold) and, if applicable, is less than the threshold for the next consecutive severity level for the custom data identifier.</p>
+   * <p>The severity to assign to a finding: if the number of occurrences is greater than or equal to the specified threshold (occurrencesThreshold); and, if applicable, the number of occurrences is less than the threshold for the next consecutive severity level for the custom data identifier, moving from LOW to HIGH.</p>
    */
   severity: DataIdentifierSeverity | string | undefined;
 }
@@ -3890,7 +3890,7 @@ export interface CreateCustomDataIdentifierRequest {
   clientToken?: string;
 
   /**
-   * <p>A custom description of the custom data identifier. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a custom data identifier. Other users of your account might be able to see the identifier's description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
+   * <p>A custom description of the custom data identifier. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a custom data identifier. Other users of your account might be able to see this description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
    */
   description?: string;
 
@@ -3910,7 +3910,7 @@ export interface CreateCustomDataIdentifierRequest {
   maximumMatchDistance?: number;
 
   /**
-   * <p>A custom name for the custom data identifier. The name can contain as many as 128 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a custom data identifier. Other users of your account might be able to see the identifier's name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
+   * <p>A custom name for the custom data identifier. The name can contain as many as 128 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a custom data identifier. Other users of your account might be able to see this name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
    */
   name?: string;
 
@@ -4035,7 +4035,7 @@ export interface CreateFindingsFilterRequest {
   clientToken?: string;
 
   /**
-   * <p>A custom description of the filter. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users of your account might be able to see the filter's description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
+   * <p>A custom description of the filter. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users of your account might be able to see this description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
    */
   description?: string;
 
@@ -4045,7 +4045,7 @@ export interface CreateFindingsFilterRequest {
   findingCriteria: FindingCriteria | undefined;
 
   /**
-   * <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users of your account might be able to see the filter's name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
+   * <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users of your account might be able to see this name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
    */
   name: string | undefined;
 
@@ -4097,12 +4097,12 @@ export interface CreateInvitationsRequest {
   accountIds: string[] | undefined;
 
   /**
-   * <p>Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in Personal Health Dashboard. To send an email notification to the root user of each account, set this value to true.</p>
+   * <p>Specifies whether to send the invitation as an email message. If this value is false, Amazon Macie sends the invitation (as an email message) to the email address that you specified for the recipient's account when you associated the account with your account. The default value is false.</p>
    */
   disableEmailNotification?: boolean;
 
   /**
-   * <p>A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.</p>
+   * <p>Custom text to include in the email message that contains the invitation. The text can contain as many as 80 alphanumeric characters.</p>
    */
   message?: string;
 }
@@ -4557,12 +4557,12 @@ export namespace DescribeOrganizationConfigurationRequest {
 
 export interface DescribeOrganizationConfigurationResponse {
   /**
-   * <p>Specifies whether Amazon Macie is enabled automatically for accounts that are added to the Amazon Web Services organization.</p>
+   * <p>Specifies whether Amazon Macie is enabled automatically for accounts that are added to the organization.</p>
    */
   autoEnable?: boolean;
 
   /**
-   * <p>Specifies whether the maximum number of Amazon Macie member accounts are part of the Amazon Web Services organization.</p>
+   * <p>Specifies whether the maximum number of Amazon Macie member accounts are part of the organization.</p>
    */
   maxAccountLimitReached?: boolean;
 }
@@ -4818,7 +4818,7 @@ export namespace GetAdministratorAccountRequest {
 
 export interface GetAdministratorAccountResponse {
   /**
-   * <p>The Amazon Web Services account ID for the administrator account. If the accounts are associated by a Macie membership invitation, this object also provides details about the invitation that was sent to establish the relationship between the accounts.</p>
+   * <p>The Amazon Web Services account ID for the administrator account. If the accounts are associated by an Amazon Macie membership invitation, this object also provides details about the invitation that was sent to establish the relationship between the accounts.</p>
    */
   administrator?: Invitation;
 }
@@ -5316,22 +5316,22 @@ export interface GetMacieSessionResponse {
   createdAt?: Date;
 
   /**
-   * <p>The frequency with which Macie publishes updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).</p>
+   * <p>The frequency with which Amazon Macie publishes updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).</p>
    */
   findingPublishingFrequency?: FindingPublishingFrequency | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in Amazon Web Services resources for the account.</p>
+   * <p>The Amazon Resource Name (ARN) of the service-linked role that allows Amazon Macie to monitor and analyze data in Amazon Web Services resources for the account.</p>
    */
   serviceRole?: string;
 
   /**
-   * <p>The current status of the Macie account. Possible values are: PAUSED, the account is enabled but all Macie activities are suspended (paused) for the account; and, ENABLED, the account is enabled and all Macie activities are enabled for the account.</p>
+   * <p>The current status of the Amazon Macie account. Possible values are: PAUSED, the account is enabled but all Macie activities are suspended (paused) for the account; and, ENABLED, the account is enabled and all Macie activities are enabled for the account.</p>
    */
   status?: MacieStatus | string;
 
   /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the Macie account.</p>
+   * <p>The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the Amazon Macie account.</p>
    */
   updatedAt?: Date;
 }
@@ -5410,7 +5410,7 @@ export interface GetMemberResponse {
   email?: string;
 
   /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.</p>
+   * <p>The date and time, in UTC and extended ISO 8601 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if an invitation hasn't been sent to the account.</p>
    */
   invitedAt?: Date;
 
@@ -5929,7 +5929,7 @@ export namespace ListMembersRequest {
 
 export interface ListMembersResponse {
   /**
-   * <p>An array of objects, one for each account that's associated with the administrator account and meets the criteria specified by the onlyAssociated request parameter.</p>
+   * <p>An array of objects, one for each account that's associated with the administrator account and meets the criteria specified in the request.</p>
    */
   members?: Member[];
 
@@ -6367,7 +6367,7 @@ export interface UpdateFindingsFilterRequest {
   action?: FindingsFilterAction | string;
 
   /**
-   * <p>A custom description of the filter. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users might be able to see the filter's description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
+   * <p>A custom description of the filter. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users might be able to see this description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
    */
   description?: string;
 
@@ -6382,7 +6382,7 @@ export interface UpdateFindingsFilterRequest {
   id: string | undefined;
 
   /**
-   * <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users might be able to see the filter's name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
+   * <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users might be able to see this name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
    */
   name?: string;
 
@@ -6493,7 +6493,7 @@ export namespace UpdateMemberSessionResponse {
 
 export interface UpdateOrganizationConfigurationRequest {
   /**
-   * <p>Specifies whether to enable Amazon Macie automatically for each account, when the account is added to the Amazon Web Services organization.</p>
+   * <p>Specifies whether to enable Amazon Macie automatically for an account when the account is added to the organization in Organizations.</p>
    */
   autoEnable: boolean | undefined;
 }

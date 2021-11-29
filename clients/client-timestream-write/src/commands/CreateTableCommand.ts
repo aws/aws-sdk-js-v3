@@ -23,13 +23,14 @@ export interface CreateTableCommandInput extends CreateTableRequest {}
 export interface CreateTableCommandOutput extends CreateTableResponse, __MetadataBearer {}
 
 /**
- * <p>The CreateTable operation adds a new table to an existing database in your account. In an AWS account,
+ * <p>The CreateTable operation adds a new table to an existing database in your account. In an Amazon Web Services account,
  *       table names must be at least unique within each Region if they are in the same database.
- *       You may have identical table names in the same Region if the tables are in seperate databases.
+ *       You may have identical table names in the same Region if the tables are in separate databases.
  *          While creating the table, you must specify the table name, database name,
  *          and the retention properties.
- *          Service quotas apply. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Access Management</a>
- *          in the Timestream Developer Guide.
+ *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>.
+ *          See
+ *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-table.html">code sample</a> for details.
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

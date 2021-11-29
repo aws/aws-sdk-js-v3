@@ -29,7 +29,8 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *          the memory store will be capable of holding 24 hours of data, but will
  *          be populated with 24 hours of data 22 hours after this change was made.
  *          Timestream does not retrieve data from the magnetic store to populate the memory store. </p>
- *          <p>Service quotas apply. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Access Management</a> in the Timestream Developer Guide.</p>
+ *          <p>See
+ *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.update-table.html">code sample</a> for details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

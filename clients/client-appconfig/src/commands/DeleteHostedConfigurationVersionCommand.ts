@@ -22,7 +22,8 @@ export interface DeleteHostedConfigurationVersionCommandInput extends DeleteHost
 export interface DeleteHostedConfigurationVersionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete a version of a configuration from the AppConfig configuration store.</p>
+ * <p>Deletes a version of a configuration from the AppConfig hosted configuration
+ *          store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

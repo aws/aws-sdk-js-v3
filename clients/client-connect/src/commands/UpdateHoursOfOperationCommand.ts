@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateHoursOfOperationRequest } from "../models/models_0";
+import { UpdateHoursOfOperationRequest } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateHoursOfOperationCommand,
   serializeAws_restJson1UpdateHoursOfOperationCommand,
@@ -22,7 +22,8 @@ export interface UpdateHoursOfOperationCommandInput extends UpdateHoursOfOperati
 export interface UpdateHoursOfOperationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates the hours of operation.</p>
+ * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ *          <p>Updates the hours of operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

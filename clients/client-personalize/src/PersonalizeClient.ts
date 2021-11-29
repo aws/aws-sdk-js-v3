@@ -53,6 +53,10 @@ import {
   CreateBatchInferenceJobCommandInput,
   CreateBatchInferenceJobCommandOutput,
 } from "./commands/CreateBatchInferenceJobCommand";
+import {
+  CreateBatchSegmentJobCommandInput,
+  CreateBatchSegmentJobCommandOutput,
+} from "./commands/CreateBatchSegmentJobCommand";
 import { CreateCampaignCommandInput, CreateCampaignCommandOutput } from "./commands/CreateCampaignCommand";
 import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
 import {
@@ -66,6 +70,7 @@ import {
 } from "./commands/CreateDatasetImportJobCommand";
 import { CreateEventTrackerCommandInput, CreateEventTrackerCommandOutput } from "./commands/CreateEventTrackerCommand";
 import { CreateFilterCommandInput, CreateFilterCommandOutput } from "./commands/CreateFilterCommand";
+import { CreateRecommenderCommandInput, CreateRecommenderCommandOutput } from "./commands/CreateRecommenderCommand";
 import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "./commands/CreateSchemaCommand";
 import { CreateSolutionCommandInput, CreateSolutionCommandOutput } from "./commands/CreateSolutionCommand";
 import {
@@ -77,6 +82,7 @@ import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./command
 import { DeleteDatasetGroupCommandInput, DeleteDatasetGroupCommandOutput } from "./commands/DeleteDatasetGroupCommand";
 import { DeleteEventTrackerCommandInput, DeleteEventTrackerCommandOutput } from "./commands/DeleteEventTrackerCommand";
 import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "./commands/DeleteFilterCommand";
+import { DeleteRecommenderCommandInput, DeleteRecommenderCommandOutput } from "./commands/DeleteRecommenderCommand";
 import { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "./commands/DeleteSchemaCommand";
 import { DeleteSolutionCommandInput, DeleteSolutionCommandOutput } from "./commands/DeleteSolutionCommand";
 import { DescribeAlgorithmCommandInput, DescribeAlgorithmCommandOutput } from "./commands/DescribeAlgorithmCommand";
@@ -84,6 +90,10 @@ import {
   DescribeBatchInferenceJobCommandInput,
   DescribeBatchInferenceJobCommandOutput,
 } from "./commands/DescribeBatchInferenceJobCommand";
+import {
+  DescribeBatchSegmentJobCommandInput,
+  DescribeBatchSegmentJobCommandOutput,
+} from "./commands/DescribeBatchSegmentJobCommand";
 import { DescribeCampaignCommandInput, DescribeCampaignCommandOutput } from "./commands/DescribeCampaignCommand";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
 import {
@@ -108,6 +118,10 @@ import {
 } from "./commands/DescribeFeatureTransformationCommand";
 import { DescribeFilterCommandInput, DescribeFilterCommandOutput } from "./commands/DescribeFilterCommand";
 import { DescribeRecipeCommandInput, DescribeRecipeCommandOutput } from "./commands/DescribeRecipeCommand";
+import {
+  DescribeRecommenderCommandInput,
+  DescribeRecommenderCommandOutput,
+} from "./commands/DescribeRecommenderCommand";
 import { DescribeSchemaCommandInput, DescribeSchemaCommandOutput } from "./commands/DescribeSchemaCommand";
 import { DescribeSolutionCommandInput, DescribeSolutionCommandOutput } from "./commands/DescribeSolutionCommand";
 import {
@@ -119,6 +133,10 @@ import {
   ListBatchInferenceJobsCommandInput,
   ListBatchInferenceJobsCommandOutput,
 } from "./commands/ListBatchInferenceJobsCommand";
+import {
+  ListBatchSegmentJobsCommandInput,
+  ListBatchSegmentJobsCommandOutput,
+} from "./commands/ListBatchSegmentJobsCommand";
 import { ListCampaignsCommandInput, ListCampaignsCommandOutput } from "./commands/ListCampaignsCommand";
 import {
   ListDatasetExportJobsCommandInput,
@@ -133,6 +151,7 @@ import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/
 import { ListEventTrackersCommandInput, ListEventTrackersCommandOutput } from "./commands/ListEventTrackersCommand";
 import { ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
 import { ListRecipesCommandInput, ListRecipesCommandOutput } from "./commands/ListRecipesCommand";
+import { ListRecommendersCommandInput, ListRecommendersCommandOutput } from "./commands/ListRecommendersCommand";
 import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import { ListSolutionsCommandInput, ListSolutionsCommandOutput } from "./commands/ListSolutionsCommand";
 import {
@@ -144,10 +163,12 @@ import {
   StopSolutionVersionCreationCommandOutput,
 } from "./commands/StopSolutionVersionCreationCommand";
 import { UpdateCampaignCommandInput, UpdateCampaignCommandOutput } from "./commands/UpdateCampaignCommand";
+import { UpdateRecommenderCommandInput, UpdateRecommenderCommandOutput } from "./commands/UpdateRecommenderCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | CreateBatchInferenceJobCommandInput
+  | CreateBatchSegmentJobCommandInput
   | CreateCampaignCommandInput
   | CreateDatasetCommandInput
   | CreateDatasetExportJobCommandInput
@@ -155,6 +176,7 @@ export type ServiceInputTypes =
   | CreateDatasetImportJobCommandInput
   | CreateEventTrackerCommandInput
   | CreateFilterCommandInput
+  | CreateRecommenderCommandInput
   | CreateSchemaCommandInput
   | CreateSolutionCommandInput
   | CreateSolutionVersionCommandInput
@@ -163,10 +185,12 @@ export type ServiceInputTypes =
   | DeleteDatasetGroupCommandInput
   | DeleteEventTrackerCommandInput
   | DeleteFilterCommandInput
+  | DeleteRecommenderCommandInput
   | DeleteSchemaCommandInput
   | DeleteSolutionCommandInput
   | DescribeAlgorithmCommandInput
   | DescribeBatchInferenceJobCommandInput
+  | DescribeBatchSegmentJobCommandInput
   | DescribeCampaignCommandInput
   | DescribeDatasetCommandInput
   | DescribeDatasetExportJobCommandInput
@@ -176,11 +200,13 @@ export type ServiceInputTypes =
   | DescribeFeatureTransformationCommandInput
   | DescribeFilterCommandInput
   | DescribeRecipeCommandInput
+  | DescribeRecommenderCommandInput
   | DescribeSchemaCommandInput
   | DescribeSolutionCommandInput
   | DescribeSolutionVersionCommandInput
   | GetSolutionMetricsCommandInput
   | ListBatchInferenceJobsCommandInput
+  | ListBatchSegmentJobsCommandInput
   | ListCampaignsCommandInput
   | ListDatasetExportJobsCommandInput
   | ListDatasetGroupsCommandInput
@@ -189,14 +215,17 @@ export type ServiceInputTypes =
   | ListEventTrackersCommandInput
   | ListFiltersCommandInput
   | ListRecipesCommandInput
+  | ListRecommendersCommandInput
   | ListSchemasCommandInput
   | ListSolutionVersionsCommandInput
   | ListSolutionsCommandInput
   | StopSolutionVersionCreationCommandInput
-  | UpdateCampaignCommandInput;
+  | UpdateCampaignCommandInput
+  | UpdateRecommenderCommandInput;
 
 export type ServiceOutputTypes =
   | CreateBatchInferenceJobCommandOutput
+  | CreateBatchSegmentJobCommandOutput
   | CreateCampaignCommandOutput
   | CreateDatasetCommandOutput
   | CreateDatasetExportJobCommandOutput
@@ -204,6 +233,7 @@ export type ServiceOutputTypes =
   | CreateDatasetImportJobCommandOutput
   | CreateEventTrackerCommandOutput
   | CreateFilterCommandOutput
+  | CreateRecommenderCommandOutput
   | CreateSchemaCommandOutput
   | CreateSolutionCommandOutput
   | CreateSolutionVersionCommandOutput
@@ -212,10 +242,12 @@ export type ServiceOutputTypes =
   | DeleteDatasetGroupCommandOutput
   | DeleteEventTrackerCommandOutput
   | DeleteFilterCommandOutput
+  | DeleteRecommenderCommandOutput
   | DeleteSchemaCommandOutput
   | DeleteSolutionCommandOutput
   | DescribeAlgorithmCommandOutput
   | DescribeBatchInferenceJobCommandOutput
+  | DescribeBatchSegmentJobCommandOutput
   | DescribeCampaignCommandOutput
   | DescribeDatasetCommandOutput
   | DescribeDatasetExportJobCommandOutput
@@ -225,11 +257,13 @@ export type ServiceOutputTypes =
   | DescribeFeatureTransformationCommandOutput
   | DescribeFilterCommandOutput
   | DescribeRecipeCommandOutput
+  | DescribeRecommenderCommandOutput
   | DescribeSchemaCommandOutput
   | DescribeSolutionCommandOutput
   | DescribeSolutionVersionCommandOutput
   | GetSolutionMetricsCommandOutput
   | ListBatchInferenceJobsCommandOutput
+  | ListBatchSegmentJobsCommandOutput
   | ListCampaignsCommandOutput
   | ListDatasetExportJobsCommandOutput
   | ListDatasetGroupsCommandOutput
@@ -238,11 +272,13 @@ export type ServiceOutputTypes =
   | ListEventTrackersCommandOutput
   | ListFiltersCommandOutput
   | ListRecipesCommandOutput
+  | ListRecommendersCommandOutput
   | ListSchemasCommandOutput
   | ListSolutionVersionsCommandOutput
   | ListSolutionsCommandOutput
   | StopSolutionVersionCreationCommandOutput
-  | UpdateCampaignCommandOutput;
+  | UpdateCampaignCommandOutput
+  | UpdateRecommenderCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

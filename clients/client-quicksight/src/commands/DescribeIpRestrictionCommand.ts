@@ -22,7 +22,7 @@ export interface DescribeIpRestrictionCommandInput extends DescribeIpRestriction
 export interface DescribeIpRestrictionCommandOutput extends DescribeIpRestrictionResponse, __MetadataBearer {}
 
 /**
- * <p>Provides a summary and status of IP Rules.</p>
+ * <p>Provides a summary and status of IP rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

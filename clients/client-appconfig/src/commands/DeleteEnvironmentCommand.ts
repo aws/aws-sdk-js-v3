@@ -22,7 +22,7 @@ export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentRequest 
 export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete an environment. Deleting an environment does not delete a configuration from a
+ * <p>Deletes an environment. Deleting an environment does not delete a configuration from a
  *          host.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

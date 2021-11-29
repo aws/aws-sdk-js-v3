@@ -1,3 +1,4 @@
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
@@ -16,6 +17,32 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
+}
+
+/**
+ * <p>Configuration of statistics that are allowed to be run on columns that
+ *             contain detected entities. When undefined, no statistics will be computed
+ *             on columns that contain detected entities.</p>
+ */
+export interface AllowedStatistics {
+  /**
+   * <p>One or more column statistics to allow for columns that contain detected entities.</p>
+   */
+  Statistics: string[] | undefined;
+}
+
+export namespace AllowedStatistics {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AllowedStatistics): any => ({
+    ...obj,
+  });
+}
+
+export enum AnalyticsMode {
+  DISABLE = "DISABLE",
+  ENABLE = "ENABLE",
 }
 
 export interface BatchDeleteRecipeVersionRequest {
@@ -299,13 +326,19 @@ export interface DatabaseInputDefinition {
   /**
    * <p>The table within the target database.</p>
    */
-  DatabaseTableName: string | undefined;
+  DatabaseTableName?: string;
 
   /**
    * <p>Represents an Amazon S3 location (bucket name and object key) where DataBrew can read
    *             input data, or write output from a job.</p>
    */
   TempDirectory?: S3Location;
+
+  /**
+   * <p>Custom SQL to run against the provided Glue connection. This SQL will be used as
+   *             the input for DataBrew projects and jobs.</p>
+   */
+  QueryString?: string;
 }
 
 export namespace DatabaseInputDefinition {
@@ -355,6 +388,26 @@ export namespace DataCatalogInputDefinition {
 }
 
 /**
+ * <p>Contains additional resource information needed for specific datasets.</p>
+ */
+export interface Metadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the dataset. Currently, DataBrew
+   *             only supports ARNs from Amazon AppFlow.</p>
+   */
+  SourceArn?: string;
+}
+
+export namespace Metadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Metadata): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Represents information on how DataBrew can find data, in either the Glue Data Catalog or
  *             Amazon S3.</p>
  */
@@ -373,6 +426,11 @@ export interface Input {
    * <p>Connection information for dataset input files stored in a database.</p>
    */
   DatabaseInputDefinition?: DatabaseInputDefinition;
+
+  /**
+   * <p>Contains additional resource information needed for specific datasets.</p>
+   */
+  Metadata?: Metadata;
 }
 
 export namespace Input {
@@ -394,8 +452,8 @@ export enum OrderedBy {
 }
 
 /**
- * <p>Represents a limit imposed on number of Amazon S3 files that should be selected for a dataset from a connected
- *             Amazon S3 path.</p>
+ * <p>Represents a limit imposed on number of Amazon S3 files that should be selected for a
+ *             dataset from a connected Amazon S3 path.</p>
  */
 export interface FilesLimit {
   /**
@@ -427,7 +485,7 @@ export namespace FilesLimit {
 
 /**
  * <p>Represents a structure for defining parameter conditions. Supported conditions are described
- *             here: <a href="https://docs-aws.amazon.com/databrew/latest/dg/datasets.multiple-files.html#conditions.for.dynamic.datasets">Supported
+ *             here: <a href="https://docs.aws.amazon.com/databrew/latest/dg/datasets.multiple-files.html#conditions.for.dynamic.datasets">Supported
  *                 conditions for dynamic datasets</a> in the
  *             <i>Glue DataBrew Developer Guide</i>.</p>
  */
@@ -645,8 +703,8 @@ export namespace ServiceQuotaExceededException {
 }
 
 /**
- * <p>Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular
- *             expression.</p>
+ * <p>Selector of a column from a dataset for profile job configuration.
+ *             One selector includes either a column name or a regular expression.</p>
  */
 export interface ColumnSelector {
   /**
@@ -751,6 +809,94 @@ export namespace ColumnStatisticsConfiguration {
 }
 
 /**
+ * <p>Configuration of entity detection for a profile job. When undefined, entity
+ *             detection is disabled.</p>
+ */
+export interface EntityDetectorConfiguration {
+  /**
+   * <p>Entity types to detect. Can be any of the following:</p>
+   *         <ul>
+   *             <li>
+   *                <p>USA_SSN</p>
+   *             </li>
+   *             <li>
+   *                <p>EMAIL</p>
+   *             </li>
+   *             <li>
+   *                <p>USA_ITIN</p>
+   *             </li>
+   *             <li>
+   *                <p>USA_PASSPORT_NUMBER</p>
+   *             </li>
+   *             <li>
+   *                <p>PHONE_NUMBER</p>
+   *             </li>
+   *             <li>
+   *                <p>USA_DRIVING_LICENSE</p>
+   *             </li>
+   *             <li>
+   *                <p>BANK_ACCOUNT</p>
+   *             </li>
+   *             <li>
+   *                <p>CREDIT_CARD</p>
+   *             </li>
+   *             <li>
+   *                <p>IP_ADDRESS</p>
+   *             </li>
+   *             <li>
+   *                <p>MAC_ADDRESS</p>
+   *             </li>
+   *             <li>
+   *                <p>USA_DEA_NUMBER</p>
+   *             </li>
+   *             <li>
+   *                <p>USA_HCPCS_CODE</p>
+   *             </li>
+   *             <li>
+   *                <p>USA_NATIONAL_PROVIDER_IDENTIFIER</p>
+   *             </li>
+   *             <li>
+   *                <p>USA_NATIONAL_DRUG_CODE</p>
+   *             </li>
+   *             <li>
+   *                <p>USA_HEALTH_INSURANCE_CLAIM_NUMBER</p>
+   *             </li>
+   *             <li>
+   *                <p>USA_MEDICARE_BENEFICIARY_IDENTIFIER</p>
+   *             </li>
+   *             <li>
+   *                <p>USA_CPT_CODE</p>
+   *             </li>
+   *             <li>
+   *                <p>PERSON_NAME</p>
+   *             </li>
+   *             <li>
+   *                <p>DATE</p>
+   *             </li>
+   *          </ul>
+   *         <p>The Entity type group USA_ALL is also supported, and includes all of the
+   *             above entity types except PERSON_NAME and DATE.</p>
+   */
+  EntityTypes: string[] | undefined;
+
+  /**
+   * <p>Configuration of statistics that are allowed to be run on columns that
+   *             contain detected entities. When undefined, no statistics will be computed
+   *             on columns that contain detected entities.</p>
+   */
+  AllowedStatistics?: AllowedStatistics[];
+}
+
+export namespace EntityDetectorConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EntityDetectorConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Configuration for profile jobs. Configuration can be used to select columns, do evaluations, and override default
  *             parameters of evaluations. When configuration is undefined, the profile job will apply default settings to all
  *             supported columns.
@@ -780,6 +926,11 @@ export interface ProfileConfiguration {
    *         </p>
    */
   ColumnStatisticsConfigurations?: ColumnStatisticsConfiguration[];
+
+  /**
+   * <p>Configuration of entity detection for a profile job. When undefined, entity detection is disabled.</p>
+   */
+  EntityDetectorConfiguration?: EntityDetectorConfiguration;
 }
 
 export namespace ProfileConfiguration {
@@ -846,6 +997,39 @@ export enum LogSubscription {
   ENABLE = "ENABLE",
 }
 
+export enum ValidationMode {
+  CHECK_ALL = "CHECK_ALL",
+}
+
+/**
+ * <p>Configuration for data quality validation. Used to select the Rulesets and Validation Mode
+ *             to be used in the profile job. When ValidationConfiguration is null, the profile
+ *             job will run without data quality validation.</p>
+ */
+export interface ValidationConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the ruleset to be validated in the profile job.
+   *             The TargetArn of the selected ruleset should be the same as the Amazon Resource Name (ARN) of
+   *             the dataset that is associated with the profile job.</p>
+   */
+  RulesetArn: string | undefined;
+
+  /**
+   * <p>Mode of data quality validation. Default mode is “CHECK_ALL” which verifies all rules
+   *             defined in the selected ruleset.</p>
+   */
+  ValidationMode?: ValidationMode | string;
+}
+
+export namespace ValidationConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ValidationConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateProfileJobRequest {
   /**
    * <p>The name of the dataset that this job is to act upon.</p>
@@ -908,6 +1092,11 @@ export interface CreateProfileJobRequest {
    *             profile job will run with default settings.</p>
    */
   Configuration?: ProfileConfiguration;
+
+  /**
+   * <p>List of validation configurations that are applied to the profile job.</p>
+   */
+  ValidationConfigurations?: ValidationConfiguration[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to
@@ -1209,8 +1398,8 @@ export namespace CreateRecipeResponse {
 }
 
 /**
- * <p>Represents options that specify how and where DataBrew writes the database output generated by recipe
- *             jobs.</p>
+ * <p>Represents options that specify how and where DataBrew writes the database
+ *             output generated by recipe jobs.</p>
  */
 export interface DatabaseTableOutputOptions {
   /**
@@ -1271,8 +1460,8 @@ export namespace DatabaseOutput {
 }
 
 /**
- * <p>Represents options that specify how and where DataBrew writes the Amazon S3 output generated by
- *             recipe jobs.</p>
+ * <p>Represents options that specify how and where DataBrew writes the Amazon S3 output
+ *             generated by recipe jobs.</p>
  */
 export interface S3TableOutputOptions {
   /**
@@ -1297,7 +1486,8 @@ export namespace S3TableOutputOptions {
  */
 export interface DataCatalogOutput {
   /**
-   * <p>The unique identifier of the Amazon Web Services account that holds the Data Catalog that stores the data.</p>
+   * <p>The unique identifier of the Amazon Web Services account that holds the Data Catalog that
+   *             stores the data.</p>
    */
   CatalogId?: string;
 
@@ -1312,8 +1502,8 @@ export interface DataCatalogOutput {
   TableName: string | undefined;
 
   /**
-   * <p>Represents options that specify how and where DataBrew writes the Amazon S3 output generated
-   *             by recipe jobs.</p>
+   * <p>Represents options that specify how and where DataBrew writes the Amazon S3
+   *             output generated by recipe jobs.</p>
    */
   S3Options?: S3TableOutputOptions;
 
@@ -1592,6 +1782,170 @@ export namespace CreateRecipeJobResponse {
   });
 }
 
+export enum ThresholdType {
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL",
+}
+
+export enum ThresholdUnit {
+  COUNT = "COUNT",
+  PERCENTAGE = "PERCENTAGE",
+}
+
+/**
+ * <p>The threshold used with a non-aggregate check expression. The non-aggregate check expression
+ *             will be applied to each row in a specific column. Then the threshold will be used to determine
+ *             whether the validation succeeds.</p>
+ */
+export interface Threshold {
+  /**
+   * <p>The value of a threshold.</p>
+   */
+  Value: number | undefined;
+
+  /**
+   * <p>The type of a threshold. Used for comparison of an actual count of rows that satisfy the
+   *             rule to the threshold value.</p>
+   */
+  Type?: ThresholdType | string;
+
+  /**
+   * <p>Unit of threshold value. Can be either a COUNT or PERCENTAGE of the full sample size
+   *             used for validation.</p>
+   */
+  Unit?: ThresholdUnit | string;
+}
+
+export namespace Threshold {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Threshold): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents a single data quality requirement that should be validated in the
+ *             scope of this dataset.</p>
+ */
+export interface Rule {
+  /**
+   * <p>The name of the rule.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A value that specifies whether the rule is disabled. Once a rule is
+   *             disabled, a profile job will not validate it during a job run. Default
+   *             value is false.</p>
+   */
+  Disabled?: boolean;
+
+  /**
+   * <p>The expression which includes column references, condition names followed by
+   *             variable references, possibly grouped and combined with other conditions. For
+   *             example, <code>(:col1 starts_with :prefix1 or :col1 starts_with :prefix2) and
+   *             (:col1 ends_with :suffix1 or :col1 ends_with :suffix2)</code>. Column and value
+   *             references are substitution variables that should start with the ':' symbol.
+   *             Depending on the context, substitution variables' values can be either an actual
+   *             value or a column name. These values are defined in the SubstitutionMap.
+   *             If a CheckExpression starts with a column reference, then ColumnSelectors in the
+   *             rule should be null. If ColumnSelectors has been defined, then there should be no
+   *             columnn reference in the left side of a condition, for example,
+   *             <code>is_between :val1 and :val2</code>.</p>
+   */
+  CheckExpression: string | undefined;
+
+  /**
+   * <p>The map of substitution variable names to their values used in a check
+   *             expression. Variable names should start with a ':' (colon).  Variable values can either
+   *             be actual values or column names. To differentiate between the two, column names
+   *             should be enclosed in backticks, for example, <code>":col1": "`Column A`".</code>
+   *          </p>
+   */
+  SubstitutionMap?: { [key: string]: string };
+
+  /**
+   * <p>The threshold used with a non-aggregate check expression. Non-aggregate check expressions
+   *             will be applied to each row in a specific column, and the threshold will be used to determine
+   *             whether the validation succeeds.</p>
+   */
+  Threshold?: Threshold;
+
+  /**
+   * <p>List of column selectors. Selectors can be used to select columns using a name or regular
+   *             expression from the dataset. Rule will be applied to selected columns.</p>
+   */
+  ColumnSelectors?: ColumnSelector[];
+}
+
+export namespace Rule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Rule): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateRulesetRequest {
+  /**
+   * <p>The name of the ruleset to be created. Valid characters are alphanumeric
+   *             (A-Z, a-z, 0-9), hyphen (-), period (.), and space.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the ruleset.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a resource (dataset) that the
+   *             ruleset is associated with.</p>
+   */
+  TargetArn: string | undefined;
+
+  /**
+   * <p>A list of rules that are defined with the ruleset. A rule includes
+   *             one or more checks to be validated on a DataBrew dataset.</p>
+   */
+  Rules: Rule[] | undefined;
+
+  /**
+   * <p>Metadata tags to apply to the ruleset.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace CreateRulesetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateRulesetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateRulesetResponse {
+  /**
+   * <p>The unique name of the created ruleset.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace CreateRulesetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateRulesetResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateScheduleRequest {
   /**
    * <p>The name or names of one or more jobs to be run.</p>
@@ -1783,6 +2137,38 @@ export namespace DeleteRecipeVersionResponse {
   });
 }
 
+export interface DeleteRulesetRequest {
+  /**
+   * <p>The name of the ruleset to be deleted.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteRulesetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteRulesetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteRulesetResponse {
+  /**
+   * <p>The name of the deleted ruleset.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteRulesetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteRulesetResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteScheduleRequest {
   /**
    * <p>The name of the schedule to be deleted.</p>
@@ -1854,7 +2240,8 @@ export interface DescribeDatasetResponse {
   Name: string | undefined;
 
   /**
-   * <p>The file format of a dataset that is created from an Amazon S3 file or folder.</p>
+   * <p>The file format of a dataset that is created from an Amazon S3 file
+   *             or folder.</p>
    */
   Format?: InputFormat | string;
 
@@ -1881,12 +2268,14 @@ export interface DescribeDatasetResponse {
   LastModifiedBy?: string;
 
   /**
-   * <p>The location of the data for this dataset, Amazon S3 or the Glue Data Catalog.</p>
+   * <p>The location of the data for this dataset, Amazon S3 or the
+   *             Glue Data Catalog.</p>
    */
   Source?: Source | string;
 
   /**
-   * <p>A set of options that defines how DataBrew interprets an Amazon S3 path of the dataset.</p>
+   * <p>A set of options that defines how DataBrew interprets an Amazon S3
+   *             path of the dataset.</p>
    */
   PathOptions?: PathOptions;
 
@@ -2046,6 +2435,11 @@ export interface DescribeJobResponse {
   ProfileConfiguration?: ProfileConfiguration;
 
   /**
+   * <p>List of validation configurations that are applied to the profile job.</p>
+   */
+  ValidationConfigurations?: ValidationConfiguration[];
+
+  /**
    * <p>Represents the name and version of a DataBrew recipe.</p>
    */
   RecipeReference?: RecipeReference;
@@ -2156,6 +2550,11 @@ export interface DescribeJobRunResponse {
    *             profile job will run with default settings.</p>
    */
   ProfileConfiguration?: ProfileConfiguration;
+
+  /**
+   * <p>List of validation configurations that are applied to the profile job.</p>
+   */
+  ValidationConfigurations?: ValidationConfiguration[];
 
   /**
    * <p>The unique identifier of the job run.</p>
@@ -2452,6 +2851,85 @@ export namespace DescribeRecipeResponse {
   });
 }
 
+export interface DescribeRulesetRequest {
+  /**
+   * <p>The name of the ruleset to be described.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DescribeRulesetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeRulesetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeRulesetResponse {
+  /**
+   * <p>The name of the ruleset.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the ruleset.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a resource (dataset) that the ruleset is
+   *             associated with.</p>
+   */
+  TargetArn?: string;
+
+  /**
+   * <p>A list of rules that are defined with the ruleset. A rule includes one
+   *             or more checks to be validated on a DataBrew dataset.</p>
+   */
+  Rules?: Rule[];
+
+  /**
+   * <p>The date and time that the ruleset was created.</p>
+   */
+  CreateDate?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who created the ruleset.</p>
+   */
+  CreatedBy?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last modified the ruleset.</p>
+   */
+  LastModifiedBy?: string;
+
+  /**
+   * <p>The modification date and time of the ruleset.</p>
+   */
+  LastModifiedDate?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the ruleset.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>Metadata tags that have been applied to the ruleset.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace DescribeRulesetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeRulesetResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeScheduleRequest {
   /**
    * <p>The name of the schedule to be described.</p>
@@ -2603,7 +3081,8 @@ export interface Dataset {
   Source?: Source | string;
 
   /**
-   * <p>A set of options that defines how DataBrew interprets an Amazon S3 path of the dataset.</p>
+   * <p>A set of options that defines how DataBrew interprets an Amazon S3
+   *             path of the dataset.</p>
    */
   PathOptions?: PathOptions;
 
@@ -2769,6 +3248,11 @@ export interface JobRun {
    *             size parameter.</p>
    */
   JobSample?: JobSample;
+
+  /**
+   * <p>List of validation configurations that are applied to the profile job run.</p>
+   */
+  ValidationConfigurations?: ValidationConfiguration[];
 }
 
 export namespace JobRun {
@@ -2986,6 +3470,11 @@ export interface Job {
    *             size parameter.</p>
    */
   JobSample?: JobSample;
+
+  /**
+   * <p>List of validation configurations that are applied to the profile job.</p>
+   */
+  ValidationConfigurations?: ValidationConfiguration[];
 }
 
 export namespace Job {
@@ -3345,6 +3834,127 @@ export namespace ListRecipeVersionsResponse {
   });
 }
 
+export interface ListRulesetsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a resource (dataset). Using this parameter
+   *             indicates to return only those rulesets that are associated with the specified resource.</p>
+   */
+  TargetArn?: string;
+
+  /**
+   * <p>The maximum number of results to return in this request.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token generated by DataBrew that specifies where to continue pagination
+   *             if a previous request was truncated. To get the next set of pages, pass in
+   *             the NextToken value from the response object of the previous page call.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListRulesetsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListRulesetsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains metadata about the ruleset.</p>
+ */
+export interface RulesetItem {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the ruleset.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who created the ruleset.</p>
+   */
+  CreatedBy?: string;
+
+  /**
+   * <p>The date and time that the ruleset was created.</p>
+   */
+  CreateDate?: Date;
+
+  /**
+   * <p>The description of the ruleset.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last modified the ruleset.</p>
+   */
+  LastModifiedBy?: string;
+
+  /**
+   * <p>The modification date and time of the ruleset.</p>
+   */
+  LastModifiedDate?: Date;
+
+  /**
+   * <p>The name of the ruleset.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the ruleset.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The number of rules that are defined in the ruleset.</p>
+   */
+  RuleCount?: number;
+
+  /**
+   * <p>Metadata tags that have been applied to the ruleset.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a resource (dataset) that the ruleset is
+   *             associated with.</p>
+   */
+  TargetArn: string | undefined;
+}
+
+export namespace RulesetItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RulesetItem): any => ({
+    ...obj,
+  });
+}
+
+export interface ListRulesetsResponse {
+  /**
+   * <p>A list of RulesetItem. RulesetItem contains meta data of a ruleset.</p>
+   */
+  Rulesets: RulesetItem[] | undefined;
+
+  /**
+   * <p>A token that you can use in a subsequent call to retrieve the next set of
+   *             results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListRulesetsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListRulesetsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListSchedulesRequest {
   /**
    * <p>The name of the job that these schedules apply to.</p>
@@ -3549,6 +4159,22 @@ export interface ViewFrame {
    * <p>A list of columns to hide in the view frame.</p>
    */
   HiddenColumns?: string[];
+
+  /**
+   * <p>The starting index for the range of rows to return in the view frame.</p>
+   */
+  StartRowIndex?: number;
+
+  /**
+   * <p>The number of rows to include in the view frame, beginning with the
+   *             <code>StartRowIndex</code> value.</p>
+   */
+  RowRange?: number;
+
+  /**
+   * <p>Controls if analytics computation is enabled or disabled. Enabled by default.</p>
+   */
+  Analytics?: AnalyticsMode | string;
 }
 
 export namespace ViewFrame {
@@ -3601,6 +4227,7 @@ export namespace SendProjectSessionActionRequest {
    */
   export const filterSensitiveLog = (obj: SendProjectSessionActionRequest): any => ({
     ...obj,
+    ...(obj.ClientSessionId && { ClientSessionId: SENSITIVE_STRING }),
   });
 }
 
@@ -3702,6 +4329,7 @@ export namespace StartProjectSessionResponse {
    */
   export const filterSensitiveLog = (obj: StartProjectSessionResponse): any => ({
     ...obj,
+    ...(obj.ClientSessionId && { ClientSessionId: SENSITIVE_STRING }),
   });
 }
 
@@ -3920,6 +4548,11 @@ export interface UpdateProfileJobRequest {
    *             input data, or write output from a job.</p>
    */
   OutputLocation: S3Location | undefined;
+
+  /**
+   * <p>List of validation configurations that are applied to the profile job.</p>
+   */
+  ValidationConfigurations?: ValidationConfiguration[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to
@@ -4152,6 +4785,49 @@ export namespace UpdateRecipeJobResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateRecipeJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateRulesetRequest {
+  /**
+   * <p>The name of the ruleset to be updated.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the ruleset.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A list of rules that are defined with the ruleset. A rule includes one or more
+   *             checks to be validated on a DataBrew dataset.</p>
+   */
+  Rules: Rule[] | undefined;
+}
+
+export namespace UpdateRulesetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateRulesetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateRulesetResponse {
+  /**
+   * <p>The name of the updated ruleset.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace UpdateRulesetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateRulesetResponse): any => ({
     ...obj,
   });
 }

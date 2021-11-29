@@ -398,6 +398,7 @@ import {
   PurchaseReservedDBInstancesOfferingCommandInput,
   PurchaseReservedDBInstancesOfferingCommandOutput,
 } from "../commands/PurchaseReservedDBInstancesOfferingCommand";
+import { RebootDBClusterCommandInput, RebootDBClusterCommandOutput } from "../commands/RebootDBClusterCommand";
 import { RebootDBInstanceCommandInput, RebootDBInstanceCommandOutput } from "../commands/RebootDBInstanceCommand";
 import {
   RegisterDBProxyTargetsCommandInput,
@@ -887,6 +888,8 @@ import {
   PurchaseReservedDBInstancesOfferingMessage,
   PurchaseReservedDBInstancesOfferingResult,
   Range,
+  RebootDBClusterMessage,
+  RebootDBClusterResult,
   RebootDBInstanceMessage,
   RebootDBInstanceResult,
   RecurringCharge,
@@ -2785,6 +2788,22 @@ export const serializeAws_queryPurchaseReservedDBInstancesOfferingCommand = asyn
   body = buildFormUrlencodedString({
     ...serializeAws_queryPurchaseReservedDBInstancesOfferingMessage(input, context),
     Action: "PurchaseReservedDBInstancesOffering",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryRebootDBClusterCommand = async (
+  input: RebootDBClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryRebootDBClusterMessage(input, context),
+    Action: "RebootDBCluster",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -11271,6 +11290,76 @@ const deserializeAws_queryPurchaseReservedDBInstancesOfferingCommandError = asyn
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryRebootDBClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RebootDBClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryRebootDBClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryRebootDBClusterResult(data.RebootDBClusterResult, context);
+  const response: RebootDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryRebootDBClusterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RebootDBClusterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBClusterNotFoundFault":
+    case "com.amazonaws.rds#DBClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDBClusterStateFault":
+    case "com.amazonaws.rds#InvalidDBClusterStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDBInstanceStateFault":
+    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryRebootDBInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -16338,6 +16427,39 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   if (input.EnableGlobalWriteForwarding !== undefined && input.EnableGlobalWriteForwarding !== null) {
     entries["EnableGlobalWriteForwarding"] = input.EnableGlobalWriteForwarding;
   }
+  if (input.DBClusterInstanceClass !== undefined && input.DBClusterInstanceClass !== null) {
+    entries["DBClusterInstanceClass"] = input.DBClusterInstanceClass;
+  }
+  if (input.AllocatedStorage !== undefined && input.AllocatedStorage !== null) {
+    entries["AllocatedStorage"] = input.AllocatedStorage;
+  }
+  if (input.StorageType !== undefined && input.StorageType !== null) {
+    entries["StorageType"] = input.StorageType;
+  }
+  if (input.Iops !== undefined && input.Iops !== null) {
+    entries["Iops"] = input.Iops;
+  }
+  if (input.PubliclyAccessible !== undefined && input.PubliclyAccessible !== null) {
+    entries["PubliclyAccessible"] = input.PubliclyAccessible;
+  }
+  if (input.AutoMinorVersionUpgrade !== undefined && input.AutoMinorVersionUpgrade !== null) {
+    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  }
+  if (input.MonitoringInterval !== undefined && input.MonitoringInterval !== null) {
+    entries["MonitoringInterval"] = input.MonitoringInterval;
+  }
+  if (input.MonitoringRoleArn !== undefined && input.MonitoringRoleArn !== null) {
+    entries["MonitoringRoleArn"] = input.MonitoringRoleArn;
+  }
+  if (input.EnablePerformanceInsights !== undefined && input.EnablePerformanceInsights !== null) {
+    entries["EnablePerformanceInsights"] = input.EnablePerformanceInsights;
+  }
+  if (input.PerformanceInsightsKMSKeyId !== undefined && input.PerformanceInsightsKMSKeyId !== null) {
+    entries["PerformanceInsightsKMSKeyId"] = input.PerformanceInsightsKMSKeyId;
+  }
+  if (input.PerformanceInsightsRetentionPeriod !== undefined && input.PerformanceInsightsRetentionPeriod !== null) {
+    entries["PerformanceInsightsRetentionPeriod"] = input.PerformanceInsightsRetentionPeriod;
+  }
   return entries;
 };
 
@@ -16554,6 +16676,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   }
   if (input.CustomIamInstanceProfile !== undefined && input.CustomIamInstanceProfile !== null) {
     entries["CustomIamInstanceProfile"] = input.CustomIamInstanceProfile;
+  }
+  if (input.BackupTarget !== undefined && input.BackupTarget !== null) {
+    entries["BackupTarget"] = input.BackupTarget;
   }
   return entries;
 };
@@ -18612,6 +18737,36 @@ const serializeAws_queryModifyDBClusterMessage = (input: ModifyDBClusterMessage,
   if (input.EnableGlobalWriteForwarding !== undefined && input.EnableGlobalWriteForwarding !== null) {
     entries["EnableGlobalWriteForwarding"] = input.EnableGlobalWriteForwarding;
   }
+  if (input.DBClusterInstanceClass !== undefined && input.DBClusterInstanceClass !== null) {
+    entries["DBClusterInstanceClass"] = input.DBClusterInstanceClass;
+  }
+  if (input.AllocatedStorage !== undefined && input.AllocatedStorage !== null) {
+    entries["AllocatedStorage"] = input.AllocatedStorage;
+  }
+  if (input.StorageType !== undefined && input.StorageType !== null) {
+    entries["StorageType"] = input.StorageType;
+  }
+  if (input.Iops !== undefined && input.Iops !== null) {
+    entries["Iops"] = input.Iops;
+  }
+  if (input.AutoMinorVersionUpgrade !== undefined && input.AutoMinorVersionUpgrade !== null) {
+    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  }
+  if (input.MonitoringInterval !== undefined && input.MonitoringInterval !== null) {
+    entries["MonitoringInterval"] = input.MonitoringInterval;
+  }
+  if (input.MonitoringRoleArn !== undefined && input.MonitoringRoleArn !== null) {
+    entries["MonitoringRoleArn"] = input.MonitoringRoleArn;
+  }
+  if (input.EnablePerformanceInsights !== undefined && input.EnablePerformanceInsights !== null) {
+    entries["EnablePerformanceInsights"] = input.EnablePerformanceInsights;
+  }
+  if (input.PerformanceInsightsKMSKeyId !== undefined && input.PerformanceInsightsKMSKeyId !== null) {
+    entries["PerformanceInsightsKMSKeyId"] = input.PerformanceInsightsKMSKeyId;
+  }
+  if (input.PerformanceInsightsRetentionPeriod !== undefined && input.PerformanceInsightsRetentionPeriod !== null) {
+    entries["PerformanceInsightsRetentionPeriod"] = input.PerformanceInsightsRetentionPeriod;
+  }
   return entries;
 };
 
@@ -19313,6 +19468,14 @@ const serializeAws_queryPurchaseReservedDBInstancesOfferingMessage = (
   return entries;
 };
 
+const serializeAws_queryRebootDBClusterMessage = (input: RebootDBClusterMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DBClusterIdentifier !== undefined && input.DBClusterIdentifier !== null) {
+    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  }
+  return entries;
+};
+
 const serializeAws_queryRebootDBInstanceMessage = (input: RebootDBInstanceMessage, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DBInstanceIdentifier !== undefined && input.DBInstanceIdentifier !== null) {
@@ -19682,6 +19845,18 @@ const serializeAws_queryRestoreDBClusterFromSnapshotMessage = (
   if (input.DomainIAMRoleName !== undefined && input.DomainIAMRoleName !== null) {
     entries["DomainIAMRoleName"] = input.DomainIAMRoleName;
   }
+  if (input.DBClusterInstanceClass !== undefined && input.DBClusterInstanceClass !== null) {
+    entries["DBClusterInstanceClass"] = input.DBClusterInstanceClass;
+  }
+  if (input.StorageType !== undefined && input.StorageType !== null) {
+    entries["StorageType"] = input.StorageType;
+  }
+  if (input.Iops !== undefined && input.Iops !== null) {
+    entries["Iops"] = input.Iops;
+  }
+  if (input.PubliclyAccessible !== undefined && input.PubliclyAccessible !== null) {
+    entries["PubliclyAccessible"] = input.PubliclyAccessible;
+  }
   return entries;
 };
 
@@ -19768,6 +19943,18 @@ const serializeAws_queryRestoreDBClusterToPointInTimeMessage = (
   }
   if (input.EngineMode !== undefined && input.EngineMode !== null) {
     entries["EngineMode"] = input.EngineMode;
+  }
+  if (input.DBClusterInstanceClass !== undefined && input.DBClusterInstanceClass !== null) {
+    entries["DBClusterInstanceClass"] = input.DBClusterInstanceClass;
+  }
+  if (input.StorageType !== undefined && input.StorageType !== null) {
+    entries["StorageType"] = input.StorageType;
+  }
+  if (input.PubliclyAccessible !== undefined && input.PubliclyAccessible !== null) {
+    entries["PubliclyAccessible"] = input.PubliclyAccessible;
+  }
+  if (input.Iops !== undefined && input.Iops !== null) {
+    entries["Iops"] = input.Iops;
   }
   return entries;
 };
@@ -19882,6 +20069,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   }
   if (input.CustomIamInstanceProfile !== undefined && input.CustomIamInstanceProfile !== null) {
     entries["CustomIamInstanceProfile"] = input.CustomIamInstanceProfile;
+  }
+  if (input.BackupTarget !== undefined && input.BackupTarget !== null) {
+    entries["BackupTarget"] = input.BackupTarget;
   }
   return entries;
 };
@@ -20171,6 +20361,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.CustomIamInstanceProfile !== undefined && input.CustomIamInstanceProfile !== null) {
     entries["CustomIamInstanceProfile"] = input.CustomIamInstanceProfile;
+  }
+  if (input.BackupTarget !== undefined && input.BackupTarget !== null) {
+    entries["BackupTarget"] = input.BackupTarget;
   }
   return entries;
 };
@@ -21310,6 +21503,16 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     GlobalWriteForwardingStatus: undefined,
     GlobalWriteForwardingRequested: undefined,
     PendingModifiedValues: undefined,
+    DBClusterInstanceClass: undefined,
+    StorageType: undefined,
+    Iops: undefined,
+    PubliclyAccessible: undefined,
+    AutoMinorVersionUpgrade: undefined,
+    MonitoringInterval: undefined,
+    MonitoringRoleArn: undefined,
+    PerformanceInsightsEnabled: undefined,
+    PerformanceInsightsKMSKeyId: undefined,
+    PerformanceInsightsRetentionPeriod: undefined,
   };
   if (output["AllocatedStorage"] !== undefined) {
     contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
@@ -21556,6 +21759,38 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
       output["PendingModifiedValues"],
       context
     );
+  }
+  if (output["DBClusterInstanceClass"] !== undefined) {
+    contents.DBClusterInstanceClass = __expectString(output["DBClusterInstanceClass"]);
+  }
+  if (output["StorageType"] !== undefined) {
+    contents.StorageType = __expectString(output["StorageType"]);
+  }
+  if (output["Iops"] !== undefined) {
+    contents.Iops = __strictParseInt32(output["Iops"]) as number;
+  }
+  if (output["PubliclyAccessible"] !== undefined) {
+    contents.PubliclyAccessible = __parseBoolean(output["PubliclyAccessible"]);
+  }
+  if (output["AutoMinorVersionUpgrade"] !== undefined) {
+    contents.AutoMinorVersionUpgrade = __parseBoolean(output["AutoMinorVersionUpgrade"]);
+  }
+  if (output["MonitoringInterval"] !== undefined) {
+    contents.MonitoringInterval = __strictParseInt32(output["MonitoringInterval"]) as number;
+  }
+  if (output["MonitoringRoleArn"] !== undefined) {
+    contents.MonitoringRoleArn = __expectString(output["MonitoringRoleArn"]);
+  }
+  if (output["PerformanceInsightsEnabled"] !== undefined) {
+    contents.PerformanceInsightsEnabled = __parseBoolean(output["PerformanceInsightsEnabled"]);
+  }
+  if (output["PerformanceInsightsKMSKeyId"] !== undefined) {
+    contents.PerformanceInsightsKMSKeyId = __expectString(output["PerformanceInsightsKMSKeyId"]);
+  }
+  if (output["PerformanceInsightsRetentionPeriod"] !== undefined) {
+    contents.PerformanceInsightsRetentionPeriod = __strictParseInt32(
+      output["PerformanceInsightsRetentionPeriod"]
+    ) as number;
   }
   return contents;
 };
@@ -22601,6 +22836,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     AutomationMode: undefined,
     ResumeFullAutomationModeTime: undefined,
     CustomIamInstanceProfile: undefined,
+    BackupTarget: undefined,
   };
   if (output["DBInstanceIdentifier"] !== undefined) {
     contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
@@ -22923,6 +23159,9 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
   if (output["CustomIamInstanceProfile"] !== undefined) {
     contents.CustomIamInstanceProfile = __expectString(output["CustomIamInstanceProfile"]);
   }
+  if (output["BackupTarget"] !== undefined) {
+    contents.BackupTarget = __expectString(output["BackupTarget"]);
+  }
   return contents;
 };
 
@@ -22970,6 +23209,7 @@ const deserializeAws_queryDBInstanceAutomatedBackup = (
     BackupRetentionPeriod: undefined,
     DBInstanceAutomatedBackupsArn: undefined,
     DBInstanceAutomatedBackupsReplications: undefined,
+    BackupTarget: undefined,
   };
   if (output["DBInstanceArn"] !== undefined) {
     contents.DBInstanceArn = __expectString(output["DBInstanceArn"]);
@@ -23057,6 +23297,9 @@ const deserializeAws_queryDBInstanceAutomatedBackup = (
       __getArrayIfSingleItem(output["DBInstanceAutomatedBackupsReplications"]["DBInstanceAutomatedBackupsReplication"]),
       context
     );
+  }
+  if (output["BackupTarget"] !== undefined) {
+    contents.BackupTarget = __expectString(output["BackupTarget"]);
   }
   return contents;
 };
@@ -24012,6 +24255,7 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
     DbiResourceId: undefined,
     TagList: undefined,
     OriginalSnapshotCreateTime: undefined,
+    SnapshotTarget: undefined,
   };
   if (output["DBSnapshotIdentifier"] !== undefined) {
     contents.DBSnapshotIdentifier = __expectString(output["DBSnapshotIdentifier"]);
@@ -24111,6 +24355,9 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
   }
   if (output["OriginalSnapshotCreateTime"] !== undefined) {
     contents.OriginalSnapshotCreateTime = __expectNonNull(__parseRfc3339DateTime(output["OriginalSnapshotCreateTime"]));
+  }
+  if (output["SnapshotTarget"] !== undefined) {
+    contents.SnapshotTarget = __expectString(output["SnapshotTarget"]);
   }
   return contents;
 };
@@ -26790,6 +27037,7 @@ const deserializeAws_queryOrderableDBInstanceOption = (
     OutpostCapable: undefined,
     SupportedActivityStreamModes: undefined,
     SupportsGlobalDatabases: undefined,
+    SupportsClusters: undefined,
   };
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -26904,6 +27152,9 @@ const deserializeAws_queryOrderableDBInstanceOption = (
   }
   if (output["SupportsGlobalDatabases"] !== undefined) {
     contents.SupportsGlobalDatabases = __parseBoolean(output["SupportsGlobalDatabases"]);
+  }
+  if (output["SupportsClusters"] !== undefined) {
+    contents.SupportsClusters = __parseBoolean(output["SupportsClusters"]);
   }
   return contents;
 };
@@ -27391,6 +27642,16 @@ const deserializeAws_queryReadReplicaIdentifierList = (output: any, context: __S
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_queryRebootDBClusterResult = (output: any, context: __SerdeContext): RebootDBClusterResult => {
+  const contents: any = {
+    DBCluster: undefined,
+  };
+  if (output["DBCluster"] !== undefined) {
+    contents.DBCluster = deserializeAws_queryDBCluster(output["DBCluster"], context);
+  }
+  return contents;
 };
 
 const deserializeAws_queryRebootDBInstanceResult = (output: any, context: __SerdeContext): RebootDBInstanceResult => {

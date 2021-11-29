@@ -23,9 +23,6 @@ export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadRep
 
 /**
  * <p>Promotes a read replica DB cluster to a standalone DB cluster.</p>
- *          <note>
- *             <p>This action only applies to Aurora DB clusters.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

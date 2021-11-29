@@ -49,12 +49,24 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import {
+  CreateAutoPredictorCommandInput,
+  CreateAutoPredictorCommandOutput,
+} from "./commands/CreateAutoPredictorCommand";
 import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
 import { CreateDatasetGroupCommandInput, CreateDatasetGroupCommandOutput } from "./commands/CreateDatasetGroupCommand";
 import {
   CreateDatasetImportJobCommandInput,
   CreateDatasetImportJobCommandOutput,
 } from "./commands/CreateDatasetImportJobCommand";
+import {
+  CreateExplainabilityCommandInput,
+  CreateExplainabilityCommandOutput,
+} from "./commands/CreateExplainabilityCommand";
+import {
+  CreateExplainabilityExportCommandInput,
+  CreateExplainabilityExportCommandOutput,
+} from "./commands/CreateExplainabilityExportCommand";
 import { CreateForecastCommandInput, CreateForecastCommandOutput } from "./commands/CreateForecastCommand";
 import {
   CreateForecastExportJobCommandInput,
@@ -71,6 +83,14 @@ import {
   DeleteDatasetImportJobCommandInput,
   DeleteDatasetImportJobCommandOutput,
 } from "./commands/DeleteDatasetImportJobCommand";
+import {
+  DeleteExplainabilityCommandInput,
+  DeleteExplainabilityCommandOutput,
+} from "./commands/DeleteExplainabilityCommand";
+import {
+  DeleteExplainabilityExportCommandInput,
+  DeleteExplainabilityExportCommandOutput,
+} from "./commands/DeleteExplainabilityExportCommand";
 import { DeleteForecastCommandInput, DeleteForecastCommandOutput } from "./commands/DeleteForecastCommand";
 import {
   DeleteForecastExportJobCommandInput,
@@ -82,6 +102,10 @@ import {
 } from "./commands/DeletePredictorBacktestExportJobCommand";
 import { DeletePredictorCommandInput, DeletePredictorCommandOutput } from "./commands/DeletePredictorCommand";
 import { DeleteResourceTreeCommandInput, DeleteResourceTreeCommandOutput } from "./commands/DeleteResourceTreeCommand";
+import {
+  DescribeAutoPredictorCommandInput,
+  DescribeAutoPredictorCommandOutput,
+} from "./commands/DescribeAutoPredictorCommand";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
 import {
   DescribeDatasetGroupCommandInput,
@@ -91,6 +115,14 @@ import {
   DescribeDatasetImportJobCommandInput,
   DescribeDatasetImportJobCommandOutput,
 } from "./commands/DescribeDatasetImportJobCommand";
+import {
+  DescribeExplainabilityCommandInput,
+  DescribeExplainabilityCommandOutput,
+} from "./commands/DescribeExplainabilityCommand";
+import {
+  DescribeExplainabilityExportCommandInput,
+  DescribeExplainabilityExportCommandOutput,
+} from "./commands/DescribeExplainabilityExportCommand";
 import { DescribeForecastCommandInput, DescribeForecastCommandOutput } from "./commands/DescribeForecastCommand";
 import {
   DescribeForecastExportJobCommandInput,
@@ -108,6 +140,14 @@ import {
   ListDatasetImportJobsCommandOutput,
 } from "./commands/ListDatasetImportJobsCommand";
 import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
+import {
+  ListExplainabilitiesCommandInput,
+  ListExplainabilitiesCommandOutput,
+} from "./commands/ListExplainabilitiesCommand";
+import {
+  ListExplainabilityExportsCommandInput,
+  ListExplainabilityExportsCommandOutput,
+} from "./commands/ListExplainabilityExportsCommand";
 import {
   ListForecastExportJobsCommandInput,
   ListForecastExportJobsCommandOutput,
@@ -129,9 +169,12 @@ import { UpdateDatasetGroupCommandInput, UpdateDatasetGroupCommandOutput } from 
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | CreateAutoPredictorCommandInput
   | CreateDatasetCommandInput
   | CreateDatasetGroupCommandInput
   | CreateDatasetImportJobCommandInput
+  | CreateExplainabilityCommandInput
+  | CreateExplainabilityExportCommandInput
   | CreateForecastCommandInput
   | CreateForecastExportJobCommandInput
   | CreatePredictorBacktestExportJobCommandInput
@@ -139,14 +182,19 @@ export type ServiceInputTypes =
   | DeleteDatasetCommandInput
   | DeleteDatasetGroupCommandInput
   | DeleteDatasetImportJobCommandInput
+  | DeleteExplainabilityCommandInput
+  | DeleteExplainabilityExportCommandInput
   | DeleteForecastCommandInput
   | DeleteForecastExportJobCommandInput
   | DeletePredictorBacktestExportJobCommandInput
   | DeletePredictorCommandInput
   | DeleteResourceTreeCommandInput
+  | DescribeAutoPredictorCommandInput
   | DescribeDatasetCommandInput
   | DescribeDatasetGroupCommandInput
   | DescribeDatasetImportJobCommandInput
+  | DescribeExplainabilityCommandInput
+  | DescribeExplainabilityExportCommandInput
   | DescribeForecastCommandInput
   | DescribeForecastExportJobCommandInput
   | DescribePredictorBacktestExportJobCommandInput
@@ -155,6 +203,8 @@ export type ServiceInputTypes =
   | ListDatasetGroupsCommandInput
   | ListDatasetImportJobsCommandInput
   | ListDatasetsCommandInput
+  | ListExplainabilitiesCommandInput
+  | ListExplainabilityExportsCommandInput
   | ListForecastExportJobsCommandInput
   | ListForecastsCommandInput
   | ListPredictorBacktestExportJobsCommandInput
@@ -166,9 +216,12 @@ export type ServiceInputTypes =
   | UpdateDatasetGroupCommandInput;
 
 export type ServiceOutputTypes =
+  | CreateAutoPredictorCommandOutput
   | CreateDatasetCommandOutput
   | CreateDatasetGroupCommandOutput
   | CreateDatasetImportJobCommandOutput
+  | CreateExplainabilityCommandOutput
+  | CreateExplainabilityExportCommandOutput
   | CreateForecastCommandOutput
   | CreateForecastExportJobCommandOutput
   | CreatePredictorBacktestExportJobCommandOutput
@@ -176,14 +229,19 @@ export type ServiceOutputTypes =
   | DeleteDatasetCommandOutput
   | DeleteDatasetGroupCommandOutput
   | DeleteDatasetImportJobCommandOutput
+  | DeleteExplainabilityCommandOutput
+  | DeleteExplainabilityExportCommandOutput
   | DeleteForecastCommandOutput
   | DeleteForecastExportJobCommandOutput
   | DeletePredictorBacktestExportJobCommandOutput
   | DeletePredictorCommandOutput
   | DeleteResourceTreeCommandOutput
+  | DescribeAutoPredictorCommandOutput
   | DescribeDatasetCommandOutput
   | DescribeDatasetGroupCommandOutput
   | DescribeDatasetImportJobCommandOutput
+  | DescribeExplainabilityCommandOutput
+  | DescribeExplainabilityExportCommandOutput
   | DescribeForecastCommandOutput
   | DescribeForecastExportJobCommandOutput
   | DescribePredictorBacktestExportJobCommandOutput
@@ -192,6 +250,8 @@ export type ServiceOutputTypes =
   | ListDatasetGroupsCommandOutput
   | ListDatasetImportJobsCommandOutput
   | ListDatasetsCommandOutput
+  | ListExplainabilitiesCommandOutput
+  | ListExplainabilityExportsCommandOutput
   | ListForecastExportJobsCommandOutput
   | ListForecastsCommandOutput
   | ListPredictorBacktestExportJobsCommandOutput

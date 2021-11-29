@@ -22,9 +22,9 @@ export interface GetDeploymentStrategyCommandInput extends GetDeploymentStrategy
 export interface GetDeploymentStrategyCommandOutput extends DeploymentStrategy, __MetadataBearer {}
 
 /**
- * <p>Retrieve information about a deployment strategy. A deployment strategy defines
+ * <p>Retrieves information about a deployment strategy. A deployment strategy defines
  *          important criteria for rolling out your configuration to the designated targets. A
- *          deployment strategy includes: the overall duration required, a percentage of targets to
+ *          deployment strategy includes the overall duration required, a percentage of targets to
  *          receive the deployment during each interval, an algorithm that defines how percentage
  *          grows, and bake time.</p>
  * @example

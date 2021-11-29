@@ -9,9 +9,11 @@ import {
   ClusterSecurityGroup,
   ClusterSubnetGroup,
   EventSubscription,
+  HsmConfiguration,
   Parameter,
   RecurringCharge,
   ReservedNode,
+  ReservedNodeExchangeStatus,
   ReservedNodeOfferingType,
   ScheduledAction,
   ScheduledActionType,
@@ -23,6 +25,55 @@ import {
   UsageLimitBreachAction,
   UsageLimitFeatureType,
 } from "./models_0";
+
+/**
+ * <p></p>
+ */
+export interface HsmConfigurationMessage {
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A list of <code>HsmConfiguration</code> objects.</p>
+   */
+  HsmConfigurations?: HsmConfiguration[];
+}
+
+export namespace HsmConfigurationMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HsmConfigurationMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeLoggingStatusMessage {
+  /**
+   * <p>The identifier of the cluster from which to get the logging status.</p>
+   *         <p>Example: <code>examplecluster</code>
+   *         </p>
+   */
+  ClusterIdentifier: string | undefined;
+}
+
+export namespace DescribeLoggingStatusMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeLoggingStatusMessage): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Describes the status of logging for a cluster.</p>
@@ -456,6 +507,84 @@ export namespace DescribePartnersOutputMessage {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribePartnersOutputMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeReservedNodeExchangeStatusInputMessage {
+  /**
+   * <p>The identifier of the source reserved node in a reserved-node exchange request.</p>
+   */
+  ReservedNodeId?: string;
+
+  /**
+   * <p>The identifier of the reserved-node exchange request.</p>
+   */
+  ReservedNodeExchangeRequestId?: string;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>Marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional pagination token provided by a previous <code>DescribeReservedNodeExchangeStatus</code> request. If this
+   *             parameter is specified, the response includes only records beyond the marker, up to the value
+   *             specified by the <code>MaxRecords</code> parameter. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request.</p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeReservedNodeExchangeStatusInputMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeReservedNodeExchangeStatusInputMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeReservedNodeExchangeStatusOutputMessage {
+  /**
+   * <p>The details of the reserved-node exchange request, including the status, request
+   *             time, source reserved-node identifier, and additional details.</p>
+   */
+  ReservedNodeExchangeStatusDetails?: ReservedNodeExchangeStatus[];
+
+  /**
+   * <p>A pagination token provided by a previous <code>DescribeReservedNodeExchangeStatus</code> request.</p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeReservedNodeExchangeStatusOutputMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeReservedNodeExchangeStatusOutputMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The reserved-node exchange status wasn't found.</p>
+ */
+export interface ReservedNodeExchangeNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "ReservedNodeExchangeNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReservedNodeExchangeNotFoundFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReservedNodeExchangeNotFoundFault): any => ({
     ...obj,
   });
 }
@@ -1922,6 +2051,109 @@ export namespace GetClusterCredentialsMessage {
   });
 }
 
+export enum ReservedNodeExchangeActionType {
+  RESIZE_CLUSTER = "resize-cluster",
+  RESTORE_CLUSTER = "restore-cluster",
+}
+
+export interface GetReservedNodeExchangeConfigurationOptionsInputMessage {
+  /**
+   * <p>The action type of the reserved-node configuration. The action type can be an exchange initiated from either a snapshot or a resize.</p>
+   */
+  ActionType: ReservedNodeExchangeActionType | string | undefined;
+
+  /**
+   * <p>The identifier for the cluster that is the source for a reserved-node exchange.</p>
+   */
+  ClusterIdentifier?: string;
+
+  /**
+   * <p>The identifier for the snapshot that is the source for the reserved-node exchange.</p>
+   */
+  SnapshotIdentifier?: string;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>Marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional pagination token provided by a previous <code>GetReservedNodeExchangeConfigurationOptions</code> request. If this
+   *             parameter is specified, the response includes only records beyond the marker, up to the value
+   *             specified by the <code>MaxRecords</code> parameter. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request.</p>
+   */
+  Marker?: string;
+}
+
+export namespace GetReservedNodeExchangeConfigurationOptionsInputMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetReservedNodeExchangeConfigurationOptionsInputMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details for a reserved-node exchange. Examples include the node type for a
+ *             reserved node, the price for a node, the node's state, and other details.</p>
+ */
+export interface ReservedNodeConfigurationOption {
+  /**
+   * <p>Describes a reserved node. You can call the <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved node
+   *             offerings. </p>
+   */
+  SourceReservedNode?: ReservedNode;
+
+  /**
+   * <p>The target reserved-node count.</p>
+   */
+  TargetReservedNodeCount?: number;
+
+  /**
+   * <p>Describes a reserved node offering.</p>
+   */
+  TargetReservedNodeOffering?: ReservedNodeOffering;
+}
+
+export namespace ReservedNodeConfigurationOption {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReservedNodeConfigurationOption): any => ({
+    ...obj,
+  });
+}
+
+export interface GetReservedNodeExchangeConfigurationOptionsOutputMessage {
+  /**
+   * <p>A pagination token provided by a previous <code>GetReservedNodeExchangeConfigurationOptions</code> request.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>the configuration options for the reserved-node
+   *             exchange. These options include information about the source reserved node and target reserved
+   *             node. Details include the node type, the price, the node count, and the offering
+   *             type.</p>
+   */
+  ReservedNodeConfigurationOptionList?: ReservedNodeConfigurationOption[];
+}
+
+export namespace GetReservedNodeExchangeConfigurationOptionsOutputMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetReservedNodeExchangeConfigurationOptionsOutputMessage): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p></p>
  */
@@ -2534,6 +2766,11 @@ export interface ModifyClusterIamRolesMessage {
    *             disassociate up to 10 IAM roles from a single cluster in a single request.</p>
    */
   RemoveIamRoles?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was last modified.</p>
+   */
+  DefaultIamRoleArn?: string;
 }
 
 export namespace ModifyClusterIamRolesMessage {
@@ -3531,6 +3768,21 @@ export interface RestoreFromClusterSnapshotMessage {
    *          </ul>
    */
   AquaConfigurationStatus?: AquaConfigurationStatus | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was last modified while it was restored from a snapshot.</p>
+   */
+  DefaultIamRoleArn?: string;
+
+  /**
+   * <p>The identifier of the target reserved node offering.</p>
+   */
+  ReservedNodeId?: string;
+
+  /**
+   * <p>The identifier of the target reserved node offering.</p>
+   */
+  TargetReservedNodeOfferingId?: string;
 }
 
 export namespace RestoreFromClusterSnapshotMessage {

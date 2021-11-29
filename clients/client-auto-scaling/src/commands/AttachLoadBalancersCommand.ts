@@ -31,6 +31,8 @@ export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersRes
  *             registers the running instances with these Classic Load Balancers.</p>
  *         <p>To describe the load balancers for an Auto Scaling group, call the <a>DescribeLoadBalancers</a> API. To detach the load balancer from the Auto Scaling
  *             group, call the <a>DetachLoadBalancers</a> API.</p>
+ *         <p>This operation is additive and does not detach existing Classic Load Balancers or
+ *             target groups from the Auto Scaling group.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Elastic Load Balancing and
  *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
  * @example

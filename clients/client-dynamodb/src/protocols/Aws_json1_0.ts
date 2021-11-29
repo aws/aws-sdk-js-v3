@@ -5663,6 +5663,8 @@ const serializeAws_json1_0BatchExecuteStatementInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.ReturnConsumedCapacity !== undefined &&
+      input.ReturnConsumedCapacity !== null && { ReturnConsumedCapacity: input.ReturnConsumedCapacity }),
     ...(input.Statements !== undefined &&
       input.Statements !== null && { Statements: serializeAws_json1_0PartiQLBatchRequest(input.Statements, context) }),
   };
@@ -6085,6 +6087,8 @@ const serializeAws_json1_0ExecuteStatementInput = (input: ExecuteStatementInput,
       input.Parameters !== null && {
         Parameters: serializeAws_json1_0PreparedStatementParameters(input.Parameters, context),
       }),
+    ...(input.ReturnConsumedCapacity !== undefined &&
+      input.ReturnConsumedCapacity !== null && { ReturnConsumedCapacity: input.ReturnConsumedCapacity }),
     ...(input.Statement !== undefined && input.Statement !== null && { Statement: input.Statement }),
   };
 };
@@ -6092,6 +6096,8 @@ const serializeAws_json1_0ExecuteStatementInput = (input: ExecuteStatementInput,
 const serializeAws_json1_0ExecuteTransactionInput = (input: ExecuteTransactionInput, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.ReturnConsumedCapacity !== undefined &&
+      input.ReturnConsumedCapacity !== null && { ReturnConsumedCapacity: input.ReturnConsumedCapacity }),
     ...(input.TransactStatements !== undefined &&
       input.TransactStatements !== null && {
         TransactStatements: serializeAws_json1_0ParameterizedStatements(input.TransactStatements, context),
@@ -7811,6 +7817,10 @@ const deserializeAws_json1_0BatchExecuteStatementOutput = (
   context: __SerdeContext
 ): BatchExecuteStatementOutput => {
   return {
+    ConsumedCapacity:
+      output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
+        ? deserializeAws_json1_0ConsumedCapacityMultiple(output.ConsumedCapacity, context)
+        : undefined,
     Responses:
       output.Responses !== undefined && output.Responses !== null
         ? deserializeAws_json1_0PartiQLBatchResponse(output.Responses, context)
@@ -8313,6 +8323,10 @@ const deserializeAws_json1_0Endpoints = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_0ExecuteStatementOutput = (output: any, context: __SerdeContext): ExecuteStatementOutput => {
   return {
+    ConsumedCapacity:
+      output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
+        ? deserializeAws_json1_0ConsumedCapacity(output.ConsumedCapacity, context)
+        : undefined,
     Items:
       output.Items !== undefined && output.Items !== null
         ? deserializeAws_json1_0ItemList(output.Items, context)
@@ -8326,6 +8340,10 @@ const deserializeAws_json1_0ExecuteTransactionOutput = (
   context: __SerdeContext
 ): ExecuteTransactionOutput => {
   return {
+    ConsumedCapacity:
+      output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
+        ? deserializeAws_json1_0ConsumedCapacityMultiple(output.ConsumedCapacity, context)
+        : undefined,
     Responses:
       output.Responses !== undefined && output.Responses !== null
         ? deserializeAws_json1_0ItemResponseList(output.Responses, context)

@@ -12,7 +12,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeStaleSecurityGroupsRequest, DescribeStaleSecurityGroupsResult } from "../models/models_3";
+import { DescribeStaleSecurityGroupsRequest } from "../models/models_3";
+import { DescribeStaleSecurityGroupsResult } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeStaleSecurityGroupsCommand,
   serializeAws_ec2DescribeStaleSecurityGroupsCommand,

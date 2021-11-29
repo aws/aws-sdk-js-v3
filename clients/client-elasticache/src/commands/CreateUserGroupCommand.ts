@@ -22,7 +22,7 @@ export interface CreateUserGroupCommandInput extends CreateUserGroupMessage {}
 export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBearer {}
 
 /**
- * <p>For Redis engine version 6.x onwards: Creates a Redis user group. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>
+ * <p>For Redis engine version 6.0 onwards: Creates a Redis user group. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

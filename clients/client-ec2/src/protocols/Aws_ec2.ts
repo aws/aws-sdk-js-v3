@@ -1347,6 +1347,10 @@ import {
   ModifyNetworkInterfaceAttributeCommandOutput,
 } from "../commands/ModifyNetworkInterfaceAttributeCommand";
 import {
+  ModifyPrivateDnsNameOptionsCommandInput,
+  ModifyPrivateDnsNameOptionsCommandOutput,
+} from "../commands/ModifyPrivateDnsNameOptionsCommand";
+import {
   ModifyReservedInstancesCommandInput,
   ModifyReservedInstancesCommandOutput,
 } from "../commands/ModifyReservedInstancesCommand";
@@ -1695,7 +1699,6 @@ import {
   AuthorizeSecurityGroupEgressResult,
   AuthorizeSecurityGroupIngressRequest,
   AuthorizeSecurityGroupIngressResult,
-  BaselineEbsBandwidthMbps,
   BaselineEbsBandwidthMbpsRequest,
   BundleInstanceRequest,
   BundleInstanceResult,
@@ -1796,7 +1799,6 @@ import {
   Ipv6CidrBlock,
   Ipv6Range,
   LocalStorageType,
-  MemoryGiBPerVCpu,
   MemoryGiBPerVCpuRequest,
   MemoryMiBRequest,
   NetworkInterfaceCountRequest,
@@ -1807,6 +1809,7 @@ import {
   Placement,
   PrefixListId,
   PriceSchedule,
+  PrivateDnsNameOptionsOnLaunch,
   PtrUpdateStatus,
   ReferencedSecurityGroup,
   ReservationFleetInstanceSpecification,
@@ -1847,10 +1850,10 @@ import {
   VpcPeeringConnectionVpcInfo,
 } from "../models/models_0";
 import {
+  BaselineEbsBandwidthMbps,
   BlockDeviceMapping,
   CapacityReservationTarget,
   CapacityReservationTargetResponse,
-  ConnectionNotification,
   CreateFleetError,
   CreateFleetInstance,
   CreateFleetResult,
@@ -1945,7 +1948,6 @@ import {
   CreateTransitGatewayVpcAttachmentResult,
   CreateVolumeRequest,
   CreateVpcEndpointConnectionNotificationRequest,
-  CreateVpcEndpointConnectionNotificationResult,
   CreateVpcEndpointRequest,
   CreateVpcEndpointResult,
   CreateVpcRequest,
@@ -2005,6 +2007,8 @@ import {
   LaunchTemplateLicenseConfigurationRequest,
   LaunchTemplatePlacement,
   LaunchTemplatePlacementRequest,
+  LaunchTemplatePrivateDnsNameOptions,
+  LaunchTemplatePrivateDnsNameOptionsRequest,
   LaunchTemplatesMonitoring,
   LaunchTemplatesMonitoringRequest,
   LaunchTemplateSpotMarketOptions,
@@ -2015,6 +2019,7 @@ import {
   LocalGatewayRoute,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
+  MemoryGiBPerVCpu,
   MemoryMiB,
   NatGateway,
   NatGatewayAddress,
@@ -2099,7 +2104,9 @@ import {
   ClientVpnRoute,
   CoipPool,
   ConnectionLogResponseOptions,
+  ConnectionNotification,
   ConversionTask,
+  CreateVpcEndpointConnectionNotificationResult,
   CreateVpcEndpointServiceConfigurationRequest,
   CreateVpcEndpointServiceConfigurationResult,
   CreateVpcPeeringConnectionRequest,
@@ -2285,8 +2292,6 @@ import {
   DescribeHostReservationOfferingsRequest,
   DescribeHostReservationOfferingsResult,
   DescribeHostReservationsRequest,
-  DescribeHostReservationsResult,
-  DescribeHostsRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -2309,7 +2314,6 @@ import {
   FpgaImageState,
   HistoryRecordEntry,
   HostOffering,
-  HostReservation,
   IdFormat,
   IKEVersionsListValue,
   IKEVersionsRequestListValue,
@@ -2370,6 +2374,8 @@ import {
   ClassicLoadBalancersConfig,
   CpuOptions,
   CreateVolumePermission,
+  DescribeHostReservationsResult,
+  DescribeHostsRequest,
   DescribeHostsResult,
   DescribeIamInstanceProfileAssociationsRequest,
   DescribeIamInstanceProfileAssociationsResult,
@@ -2488,10 +2494,6 @@ import {
   DescribeSpotPriceHistoryRequest,
   DescribeSpotPriceHistoryResult,
   DescribeStaleSecurityGroupsRequest,
-  DescribeStaleSecurityGroupsResult,
-  DescribeStoreImageTasksRequest,
-  DescribeStoreImageTasksResult,
-  DescribeSubnetsRequest,
   DiskInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
@@ -2512,6 +2514,7 @@ import {
   Host,
   HostInstance,
   HostProperties,
+  HostReservation,
   Image,
   ImageAttribute,
   ImportImageLicenseConfigurationResponse,
@@ -2566,6 +2569,7 @@ import {
   PrefixList,
   PricingDetail,
   PrincipalIdFormat,
+  PrivateDnsNameOptionsResponse,
   ProcessorInfo,
   PublicIpv4Pool,
   PublicIpv4PoolRange,
@@ -2604,7 +2608,6 @@ import {
   StaleIpPermission,
   StaleSecurityGroup,
   StateReason,
-  StoreImageTaskResult,
   TargetGroup,
   TargetGroupsConfig,
   UsageClassType,
@@ -2617,11 +2620,14 @@ import {
   AthenaIntegration,
   BlobAttributeValue,
   CapacityReservationGroup,
-  CapacityReservationSpecification,
   ClassicLinkDnsSupport,
   ClientCertificateRevocationListStatus,
   ClientData,
   CoipAddressUsage,
+  DescribeStaleSecurityGroupsResult,
+  DescribeStoreImageTasksRequest,
+  DescribeStoreImageTasksResult,
+  DescribeSubnetsRequest,
   DescribeSubnetsResult,
   DescribeTagsRequest,
   DescribeTagsResult,
@@ -2833,7 +2839,6 @@ import {
   ImportVolumeRequest,
   ImportVolumeResult,
   InstanceBlockDeviceMappingSpecification,
-  InstanceCreditSpecificationRequest,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceRequirementsWithMetadataRequest,
@@ -2867,9 +2872,6 @@ import {
   ModifyIdentityIdFormatRequest,
   ModifyIdFormatRequest,
   ModifyImageAttributeRequest,
-  ModifyInstanceAttributeRequest,
-  ModifyInstanceCapacityReservationAttributesRequest,
-  ModifyInstanceCapacityReservationAttributesResult,
   PrefixListAssociation,
   PrefixListEntry,
   PrivateDnsDetails,
@@ -2879,6 +2881,7 @@ import {
   ServiceDetail,
   SnapshotDiskContainer,
   SpotPlacementScore,
+  StoreImageTaskResult,
   TagDescription,
   TargetConfiguration,
   TargetReservationValue,
@@ -2904,18 +2907,23 @@ import {
   VpnConnectionDeviceType,
 } from "../models/models_4";
 import {
+  CapacityReservationSpecification,
   CidrAuthorizationContext,
   CpuOptionsRequest,
   CreateVolumePermissionModifications,
   ElasticInferenceAccelerator,
   EnclaveOptionsRequest,
   HibernationOptionsRequest,
+  InstanceCreditSpecificationRequest,
   InstanceMarketOptionsRequest,
   InstanceMetadataOptionsRequest,
   InstanceMonitoring,
   InstanceStateChange,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyInstanceAttributeRequest,
+  ModifyInstanceCapacityReservationAttributesRequest,
+  ModifyInstanceCapacityReservationAttributesResult,
   ModifyInstanceCreditSpecificationRequest,
   ModifyInstanceCreditSpecificationResult,
   ModifyInstanceEventStartTimeRequest,
@@ -2931,6 +2939,8 @@ import {
   ModifyManagedPrefixListRequest,
   ModifyManagedPrefixListResult,
   ModifyNetworkInterfaceAttributeRequest,
+  ModifyPrivateDnsNameOptionsRequest,
+  ModifyPrivateDnsNameOptionsResult,
   ModifyReservedInstancesRequest,
   ModifyReservedInstancesResult,
   ModifySecurityGroupRulesRequest,
@@ -2985,6 +2995,7 @@ import {
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
+  PrivateDnsNameOptionsRequest,
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResult,
   PurchaseHostReservationRequest,
@@ -9380,6 +9391,22 @@ export const serializeAws_ec2ModifyNetworkInterfaceAttributeCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2ModifyNetworkInterfaceAttributeRequest(input, context),
     Action: "ModifyNetworkInterfaceAttribute",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ModifyPrivateDnsNameOptionsCommand = async (
+  input: ModifyPrivateDnsNameOptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifyPrivateDnsNameOptionsRequest(input, context),
+    Action: "ModifyPrivateDnsNameOptions",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -28593,6 +28620,52 @@ const deserializeAws_ec2ModifyNetworkInterfaceAttributeCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2ModifyPrivateDnsNameOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyPrivateDnsNameOptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifyPrivateDnsNameOptionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifyPrivateDnsNameOptionsResult(data, context);
+  const response: ModifyPrivateDnsNameOptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifyPrivateDnsNameOptionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyPrivateDnsNameOptionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2ModifyReservedInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -34263,6 +34336,9 @@ const serializeAws_ec2CreateDefaultSubnetRequest = (
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
   }
+  if (input.Ipv6Native !== undefined && input.Ipv6Native !== null) {
+    entries["Ipv6Native"] = input.Ipv6Native;
+  }
   return entries;
 };
 
@@ -35373,6 +35449,9 @@ const serializeAws_ec2CreateSubnetRequest = (input: CreateSubnetRequest, context
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
+  }
+  if (input.Ipv6Native !== undefined && input.Ipv6Native !== null) {
+    entries["Ipv6Native"] = input.Ipv6Native;
   }
   return entries;
 };
@@ -44787,6 +44866,23 @@ const serializeAws_ec2LaunchTemplatePlacementRequest = (
   return entries;
 };
 
+const serializeAws_ec2LaunchTemplatePrivateDnsNameOptionsRequest = (
+  input: LaunchTemplatePrivateDnsNameOptionsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.HostnameType !== undefined && input.HostnameType !== null) {
+    entries["HostnameType"] = input.HostnameType;
+  }
+  if (input.EnableResourceNameDnsARecord !== undefined && input.EnableResourceNameDnsARecord !== null) {
+    entries["EnableResourceNameDnsARecord"] = input.EnableResourceNameDnsARecord;
+  }
+  if (input.EnableResourceNameDnsAAAARecord !== undefined && input.EnableResourceNameDnsAAAARecord !== null) {
+    entries["EnableResourceNameDnsAAAARecord"] = input.EnableResourceNameDnsAAAARecord;
+  }
+  return entries;
+};
+
 const serializeAws_ec2LaunchTemplatesMonitoringRequest = (
   input: LaunchTemplatesMonitoringRequest,
   context: __SerdeContext
@@ -45859,6 +45955,29 @@ const serializeAws_ec2ModifyNetworkInterfaceAttributeRequest = (
   return entries;
 };
 
+const serializeAws_ec2ModifyPrivateDnsNameOptionsRequest = (
+  input: ModifyPrivateDnsNameOptionsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.InstanceId !== undefined && input.InstanceId !== null) {
+    entries["InstanceId"] = input.InstanceId;
+  }
+  if (input.PrivateDnsHostnameType !== undefined && input.PrivateDnsHostnameType !== null) {
+    entries["PrivateDnsHostnameType"] = input.PrivateDnsHostnameType;
+  }
+  if (input.EnableResourceNameDnsARecord !== undefined && input.EnableResourceNameDnsARecord !== null) {
+    entries["EnableResourceNameDnsARecord"] = input.EnableResourceNameDnsARecord;
+  }
+  if (input.EnableResourceNameDnsAAAARecord !== undefined && input.EnableResourceNameDnsAAAARecord !== null) {
+    entries["EnableResourceNameDnsAAAARecord"] = input.EnableResourceNameDnsAAAARecord;
+  }
+  return entries;
+};
+
 const serializeAws_ec2ModifyReservedInstancesRequest = (
   input: ModifyReservedInstancesRequest,
   context: __SerdeContext
@@ -46012,6 +46131,26 @@ const serializeAws_ec2ModifySubnetAttributeRequest = (
     const memberEntries = serializeAws_ec2AttributeBooleanValue(input.EnableDns64, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableDns64.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.PrivateDnsHostnameTypeOnLaunch !== undefined && input.PrivateDnsHostnameTypeOnLaunch !== null) {
+    entries["PrivateDnsHostnameTypeOnLaunch"] = input.PrivateDnsHostnameTypeOnLaunch;
+  }
+  if (input.EnableResourceNameDnsARecordOnLaunch !== undefined && input.EnableResourceNameDnsARecordOnLaunch !== null) {
+    const memberEntries = serializeAws_ec2AttributeBooleanValue(input.EnableResourceNameDnsARecordOnLaunch, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `EnableResourceNameDnsARecordOnLaunch.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (
+    input.EnableResourceNameDnsAAAARecordOnLaunch !== undefined &&
+    input.EnableResourceNameDnsAAAARecordOnLaunch !== null
+  ) {
+    const memberEntries = serializeAws_ec2AttributeBooleanValue(input.EnableResourceNameDnsAAAARecordOnLaunch, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `EnableResourceNameDnsAAAARecordOnLaunch.${key}`;
       entries[loc] = value;
     });
   }
@@ -47358,6 +47497,23 @@ const serializeAws_ec2PriceScheduleSpecificationList = (
   return entries;
 };
 
+const serializeAws_ec2PrivateDnsNameOptionsRequest = (
+  input: PrivateDnsNameOptionsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.HostnameType !== undefined && input.HostnameType !== null) {
+    entries["HostnameType"] = input.HostnameType;
+  }
+  if (input.EnableResourceNameDnsARecord !== undefined && input.EnableResourceNameDnsARecord !== null) {
+    entries["EnableResourceNameDnsARecord"] = input.EnableResourceNameDnsARecord;
+  }
+  if (input.EnableResourceNameDnsAAAARecord !== undefined && input.EnableResourceNameDnsAAAARecord !== null) {
+    entries["EnableResourceNameDnsAAAARecord"] = input.EnableResourceNameDnsAAAARecord;
+  }
+  return entries;
+};
+
 const serializeAws_ec2PrivateIpAddressConfigSet = (
   input: ScheduledInstancesPrivateIpAddressConfig[],
   context: __SerdeContext
@@ -48406,6 +48562,16 @@ const serializeAws_ec2RequestLaunchTemplateData = (input: RequestLaunchTemplateD
       entries[loc] = value;
     });
   }
+  if (input.PrivateDnsNameOptions !== undefined && input.PrivateDnsNameOptions !== null) {
+    const memberEntries = serializeAws_ec2LaunchTemplatePrivateDnsNameOptionsRequest(
+      input.PrivateDnsNameOptions,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `PrivateDnsNameOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -49281,6 +49447,13 @@ const serializeAws_ec2RunInstancesRequest = (input: RunInstancesRequest, context
     const memberEntries = serializeAws_ec2EnclaveOptionsRequest(input.EnclaveOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnclaveOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.PrivateDnsNameOptions !== undefined && input.PrivateDnsNameOptions !== null) {
+    const memberEntries = serializeAws_ec2PrivateDnsNameOptionsRequest(input.PrivateDnsNameOptions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `PrivateDnsNameOptions.${key}`;
       entries[loc] = value;
     });
   }
@@ -63865,6 +64038,8 @@ const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Insta
     PlatformDetails: undefined,
     UsageOperation: undefined,
     UsageOperationUpdateTime: undefined,
+    PrivateDnsNameOptions: undefined,
+    Ipv6Address: undefined,
   };
   if (output["amiLaunchIndex"] !== undefined) {
     contents.AmiLaunchIndex = __strictParseInt32(output["amiLaunchIndex"]) as number;
@@ -64069,6 +64244,15 @@ const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Insta
   }
   if (output["usageOperationUpdateTime"] !== undefined) {
     contents.UsageOperationUpdateTime = __expectNonNull(__parseRfc3339DateTime(output["usageOperationUpdateTime"]));
+  }
+  if (output["privateDnsNameOptions"] !== undefined) {
+    contents.PrivateDnsNameOptions = deserializeAws_ec2PrivateDnsNameOptionsResponse(
+      output["privateDnsNameOptions"],
+      context
+    );
+  }
+  if (output["ipv6Address"] !== undefined) {
+    contents.Ipv6Address = __expectString(output["ipv6Address"]);
   }
   return contents;
 };
@@ -66831,6 +67015,27 @@ const deserializeAws_ec2LaunchTemplatePlacement = (output: any, context: __Serde
   return contents;
 };
 
+const deserializeAws_ec2LaunchTemplatePrivateDnsNameOptions = (
+  output: any,
+  context: __SerdeContext
+): LaunchTemplatePrivateDnsNameOptions => {
+  const contents: any = {
+    HostnameType: undefined,
+    EnableResourceNameDnsARecord: undefined,
+    EnableResourceNameDnsAAAARecord: undefined,
+  };
+  if (output["hostnameType"] !== undefined) {
+    contents.HostnameType = __expectString(output["hostnameType"]);
+  }
+  if (output["enableResourceNameDnsARecord"] !== undefined) {
+    contents.EnableResourceNameDnsARecord = __parseBoolean(output["enableResourceNameDnsARecord"]);
+  }
+  if (output["enableResourceNameDnsAAAARecord"] !== undefined) {
+    contents.EnableResourceNameDnsAAAARecord = __parseBoolean(output["enableResourceNameDnsAAAARecord"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2LaunchTemplateSet = (output: any, context: __SerdeContext): LaunchTemplate[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -67797,6 +68002,19 @@ const deserializeAws_ec2ModifyManagedPrefixListResult = (
   return contents;
 };
 
+const deserializeAws_ec2ModifyPrivateDnsNameOptionsResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyPrivateDnsNameOptionsResult => {
+  const contents: any = {
+    Return: undefined,
+  };
+  if (output["return"] !== undefined) {
+    contents.Return = __parseBoolean(output["return"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2ModifyReservedInstancesResult = (
   output: any,
   context: __SerdeContext
@@ -68657,6 +68875,8 @@ const deserializeAws_ec2NetworkInterface = (output: any, context: __SerdeContext
     TagSet: undefined,
     VpcId: undefined,
     DenyAllIgwTraffic: undefined,
+    Ipv6Native: undefined,
+    Ipv6Address: undefined,
   };
   if (output["association"] !== undefined) {
     contents.Association = deserializeAws_ec2NetworkInterfaceAssociation(output["association"], context);
@@ -68762,6 +68982,12 @@ const deserializeAws_ec2NetworkInterface = (output: any, context: __SerdeContext
   }
   if (output["denyAllIgwTraffic"] !== undefined) {
     contents.DenyAllIgwTraffic = __parseBoolean(output["denyAllIgwTraffic"]);
+  }
+  if (output["ipv6Native"] !== undefined) {
+    contents.Ipv6Native = __parseBoolean(output["ipv6Native"]);
+  }
+  if (output["ipv6Address"] !== undefined) {
+    contents.Ipv6Address = __expectString(output["ipv6Address"]);
   }
   return contents;
 };
@@ -69756,6 +69982,48 @@ const deserializeAws_ec2PrivateDnsNameConfiguration = (
   }
   if (output["name"] !== undefined) {
     contents.Name = __expectString(output["name"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2PrivateDnsNameOptionsOnLaunch = (
+  output: any,
+  context: __SerdeContext
+): PrivateDnsNameOptionsOnLaunch => {
+  const contents: any = {
+    HostnameType: undefined,
+    EnableResourceNameDnsARecord: undefined,
+    EnableResourceNameDnsAAAARecord: undefined,
+  };
+  if (output["hostnameType"] !== undefined) {
+    contents.HostnameType = __expectString(output["hostnameType"]);
+  }
+  if (output["enableResourceNameDnsARecord"] !== undefined) {
+    contents.EnableResourceNameDnsARecord = __parseBoolean(output["enableResourceNameDnsARecord"]);
+  }
+  if (output["enableResourceNameDnsAAAARecord"] !== undefined) {
+    contents.EnableResourceNameDnsAAAARecord = __parseBoolean(output["enableResourceNameDnsAAAARecord"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2PrivateDnsNameOptionsResponse = (
+  output: any,
+  context: __SerdeContext
+): PrivateDnsNameOptionsResponse => {
+  const contents: any = {
+    HostnameType: undefined,
+    EnableResourceNameDnsARecord: undefined,
+    EnableResourceNameDnsAAAARecord: undefined,
+  };
+  if (output["hostnameType"] !== undefined) {
+    contents.HostnameType = __expectString(output["hostnameType"]);
+  }
+  if (output["enableResourceNameDnsARecord"] !== undefined) {
+    contents.EnableResourceNameDnsARecord = __parseBoolean(output["enableResourceNameDnsARecord"]);
+  }
+  if (output["enableResourceNameDnsAAAARecord"] !== undefined) {
+    contents.EnableResourceNameDnsAAAARecord = __parseBoolean(output["enableResourceNameDnsAAAARecord"]);
   }
   return contents;
 };
@@ -71133,6 +71401,7 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
     MetadataOptions: undefined,
     EnclaveOptions: undefined,
     InstanceRequirements: undefined,
+    PrivateDnsNameOptions: undefined,
   };
   if (output["kernelId"] !== undefined) {
     contents.KernelId = __expectString(output["kernelId"]);
@@ -71287,6 +71556,12 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
   }
   if (output["instanceRequirements"] !== undefined) {
     contents.InstanceRequirements = deserializeAws_ec2InstanceRequirements(output["instanceRequirements"], context);
+  }
+  if (output["privateDnsNameOptions"] !== undefined) {
+    contents.PrivateDnsNameOptions = deserializeAws_ec2LaunchTemplatePrivateDnsNameOptions(
+      output["privateDnsNameOptions"],
+      context
+    );
   }
   return contents;
 };
@@ -73486,6 +73761,8 @@ const deserializeAws_ec2Subnet = (output: any, context: __SerdeContext): Subnet 
     SubnetArn: undefined,
     OutpostArn: undefined,
     EnableDns64: undefined,
+    Ipv6Native: undefined,
+    PrivateDnsNameOptionsOnLaunch: undefined,
   };
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
@@ -73552,6 +73829,15 @@ const deserializeAws_ec2Subnet = (output: any, context: __SerdeContext): Subnet 
   }
   if (output["enableDns64"] !== undefined) {
     contents.EnableDns64 = __parseBoolean(output["enableDns64"]);
+  }
+  if (output["ipv6Native"] !== undefined) {
+    contents.Ipv6Native = __parseBoolean(output["ipv6Native"]);
+  }
+  if (output["privateDnsNameOptionsOnLaunch"] !== undefined) {
+    contents.PrivateDnsNameOptionsOnLaunch = deserializeAws_ec2PrivateDnsNameOptionsOnLaunch(
+      output["privateDnsNameOptionsOnLaunch"],
+      context
+    );
   }
   return contents;
 };

@@ -626,9 +626,7 @@ export interface ComputeResource {
   /**
    * <p>Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment.
    *    If <code>Ec2Configuration</code> isn't specified, the default is <code>ECS_AL2</code>.</p>
-   *
    *          <p>One or two values can be provided.</p>
-   *
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be
    *     specified.</p>
@@ -661,8 +659,8 @@ export enum CEType {
  */
 export interface CreateComputeEnvironmentRequest {
   /**
-   * <p>The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, hyphens, and
-   *  underscores are allowed.</p>
+   * <p>The name for your compute environment. It can be up to 128 letters long. It can contain uppercase and
+   *  lowercase letters, numbers, hyphens (-), and underscores (_).</p>
    */
   computeEnvironmentName: string | undefined;
 
@@ -687,11 +685,9 @@ export interface CreateComputeEnvironmentRequest {
   state?: CEState | string;
 
   /**
-   * <p>The maximum number of vCPUs for an
-   *    unmanaged compute environment. This parameter is only used for fair share scheduling to reserve vCPU capacity for new
-   *    share identifiers. If this parameter is not provided for a fair share job queue, no vCPU capacity will be
-   *    reserved.</p>
-   *
+   * <p>The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair share
+   *    scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair share job
+   *    queue, no vCPU capacity is reserved.</p>
    *          <note>
    *             <p>This parameter is only supported when the <code>type</code> parameter is set to <code>UNMANAGED</code>/</p>
    *          </note>
@@ -748,8 +744,8 @@ export namespace CreateComputeEnvironmentRequest {
 
 export interface CreateComputeEnvironmentResponse {
   /**
-   * <p>The name of the compute environment. Up to 128 letters (uppercase and lowercase), numbers, hyphens, and
-   *  underscores are allowed.</p>
+   * <p>The name of the compute environment. It can be up to 128 letters long. It can contain uppercase and
+   *  lowercase letters, numbers, hyphens (-), and underscores (_).</p>
    */
   computeEnvironmentName?: string;
 
@@ -813,8 +809,8 @@ export enum JQState {
  */
 export interface CreateJobQueueRequest {
   /**
-   * <p>The name of the job queue. Up to 128 letters (uppercase and lowercase), numbers, and underscores are
-   *    allowed.</p>
+   * <p>The name of the job queue. It can be up to 128 letters long. It can contain uppercase and lowercase letters,
+   *    numbers, hyphens (-), and underscores (_).</p>
    */
   jobQueueName: string | undefined;
 
@@ -826,13 +822,13 @@ export interface CreateJobQueueRequest {
   state?: JQState | string;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the fair share scheduling
-   *    policy. If this parameter is specified, the job queue will use a fair share scheduling policy. If this parameter is
-   *    not specified, the job queue will use a first in, first out (FIFO) scheduling policy. Once a job queue is created,
-   *    the fair share scheduling policy can be replaced but not removed. The format is
+   * <p>The Amazon Resource Name (ARN) of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair
+   *    share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO)
+   *    scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+   *    The format is
    *      <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i>
    *             </code>.
-   *    For example,
+   *    An example is
    *    <code>aws:aws:batch:us-west-2:012345678910:scheduling-policy/MySchedulingPolicy</code>.</p>
    */
   schedulingPolicyArn?: string;
@@ -899,26 +895,26 @@ export namespace CreateJobQueueResponse {
 }
 
 /**
- * <p>Specifies the weights for the fair share identifiers for the fair share policy. Fair share identifiers that are
- *    not included have a default weight of <code>1.0</code>.</p>
+ * <p>Specifies the weights for the fair share identifiers for the fair share policy. Fair share identifiers that
+ *    aren't included have a default weight of <code>1.0</code>.</p>
  */
 export interface ShareAttributes {
   /**
-   * <p>A fair share identifier or fair share identifier prefix. If the string ends with '*' then this entry specifies
-   *    the weight factor to use for fair share identifiers that begin with that prefix. The list of fair share identifiers
-   *    in a fair share policy cannot overlap. For example you cannot have one that specifies a <code>shareIdentifier</code>
-   *    of <code>UserA*</code> and another that specifies a <code>shareIdentifier</code> of <code>UserA-1</code>.</p>
+   * <p>A fair share identifier or fair share identifier prefix. If the string ends with an asterisk (*), this entry
+   *    specifies the weight factor to use for fair share identifiers that start with that prefix. The list of fair share
+   *    identifiers in a fair share policy cannot overlap. For example, you can't have one that specifies a
+   *     <code>shareIdentifier</code> of <code>UserA*</code> and another that specifies a <code>shareIdentifier</code> of
+   *     <code>UserA-1</code>.</p>
    *          <p>There can be no more than 500 fair share identifiers active in a job queue.</p>
-   *          <p>The string is limited to 255 alphanumeric characters, optionally followed by '*'.</p>
+   *          <p>The string is limited to 255 alphanumeric characters, optionally followed by an asterisk (*).</p>
    */
   shareIdentifier: string | undefined;
 
   /**
-   * <p>The weight factor for the fair share
-   *    identifier. The default value is 1.0. A lower value has a higher priority for compute resources. For example, jobs
-   *    using a share identifier with a weight factor of 0.125 (1/8) will get 8 times the compute resources of jobs using a
-   *    share identifier with a weight factor of 1.</p>
-   *          <p>The smallest supported value is 0.0001 and the largest supported value is 999.9999.</p>
+   * <p>The weight factor for the fair share identifier. The default value is 1.0. A lower value has a higher priority
+   *    for compute resources. For example, jobs that use a share identifier with a weight factor of 0.125 (1/8) get 8 times
+   *    the compute resources of jobs that use a share identifier with a weight factor of 1.</p>
+   *          <p>The smallest supported value is 0.0001, and the largest supported value is 999.9999.</p>
    */
   weightFactor?: number;
 }
@@ -933,23 +929,19 @@ export namespace ShareAttributes {
 }
 
 /**
- * <p>The fair share policy for a scheduling
- *    policy.</p>
+ * <p>The fair share policy for a scheduling policy.</p>
  */
 export interface FairsharePolicy {
   /**
-   * <p>The time period to use to calculate a
-   *    fair share percentage for each fair share identifier in use, in seconds. A value of zero (0) indicates that only
-   *    current usage should be measured; if there are four evenly weighted fair share identifiers then each can only use up
-   *    to 25% of the available CPU resources, even if some of the fair share identifiers have no currently running jobs. The
-   *    decay allows for more recently run jobs to have more weight than jobs that ran earlier. The maximum supported value
-   *    is 604800 (1 week).</p>
+   * <p>The time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. A
+   *    value of zero (0) indicates that only current usage should be measured. The decay allows for more recently run jobs
+   *    to have more weight than jobs that ran earlier. The maximum supported value is 604800 (1 week).</p>
    */
   shareDecaySeconds?: number;
 
   /**
-   * <p>A value used to reserve some of the
-   *    available maximum vCPU for fair share identifiers that have not yet been used.</p>
+   * <p>A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been
+   *    used.</p>
    *          <p>The reserved ratio is
    *     <code>(<i>computeReservation</i>/100)^<i>ActiveFairShares</i>
    *             </code> where
@@ -961,17 +953,13 @@ export interface FairsharePolicy {
    *    12.5% if there are three fair share identifiers. A <code>computeReservation</code> value of 25 indicates that Batch
    *    should reserve 25% of the maximum available vCPU if there is only one fair share identifier, 6.25% if there are two
    *    fair share identifiers, and 1.56% if there are three fair share identifiers.</p>
-   *
    *          <p>The minimum value is 0 and the maximum value is 99.</p>
    */
   computeReservation?: number;
 
   /**
-   * <p>Array of <code>SharedIdentifier</code>
-   *    objects that contain the weights for the fair
-   *    share identifiers for the fair share policy.
-   *    Fair share identifiers that
-   *    are not included have a default weight of <code>1.0</code>.</p>
+   * <p>An array of <code>SharedIdentifier</code> objects that contain the weights for the fair share identifiers for
+   *    the fair share policy. Fair share identifiers that aren't included have a default weight of <code>1.0</code>.</p>
    */
   shareDistribution?: ShareAttributes[];
 }
@@ -987,14 +975,13 @@ export namespace FairsharePolicy {
 
 export interface CreateSchedulingPolicyRequest {
   /**
-   * <p>The name of the scheduling
-   *    policy. Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name of the scheduling policy. It can be up to 128 letters long. It can contain uppercase and lowercase
+   *    letters, numbers, hyphens (-), and underscores (_).</p>
    */
   name: string | undefined;
 
   /**
-   * <p>The fair share policy of the scheduling
-   *    policy.</p>
+   * <p>The fair share policy of the scheduling policy.</p>
    */
   fairsharePolicy?: FairsharePolicy;
 
@@ -1018,14 +1005,12 @@ export namespace CreateSchedulingPolicyRequest {
 
 export interface CreateSchedulingPolicyResponse {
   /**
-   * <p>The name of the scheduling
-   *    policy.</p>
+   * <p>The name of the scheduling policy.</p>
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the scheduling policy.
-   *    The format is
+   * <p>The Amazon Resource Name (ARN) of the scheduling policy. The format is
    *      <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i>
    *             </code>.
    *    For example,
@@ -1105,8 +1090,7 @@ export namespace DeleteJobQueueResponse {
 
 export interface DeleteSchedulingPolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the scheduling policy to
-   *    delete.</p>
+   * <p>The Amazon Resource Name (ARN) of the scheduling policy to delete.</p>
    */
   arn: string | undefined;
 }
@@ -1214,8 +1198,8 @@ export enum CEStatus {
  */
 export interface ComputeEnvironmentDetail {
   /**
-   * <p>The name of the compute environment. Up to 128 letters (uppercase and lowercase), numbers, hyphens, and
-   *  underscores are allowed.</p>
+   * <p>The name of the compute environment. It can be up to 128 letters long. It can contain uppercase and
+   *  lowercase letters, numbers, hyphens (-), and underscores (_).</p>
    */
   computeEnvironmentName: string | undefined;
 
@@ -1321,8 +1305,7 @@ export namespace DescribeComputeEnvironmentsResponse {
  */
 export interface DescribeJobDefinitionsRequest {
   /**
-   * <p>A list of up to 100 job definitions. Each
-   *    entry in the list can either be an ARN of the form
+   * <p>A list of up to 100 job definitions. Each entry in the list can either be an ARN in the format
    *     <code>arn:aws:batch:${Region}:${Account}:job-definition/${JobDefinitionName}:${Revision}</code> or a short version
    *    using the form <code>${JobDefinitionName}:${Revision}</code>.</p>
    */
@@ -1900,9 +1883,8 @@ export interface ResourceRequirement {
    *       resources, you must specify at least one vCPU. This is required but can be specified in several places; it must be
    *       specified for each node at least once.</p>
    *                <p>For jobs that are running on Fargate resources, then <code>value</code> must match one of the supported
-   *       values and the <code>MEMORY</code> values must be one of the values supported for that
-   *        <code>VCPU</code>
-   *       value. The supported values are 0.25, 0.5, 1, 2, and 4</p>
+   *       values and the <code>MEMORY</code> values must be one of the values supported for that <code>VCPU</code> value.
+   *       The supported values are 0.25, 0.5, 1, 2, and 4</p>
    *                <dl>
    *                   <dt>value = 0.25</dt>
    *                   <dd>
@@ -2122,8 +2104,8 @@ export interface Volume {
   host?: Host;
 
   /**
-   * <p>The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are
-   *  allowed. This name is referenced in the <code>sourceVolume</code>
+   * <p>The name of the volume. It can be up to 255 letters long. It can contain uppercase and lowercase letters,
+   *  numbers, hyphens (-), and underscores (_). This name is referenced in the <code>sourceVolume</code>
    *    parameter of container definition <code>mountPoints</code>.</p>
    */
   name?: string;
@@ -2190,7 +2172,6 @@ export interface ContainerProperties {
    * <p>This parameter is deprecated, use <code>resourceRequirements</code> to specify the vCPU requirements for the job
    *    definition. It's not supported for jobs that run on Fargate resources. For jobs run on EC2 resources, it specifies
    *    the number of vCPUs reserved for the job.</p>
-   *
    *          <p>Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to <code>CpuShares</code> in the
    *    <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>--cpu-shares</code> option to
    *     <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. The number of vCPUs must be specified but can be specified
@@ -2201,12 +2182,11 @@ export interface ContainerProperties {
   /**
    * @deprecated
    *
-   * <p>This parameter is deprecated, use
-   *     <code>resourceRequirements</code> to specify the memory requirements for the job definition. It's not supported for
-   *    jobs that run on Fargate resources. For jobs run on EC2 resources, it specifies the memory hard
-   *    limit (in MiB) for a container. If your container attempts to exceed the specified number, it's terminated. You must
-   *    specify at least 4 MiB of memory for a job using this parameter. The memory hard limit can be specified in several
-   *    places. It must be specified for each node at least once.</p>
+   * <p>This parameter is deprecated, use <code>resourceRequirements</code> to specify the memory requirements for the
+   *    job definition. It's not supported for jobs that run on Fargate resources. For jobs run on EC2 resources, it
+   *    specifies the memory hard limit (in MiB) for a container. If your container attempts to exceed the specified number,
+   *    it's terminated. You must specify at least 4 MiB of memory for a job using this parameter. The memory hard limit can
+   *    be specified in several places. It must be specified for each node at least once.</p>
    */
   memory?: number;
 
@@ -2445,7 +2425,6 @@ export interface EvaluateOnExit {
    *    spaces or tabs).
    *    It can optionally end with an
    *    asterisk (*) so that only the start of the string needs to be an exact match.</p>
-   *
    *          <p>The string can be between 1 and 512 characters in length.</p>
    */
   onStatusReason?: string;
@@ -2455,7 +2434,6 @@ export interface EvaluateOnExit {
    *    512 characters in length. It can contain letters, numbers, periods (.), colons (:), and white space (including spaces
    *    and tabs). It can optionally end with an asterisk (*) so that only the start of the string needs to be an exact
    *    match.</p>
-   *
    *          <p>The string can be between 1 and 512 characters in length.</p>
    */
   onReason?: string;
@@ -2464,7 +2442,6 @@ export interface EvaluateOnExit {
    * <p>Contains a glob pattern to match against the decimal representation of the <code>ExitCode</code> returned for a
    *    job. The pattern can be up to 512 characters in length. It can contain only numbers, and can optionally end with an
    *    asterisk (*) so that only the start of the string needs to be an exact match.</p>
-   *
    *          <p>The string can be between 1 and 512 characters in length.</p>
    */
   onExitCode?: string;
@@ -2557,17 +2534,16 @@ export interface JobDefinition {
   status?: string;
 
   /**
-   * <p>The type of job definition, either
-   *     <code>container</code> or <code>multinode</code>. If the job is run on Fargate resources, then
-   *     <code>multinode</code> isn't supported. For more information about multi-node parallel jobs, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html">Creating a multi-node parallel job definition</a>
-   *    in the <i>Batch User Guide</i>.</p>
+   * <p>The type of job definition, either <code>container</code> or <code>multinode</code>. If the job is run on
+   *    Fargate resources, then <code>multinode</code> isn't supported. For more information about multi-node parallel
+   *    jobs, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html">Creating a multi-node parallel job
+   *     definition</a> in the <i>Batch User Guide</i>.</p>
    */
   type: string | undefined;
 
   /**
-   * <p>The scheduling priority of the job
-   *    definition. This will only affect jobs in job queues with a fair share policy. Jobs with a higher scheduling priority
-   *    will be scheduled before jobs with a lower scheduling priority.</p>
+   * <p>The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy.
+   *    Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.</p>
    */
   schedulingPriority?: number;
 
@@ -2728,7 +2704,7 @@ export interface JobQueueDetail {
   state: JQState | string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the scheduling policy. The format is
+   * <p>The Amazon Resource Name (ARN) of the scheduling policy. The format is
    *      <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i>
    *             </code>.
    *    For example,
@@ -3128,8 +3104,8 @@ export interface JobDetail {
   shareIdentifier?: string;
 
   /**
-   * <p>The scheduling policy of the job definition. This will only affect jobs in job queues with a fair share policy.
-   *    Jobs with a higher scheduling priority will be scheduled before jobs with a lower scheduling priority.</p>
+   * <p>The scheduling policy of the job definition. This only affects jobs in job queues with a fair share policy. Jobs
+   *    with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.</p>
    */
   schedulingPriority?: number;
 
@@ -3260,8 +3236,7 @@ export namespace DescribeJobsResponse {
 
 export interface DescribeSchedulingPoliciesRequest {
   /**
-   * <p>A list of up to 100 scheduling policy
-   *    Amazon Resource Name (ARN) entries.</p>
+   * <p>A list of up to 100 scheduling policy Amazon Resource Name (ARN) entries.</p>
    */
   arns: string[] | undefined;
 }
@@ -3276,33 +3251,29 @@ export namespace DescribeSchedulingPoliciesRequest {
 }
 
 /**
- * <p>An object representing a scheduling
- *    policy.</p>
+ * <p>An object that represents a scheduling policy.</p>
  */
 export interface SchedulingPolicyDetail {
   /**
-   * <p>The name of the scheduling
-   *    policy.</p>
+   * <p>The name of the scheduling policy.</p>
    */
   name: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the scheduling policy. An example would be
+   * <p>The Amazon Resource Name (ARN) of the scheduling policy. An example is
    *      <code>arn:<i>aws</i>:batch:<i>us-east-1</i>:<i>123456789012</i>:scheduling-policy/<i>HighPriority</i>
-   *             </code>
-   *          </p>
+   *             </code>.</p>
    */
   arn: string | undefined;
 
   /**
-   * <p>The fair share policy for the scheduling
-   *    policy.</p>
+   * <p>The fair share policy for the scheduling policy.</p>
    */
   fairsharePolicy?: FairsharePolicy;
 
   /**
-   * <p>The tags that you apply to the scheduling policy to help you categorize and organize your resources. Each tag
-   *    consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General
+   * <p>The tags that you apply to the scheduling policy to categorize and organize your resources. Each tag consists of
+   *    a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General
    *     Reference</i>.</p>
    */
   tags?: { [key: string]: string };
@@ -3319,8 +3290,7 @@ export namespace SchedulingPolicyDetail {
 
 export interface DescribeSchedulingPoliciesResponse {
   /**
-   * <p>The list of scheduling
-   *    policies.</p>
+   * <p>The list of scheduling policies.</p>
    */
   schedulingPolicies?: SchedulingPolicyDetail[];
 }
@@ -3438,14 +3408,14 @@ export interface ListJobsRequest {
    *             <dt>BEFORE_CREATED_AT</dt>
    *             <dd>
    *                <p>The value for the filter is the time that's before the job was created. This corresponds to the
-   *        <code>createdAt</code> value. The value is a string representation of the number of seconds since 00:00:00 UTC
-   *       (midnight) on January 1, 1970.</p>
+   *        <code>createdAt</code> value. The value is a string representation of the number of milliseconds since 00:00:00
+   *       UTC (midnight) on January 1, 1970.</p>
    *             </dd>
    *             <dt>AFTER_CREATED_AT</dt>
    *             <dd>
    *                <p>The value for the filter is the time that's after the job was created. This corresponds to the
-   *        <code>createdAt</code> value. The value is a string representation of the number of seconds since 00:00:00 UTC
-   *       (midnight) on January 1, 1970.</p>
+   *        <code>createdAt</code> value. The value is a string representation of the number of milliseconds since 00:00:00
+   *       UTC (midnight) on January 1, 1970.</p>
    *             </dd>
    *          </dl>
    */
@@ -3536,9 +3506,10 @@ export interface JobSummary {
   jobName: string | undefined;
 
   /**
-   * <p>The Unix timestamp for when the job was created. For non-array jobs and parent array jobs, this is when the job
-   *    entered the <code>SUBMITTED</code> state (at the time <a>SubmitJob</a> was called). For array child jobs,
-   *    this is when the child job was spawned by its parent and entered the <code>PENDING</code> state.</p>
+   * <p>The Unix timestamp (in milliseconds) for when the job was created. For non-array jobs and parent array jobs,
+   *    this is when the job entered the <code>SUBMITTED</code> state (at the time <a>SubmitJob</a> was called).
+   *    For array child jobs, this is when the child job was spawned by its parent and entered the <code>PENDING</code>
+   *    state.</p>
    */
   createdAt?: number;
 
@@ -3622,21 +3593,22 @@ export namespace ListJobsResponse {
 
 export interface ListSchedulingPoliciesRequest {
   /**
-   * <p>The maximum number of results returned by <code>ListSchedulingPolicies</code> in paginated output. When this
-   *    parameter is used, <code>ListSchedulingPolicies</code> only returns <code>maxResults</code> results in a single page
-   *    and a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending
-   *    another <code>ListSchedulingPolicies</code> request with the returned <code>nextToken</code> value. This value can be
-   *    between 1 and 100. If this parameter isn't used, then
+   * <p>The maximum number of results that's returned by <code>ListSchedulingPolicies</code> in paginated output. When
+   *    this parameter is used, <code>ListSchedulingPolicies</code> only returns <code>maxResults</code> results in a single
+   *    page and a <code>nextToken</code> response element. You can see the remaining results of the initial request by
+   *    sending another <code>ListSchedulingPolicies</code> request with the returned <code>nextToken</code> value. This
+   *    value can be between 1 and 100. If this parameter isn't used,
    *     <code>ListSchedulingPolicies</code> returns up to 100 results and a <code>nextToken</code> value
    *    if applicable.</p>
    */
   maxResults?: number;
 
   /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated <code>ListSchedulingPolicies</code> request
-   *    where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues
-   *    from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code>
-   *    when there are no more results to return.</p>
+   * <p>The <code>nextToken</code> value that's returned from a previous paginated <code>ListSchedulingPolicies</code>
+   *    request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination
+   *    continues from the end of the previous results that returned the <code>nextToken</code> value. This value is
+   *     <code>null</code> when there are no more results to
+   *    return.</p>
    *          <note>
    *             <p>This token should be treated as an opaque identifier that's only used to
    *  retrieve the next items in a list and not for other programmatic purposes.</p>
@@ -3655,8 +3627,8 @@ export namespace ListSchedulingPoliciesRequest {
 }
 
 /**
- * <p>An object containing the details of a scheduling policy returned in a <code>ListSchedulingPolicy</code>
- *    action.</p>
+ * <p>An object that contains the details of a scheduling policy that's returned in a
+ *     <code>ListSchedulingPolicy</code> action.</p>
  */
 export interface SchedulingPolicyListingDetail {
   /**
@@ -3676,8 +3648,7 @@ export namespace SchedulingPolicyListingDetail {
 
 export interface ListSchedulingPoliciesResponse {
   /**
-   * <p>A list of scheduling policies that match
-   *    the request.</p>
+   * <p>A list of scheduling policies that match the request.</p>
    */
   schedulingPolicies?: SchedulingPolicyListingDetail[];
 
@@ -3741,8 +3712,8 @@ export enum JobDefinitionType {
  */
 export interface RegisterJobDefinitionRequest {
   /**
-   * <p>The name of the job definition to register. Up to 128 letters (uppercase and lowercase), numbers, hyphens, and
-   *    underscores are allowed.</p>
+   * <p>The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and
+   *    lowercase letters, numbers, hyphens (-), and underscores (_).</p>
    */
   jobDefinitionName: string | undefined;
 
@@ -3763,10 +3734,9 @@ export interface RegisterJobDefinitionRequest {
   parameters?: { [key: string]: string };
 
   /**
-   * <p>The scheduling priority for jobs that are
-   *    submitted with this job definition. This will only affect jobs in job queues with a fair share policy. Jobs with a
-   *    higher scheduling priority will be scheduled before jobs with a lower scheduling priority.</p>
-   *
+   * <p>The scheduling priority for jobs that are submitted with this job definition. This will only affect jobs in job
+   *    queues with a fair share policy. Jobs with a higher scheduling priority will be scheduled before jobs with a lower
+   *    scheduling priority.</p>
    *          <p>The minimum supported value is 0 and the maximum supported value is 9999.</p>
    */
   schedulingPriority?: number;
@@ -3873,32 +3843,28 @@ export interface ContainerOverrides {
   /**
    * @deprecated
    *
-   * <p>This parameter is deprecated, use
-   *     <code>resourceRequirements</code> to  override the <code>vcpus</code> parameter that's set in the
-   *    job definition. It's not supported for jobs
-   *    that run on Fargate resources. For jobs run on EC2 resources, it overrides the <code>vcpus</code> parameter set in
-   *    the job definition, but doesn't override any vCPU requirement specified in the
-   *     <code>resourceRequirements</code> structure in the job definition. To override vCPU requirements that are specified
-   *    in the <code>resourceRequirements</code> structure in the job definition, <code>resourceRequirements</code> must be
-   *    specified in the <code>SubmitJob</code> request, with <code>type</code> set to <code>VCPU</code> and
-   *     <code>value</code> set to the new value. For
-   *    more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't override job definition
-   *     resource requirements</a> in the <i>Batch User Guide</i>.</p>
+   * <p>This parameter is deprecated, use <code>resourceRequirements</code> to override the <code>vcpus</code> parameter
+   *    that's set in the job definition. It's not supported for jobs that run on Fargate resources. For jobs run on EC2
+   *    resources, it overrides the <code>vcpus</code> parameter set in the job definition, but doesn't override any vCPU
+   *    requirement specified in the <code>resourceRequirements</code> structure in the job definition. To override vCPU
+   *    requirements that are specified in the <code>resourceRequirements</code> structure in the job definition,
+   *     <code>resourceRequirements</code> must be specified in the <code>SubmitJob</code> request, with <code>type</code>
+   *    set to <code>VCPU</code> and <code>value</code> set to the new value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't override
+   *     job definition resource requirements</a> in the <i>Batch User Guide</i>.</p>
    */
   vcpus?: number;
 
   /**
    * @deprecated
    *
-   * <p>This parameter is deprecated, use
-   *     <code>resourceRequirements</code> to override the memory requirements specified in the job definition. It's not
-   *    supported for jobs that run on Fargate resources. For jobs run on EC2 resources, it overrides the
-   *     <code>memory</code> parameter set in the job definition, but doesn't override any memory requirement specified in
-   *    the <code>resourceRequirements</code> structure in the job definition. To override memory requirements that are
-   *    specified in the <code>resourceRequirements</code> structure in the job definition, <code>resourceRequirements</code>
-   *    must be specified in the <code>SubmitJob</code> request, with <code>type</code> set to <code>MEMORY</code> and
-   *     <code>value</code> set to the new value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't override job definition
-   *     resource requirements</a> in the <i>Batch User Guide</i>.</p>
+   * <p>This parameter is deprecated, use <code>resourceRequirements</code> to override the memory requirements
+   *    specified in the job definition. It's not supported for jobs that run on Fargate resources. For jobs run on EC2
+   *    resources, it overrides the <code>memory</code> parameter set in the job definition, but doesn't override any memory
+   *    requirement specified in the <code>resourceRequirements</code> structure in the job definition. To override memory
+   *    requirements that are specified in the <code>resourceRequirements</code> structure in the job definition,
+   *     <code>resourceRequirements</code> must be specified in the <code>SubmitJob</code> request, with <code>type</code>
+   *    set to <code>MEMORY</code> and <code>value</code> set to the new value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't override
+   *     job definition resource requirements</a> in the <i>Batch User Guide</i>.</p>
    */
   memory?: number;
 
@@ -4021,8 +3987,8 @@ export namespace NodeOverrides {
  */
 export interface SubmitJobRequest {
   /**
-   * <p>The name of the job. The first character must be alphanumeric, and up to 128 letters (uppercase and lowercase),
-   *    numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name of the job. It can be up to 128 letters long. The first character must be alphanumeric, can contain
+   *    uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
    */
   jobName: string | undefined;
 
@@ -4032,17 +3998,14 @@ export interface SubmitJobRequest {
   jobQueue: string | undefined;
 
   /**
-   * <p>The share identifier for the
-   *    job.</p>
+   * <p>The share identifier for the job.</p>
    */
   shareIdentifier?: string;
 
   /**
-   * <p>The scheduling priority for the job. This
-   *    will only affect jobs in job queues with a fair share policy. Jobs with a higher scheduling priority will be
-   *    scheduled before jobs with a lower scheduling priority. This will override any scheduling priority in the job
-   *    definition.</p>
-   *
+   * <p>The scheduling priority for the job. This will only affect jobs in job queues with a fair share policy. Jobs
+   *    with a higher scheduling priority will be scheduled before jobs with a lower scheduling priority. This will override
+   *    any scheduling priority in the job definition.</p>
    *          <p>The minimum supported value is 0 and the maximum supported value is 9999.</p>
    */
   schedulingPriorityOverride?: number;
@@ -4353,11 +4316,10 @@ export interface UpdateComputeEnvironmentRequest {
   state?: CEState | string;
 
   /**
-   * <p>The maximum number of vCPUs expected to
-   *    be used for an unmanaged compute environment. This parameter should not be specified for a managed compute
-   *    environment. This parameter is only used for fair share scheduling to reserve vCPU capacity for new share
-   *    identifiers. If this parameter is not provided for a fair share job queue, no vCPU capacity will be
-   *    reserved.</p>
+   * <p>The maximum number of vCPUs expected to be used for an unmanaged compute environment. This parameter should not
+   *    be specified for a managed compute environment. This parameter is only used for fair share scheduling to reserve vCPU
+   *    capacity for new share identifiers. If this parameter is not provided for a fair share job queue, no vCPU capacity
+   *    will be reserved.</p>
    */
   unmanagedvCpus?: number;
 
@@ -4400,8 +4362,8 @@ export namespace UpdateComputeEnvironmentRequest {
 
 export interface UpdateComputeEnvironmentResponse {
   /**
-   * <p>The name of the compute environment. Up to 128 letters (uppercase and lowercase), numbers, hyphens, and
-   *  underscores are allowed.</p>
+   * <p>The name of the compute environment. It can be up to 128 letters long. It can contain uppercase and
+   *  lowercase letters, numbers, hyphens (-), and underscores (_).</p>
    */
   computeEnvironmentName?: string;
 
@@ -4507,8 +4469,7 @@ export interface UpdateSchedulingPolicyRequest {
   arn: string | undefined;
 
   /**
-   * <p>The fair share
-   *    policy.</p>
+   * <p>The fair share policy.</p>
    */
   fairsharePolicy?: FairsharePolicy;
 }

@@ -618,6 +618,12 @@ export namespace Message {
   });
 }
 
+export enum StyleType {
+  DEFAULT = "Default",
+  SPELL_BY_LETTER = "SpellByLetter",
+  SPELL_BY_WORD = "SpellByWord",
+}
+
 export enum DialogActionType {
   CLOSE = "Close",
   CONFIRM_INTENT = "ConfirmIntent",
@@ -665,6 +671,24 @@ export interface DialogAction {
    * <p>The name of the slot that should be elicited from the user.</p>
    */
   slotToElicit?: string;
+
+  /**
+   * <p>Configures the slot to use spell-by-letter or spell-by-word style.
+   *          When you use a style on a slot, users can spell out their input to make
+   *          it clear to your bot.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Spell by letter - "b" "o" "b"</p>
+   *             </li>
+   *             <li>
+   *                <p>Spell by word - "b as in boy" "o as in oscar" "b as in
+   *                boy"</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-spelling.html">
+   *             Using spelling to enter slot values </a>.</p>
+   */
+  slotElicitationStyle?: StyleType | string;
 }
 
 export namespace DialogAction {

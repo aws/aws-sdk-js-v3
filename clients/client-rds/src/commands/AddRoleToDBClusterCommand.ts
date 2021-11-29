@@ -22,12 +22,7 @@ export interface AddRoleToDBClusterCommandInput extends AddRoleToDBClusterMessag
 export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Associates an Identity and Access Management (IAM) role from an Amazon Aurora DB cluster.
- *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html">Authorizing Amazon Aurora MySQL
- *                   to Access Other Amazon Web Services Services on Your Behalf</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *         <note>
- *             <p>This action only applies to Aurora DB clusters.</p>
- *         </note>
+ * <p>Associates an Identity and Access Management (IAM) role with a DB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

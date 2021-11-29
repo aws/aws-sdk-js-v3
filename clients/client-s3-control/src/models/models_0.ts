@@ -938,6 +938,14 @@ export interface CreateBucketRequest {
   Bucket: string | undefined;
 
   /**
+   * <p>The configuration information for the bucket.</p>
+   *          <note>
+   *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
+   *          </note>
+   */
+  CreateBucketConfiguration?: CreateBucketConfiguration;
+
+  /**
    * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p>
    *          <note>
    *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
@@ -992,14 +1000,6 @@ export interface CreateBucketRequest {
    *          </note>
    */
   OutpostId?: string;
-
-  /**
-   * <p>The configuration information for the bucket.</p>
-   *          <note>
-   *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
-   *          </note>
-   */
-  CreateBucketConfiguration?: CreateBucketConfiguration;
 }
 
 export namespace CreateBucketRequest {
@@ -3821,6 +3821,26 @@ export namespace StorageLensAwsOrg {
 }
 
 /**
+ * <p>A container for enabling Amazon CloudWatch publishing for S3 Storage Lens metrics.</p>
+ *          <p>For more information about publishing S3 Storage Lens metrics to CloudWatch, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_view_metrics_cloudwatch.html">Monitor S3 Storage Lens metrics in CloudWatch</a> in the <i>Amazon S3 User Guide</i>.</p>
+ */
+export interface CloudWatchMetrics {
+  /**
+   * <p>A container that indicates whether CloudWatch publishing for S3 Storage Lens metrics is enabled. A value of <code>true</code> indicates that CloudWatch publishing for S3 Storage Lens metrics is enabled.</p>
+   */
+  IsEnabled: boolean | undefined;
+}
+
+export namespace CloudWatchMetrics {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CloudWatchMetrics): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p></p>
  */
 export interface SSEKMS {
@@ -3944,7 +3964,12 @@ export interface StorageLensDataExport {
    *             <p>This bucket must be located in the same Region as the storage lens configuration. </p>
    *          </note>
    */
-  S3BucketDestination: S3BucketDestination | undefined;
+  S3BucketDestination?: S3BucketDestination;
+
+  /**
+   * <p>A container for enabling Amazon CloudWatch publishing for S3 Storage Lens metrics.</p>
+   */
+  CloudWatchMetrics?: CloudWatchMetrics;
 }
 
 export namespace StorageLensDataExport {
@@ -4971,15 +4996,15 @@ export namespace PutMultiRegionAccessPointPolicyResult {
 
 export interface PutPublicAccessBlockRequest {
   /**
+   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to the specified Amazon Web Services account.</p>
+   */
+  PublicAccessBlockConfiguration: PublicAccessBlockConfiguration | undefined;
+
+  /**
    * <p>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code> configuration you want
    *          to set.</p>
    */
   AccountId?: string;
-
-  /**
-   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to the specified Amazon Web Services account.</p>
-   */
-  PublicAccessBlockConfiguration: PublicAccessBlockConfiguration | undefined;
 }
 
 export namespace PutPublicAccessBlockRequest {

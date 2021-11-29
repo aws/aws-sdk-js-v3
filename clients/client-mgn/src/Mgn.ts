@@ -22,6 +22,11 @@ import {
   DeleteSourceServerCommandOutput,
 } from "./commands/DeleteSourceServerCommand";
 import {
+  DeleteVcenterClientCommand,
+  DeleteVcenterClientCommandInput,
+  DeleteVcenterClientCommandOutput,
+} from "./commands/DeleteVcenterClientCommand";
+import {
   DescribeJobLogItemsCommand,
   DescribeJobLogItemsCommandInput,
   DescribeJobLogItemsCommandOutput,
@@ -41,6 +46,11 @@ import {
   DescribeSourceServersCommandInput,
   DescribeSourceServersCommandOutput,
 } from "./commands/DescribeSourceServersCommand";
+import {
+  DescribeVcenterClientsCommand,
+  DescribeVcenterClientsCommandInput,
+  DescribeVcenterClientsCommandOutput,
+} from "./commands/DescribeVcenterClientsCommand";
 import {
   DisconnectFromServiceCommand,
   DisconnectFromServiceCommandInput,
@@ -86,6 +96,11 @@ import {
   StartCutoverCommandInput,
   StartCutoverCommandOutput,
 } from "./commands/StartCutoverCommand";
+import {
+  StartReplicationCommand,
+  StartReplicationCommandInput,
+  StartReplicationCommandOutput,
+} from "./commands/StartReplicationCommand";
 import { StartTestCommand, StartTestCommandInput, StartTestCommandOutput } from "./commands/StartTestCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
@@ -113,6 +128,11 @@ import {
   UpdateReplicationConfigurationTemplateCommandInput,
   UpdateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/UpdateReplicationConfigurationTemplateCommand";
+import {
+  UpdateSourceServerReplicationTypeCommand,
+  UpdateSourceServerReplicationTypeCommandInput,
+  UpdateSourceServerReplicationTypeCommandOutput,
+} from "./commands/UpdateSourceServerReplicationTypeCommand";
 import { MgnClient } from "./MgnClient";
 
 /**
@@ -278,6 +298,38 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * <p>Deletes a single vCenter client by ID.</p>
+   */
+  public deleteVcenterClient(
+    args: DeleteVcenterClientCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVcenterClientCommandOutput>;
+  public deleteVcenterClient(
+    args: DeleteVcenterClientCommandInput,
+    cb: (err: any, data?: DeleteVcenterClientCommandOutput) => void
+  ): void;
+  public deleteVcenterClient(
+    args: DeleteVcenterClientCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVcenterClientCommandOutput) => void
+  ): void;
+  public deleteVcenterClient(
+    args: DeleteVcenterClientCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVcenterClientCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVcenterClientCommandOutput) => void
+  ): Promise<DeleteVcenterClientCommandOutput> | void {
+    const command = new DeleteVcenterClientCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves detailed Job log with paging.</p>
    */
   public describeJobLogItems(
@@ -394,6 +446,38 @@ export class Mgn extends MgnClient {
     cb?: (err: any, data?: DescribeSourceServersCommandOutput) => void
   ): Promise<DescribeSourceServersCommandOutput> | void {
     const command = new DescribeSourceServersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all vCenter clients.</p>
+   */
+  public describeVcenterClients(
+    args: DescribeVcenterClientsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVcenterClientsCommandOutput>;
+  public describeVcenterClients(
+    args: DescribeVcenterClientsCommandInput,
+    cb: (err: any, data?: DescribeVcenterClientsCommandOutput) => void
+  ): void;
+  public describeVcenterClients(
+    args: DescribeVcenterClientsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVcenterClientsCommandOutput) => void
+  ): void;
+  public describeVcenterClients(
+    args: DescribeVcenterClientsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVcenterClientsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVcenterClientsCommandOutput) => void
+  ): Promise<DescribeVcenterClientsCommandOutput> | void {
+    const command = new DescribeVcenterClientsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -690,6 +774,38 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * <p>Starts replication on source server by ID.</p>
+   */
+  public startReplication(
+    args: StartReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartReplicationCommandOutput>;
+  public startReplication(
+    args: StartReplicationCommandInput,
+    cb: (err: any, data?: StartReplicationCommandOutput) => void
+  ): void;
+  public startReplication(
+    args: StartReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartReplicationCommandOutput) => void
+  ): void;
+  public startReplication(
+    args: StartReplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartReplicationCommandOutput) => void),
+    cb?: (err: any, data?: StartReplicationCommandOutput) => void
+  ): Promise<StartReplicationCommandOutput> | void {
+    const command = new StartReplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lauches a Test Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartTest and changes the SourceServer.lifeCycle.state property to TESTING.</p>
    */
   public startTest(args: StartTestCommandInput, options?: __HttpHandlerOptions): Promise<StartTestCommandOutput>;
@@ -893,6 +1009,38 @@ export class Mgn extends MgnClient {
     cb?: (err: any, data?: UpdateReplicationConfigurationTemplateCommandOutput) => void
   ): Promise<UpdateReplicationConfigurationTemplateCommandOutput> | void {
     const command = new UpdateReplicationConfigurationTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates source server Replication Type by ID.</p>
+   */
+  public updateSourceServerReplicationType(
+    args: UpdateSourceServerReplicationTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSourceServerReplicationTypeCommandOutput>;
+  public updateSourceServerReplicationType(
+    args: UpdateSourceServerReplicationTypeCommandInput,
+    cb: (err: any, data?: UpdateSourceServerReplicationTypeCommandOutput) => void
+  ): void;
+  public updateSourceServerReplicationType(
+    args: UpdateSourceServerReplicationTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSourceServerReplicationTypeCommandOutput) => void
+  ): void;
+  public updateSourceServerReplicationType(
+    args: UpdateSourceServerReplicationTypeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSourceServerReplicationTypeCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSourceServerReplicationTypeCommandOutput) => void
+  ): Promise<UpdateSourceServerReplicationTypeCommandOutput> | void {
+    const command = new UpdateSourceServerReplicationTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

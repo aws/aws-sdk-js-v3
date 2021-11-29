@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateInstanceStorageConfigRequest } from "../models/models_0";
+import { UpdateInstanceStorageConfigRequest } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateInstanceStorageConfigCommand,
   serializeAws_restJson1UpdateInstanceStorageConfigCommand,

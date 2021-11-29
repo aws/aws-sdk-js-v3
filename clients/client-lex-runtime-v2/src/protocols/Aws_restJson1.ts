@@ -1726,6 +1726,8 @@ const serializeAws_restJson1ConfigurationEvent = (input: ConfigurationEvent, con
 
 const serializeAws_restJson1DialogAction = (input: DialogAction, context: __SerdeContext): any => {
   return {
+    ...(input.slotElicitationStyle !== undefined &&
+      input.slotElicitationStyle !== null && { slotElicitationStyle: input.slotElicitationStyle }),
     ...(input.slotToElicit !== undefined && input.slotToElicit !== null && { slotToElicit: input.slotToElicit }),
     ...(input.type !== undefined && input.type !== null && { type: input.type }),
   };
@@ -2030,6 +2032,7 @@ const deserializeAws_restJson1DependencyFailedException = (
 
 const deserializeAws_restJson1DialogAction = (output: any, context: __SerdeContext): DialogAction => {
   return {
+    slotElicitationStyle: __expectString(output.slotElicitationStyle),
     slotToElicit: __expectString(output.slotToElicit),
     type: __expectString(output.type),
   } as any;

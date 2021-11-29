@@ -22,7 +22,7 @@ export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 export interface ListApplicationsCommandOutput extends Applications, __MetadataBearer {}
 
 /**
- * <p>List all applications in your AWS account.</p>
+ * <p>Lists all applications in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

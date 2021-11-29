@@ -22,9 +22,9 @@ export interface ListChannelsCommandInput extends ListChannelsRequest {}
 export interface ListChannelsCommandOutput extends ListChannelsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets summary information about all channels in your account, in the Amazon Web Services region where the
- *       API request is processed. This list can be filtered to match a specified name or
- *       recording-configuration ARN. Filters are mutually exclusive and cannot be used together. If
+ * <p>Gets summary information about all channels in your account, in the Amazon Web Services
+ *       region where the API request is processed. This list can be filtered to match a specified name
+ *       or recording-configuration ARN. Filters are mutually exclusive and cannot be used together. If
  *       you try to use both filters, you will get an error (409 ConflictException).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

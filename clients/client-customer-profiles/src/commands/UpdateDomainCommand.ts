@@ -28,6 +28,8 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *          <p>Use this API or <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html">CreateDomain</a> to
  *          enable <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">identity
  *             resolution</a>: set <code>Matching</code> to true. </p>
+ *          <p>To prevent cross-service impersonation when you call this API, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html">Cross-service confused deputy prevention</a> for sample policies that you should
+ *          apply. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

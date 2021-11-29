@@ -97,6 +97,7 @@ import {
   AlarmType,
   AnomalyDetector,
   AnomalyDetectorConfiguration,
+  AnomalyDetectorType,
   CompositeAlarm,
   ConcurrentModificationException,
   DashboardEntry,
@@ -169,6 +170,7 @@ import {
   MetricDataQuery,
   MetricDataResult,
   MetricDatum,
+  MetricMathAnomalyDetector,
   MetricStat,
   MetricStreamEntry,
   MetricStreamFilter,
@@ -189,6 +191,7 @@ import {
   ResourceNotFound,
   ResourceNotFoundException,
   SetAlarmStateInput,
+  SingleMetricAnomalyDetector,
   StartMetricStreamsInput,
   StartMetricStreamsOutput,
   Statistic,
@@ -866,6 +869,14 @@ const deserializeAws_queryDeleteAnomalyDetectorCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.cloudwatch#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidParameterValueException":
     case "com.amazonaws.cloudwatch#InvalidParameterValueException":
       response = {
@@ -1304,6 +1315,14 @@ const deserializeAws_queryDescribeAnomalyDetectorsCommandError = async (
     case "com.amazonaws.cloudwatch#InvalidNextToken":
       response = {
         ...(await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.cloudwatch#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2314,6 +2333,14 @@ const deserializeAws_queryPutAnomalyDetectorCommandError = async (
     case "com.amazonaws.cloudwatch#InternalServiceFault":
       response = {
         ...(await deserializeAws_queryInternalServiceFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.cloudwatch#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3364,6 +3391,22 @@ const serializeAws_queryAnomalyDetectorExcludedTimeRanges = (input: Range[], con
   return entries;
 };
 
+const serializeAws_queryAnomalyDetectorTypes = (
+  input: (AnomalyDetectorType | string)[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_queryCounts = (input: number[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -3422,6 +3465,20 @@ const serializeAws_queryDeleteAnomalyDetectorInput = (
   }
   if (input.Stat !== undefined && input.Stat !== null) {
     entries["Stat"] = input.Stat;
+  }
+  if (input.SingleMetricAnomalyDetector !== undefined && input.SingleMetricAnomalyDetector !== null) {
+    const memberEntries = serializeAws_querySingleMetricAnomalyDetector(input.SingleMetricAnomalyDetector, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SingleMetricAnomalyDetector.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MetricMathAnomalyDetector !== undefined && input.MetricMathAnomalyDetector !== null) {
+    const memberEntries = serializeAws_queryMetricMathAnomalyDetector(input.MetricMathAnomalyDetector, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MetricMathAnomalyDetector.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -3588,6 +3645,13 @@ const serializeAws_queryDescribeAnomalyDetectorsInput = (
     const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AnomalyDetectorTypes !== undefined && input.AnomalyDetectorTypes !== null) {
+    const memberEntries = serializeAws_queryAnomalyDetectorTypes(input.AnomalyDetectorTypes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AnomalyDetectorTypes.${key}`;
       entries[loc] = value;
     });
   }
@@ -4080,6 +4144,21 @@ const serializeAws_queryMetricDatum = (input: MetricDatum, context: __SerdeConte
   return entries;
 };
 
+const serializeAws_queryMetricMathAnomalyDetector = (
+  input: MetricMathAnomalyDetector,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.MetricDataQueries !== undefined && input.MetricDataQueries !== null) {
+    const memberEntries = serializeAws_queryMetricDataQueries(input.MetricDataQueries, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MetricDataQueries.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_queryMetricStat = (input: MetricStat, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Metric !== undefined && input.Metric !== null) {
@@ -4160,6 +4239,20 @@ const serializeAws_queryPutAnomalyDetectorInput = (input: PutAnomalyDetectorInpu
     const memberEntries = serializeAws_queryAnomalyDetectorConfiguration(input.Configuration, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Configuration.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SingleMetricAnomalyDetector !== undefined && input.SingleMetricAnomalyDetector !== null) {
+    const memberEntries = serializeAws_querySingleMetricAnomalyDetector(input.SingleMetricAnomalyDetector, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SingleMetricAnomalyDetector.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MetricMathAnomalyDetector !== undefined && input.MetricMathAnomalyDetector !== null) {
+    const memberEntries = serializeAws_queryMetricMathAnomalyDetector(input.MetricMathAnomalyDetector, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MetricMathAnomalyDetector.${key}`;
       entries[loc] = value;
     });
   }
@@ -4432,6 +4525,30 @@ const serializeAws_querySetAlarmStateInput = (input: SetAlarmStateInput, context
   return entries;
 };
 
+const serializeAws_querySingleMetricAnomalyDetector = (
+  input: SingleMetricAnomalyDetector,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Namespace !== undefined && input.Namespace !== null) {
+    entries["Namespace"] = input.Namespace;
+  }
+  if (input.MetricName !== undefined && input.MetricName !== null) {
+    entries["MetricName"] = input.MetricName;
+  }
+  if (input.Dimensions !== undefined && input.Dimensions !== null) {
+    const memberEntries = serializeAws_queryDimensions(input.Dimensions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Dimensions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Stat !== undefined && input.Stat !== null) {
+    entries["Stat"] = input.Stat;
+  }
+  return entries;
+};
+
 const serializeAws_queryStartMetricStreamsInput = (input: StartMetricStreamsInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Names !== undefined && input.Names !== null) {
@@ -4618,6 +4735,8 @@ const deserializeAws_queryAnomalyDetector = (output: any, context: __SerdeContex
     Stat: undefined,
     Configuration: undefined,
     StateValue: undefined,
+    SingleMetricAnomalyDetector: undefined,
+    MetricMathAnomalyDetector: undefined,
   };
   if (output["Namespace"] !== undefined) {
     contents.Namespace = __expectString(output["Namespace"]);
@@ -4642,6 +4761,18 @@ const deserializeAws_queryAnomalyDetector = (output: any, context: __SerdeContex
   }
   if (output["StateValue"] !== undefined) {
     contents.StateValue = __expectString(output["StateValue"]);
+  }
+  if (output["SingleMetricAnomalyDetector"] !== undefined) {
+    contents.SingleMetricAnomalyDetector = deserializeAws_querySingleMetricAnomalyDetector(
+      output["SingleMetricAnomalyDetector"],
+      context
+    );
+  }
+  if (output["MetricMathAnomalyDetector"] !== undefined) {
+    contents.MetricMathAnomalyDetector = deserializeAws_queryMetricMathAnomalyDetector(
+      output["MetricMathAnomalyDetector"],
+      context
+    );
   }
   return contents;
 };
@@ -6037,6 +6168,25 @@ const deserializeAws_queryMetricDataResults = (output: any, context: __SerdeCont
     });
 };
 
+const deserializeAws_queryMetricMathAnomalyDetector = (
+  output: any,
+  context: __SerdeContext
+): MetricMathAnomalyDetector => {
+  const contents: any = {
+    MetricDataQueries: undefined,
+  };
+  if (output.MetricDataQueries === "") {
+    contents.MetricDataQueries = [];
+  }
+  if (output["MetricDataQueries"] !== undefined && output["MetricDataQueries"]["member"] !== undefined) {
+    contents.MetricDataQueries = deserializeAws_queryMetricDataQueries(
+      __getArrayIfSingleItem(output["MetricDataQueries"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryMetrics = (output: any, context: __SerdeContext): Metric[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -6265,6 +6415,37 @@ const deserializeAws_queryResourceNotFoundException = (
   }
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_querySingleMetricAnomalyDetector = (
+  output: any,
+  context: __SerdeContext
+): SingleMetricAnomalyDetector => {
+  const contents: any = {
+    Namespace: undefined,
+    MetricName: undefined,
+    Dimensions: undefined,
+    Stat: undefined,
+  };
+  if (output["Namespace"] !== undefined) {
+    contents.Namespace = __expectString(output["Namespace"]);
+  }
+  if (output["MetricName"] !== undefined) {
+    contents.MetricName = __expectString(output["MetricName"]);
+  }
+  if (output.Dimensions === "") {
+    contents.Dimensions = [];
+  }
+  if (output["Dimensions"] !== undefined && output["Dimensions"]["member"] !== undefined) {
+    contents.Dimensions = deserializeAws_queryDimensions(
+      __getArrayIfSingleItem(output["Dimensions"]["member"]),
+      context
+    );
+  }
+  if (output["Stat"] !== undefined) {
+    contents.Stat = __expectString(output["Stat"]);
   }
   return contents;
 };

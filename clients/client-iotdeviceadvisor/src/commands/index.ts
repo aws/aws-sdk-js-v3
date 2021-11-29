@@ -1,5 +1,6 @@
 export * from "./CreateSuiteDefinitionCommand";
 export * from "./DeleteSuiteDefinitionCommand";
+export * from "./GetEndpointCommand";
 export * from "./GetSuiteDefinitionCommand";
 export * from "./GetSuiteRunCommand";
 export * from "./GetSuiteRunReportCommand";

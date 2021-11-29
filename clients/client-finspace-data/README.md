@@ -7,7 +7,7 @@
 
 AWS SDK for JavaScript FinspaceData Client for Node.js, Browser and React Native.
 
-<p> The FinSpace APIs let you take actions inside the FinSpace environment.  </p>
+<p> The FinSpace APIs let you take actions inside the FinSpace.</p>
 
 ## Installing
 

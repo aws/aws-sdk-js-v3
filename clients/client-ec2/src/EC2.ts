@@ -1909,6 +1909,11 @@ import {
   ModifyNetworkInterfaceAttributeCommandOutput,
 } from "./commands/ModifyNetworkInterfaceAttributeCommand";
 import {
+  ModifyPrivateDnsNameOptionsCommand,
+  ModifyPrivateDnsNameOptionsCommandInput,
+  ModifyPrivateDnsNameOptionsCommandOutput,
+} from "./commands/ModifyPrivateDnsNameOptionsCommand";
+import {
   ModifyReservedInstancesCommand,
   ModifyReservedInstancesCommandInput,
   ModifyReservedInstancesCommandOutput,
@@ -3479,7 +3484,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>[VPC only] Adds the specified outbound (egress) rules to a security group for use with a VPC.</p>
    *          <p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR address
-   *       ranges, or to the instances that are associated with the specified destination security groups.</p>
+   *       ranges, or to the instances that are associated with the specified source security groups.</p>
    *          <p>You specify a protocol for each rule (for example, TCP).
    *        For the TCP and UDP protocols, you must also specify the destination port or port range.
    *        For the ICMP protocol, you must also specify the ICMP type and code.
@@ -10387,8 +10392,9 @@ export class EC2 extends EC2Client {
    *                 <p>
    *                     <b>Status checks</b> - Amazon EC2 performs status
    *                     checks on running EC2 instances to identify hardware and software issues. For
-   *                     more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html">Status checks for your instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html">Troubleshooting
-   *                         instances with failed status checks</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *                     more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html">Status checks for your instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html">Troubleshoot
+   *                         instances with failed status checks</a> in the <i>Amazon EC2 User
+   *                         Guide</i>.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -16236,7 +16242,7 @@ export class EC2 extends EC2Client {
    *             associated with an ENI attached to an instance that has multiple ENIs, we recommend that
    *             you use the <a>ModifyNetworkInterfaceAttribute</a> action.</p>
    *         <p>To modify some attributes, the instance must be stopped. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modifying attributes of a stopped instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modify a stopped instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public modifyInstanceAttribute(
     args: ModifyInstanceAttributeCommandInput,
@@ -16599,6 +16605,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: ModifyNetworkInterfaceAttributeCommandOutput) => void
   ): Promise<ModifyNetworkInterfaceAttributeCommandOutput> | void {
     const command = new ModifyNetworkInterfaceAttributeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the options for instance hostnames for the specified instance.</p>
+   */
+  public modifyPrivateDnsNameOptions(
+    args: ModifyPrivateDnsNameOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyPrivateDnsNameOptionsCommandOutput>;
+  public modifyPrivateDnsNameOptions(
+    args: ModifyPrivateDnsNameOptionsCommandInput,
+    cb: (err: any, data?: ModifyPrivateDnsNameOptionsCommandOutput) => void
+  ): void;
+  public modifyPrivateDnsNameOptions(
+    args: ModifyPrivateDnsNameOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyPrivateDnsNameOptionsCommandOutput) => void
+  ): void;
+  public modifyPrivateDnsNameOptions(
+    args: ModifyPrivateDnsNameOptionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyPrivateDnsNameOptionsCommandOutput) => void),
+    cb?: (err: any, data?: ModifyPrivateDnsNameOptionsCommandOutput) => void
+  ): Promise<ModifyPrivateDnsNameOptionsCommandOutput> | void {
+    const command = new ModifyPrivateDnsNameOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -17534,8 +17572,8 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is
-   *             enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring your instances and
-   *                 volumes</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *             enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitor your instances using
+   *                 CloudWatch</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *         <p>To disable detailed monitoring, see .</p>
    */
   public monitorInstances(
@@ -17767,8 +17805,8 @@ export class EC2 extends EC2Client {
    *             ignored.</p>
    *         <p>If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a
    *             hard reboot.</p>
-   *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Getting console output and
-   *             rebooting instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Troubleshoot an unreachable
+   *             instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public rebootInstances(
     args: RebootInstancesCommandInput,
@@ -19235,7 +19273,7 @@ export class EC2 extends EC2Client {
    * 			system is configured to perform the required diagnostic tasks.</p>
    *
    * 		       <p>For more information about configuring your operating system to generate a crash dump
-   * 			when a kernel panic or stop error occurs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html">Send a diagnostic interrupt</a> (Linux instances) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html">Send a Diagnostic Interrupt</a> (Windows instances).</p>
+   * 			when a kernel panic or stop error occurs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html">Send a diagnostic interrupt (for advanced users)</a> (Linux instances) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html">Send a diagnostic interrupt (for advanced users)</a> (Windows instances).</p>
    */
   public sendDiagnosticInterrupt(
     args: SendDiagnosticInterruptCommandInput,
@@ -19285,8 +19323,8 @@ export class EC2 extends EC2Client {
    *             supported on Dedicated Hosts. Before you start the instance, either change its CPU credit
    *             option to <code>standard</code>, or change its tenancy to <code>default</code> or <code>dedicated</code>.</p>
    *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stopping instances</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stop and start your instance</a>
+   *             in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public startInstances(
     args: StartInstancesCommandInput,
@@ -19415,7 +19453,7 @@ export class EC2 extends EC2Client {
    *             in the <i>Amazon EC2 User Guide</i>.</p>
    *         <p>When you stop an instance, we attempt to shut it down forcibly after a short while. If
    *             your instance appears stuck in the stopping state after a period of time, there may be
-   *             an issue with the underlying host computer. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshooting
+   *             an issue with the underlying host computer. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshoot
    *                 stopping your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public stopInstances(

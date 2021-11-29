@@ -22,7 +22,7 @@ export interface GetEnvironmentCommandInput extends GetEnvironmentRequest {}
 export interface GetEnvironmentCommandOutput extends Environment, __MetadataBearer {}
 
 /**
- * <p>Retrieve information about an environment. An environment is a logical deployment group
+ * <p>Retrieves information about an environment. An environment is a logical deployment group
  *          of AppConfig applications, such as applications in a <code>Production</code> environment or
  *          in an <code>EU_Region</code> environment. Each configuration deployment targets an
  *          environment. You can enable one or more Amazon CloudWatch alarms for an environment. If an alarm is

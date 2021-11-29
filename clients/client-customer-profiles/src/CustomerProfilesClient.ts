@@ -64,7 +64,15 @@ import {
   DeleteProfileObjectTypeCommandInput,
   DeleteProfileObjectTypeCommandOutput,
 } from "./commands/DeleteProfileObjectTypeCommand";
+import {
+  GetAutoMergingPreviewCommandInput,
+  GetAutoMergingPreviewCommandOutput,
+} from "./commands/GetAutoMergingPreviewCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
+import {
+  GetIdentityResolutionJobCommandInput,
+  GetIdentityResolutionJobCommandOutput,
+} from "./commands/GetIdentityResolutionJobCommand";
 import { GetIntegrationCommandInput, GetIntegrationCommandOutput } from "./commands/GetIntegrationCommand";
 import { GetMatchesCommandInput, GetMatchesCommandOutput } from "./commands/GetMatchesCommand";
 import {
@@ -80,6 +88,10 @@ import {
   ListAccountIntegrationsCommandOutput,
 } from "./commands/ListAccountIntegrationsCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import {
+  ListIdentityResolutionJobsCommandInput,
+  ListIdentityResolutionJobsCommandOutput,
+} from "./commands/ListIdentityResolutionJobsCommand";
 import { ListIntegrationsCommandInput, ListIntegrationsCommandOutput } from "./commands/ListIntegrationsCommand";
 import { ListProfileObjectsCommandInput, ListProfileObjectsCommandOutput } from "./commands/ListProfileObjectsCommand";
 import {
@@ -118,13 +130,16 @@ export type ServiceInputTypes =
   | DeleteProfileKeyCommandInput
   | DeleteProfileObjectCommandInput
   | DeleteProfileObjectTypeCommandInput
+  | GetAutoMergingPreviewCommandInput
   | GetDomainCommandInput
+  | GetIdentityResolutionJobCommandInput
   | GetIntegrationCommandInput
   | GetMatchesCommandInput
   | GetProfileObjectTypeCommandInput
   | GetProfileObjectTypeTemplateCommandInput
   | ListAccountIntegrationsCommandInput
   | ListDomainsCommandInput
+  | ListIdentityResolutionJobsCommandInput
   | ListIntegrationsCommandInput
   | ListProfileObjectTypeTemplatesCommandInput
   | ListProfileObjectTypesCommandInput
@@ -150,13 +165,16 @@ export type ServiceOutputTypes =
   | DeleteProfileKeyCommandOutput
   | DeleteProfileObjectCommandOutput
   | DeleteProfileObjectTypeCommandOutput
+  | GetAutoMergingPreviewCommandOutput
   | GetDomainCommandOutput
+  | GetIdentityResolutionJobCommandOutput
   | GetIntegrationCommandOutput
   | GetMatchesCommandOutput
   | GetProfileObjectTypeCommandOutput
   | GetProfileObjectTypeTemplateCommandOutput
   | ListAccountIntegrationsCommandOutput
   | ListDomainsCommandOutput
+  | ListIdentityResolutionJobsCommandOutput
   | ListIntegrationsCommandOutput
   | ListProfileObjectTypeTemplatesCommandOutput
   | ListProfileObjectTypesCommandOutput

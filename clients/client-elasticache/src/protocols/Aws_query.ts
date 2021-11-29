@@ -2932,6 +2932,14 @@ const deserializeAws_queryCreateUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
       response = {
@@ -3022,6 +3030,14 @@ const deserializeAws_queryCreateUserGroupCommandError = async (
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3912,6 +3928,14 @@ const deserializeAws_queryDeleteUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "UserNotFoundFault":
     case "com.amazonaws.elasticache#UserNotFoundFault":
       response = {
@@ -3978,6 +4002,14 @@ const deserializeAws_queryDeleteUserGroupCommandError = async (
     case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5047,6 +5079,14 @@ const deserializeAws_queryDescribeUserGroupsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "UserGroupNotFoundFault":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
       response = {
@@ -5105,6 +5145,14 @@ const deserializeAws_queryDescribeUsersCommandError = async (
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6458,6 +6506,14 @@ const deserializeAws_queryModifyUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "UserNotFoundFault":
     case "com.amazonaws.elasticache#UserNotFoundFault":
       response = {
@@ -6548,6 +6604,14 @@ const deserializeAws_queryModifyUserGroupCommandError = async (
     case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -8888,6 +8952,9 @@ const serializeAws_queryCreateReplicationGroupMessage = (
       const loc = `LogDeliveryConfigurations.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.DataTieringEnabled !== undefined && input.DataTieringEnabled !== null) {
+    entries["DataTieringEnabled"] = input.DataTieringEnabled;
   }
   return entries;
 };
@@ -13520,6 +13587,7 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
     UserGroupIds: undefined,
     LogDeliveryConfigurations: undefined,
     ReplicationGroupCreateTime: undefined,
+    DataTiering: undefined,
   };
   if (output["ReplicationGroupId"] !== undefined) {
     contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
@@ -13637,6 +13705,9 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
   }
   if (output["ReplicationGroupCreateTime"] !== undefined) {
     contents.ReplicationGroupCreateTime = __expectNonNull(__parseRfc3339DateTime(output["ReplicationGroupCreateTime"]));
+  }
+  if (output["DataTiering"] !== undefined) {
+    contents.DataTiering = __expectString(output["DataTiering"]);
   }
   return contents;
 };
@@ -14217,6 +14288,7 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     NodeSnapshots: undefined,
     KmsKeyId: undefined,
     ARN: undefined,
+    DataTiering: undefined,
   };
   if (output["SnapshotName"] !== undefined) {
     contents.SnapshotName = __expectString(output["SnapshotName"]);
@@ -14304,6 +14376,9 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
   }
   if (output["ARN"] !== undefined) {
     contents.ARN = __expectString(output["ARN"]);
+  }
+  if (output["DataTiering"] !== undefined) {
+    contents.DataTiering = __expectString(output["DataTiering"]);
   }
   return contents;
 };
@@ -14740,6 +14815,7 @@ const deserializeAws_queryUser = (output: any, context: __SerdeContext): User =>
     UserName: undefined,
     Status: undefined,
     Engine: undefined,
+    MinimumEngineVersion: undefined,
     AccessString: undefined,
     UserGroupIds: undefined,
     Authentication: undefined,
@@ -14756,6 +14832,9 @@ const deserializeAws_queryUser = (output: any, context: __SerdeContext): User =>
   }
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
+  }
+  if (output["MinimumEngineVersion"] !== undefined) {
+    contents.MinimumEngineVersion = __expectString(output["MinimumEngineVersion"]);
   }
   if (output["AccessString"] !== undefined) {
     contents.AccessString = __expectString(output["AccessString"]);
@@ -14794,6 +14873,7 @@ const deserializeAws_queryUserGroup = (output: any, context: __SerdeContext): Us
     Status: undefined,
     Engine: undefined,
     UserIds: undefined,
+    MinimumEngineVersion: undefined,
     PendingChanges: undefined,
     ReplicationGroups: undefined,
     ARN: undefined,
@@ -14812,6 +14892,9 @@ const deserializeAws_queryUserGroup = (output: any, context: __SerdeContext): Us
   }
   if (output["UserIds"] !== undefined && output["UserIds"]["member"] !== undefined) {
     contents.UserIds = deserializeAws_queryUserIdList(__getArrayIfSingleItem(output["UserIds"]["member"]), context);
+  }
+  if (output["MinimumEngineVersion"] !== undefined) {
+    contents.MinimumEngineVersion = __expectString(output["MinimumEngineVersion"]);
   }
   if (output["PendingChanges"] !== undefined) {
     contents.PendingChanges = deserializeAws_queryUserGroupPendingChanges(output["PendingChanges"], context);

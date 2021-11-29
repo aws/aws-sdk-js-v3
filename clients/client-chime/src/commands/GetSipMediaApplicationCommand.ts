@@ -12,8 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { GetSipMediaApplicationRequest } from "../models/models_0";
-import { GetSipMediaApplicationResponse } from "../models/models_1";
+import { GetSipMediaApplicationRequest, GetSipMediaApplicationResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetSipMediaApplicationCommand,
   serializeAws_restJson1GetSipMediaApplicationCommand,

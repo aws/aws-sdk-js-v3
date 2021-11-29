@@ -6,6 +6,11 @@ import {
   CreateBatchInferenceJobCommandOutput,
 } from "./commands/CreateBatchInferenceJobCommand";
 import {
+  CreateBatchSegmentJobCommand,
+  CreateBatchSegmentJobCommandInput,
+  CreateBatchSegmentJobCommandOutput,
+} from "./commands/CreateBatchSegmentJobCommand";
+import {
   CreateCampaignCommand,
   CreateCampaignCommandInput,
   CreateCampaignCommandOutput,
@@ -40,6 +45,11 @@ import {
   CreateFilterCommandInput,
   CreateFilterCommandOutput,
 } from "./commands/CreateFilterCommand";
+import {
+  CreateRecommenderCommand,
+  CreateRecommenderCommandInput,
+  CreateRecommenderCommandOutput,
+} from "./commands/CreateRecommenderCommand";
 import {
   CreateSchemaCommand,
   CreateSchemaCommandInput,
@@ -81,6 +91,11 @@ import {
   DeleteFilterCommandOutput,
 } from "./commands/DeleteFilterCommand";
 import {
+  DeleteRecommenderCommand,
+  DeleteRecommenderCommandInput,
+  DeleteRecommenderCommandOutput,
+} from "./commands/DeleteRecommenderCommand";
+import {
   DeleteSchemaCommand,
   DeleteSchemaCommandInput,
   DeleteSchemaCommandOutput,
@@ -100,6 +115,11 @@ import {
   DescribeBatchInferenceJobCommandInput,
   DescribeBatchInferenceJobCommandOutput,
 } from "./commands/DescribeBatchInferenceJobCommand";
+import {
+  DescribeBatchSegmentJobCommand,
+  DescribeBatchSegmentJobCommandInput,
+  DescribeBatchSegmentJobCommandOutput,
+} from "./commands/DescribeBatchSegmentJobCommand";
 import {
   DescribeCampaignCommand,
   DescribeCampaignCommandInput,
@@ -146,6 +166,11 @@ import {
   DescribeRecipeCommandOutput,
 } from "./commands/DescribeRecipeCommand";
 import {
+  DescribeRecommenderCommand,
+  DescribeRecommenderCommandInput,
+  DescribeRecommenderCommandOutput,
+} from "./commands/DescribeRecommenderCommand";
+import {
   DescribeSchemaCommand,
   DescribeSchemaCommandInput,
   DescribeSchemaCommandOutput,
@@ -170,6 +195,11 @@ import {
   ListBatchInferenceJobsCommandInput,
   ListBatchInferenceJobsCommandOutput,
 } from "./commands/ListBatchInferenceJobsCommand";
+import {
+  ListBatchSegmentJobsCommand,
+  ListBatchSegmentJobsCommandInput,
+  ListBatchSegmentJobsCommandOutput,
+} from "./commands/ListBatchSegmentJobsCommand";
 import {
   ListCampaignsCommand,
   ListCampaignsCommandInput,
@@ -202,6 +232,11 @@ import {
 } from "./commands/ListEventTrackersCommand";
 import { ListFiltersCommand, ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
 import { ListRecipesCommand, ListRecipesCommandInput, ListRecipesCommandOutput } from "./commands/ListRecipesCommand";
+import {
+  ListRecommendersCommand,
+  ListRecommendersCommandInput,
+  ListRecommendersCommandOutput,
+} from "./commands/ListRecommendersCommand";
 import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import {
   ListSolutionsCommand,
@@ -223,6 +258,11 @@ import {
   UpdateCampaignCommandInput,
   UpdateCampaignCommandOutput,
 } from "./commands/UpdateCampaignCommand";
+import {
+  UpdateRecommenderCommand,
+  UpdateRecommenderCommandInput,
+  UpdateRecommenderCommandOutput,
+} from "./commands/UpdateRecommenderCommand";
 import { PersonalizeClient } from "./PersonalizeClient";
 
 /**
@@ -264,7 +304,40 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Creates a campaign by deploying a solution version. When a client calls the
+   * <p>Creates a batch segment job. The operation can handle up to 50 million records and the
+   *       input file must be in JSON format. For more information, see <a>recommendations-batch</a>.</p>
+   */
+  public createBatchSegmentJob(
+    args: CreateBatchSegmentJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBatchSegmentJobCommandOutput>;
+  public createBatchSegmentJob(
+    args: CreateBatchSegmentJobCommandInput,
+    cb: (err: any, data?: CreateBatchSegmentJobCommandOutput) => void
+  ): void;
+  public createBatchSegmentJob(
+    args: CreateBatchSegmentJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateBatchSegmentJobCommandOutput) => void
+  ): void;
+  public createBatchSegmentJob(
+    args: CreateBatchSegmentJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBatchSegmentJobCommandOutput) => void),
+    cb?: (err: any, data?: CreateBatchSegmentJobCommandOutput) => void
+  ): Promise<CreateBatchSegmentJobCommandOutput> | void {
+    const command = new CreateBatchSegmentJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a campaign that deploys a solution version. When a client calls the
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
    *       and
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetPersonalizedRanking.html">GetPersonalizedRanking</a>
@@ -501,8 +574,8 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Creates an empty dataset group. A dataset group contains related datasets that supply data
-   *       for training a model. A dataset group can contain at most three datasets, one for each type of
+   * <p>Creates an empty dataset group. A dataset group is a container for Amazon Personalize resources.
+   *       A dataset group can contain at most three datasets, one for each type of
    *       dataset:</p>
    *          <ul>
    *             <li>
@@ -515,9 +588,12 @@ export class Personalize extends PersonalizeClient {
    *                <p>Users</p>
    *             </li>
    *          </ul>
-   *          <p>To train a model (create a solution), a dataset group that contains an
-   *         <code>Interactions</code> dataset is required. Call <a>CreateDataset</a> to add a
-   *       dataset to the group.</p>
+   *          <p>
+   *       A dataset group can be a Domain dataset group, where you specify a domain and use
+   *       pre-configured resources like recommenders, or a Custom dataset group, where you use custom resources, such as a solution with a solution version, that
+   *       you deploy with a campaign.  If you start with a Domain dataset group, you can still add custom resources such as
+   *       solutions and solution versions trained with recipes for custom use cases and deployed with campaigns.
+   *     </p>
    *          <p>A dataset group can be in one of the following states:</p>
    *          <ul>
    *             <li>
@@ -787,10 +863,92 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * <p>Creates a recommender with the recipe (a Domain dataset group use case) you specify.
+   *       You create recommenders for a Domain dataset group and specify the recommender's Amazon Resource Name (ARN) when you make a
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
+   *       request.
+   *      </p>
+   *
+   *
+   *
+   *          <p>
+   *             <b>Status</b>
+   *          </p>
+   *          <p>A recommender can be in one of the following states:</p>
+   *          <ul>
+   *             <li>
+   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+   *             </li>
+   *             <li>
+   *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
+   *             </li>
+   *          </ul>
+   *          <p>To get the recommender status, call <a>DescribeRecommender</a>.</p>
+   *          <note>
+   *             <p>Wait until the <code>status</code> of the recommender
+   *         is <code>ACTIVE</code> before asking the recommender for recommendations.</p>
+   *          </note>
+   *          <p class="title">
+   *             <b>Related APIs</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a>ListRecommenders</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DescribeRecommender</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>UpdateRecommender</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DeleteRecommender</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public createRecommender(
+    args: CreateRecommenderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRecommenderCommandOutput>;
+  public createRecommender(
+    args: CreateRecommenderCommandInput,
+    cb: (err: any, data?: CreateRecommenderCommandOutput) => void
+  ): void;
+  public createRecommender(
+    args: CreateRecommenderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRecommenderCommandOutput) => void
+  ): void;
+  public createRecommender(
+    args: CreateRecommenderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRecommenderCommandOutput) => void),
+    cb?: (err: any, data?: CreateRecommenderCommandOutput) => void
+  ): Promise<CreateRecommenderCommandOutput> | void {
+    const command = new CreateRecommenderCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates an Amazon Personalize schema from the specified schema string. The schema you create
    *       must be in Avro JSON format.</p>
    *          <p>Amazon Personalize recognizes three schema variants. Each schema is associated with a dataset
-   *       type and has a set of required field and keywords.
+   *       type and has a set of required field and keywords. If you are creating a schema for a dataset in a Domain dataset group, you
+   *     provide the domain of the Domain dataset group.
    *       You specify a schema when you call <a>CreateDataset</a>.</p>
    *
    *          <p class="title">
@@ -945,7 +1103,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Trains or retrains an active solution. A solution is created using the <a>CreateSolution</a> operation and must be in the ACTIVE state before calling
+   * <p>Trains or retrains an active solution in a Custom dataset group. A solution is created using the <a>CreateSolution</a> operation and must be in the ACTIVE state before calling
    *         <code>CreateSolutionVersion</code>. A new version of the solution is created every time you
    *       call this operation.</p>
    *          <p>
@@ -1222,6 +1380,39 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * <p>Deactivates and removes a recommender. A deleted recommender can no longer be specified in a <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
+   *     request.</p>
+   */
+  public deleteRecommender(
+    args: DeleteRecommenderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRecommenderCommandOutput>;
+  public deleteRecommender(
+    args: DeleteRecommenderCommandInput,
+    cb: (err: any, data?: DeleteRecommenderCommandOutput) => void
+  ): void;
+  public deleteRecommender(
+    args: DeleteRecommenderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRecommenderCommandOutput) => void
+  ): void;
+  public deleteRecommender(
+    args: DeleteRecommenderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRecommenderCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRecommenderCommandOutput) => void
+  ): Promise<DeleteRecommenderCommandOutput> | void {
+    const command = new DeleteRecommenderCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a schema. Before deleting a schema, you must delete all
    *       datasets referencing the schema. For more information on schemas, see
    *       <a>CreateSchema</a>.</p>
@@ -1346,6 +1537,40 @@ export class Personalize extends PersonalizeClient {
     cb?: (err: any, data?: DescribeBatchInferenceJobCommandOutput) => void
   ): Promise<DescribeBatchInferenceJobCommandOutput> | void {
     const command = new DescribeBatchInferenceJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the properties of a batch segment job including name, Amazon Resource Name (ARN),
+   *       status, input and output configurations, and the ARN of the solution version used to generate
+   *       segments.</p>
+   */
+  public describeBatchSegmentJob(
+    args: DescribeBatchSegmentJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBatchSegmentJobCommandOutput>;
+  public describeBatchSegmentJob(
+    args: DescribeBatchSegmentJobCommandInput,
+    cb: (err: any, data?: DescribeBatchSegmentJobCommandOutput) => void
+  ): void;
+  public describeBatchSegmentJob(
+    args: DescribeBatchSegmentJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBatchSegmentJobCommandOutput) => void
+  ): void;
+  public describeBatchSegmentJob(
+    args: DescribeBatchSegmentJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBatchSegmentJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribeBatchSegmentJobCommandOutput) => void
+  ): Promise<DescribeBatchSegmentJobCommandOutput> | void {
+    const command = new DescribeBatchSegmentJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1679,6 +1904,50 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * <p>Describes the given recommender, including its status.</p>
+   *          <p>A recommender can be in one of the following states:</p>
+   *          <ul>
+   *             <li>
+   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+   *             </li>
+   *             <li>
+   *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
+   *             </li>
+   *          </ul>
+   *          <p>When the <code>status</code> is <code>CREATE FAILED</code>, the response includes the
+   *       <code>failureReason</code> key, which describes why.</p>
+   *          <p>For more information on recommenders, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateRecommender.html">CreateRecommender</a>.</p>
+   */
+  public describeRecommender(
+    args: DescribeRecommenderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRecommenderCommandOutput>;
+  public describeRecommender(
+    args: DescribeRecommenderCommandInput,
+    cb: (err: any, data?: DescribeRecommenderCommandOutput) => void
+  ): void;
+  public describeRecommender(
+    args: DescribeRecommenderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRecommenderCommandOutput) => void
+  ): void;
+  public describeRecommender(
+    args: DescribeRecommenderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRecommenderCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRecommenderCommandOutput) => void
+  ): Promise<DescribeRecommenderCommandOutput> | void {
+    const command = new DescribeRecommenderCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes a schema. For more information on schemas, see
    *       <a>CreateSchema</a>.</p>
    */
@@ -1831,6 +2100,39 @@ export class Personalize extends PersonalizeClient {
     cb?: (err: any, data?: ListBatchInferenceJobsCommandOutput) => void
   ): Promise<ListBatchInferenceJobsCommandOutput> | void {
     const command = new ListBatchInferenceJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of the batch segment jobs that have been performed off of a solution
+   *       version that you specify.</p>
+   */
+  public listBatchSegmentJobs(
+    args: ListBatchSegmentJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBatchSegmentJobsCommandOutput>;
+  public listBatchSegmentJobs(
+    args: ListBatchSegmentJobsCommandInput,
+    cb: (err: any, data?: ListBatchSegmentJobsCommandOutput) => void
+  ): void;
+  public listBatchSegmentJobs(
+    args: ListBatchSegmentJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBatchSegmentJobsCommandOutput) => void
+  ): void;
+  public listBatchSegmentJobs(
+    args: ListBatchSegmentJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBatchSegmentJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListBatchSegmentJobsCommandOutput) => void
+  ): Promise<ListBatchSegmentJobsCommandOutput> | void {
+    const command = new ListBatchSegmentJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2102,6 +2404,41 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * <p>Returns a list of recommenders in a given Domain dataset group.
+   *       When a Domain dataset group is not specified, all the recommenders associated with the account are listed.
+   *       The response provides the properties for each recommender, including the Amazon Resource Name (ARN).
+   *       For more information on recommenders, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateRecommender.html">CreateRecommender</a>.</p>
+   */
+  public listRecommenders(
+    args: ListRecommendersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRecommendersCommandOutput>;
+  public listRecommenders(
+    args: ListRecommendersCommandInput,
+    cb: (err: any, data?: ListRecommendersCommandOutput) => void
+  ): void;
+  public listRecommenders(
+    args: ListRecommendersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRecommendersCommandOutput) => void
+  ): void;
+  public listRecommenders(
+    args: ListRecommendersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRecommendersCommandOutput) => void),
+    cb?: (err: any, data?: ListRecommendersCommandOutput) => void
+  ): Promise<ListRecommendersCommandOutput> | void {
+    const command = new ListRecommendersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the list of schemas associated with the account. The response provides the
    *       properties for each schema, including the Amazon Resource Name (ARN).
    *       For more information on schemas, see <a>CreateSchema</a>.</p>
@@ -2274,6 +2611,38 @@ export class Personalize extends PersonalizeClient {
     cb?: (err: any, data?: UpdateCampaignCommandOutput) => void
   ): Promise<UpdateCampaignCommandOutput> | void {
     const command = new UpdateCampaignCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the recommender to modify the recommender configuration.</p>
+   */
+  public updateRecommender(
+    args: UpdateRecommenderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRecommenderCommandOutput>;
+  public updateRecommender(
+    args: UpdateRecommenderCommandInput,
+    cb: (err: any, data?: UpdateRecommenderCommandOutput) => void
+  ): void;
+  public updateRecommender(
+    args: UpdateRecommenderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRecommenderCommandOutput) => void
+  ): void;
+  public updateRecommender(
+    args: UpdateRecommenderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRecommenderCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRecommenderCommandOutput) => void
+  ): Promise<UpdateRecommenderCommandOutput> | void {
+    const command = new UpdateRecommenderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

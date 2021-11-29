@@ -2010,6 +2010,9 @@ export namespace AddThingsToThingGroupParams {
 export interface AddThingToBillingGroupRequest {
   /**
    * <p>The name of the billing group.</p>
+   * 		       <note>
+   *             <p>This call is asynchronous. It might take several seconds for the detachment to propagate.</p>
+   *          </note>
    */
   billingGroupName?: string;
 
@@ -3694,8 +3697,7 @@ export interface CreateAuditSuppressionRequest {
    * <p>
    *       Each audit supression must have a unique client request token. If you try to create a new audit
    *       suppression with the same token as one that already exists, an exception occurs. If you omit this
-   *       value, Amazon Web Services SDKs will automatically generate a unique client request.
-   *     </p>
+   *       value, Amazon Web Services SDKs will automatically generate a unique client request.</p>
    */
   clientRequestToken?: string;
 }
@@ -4745,6 +4747,11 @@ export interface CreateJobRequest {
    * <p>The ARN of the job template used to create the job.</p>
    */
   jobTemplateArn?: string;
+
+  /**
+   * <p>Parameters of a managed template that you can specify to create the job document.</p>
+   */
+  documentParameters?: { [key: string]: string };
 }
 
 export namespace CreateJobRequest {
@@ -6506,7 +6513,7 @@ export interface CreateStreamRequest {
   files: StreamFile[] | undefined;
 
   /**
-   * <p>An IAM role that allows the IoT service principal assumes to access your S3 files.</p>
+   * <p>An IAM role that allows the IoT service principal to access your S3 files.</p>
    */
   roleArn: string | undefined;
 

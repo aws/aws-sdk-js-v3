@@ -58,6 +58,7 @@ import { CreateProfileJobCommandInput, CreateProfileJobCommandOutput } from "./c
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
 import { CreateRecipeCommandInput, CreateRecipeCommandOutput } from "./commands/CreateRecipeCommand";
 import { CreateRecipeJobCommandInput, CreateRecipeJobCommandOutput } from "./commands/CreateRecipeJobCommand";
+import { CreateRulesetCommandInput, CreateRulesetCommandOutput } from "./commands/CreateRulesetCommand";
 import { CreateScheduleCommandInput, CreateScheduleCommandOutput } from "./commands/CreateScheduleCommand";
 import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
@@ -66,12 +67,14 @@ import {
   DeleteRecipeVersionCommandInput,
   DeleteRecipeVersionCommandOutput,
 } from "./commands/DeleteRecipeVersionCommand";
+import { DeleteRulesetCommandInput, DeleteRulesetCommandOutput } from "./commands/DeleteRulesetCommand";
 import { DeleteScheduleCommandInput, DeleteScheduleCommandOutput } from "./commands/DeleteScheduleCommand";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
 import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import { DescribeJobRunCommandInput, DescribeJobRunCommandOutput } from "./commands/DescribeJobRunCommand";
 import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "./commands/DescribeProjectCommand";
 import { DescribeRecipeCommandInput, DescribeRecipeCommandOutput } from "./commands/DescribeRecipeCommand";
+import { DescribeRulesetCommandInput, DescribeRulesetCommandOutput } from "./commands/DescribeRulesetCommand";
 import { DescribeScheduleCommandInput, DescribeScheduleCommandOutput } from "./commands/DescribeScheduleCommand";
 import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
 import { ListJobRunsCommandInput, ListJobRunsCommandOutput } from "./commands/ListJobRunsCommand";
@@ -79,6 +82,7 @@ import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobs
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
 import { ListRecipesCommandInput, ListRecipesCommandOutput } from "./commands/ListRecipesCommand";
 import { ListRecipeVersionsCommandInput, ListRecipeVersionsCommandOutput } from "./commands/ListRecipeVersionsCommand";
+import { ListRulesetsCommandInput, ListRulesetsCommandOutput } from "./commands/ListRulesetsCommand";
 import { ListSchedulesCommandInput, ListSchedulesCommandOutput } from "./commands/ListSchedulesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -102,6 +106,7 @@ import { UpdateProfileJobCommandInput, UpdateProfileJobCommandOutput } from "./c
 import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
 import { UpdateRecipeCommandInput, UpdateRecipeCommandOutput } from "./commands/UpdateRecipeCommand";
 import { UpdateRecipeJobCommandInput, UpdateRecipeJobCommandOutput } from "./commands/UpdateRecipeJobCommand";
+import { UpdateRulesetCommandInput, UpdateRulesetCommandOutput } from "./commands/UpdateRulesetCommand";
 import { UpdateScheduleCommandInput, UpdateScheduleCommandOutput } from "./commands/UpdateScheduleCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
@@ -112,17 +117,20 @@ export type ServiceInputTypes =
   | CreateProjectCommandInput
   | CreateRecipeCommandInput
   | CreateRecipeJobCommandInput
+  | CreateRulesetCommandInput
   | CreateScheduleCommandInput
   | DeleteDatasetCommandInput
   | DeleteJobCommandInput
   | DeleteProjectCommandInput
   | DeleteRecipeVersionCommandInput
+  | DeleteRulesetCommandInput
   | DeleteScheduleCommandInput
   | DescribeDatasetCommandInput
   | DescribeJobCommandInput
   | DescribeJobRunCommandInput
   | DescribeProjectCommandInput
   | DescribeRecipeCommandInput
+  | DescribeRulesetCommandInput
   | DescribeScheduleCommandInput
   | ListDatasetsCommandInput
   | ListJobRunsCommandInput
@@ -130,6 +138,7 @@ export type ServiceInputTypes =
   | ListProjectsCommandInput
   | ListRecipeVersionsCommandInput
   | ListRecipesCommandInput
+  | ListRulesetsCommandInput
   | ListSchedulesCommandInput
   | ListTagsForResourceCommandInput
   | PublishRecipeCommandInput
@@ -144,6 +153,7 @@ export type ServiceInputTypes =
   | UpdateProjectCommandInput
   | UpdateRecipeCommandInput
   | UpdateRecipeJobCommandInput
+  | UpdateRulesetCommandInput
   | UpdateScheduleCommandInput;
 
 export type ServiceOutputTypes =
@@ -153,17 +163,20 @@ export type ServiceOutputTypes =
   | CreateProjectCommandOutput
   | CreateRecipeCommandOutput
   | CreateRecipeJobCommandOutput
+  | CreateRulesetCommandOutput
   | CreateScheduleCommandOutput
   | DeleteDatasetCommandOutput
   | DeleteJobCommandOutput
   | DeleteProjectCommandOutput
   | DeleteRecipeVersionCommandOutput
+  | DeleteRulesetCommandOutput
   | DeleteScheduleCommandOutput
   | DescribeDatasetCommandOutput
   | DescribeJobCommandOutput
   | DescribeJobRunCommandOutput
   | DescribeProjectCommandOutput
   | DescribeRecipeCommandOutput
+  | DescribeRulesetCommandOutput
   | DescribeScheduleCommandOutput
   | ListDatasetsCommandOutput
   | ListJobRunsCommandOutput
@@ -171,6 +184,7 @@ export type ServiceOutputTypes =
   | ListProjectsCommandOutput
   | ListRecipeVersionsCommandOutput
   | ListRecipesCommandOutput
+  | ListRulesetsCommandOutput
   | ListSchedulesCommandOutput
   | ListTagsForResourceCommandOutput
   | PublishRecipeCommandOutput
@@ -185,6 +199,7 @@ export type ServiceOutputTypes =
   | UpdateProjectCommandOutput
   | UpdateRecipeCommandOutput
   | UpdateRecipeJobCommandOutput
+  | UpdateRulesetCommandOutput
   | UpdateScheduleCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

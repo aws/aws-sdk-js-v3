@@ -336,6 +336,7 @@ import {
   DateTimeParameter,
   DecimalParameter,
   ErrorInfo,
+  ExasolParameters,
   ExportToCSVOption,
   FieldFolder,
   FilterOperation,
@@ -356,6 +357,7 @@ import {
   JoinInstruction,
   JoinKeyProperties,
   LimitExceededException,
+  LinkSharingConfiguration,
   LogicalTable,
   LogicalTableSource,
   ManifestFileLocation,
@@ -419,7 +421,6 @@ import {
   UnsupportedUserEditionException,
   UntagColumnOperation,
   UploadSettings,
-  User,
   VpcConnectionProperties,
 } from "../models/models_0";
 import {
@@ -441,6 +442,7 @@ import {
   ThemeSummary,
   ThemeVersionSummary,
   UnsupportedPricingPlanException,
+  User,
 } from "../models/models_1";
 
 export const serializeAws_restJson1CancelIngestionCommand = async (
@@ -4795,9 +4797,17 @@ export const serializeAws_restJson1UpdateDashboardPermissionsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.GrantLinkPermissions !== undefined &&
+      input.GrantLinkPermissions !== null && {
+        GrantLinkPermissions: serializeAws_restJson1UpdateLinkPermissionList(input.GrantLinkPermissions, context),
+      }),
     ...(input.GrantPermissions !== undefined &&
       input.GrantPermissions !== null && {
         GrantPermissions: serializeAws_restJson1UpdateResourcePermissionList(input.GrantPermissions, context),
+      }),
+    ...(input.RevokeLinkPermissions !== undefined &&
+      input.RevokeLinkPermissions !== null && {
+        RevokeLinkPermissions: serializeAws_restJson1UpdateLinkPermissionList(input.RevokeLinkPermissions, context),
       }),
     ...(input.RevokePermissions !== undefined &&
       input.RevokePermissions !== null && {
@@ -5894,6 +5904,14 @@ const deserializeAws_restJson1CreateAccountCustomizationCommandError = async (
     case "com.amazonaws.quicksight#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7894,6 +7912,14 @@ const deserializeAws_restJson1DeleteAccountCustomizationCommandError = async (
     case "com.amazonaws.quicksight#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10221,6 +10247,7 @@ export const deserializeAws_restJson1DescribeDashboardPermissionsCommand = async
     $metadata: deserializeMetadata(output),
     DashboardArn: undefined,
     DashboardId: undefined,
+    LinkSharingConfiguration: undefined,
     Permissions: undefined,
     RequestId: undefined,
     Status: undefined,
@@ -10231,6 +10258,12 @@ export const deserializeAws_restJson1DescribeDashboardPermissionsCommand = async
   }
   if (data.DashboardId !== undefined && data.DashboardId !== null) {
     contents.DashboardId = __expectString(data.DashboardId);
+  }
+  if (data.LinkSharingConfiguration !== undefined && data.LinkSharingConfiguration !== null) {
+    contents.LinkSharingConfiguration = deserializeAws_restJson1LinkSharingConfiguration(
+      data.LinkSharingConfiguration,
+      context
+    );
   }
   if (data.Permissions !== undefined && data.Permissions !== null) {
     contents.Permissions = deserializeAws_restJson1ResourcePermissionList(data.Permissions, context);
@@ -16075,6 +16108,14 @@ const deserializeAws_restJson1UpdateAccountCustomizationCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalFailureException":
     case "com.amazonaws.quicksight#InternalFailureException":
       response = {
@@ -16595,6 +16636,7 @@ export const deserializeAws_restJson1UpdateDashboardPermissionsCommand = async (
     $metadata: deserializeMetadata(output),
     DashboardArn: undefined,
     DashboardId: undefined,
+    LinkSharingConfiguration: undefined,
     Permissions: undefined,
     RequestId: undefined,
     Status: undefined,
@@ -16605,6 +16647,12 @@ export const deserializeAws_restJson1UpdateDashboardPermissionsCommand = async (
   }
   if (data.DashboardId !== undefined && data.DashboardId !== null) {
     contents.DashboardId = __expectString(data.DashboardId);
+  }
+  if (data.LinkSharingConfiguration !== undefined && data.LinkSharingConfiguration !== null) {
+    contents.LinkSharingConfiguration = deserializeAws_restJson1LinkSharingConfiguration(
+      data.LinkSharingConfiguration,
+      context
+    );
   }
   if (data.Permissions !== undefined && data.Permissions !== null) {
     contents.Permissions = deserializeAws_restJson1ResourcePermissionList(data.Permissions, context);
@@ -19038,6 +19086,10 @@ const deserializeAws_restJson1UnsupportedUserEditionExceptionResponse = async (
 
 const serializeAws_restJson1AccountCustomization = (input: AccountCustomization, context: __SerdeContext): any => {
   return {
+    ...(input.DefaultEmailCustomizationTemplate !== undefined &&
+      input.DefaultEmailCustomizationTemplate !== null && {
+        DefaultEmailCustomizationTemplate: input.DefaultEmailCustomizationTemplate,
+      }),
     ...(input.DefaultTheme !== undefined && input.DefaultTheme !== null && { DefaultTheme: input.DefaultTheme }),
   };
 };
@@ -19507,6 +19559,7 @@ const serializeAws_restJson1DataSourceParameters = (input: DataSourceParameters,
     AwsIotAnalyticsParameters: (value) => ({
       AwsIotAnalyticsParameters: serializeAws_restJson1AwsIotAnalyticsParameters(value, context),
     }),
+    ExasolParameters: (value) => ({ ExasolParameters: serializeAws_restJson1ExasolParameters(value, context) }),
     JiraParameters: (value) => ({ JiraParameters: serializeAws_restJson1JiraParameters(value, context) }),
     MariaDbParameters: (value) => ({ MariaDbParameters: serializeAws_restJson1MariaDbParameters(value, context) }),
     MySqlParameters: (value) => ({ MySqlParameters: serializeAws_restJson1MySqlParameters(value, context) }),
@@ -19595,6 +19648,13 @@ const serializeAws_restJson1DoubleList = (input: number[], context: __SerdeConte
       }
       return __serializeFloat(entry);
     });
+};
+
+const serializeAws_restJson1ExasolParameters = (input: ExasolParameters, context: __SerdeContext): any => {
+  return {
+    ...(input.Host !== undefined && input.Host !== null && { Host: input.Host }),
+    ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
+  };
 };
 
 const serializeAws_restJson1ExportToCSVOption = (input: ExportToCSVOption, context: __SerdeContext): any => {
@@ -20422,6 +20482,17 @@ const serializeAws_restJson1UntagColumnOperation = (input: UntagColumnOperation,
   };
 };
 
+const serializeAws_restJson1UpdateLinkPermissionList = (input: ResourcePermission[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1ResourcePermission(entry, context);
+    });
+};
+
 const serializeAws_restJson1UpdateResourcePermissionList = (
   input: ResourcePermission[],
   context: __SerdeContext
@@ -20459,6 +20530,7 @@ const serializeAws_restJson1VpcConnectionProperties = (
 
 const deserializeAws_restJson1AccountCustomization = (output: any, context: __SerdeContext): AccountCustomization => {
   return {
+    DefaultEmailCustomizationTemplate: __expectString(output.DefaultEmailCustomizationTemplate),
     DefaultTheme: __expectString(output.DefaultTheme),
   } as any;
 };
@@ -21270,6 +21342,11 @@ const deserializeAws_restJson1DataSourceParameters = (output: any, context: __Se
       ),
     };
   }
+  if (output.ExasolParameters !== undefined && output.ExasolParameters !== null) {
+    return {
+      ExasolParameters: deserializeAws_restJson1ExasolParameters(output.ExasolParameters, context),
+    };
+  }
   if (output.JiraParameters !== undefined && output.JiraParameters !== null) {
     return {
       JiraParameters: deserializeAws_restJson1JiraParameters(output.JiraParameters, context),
@@ -21366,6 +21443,13 @@ const deserializeAws_restJson1ErrorInfo = (output: any, context: __SerdeContext)
   return {
     Message: __expectString(output.Message),
     Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1ExasolParameters = (output: any, context: __SerdeContext): ExasolParameters => {
+  return {
+    Host: __expectString(output.Host),
+    Port: __expectInt32(output.Port),
   } as any;
 };
 
@@ -21692,6 +21776,18 @@ const deserializeAws_restJson1JoinInstruction = (output: any, context: __SerdeCo
 const deserializeAws_restJson1JoinKeyProperties = (output: any, context: __SerdeContext): JoinKeyProperties => {
   return {
     UniqueKey: __expectBoolean(output.UniqueKey),
+  } as any;
+};
+
+const deserializeAws_restJson1LinkSharingConfiguration = (
+  output: any,
+  context: __SerdeContext
+): LinkSharingConfiguration => {
+  return {
+    Permissions:
+      output.Permissions !== undefined && output.Permissions !== null
+        ? deserializeAws_restJson1ResourcePermissionList(output.Permissions, context)
+        : undefined,
   } as any;
 };
 

@@ -462,6 +462,11 @@ import {
   DescribeJobTemplateCommandOutput,
 } from "./commands/DescribeJobTemplateCommand";
 import {
+  DescribeManagedJobTemplateCommand,
+  DescribeManagedJobTemplateCommandInput,
+  DescribeManagedJobTemplateCommandOutput,
+} from "./commands/DescribeManagedJobTemplateCommand";
+import {
   DescribeMitigationActionCommand,
   DescribeMitigationActionCommandInput,
   DescribeMitigationActionCommandOutput,
@@ -729,6 +734,11 @@ import {
   ListJobTemplatesCommandInput,
   ListJobTemplatesCommandOutput,
 } from "./commands/ListJobTemplatesCommand";
+import {
+  ListManagedJobTemplatesCommand,
+  ListManagedJobTemplatesCommandInput,
+  ListManagedJobTemplatesCommandOutput,
+} from "./commands/ListManagedJobTemplatesCommand";
 import {
   ListMitigationActionsCommand,
   ListMitigationActionsCommandInput,
@@ -1794,8 +1804,9 @@ export class IoT extends IoTClient {
    *          request.</p>
    *          <p>
    *             <b>Note:</b> The CSR must include a public key that is either an
-   *          RSA key with a length of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384
-   *          curves. </p>
+   *          RSA key with a length of at least 2048 bits or an ECC key from NIST P-256, NIST P-384, or NIST P-512
+   *          curves. For supported certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms">
+   *             Certificate signing algorithms supported by IoT</a>.</p>
    *          <p>
    *             <b>Note:</b> Reusing the same certificate signing request (CSR)
    *          results in a distinct certificate.</p>
@@ -4441,6 +4452,38 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>View details of a managed job template.</p>
+   */
+  public describeManagedJobTemplate(
+    args: DescribeManagedJobTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeManagedJobTemplateCommandOutput>;
+  public describeManagedJobTemplate(
+    args: DescribeManagedJobTemplateCommandInput,
+    cb: (err: any, data?: DescribeManagedJobTemplateCommandOutput) => void
+  ): void;
+  public describeManagedJobTemplate(
+    args: DescribeManagedJobTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeManagedJobTemplateCommandOutput) => void
+  ): void;
+  public describeManagedJobTemplate(
+    args: DescribeManagedJobTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeManagedJobTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DescribeManagedJobTemplateCommandOutput) => void
+  ): Promise<DescribeManagedJobTemplateCommandOutput> | void {
+    const command = new DescribeManagedJobTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets information about a mitigation action.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeMitigationAction</a> action.</p>
    */
@@ -6311,6 +6354,38 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>Returns a list of managed job templates.</p>
+   */
+  public listManagedJobTemplates(
+    args: ListManagedJobTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListManagedJobTemplatesCommandOutput>;
+  public listManagedJobTemplates(
+    args: ListManagedJobTemplatesCommandInput,
+    cb: (err: any, data?: ListManagedJobTemplatesCommandOutput) => void
+  ): void;
+  public listManagedJobTemplates(
+    args: ListManagedJobTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListManagedJobTemplatesCommandOutput) => void
+  ): void;
+  public listManagedJobTemplates(
+    args: ListManagedJobTemplatesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListManagedJobTemplatesCommandOutput) => void),
+    cb?: (err: any, data?: ListManagedJobTemplatesCommandOutput) => void
+  ): Promise<ListManagedJobTemplatesCommandOutput> | void {
+    const command = new ListManagedJobTemplatesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets a list of all mitigation actions that match the specified filter criteria.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListMitigationActions</a> action.</p>
    */
@@ -7453,7 +7528,10 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Register a certificate that does not have a certificate authority (CA).</p>
+   * <p>Register a certificate that does not have a certificate authority (CA).
+   *          For supported certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms">
+   *          Certificate signing algorithms supported by IoT</a>.
+   *       </p>
    */
   public registerCertificateWithoutCA(
     args: RegisterCertificateWithoutCACommandInput,
@@ -7562,6 +7640,9 @@ export class IoT extends IoTClient {
   /**
    * <p>Removes the given thing from the billing group.</p>
    * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromBillingGroup</a> action.</p>
+   * 		       <note>
+   *             <p>This call is asynchronous. It might take several seconds for the detachment to propagate.</p>
+   *          </note>
    */
   public removeThingFromBillingGroup(
     args: RemoveThingFromBillingGroupCommandInput,

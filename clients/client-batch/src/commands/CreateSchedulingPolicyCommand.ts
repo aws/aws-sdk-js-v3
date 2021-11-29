@@ -22,8 +22,7 @@ export interface CreateSchedulingPolicyCommandInput extends CreateSchedulingPoli
 export interface CreateSchedulingPolicyCommandOutput extends CreateSchedulingPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Batch scheduling
- *    policy.</p>
+ * <p>Creates an Batch scheduling policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

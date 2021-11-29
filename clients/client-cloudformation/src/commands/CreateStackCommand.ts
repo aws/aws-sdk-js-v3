@@ -19,8 +19,8 @@ export interface CreateStackCommandInput extends CreateStackInput {}
 export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a stack as specified in the template. After the call completes successfully,
- *          the stack creation starts. You can check the status of the stack via the <a>DescribeStacks</a> API.</p>
+ * <p>Creates a stack as specified in the template. After the call completes successfully, the
+ *          stack creation starts. You can check the status of the stack via the <a>DescribeStacks</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

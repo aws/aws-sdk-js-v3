@@ -64,6 +64,10 @@ import {
 } from "./commands/DeleteReplicationConfigurationTemplateCommand";
 import { DeleteSourceServerCommandInput, DeleteSourceServerCommandOutput } from "./commands/DeleteSourceServerCommand";
 import {
+  DeleteVcenterClientCommandInput,
+  DeleteVcenterClientCommandOutput,
+} from "./commands/DeleteVcenterClientCommand";
+import {
   DescribeJobLogItemsCommandInput,
   DescribeJobLogItemsCommandOutput,
 } from "./commands/DescribeJobLogItemsCommand";
@@ -76,6 +80,10 @@ import {
   DescribeSourceServersCommandInput,
   DescribeSourceServersCommandOutput,
 } from "./commands/DescribeSourceServersCommand";
+import {
+  DescribeVcenterClientsCommandInput,
+  DescribeVcenterClientsCommandOutput,
+} from "./commands/DescribeVcenterClientsCommand";
 import {
   DisconnectFromServiceCommandInput,
   DisconnectFromServiceCommandOutput,
@@ -100,6 +108,7 @@ import {
   RetryDataReplicationCommandOutput,
 } from "./commands/RetryDataReplicationCommand";
 import { StartCutoverCommandInput, StartCutoverCommandOutput } from "./commands/StartCutoverCommand";
+import { StartReplicationCommandInput, StartReplicationCommandOutput } from "./commands/StartReplicationCommand";
 import { StartTestCommandInput, StartTestCommandOutput } from "./commands/StartTestCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
@@ -119,6 +128,10 @@ import {
   UpdateReplicationConfigurationTemplateCommandInput,
   UpdateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/UpdateReplicationConfigurationTemplateCommand";
+import {
+  UpdateSourceServerReplicationTypeCommandInput,
+  UpdateSourceServerReplicationTypeCommandOutput,
+} from "./commands/UpdateSourceServerReplicationTypeCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -127,10 +140,12 @@ export type ServiceInputTypes =
   | DeleteJobCommandInput
   | DeleteReplicationConfigurationTemplateCommandInput
   | DeleteSourceServerCommandInput
+  | DeleteVcenterClientCommandInput
   | DescribeJobLogItemsCommandInput
   | DescribeJobsCommandInput
   | DescribeReplicationConfigurationTemplatesCommandInput
   | DescribeSourceServersCommandInput
+  | DescribeVcenterClientsCommandInput
   | DisconnectFromServiceCommandInput
   | FinalizeCutoverCommandInput
   | GetLaunchConfigurationCommandInput
@@ -140,13 +155,15 @@ export type ServiceInputTypes =
   | MarkAsArchivedCommandInput
   | RetryDataReplicationCommandInput
   | StartCutoverCommandInput
+  | StartReplicationCommandInput
   | StartTestCommandInput
   | TagResourceCommandInput
   | TerminateTargetInstancesCommandInput
   | UntagResourceCommandInput
   | UpdateLaunchConfigurationCommandInput
   | UpdateReplicationConfigurationCommandInput
-  | UpdateReplicationConfigurationTemplateCommandInput;
+  | UpdateReplicationConfigurationTemplateCommandInput
+  | UpdateSourceServerReplicationTypeCommandInput;
 
 export type ServiceOutputTypes =
   | ChangeServerLifeCycleStateCommandOutput
@@ -154,10 +171,12 @@ export type ServiceOutputTypes =
   | DeleteJobCommandOutput
   | DeleteReplicationConfigurationTemplateCommandOutput
   | DeleteSourceServerCommandOutput
+  | DeleteVcenterClientCommandOutput
   | DescribeJobLogItemsCommandOutput
   | DescribeJobsCommandOutput
   | DescribeReplicationConfigurationTemplatesCommandOutput
   | DescribeSourceServersCommandOutput
+  | DescribeVcenterClientsCommandOutput
   | DisconnectFromServiceCommandOutput
   | FinalizeCutoverCommandOutput
   | GetLaunchConfigurationCommandOutput
@@ -167,13 +186,15 @@ export type ServiceOutputTypes =
   | MarkAsArchivedCommandOutput
   | RetryDataReplicationCommandOutput
   | StartCutoverCommandOutput
+  | StartReplicationCommandOutput
   | StartTestCommandOutput
   | TagResourceCommandOutput
   | TerminateTargetInstancesCommandOutput
   | UntagResourceCommandOutput
   | UpdateLaunchConfigurationCommandOutput
   | UpdateReplicationConfigurationCommandOutput
-  | UpdateReplicationConfigurationTemplateCommandOutput;
+  | UpdateReplicationConfigurationTemplateCommandOutput
+  | UpdateSourceServerReplicationTypeCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

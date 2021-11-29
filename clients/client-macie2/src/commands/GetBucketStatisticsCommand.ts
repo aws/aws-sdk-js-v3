@@ -22,7 +22,7 @@ export interface GetBucketStatisticsCommandInput extends GetBucketStatisticsRequ
 export interface GetBucketStatisticsCommandOutput extends GetBucketStatisticsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves (queries) aggregated statistical data for all the S3 buckets that Amazon Macie monitors and analyzes.</p>
+ * <p>Retrieves (queries) aggregated statistical data about S3 buckets that Amazon Macie monitors and analyzes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

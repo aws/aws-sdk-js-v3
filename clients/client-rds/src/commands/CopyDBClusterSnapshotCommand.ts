@@ -86,17 +86,21 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  *          </ul>
  *          <p>To cancel the copy operation once it is in progress, delete the target DB cluster snapshot identified
  *           by <code>TargetDBClusterSnapshotIdentifier</code> while that DB cluster snapshot is in "copying" status.</p>
- *          <p>For more information on copying encrypted DB cluster snapshots from one Amazon Web Services Region to another, see
+ *          <p>For more information on copying encrypted Amazon Aurora DB cluster snapshots from one Amazon Web Services Region to another, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html">
  *               Copying a Snapshot</a> in the <i>Amazon Aurora User Guide.</i>
  *          </p>
- *          <p>For more information on Amazon Aurora, see
- *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
- *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *         <p>For more information on Amazon Aurora DB clusters, see
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+ *                 What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
  *          </p>
- *          <note>
- *             <p>This action only applies to Aurora DB clusters.</p>
- *          </note>
+ *         <p>For more information on Multi-AZ DB clusters, see
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+ *                 Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+ *          </p>
+ *         <note>
+ *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

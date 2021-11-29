@@ -390,6 +390,7 @@ export * from "./ModifyInstancePlacementCommand";
 export * from "./ModifyLaunchTemplateCommand";
 export * from "./ModifyManagedPrefixListCommand";
 export * from "./ModifyNetworkInterfaceAttributeCommand";
+export * from "./ModifyPrivateDnsNameOptionsCommand";
 export * from "./ModifyReservedInstancesCommand";
 export * from "./ModifySecurityGroupRulesCommand";
 export * from "./ModifySnapshotAttributeCommand";

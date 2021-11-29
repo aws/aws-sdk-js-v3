@@ -23,12 +23,11 @@ export interface UpdateServiceCommandOutput extends UpdateServiceOutput, __Metad
 
 /**
  * <p>Edit a service description or use a spec to add and delete service instances.</p>
- *         <note>
- *             <p>Existing service instances and the service pipeline <i>can't</i> be edited using this API. They can only be
- *                 deleted.</p>
- *         </note>
- *         <p>Use the <code>description</code> parameter to modify the description.</p>
- *         <p>Edit the <code>spec</code> parameter to add or delete instances.</p>
+ *          <note>
+ *             <p>Existing service instances and the service pipeline <i>can't</i> be edited using this API. They can only be deleted.</p>
+ *          </note>
+ *          <p>Use the <code>description</code> parameter to modify the description.</p>
+ *          <p>Edit the <code>spec</code> parameter to add or delete instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

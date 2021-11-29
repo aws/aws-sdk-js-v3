@@ -3190,14 +3190,14 @@
         "key": {
           "target": "com.amazonaws.ssm#CommandFilterKey",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the filter.</p>",
+            "smithy.api#documentation": "<p>The name of the filter.</p>\n         <note>\n            <p>The <code>ExecutionStage</code> filter can't be used with the\n     <code>ListCommandInvocations</code> operation, only with <code>ListCommands</code>.</p>\n         </note>",
             "smithy.api#required": {}
           }
         },
         "value": {
           "target": "com.amazonaws.ssm#CommandFilterValue",
           "traits": {
-            "smithy.api#documentation": "<p>The filter value. Valid values for each filter key are as follows:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>InvokedAfter</b>: Specify a timestamp to limit your results.\n     For example, specify <code>2021-07-07T00:00:00Z</code> to see a list of command executions\n     occurring July 7, 2021, and later.</p>\n            </li>\n            <li>\n               <p>\n                  <b>InvokedBefore</b>: Specify a timestamp to limit your results.\n     For example, specify <code>2021-07-07T00:00:00Z</code> to see a list of command executions from\n     before July 7, 2021.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Status</b>: Specify a valid command status to see a list of\n     all command executions with that status. The status choices depend on the API you call.</p>\n               <p>The status values you can specify for <code>ListCommands</code> are:</p>\n               <ul>\n                  <li>\n                     <p>\n                        <code>Pending</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>InProgress</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Success</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Cancelled</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Failed</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>TimedOut</code> (this includes both Delivery and Execution time outs) </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>AccessDenied</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>DeliveryTimedOut</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>ExecutionTimedOut</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Incomplete</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>NoInstancesInTag</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>LimitExceeded</code>\n                     </p>\n                  </li>\n               </ul>\n               <p>The status values you can specify for <code>ListCommandInvocations</code> are:</p>\n               <ul>\n                  <li>\n                     <p>\n                        <code>Pending</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>InProgress</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Delayed</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Success</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Cancelled</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Failed</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>TimedOut</code> (this includes both Delivery and Execution time outs) </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>AccessDenied</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>DeliveryTimedOut</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>ExecutionTimedOut</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Undeliverable</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>InvalidPlatform</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Terminated</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>\n                  <b>DocumentName</b>: Specify name of the Amazon Web Services Systems Manager document (SSM\n     document) for which you want to see command execution results. For example, specify\n      <code>AWS-RunPatchBaseline</code> to see command executions that used this SSM document to\n     perform security patching operations on instances. </p>\n            </li>\n            <li>\n               <p>\n                  <b>ExecutionStage</b>: Specify one of the following\n     values:</p>\n               <ul>\n                  <li>\n                     <p>\n                        <code>Executing</code>: Returns a list of command executions that are currently still\n       running.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Complete</code>: Returns a list of command executions that have already completed.\n      </p>\n                  </li>\n               </ul>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The filter value. Valid values for each filter key are as follows:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>InvokedAfter</b>: Specify a timestamp to limit your results.\n     For example, specify <code>2021-07-07T00:00:00Z</code> to see a list of command executions\n     occurring July 7, 2021, and later.</p>\n            </li>\n            <li>\n               <p>\n                  <b>InvokedBefore</b>: Specify a timestamp to limit your results.\n     For example, specify <code>2021-07-07T00:00:00Z</code> to see a list of command executions from\n     before July 7, 2021.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Status</b>: Specify a valid command status to see a list of\n     all command executions with that status. The status choices depend on the API you call.</p>\n               <p>The status values you can specify for <code>ListCommands</code> are:</p>\n               <ul>\n                  <li>\n                     <p>\n                        <code>Pending</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>InProgress</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Success</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Cancelled</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Failed</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>TimedOut</code> (this includes both Delivery and Execution time outs) </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>AccessDenied</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>DeliveryTimedOut</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>ExecutionTimedOut</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Incomplete</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>NoInstancesInTag</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>LimitExceeded</code>\n                     </p>\n                  </li>\n               </ul>\n               <p>The status values you can specify for <code>ListCommandInvocations</code> are:</p>\n               <ul>\n                  <li>\n                     <p>\n                        <code>Pending</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>InProgress</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Delayed</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Success</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Cancelled</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Failed</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>TimedOut</code> (this includes both Delivery and Execution time outs) </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>AccessDenied</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>DeliveryTimedOut</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>ExecutionTimedOut</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Undeliverable</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>InvalidPlatform</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Terminated</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>\n                  <b>DocumentName</b>: Specify name of the Amazon Web Services Systems Manager document (SSM\n     document) for which you want to see command execution results. For example, specify\n      <code>AWS-RunPatchBaseline</code> to see command executions that used this SSM document to\n     perform security patching operations on instances. </p>\n            </li>\n            <li>\n               <p>\n                  <b>ExecutionStage</b>: Specify one of the following values\n      (<code>ListCommands</code> operations only):</p>\n               <ul>\n                  <li>\n                     <p>\n                        <code>Executing</code>: Returns a list of command executions that are currently still\n       running.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>Complete</code>: Returns a list of command executions that have already completed.\n      </p>\n                  </li>\n               </ul>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -4118,6 +4118,9 @@
       "errors": [
         {
           "target": "com.amazonaws.ssm#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.ssm#InvalidParameters"
         }
       ],
       "traits": {
@@ -4163,6 +4166,12 @@
           "target": "com.amazonaws.ssm#TagList",
           "traits": {
             "smithy.api#documentation": "<p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in\n   different ways, such as by purpose, owner, or environment. For example, you might want to tag an\n   activation to identify which servers or virtual machines (VMs) in your on-premises environment\n   you intend to activate. In this case, you could specify the following key-value pairs:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Key=OS,Value=Windows</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>Key=Environment,Value=Production</code>\n               </p>\n            </li>\n         </ul>\n         <important>\n            <p>When you install SSM Agent on your on-premises servers and VMs, you specify an activation ID\n    and code. When you specify the activation ID and code, tags assigned to the activation are\n    automatically applied to the on-premises servers or VMs.</p>\n         </important>\n         <p>You can't add tags to or delete tags from an existing activation. You can tag your\n   on-premises servers and VMs after they connect to Systems Manager for the first time and are assigned a\n   managed instance ID. This means they are listed in the Amazon Web Services Systems Manager console with an ID that is\n   prefixed with \"mi-\". For information about how to add tags to your managed instances, see <a>AddTagsToResource</a>. For information about how to remove tags from your managed\n   instances, see <a>RemoveTagsFromResource</a>.</p>"
+          }
+        },
+        "RegistrationMetadata": {
+          "target": "com.amazonaws.ssm#RegistrationMetadataList",
+          "traits": {
+            "smithy.api#documentation": "<p>Reserved for internal use.</p>"
           }
         }
       }
@@ -16691,7 +16700,11 @@
     "com.amazonaws.ssm#ManagedInstanceId": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "^mi-[0-9a-f]{17}$"
+        "smithy.api#length": {
+          "min": 20,
+          "max": 124
+        },
+        "smithy.api#pattern": "^(^mi-[0-9a-f]{17}$)|(^eks_c:[0-9A-Za-z][A-Za-z0-9\\-_]{0,99}_\\w{17}$)$"
       }
     },
     "com.amazonaws.ssm#MaxConcurrency": {
@@ -19407,6 +19420,9 @@
       },
       "value": {
         "target": "com.amazonaws.ssm#ParameterValueList"
+      },
+      "traits": {
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.ssm#ParametersFilter": {
@@ -20899,7 +20915,7 @@
         "Policies": {
           "target": "com.amazonaws.ssm#ParameterPolicies",
           "traits": {
-            "smithy.api#documentation": "<p>One or more policies to apply to a parameter. This operation takes a JSON array. Parameter\n   Store, a capability of Amazon Web Services Systems Manager supports the following policy types:</p>\n         <p>Expiration: This policy deletes the parameter after it expires. When you create the policy,\n   you specify the expiration date. You can update the expiration date and time by updating the\n   policy. Updating the <i>parameter</i> doesn't affect the expiration date and time.\n   When the expiration time is reached, Parameter Store deletes the parameter.</p>\n         <p>ExpirationNotification: This policy triggers an event in Amazon CloudWatch Events that\n   notifies you about the expiration. By using this policy, you can receive notification before or\n   after the expiration time is reached, in units of days or hours.</p>\n         <p>NoChangeNotification: This policy triggers a CloudWatch Events event if a parameter hasn't\n   been modified for a specified period of time. This policy type is useful when, for example, a\n   secret needs to be changed within a period of time, but it hasn't been changed.</p>\n         <p>All existing policies are preserved until you send new policies or an empty policy. For more\n   information about parameter policies, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html\">Assigning parameter\n    policies</a>. </p>"
+            "smithy.api#documentation": "<p>One or more policies to apply to a parameter. This operation takes a JSON array. Parameter\n   Store, a capability of Amazon Web Services Systems Manager supports the following policy types:</p>\n         <p>Expiration: This policy deletes the parameter after it expires. When you create the policy,\n   you specify the expiration date. You can update the expiration date and time by updating the\n   policy. Updating the <i>parameter</i> doesn't affect the expiration date and time.\n   When the expiration time is reached, Parameter Store deletes the parameter.</p>\n         <p>ExpirationNotification: This policy initiates an event in Amazon CloudWatch Events that\n   notifies you about the expiration. By using this policy, you can receive notification before or\n   after the expiration time is reached, in units of days or hours.</p>\n         <p>NoChangeNotification: This policy initiates a CloudWatch Events event if a parameter hasn't\n   been modified for a specified period of time. This policy type is useful when, for example, a\n   secret needs to be changed within a period of time, but it hasn't been changed.</p>\n         <p>All existing policies are preserved until you send new policies or an empty policy. For more\n   information about parameter policies, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html\">Assigning parameter\n    policies</a>. </p>"
           }
         },
         "DataType": {
@@ -21303,6 +21319,54 @@
           "min": 1,
           "max": 1000
         }
+      }
+    },
+    "com.amazonaws.ssm#RegistrationMetadataItem": {
+      "type": "structure",
+      "members": {
+        "Key": {
+          "target": "com.amazonaws.ssm#RegistrationMetadataKey",
+          "traits": {
+            "smithy.api#documentation": "<p>Reserved for internal use.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.ssm#RegistrationMetadataValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Reserved for internal use.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Reserved for internal use.</p>"
+      }
+    },
+    "com.amazonaws.ssm#RegistrationMetadataKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^(?!\\s*$).+$"
+      }
+    },
+    "com.amazonaws.ssm#RegistrationMetadataList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ssm#RegistrationMetadataItem"
+      }
+    },
+    "com.amazonaws.ssm#RegistrationMetadataValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^(?!\\s*$).+$"
       }
     },
     "com.amazonaws.ssm#RegistrationsCount": {
@@ -23518,7 +23582,7 @@
         "Reason": {
           "target": "com.amazonaws.ssm#SessionReason",
           "traits": {
-            "smithy.api#documentation": "<p>The reason for connecting to the instance. This value is included in the details for the Amazon CloudWatch Events event created when you start the session.</p>"
+            "smithy.api#documentation": "<p>The reason for connecting to the instance. This value is included in the details for the\n    Amazon CloudWatch Events event created when you start the session.</p>"
           }
         },
         "Parameters": {

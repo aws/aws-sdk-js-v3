@@ -4930,6 +4930,15 @@ export interface UpdateElasticsearchDomainConfigRequest {
    * <p>Specifies Auto-Tune options.</p>
    */
   AutoTuneOptions?: AutoTuneOptions;
+
+  /**
+   * <p>
+   *            This flag, when set to True, specifies whether the <code>UpdateElasticsearchDomain</code> request should return the results of validation checks without actually applying the change.
+   *            This flag, when set to True, specifies the deployment mechanism through which the update shall be applied on the domain.
+   *            This will not actually perform the Update.
+   *        </p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace UpdateElasticsearchDomainConfigRequest {
@@ -4944,6 +4953,34 @@ export namespace UpdateElasticsearchDomainConfigRequest {
   });
 }
 
+export interface DryRunResults {
+  /**
+   * <p>
+   *             Specifies the deployment mechanism through which the update shall be applied on the domain.
+   *             Possible responses are
+   *             <code>Blue/Green</code> (The update will require a blue/green deployment.)
+   *             <code>DynamicUpdate</code> (The update can be applied in-place without a Blue/Green deployment required.)
+   *             <code>Undetermined</code> (The domain is undergoing an update which needs to complete before the deployment type can be predicted.)
+   *             <code>None</code> (The configuration change matches the current configuration and will not result in any update.)
+   *         </p>
+   */
+  DeploymentType?: string;
+
+  /**
+   * <p>Contains an optional message associated with the DryRunResults.</p>
+   */
+  Message?: string;
+}
+
+export namespace DryRunResults {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DryRunResults): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The result of an <code>UpdateElasticsearchDomain</code> request. Contains the status of the Elasticsearch domain being updated.</p>
  */
@@ -4952,6 +4989,11 @@ export interface UpdateElasticsearchDomainConfigResponse {
    * <p>The status of the updated Elasticsearch domain. </p>
    */
   DomainConfig: ElasticsearchDomainConfig | undefined;
+
+  /**
+   * <p>Contains result of DryRun. </p>
+   */
+  DryRunResults?: DryRunResults;
 }
 
 export namespace UpdateElasticsearchDomainConfigResponse {

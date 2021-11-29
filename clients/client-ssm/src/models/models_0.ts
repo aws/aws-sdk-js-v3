@@ -608,6 +608,30 @@ export namespace DoesNotExistException {
   });
 }
 
+/**
+ * <p>Reserved for internal use.</p>
+ */
+export interface RegistrationMetadataItem {
+  /**
+   * <p>Reserved for internal use.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>Reserved for internal use.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace RegistrationMetadataItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegistrationMetadataItem): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateActivationRequest {
   /**
    * <p>A user-defined description of the resource that you want to register with Systems Manager. </p>
@@ -677,6 +701,11 @@ export interface CreateActivationRequest {
    *    instances, see <a>RemoveTagsFromResource</a>.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Reserved for internal use.</p>
+   */
+  RegistrationMetadata?: RegistrationMetadataItem[];
 }
 
 export namespace CreateActivationRequest {
@@ -707,6 +736,25 @@ export namespace CreateActivationResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateActivationResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You must specify values for all required parameters in the Amazon Web Services Systems Manager document (SSM
+ *    document). You can only supply values to parameters defined in the SSM document.</p>
+ */
+export interface InvalidParameters extends __SmithyException, $MetadataBearer {
+  name: "InvalidParameters";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidParameters {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidParameters): any => ({
     ...obj,
   });
 }
@@ -1137,6 +1185,7 @@ export namespace CreateAssociationRequest {
    */
   export const filterSensitiveLog = (obj: CreateAssociationRequest): any => ({
     ...obj,
+    ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
   });
 }
 
@@ -1376,6 +1425,7 @@ export namespace AssociationDescription {
    */
   export const filterSensitiveLog = (obj: AssociationDescription): any => ({
     ...obj,
+    ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
   });
 }
 
@@ -1392,6 +1442,9 @@ export namespace CreateAssociationResult {
    */
   export const filterSensitiveLog = (obj: CreateAssociationResult): any => ({
     ...obj,
+    ...(obj.AssociationDescription && {
+      AssociationDescription: AssociationDescription.filterSensitiveLog(obj.AssociationDescription),
+    }),
   });
 }
 
@@ -1448,25 +1501,6 @@ export namespace InvalidOutputLocation {
    * @internal
    */
   export const filterSensitiveLog = (obj: InvalidOutputLocation): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>You must specify values for all required parameters in the Amazon Web Services Systems Manager document (SSM
- *    document). You can only supply values to parameters defined in the SSM document.</p>
- */
-export interface InvalidParameters extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameters";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameters): any => ({
     ...obj,
   });
 }
@@ -1678,6 +1712,7 @@ export namespace CreateAssociationBatchRequestEntry {
    */
   export const filterSensitiveLog = (obj: CreateAssociationBatchRequestEntry): any => ({
     ...obj,
+    ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
   });
 }
 
@@ -1694,6 +1729,9 @@ export namespace CreateAssociationBatchRequest {
    */
   export const filterSensitiveLog = (obj: CreateAssociationBatchRequest): any => ({
     ...obj,
+    ...(obj.Entries && {
+      Entries: obj.Entries.map((item) => CreateAssociationBatchRequestEntry.filterSensitiveLog(item)),
+    }),
   });
 }
 
@@ -1725,6 +1763,7 @@ export namespace FailedCreateAssociation {
    */
   export const filterSensitiveLog = (obj: FailedCreateAssociation): any => ({
     ...obj,
+    ...(obj.Entry && { Entry: CreateAssociationBatchRequestEntry.filterSensitiveLog(obj.Entry) }),
   });
 }
 
@@ -1746,6 +1785,10 @@ export namespace CreateAssociationBatchResult {
    */
   export const filterSensitiveLog = (obj: CreateAssociationBatchResult): any => ({
     ...obj,
+    ...(obj.Successful && {
+      Successful: obj.Successful.map((item) => AssociationDescription.filterSensitiveLog(item)),
+    }),
+    ...(obj.Failed && { Failed: obj.Failed.map((item) => FailedCreateAssociation.filterSensitiveLog(item)) }),
   });
 }
 
@@ -4609,6 +4652,9 @@ export namespace DescribeAssociationResult {
    */
   export const filterSensitiveLog = (obj: DescribeAssociationResult): any => ({
     ...obj,
+    ...(obj.AssociationDescription && {
+      AssociationDescription: AssociationDescription.filterSensitiveLog(obj.AssociationDescription),
+    }),
   });
 }
 
@@ -9227,77 +9273,4 @@ export enum ParameterType {
   SECURE_STRING = "SecureString",
   STRING = "String",
   STRING_LIST = "StringList",
-}
-
-/**
- * <p>Metadata includes information like the ARN of the last user and the date/time the parameter
- *    was last used.</p>
- */
-export interface ParameterMetadata {
-  /**
-   * <p>The parameter name.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The type of parameter. Valid parameter types include the following: <code>String</code>,
-   *     <code>StringList</code>, and <code>SecureString</code>.</p>
-   */
-  Type?: ParameterType | string;
-
-  /**
-   * <p>The ID of the query key used for this parameter.</p>
-   */
-  KeyId?: string;
-
-  /**
-   * <p>Date the parameter was last changed or updated.</p>
-   */
-  LastModifiedDate?: Date;
-
-  /**
-   * <p>Amazon Resource Name (ARN) of the Amazon Web Services user who last changed the parameter.</p>
-   */
-  LastModifiedUser?: string;
-
-  /**
-   * <p>Description of the parameter actions.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A parameter name can include only the following letters and symbols.</p>
-   *          <p>a-zA-Z0-9_.-</p>
-   */
-  AllowedPattern?: string;
-
-  /**
-   * <p>The parameter version.</p>
-   */
-  Version?: number;
-
-  /**
-   * <p>The parameter tier.</p>
-   */
-  Tier?: ParameterTier | string;
-
-  /**
-   * <p>A list of policies associated with a parameter.</p>
-   */
-  Policies?: ParameterInlinePolicy[];
-
-  /**
-   * <p>The data type of the parameter, such as <code>text</code> or <code>aws:ec2:image</code>. The
-   *    default is <code>text</code>.</p>
-   */
-  DataType?: string;
-}
-
-export namespace ParameterMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterMetadata): any => ({
-    ...obj,
-  });
 }

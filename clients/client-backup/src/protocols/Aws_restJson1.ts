@@ -2289,6 +2289,13 @@ export const serializeAws_restJson1UpdateRegionSettingsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/account-settings";
   let body: any;
   body = JSON.stringify({
+    ...(input.ResourceTypeManagementPreference !== undefined &&
+      input.ResourceTypeManagementPreference !== null && {
+        ResourceTypeManagementPreference: serializeAws_restJson1ResourceTypeManagementPreference(
+          input.ResourceTypeManagementPreference,
+          context
+        ),
+      }),
     ...(input.ResourceTypeOptInPreference !== undefined &&
       input.ResourceTypeOptInPreference !== null && {
         ResourceTypeOptInPreference: serializeAws_restJson1ResourceTypeOptInPreference(
@@ -4361,9 +4368,16 @@ export const deserializeAws_restJson1DescribeRegionSettingsCommand = async (
   }
   const contents: DescribeRegionSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
+    ResourceTypeManagementPreference: undefined,
     ResourceTypeOptInPreference: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ResourceTypeManagementPreference !== undefined && data.ResourceTypeManagementPreference !== null) {
+    contents.ResourceTypeManagementPreference = deserializeAws_restJson1ResourceTypeManagementPreference(
+      data.ResourceTypeManagementPreference,
+      context
+    );
+  }
   if (data.ResourceTypeOptInPreference !== undefined && data.ResourceTypeOptInPreference !== null) {
     contents.ResourceTypeOptInPreference = deserializeAws_restJson1ResourceTypeOptInPreference(
       data.ResourceTypeOptInPreference,
@@ -7883,6 +7897,14 @@ const deserializeAws_restJson1UpdateRecoveryPointLifecycleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidRequestException":
+    case "com.amazonaws.backup#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
       response = {
@@ -8728,6 +8750,21 @@ const serializeAws_restJson1ResourceTypeList = (input: string[], context: __Serd
       }
       return entry;
     });
+};
+
+const serializeAws_restJson1ResourceTypeManagementPreference = (
+  input: { [key: string]: boolean },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_restJson1ResourceTypeOptInPreference = (
@@ -9624,6 +9661,21 @@ const deserializeAws_restJson1ResourceTypeList = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_restJson1ResourceTypeManagementPreference = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: boolean } => {
+  return Object.entries(output).reduce((acc: { [key: string]: boolean }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectBoolean(value) as any,
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1ResourceTypeOptInPreference = (

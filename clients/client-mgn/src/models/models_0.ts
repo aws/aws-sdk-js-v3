@@ -1002,9 +1002,11 @@ export enum DataReplicationErrorString {
   FAILED_TO_LAUNCH_REPLICATION_SERVER = "FAILED_TO_LAUNCH_REPLICATION_SERVER",
   FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT = "FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT",
   FAILED_TO_START_DATA_TRANSFER = "FAILED_TO_START_DATA_TRANSFER",
+  LAST_SNAPSHOT_JOB_FAILED = "LAST_SNAPSHOT_JOB_FAILED",
   NOT_CONVERGING = "NOT_CONVERGING",
   SNAPSHOTS_FAILURE = "SNAPSHOTS_FAILURE",
   UNSTABLE_NETWORK = "UNSTABLE_NETWORK",
+  UNSUPPORTED_VM_CONFIGURATION = "UNSUPPORTED_VM_CONFIGURATION",
 }
 
 /**
@@ -1114,7 +1116,9 @@ export enum DataReplicationState {
   INITIAL_SYNC = "INITIAL_SYNC",
   INITIATING = "INITIATING",
   PAUSED = "PAUSED",
+  PENDING_SNAPSHOT_SHIPPING = "PENDING_SNAPSHOT_SHIPPING",
   RESCAN = "RESCAN",
+  SHIPPING_SNAPSHOT = "SHIPPING_SNAPSHOT",
   STALLED = "STALLED",
   STOPPED = "STOPPED",
 }
@@ -1191,6 +1195,11 @@ export interface DataReplicationInfo {
    * <p>Error in obtaining data replication info.</p>
    */
   dataReplicationError?: DataReplicationError;
+
+  /**
+   * <p>Request to query data replication last snapshot time.</p>
+   */
+  lastSnapshotDateTime?: string;
 }
 
 export namespace DataReplicationInfo {
@@ -1424,6 +1433,7 @@ export enum LifeCycleState {
   CUTOVER = "CUTOVER",
   CUTTING_OVER = "CUTTING_OVER",
   DISCONNECTED = "DISCONNECTED",
+  DISCOVERED = "DISCOVERED",
   NOT_READY = "NOT_READY",
   READY_FOR_CUTOVER = "READY_FOR_CUTOVER",
   READY_FOR_TEST = "READY_FOR_TEST",
@@ -1478,6 +1488,11 @@ export namespace LifeCycle {
   export const filterSensitiveLog = (obj: LifeCycle): any => ({
     ...obj,
   });
+}
+
+export enum ReplicationType {
+  AGENT_BASED = "AGENT_BASED",
+  SNAPSHOT_SHIPPING = "SNAPSHOT_SHIPPING",
 }
 
 /**
@@ -1551,6 +1566,11 @@ export interface IdentificationHints {
    * <p>AWS Instance ID identification hint.</p>
    */
   awsInstanceID?: string;
+
+  /**
+   * <p>vCenter VM path identification hint.</p>
+   */
+  vmPath?: string;
 }
 
 export namespace IdentificationHints {
@@ -1704,6 +1724,16 @@ export interface SourceServer {
    * <p>Source server properties.</p>
    */
   sourceProperties?: SourceProperties;
+
+  /**
+   * <p>Source server replication type.</p>
+   */
+  replicationType?: ReplicationType | string;
+
+  /**
+   * <p>Source server vCenter client id.</p>
+   */
+  vcenterClientID?: string;
 }
 
 export namespace SourceServer {
@@ -1756,6 +1786,16 @@ export interface DescribeSourceServersRequestFilters {
    * <p>Request to filter Source Servers list by archived.</p>
    */
   isArchived?: boolean;
+
+  /**
+   * <p>Request to filter Source Servers list by replication type.</p>
+   */
+  replicationTypes?: (ReplicationType | string)[];
+
+  /**
+   * <p>Request to filter Source Servers list by life cycle states.</p>
+   */
+  lifeCycleStates?: (LifeCycleState | string)[];
 }
 
 export namespace DescribeSourceServersRequestFilters {
@@ -2160,6 +2200,60 @@ export namespace StartCutoverResponse {
   });
 }
 
+/**
+ * <p>The request could not be completed because its exceeded the service quota.</p>
+ */
+export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
+  name: "ServiceQuotaExceededException";
+  $fault: "client";
+  message?: string;
+  code?: string;
+  /**
+   * <p>Exceeded the service quota resource Id.</p>
+   */
+  resourceId?: string;
+
+  /**
+   * <p>Exceeded the service quota resource type.</p>
+   */
+  resourceType?: string;
+
+  /**
+   * <p>Exceeded the service quota service code.</p>
+   */
+  serviceCode?: string;
+
+  /**
+   * <p>Exceeded the service quota code.</p>
+   */
+  quotaCode?: string;
+}
+
+export namespace ServiceQuotaExceededException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
+    ...obj,
+  });
+}
+
+export interface StartReplicationRequest {
+  /**
+   * <p>ID of source server on which to start replication.</p>
+   */
+  sourceServerID: string | undefined;
+}
+
+export namespace StartReplicationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartReplicationRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface StartTestRequest {
   /**
    * <p>Start Test for Source Server IDs.</p>
@@ -2371,6 +2465,27 @@ export namespace UpdateReplicationConfigurationRequest {
   });
 }
 
+export interface UpdateSourceServerReplicationTypeRequest {
+  /**
+   * <p>ID of source server on which to update replication type.</p>
+   */
+  sourceServerID: string | undefined;
+
+  /**
+   * <p>Replication type to which to update source server.</p>
+   */
+  replicationType: ReplicationType | string | undefined;
+}
+
+export namespace UpdateSourceServerReplicationTypeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateSourceServerReplicationTypeRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface TagResourceRequest {
   /**
    * <p>Tag resource by ARN.</p>
@@ -2412,5 +2527,120 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
     ...(obj.tagKeys && { tagKeys: SENSITIVE_STRING }),
+  });
+}
+
+export interface DeleteVcenterClientRequest {
+  /**
+   * <p>ID of resource to be deleted.</p>
+   */
+  vcenterClientID: string | undefined;
+}
+
+export namespace DeleteVcenterClientRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteVcenterClientRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeVcenterClientsRequest {
+  /**
+   * <p>Maximum results to be returned in DescribeVcenterClients.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>Next pagination token to be provided for DescribeVcenterClients.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace DescribeVcenterClientsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVcenterClientsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>vCenter client.</p>
+ */
+export interface VcenterClient {
+  /**
+   * <p>ID of vCenter client.</p>
+   */
+  vcenterClientID?: string;
+
+  /**
+   * <p>Arn of vCenter client.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>Hostname of vCenter client .</p>
+   */
+  hostname?: string;
+
+  /**
+   * <p>Vcenter UUID of vCenter client.</p>
+   */
+  vcenterUUID?: string;
+
+  /**
+   * <p>Datacenter name of vCenter client.</p>
+   */
+  datacenterName?: string;
+
+  /**
+   * <p>Last seen time of vCenter client.</p>
+   */
+  lastSeenDatetime?: string;
+
+  /**
+   * <p>Tags for Source Server of vCenter client.</p>
+   */
+  sourceServerTags?: { [key: string]: string };
+
+  /**
+   * <p>Tags for vCenter client.</p>
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace VcenterClient {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VcenterClient): any => ({
+    ...obj,
+    ...(obj.sourceServerTags && { sourceServerTags: SENSITIVE_STRING }),
+    ...(obj.tags && { tags: SENSITIVE_STRING }),
+  });
+}
+
+export interface DescribeVcenterClientsResponse {
+  /**
+   * <p>List of items returned by DescribeVcenterClients.</p>
+   */
+  items?: VcenterClient[];
+
+  /**
+   * <p>Next pagination token returned from DescribeVcenterClients.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace DescribeVcenterClientsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVcenterClientsResponse): any => ({
+    ...obj,
+    ...(obj.items && { items: obj.items.map((item) => VcenterClient.filterSensitiveLog(item)) }),
   });
 }

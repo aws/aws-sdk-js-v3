@@ -1,5 +1,6 @@
 export * from "./AnalyzeDocumentCommand";
 export * from "./AnalyzeExpenseCommand";
+export * from "./AnalyzeIDCommand";
 export * from "./DetectDocumentTextCommand";
 export * from "./GetDocumentAnalysisCommand";
 export * from "./GetDocumentTextDetectionCommand";

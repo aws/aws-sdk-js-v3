@@ -26,19 +26,18 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
 /**
  * <p>Records a heartbeat for the lifecycle action associated with the specified token or
  *             instance. This extends the timeout by the length of time defined using the <a>PutLifecycleHook</a> API call.</p>
- *
  *         <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
  *             group:</p>
  *         <ol>
  *             <li>
- *                 <p>(Optional) Create a Lambda function and a rule that allows CloudWatch Events to
+ *                 <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to
  *                     invoke your Lambda function when Amazon EC2 Auto Scaling launches or terminates
  *                     instances.</p>
  *             </li>
  *             <li>
  *                 <p>(Optional) Create a notification target and an IAM role. The target can be
- *                     either an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to
- *                     publish lifecycle notifications to the target.</p>
+ *                     either an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to publish
+ *                     lifecycle notifications to the target.</p>
  *             </li>
  *             <li>
  *                 <p>Create the lifecycle hook. Specify whether the hook is used when the instances
@@ -51,8 +50,8 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
  *                 </p>
  *             </li>
  *             <li>
- *                 <p>If you finish before the timeout period ends, complete the lifecycle
- *                     action.</p>
+ *                 <p>If you finish before the timeout period ends, send a callback by using the
+ *                         <a>CompleteLifecycleAction</a> API call.</p>
  *             </li>
  *          </ol>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling lifecycle

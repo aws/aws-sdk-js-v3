@@ -2765,6 +2765,77 @@ export namespace GetMulticastGroupSessionResponse {
   });
 }
 
+export interface GetNetworkAnalyzerConfigurationRequest {
+  /**
+   * <p>NetworkAnalyzer configuration name.</p>
+   */
+  ConfigurationName: string | undefined;
+}
+
+export namespace GetNetworkAnalyzerConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetNetworkAnalyzerConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum WirelessDeviceFrameInfo {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>Trace Content for resources.</p>
+ */
+export interface TraceContent {
+  /**
+   * <p>WirelessDevice FrameInfo for trace content.</p>
+   */
+  WirelessDeviceFrameInfo?: WirelessDeviceFrameInfo | string;
+
+  /**
+   * <p>The log level for a log message.</p>
+   */
+  LogLevel?: LogLevel | string;
+}
+
+export namespace TraceContent {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TraceContent): any => ({
+    ...obj,
+  });
+}
+
+export interface GetNetworkAnalyzerConfigurationResponse {
+  /**
+   * <p>Trace Content for resources.</p>
+   */
+  TraceContent?: TraceContent;
+
+  /**
+   * <p>List of WirelessDevices in the NetworkAnalyzerConfiguration.</p>
+   */
+  WirelessDevices?: string[];
+
+  /**
+   * <p>List of WirelessGateways in the NetworkAnalyzerConfiguration.</p>
+   */
+  WirelessGateways?: string[];
+}
+
+export namespace GetNetworkAnalyzerConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetNetworkAnalyzerConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetPartnerAccountRequest {
   /**
    * <p>The partner account ID to disassociate from the AWS account.</p>
@@ -5266,6 +5337,58 @@ export namespace UpdateMulticastGroupResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateMulticastGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateNetworkAnalyzerConfigurationRequest {
+  /**
+   * <p>NetworkAnalyzer configuration name.</p>
+   */
+  ConfigurationName: string | undefined;
+
+  /**
+   * <p>Trace Content for resources.</p>
+   */
+  TraceContent?: TraceContent;
+
+  /**
+   * <p>WirelessDevices to add into NetworkAnalyzerConfiguration.</p>
+   */
+  WirelessDevicesToAdd?: string[];
+
+  /**
+   * <p>WirelessDevices to remove from NetworkAnalyzerConfiguration.</p>
+   */
+  WirelessDevicesToRemove?: string[];
+
+  /**
+   * <p>WirelessGateways to add into NetworkAnalyzerConfiguration.</p>
+   */
+  WirelessGatewaysToAdd?: string[];
+
+  /**
+   * <p>WirelessGateways to remove from NetworkAnalyzerConfiguration.</p>
+   */
+  WirelessGatewaysToRemove?: string[];
+}
+
+export namespace UpdateNetworkAnalyzerConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateNetworkAnalyzerConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateNetworkAnalyzerConfigurationResponse {}
+
+export namespace UpdateNetworkAnalyzerConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateNetworkAnalyzerConfigurationResponse): any => ({
     ...obj,
   });
 }

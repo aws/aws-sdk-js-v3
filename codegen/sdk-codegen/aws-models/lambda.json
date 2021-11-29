@@ -31,6 +31,21 @@
   "shapes": {
     "com.amazonaws.lambda#AWSGirApiService": {
       "type": "service",
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Lambda",
+          "arnNamespace": "lambda",
+          "cloudFormationName": "Lambda",
+          "cloudTrailEventSource": "lambda.amazonaws.com",
+          "endpointPrefix": "lambda"
+        },
+        "aws.auth#sigv4": {
+          "name": "lambda"
+        },
+        "aws.protocols#restJson1": {},
+        "smithy.api#documentation": "<fullname>Lambda</fullname>\n         <p>\n            <b>Overview</b>\n         </p>\n         <p>Lambda is a compute service that lets you run code without provisioning or managing servers.\n        Lambda runs your code on a high-availability compute infrastructure and performs all of the\n      administration of the compute resources, including server and operating system maintenance, capacity provisioning\n      and automatic scaling, code monitoring and logging. With Lambda, you can run code for virtually any\n      type of application or backend service. For more information about the Lambda service, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/welcome.html\">What is Lambda</a> in the <b>Lambda Developer Guide</b>.</p>\n         <p>The <i>Lambda API Reference</i> provides information about\n      each of the API methods, including details about the parameters in each API request and\n      response. </p>\n         <p></p>\n         <p>You can use Software Development Kits (SDKs), Integrated Development Environment (IDE) Toolkits, and command\n      line tools to access the API. For installation instructions, see <a href=\"http://aws.amazon.com/tools/\">Tools for\n        Amazon Web Services</a>. </p>\n         <p>For a list of Region-specific endpoints that Lambda supports, \n      see <a href=\"https://docs.aws.amazon.com/general/latest/gr/lambda-service.html/\">Lambda\n        endpoints and quotas </a> in the <i>Amazon Web Services General Reference.</i>. </p>   \n         <p>When making the API calls, you will need to\n      authenticate your request by providing a signature. Lambda supports signature version 4. For more information,\n      see <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4 signing process</a> in the\n      <i>Amazon Web Services General Reference.</i>. </p>\n         <p>\n            <b>CA certificates</b>\n         </p>\n\n         <p>Because Amazon Web Services SDKs use the CA certificates from your computer, changes to the certificates on the Amazon Web Services servers\n        can cause connection failures when you attempt to use an SDK. You can prevent these failures by keeping your\n        computer's CA certificates and operating system up-to-date. If you encounter this issue in a corporate\n        environment and do not manage your own computer, you might need to ask an administrator to assist with the\n        update process. The following list shows minimum operating system and Java versions:</p>\n         <ul>\n            <li>\n               <p>Microsoft Windows versions that have updates from January 2005 or later installed contain at least one\n            of the required CAs in their trust list. </p>\n            </li>\n            <li>\n               <p>Mac OS X 10.4 with Java for Mac OS X 10.4 Release 5 (February 2007), Mac OS X 10.5 (October 2007), and\n            later versions contain at least one of the required CAs in their trust list. </p>\n            </li>\n            <li>\n               <p>Red Hat Enterprise Linux 5 (March 2007), 6, and 7 and CentOS 5, 6, and 7 all contain at least one of the\n            required CAs in their default trusted CA list. </p>\n            </li>\n            <li>\n               <p>Java 1.4.2_12 (May 2006), 5 Update 2 (March 2005), and all later versions, including Java 6 (December\n            2006), 7, and 8, contain at least one of the required CAs in their default trusted CA list. </p>\n            </li>\n         </ul>\n         <p>When accessing the Lambda management console or Lambda API endpoints, whether through browsers or\n        programmatically, you will need to ensure your client machines support any of the following CAs: </p>\n         <ul>\n            <li>\n               <p>Amazon Root CA 1</p>\n            </li>\n            <li>\n               <p>Starfield Services Root Certificate Authority - G2</p>\n            </li>\n            <li>\n               <p>Starfield Class 2 Certification Authority</p>\n            </li>\n         </ul>\n         <p>Root certificates from the first two authorities are available from <a href=\"https://www.amazontrust.com/repository/\">Amazon trust services</a>, but keeping your computer\n        up-to-date is the more straightforward solution. To learn more about ACM-provided certificates, see <a href=\"http://aws.amazon.com/certificate-manager/faqs/#certificates\">Amazon Web Services Certificate Manager FAQs.</a>\n         </p>",
+        "smithy.api#title": "AWS Lambda"
+      },
       "version": "2015-03-31",
       "operations": [
         {
@@ -207,22 +222,7 @@
         {
           "target": "com.amazonaws.lambda#UpdateFunctionEventInvokeConfig"
         }
-      ],
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "Lambda",
-          "arnNamespace": "lambda",
-          "cloudFormationName": "Lambda",
-          "cloudTrailEventSource": "lambda.amazonaws.com",
-          "endpointPrefix": "lambda"
-        },
-        "aws.auth#sigv4": {
-          "name": "lambda"
-        },
-        "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<fullname>Lambda</fullname>\n         <p>\n            <b>Overview</b>\n         </p>\n         <p>This is the <i>Lambda API Reference</i>. The Lambda Developer Guide provides additional\n      information. For the service overview, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/welcome.html\">What is\n        Lambda</a>, and for information about how the service works, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html\">Lambda: How it Works</a> in the <b>Lambda Developer Guide</b>.</p>",
-        "smithy.api#title": "AWS Lambda"
-      }
+      ]
     },
     "com.amazonaws.lambda#AccountLimit": {
       "type": "structure",
@@ -1034,7 +1034,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the\n      event source and triggers the function.</p>\n         <p>For details about each event source type, see the following topics. </p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping\">\n            Configuring a Dynamo DB stream as an event source</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping\">\n            Configuring a Kinesis stream as an event source</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource\"> Configuring an\n              Amazon SQS queue as an event source</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping\">\n            Configuring an MQ broker as an event source</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html\"> Configuring MSK as an event\n            source</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html\"> Configuring Self-Managed Apache Kafka\n            as an event source</a>\n               </p>\n            </li>\n         </ul>\n    \n         <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p>\n         <ul>\n            <li>\n               <p>\n                  <code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p>\n            </li>\n            <li>\n               <p>\n                  <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p>\n            </li>\n            <li>\n               <p>\n                  <code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the\n      event source and triggers the function.</p>\n         <p>For details about how to configure different event sources, see the following topics. </p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping\">\n            Amazon DynamoDB Streams</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping\">\n            Amazon Kinesis</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource\">\n            Amazon SQS</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping\">\n            Amazon MQ and RabbitMQ</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html\">\n            Amazon MSK</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html\">\n            Apache Kafka</a>\n               </p>\n            </li>\n         </ul>\n    \n         <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p>\n         <ul>\n            <li>\n               <p>\n                  <code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p>\n            </li>\n            <li>\n               <p>\n                  <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p>\n            </li>\n            <li>\n               <p>\n                  <code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p>\n            </li>\n         </ul>\n         <p>For information about which configuration parameters apply to each event source, see the following topics.</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params\">\n          Amazon DynamoDB Streams</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params\">\n          Amazon Kinesis</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params\">\n          Amazon SQS</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params\">\n          Amazon MQ and RabbitMQ</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms\">\n          Amazon MSK</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms\">\n          Apache Kafka</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/2015-03-31/event-source-mappings",
@@ -1067,7 +1067,13 @@
         "BatchSize": {
           "target": "com.amazonaws.lambda#BatchSize",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation\n  (6 MB).</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation\n  (6 MB).</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "FilterCriteria": {
+          "target": "com.amazonaws.lambda#FilterCriteria",
+          "traits": {
+            "smithy.api#documentation": "<p>(Streams and Amazon SQS) An object that defines the filter criteria that\n    determine whether Lambda should process an event. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html\">Lambda event filtering</a>.</p>"
           }
         },
         "MaximumBatchingWindowInSeconds": {
@@ -1151,7 +1157,7 @@
         "FunctionResponseTypes": {
           "target": "com.amazonaws.lambda#FunctionResponseTypeList",
           "traits": {
-            "smithy.api#documentation": "<p>(Streams only) A list of current response type enums applied to the event source mapping.</p>"
+            "smithy.api#documentation": "<p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>"
           }
         }
       }
@@ -1215,7 +1221,7 @@
         "Runtime": {
           "target": "com.amazonaws.lambda#Runtime",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">runtime</a>.</p>"
+            "smithy.api#documentation": "<p>The identifier of the function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">runtime</a>. Runtime is required if the deployment package is a .zip file archive. \n        </p>"
           }
         },
         "Role": {
@@ -1228,7 +1234,7 @@
         "Handler": {
           "target": "com.amazonaws.lambda#Handler",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the method within your code that Lambda calls to execute your function. The format includes the\n      file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,\n      see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html\">Programming Model</a>.</p>"
+            "smithy.api#documentation": "<p>The name of the method within your code that Lambda calls to execute your function. \nHandler is required if the deployment package is a .zip file archive. The format includes the\n      file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,\n      see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html\">Programming Model</a>.</p>"
           }
         },
         "Code": {
@@ -1247,7 +1253,7 @@
         "Timeout": {
           "target": "com.amazonaws.lambda#Timeout",
           "traits": {
-            "smithy.api#documentation": "<p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The\n      maximum allowed value is 900 seconds. For additional information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html\">Lambda execution environment</a>.</p>"
+            "smithy.api#documentation": "<p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The\n      maximum allowed value is 900 seconds. For additional information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html\">Lambda execution environment</a>.</p>"
           }
         },
         "MemorySize": {
@@ -1331,7 +1337,7 @@
         "Architectures": {
           "target": "com.amazonaws.lambda#ArchitecturesList",
           "traits": {
-            "smithy.api#documentation": "<p>The instruction set architecture that the function supports. Enter a string array with one of the valid values. \n    The default value is <code>x86_64</code>.</p>"
+            "smithy.api#documentation": "<p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64).\n     The default value is <code>x86_64</code>.</p>"
           }
         }
       }
@@ -2133,6 +2139,12 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the event source.</p>"
           }
         },
+        "FilterCriteria": {
+          "target": "com.amazonaws.lambda#FilterCriteria",
+          "traits": {
+            "smithy.api#documentation": "<p>(Streams and Amazon SQS) An object that defines the filter criteria that\n    determine whether Lambda should process an event. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html\">Lambda event filtering</a>.</p>"
+          }
+        },
         "FunctionArn": {
           "target": "com.amazonaws.lambda#FunctionArn",
           "traits": {
@@ -2305,6 +2317,40 @@
           "min": 0,
           "max": 1
         }
+      }
+    },
+    "com.amazonaws.lambda#Filter": {
+      "type": "structure",
+      "members": {
+        "Pattern": {
+          "target": "com.amazonaws.lambda#Pattern",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      A filter pattern. For more information on the syntax of a filter pattern, see\n      <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax\">\n        Filter rule syntax</a>.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      A structure within a <code>FilterCriteria</code> object that defines an event filtering pattern.\n    </p>"
+      }
+    },
+    "com.amazonaws.lambda#FilterCriteria": {
+      "type": "structure",
+      "members": {
+        "Filters": {
+          "target": "com.amazonaws.lambda#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      A list of filters.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      An object that contains the filters for an event source.\n    </p>"
+      }
+    },
+    "com.amazonaws.lambda#FilterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.lambda#Filter"
       }
     },
     "com.amazonaws.lambda#FunctionArn": {
@@ -2485,7 +2531,7 @@
         "KMSKeyArn": {
           "target": "com.amazonaws.lambda#KMSKeyArn",
           "traits": {
-            "smithy.api#documentation": "<p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've\n      configured a customer managed CMK.</p>"
+            "smithy.api#documentation": "<p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've\n      configured a customer managed key.</p>"
           }
         },
         "TracingConfig": {
@@ -2497,7 +2543,7 @@
         "MasterArn": {
           "target": "com.amazonaws.lambda#FunctionArn",
           "traits": {
-            "smithy.api#documentation": "<p>For Lambda@Edge functions, the ARN of the master function.</p>"
+            "smithy.api#documentation": "<p>For Lambda@Edge functions, the ARN of the main function.</p>"
           }
         },
         "RevisionId": {
@@ -3897,7 +3943,7 @@
         "Payload": {
           "target": "com.amazonaws.lambda#Blob",
           "traits": {
-            "smithy.api#documentation": "<p>The JSON that you want to provide to your Lambda function as input.</p>",
+            "smithy.api#documentation": "<p>The JSON that you want to provide to your Lambda function as input.</p>\n         <p>You can enter the JSON directly. For example, <code>--payload '{ \"key\": \"value\" }'</code>. \n      You can also specify a file path. For example, <code>--payload file://payload.json</code>.\n    </p>",
             "smithy.api#httpPayload": {}
           }
         },
@@ -5656,6 +5702,16 @@
         }
       }
     },
+    "com.amazonaws.lambda#Pattern": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 4096
+        },
+        "smithy.api#pattern": ".*"
+      }
+    },
     "com.amazonaws.lambda#PolicyLengthExceededException": {
       "type": "structure",
       "members": {
@@ -6795,7 +6851,7 @@
         "Type": {
           "target": "com.amazonaws.lambda#SourceAccessType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of authentication protocol, VPC components, or virtual host for your event source. For example: <code>\"Type\":\"SASL_SCRAM_512_AUTH\"</code>.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>BASIC_AUTH</code> - (Amazon MQ) The Secrets Manager secret that stores your broker credentials.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BASIC_AUTH</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SASL_SCRAM_256_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SASL_SCRAM_512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VIRTUAL_HOST</code> - (Amazon MQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The type of authentication protocol, VPC components, or virtual host for your event source. For example: <code>\"Type\":\"SASL_SCRAM_512_AUTH\"</code>.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>BASIC_AUTH</code> - (Amazon MQ) The Secrets Manager secret that stores your broker credentials.</p>\n            </li>\n            <li>\n               <p>\n                  <code>BASIC_AUTH</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SASL_SCRAM_256_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SASL_SCRAM_512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VIRTUAL_HOST</code> - (Amazon MQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. \n  This property cannot be specified in an UpdateEventSourceMapping API call.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CLIENT_CERTIFICATE_TLS_AUTH</code> - (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), \n  private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SERVER_ROOT_CA_CERTIFICATE</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.\n  </p>\n            </li>\n         </ul>"
           }
         },
         "URI": {
@@ -6848,6 +6904,14 @@
           {
             "value": "VIRTUAL_HOST",
             "name": "VIRTUAL_HOST"
+          },
+          {
+            "value": "CLIENT_CERTIFICATE_TLS_AUTH",
+            "name": "CLIENT_CERTIFICATE_TLS_AUTH"
+          },
+          {
+            "value": "SERVER_ROOT_CA_CERTIFICATE",
+            "name": "SERVER_ROOT_CA_CERTIFICATE"
           }
         ]
       }
@@ -7484,7 +7548,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates an event source mapping. You can change the function that Lambda invokes, or pause\n      invocation and resume later from the same location.</p>\n    \n         <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p>\n         <ul>\n            <li>\n               <p>\n                  <code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p>\n            </li>\n            <li>\n               <p>\n                  <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p>\n            </li>\n            <li>\n               <p>\n                  <code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Updates an event source mapping. You can change the function that Lambda invokes, or pause\n      invocation and resume later from the same location.</p>\n         <p>For details about how to configure different event sources, see the following topics. </p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping\">\n            Amazon DynamoDB Streams</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping\">\n            Amazon Kinesis</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource\">\n            Amazon SQS</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping\">\n            Amazon MQ and RabbitMQ</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html\">\n            Amazon MSK</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html\">\n            Apache Kafka</a>\n               </p>\n            </li>\n         </ul>\n    \n         <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p>\n         <ul>\n            <li>\n               <p>\n                  <code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p>\n            </li>\n            <li>\n               <p>\n                  <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p>\n            </li>\n            <li>\n               <p>\n                  <code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p>\n            </li>\n         </ul>\n         <p>For information about which configuration parameters apply to each event source, see the following topics.</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params\">\n          Amazon DynamoDB Streams</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params\">\n          Amazon Kinesis</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params\">\n          Amazon SQS</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params\">\n          Amazon MQ and RabbitMQ</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms\">\n          Amazon MSK</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms\">\n          Apache Kafka</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/2015-03-31/event-source-mappings/{UUID}",
@@ -7518,7 +7582,13 @@
         "BatchSize": {
           "target": "com.amazonaws.lambda#BatchSize",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation\n  (6 MB).</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation\n  (6 MB).</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "FilterCriteria": {
+          "target": "com.amazonaws.lambda#FilterCriteria",
+          "traits": {
+            "smithy.api#documentation": "<p>(Streams and Amazon SQS) An object that defines the filter criteria that\n    determine whether Lambda should process an event. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html\">Lambda event filtering</a>.</p>"
           }
         },
         "MaximumBatchingWindowInSeconds": {
@@ -7572,7 +7642,7 @@
         "FunctionResponseTypes": {
           "target": "com.amazonaws.lambda#FunctionResponseTypeList",
           "traits": {
-            "smithy.api#documentation": "<p>(Streams only) A list of current response type enums applied to the event source mapping.</p>"
+            "smithy.api#documentation": "<p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>"
           }
         }
       }
@@ -7688,7 +7758,7 @@
         "Architectures": {
           "target": "com.amazonaws.lambda#ArchitecturesList",
           "traits": {
-            "smithy.api#documentation": "<p>The instruction set architecture that the function supports. Enter a string array with one of the valid values. \n    The default value is <code>x86_64</code>.</p>"
+            "smithy.api#documentation": "<p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64).\n     The default value is <code>x86_64</code>.</p>"
           }
         }
       }
@@ -7759,7 +7829,7 @@
         "Handler": {
           "target": "com.amazonaws.lambda#Handler",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the method within your code that Lambda calls to execute your function. The format includes the\n      file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,\n      see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html\">Programming Model</a>.</p>"
+            "smithy.api#documentation": "<p>The name of the method within your code that Lambda calls to execute your function. \nHandler is required if the deployment package is a .zip file archive. The format includes the\n      file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,\n      see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html\">Programming Model</a>.</p>"
           }
         },
         "Description": {
@@ -7771,7 +7841,7 @@
         "Timeout": {
           "target": "com.amazonaws.lambda#Timeout",
           "traits": {
-            "smithy.api#documentation": "<p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The\n      maximum allowed value is 900 seconds. For additional information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html\">Lambda execution environment</a>.</p>"
+            "smithy.api#documentation": "<p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The\n      maximum allowed value is 900 seconds. For additional information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html\">Lambda execution environment</a>.</p>"
           }
         },
         "MemorySize": {
@@ -7795,7 +7865,7 @@
         "Runtime": {
           "target": "com.amazonaws.lambda#Runtime",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">runtime</a>.</p>"
+            "smithy.api#documentation": "<p>The identifier of the function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">runtime</a>. Runtime is required if the deployment package is a .zip file archive. \n        </p>"
           }
         },
         "DeadLetterConfig": {

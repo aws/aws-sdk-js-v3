@@ -730,6 +730,54 @@ export namespace DestinationConfig {
   });
 }
 
+/**
+ * <p>
+ *       A structure within a <code>FilterCriteria</code> object that defines an event filtering pattern.
+ *     </p>
+ */
+export interface Filter {
+  /**
+   * <p>
+   *       A filter pattern. For more information on the syntax of a filter pattern, see
+   *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax">
+   *         Filter rule syntax</a>.
+   *     </p>
+   */
+  Pattern?: string;
+}
+
+export namespace Filter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Filter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *       An object that contains the filters for an event source.
+ *     </p>
+ */
+export interface FilterCriteria {
+  /**
+   * <p>
+   *       A list of filters.
+   *     </p>
+   */
+  Filters?: Filter[];
+}
+
+export namespace FilterCriteria {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FilterCriteria): any => ({
+    ...obj,
+  });
+}
+
 export enum FunctionResponseType {
   ReportBatchItemFailures = "ReportBatchItemFailures",
 }
@@ -760,8 +808,10 @@ export namespace SelfManagedEventSource {
 
 export enum SourceAccessType {
   BASIC_AUTH = "BASIC_AUTH",
+  CLIENT_CERTIFICATE_TLS_AUTH = "CLIENT_CERTIFICATE_TLS_AUTH",
   SASL_SCRAM_256_AUTH = "SASL_SCRAM_256_AUTH",
   SASL_SCRAM_512_AUTH = "SASL_SCRAM_512_AUTH",
+  SERVER_ROOT_CA_CERTIFICATE = "SERVER_ROOT_CA_CERTIFICATE",
   VIRTUAL_HOST = "VIRTUAL_HOST",
   VPC_SECURITY_GROUP = "VPC_SECURITY_GROUP",
   VPC_SUBNET = "VPC_SUBNET",
@@ -800,7 +850,18 @@ export interface SourceAccessConfiguration {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VIRTUAL_HOST</code> - (Amazon MQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.</p>
+   *                   <code>VIRTUAL_HOST</code> - (Amazon MQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.
+   *   This property cannot be specified in an UpdateEventSourceMapping API call.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CLIENT_CERTIFICATE_TLS_AUTH</code> - (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM),
+   *   private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SERVER_ROOT_CA_CERTIFICATE</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
+   *   </p>
    *             </li>
    *          </ul>
    */
@@ -909,9 +970,19 @@ export interface CreateEventSourceMappingRequest {
    *                <p>
    *                   <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p>
+   *             </li>
    *          </ul>
    */
   BatchSize?: number;
+
+  /**
+   * <p>(Streams and Amazon SQS) An object that defines the filter criteria that
+   *     determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
+   */
+  FilterCriteria?: FilterCriteria;
 
   /**
    * <p>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.</p>
@@ -983,7 +1054,7 @@ export interface CreateEventSourceMappingRequest {
   SelfManagedEventSource?: SelfManagedEventSource;
 
   /**
-   * <p>(Streams only) A list of current response type enums applied to the event source mapping.</p>
+   * <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
   FunctionResponseTypes?: (FunctionResponseType | string)[];
 }
@@ -1041,6 +1112,12 @@ export interface EventSourceMappingConfiguration {
    * <p>The Amazon Resource Name (ARN) of the event source.</p>
    */
   EventSourceArn?: string;
+
+  /**
+   * <p>(Streams and Amazon SQS) An object that defines the filter criteria that
+   *     determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
+   */
+  FilterCriteria?: FilterCriteria;
 
   /**
    * <p>The ARN of the Lambda function.</p>
@@ -1443,7 +1520,8 @@ export interface CreateFunctionRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</p>
+   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.
+   *         </p>
    */
   Runtime?: Runtime | string;
 
@@ -1453,7 +1531,8 @@ export interface CreateFunctionRequest {
   Role: string | undefined;
 
   /**
-   * <p>The name of the method within your code that Lambda calls to execute your function. The format includes the
+   * <p>The name of the method within your code that Lambda calls to execute your function.
+   * Handler is required if the deployment package is a .zip file archive. The format includes the
    *       file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,
    *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
    */
@@ -1470,7 +1549,7 @@ export interface CreateFunctionRequest {
   Description?: string;
 
   /**
-   * <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The
+   * <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The
    *       maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
    */
   Timeout?: number;
@@ -1551,8 +1630,8 @@ export interface CreateFunctionRequest {
   CodeSigningConfigArn?: string;
 
   /**
-   * <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values.
-   *     The default value is <code>x86_64</code>.</p>
+   * <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64).
+   *      The default value is <code>x86_64</code>.</p>
    */
   Architectures?: (Architecture | string)[];
 }
@@ -1876,7 +1955,7 @@ export interface FunctionConfiguration {
 
   /**
    * <p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've
-   *       configured a customer managed CMK.</p>
+   *       configured a customer managed key.</p>
    */
   KMSKeyArn?: string;
 
@@ -1886,7 +1965,7 @@ export interface FunctionConfiguration {
   TracingConfig?: TracingConfigResponse;
 
   /**
-   * <p>For Lambda@Edge functions, the ARN of the master function.</p>
+   * <p>For Lambda@Edge functions, the ARN of the main function.</p>
    */
   MasterArn?: string;
 
@@ -3492,6 +3571,9 @@ export interface InvocationRequest {
 
   /**
    * <p>The JSON that you want to provide to your Lambda function as input.</p>
+   *          <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>.
+   *       You can also specify a file path. For example, <code>--payload file://payload.json</code>.
+   *     </p>
    */
   Payload?: Uint8Array;
 
@@ -5355,9 +5437,19 @@ export interface UpdateEventSourceMappingRequest {
    *                <p>
    *                   <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p>
+   *             </li>
    *          </ul>
    */
   BatchSize?: number;
+
+  /**
+   * <p>(Streams and Amazon SQS) An object that defines the filter criteria that
+   *     determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
+   */
+  FilterCriteria?: FilterCriteria;
 
   /**
    * <p>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.</p>
@@ -5402,7 +5494,7 @@ export interface UpdateEventSourceMappingRequest {
   TumblingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams only) A list of current response type enums applied to the event source mapping.</p>
+   * <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
   FunctionResponseTypes?: (FunctionResponseType | string)[];
 }
@@ -5486,8 +5578,8 @@ export interface UpdateFunctionCodeRequest {
   RevisionId?: string;
 
   /**
-   * <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values.
-   *     The default value is <code>x86_64</code>.</p>
+   * <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64).
+   *      The default value is <code>x86_64</code>.</p>
    */
   Architectures?: (Architecture | string)[];
 }
@@ -5533,7 +5625,8 @@ export interface UpdateFunctionConfigurationRequest {
   Role?: string;
 
   /**
-   * <p>The name of the method within your code that Lambda calls to execute your function. The format includes the
+   * <p>The name of the method within your code that Lambda calls to execute your function.
+   * Handler is required if the deployment package is a .zip file archive. The format includes the
    *       file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,
    *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
    */
@@ -5545,7 +5638,7 @@ export interface UpdateFunctionConfigurationRequest {
   Description?: string;
 
   /**
-   * <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The
+   * <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The
    *       maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
    */
   Timeout?: number;
@@ -5569,7 +5662,8 @@ export interface UpdateFunctionConfigurationRequest {
   Environment?: Environment;
 
   /**
-   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</p>
+   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.
+   *         </p>
    */
   Runtime?: Runtime | string;
 

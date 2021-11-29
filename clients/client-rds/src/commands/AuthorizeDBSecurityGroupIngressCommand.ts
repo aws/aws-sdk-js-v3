@@ -26,7 +26,7 @@ export interface AuthorizeDBSecurityGroupIngressCommandOutput
 /**
  * <p>Enables ingress to a DBSecurityGroup using one of two forms of authorization. First, EC2 or VPC security
  *           groups can be added to the DBSecurityGroup if the application using the database is running on EC2 or VPC
- *           instances. Second, IP ranges are available if the application accessing your database is running on the Internet.
+ *           instances. Second, IP ranges are available if the application accessing your database is running on the internet.
  *           Required parameters for this API are one of CIDR range, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId
  *           and either EC2SecurityGroupName or EC2SecurityGroupId for non-VPC).</p>
  *          <note>

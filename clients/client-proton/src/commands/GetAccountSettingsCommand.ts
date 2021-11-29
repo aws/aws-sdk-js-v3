@@ -22,7 +22,7 @@ export interface GetAccountSettingsCommandInput extends GetAccountSettingsInput 
 export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutput, __MetadataBearer {}
 
 /**
- * <p>Get detail data for the AWS Proton pipeline service role.</p>
+ * <p>Get detail data for the Proton pipeline service role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

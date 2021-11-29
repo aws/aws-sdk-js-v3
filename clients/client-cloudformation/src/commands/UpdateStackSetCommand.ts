@@ -24,8 +24,8 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
 /**
  * <p>Updates the stack set, and associated stack instances in the specified accounts and
  *          Regions.</p>
- *          <p>Even if the stack set operation created by updating the stack set fails (completely
- *          or partially, below or above a specified failure tolerance), the stack set is updated with
+ *          <p>Even if the stack set operation created by updating the stack set fails (completely or
+ *          partially, below or above a specified failure tolerance), the stack set is updated with
  *          your changes. Subsequent <a>CreateStackInstances</a> calls on the specified
  *          stack set use the updated stack set.</p>
  * @example

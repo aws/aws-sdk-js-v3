@@ -226,6 +226,7 @@ import { PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEve
 import { PutEventStreamCommandInput, PutEventStreamCommandOutput } from "./commands/PutEventStreamCommand";
 import { RemoveAttributesCommandInput, RemoveAttributesCommandOutput } from "./commands/RemoveAttributesCommand";
 import { SendMessagesCommandInput, SendMessagesCommandOutput } from "./commands/SendMessagesCommand";
+import { SendOTPMessageCommandInput, SendOTPMessageCommandOutput } from "./commands/SendOTPMessageCommand";
 import { SendUsersMessagesCommandInput, SendUsersMessagesCommandOutput } from "./commands/SendUsersMessagesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -283,6 +284,7 @@ import {
   UpdateVoiceTemplateCommandInput,
   UpdateVoiceTemplateCommandOutput,
 } from "./commands/UpdateVoiceTemplateCommand";
+import { VerifyOTPMessageCommandInput, VerifyOTPMessageCommandOutput } from "./commands/VerifyOTPMessageCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -376,6 +378,7 @@ export type ServiceInputTypes =
   | PutEventsCommandInput
   | RemoveAttributesCommandInput
   | SendMessagesCommandInput
+  | SendOTPMessageCommandInput
   | SendUsersMessagesCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -402,7 +405,8 @@ export type ServiceInputTypes =
   | UpdateSmsTemplateCommandInput
   | UpdateTemplateActiveVersionCommandInput
   | UpdateVoiceChannelCommandInput
-  | UpdateVoiceTemplateCommandInput;
+  | UpdateVoiceTemplateCommandInput
+  | VerifyOTPMessageCommandInput;
 
 export type ServiceOutputTypes =
   | CreateAppCommandOutput
@@ -495,6 +499,7 @@ export type ServiceOutputTypes =
   | PutEventsCommandOutput
   | RemoveAttributesCommandOutput
   | SendMessagesCommandOutput
+  | SendOTPMessageCommandOutput
   | SendUsersMessagesCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
@@ -521,7 +526,8 @@ export type ServiceOutputTypes =
   | UpdateSmsTemplateCommandOutput
   | UpdateTemplateActiveVersionCommandOutput
   | UpdateVoiceChannelCommandOutput
-  | UpdateVoiceTemplateCommandOutput;
+  | UpdateVoiceTemplateCommandOutput
+  | VerifyOTPMessageCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

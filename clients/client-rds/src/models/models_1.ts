@@ -1196,6 +1196,11 @@ export interface DescribeExportTasksMessage {
    *                     </li>
    *                   <li>
    *                         <p>
+   *                         <code>in_progress</code>
+   *                      </p>
+   *                     </li>
+   *                   <li>
+   *                         <p>
    *                         <code>starting</code>
    *                      </p>
    *                     </li>
@@ -2229,6 +2234,16 @@ export interface OrderableDBInstanceOption {
    * <p>A value that indicates whether you can use Aurora global databases with a specific combination of other DB engine attributes.</p>
    */
   SupportsGlobalDatabases?: boolean;
+
+  /**
+   * <p>Whether DB instances can be configured as a Multi-AZ DB cluster.</p>
+   *         <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
+   *         <p>For more information on Multi-AZ DB clusters, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+   *                Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  SupportsClusters?: boolean;
 }
 
 export namespace OrderableDBInstanceOption {
@@ -3243,9 +3258,10 @@ export interface FailoverDBClusterMessage {
   DBClusterIdentifier: string | undefined;
 
   /**
-   * <p>The name of the instance to promote to the primary instance.</p>
-   *         <p>You must specify the instance identifier for an Aurora Replica in the DB cluster.
-   *         For example, <code>mydbcluster-replica1</code>.</p>
+   * <p>The name of the DB instance to promote to the primary DB instance.</p>
+   *         <p>Specify the DB instance identifier for an Aurora Replica or a Multi-AZ readable standby in the DB cluster,
+   *         for example <code>mydbcluster-replica1</code>.</p>
+   *         <p>This setting isn't supported for RDS for MySQL Multi-AZ DB clusters.</p>
    */
   TargetDBInstanceIdentifier?: string;
 }
@@ -3261,11 +3277,28 @@ export namespace FailoverDBClusterMessage {
 
 export interface FailoverDBClusterResult {
   /**
-   * <p>Contains the details of an Amazon Aurora DB cluster.
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.
    *       </p>
-   *          <p>This data type is used as a response element in the <code>DescribeDBClusters</code>,
-   *         <code>StopDBCluster</code>, and <code>StartDBCluster</code> actions.
-   *       </p>
+   *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
+   *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
+   *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
+   *           <code>RestoreDBClusterFromS3</code>, <code>RestoreDBClusterFromSnapshot</code>,
+   *           <code>RestoreDBClusterToPointInTime</code>, <code>StartDBCluster</code>, and <code>StopDBCluster</code>.</p>
+   *          <p>For a Multi-AZ DB cluster, this data type is used as a response element in the operations
+   *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
+   *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>RebootDBCluster</code>,
+   *           <code>RestoreDBClusterFromSnapshot</code>, and <code>RestoreDBClusterToPointInTime</code>.</p>
+   *          <p>For more information on Amazon Aurora DB clusters, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+   *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   *          <p>For more information on Multi-AZ DB clusters, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <note>
+   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
+   *          </note>
    */
   DBCluster?: DBCluster;
 }
@@ -3723,6 +3756,7 @@ export interface ModifyDBClusterMessage {
    * <p>The DB cluster identifier for the cluster being modified. This parameter isn't case-sensitive.</p>
    *          <p>Constraints: This identifier must match the identifier of an existing DB
    *             cluster.</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   DBClusterIdentifier: string | undefined;
 
@@ -3742,6 +3776,7 @@ export interface ModifyDBClusterMessage {
    *          </ul>
    *          <p>Example: <code>my-cluster2</code>
    *          </p>
+   *          <p>Valid for: Aurora DB clusters only</p>
    */
   NewDBClusterIdentifier?: string;
 
@@ -3758,11 +3793,12 @@ export interface ModifyDBClusterMessage {
    *       and <code>NewDBClusterIdentifier</code> values are applied during the next maintenance window. All other changes are
    *       applied immediately, regardless of the value of the <code>ApplyImmediately</code> parameter.</p>
    *          <p>By default, this parameter is disabled.</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   ApplyImmediately?: boolean;
 
   /**
-   * <p>The number of days for which automated backups are retained. You must specify a minimum value of 1.</p>
+   * <p>The number of days for which automated backups are retained. Specify a minimum value of 1.</p>
    *          <p>Default: 1</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -3770,16 +3806,19 @@ export interface ModifyDBClusterMessage {
    *                <p>Must be a value from 1 to 35</p>
    *             </li>
    *          </ul>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   BackupRetentionPeriod?: number;
 
   /**
    * <p>The name of the DB cluster parameter group to use for the DB cluster.</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   DBClusterParameterGroupName?: string;
 
   /**
    * <p>A list of VPC security groups that the DB cluster will belong to.</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   VpcSecurityGroupIds?: string[];
 
@@ -3788,24 +3827,20 @@ export interface ModifyDBClusterMessage {
    *          <p>Constraints: Value must be <code>1150-65535</code>
    *          </p>
    *          <p>Default: The same port as the original DB cluster.</p>
+   *          <p>Valid for: Aurora DB clusters only</p>
    */
   Port?: number;
 
   /**
    * <p>The new password for the master database user. This password can contain any printable ASCII character except "/", """, or "@".</p>
    *          <p>Constraints: Must contain from 8 to 41 characters.</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   MasterUserPassword?: string;
 
   /**
-   * <p>A value that indicates that the DB cluster should be associated with the specified option group.
-   *             Changing this parameter doesn't result in an outage except in the following case, and the change
-   *             is applied during the next maintenance window
-   *             unless the <code>ApplyImmediately</code> is enabled for this request. If the parameter change results in an option group that
-   *             enables OEM, this change can cause a brief (sub-second) period during which new connections
-   *             are rejected but existing connections are not interrupted.
-   *         </p>
-   *          <p>Permanent options can't be removed from an option group. The option group can't be removed from a DB cluster once it is associated with a DB cluster.</p>
+   * <p>A value that indicates that the DB cluster should be associated with the specified option group.</p>
+   *          <p>DB clusters are associated with a default option group that can't be modified.</p>
    */
   OptionGroupName?: string;
 
@@ -3835,6 +3870,7 @@ export interface ModifyDBClusterMessage {
    *                <p>Must be at least 30 minutes.</p>
    *             </li>
    *          </ul>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   PreferredBackupWindow?: string;
 
@@ -3850,26 +3886,25 @@ export interface ModifyDBClusterMessage {
    *         </p>
    *          <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
    *          <p>Constraints: Minimum 30-minute window.</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   PreferredMaintenanceWindow?: string;
 
   /**
    * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
-   *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
-   *
+   *             Management (IAM) accounts to database accounts. By default, mapping isn't
+   *             enabled.</p>
    *         <p>For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
    *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i>
    *          </p>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   EnableIAMDatabaseAuthentication?: boolean;
 
   /**
    * <p>The target backtrack window, in seconds. To disable backtracking, set this value to
    *             0.</p>
-   *         <note>
-   *             <p>Currently, Backtrack is only supported for Aurora MySQL DB clusters.</p>
-   *         </note>
    *         <p>Default: 0</p>
    *         <p>Constraints:</p>
    *         <ul>
@@ -3877,11 +3912,13 @@ export interface ModifyDBClusterMessage {
    *                <p>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</p>
    *             </li>
    *          </ul>
+   *         <p>Valid for: Aurora MySQL DB clusters only</p>
    */
   BacktrackWindow?: number;
 
   /**
    * <p>The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB cluster.</p>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration;
 
@@ -3889,18 +3926,27 @@ export interface ModifyDBClusterMessage {
    * <p>The version number of the database engine to which you want to upgrade.
    *             Changing this parameter results in an outage. The change is applied during
    *             the next maintenance window unless <code>ApplyImmediately</code> is enabled.</p>
-   *         <p>To list all of the available engine versions for <code>aurora</code> (for MySQL 5.6-compatible Aurora), use the following command:</p>
+   *         <p>To list all of the available engine versions for MySQL 5.6-compatible Aurora, use the following command:</p>
    *         <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
-   *         <p>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora), use the following command:</p>
+   *         <p>To list all of the available engine versions for MySQL 5.7-compatible Aurora, use the following command:</p>
    *         <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
-   *         <p>To list all of the available engine versions for <code>aurora-postgresql</code>, use the following command:</p>
+   *         <p>To list all of the available engine versions for Aurora PostgreSQL, use the following command:</p>
    *         <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
+   *         <p>To list all of the available engine versions for RDS for MySQL, use the following command:</p>
+   *         <p>
+   *             <code>aws rds describe-db-engine-versions --engine mysql --query "DBEngineVersions[].EngineVersion"</code>
+   *          </p>
+   *         <p>To list all of the available engine versions for RDS for PostgreSQL, use the following command:</p>
+   *         <p>
+   *             <code>aws rds describe-db-engine-versions --engine postgres --query "DBEngineVersions[].EngineVersion"</code>
+   *          </p>
+   *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   EngineVersion?: string;
 
@@ -3909,6 +3955,7 @@ export interface ModifyDBClusterMessage {
    *          <p>Constraints: You must allow major version upgrades when specifying a value for the
    *                 <code>EngineVersion</code> parameter that is a different major version than the DB
    *             cluster's current version.</p>
+   *          <p>Valid for: Aurora DB clusters only</p>
    */
   AllowMajorVersionUpgrade?: boolean;
 
@@ -3930,6 +3977,7 @@ export interface ModifyDBClusterMessage {
    *               the <code>AllowMajorVersionUpgrade</code> parameter.</p>
    *             </li>
    *          </ul>
+   *          <p>Valid for: Aurora DB clusters only</p>
    */
   DBInstanceParameterGroupName?: string;
 
@@ -3941,24 +3989,27 @@ export interface ModifyDBClusterMessage {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos Authentication</a>
    *             in the <i>Amazon Aurora User Guide</i>.
    *       </p>
+   *          <p>Valid for: Aurora DB clusters only</p>
    */
   Domain?: string;
 
   /**
    * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   DomainIAMRoleName?: string;
 
   /**
    * <p>The scaling properties of the DB cluster. You can only modify scaling properties for DB clusters in <code>serverless</code> DB engine mode.</p>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   ScalingConfiguration?: ScalingConfiguration;
 
   /**
    * <p>A value that indicates whether the DB cluster has deletion protection enabled.
    *             The database can't be deleted when deletion protection is enabled. By default,
-   *             deletion protection is disabled.
-   *         </p>
+   *             deletion protection isn't enabled.</p>
+   *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   DeletionProtection?: boolean;
 
@@ -3970,12 +4021,14 @@ export interface ModifyDBClusterMessage {
    *             from inside the RDS console with the query editor.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using the Data API for Aurora Serverless</a> in the
    *             <i>Amazon Aurora User Guide</i>.</p>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   EnableHttpEndpoint?: boolean;
 
   /**
    * <p>A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster.
    *             The default is not to copy them.</p>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   CopyTagsToSnapshot?: boolean;
 
@@ -3988,8 +4041,106 @@ export interface ModifyDBClusterMessage {
    *       this cluster. For the primary DB cluster of an Aurora global database, this value is used immediately if the primary is
    *       demoted by the <a>FailoverGlobalCluster</a> API operation, but it does nothing until then.
    *     </p>
+   *          <p>Valid for: Aurora DB clusters only</p>
    */
   EnableGlobalWriteForwarding?: boolean;
+
+  /**
+   * <p>The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
+   *             Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines.</p>
+   *         <p>For the full list of DB instance classes and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *         <p>Valid for: Multi-AZ DB clusters only</p>
+   */
+  DBClusterInstanceClass?: string;
+
+  /**
+   * <p>The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.</p>
+   *         <p>Type: Integer</p>
+   *         <p>Valid for: Multi-AZ DB clusters only</p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * <p>Specifies the storage type to be associated with the DB cluster.</p>
+   *         <p>
+   *             Valid values: <code>standard | gp2 | io1</code>
+   *         </p>
+   *         <p>
+   *             If you specify <code>io1</code>, you must also include a value for the
+   *             <code>Iops</code> parameter.
+   *         </p>
+   *         <p>
+   *             Default: <code>io1</code> if the <code>Iops</code> parameter
+   *             is specified, otherwise <code>gp2</code>
+   *         </p>
+   *         <p>Valid for: Multi-AZ DB clusters only</p>
+   */
+  StorageType?: string;
+
+  /**
+   * <p>The amount of Provisioned IOPS (input/output operations per second) to be initially allocated
+   *             for each DB instance in the Multi-AZ DB cluster.</p>
+   *         <p>For information about valid Iops values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User Guide</i>.
+   *         </p>
+   *         <p>Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB cluster.</p>
+   *         <p>Valid for: Multi-AZ DB clusters only</p>
+   */
+  Iops?: number;
+
+  /**
+   * <p>A value that indicates whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window.
+   *             By default, minor engine upgrades are applied automatically.</p>
+   *         <p>Valid for: Multi-AZ DB clusters only</p>
+   */
+  AutoMinorVersionUpgrade?: boolean;
+
+  /**
+   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster.
+   *             To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0.</p>
+   *         <p>If <code>MonitoringRoleArn</code> is specified, also set <code>MonitoringInterval</code>
+   *             to a value other than 0.</p>
+   *         <p>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code>
+   *          </p>
+   *         <p>Valid for: Multi-AZ DB clusters only</p>
+   */
+  MonitoringInterval?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs. An
+   *             example is <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring role,
+   *             see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
+   *                 create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *         <p>If <code>MonitoringInterval</code> is set to a value other than 0, supply a <code>MonitoringRoleArn</code> value.</p>
+   *         <p>Valid for: Multi-AZ DB clusters only</p>
+   */
+  MonitoringRoleArn?: string;
+
+  /**
+   * <p>A value that indicates whether to turn on Performance Insights for the DB cluster.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">
+   *             Using Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.
+   *         </p>
+   *         <p>Valid for: Multi-AZ DB clusters only</p>
+   */
+  EnablePerformanceInsights?: boolean;
+
+  /**
+   * <p>The Amazon Web Services KMS key identifier for encryption of Performance Insights data.</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
+   *         <p>If you don't specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
+   *             uses your default KMS key. There is a default KMS key for your Amazon Web Services account.
+   *             Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.</p>
+   *         <p>Valid for: Multi-AZ DB clusters only</p>
+   */
+  PerformanceInsightsKMSKeyId?: string;
+
+  /**
+   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).</p>
+   *         <p>Valid for: Multi-AZ DB clusters only</p>
+   */
+  PerformanceInsightsRetentionPeriod?: number;
 }
 
 export namespace ModifyDBClusterMessage {
@@ -4003,11 +4154,28 @@ export namespace ModifyDBClusterMessage {
 
 export interface ModifyDBClusterResult {
   /**
-   * <p>Contains the details of an Amazon Aurora DB cluster.
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.
    *       </p>
-   *          <p>This data type is used as a response element in the <code>DescribeDBClusters</code>,
-   *         <code>StopDBCluster</code>, and <code>StartDBCluster</code> actions.
-   *       </p>
+   *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
+   *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
+   *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
+   *           <code>RestoreDBClusterFromS3</code>, <code>RestoreDBClusterFromSnapshot</code>,
+   *           <code>RestoreDBClusterToPointInTime</code>, <code>StartDBCluster</code>, and <code>StopDBCluster</code>.</p>
+   *          <p>For a Multi-AZ DB cluster, this data type is used as a response element in the operations
+   *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
+   *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>RebootDBCluster</code>,
+   *           <code>RestoreDBClusterFromSnapshot</code>, and <code>RestoreDBClusterToPointInTime</code>.</p>
+   *          <p>For more information on Amazon Aurora DB clusters, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+   *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   *          <p>For more information on Multi-AZ DB clusters, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <note>
+   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
+   *          </note>
    */
   DBCluster?: DBCluster;
 }
@@ -4262,7 +4430,7 @@ export interface ModifyDBInstanceMessage {
   AllocatedStorage?: number;
 
   /**
-   * <p>The new compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
+   * <p>The new compute and memory capacity of the DB instance, for example db.m4.large.
    *           Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines.
    *           For the full list of DB instance classes,
    *           and availability for your engine, see
@@ -4769,9 +4937,12 @@ export interface ModifyDBInstanceMessage {
   /**
    * <p>A value that indicates whether the DB instance is publicly accessible.
    *       </p>
-   *          <p>When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC,
-   *           and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses,
-   *           and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.</p>
+   *          <p>When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint
+   *           resolves to the private IP address from within the DB cluster's virtual private cloud
+   *           (VPC). It resolves to the public IP address from outside of the DB cluster's VPC. Access
+   *           to the DB cluster is ultimately controlled by the security group it uses. That public
+   *           access isn't permitted if the security group assigned to the DB cluster doesn't permit
+   *           it.</p>
    *          <p>When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.</p>
    *          <p>
    *             <code>PubliclyAccessible</code> only applies to DB instances in a VPC. The DB instance must be part of a
@@ -4814,8 +4985,8 @@ export interface ModifyDBInstanceMessage {
   PromotionTier?: number;
 
   /**
-   * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
-   *           Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
+   * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access Management
+   *             (IAM) accounts to database accounts. By default, mapping isn't enabled.</p>
    *          <p>This setting doesn't apply to Amazon Aurora. Mapping Amazon Web Services IAM accounts to database accounts is managed by the DB
    *           cluster.</p>
    *          <p>For more information about IAM database authentication, see
@@ -4877,7 +5048,7 @@ export interface ModifyDBInstanceMessage {
   /**
    * <p>A value that indicates whether the DB instance has deletion protection enabled.
    *             The database can't be deleted when deletion protection is enabled. By default,
-   *             deletion protection is disabled. For more information, see
+   *             deletion protection isn't enabled. For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
    *                 Deleting a DB Instance</a>.
    *         </p>
@@ -4985,7 +5156,11 @@ export interface ModifyDBInstanceResult {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.
    *       </p>
-   *          <p>This data type is used as a response element in the <code>DescribeDBInstances</code> action.
+   *          <p>This data type is used as a response element in the operations <code>CreateDBInstance</code>,
+   *           <code>CreateDBInstanceReadReplica</code>, <code>DeleteDBInstance</code>, <code>DescribeDBInstances</code>,
+   *           <code>ModifyDBInstance</code>, <code>PromoteReadReplica</code>, <code>RebootDBInstance</code>,
+   *           <code>RestoreDBInstanceFromDBSnapshot</code>, <code>RestoreDBInstanceFromS3</code>, <code>RestoreDBInstanceToPointInTime</code>,
+   *           <code>StartDBInstance</code>, and <code>StopDBInstance</code>.
    *       </p>
    */
   DBInstance?: DBInstance;
@@ -5870,7 +6045,11 @@ export interface PromoteReadReplicaResult {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.
    *       </p>
-   *          <p>This data type is used as a response element in the <code>DescribeDBInstances</code> action.
+   *          <p>This data type is used as a response element in the operations <code>CreateDBInstance</code>,
+   *           <code>CreateDBInstanceReadReplica</code>, <code>DeleteDBInstance</code>, <code>DescribeDBInstances</code>,
+   *           <code>ModifyDBInstance</code>, <code>PromoteReadReplica</code>, <code>RebootDBInstance</code>,
+   *           <code>RestoreDBInstanceFromDBSnapshot</code>, <code>RestoreDBInstanceFromS3</code>, <code>RestoreDBInstanceToPointInTime</code>,
+   *           <code>StartDBInstance</code>, and <code>StopDBInstance</code>.
    *       </p>
    */
   DBInstance?: DBInstance;
@@ -5915,11 +6094,28 @@ export namespace PromoteReadReplicaDBClusterMessage {
 
 export interface PromoteReadReplicaDBClusterResult {
   /**
-   * <p>Contains the details of an Amazon Aurora DB cluster.
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.
    *       </p>
-   *          <p>This data type is used as a response element in the <code>DescribeDBClusters</code>,
-   *         <code>StopDBCluster</code>, and <code>StartDBCluster</code> actions.
-   *       </p>
+   *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
+   *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
+   *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
+   *           <code>RestoreDBClusterFromS3</code>, <code>RestoreDBClusterFromSnapshot</code>,
+   *           <code>RestoreDBClusterToPointInTime</code>, <code>StartDBCluster</code>, and <code>StopDBCluster</code>.</p>
+   *          <p>For a Multi-AZ DB cluster, this data type is used as a response element in the operations
+   *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
+   *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>RebootDBCluster</code>,
+   *           <code>RestoreDBClusterFromSnapshot</code>, and <code>RestoreDBClusterToPointInTime</code>.</p>
+   *          <p>For more information on Amazon Aurora DB clusters, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+   *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   *          <p>For more information on Multi-AZ DB clusters, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <note>
+   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
+   *          </note>
    */
   DBCluster?: DBCluster;
 }
@@ -6029,6 +6225,65 @@ export namespace ReservedDBInstanceQuotaExceededFault {
   });
 }
 
+export interface RebootDBClusterMessage {
+  /**
+   * <p>The DB cluster identifier. This parameter is stored as a lowercase string.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match the identifier of an existing DBCluster.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBClusterIdentifier: string | undefined;
+}
+
+export namespace RebootDBClusterMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RebootDBClusterMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface RebootDBClusterResult {
+  /**
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.
+   *       </p>
+   *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
+   *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
+   *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
+   *           <code>RestoreDBClusterFromS3</code>, <code>RestoreDBClusterFromSnapshot</code>,
+   *           <code>RestoreDBClusterToPointInTime</code>, <code>StartDBCluster</code>, and <code>StopDBCluster</code>.</p>
+   *          <p>For a Multi-AZ DB cluster, this data type is used as a response element in the operations
+   *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
+   *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>RebootDBCluster</code>,
+   *           <code>RestoreDBClusterFromSnapshot</code>, and <code>RestoreDBClusterToPointInTime</code>.</p>
+   *          <p>For more information on Amazon Aurora DB clusters, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+   *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   *          <p>For more information on Multi-AZ DB clusters, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <note>
+   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
+   *          </note>
+   */
+  DBCluster?: DBCluster;
+}
+
+export namespace RebootDBClusterResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RebootDBClusterResult): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p></p>
  */
@@ -6066,7 +6321,11 @@ export interface RebootDBInstanceResult {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.
    *       </p>
-   *          <p>This data type is used as a response element in the <code>DescribeDBInstances</code> action.
+   *          <p>This data type is used as a response element in the operations <code>CreateDBInstance</code>,
+   *           <code>CreateDBInstanceReadReplica</code>, <code>DeleteDBInstance</code>, <code>DescribeDBInstances</code>,
+   *           <code>ModifyDBInstance</code>, <code>PromoteReadReplica</code>, <code>RebootDBInstance</code>,
+   *           <code>RestoreDBInstanceFromDBSnapshot</code>, <code>RestoreDBInstanceFromS3</code>, <code>RestoreDBInstanceToPointInTime</code>,
+   *           <code>StartDBInstance</code>, and <code>StopDBInstance</code>.
    *       </p>
    */
   DBInstance?: DBInstance;
@@ -6702,7 +6961,8 @@ export interface RestoreDBClusterFromS3Message {
 
   /**
    * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
-   *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
+   *             Management (IAM) accounts to database accounts. By default, mapping isn't
+   *             enabled.</p>
    *
    *         <p>For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
@@ -6773,7 +7033,7 @@ export interface RestoreDBClusterFromS3Message {
   /**
    * <p>A value that indicates whether the DB cluster has deletion protection enabled.
    *             The database can't be deleted when deletion protection is enabled. By default,
-   *             deletion protection is disabled.
+   *             deletion protection isn't enabled.
    *         </p>
    */
   DeletionProtection?: boolean;
@@ -6812,11 +7072,28 @@ export namespace RestoreDBClusterFromS3Message {
 
 export interface RestoreDBClusterFromS3Result {
   /**
-   * <p>Contains the details of an Amazon Aurora DB cluster.
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.
    *       </p>
-   *          <p>This data type is used as a response element in the <code>DescribeDBClusters</code>,
-   *         <code>StopDBCluster</code>, and <code>StartDBCluster</code> actions.
-   *       </p>
+   *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
+   *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
+   *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
+   *           <code>RestoreDBClusterFromS3</code>, <code>RestoreDBClusterFromSnapshot</code>,
+   *           <code>RestoreDBClusterToPointInTime</code>, <code>StartDBCluster</code>, and <code>StopDBCluster</code>.</p>
+   *          <p>For a Multi-AZ DB cluster, this data type is used as a response element in the operations
+   *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
+   *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>RebootDBCluster</code>,
+   *           <code>RestoreDBClusterFromSnapshot</code>, and <code>RestoreDBClusterToPointInTime</code>.</p>
+   *          <p>For more information on Amazon Aurora DB clusters, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+   *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   *          <p>For more information on Multi-AZ DB clusters, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <note>
+   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
+   *          </note>
    */
   DBCluster?: DBCluster;
 }
@@ -6873,6 +7150,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
   /**
    * <p>Provides the list of Availability Zones (AZs) where instances in the restored DB
    *             cluster can be created.</p>
+   *          <p>Valid for: Aurora DB clusters only</p>
    */
   AvailabilityZones?: string[];
 
@@ -6893,6 +7171,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *          </ul>
    *          <p>Example: <code>my-snapshot-id</code>
    *          </p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   DBClusterIdentifier: string | undefined;
 
@@ -6906,6 +7185,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *                <p>Must match the identifier of an existing Snapshot.</p>
    *             </li>
    *          </ul>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   SnapshotIdentifier: string | undefined;
 
@@ -6913,36 +7193,57 @@ export interface RestoreDBClusterFromSnapshotMessage {
    * <p>The database engine to use for the new DB cluster.</p>
    *          <p>Default: The same as source</p>
    *          <p>Constraint: Must be compatible with the engine of the source</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   Engine: string | undefined;
 
   /**
    * <p>The version of the database engine to use for the new DB cluster.</p>
-   *          <p>To list all of the available engine versions for <code>aurora</code> (for MySQL 5.6-compatible Aurora), use the following command:</p>
+   *          <p>To list all of the available engine versions for MySQL 5.6-compatible Aurora, use the following command:</p>
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
-   *          <p>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora), use the following command:</p>
+   *          <p>To list all of the available engine versions for MySQL 5.7-compatible Aurora, use the following command:</p>
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
-   *          <p>To list all of the available engine versions for <code>aurora-postgresql</code>, use the following command:</p>
+   *          <p>To list all of the available engine versions for Aurora PostgreSQL, use the following command:</p>
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
-   *          <note>
-   *             <p>If you aren't using the default engine version, then you must specify the engine version.</p>
-   *          </note>
+   *          <p>To list all of the available engine versions for RDS for MySQL, use the following command:</p>
+   *          <p>
+   *             <code>aws rds describe-db-engine-versions --engine mysql --query "DBEngineVersions[].EngineVersion"</code>
+   *          </p>
+   *          <p>To list all of the available engine versions for RDS for PostgreSQL, use the following command:</p>
+   *          <p>
+   *             <code>aws rds describe-db-engine-versions --engine postgres --query "DBEngineVersions[].EngineVersion"</code>
+   *          </p>
    *          <p>
    *             <b>Aurora MySQL</b>
    *          </p>
-   *          <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code>
+   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html">MySQL on Amazon RDS Versions</a> in the
+   *           <i>Amazon Aurora User Guide.</i>
    *          </p>
    *          <p>
    *             <b>Aurora PostgreSQL</b>
    *          </p>
-   *          <p>Example: <code>9.6.3</code>, <code>10.7</code>
+   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.20180305.html">Amazon Aurora PostgreSQL releases and engine versions</a> in the
+   *           <i>Amazon Aurora User Guide.</i>
    *          </p>
+   *          <p>
+   *             <b>MySQL</b>
+   *          </p>
+   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">MySQL on Amazon RDS Versions</a> in the
+   *           <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <p>
+   *             <b>PostgreSQL</b>
+   *          </p>
+   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts">Amazon RDS for PostgreSQL versions and extensions</a> in the
+   *           <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   EngineVersion?: string;
 
@@ -6951,6 +7252,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *          <p>Constraints: This value must be <code>1150-65535</code>
    *         </p>
    *          <p>Default: The same port as the original DB cluster.</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   Port?: number;
 
@@ -6959,26 +7261,31 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *          <p>Constraints: If supplied, must match the name of an existing DB subnet group.</p>
    *          <p>Example: <code>mySubnetgroup</code>
    *          </p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   DBSubnetGroupName?: string;
 
   /**
    * <p>The database name for the restored DB cluster.</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   DatabaseName?: string;
 
   /**
    * <p>The name of the option group to use for the restored DB cluster.</p>
+   *          <p>DB clusters are associated with a default option group that can't be modified.</p>
    */
   OptionGroupName?: string;
 
   /**
    * <p>A list of VPC security groups that the new DB cluster will belong to.</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   VpcSecurityGroupIds?: string[];
 
   /**
    * <p>The tags to be assigned to the restored DB cluster.</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   Tags?: Tag[];
 
@@ -7002,17 +7309,19 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *                     isn't encrypted.</p>
    *             </li>
    *          </ul>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   KmsKeyId?: string;
 
   /**
    * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
-   *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
-   *
+   *             Management (IAM) accounts to database accounts. By default, mapping isn't
+   *             enabled.</p>
    *         <p>For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
    *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i>
    *          </p>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   EnableIAMDatabaseAuthentication?: boolean;
 
@@ -7029,14 +7338,16 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *                <p>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</p>
    *             </li>
    *          </ul>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   BacktrackWindow?: number;
 
   /**
    * <p>The list of logs that the restored DB cluster is to export to Amazon CloudWatch Logs.
-   *             The values in the list depend on the DB engine being used. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon
-   *                 Aurora User Guide</i>.</p>
+   *             The values in the list depend on the DB engine being used.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon
+   *                     Aurora User Guide</i>.</p>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   EnableCloudwatchLogsExports?: string[];
 
@@ -7045,11 +7356,13 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *             <code>parallelquery</code>, <code>global</code>, or <code>multimaster</code>.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html">
    *             CreateDBCluster</a>.</p>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   EngineMode?: string;
 
   /**
    * <p>For DB clusters in <code>serverless</code> DB engine mode, the scaling properties of the DB cluster.</p>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   ScalingConfiguration?: ScalingConfiguration;
 
@@ -7072,19 +7385,21 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *                 <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *          </ul>
+   *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   DBClusterParameterGroupName?: string;
 
   /**
    * <p>A value that indicates whether the DB cluster has deletion protection enabled.
    *             The database can't be deleted when deletion protection is enabled. By default,
-   *             deletion protection is disabled.
-   *         </p>
+   *             deletion protection isn't enabled.</p>
+   *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   DeletionProtection?: boolean;
 
   /**
    * <p>A value that indicates whether to copy all tags from the restored DB cluster to snapshots of the restored DB cluster. The default is not to copy them.</p>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   CopyTagsToSnapshot?: boolean;
 
@@ -7093,15 +7408,83 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *            The domain must be created prior to this operation. Currently, only MySQL, Microsoft SQL
    *            Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
-   *             Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.
-   *        </p>
+   *             Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   Domain?: string;
 
   /**
    * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   DomainIAMRoleName?: string;
+
+  /**
+   * <p>The compute and memory capacity of the each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
+   *             Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines.</p>
+   *         <p>For the full list of DB instance classes, and availability for your engine, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
+   *         </p>
+   *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   */
+  DBClusterInstanceClass?: string;
+
+  /**
+   * <p>Specifies the storage type to be associated with the each DB instance in the Multi-AZ DB cluster.</p>
+   *         <p>
+   *             Valid values: <code>standard | gp2 | io1</code>
+   *         </p>
+   *         <p>
+   *             If you specify <code>io1</code>, you must also include a value for the
+   *             <code>Iops</code> parameter.
+   *         </p>
+   *         <p>
+   *             Default: <code>io1</code> if the <code>Iops</code> parameter
+   *             is specified, otherwise <code>gp2</code>
+   *         </p>
+   *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   */
+  StorageType?: string;
+
+  /**
+   * <p>The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for
+   *             each DB instance in the Multi-AZ DB cluster.</p>
+   *         <p>For information about valid Iops values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User Guide</i>.
+   *         </p>
+   *         <p>Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB instance.</p>
+   *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   */
+  Iops?: number;
+
+  /**
+   * <p>A value that indicates whether the DB cluster is publicly accessible.</p>
+   *         <p>When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address
+   *             from within the DB cluster's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB cluster's VPC.
+   *             Access to the DB cluster is ultimately controlled by the security group it uses.
+   *             That public access is not permitted if the security group assigned to the DB cluster doesn't permit it.</p>
+   *         <p>When the DB cluster isn't publicly accessible, it is an internal DB cluster with a DNS name that resolves to a private IP address.</p>
+   *         <p>Default: The default behavior varies depending on whether <code>DBSubnetGroupName</code> is specified.</p>
+   *         <p>If <code>DBSubnetGroupName</code> isn't specified, and <code>PubliclyAccessible</code> isn't specified, the following applies:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB cluster is private.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the default VPC in the target Region has an internet gateway attached to it, the DB cluster is public.</p>
+   *             </li>
+   *          </ul>
+   *         <p>If <code>DBSubnetGroupName</code> is specified, and <code>PubliclyAccessible</code> isn't specified, the following applies:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB cluster is private.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   */
+  PubliclyAccessible?: boolean;
 }
 
 export namespace RestoreDBClusterFromSnapshotMessage {
@@ -7115,11 +7498,28 @@ export namespace RestoreDBClusterFromSnapshotMessage {
 
 export interface RestoreDBClusterFromSnapshotResult {
   /**
-   * <p>Contains the details of an Amazon Aurora DB cluster.
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.
    *       </p>
-   *          <p>This data type is used as a response element in the <code>DescribeDBClusters</code>,
-   *         <code>StopDBCluster</code>, and <code>StartDBCluster</code> actions.
-   *       </p>
+   *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
+   *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
+   *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
+   *           <code>RestoreDBClusterFromS3</code>, <code>RestoreDBClusterFromSnapshot</code>,
+   *           <code>RestoreDBClusterToPointInTime</code>, <code>StartDBCluster</code>, and <code>StopDBCluster</code>.</p>
+   *          <p>For a Multi-AZ DB cluster, this data type is used as a response element in the operations
+   *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
+   *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>RebootDBCluster</code>,
+   *           <code>RestoreDBClusterFromSnapshot</code>, and <code>RestoreDBClusterToPointInTime</code>.</p>
+   *          <p>For more information on Amazon Aurora DB clusters, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+   *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   *          <p>For more information on Multi-AZ DB clusters, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <note>
+   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
+   *          </note>
    */
   DBCluster?: DBCluster;
 }
@@ -7151,6 +7551,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *                <p>Can't end with a hyphen or contain two consecutive hyphens</p>
    *             </li>
    *          </ul>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   DBClusterIdentifier: string | undefined;
 
@@ -7171,6 +7572,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *         <p>Constraints: You can't specify <code>copy-on-write</code> if the engine version of the source DB cluster is earlier than 1.11.</p>
    *         <p>If you don't specify a <code>RestoreType</code> value, then the new DB cluster is
    *             restored as a full copy of the source DB cluster.</p>
+   *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   RestoreType?: string;
 
@@ -7182,6 +7584,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *                <p>Must match the identifier of an existing DBCluster.</p>
    *             </li>
    *          </ul>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   SourceDBClusterIdentifier: string | undefined;
 
@@ -7206,6 +7609,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *          </ul>
    *          <p>Example: <code>2015-03-07T23:45:00Z</code>
    *          </p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   RestoreToTime?: Date;
 
@@ -7215,6 +7619,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *             restorable backup time.
    *       </p>
    *          <p>Constraints: Can't be specified if <code>RestoreToTime</code> parameter is provided.</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   UseLatestRestorableTime?: boolean;
 
@@ -7223,6 +7628,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *          <p>Constraints: A value from <code>1150-65535</code>.
    *       </p>
    *          <p>Default: The default port for the engine.</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   Port?: number;
 
@@ -7231,16 +7637,19 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
    *          <p>Example: <code>mySubnetgroup</code>
    *          </p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   DBSubnetGroupName?: string;
 
   /**
    * <p>The name of the option group for the new DB cluster.</p>
+   *          <p>DB clusters are associated with a default option group that can't be modified.</p>
    */
   OptionGroupName?: string;
 
   /**
    * <p>A list of VPC security groups that the new DB cluster belongs to.</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   VpcSecurityGroupIds?: string[];
 
@@ -7267,29 +7676,27 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *                <p>If the DB cluster isn't encrypted, then the restored DB cluster isn't encrypted.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>If <code>DBClusterIdentifier</code> refers to a DB cluster that isn't encrypted, then the restore request
    *       is rejected.</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   KmsKeyId?: string;
 
   /**
    * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
-   *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
-   *
+   *             Management (IAM) accounts to database accounts. By default, mapping isn't
+   *             enabled.</p>
    *         <p>For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
    *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i>
    *          </p>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   EnableIAMDatabaseAuthentication?: boolean;
 
   /**
    * <p>The target backtrack window, in seconds. To disable backtracking, set this value to
    *             0.</p>
-   *         <note>
-   *             <p>Currently, Backtrack is only supported for Aurora MySQL DB clusters.</p>
-   *         </note>
    *         <p>Default: 0</p>
    *         <p>Constraints:</p>
    *         <ul>
@@ -7297,13 +7704,15 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *                <p>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</p>
    *             </li>
    *          </ul>
+   *         <p>Valid for: Aurora MySQL DB clusters only</p>
    */
   BacktrackWindow?: number;
 
   /**
    * <p>The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values
-   *             in the list depend on the DB engine being used. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   *             in the list depend on the DB engine being used.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   EnableCloudwatchLogsExports?: string[];
 
@@ -7325,19 +7734,21 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *                 <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *          </ul>
+   *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   DBClusterParameterGroupName?: string;
 
   /**
    * <p>A value that indicates whether the DB cluster has deletion protection enabled.
    *             The database can't be deleted when deletion protection is enabled. By default,
-   *             deletion protection is disabled.
-   *         </p>
+   *             deletion protection isn't enabled.</p>
+   *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   DeletionProtection?: boolean;
 
   /**
    * <p>A value that indicates whether to copy all tags from the restored DB cluster to snapshots of the restored DB cluster. The default is not to copy them.</p>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   CopyTagsToSnapshot?: boolean;
 
@@ -7350,16 +7761,19 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *         For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos Authentication</a>
    *         in the <i>Amazon Aurora User Guide</i>.
    *       </p>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   Domain?: string;
 
   /**
    * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   DomainIAMRoleName?: string;
 
   /**
    * <p>For DB clusters in <code>serverless</code> DB engine mode, the scaling properties of the DB cluster.</p>
+   *         <p>Valid for: Aurora DB clusters only</p>
    */
   ScalingConfiguration?: ScalingConfiguration;
 
@@ -7369,8 +7783,78 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *       from a provisioned cluster, or a provisioned clone from an Aurora Serverless cluster. To create a clone
    *       that is an Aurora Serverless cluster, the original cluster must be an Aurora Serverless cluster or
    *       an encrypted provisioned cluster.</p>
+   *          <p>Valid for: Aurora DB clusters only</p>
    */
   EngineMode?: string;
+
+  /**
+   * <p>The compute and memory capacity of the each DB instance in the Multi-AZ DB cluster,
+   *             for example db.m6g.xlarge. Not all DB instance classes are available in all Amazon Web Services
+   *             Regions, or for all database engines.</p>
+   *         <p>For the full list of DB instance classes, and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB instance class</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *         <p>Valid for: Multi-AZ DB clusters only</p>
+   */
+  DBClusterInstanceClass?: string;
+
+  /**
+   * <p>Specifies the storage type to be associated with the each DB instance in the Multi-AZ DB cluster.</p>
+   *         <p>
+   *             Valid values: <code>standard | gp2 | io1</code>
+   *         </p>
+   *         <p>
+   *             If you specify <code>io1</code>, also include a value for the
+   *             <code>Iops</code> parameter.
+   *         </p>
+   *         <p>
+   *             Default: <code>io1</code> if the <code>Iops</code> parameter
+   *             is specified, otherwise <code>gp2</code>
+   *         </p>
+   *         <p>Valid for: Multi-AZ DB clusters only</p>
+   */
+  StorageType?: string;
+
+  /**
+   * <p>A value that indicates whether the DB cluster is publicly accessible.</p>
+   *         <p>When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address
+   *             from within the DB cluster's virtual private cloud (VPC). It resolves
+   *             to the public IP address from outside of the DB cluster's VPC.
+   *             Access to the DB cluster is ultimately controlled by the security group it uses.
+   *             That public access is not permitted if the security group assigned to the DB cluster doesn't permit it.</p>
+   *         <p>When the DB cluster isn't publicly accessible, it is an internal DB cluster with a DNS name that resolves to a private IP address.</p>
+   *         <p>Default: The default behavior varies depending on whether <code>DBSubnetGroupName</code> is specified.</p>
+   *         <p>If <code>DBSubnetGroupName</code> isn't specified, and <code>PubliclyAccessible</code> isn't specified, the following applies:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB cluster is private.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the default VPC in the target Region has an internet gateway attached to it, the DB cluster is public.</p>
+   *             </li>
+   *          </ul>
+   *         <p>If <code>DBSubnetGroupName</code> is specified, and <code>PubliclyAccessible</code> isn't specified, the following applies:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB cluster is private.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Valid for: Multi-AZ DB clusters only</p>
+   */
+  PubliclyAccessible?: boolean;
+
+  /**
+   * <p>The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for
+   *             each DB instance in the Multi-AZ DB cluster.</p>
+   *         <p>For information about valid <code>Iops</code> values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS storage to improve performance</a> in the <i>Amazon RDS User Guide</i>.
+   *         </p>
+   *         <p>Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB instance.
+   *         </p>
+   *         <p>Valid for: Multi-AZ DB clusters only</p>
+   */
+  Iops?: number;
 }
 
 export namespace RestoreDBClusterToPointInTimeMessage {
@@ -7384,11 +7868,28 @@ export namespace RestoreDBClusterToPointInTimeMessage {
 
 export interface RestoreDBClusterToPointInTimeResult {
   /**
-   * <p>Contains the details of an Amazon Aurora DB cluster.
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.
    *       </p>
-   *          <p>This data type is used as a response element in the <code>DescribeDBClusters</code>,
-   *         <code>StopDBCluster</code>, and <code>StartDBCluster</code> actions.
-   *       </p>
+   *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
+   *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
+   *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
+   *           <code>RestoreDBClusterFromS3</code>, <code>RestoreDBClusterFromSnapshot</code>,
+   *           <code>RestoreDBClusterToPointInTime</code>, <code>StartDBCluster</code>, and <code>StopDBCluster</code>.</p>
+   *          <p>For a Multi-AZ DB cluster, this data type is used as a response element in the operations
+   *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
+   *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>RebootDBCluster</code>,
+   *           <code>RestoreDBClusterFromSnapshot</code>, and <code>RestoreDBClusterToPointInTime</code>.</p>
+   *          <p>For more information on Amazon Aurora DB clusters, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+   *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   *          <p>For more information on Multi-AZ DB clusters, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <note>
+   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
+   *          </note>
    */
   DBCluster?: DBCluster;
 }
@@ -7441,7 +7942,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   DBSnapshotIdentifier: string | undefined;
 
   /**
-   * <p>The compute and memory capacity of the Amazon RDS DB instance, for example, <code>db.m4.large</code>.
+   * <p>The compute and memory capacity of the Amazon RDS DB instance, for example db.m4.large.
    *           Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines.
    *           For the full list of DB instance classes,
    *           and availability for your engine, see
@@ -7485,9 +7986,10 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
 
   /**
    * <p>A value that indicates whether the DB instance is publicly accessible.</p>
-   *          <p>When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC,
-   *           and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses,
-   *           and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.</p>
+   *          <p>When the DB instance is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address
+   *           from within the DB instance's virtual private cloud (VPC).
+   *           It resolves to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled
+   *           by the security group it uses. That public access is not permitted if the security group assigned to the DB instance doesn't permit it.</p>
    *          <p>When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.</p>
    *          <p>For more information, see <a>CreateDBInstance</a>.</p>
    */
@@ -7734,7 +8236,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   /**
    * <p>A value that indicates whether the DB instance has deletion protection enabled.
    *             The database can't be deleted when deletion protection is enabled. By default,
-   *             deletion protection is disabled. For more information, see
+   *             deletion protection isn't enabled. For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
    *                 Deleting a DB Instance</a>.
    *         </p>
@@ -7776,6 +8278,14 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *         <p>This setting is required for RDS Custom.</p>
    */
   CustomIamInstanceProfile?: string;
+
+  /**
+   * <p>Specifies where automated backups and manual snapshots are stored for the restored DB instance.</p>
+   *         <p>Possible values are <code>outposts</code> (Amazon Web Services Outposts) and <code>region</code> (Amazon Web Services Region). The default is <code>region</code>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
+   *             with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.</p>
+   */
+  BackupTarget?: string;
 }
 
 export namespace RestoreDBInstanceFromDBSnapshotMessage {
@@ -7791,7 +8301,11 @@ export interface RestoreDBInstanceFromDBSnapshotResult {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.
    *       </p>
-   *          <p>This data type is used as a response element in the <code>DescribeDBInstances</code> action.
+   *          <p>This data type is used as a response element in the operations <code>CreateDBInstance</code>,
+   *           <code>CreateDBInstanceReadReplica</code>, <code>DeleteDBInstance</code>, <code>DescribeDBInstances</code>,
+   *           <code>ModifyDBInstance</code>, <code>PromoteReadReplica</code>, <code>RebootDBInstance</code>,
+   *           <code>RestoreDBInstanceFromDBSnapshot</code>, <code>RestoreDBInstanceFromS3</code>, <code>RestoreDBInstanceToPointInTime</code>,
+   *           <code>StartDBInstance</code>, and <code>StopDBInstance</code>.
    *       </p>
    */
   DBInstance?: DBInstance;
@@ -7853,7 +8367,7 @@ export interface RestoreDBInstanceFromS3Message {
 
   /**
    * <p>The compute and memory capacity of the DB instance,
-   *             for example, <code>db.m4.large</code>.
+   *             for example db.m4.large.
    *             Not all DB instance classes are available in all Amazon Web Services Regions,
    *             or for all database engines.
    *             For the full list of DB instance classes,
@@ -8061,9 +8575,11 @@ export interface RestoreDBInstanceFromS3Message {
 
   /**
    * <p>A value that indicates whether the DB instance is publicly accessible.</p>
-   *         <p>When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC,
-   *             and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses,
-   *             and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.</p>
+   *         <p>When the DB instance is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address
+   *             from within the DB instance's virtual private cloud (VPC).
+   *             It resolves to the public IP address from outside of the DB instance's VPC.
+   *             Access to the DB instance is ultimately controlled by the security group it uses.
+   *             That public access is not permitted if the security group assigned to the DB instance doesn't permit it.</p>
    *         <p>When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.</p>
    *         <p>For more information, see <a>CreateDBInstance</a>.</p>
    */
@@ -8148,8 +8664,8 @@ export interface RestoreDBInstanceFromS3Message {
   MonitoringRoleArn?: string;
 
   /**
-   * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
-   *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
+   * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access Management
+   *             (IAM) accounts to database accounts. By default, mapping isn't enabled.</p>
    *
    *          <p>For more information about IAM database authentication, see
    *          <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
@@ -8240,7 +8756,7 @@ export interface RestoreDBInstanceFromS3Message {
   /**
    * <p>A value that indicates whether the DB instance has deletion protection enabled.
    *             The database can't be deleted when deletion protection is enabled. By default,
-   *             deletion protection is disabled. For more information, see
+   *             deletion protection isn't enabled. For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
    *                 Deleting a DB Instance</a>.
    *         </p>
@@ -8270,7 +8786,11 @@ export interface RestoreDBInstanceFromS3Result {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.
    *       </p>
-   *          <p>This data type is used as a response element in the <code>DescribeDBInstances</code> action.
+   *          <p>This data type is used as a response element in the operations <code>CreateDBInstance</code>,
+   *           <code>CreateDBInstanceReadReplica</code>, <code>DeleteDBInstance</code>, <code>DescribeDBInstances</code>,
+   *           <code>ModifyDBInstance</code>, <code>PromoteReadReplica</code>, <code>RebootDBInstance</code>,
+   *           <code>RestoreDBInstanceFromDBSnapshot</code>, <code>RestoreDBInstanceFromS3</code>, <code>RestoreDBInstanceToPointInTime</code>,
+   *           <code>StartDBInstance</code>, and <code>StopDBInstance</code>.
    *       </p>
    */
   DBInstance?: DBInstance;
@@ -8366,12 +8886,12 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   UseLatestRestorableTime?: boolean;
 
   /**
-   * <p>The compute and memory capacity of the Amazon RDS DB instance, for example, <code>db.m4.large</code>.
-   *           Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines.
-   *           For the full list of DB instance classes,
-   *           and availability for your engine, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
-   *          </p>
+   * <p>The compute and memory capacity of the Amazon RDS DB instance, for example
+   *                 db.m4.large. Not all DB instance classes are available in all Amazon Web Services
+   *             Regions, or for all database engines. For the full list of DB instance classes, and
+   *             availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance
+   *                 Class</a> in the <i>Amazon RDS User Guide.</i>
+   *         </p>
    *          <p>Default: The same DBInstanceClass as the original DB instance.</p>
    */
   DBInstanceClass?: string;
@@ -8411,9 +8931,12 @@ export interface RestoreDBInstanceToPointInTimeMessage {
 
   /**
    * <p>A value that indicates whether the DB instance is publicly accessible.</p>
-   *          <p>When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC,
-   *           and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses,
-   *           and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.</p>
+   *          <p>When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint
+   *           resolves to the private IP address from within the DB cluster's virtual private cloud
+   *           (VPC). It resolves to the public IP address from outside of the DB cluster's VPC. Access
+   *           to the DB cluster is ultimately controlled by the security group it uses. That public
+   *           access isn't permitted if the security group assigned to the DB cluster doesn't permit
+   *           it.</p>
    *          <p>When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.</p>
    *          <p>For more information, see <a>CreateDBInstance</a>.</p>
    */
@@ -8598,8 +9121,8 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   DomainIAMRoleName?: string;
 
   /**
-   * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
-   *           Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
+   * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access Management
+   *             (IAM) accounts to database accounts. By default, mapping isn't enabled.</p>
    *
    *          <p>This setting doesn't apply to RDS Custom.</p>
    *
@@ -8656,7 +9179,7 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   /**
    * <p>A value that indicates whether the DB instance has deletion protection enabled.
    *             The database can't be deleted when deletion protection is enabled. By default,
-   *             deletion protection is disabled. For more information, see
+   *             deletion protection isn't enabled. For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
    *                 Deleting a DB Instance</a>.
    *         </p>
@@ -8720,6 +9243,14 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    *         <p>This setting is required for RDS Custom.</p>
    */
   CustomIamInstanceProfile?: string;
+
+  /**
+   * <p>Specifies where automated backups and manual snapshots are stored for the restored DB instance.</p>
+   *         <p>Possible values are <code>outposts</code> (Amazon Web Services Outposts) and <code>region</code> (Amazon Web Services Region). The default is <code>region</code>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
+   *             with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.</p>
+   */
+  BackupTarget?: string;
 }
 
 export namespace RestoreDBInstanceToPointInTimeMessage {
@@ -8735,7 +9266,11 @@ export interface RestoreDBInstanceToPointInTimeResult {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.
    *       </p>
-   *          <p>This data type is used as a response element in the <code>DescribeDBInstances</code> action.
+   *          <p>This data type is used as a response element in the operations <code>CreateDBInstance</code>,
+   *           <code>CreateDBInstanceReadReplica</code>, <code>DeleteDBInstance</code>, <code>DescribeDBInstances</code>,
+   *           <code>ModifyDBInstance</code>, <code>PromoteReadReplica</code>, <code>RebootDBInstance</code>,
+   *           <code>RestoreDBInstanceFromDBSnapshot</code>, <code>RestoreDBInstanceFromS3</code>, <code>RestoreDBInstanceToPointInTime</code>,
+   *           <code>StartDBInstance</code>, and <code>StopDBInstance</code>.
    *       </p>
    */
   DBInstance?: DBInstance;
@@ -8932,11 +9467,28 @@ export namespace StartDBClusterMessage {
 
 export interface StartDBClusterResult {
   /**
-   * <p>Contains the details of an Amazon Aurora DB cluster.
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.
    *       </p>
-   *          <p>This data type is used as a response element in the <code>DescribeDBClusters</code>,
-   *         <code>StopDBCluster</code>, and <code>StartDBCluster</code> actions.
-   *       </p>
+   *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
+   *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
+   *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
+   *           <code>RestoreDBClusterFromS3</code>, <code>RestoreDBClusterFromSnapshot</code>,
+   *           <code>RestoreDBClusterToPointInTime</code>, <code>StartDBCluster</code>, and <code>StopDBCluster</code>.</p>
+   *          <p>For a Multi-AZ DB cluster, this data type is used as a response element in the operations
+   *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
+   *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>RebootDBCluster</code>,
+   *           <code>RestoreDBClusterFromSnapshot</code>, and <code>RestoreDBClusterToPointInTime</code>.</p>
+   *          <p>For more information on Amazon Aurora DB clusters, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+   *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   *          <p>For more information on Multi-AZ DB clusters, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <note>
+   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
+   *          </note>
    */
   DBCluster?: DBCluster;
 }
@@ -8972,7 +9524,11 @@ export interface StartDBInstanceResult {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.
    *       </p>
-   *          <p>This data type is used as a response element in the <code>DescribeDBInstances</code> action.
+   *          <p>This data type is used as a response element in the operations <code>CreateDBInstance</code>,
+   *           <code>CreateDBInstanceReadReplica</code>, <code>DeleteDBInstance</code>, <code>DescribeDBInstances</code>,
+   *           <code>ModifyDBInstance</code>, <code>PromoteReadReplica</code>, <code>RebootDBInstance</code>,
+   *           <code>RestoreDBInstanceFromDBSnapshot</code>, <code>RestoreDBInstanceFromS3</code>, <code>RestoreDBInstanceToPointInTime</code>,
+   *           <code>StartDBInstance</code>, and <code>StopDBInstance</code>.
    *       </p>
    */
   DBInstance?: DBInstance;
@@ -9307,11 +9863,28 @@ export namespace StopDBClusterMessage {
 
 export interface StopDBClusterResult {
   /**
-   * <p>Contains the details of an Amazon Aurora DB cluster.
+   * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.
    *       </p>
-   *          <p>This data type is used as a response element in the <code>DescribeDBClusters</code>,
-   *         <code>StopDBCluster</code>, and <code>StartDBCluster</code> actions.
-   *       </p>
+   *          <p>For an Amazon Aurora DB cluster, this data type is used as a response element in the operations
+   *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
+   *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>PromoteReadReplicaDBCluster</code>,
+   *           <code>RestoreDBClusterFromS3</code>, <code>RestoreDBClusterFromSnapshot</code>,
+   *           <code>RestoreDBClusterToPointInTime</code>, <code>StartDBCluster</code>, and <code>StopDBCluster</code>.</p>
+   *          <p>For a Multi-AZ DB cluster, this data type is used as a response element in the operations
+   *           <code>CreateDBCluster</code>, <code>DeleteDBCluster</code>, <code>DescribeDBClusters</code>,
+   *           <code>FailoverDBCluster</code>, <code>ModifyDBCluster</code>, <code>RebootDBCluster</code>,
+   *           <code>RestoreDBClusterFromSnapshot</code>, and <code>RestoreDBClusterToPointInTime</code>.</p>
+   *          <p>For more information on Amazon Aurora DB clusters, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+   *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   *          <p>For more information on Multi-AZ DB clusters, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+   *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <note>
+   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
+   *          </note>
    */
   DBCluster?: DBCluster;
 }
@@ -9354,7 +9927,11 @@ export interface StopDBInstanceResult {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.
    *       </p>
-   *          <p>This data type is used as a response element in the <code>DescribeDBInstances</code> action.
+   *          <p>This data type is used as a response element in the operations <code>CreateDBInstance</code>,
+   *           <code>CreateDBInstanceReadReplica</code>, <code>DeleteDBInstance</code>, <code>DescribeDBInstances</code>,
+   *           <code>ModifyDBInstance</code>, <code>PromoteReadReplica</code>, <code>RebootDBInstance</code>,
+   *           <code>RestoreDBInstanceFromDBSnapshot</code>, <code>RestoreDBInstanceFromS3</code>, <code>RestoreDBInstanceToPointInTime</code>,
+   *           <code>StartDBInstance</code>, and <code>StopDBInstance</code>.
    *       </p>
    */
   DBInstance?: DBInstance;

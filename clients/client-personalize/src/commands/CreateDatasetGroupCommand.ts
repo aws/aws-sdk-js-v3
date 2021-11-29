@@ -22,8 +22,8 @@ export interface CreateDatasetGroupCommandInput extends CreateDatasetGroupReques
 export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an empty dataset group. A dataset group contains related datasets that supply data
- *       for training a model. A dataset group can contain at most three datasets, one for each type of
+ * <p>Creates an empty dataset group. A dataset group is a container for Amazon Personalize resources.
+ *       A dataset group can contain at most three datasets, one for each type of
  *       dataset:</p>
  *          <ul>
  *             <li>
@@ -36,9 +36,12 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  *                <p>Users</p>
  *             </li>
  *          </ul>
- *          <p>To train a model (create a solution), a dataset group that contains an
- *         <code>Interactions</code> dataset is required. Call <a>CreateDataset</a> to add a
- *       dataset to the group.</p>
+ *          <p>
+ *       A dataset group can be a Domain dataset group, where you specify a domain and use
+ *       pre-configured resources like recommenders, or a Custom dataset group, where you use custom resources, such as a solution with a solution version, that
+ *       you deploy with a campaign.  If you start with a Domain dataset group, you can still add custom resources such as
+ *       solutions and solution versions trained with recipes for custom use cases and deployed with campaigns.
+ *     </p>
  *          <p>A dataset group can be in one of the following states:</p>
  *          <ul>
  *             <li>

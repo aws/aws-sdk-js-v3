@@ -34,7 +34,7 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  *          the API returns an access denied error. For a comparison of <code>GetSessionToken</code>
  *          with the other API operations that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting
  *             Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
- *             STS API operations</a> in the <i>IAM User Guide</i>.</p>
+ *             Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.</p>
  *          <p>
  *             <b>Session Duration</b>
  *          </p>

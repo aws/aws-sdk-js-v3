@@ -11,12 +11,12 @@ import {
   ApplianceModeSupportValue,
   AttachmentStatus,
   BareMetal,
-  BaselineEbsBandwidthMbps,
   BurstablePerformance,
   CpuManufacturer,
   CurrencyCodeValues,
   DnsSupportValue,
   FleetLaunchTemplateSpecification,
+  HostnameType,
   InstanceEventWindow,
   InstanceGeneration,
   InstanceRequirementsRequest,
@@ -25,7 +25,6 @@ import {
   Ipv6SupportValue,
   LocalStorage,
   LocalStorageType,
-  MemoryGiBPerVCpu,
   ReservedInstancesListing,
   ResourceType,
   RouteTableAssociationState,
@@ -42,6 +41,61 @@ import {
   Vpc,
   WeekDay,
 } from "./models_0";
+
+/**
+ * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
+ *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
+ *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ */
+export interface BaselineEbsBandwidthMbps {
+  /**
+   * <p>The minimum baseline bandwidth, in Mbps. If this parameter is not specified, there is no
+   *          minimum limit.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum baseline bandwidth, in Mbps. If this parameter is not specified, there is no
+   *          maximum limit.</p>
+   */
+  Max?: number;
+}
+
+export namespace BaselineEbsBandwidthMbps {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BaselineEbsBandwidthMbps): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
+ *          <p></p>
+ */
+export interface MemoryGiBPerVCpu {
+  /**
+   * <p>The minimum amount of memory per vCPU, in GiB. If this parameter is not specified, there is
+   *          no minimum limit.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum amount of memory per vCPU, in GiB. If this parameter is not specified, there is
+   *          no maximum limit.</p>
+   */
+  Max?: number;
+}
+
+export namespace MemoryGiBPerVCpu {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MemoryGiBPerVCpu): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The minimum and maximum amount of memory, in MiB.</p>
@@ -2493,6 +2547,38 @@ export namespace LaunchTemplatePlacementRequest {
 }
 
 /**
+ * <p>Describes the options for instance hostnames.</p>
+ */
+export interface LaunchTemplatePrivateDnsNameOptionsRequest {
+  /**
+   * <p>The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must
+   *             be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must
+   *             be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use
+   *             the instance IPv4 address or the instance ID.</p>
+   */
+  HostnameType?: HostnameType | string;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p>
+   */
+  EnableResourceNameDnsARecord?: boolean;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p>
+   */
+  EnableResourceNameDnsAAAARecord?: boolean;
+}
+
+export namespace LaunchTemplatePrivateDnsNameOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplatePrivateDnsNameOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The tags specification for the launch template.</p>
  */
 export interface LaunchTemplateTagSpecificationRequest {
@@ -2723,6 +2809,11 @@ export interface RequestLaunchTemplateData {
    *             <code>InstanceTypes</code>.</p>
    */
   InstanceRequirements?: InstanceRequirementsRequest;
+
+  /**
+   * <p>The options for the instance hostname. The default values are inherited from the subnet.</p>
+   */
+  PrivateDnsNameOptions?: LaunchTemplatePrivateDnsNameOptionsRequest;
 }
 
 export namespace RequestLaunchTemplateData {
@@ -3646,6 +3737,35 @@ export namespace LaunchTemplatePlacement {
 }
 
 /**
+ * <p>Describes the options for instance hostnames.</p>
+ */
+export interface LaunchTemplatePrivateDnsNameOptions {
+  /**
+   * <p>The type of hostname to assign to an instance.</p>
+   */
+  HostnameType?: HostnameType | string;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p>
+   */
+  EnableResourceNameDnsARecord?: boolean;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p>
+   */
+  EnableResourceNameDnsAAAARecord?: boolean;
+}
+
+export namespace LaunchTemplatePrivateDnsNameOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplatePrivateDnsNameOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The tag specification for the launch template.</p>
  */
 export interface LaunchTemplateTagSpecification {
@@ -3823,6 +3943,11 @@ export interface ResponseLaunchTemplateData {
    *          <code>InstanceTypes</code>.</p>
    */
   InstanceRequirements?: InstanceRequirements;
+
+  /**
+   * <p>The options for the instance hostname.</p>
+   */
+  PrivateDnsNameOptions?: LaunchTemplatePrivateDnsNameOptions;
 }
 
 export namespace ResponseLaunchTemplateData {
@@ -5434,6 +5559,16 @@ export interface NetworkInterface {
    *             transit gateway, including on-premises networks.</p>
    */
   DenyAllIgwTraffic?: boolean;
+
+  /**
+   * <p>Indicates whether this is an IPv6 only network interface.</p>
+   */
+  Ipv6Native?: boolean;
+
+  /**
+   * <p>The IPv6 globally unique address associated with the network interface.</p>
+   */
+  Ipv6Address?: string;
 }
 
 export namespace NetworkInterface {
@@ -6084,6 +6219,9 @@ export interface CreateRouteRequest {
    */
   VpcPeeringConnectionId?: string;
 
+  /**
+   * <p>The Amazon Resource Name (ARN) of the core network.</p>
+   */
   CoreNetworkArn?: string;
 }
 
@@ -6302,6 +6440,9 @@ export interface Route {
    */
   VpcPeeringConnectionId?: string;
 
+  /**
+   * <p>The Amazon Resource Name (ARN) of the core network.</p>
+   */
   CoreNetworkArn?: string;
 }
 
@@ -7004,13 +7145,17 @@ export interface CreateSubnetRequest {
   AvailabilityZoneId?: string;
 
   /**
-   * <p>The IPv4 network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
+   * <p>The IPv4 network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>.
+   *            We modify the specified CIDR block to its canonical form; for example, if you specify
+   *            <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
+   *          <p>This parameter is not supported for an IPv6 only subnet.</p>
    */
-  CidrBlock: string | undefined;
+  CidrBlock?: string;
 
   /**
    * <p>The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a
    *             /64 prefix length.</p>
+   *         <p>This parameter is required for an IPv6 only subnet.</p>
    */
   Ipv6CidrBlock?: string;
 
@@ -7031,6 +7176,11 @@ export interface CreateSubnetRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>Indicates whether to create an IPv6 only subnet.</p>
+   */
+  Ipv6Native?: boolean;
 }
 
 export namespace CreateSubnetRequest {
@@ -9783,88 +9933,6 @@ export namespace CreateVpcEndpointConnectionNotificationRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateVpcEndpointConnectionNotificationRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum ConnectionNotificationState {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
-
-export enum ConnectionNotificationType {
-  Topic = "Topic",
-}
-
-/**
- * <p>Describes a connection notification for a VPC endpoint or VPC endpoint
- *             service.</p>
- */
-export interface ConnectionNotification {
-  /**
-   * <p>The ID of the notification.</p>
-   */
-  ConnectionNotificationId?: string;
-
-  /**
-   * <p>The ID of the endpoint service.</p>
-   */
-  ServiceId?: string;
-
-  /**
-   * <p>The ID of the VPC endpoint.</p>
-   */
-  VpcEndpointId?: string;
-
-  /**
-   * <p>The type of notification.</p>
-   */
-  ConnectionNotificationType?: ConnectionNotificationType | string;
-
-  /**
-   * <p>The ARN of the SNS topic for the notification.</p>
-   */
-  ConnectionNotificationArn?: string;
-
-  /**
-   * <p>The events for the notification. Valid values are <code>Accept</code>,
-   *                 <code>Connect</code>, <code>Delete</code>, and <code>Reject</code>.</p>
-   */
-  ConnectionEvents?: string[];
-
-  /**
-   * <p>The state of the notification.</p>
-   */
-  ConnectionNotificationState?: ConnectionNotificationState | string;
-}
-
-export namespace ConnectionNotification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionNotification): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateVpcEndpointConnectionNotificationResult {
-  /**
-   * <p>Information about the notification.</p>
-   */
-  ConnectionNotification?: ConnectionNotification;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
-   */
-  ClientToken?: string;
-}
-
-export namespace CreateVpcEndpointConnectionNotificationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpcEndpointConnectionNotificationResult): any => ({
     ...obj,
   });
 }

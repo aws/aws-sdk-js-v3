@@ -144,6 +144,12 @@ import {
   GetEvidenceFoldersByAssessmentControlCommandOutput,
 } from "./commands/GetEvidenceFoldersByAssessmentControlCommand";
 import {
+  GetInsightsByAssessmentCommand,
+  GetInsightsByAssessmentCommandInput,
+  GetInsightsByAssessmentCommandOutput,
+} from "./commands/GetInsightsByAssessmentCommand";
+import { GetInsightsCommand, GetInsightsCommandInput, GetInsightsCommandOutput } from "./commands/GetInsightsCommand";
+import {
   GetOrganizationAdminAccountCommand,
   GetOrganizationAdminAccountCommandInput,
   GetOrganizationAdminAccountCommandOutput,
@@ -154,6 +160,11 @@ import {
   GetServicesInScopeCommandOutput,
 } from "./commands/GetServicesInScopeCommand";
 import { GetSettingsCommand, GetSettingsCommandInput, GetSettingsCommandOutput } from "./commands/GetSettingsCommand";
+import {
+  ListAssessmentControlInsightsByControlDomainCommand,
+  ListAssessmentControlInsightsByControlDomainCommandInput,
+  ListAssessmentControlInsightsByControlDomainCommandOutput,
+} from "./commands/ListAssessmentControlInsightsByControlDomainCommand";
 import {
   ListAssessmentFrameworksCommand,
   ListAssessmentFrameworksCommandInput,
@@ -174,6 +185,21 @@ import {
   ListAssessmentsCommandInput,
   ListAssessmentsCommandOutput,
 } from "./commands/ListAssessmentsCommand";
+import {
+  ListControlDomainInsightsByAssessmentCommand,
+  ListControlDomainInsightsByAssessmentCommandInput,
+  ListControlDomainInsightsByAssessmentCommandOutput,
+} from "./commands/ListControlDomainInsightsByAssessmentCommand";
+import {
+  ListControlDomainInsightsCommand,
+  ListControlDomainInsightsCommandInput,
+  ListControlDomainInsightsCommandOutput,
+} from "./commands/ListControlDomainInsightsCommand";
+import {
+  ListControlInsightsByControlDomainCommand,
+  ListControlInsightsByControlDomainCommandInput,
+  ListControlInsightsByControlDomainCommandOutput,
+} from "./commands/ListControlInsightsByControlDomainCommand";
 import {
   ListControlsCommand,
   ListControlsCommandInput,
@@ -933,7 +959,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p> Returns an assessment from Audit Manager. </p>
+   * <p>Returns an assessment from Audit Manager. </p>
    */
   public getAssessment(
     args: GetAssessmentCommandInput,
@@ -965,7 +991,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p> Returns a framework from Audit Manager. </p>
+   * <p>Returns a framework from Audit Manager. </p>
    */
   public getAssessmentFramework(
     args: GetAssessmentFrameworkCommandInput,
@@ -1278,6 +1304,64 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * <p>Gets the latest analytics data for all your current active assessments. </p>
+   */
+  public getInsights(args: GetInsightsCommandInput, options?: __HttpHandlerOptions): Promise<GetInsightsCommandOutput>;
+  public getInsights(args: GetInsightsCommandInput, cb: (err: any, data?: GetInsightsCommandOutput) => void): void;
+  public getInsights(
+    args: GetInsightsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInsightsCommandOutput) => void
+  ): void;
+  public getInsights(
+    args: GetInsightsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInsightsCommandOutput) => void),
+    cb?: (err: any, data?: GetInsightsCommandOutput) => void
+  ): Promise<GetInsightsCommandOutput> | void {
+    const command = new GetInsightsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the latest analytics data for a specific active assessment. </p>
+   */
+  public getInsightsByAssessment(
+    args: GetInsightsByAssessmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInsightsByAssessmentCommandOutput>;
+  public getInsightsByAssessment(
+    args: GetInsightsByAssessmentCommandInput,
+    cb: (err: any, data?: GetInsightsByAssessmentCommandOutput) => void
+  ): void;
+  public getInsightsByAssessment(
+    args: GetInsightsByAssessmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInsightsByAssessmentCommandOutput) => void
+  ): void;
+  public getInsightsByAssessment(
+    args: GetInsightsByAssessmentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInsightsByAssessmentCommandOutput) => void),
+    cb?: (err: any, data?: GetInsightsByAssessmentCommandOutput) => void
+  ): Promise<GetInsightsByAssessmentCommandOutput> | void {
+    const command = new GetInsightsByAssessmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p> Returns the name of the delegated Amazon Web Services administrator account for the
    *          organization. </p>
    */
@@ -1359,6 +1443,47 @@ export class AuditManager extends AuditManagerClient {
     cb?: (err: any, data?: GetSettingsCommandOutput) => void
   ): Promise<GetSettingsCommandOutput> | void {
     const command = new GetSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the latest analytics data for controls within a specific control domain and a
+   *          specific active assessment.</p>
+   *          <note>
+   *             <p>Control insights are listed only if the control belongs to the control domain and assessment
+   *          that was specified. Moreover, the control must have collected evidence on the
+   *          <code>lastUpdated</code> date of <code>controlInsightsByAssessment</code>. If neither
+   *          of these conditions are met, no data is listed for that control. </p>
+   *          </note>
+   */
+  public listAssessmentControlInsightsByControlDomain(
+    args: ListAssessmentControlInsightsByControlDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssessmentControlInsightsByControlDomainCommandOutput>;
+  public listAssessmentControlInsightsByControlDomain(
+    args: ListAssessmentControlInsightsByControlDomainCommandInput,
+    cb: (err: any, data?: ListAssessmentControlInsightsByControlDomainCommandOutput) => void
+  ): void;
+  public listAssessmentControlInsightsByControlDomain(
+    args: ListAssessmentControlInsightsByControlDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssessmentControlInsightsByControlDomainCommandOutput) => void
+  ): void;
+  public listAssessmentControlInsightsByControlDomain(
+    args: ListAssessmentControlInsightsByControlDomainCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListAssessmentControlInsightsByControlDomainCommandOutput) => void),
+    cb?: (err: any, data?: ListAssessmentControlInsightsByControlDomainCommandOutput) => void
+  ): Promise<ListAssessmentControlInsightsByControlDomainCommandOutput> | void {
+    const command = new ListAssessmentControlInsightsByControlDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1488,6 +1613,122 @@ export class AuditManager extends AuditManagerClient {
     cb?: (err: any, data?: ListAssessmentsCommandOutput) => void
   ): Promise<ListAssessmentsCommandOutput> | void {
     const command = new ListAssessmentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the latest analytics data for control domains across all of your active
+   *          assessments. </p>
+   *          <note>
+   *             <p>A control domain is listed only if at least one of the controls within that domain collected
+   *          evidence on the <code>lastUpdated</code> date of <code>controlDomainInsights</code>. If
+   *          this condition isn’t met, no data is listed for that control domain.</p>
+   *          </note>
+   */
+  public listControlDomainInsights(
+    args: ListControlDomainInsightsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListControlDomainInsightsCommandOutput>;
+  public listControlDomainInsights(
+    args: ListControlDomainInsightsCommandInput,
+    cb: (err: any, data?: ListControlDomainInsightsCommandOutput) => void
+  ): void;
+  public listControlDomainInsights(
+    args: ListControlDomainInsightsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListControlDomainInsightsCommandOutput) => void
+  ): void;
+  public listControlDomainInsights(
+    args: ListControlDomainInsightsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListControlDomainInsightsCommandOutput) => void),
+    cb?: (err: any, data?: ListControlDomainInsightsCommandOutput) => void
+  ): Promise<ListControlDomainInsightsCommandOutput> | void {
+    const command = new ListControlDomainInsightsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists analytics data for control domains within a specified active assessment.</p>
+   *          <note>
+   *             <p>A control domain is listed only if at least one of the controls within that domain collected
+   *          evidence on the <code>lastUpdated</code> date of <code>controlDomainInsights</code>. If
+   *          this condition isn’t met, no data is listed for that domain.</p>
+   *          </note>
+   */
+  public listControlDomainInsightsByAssessment(
+    args: ListControlDomainInsightsByAssessmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListControlDomainInsightsByAssessmentCommandOutput>;
+  public listControlDomainInsightsByAssessment(
+    args: ListControlDomainInsightsByAssessmentCommandInput,
+    cb: (err: any, data?: ListControlDomainInsightsByAssessmentCommandOutput) => void
+  ): void;
+  public listControlDomainInsightsByAssessment(
+    args: ListControlDomainInsightsByAssessmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListControlDomainInsightsByAssessmentCommandOutput) => void
+  ): void;
+  public listControlDomainInsightsByAssessment(
+    args: ListControlDomainInsightsByAssessmentCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListControlDomainInsightsByAssessmentCommandOutput) => void),
+    cb?: (err: any, data?: ListControlDomainInsightsByAssessmentCommandOutput) => void
+  ): Promise<ListControlDomainInsightsByAssessmentCommandOutput> | void {
+    const command = new ListControlDomainInsightsByAssessmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the latest analytics data for controls within a specific control domain across all
+   *          active assessments.</p>
+   *          <note>
+   *             <p>Control insights are listed only if the control belongs to the control domain that was
+   *          specified and the control collected evidence on the <code>lastUpdated</code> date of
+   *          <code>controlInsightsMetadata</code>. If neither of these conditions are met, no data
+   *          is listed for that control. </p>
+   *          </note>
+   */
+  public listControlInsightsByControlDomain(
+    args: ListControlInsightsByControlDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListControlInsightsByControlDomainCommandOutput>;
+  public listControlInsightsByControlDomain(
+    args: ListControlInsightsByControlDomainCommandInput,
+    cb: (err: any, data?: ListControlInsightsByControlDomainCommandOutput) => void
+  ): void;
+  public listControlInsightsByControlDomain(
+    args: ListControlInsightsByControlDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListControlInsightsByControlDomainCommandOutput) => void
+  ): void;
+  public listControlInsightsByControlDomain(
+    args: ListControlInsightsByControlDomainCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListControlInsightsByControlDomainCommandOutput) => void),
+    cb?: (err: any, data?: ListControlInsightsByControlDomainCommandOutput) => void
+  ): Promise<ListControlInsightsByControlDomainCommandOutput> | void {
+    const command = new ListControlInsightsByControlDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

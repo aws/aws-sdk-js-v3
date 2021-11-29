@@ -2,7 +2,7 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * <p>You do not have sufficient permissions to perform this action.</p>
  */
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
@@ -94,7 +94,7 @@ export interface AgentStatus {
   State?: AgentStatusState | string;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -847,7 +847,7 @@ export interface CreateAgentStatusRequest {
   DisplayOrder?: number;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -1015,6 +1015,105 @@ export namespace InvalidContactFlowException {
   });
 }
 
+export interface CreateContactFlowModuleRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the contact flow module.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the contact flow module. </p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The content of the contact flow module.</p>
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace CreateContactFlowModuleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateContactFlowModuleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateContactFlowModuleResponse {
+  /**
+   * <p>The identifier of the contact flow module.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the contact flow module.</p>
+   */
+  Arn?: string;
+}
+
+export namespace CreateContactFlowModuleResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateContactFlowModuleResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An entity with the same name already exists.</p>
+ */
+export interface IdempotencyException extends __SmithyException, $MetadataBearer {
+  name: "IdempotencyException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace IdempotencyException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IdempotencyException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The problems with the module. Please fix before trying again.</p>
+ */
+export interface InvalidContactFlowModuleException extends __SmithyException, $MetadataBearer {
+  name: "InvalidContactFlowModuleException";
+  $fault: "client";
+  Problems?: ProblemDetail[];
+}
+
+export namespace InvalidContactFlowModuleException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidContactFlowModuleException): any => ({
+    ...obj,
+  });
+}
+
 export enum HoursOfOperationDays {
   FRIDAY = "FRIDAY",
   MONDAY = "MONDAY",
@@ -1105,7 +1204,7 @@ export interface CreateHoursOfOperationRequest {
   Config: HoursOfOperationConfig[] | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -1254,7 +1353,7 @@ export interface CreateIntegrationAssociationRequest {
   SourceType?: SourceType | string;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -1355,7 +1454,7 @@ export interface CreateQueueRequest {
   QuickConnectIds?: string[];
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -1522,7 +1621,7 @@ export interface CreateQuickConnectRequest {
   QuickConnectConfig: QuickConnectConfig | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -1543,7 +1642,8 @@ export interface CreateQuickConnectResponse {
   QuickConnectARN?: string;
 
   /**
-   * <p>The identifier for the quick connect. </p>
+   * <p>The identifier for the quick connect.
+   *   </p>
    */
   QuickConnectId?: string;
 }
@@ -1676,7 +1776,7 @@ export interface CreateSecurityProfileRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -1734,7 +1834,7 @@ export interface CreateUseCaseRequest {
   UseCaseType: UseCaseType | string | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -1975,6 +2075,59 @@ export namespace CreateUserHierarchyGroupResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateUserHierarchyGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteContactFlowRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact flow.</p>
+   */
+  ContactFlowId: string | undefined;
+}
+
+export namespace DeleteContactFlowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteContactFlowRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteContactFlowModuleRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact flow module.</p>
+   */
+  ContactFlowModuleId: string | undefined;
+}
+
+export namespace DeleteContactFlowModuleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteContactFlowModuleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteContactFlowModuleResponse {}
+
+export namespace DeleteContactFlowModuleResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteContactFlowModuleResponse): any => ({
     ...obj,
   });
 }
@@ -2228,7 +2381,7 @@ export interface DescribeContactRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the initial contact.</p>
+   * <p>The identifier of the contact.</p>
    */
   ContactId: string | undefined;
 }
@@ -2417,6 +2570,11 @@ export namespace DescribeContactFlowRequest {
   });
 }
 
+export enum ContactFlowState {
+  ACTIVE = "ACTIVE",
+  ARCHIVED = "ARCHIVED",
+}
+
 /**
  * <p>Contains information about a contact flow.</p>
  */
@@ -2441,6 +2599,11 @@ export interface ContactFlow {
    *    Guide</i>.</p>
    */
   Type?: ContactFlowType | string;
+
+  /**
+   * <p>The type of contact flow.</p>
+   */
+  State?: ContactFlowState | string;
 
   /**
    * <p>The description of the contact flow.</p>
@@ -2479,6 +2642,107 @@ export namespace DescribeContactFlowResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeContactFlowResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeContactFlowModuleRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact flow module.</p>
+   */
+  ContactFlowModuleId: string | undefined;
+}
+
+export namespace DescribeContactFlowModuleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeContactFlowModuleRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ContactFlowModuleState {
+  ACTIVE = "ACTIVE",
+  ARCHIVED = "ARCHIVED",
+}
+
+export enum ContactFlowModuleStatus {
+  PUBLISHED = "PUBLISHED",
+  SAVED = "SAVED",
+}
+
+/**
+ * <p>Contains information about a contact flow module.</p>
+ */
+export interface ContactFlowModule {
+  /**
+   * <p>The Amazon Resource Name (ARN).</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The identifier of the contact flow module.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The name of the contact flow module.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The content of the contact flow module.</p>
+   */
+  Content?: string;
+
+  /**
+   * <p>The description of the contact flow module.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The type of contact flow module.</p>
+   */
+  State?: ContactFlowModuleState | string;
+
+  /**
+   * <p>The status of the contact flow module.</p>
+   */
+  Status?: ContactFlowModuleStatus | string;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace ContactFlowModule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ContactFlowModule): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeContactFlowModuleResponse {
+  /**
+   * <p>Information about the contact flow module.</p>
+   */
+  ContactFlowModule?: ContactFlowModule;
+}
+
+export namespace DescribeContactFlowModuleResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeContactFlowModuleResponse): any => ({
     ...obj,
   });
 }
@@ -2539,7 +2803,7 @@ export interface HoursOfOperation {
   Config?: HoursOfOperationConfig[];
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -2880,7 +3144,7 @@ export interface Queue {
   Status?: QueueStatus | string;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -2961,7 +3225,7 @@ export interface QuickConnect {
   QuickConnectConfig?: QuickConnectConfig;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -3134,7 +3398,7 @@ export interface SecurityProfile {
   Description?: string;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -3913,11 +4177,11 @@ export interface GetCurrentMetricDataRequest {
    *             <dd>
    *                <p>Unit: SECONDS</p>
    *                <p>When you use groupings, Unit says SECONDS and the Value is returned in SECONDS. </p>
-   *                <p>When you do not use groupings, Unit says SECONDS but the Value is returned in
-   *       MILLISECONDS. For example, if you get a response like this:</p>
+   *                <p>When you do not use groupings, Unit says SECONDS but the Value is returned in MILLISECONDS. For
+   *       example, if you get a response like this:</p>
    *                <p>
    *                   <code>{ "Metric": { "Name": "OLDEST_CONTACT_AGE", "Unit": "SECONDS" }, "Value": 24113.0
-   *       </code>}</p>
+   *      </code>}</p>
    *                <p>The actual OLDEST_CONTACT_AGE is 24 seconds.</p>
    *
    *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#oldest-real-time">Oldest</a>
@@ -4734,6 +4998,93 @@ export namespace ListBotsResponse {
   });
 }
 
+export interface ListContactFlowModulesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The state of the contact flow module.</p>
+   */
+  ContactFlowModuleState?: ContactFlowModuleState | string;
+}
+
+export namespace ListContactFlowModulesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListContactFlowModulesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains summary information about a contact flow.</p>
+ */
+export interface ContactFlowModuleSummary {
+  /**
+   * <p>The identifier of the contact flow module.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the contact flow module.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the contact flow module.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of contact flow module.</p>
+   */
+  State?: ContactFlowModuleState | string;
+}
+
+export namespace ContactFlowModuleSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ContactFlowModuleSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListContactFlowModulesResponse {
+  /**
+   * <p>Information about the contact flow module.</p>
+   */
+  ContactFlowModulesSummaryList?: ContactFlowModuleSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListContactFlowModulesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListContactFlowModulesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListContactFlowsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -4791,6 +5142,11 @@ export interface ContactFlowSummary {
    * <p>The type of contact flow.</p>
    */
   ContactFlowType?: ContactFlowType | string;
+
+  /**
+   * <p>The type of contact flow.</p>
+   */
+  ContactFlowState?: ContactFlowState | string;
 }
 
 export namespace ContactFlowSummary {
@@ -4848,8 +5204,8 @@ export interface ListContactReferencesRequest {
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    *          <important>
-   *             <p>This is not expected to be set since the value returned in the previous response is always
-   *     null.</p>
+   *             <p>This is not expected to be set, because the value returned in the previous response is
+   *     always null.</p>
    *          </important>
    */
   NextToken?: string;
@@ -4932,7 +5288,8 @@ export type ReferenceSummary =
 
 export namespace ReferenceSummary {
   /**
-   * <p>Information about Url reference if the <code>referenceType</code> is <code>URL</code>. Otherwise, null.</p>
+   * <p>Information about the URL reference if the <code>referenceType</code> is <code>URL</code>.
+   *    Otherwise, null.</p>
    */
   export interface UrlMember {
     Url: UrlReference;
@@ -5295,7 +5652,7 @@ export interface ListIntegrationAssociationsRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The integration type.</p>
    */
   IntegrationType?: IntegrationType | string;
 
@@ -5456,8 +5813,7 @@ export interface ListLexBotsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return per page. If no value is specified, the default is 10.
-   *    </p>
+   * <p>The maximum number of results to return per page. If no value is specified, the default is 10. </p>
    */
   MaxResults?: number;
 }
@@ -7212,8 +7568,8 @@ export interface StartOutboundVoiceContactRequest {
   /**
    * <p>Denotes the class of traffic. Calls with different traffic types are handled differently by
    *    Amazon Connect. The default value is <code>GENERAL</code>. Use <code>CAMPAIGN</code> if
-   *     <code>EnableAnswerMachineDetection</code> is set to <code>true</code>. For all other cases, use
-   *     <code>GENERAL</code>. </p>
+   *    <code>EnableAnswerMachineDetection</code> is set to <code>true</code>. For all other cases, use
+   *    <code>GENERAL</code>. </p>
    */
   TrafficType?: TrafficType | string;
 }
@@ -7514,433 +7870,6 @@ export namespace SuspendContactRecordingResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: SuspendContactRecordingResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface TagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>One or more tags. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
-   */
-  tags: { [key: string]: string } | undefined;
-}
-
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UntagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The tag keys.</p>
-   */
-  tagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateAgentStatusRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the agent status.</p>
-   */
-  AgentStatusId: string | undefined;
-
-  /**
-   * <p>The name of the agent status.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The description of the agent status.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The state of the agent status.</p>
-   */
-  State?: AgentStatusState | string;
-
-  /**
-   * <p>The display order of the agent status.</p>
-   */
-  DisplayOrder?: number;
-
-  /**
-   * <p>A number indicating the reset order of the agent status.</p>
-   */
-  ResetOrderNumber?: boolean;
-}
-
-export namespace UpdateAgentStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAgentStatusRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateContactRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact. This is the identifier of the contact associated with the
-   *    first interaction with your contact center.</p>
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The name of the contact.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The description of the contact.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP).</p>
-   */
-  References?: { [key: string]: Reference };
-}
-
-export namespace UpdateContactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContactRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateContactResponse {}
-
-export namespace UpdateContactResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContactResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateContactAttributesRequest {
-  /**
-   * <p>The identifier of the contact. This is the identifier of the contact associated with the
-   *    first interaction with the contact center.</p>
-   */
-  InitialContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The Amazon Connect attributes. These attributes can be accessed in contact flows just like any other
-   *    contact attributes.</p>
-   *          <p>You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys
-   *    can include only alphanumeric, dash, and underscore characters.</p>
-   */
-  Attributes: { [key: string]: string } | undefined;
-}
-
-export namespace UpdateContactAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContactAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateContactAttributesResponse {}
-
-export namespace UpdateContactAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContactAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateContactFlowContentRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact flow.</p>
-   */
-  ContactFlowId: string | undefined;
-
-  /**
-   * <p>The JSON string that represents contact flow’s content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html">Example contact
-   *     flow in Amazon Connect Flow language</a> in the <i>Amazon Connect Administrator Guide</i>.
-   *   </p>
-   */
-  Content: string | undefined;
-}
-
-export namespace UpdateContactFlowContentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContactFlowContentRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateContactFlowNameRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact flow.</p>
-   */
-  ContactFlowId: string | undefined;
-
-  /**
-   * <p>The name of the contact flow.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The description of the contact flow.</p>
-   */
-  Description?: string;
-}
-
-export namespace UpdateContactFlowNameRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContactFlowNameRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateContactScheduleRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact.</p>
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound contact flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>
-   */
-  ScheduledTime: Date | undefined;
-}
-
-export namespace UpdateContactScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContactScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateContactScheduleResponse {}
-
-export namespace UpdateContactScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContactScheduleResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateHoursOfOperationRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the hours of operation.</p>
-   */
-  HoursOfOperationId: string | undefined;
-
-  /**
-   * <p>The name of the hours of operation.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The description of the hours of operation.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The time zone of the hours of operation.</p>
-   */
-  TimeZone?: string;
-
-  /**
-   * <p>Configuration information of the hours of operation.</p>
-   */
-  Config?: HoursOfOperationConfig[];
-}
-
-export namespace UpdateHoursOfOperationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateHoursOfOperationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateInstanceAttributeRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The type of attribute.</p>
-   *          <note>
-   *             <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature,
-   *     contact AWS Support for allowlisting.</p>
-   *          </note>
-   */
-  AttributeType: InstanceAttributeType | string | undefined;
-
-  /**
-   * <p>The value for the attribute. Maximum character limit is 100. </p>
-   */
-  Value: string | undefined;
-}
-
-export namespace UpdateInstanceAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInstanceAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateInstanceStorageConfigRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>A valid resource type.</p>
-   */
-  ResourceType: InstanceStorageResourceType | string | undefined;
-
-  /**
-   * <p>The storage configuration for the instance.</p>
-   */
-  StorageConfig: InstanceStorageConfig | undefined;
-}
-
-export namespace UpdateInstanceStorageConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInstanceStorageConfigRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateQueueHoursOfOperationRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the queue.</p>
-   */
-  QueueId: string | undefined;
-
-  /**
-   * <p>The identifier for the hours of operation.</p>
-   */
-  HoursOfOperationId: string | undefined;
-}
-
-export namespace UpdateQueueHoursOfOperationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateQueueHoursOfOperationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateQueueMaxContactsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the queue.</p>
-   */
-  QueueId: string | undefined;
-
-  /**
-   * <p>The maximum number of contacts that can be in the queue before it is considered full.</p>
-   */
-  MaxContacts?: number;
-}
-
-export namespace UpdateQueueMaxContactsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateQueueMaxContactsRequest): any => ({
     ...obj,
   });
 }

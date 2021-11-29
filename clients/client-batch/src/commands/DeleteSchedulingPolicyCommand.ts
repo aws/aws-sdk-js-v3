@@ -22,9 +22,8 @@ export interface DeleteSchedulingPolicyCommandInput extends DeleteSchedulingPoli
 export interface DeleteSchedulingPolicyCommandOutput extends DeleteSchedulingPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified scheduling
- *    policy.</p>
- *          <p>You can't delete a scheduling policy that is used in any job queues.</p>
+ * <p>Deletes the specified scheduling policy.</p>
+ *          <p>You can't delete a scheduling policy that's used in any job queues.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

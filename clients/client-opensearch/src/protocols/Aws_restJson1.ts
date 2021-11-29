@@ -152,6 +152,7 @@ import {
   DomainInformationContainer,
   DomainPackageDetails,
   DomainStatus,
+  DryRunResults,
   Duration,
   EBSOptions,
   EBSOptionsStatus,
@@ -1397,6 +1398,7 @@ export const serializeAws_restJson1UpdateDomainConfigCommand = async (
       input.DomainEndpointOptions !== null && {
         DomainEndpointOptions: serializeAws_restJson1DomainEndpointOptions(input.DomainEndpointOptions, context),
       }),
+    ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
     ...(input.EBSOptions !== undefined &&
       input.EBSOptions !== null && { EBSOptions: serializeAws_restJson1EBSOptions(input.EBSOptions, context) }),
     ...(input.EncryptionAtRestOptions !== undefined &&
@@ -4504,10 +4506,14 @@ export const deserializeAws_restJson1UpdateDomainConfigCommand = async (
   const contents: UpdateDomainConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     DomainConfig: undefined,
+    DryRunResults: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DomainConfig !== undefined && data.DomainConfig !== null) {
     contents.DomainConfig = deserializeAws_restJson1DomainConfig(data.DomainConfig, context);
+  }
+  if (data.DryRunResults !== undefined && data.DryRunResults !== null) {
+    contents.DryRunResults = deserializeAws_restJson1DryRunResults(data.DryRunResults, context);
   }
   return Promise.resolve(contents);
 };
@@ -5894,6 +5900,13 @@ const deserializeAws_restJson1DomainStatusList = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1DomainStatus(entry, context);
     });
+};
+
+const deserializeAws_restJson1DryRunResults = (output: any, context: __SerdeContext): DryRunResults => {
+  return {
+    DeploymentType: __expectString(output.DeploymentType),
+    Message: __expectString(output.Message),
+  } as any;
 };
 
 const deserializeAws_restJson1Duration = (output: any, context: __SerdeContext): Duration => {
