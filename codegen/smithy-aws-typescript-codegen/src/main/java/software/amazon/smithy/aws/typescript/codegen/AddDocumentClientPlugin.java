@@ -111,6 +111,7 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
 
             writerFactory.accept(String.format("%sindex.ts", DocumentClientUtils.DOC_CLIENT_PREFIX), writer -> {
                 writer.write("export * from './commands';");
+                writer.write("export * from './pagination';");
                 writer.write("export * from './$L';", DocumentClientUtils.CLIENT_NAME);
                 writer.write("export * from './$L';", DocumentClientUtils.CLIENT_FULL_NAME);
             });
