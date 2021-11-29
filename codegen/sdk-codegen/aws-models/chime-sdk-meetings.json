@@ -72,6 +72,20 @@
         "target": "com.amazonaws.chimesdkmeetings#Attendee"
       }
     },
+    "com.amazonaws.chimesdkmeetings#AudioFeatures": {
+      "type": "structure",
+      "members": {
+        "EchoReduction": {
+          "target": "com.amazonaws.chimesdkmeetings#MeetingFeatureStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Makes echo reduction available to clients who connect to the meeting.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An optional category of meeting features that contains audio-specific configurations, such as operating parameters for Amazon Voice Focus.</p>"
+      }
+    },
     "com.amazonaws.chimesdkmeetings#BadRequestException": {
       "type": "structure",
       "members": {
@@ -123,7 +137,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a group of meeting attendees.</p>",
+        "smithy.api#documentation": "<p>Creates up to 100 attendees for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see \n            <a href=\"https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/meetings/{MeetingId}/attendees?operation=batch-create",
@@ -173,6 +187,9 @@
           }
         }
       }
+    },
+    "com.amazonaws.chimesdkmeetings#Boolean": {
+      "type": "boolean"
     },
     "com.amazonaws.chimesdkmeetings#ChimeMeetingsSDKService": {
       "type": "service",
@@ -430,6 +447,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The configuration for resource targets to receive notifications when meeting and attendee events occur.</p>"
           }
+        },
+        "MeetingFeatures": {
+          "target": "com.amazonaws.chimesdkmeetings#MeetingFeaturesConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Lists the audio and video features enabled for a meeting, such as echo reduction.</p>"
+          }
         }
       }
     },
@@ -504,6 +527,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The external meeting ID.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "MeetingFeatures": {
+          "target": "com.amazonaws.chimesdkmeetings#MeetingFeaturesConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Lists the audio and video features enabled for a meeting, such as echo reduction.</p>"
           }
         },
         "NotificationsConfiguration": {
@@ -669,6 +698,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The AWS Region passed to Amazon Transcribe Medical. If you don't specify a Region, Amazon Chime uses the meeting's Region.</p>"
           }
+        },
+        "ContentIdentificationType": {
+          "target": "com.amazonaws.chimesdkmeetings#TranscribeMedicalContentIdentificationType",
+          "traits": {
+            "smithy.api#documentation": "<p>Set this field to <code>PHI</code> to identify personal health information in the transcription output.</p>"
+          }
         }
       },
       "traits": {
@@ -707,6 +742,42 @@
           "target": "com.amazonaws.chimesdkmeetings#TranscribeRegion",
           "traits": {
             "smithy.api#documentation": "<p>The AWS Region passed to Amazon Transcribe. If you don't specify a Region, Amazon Chime uses the meeting's Region.</p>"
+          }
+        },
+        "EnablePartialResultsStabilization": {
+          "target": "com.amazonaws.chimesdkmeetings#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Generates partial transcription results that are less likely to change as meeting attendees speak. It does so by only allowing the last few words from the partial results to change.</p>"
+          }
+        },
+        "PartialResultsStability": {
+          "target": "com.amazonaws.chimesdkmeetings#TranscribePartialResultsStability",
+          "traits": {
+            "smithy.api#documentation": "<p>The stabity level of a partial results transcription. Determines how stable you want the transcription results to be. A higher level means the transcription results are less likely to change.</p>"
+          }
+        },
+        "ContentIdentificationType": {
+          "target": "com.amazonaws.chimesdkmeetings#TranscribeContentIdentificationType",
+          "traits": {
+            "smithy.api#documentation": "<p>Set this field to <code>PII</code> to identify personally identifiable information in the transcription output.</p>"
+          }
+        },
+        "ContentRedactionType": {
+          "target": "com.amazonaws.chimesdkmeetings#TranscribeContentRedactionType",
+          "traits": {
+            "smithy.api#documentation": "<p>Set this field to <code>PII</code> to redact personally identifiable information in the transcription output. Content redaction is performed only upon complete transcription of the audio segments.</p>\n            \n            <p>You can’t set <code>ContentRedactionType</code> and <code>ContentIdentificationType</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>"
+          }
+        },
+        "PiiEntityTypes": {
+          "target": "com.amazonaws.chimesdkmeetings#TranscribePiiEntityTypes",
+          "traits": {
+            "smithy.api#documentation": "<p>Lists the PII entity types you want to identify or redact. To specify entity types, you must enable <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</p>\n            \n            <p>PIIEntityTypes must be comma-separated. The available values are: \n                <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING, CREDIT_DEBIT_NUMBER</code>, <code>CREDIT_DEBIT_CVV</code>, <code>CREDIT_DEBIT_EXPIRY</code>, <code>PIN</code>, <code>EMAIL</code>, \n                <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>, <code>SSN</code>, and <code>ALL</code>.</p>\n            \n            <p>\n            <code>PiiEntityTypes</code> is an optional parameter with a default value of <code>ALL</code>.</p>"
+          }
+        },
+        "LanguageModelName": {
+          "target": "com.amazonaws.chimesdkmeetings#TranscribeLanguageModelName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the language model used during transcription.</p>"
           }
         }
       },
@@ -1080,10 +1151,45 @@
           "traits": {
             "smithy.api#documentation": "<p>The media placement for the meeting.</p>"
           }
+        },
+        "MeetingFeatures": {
+          "target": "com.amazonaws.chimesdkmeetings#MeetingFeaturesConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The features available to a meeting, such as Amazon Voice Focus.</p>"
+          }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>A meeting created using the Amazon Chime SDK.</p>"
+      }
+    },
+    "com.amazonaws.chimesdkmeetings#MeetingFeatureStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "AVAILABLE",
+            "name": "AVAILABLE"
+          },
+          {
+            "value": "UNAVAILABLE",
+            "name": "UNAVAILABLE"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.chimesdkmeetings#MeetingFeaturesConfiguration": {
+      "type": "structure",
+      "members": {
+        "Audio": {
+          "target": "com.amazonaws.chimesdkmeetings#AudioFeatures",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration settings for the audio features available to a meeting. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The configuration settings of the features available to a meeting.</p>"
       }
     },
     "com.amazonaws.chimesdkmeetings#NotFoundException": {
@@ -1289,6 +1395,28 @@
         }
       }
     },
+    "com.amazonaws.chimesdkmeetings#TranscribeContentIdentificationType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "PII",
+            "name": "PII"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.chimesdkmeetings#TranscribeContentRedactionType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "PII",
+            "name": "PII"
+          }
+        ]
+      }
+    },
     "com.amazonaws.chimesdkmeetings#TranscribeLanguageCode": {
       "type": "string",
       "traits": {
@@ -1340,6 +1468,27 @@
           {
             "value": "zh-CN",
             "name": "ZH_CN"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.chimesdkmeetings#TranscribeLanguageModelName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 200
+        },
+        "smithy.api#pattern": "^[0-9a-zA-Z._-]+$"
+      }
+    },
+    "com.amazonaws.chimesdkmeetings#TranscribeMedicalContentIdentificationType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "PHI",
+            "name": "PHI"
           }
         ]
       }
@@ -1434,6 +1583,35 @@
             "name": "DICTATION"
           }
         ]
+      }
+    },
+    "com.amazonaws.chimesdkmeetings#TranscribePartialResultsStability": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "low",
+            "name": "LOW"
+          },
+          {
+            "value": "medium",
+            "name": "MEDIUM"
+          },
+          {
+            "value": "high",
+            "name": "HIGH"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.chimesdkmeetings#TranscribePiiEntityTypes": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 300
+        },
+        "smithy.api#pattern": "^[A-Z_, ]+$"
       }
     },
     "com.amazonaws.chimesdkmeetings#TranscribeRegion": {

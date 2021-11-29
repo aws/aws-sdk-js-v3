@@ -46,6 +46,25 @@
     },
     "com.amazonaws.mgn#ApplicationMigrationService": {
       "type": "service",
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "mgn",
+          "arnNamespace": "mgn",
+          "cloudFormationName": "ApplicationMigrationService",
+          "cloudTrailEventSource": "mgn.amazonaws.com",
+          "endpointPrefix": "mgn"
+        },
+        "aws.auth#sigv4": {
+          "name": "mgn"
+        },
+        "aws.protocols#restJson1": {},
+        "smithy.api#cors": {
+          "additionalAllowedHeaders": ["x-amz-content-sha256", "x-amzn-trace-id", "x-amz-user-agent", "content-type"],
+          "additionalExposedHeaders": ["x-amz-apigw-id", "x-amzn-trace-id", "x-amzn-errortype", "x-amzn-requestid"]
+        },
+        "smithy.api#documentation": "<p>The Application Migration Service service.</p>",
+        "smithy.api#title": "Application Migration Service"
+      },
       "version": "2020-02-26",
       "operations": [
         {
@@ -73,27 +92,11 @@
         },
         {
           "target": "com.amazonaws.mgn#SourceServerResource"
+        },
+        {
+          "target": "com.amazonaws.mgn#VcenterClientResource"
         }
-      ],
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "mgn",
-          "arnNamespace": "mgn",
-          "cloudFormationName": "ApplicationMigrationService",
-          "cloudTrailEventSource": "mgn.amazonaws.com",
-          "endpointPrefix": "mgn"
-        },
-        "aws.auth#sigv4": {
-          "name": "mgn"
-        },
-        "aws.protocols#restJson1": {},
-        "smithy.api#cors": {
-          "additionalAllowedHeaders": ["x-amz-content-sha256", "x-amzn-trace-id", "x-amz-user-agent", "content-type"],
-          "additionalExposedHeaders": ["x-amz-apigw-id", "x-amzn-trace-id", "x-amzn-errortype", "x-amzn-requestid"]
-        },
-        "smithy.api#documentation": "<p>The Application Migration Service service.</p>",
-        "smithy.api#title": "Application Migration Service"
-      }
+      ]
     },
     "com.amazonaws.mgn#BoundedString": {
       "type": "string",
@@ -449,6 +452,14 @@
           {
             "value": "FAILED_TO_START_DATA_TRANSFER",
             "name": "FAILED_TO_START_DATA_TRANSFER"
+          },
+          {
+            "value": "UNSUPPORTED_VM_CONFIGURATION",
+            "name": "UNSUPPORTED_VM_CONFIGURATION"
+          },
+          {
+            "value": "LAST_SNAPSHOT_JOB_FAILED",
+            "name": "LAST_SNAPSHOT_JOB_FAILED"
           }
         ]
       }
@@ -490,6 +501,12 @@
           "target": "com.amazonaws.mgn#DataReplicationError",
           "traits": {
             "smithy.api#documentation": "<p>Error in obtaining data replication info.</p>"
+          }
+        },
+        "lastSnapshotDateTime": {
+          "target": "com.amazonaws.mgn#ISO8601DatetimeString",
+          "traits": {
+            "smithy.api#documentation": "<p>Request to query data replication last snapshot time.</p>"
           }
         }
       },
@@ -720,6 +737,14 @@
           {
             "value": "DISCONNECTED",
             "name": "DISCONNECTED"
+          },
+          {
+            "value": "PENDING_SNAPSHOT_SHIPPING",
+            "name": "PENDING_SNAPSHOT_SHIPPING"
+          },
+          {
+            "value": "SHIPPING_SNAPSHOT",
+            "name": "SHIPPING_SNAPSHOT"
           }
         ]
       }
@@ -858,6 +883,44 @@
     "com.amazonaws.mgn#DeleteSourceServerResponse": {
       "type": "structure",
       "members": {}
+    },
+    "com.amazonaws.mgn#DeleteVcenterClient": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#DeleteVcenterClientRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes a single vCenter client by ID.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/DeleteVcenterClient",
+          "code": 204
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.mgn#DeleteVcenterClientRequest": {
+      "type": "structure",
+      "members": {
+        "vcenterClientID": {
+          "target": "com.amazonaws.mgn#VcenterClientID",
+          "traits": {
+            "smithy.api#documentation": "<p>ID of resource to be deleted.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
     },
     "com.amazonaws.mgn#DescribeJobLogItems": {
       "type": "operation",
@@ -1189,6 +1252,18 @@
           "traits": {
             "smithy.api#documentation": "<p>Request to filter Source Servers list by archived.</p>"
           }
+        },
+        "replicationTypes": {
+          "target": "com.amazonaws.mgn#ReplicationTypes",
+          "traits": {
+            "smithy.api#documentation": "<p>Request to filter Source Servers list by replication type.</p>"
+          }
+        },
+        "lifeCycleStates": {
+          "target": "com.amazonaws.mgn#LifeCycleStates",
+          "traits": {
+            "smithy.api#documentation": "<p>Request to filter Source Servers list by life cycle states.</p>"
+          }
         }
       },
       "traits": {
@@ -1220,6 +1295,77 @@
           "target": "com.amazonaws.mgn#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>Request to filter Source Servers next token.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#DescribeVcenterClients": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#DescribeVcenterClientsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#DescribeVcenterClientsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists all vCenter clients.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/DescribeVcenterClients",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "items": "items",
+          "pageSize": "maxResults"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.mgn#DescribeVcenterClientsRequest": {
+      "type": "structure",
+      "members": {
+        "maxResults": {
+          "target": "com.amazonaws.mgn#StrictlyPositiveInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum results to be returned in DescribeVcenterClients.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.mgn#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Next pagination token to be provided for DescribeVcenterClients.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#DescribeVcenterClientsResponse": {
+      "type": "structure",
+      "members": {
+        "items": {
+          "target": "com.amazonaws.mgn#VcenterClientList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of items returned by DescribeVcenterClients.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.mgn#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Next pagination token returned from DescribeVcenterClients.</p>"
           }
         }
       }
@@ -1498,6 +1644,12 @@
           "target": "com.amazonaws.mgn#EC2InstanceID",
           "traits": {
             "smithy.api#documentation": "<p>AWS Instance ID identification hint.</p>"
+          }
+        },
+        "vmPath": {
+          "target": "com.amazonaws.mgn#BoundedString",
+          "traits": {
+            "smithy.api#documentation": "<p>vCenter VM path identification hint.</p>"
           }
         }
       },
@@ -2236,8 +2388,24 @@
           {
             "value": "DISCONNECTED",
             "name": "DISCONNECTED"
+          },
+          {
+            "value": "DISCOVERED",
+            "name": "DISCOVERED"
           }
         ]
+      }
+    },
+    "com.amazonaws.mgn#LifeCycleStates": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mgn#LifeCycleState"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 10
+        }
       }
     },
     "com.amazonaws.mgn#ListTagsForResource": {
@@ -2813,6 +2981,33 @@
         }
       }
     },
+    "com.amazonaws.mgn#ReplicationType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "AGENT_BASED",
+            "name": "AGENT_BASED"
+          },
+          {
+            "value": "SNAPSHOT_SHIPPING",
+            "name": "SNAPSHOT_SHIPPING"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.mgn#ReplicationTypes": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mgn#ReplicationType"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 2
+        }
+      }
+    },
     "com.amazonaws.mgn#ResourceNotFoundException": {
       "type": "structure",
       "members": {
@@ -2889,6 +3084,46 @@
           "max": 255
         },
         "smithy.api#pattern": "^sg-[0-9a-fA-F]{8,}$"
+      }
+    },
+    "com.amazonaws.mgn#ServiceQuotaExceededException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.mgn#LargeBoundedString"
+        },
+        "code": {
+          "target": "com.amazonaws.mgn#LargeBoundedString"
+        },
+        "resourceId": {
+          "target": "com.amazonaws.mgn#LargeBoundedString",
+          "traits": {
+            "smithy.api#documentation": "<p>Exceeded the service quota resource Id.</p>"
+          }
+        },
+        "resourceType": {
+          "target": "com.amazonaws.mgn#LargeBoundedString",
+          "traits": {
+            "smithy.api#documentation": "<p>Exceeded the service quota resource type.</p>"
+          }
+        },
+        "serviceCode": {
+          "target": "com.amazonaws.mgn#LargeBoundedString",
+          "traits": {
+            "smithy.api#documentation": "<p>Exceeded the service quota service code.</p>"
+          }
+        },
+        "quotaCode": {
+          "target": "com.amazonaws.mgn#LargeBoundedString",
+          "traits": {
+            "smithy.api#documentation": "<p>Exceeded the service quota code.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request could not be completed because its exceeded the service quota.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 402
       }
     },
     "com.amazonaws.mgn#SmallBoundedString": {
@@ -3006,6 +3241,18 @@
           "traits": {
             "smithy.api#documentation": "<p>Source server properties.</p>"
           }
+        },
+        "replicationType": {
+          "target": "com.amazonaws.mgn#ReplicationType",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server replication type.</p>"
+          }
+        },
+        "vcenterClientID": {
+          "target": "com.amazonaws.mgn#VcenterClientID",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server vCenter client id.</p>"
+          }
         }
       },
       "traits": {
@@ -3062,10 +3309,16 @@
           "target": "com.amazonaws.mgn#RetryDataReplication"
         },
         {
+          "target": "com.amazonaws.mgn#StartReplication"
+        },
+        {
           "target": "com.amazonaws.mgn#UpdateLaunchConfiguration"
         },
         {
           "target": "com.amazonaws.mgn#UpdateReplicationConfiguration"
+        },
+        {
+          "target": "com.amazonaws.mgn#UpdateSourceServerReplicationType"
         }
       ],
       "collectionOperations": [
@@ -3159,6 +3412,52 @@
           "target": "com.amazonaws.mgn#Job",
           "traits": {
             "smithy.api#documentation": "<p>Start Cutover Job response.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#StartReplication": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#StartReplicationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#SourceServer"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Starts replication on source server by ID.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/StartReplication",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.mgn#StartReplicationRequest": {
+      "type": "structure",
+      "members": {
+        "sourceServerID": {
+          "target": "com.amazonaws.mgn#SourceServerID",
+          "traits": {
+            "smithy.api#documentation": "<p>ID of source server on which to start replication.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -3861,6 +4160,56 @@
         }
       }
     },
+    "com.amazonaws.mgn#UpdateSourceServerReplicationType": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#UpdateSourceServerReplicationTypeRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#SourceServer"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates source server Replication Type by ID.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/UpdateSourceServerReplicationType",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.mgn#UpdateSourceServerReplicationTypeRequest": {
+      "type": "structure",
+      "members": {
+        "sourceServerID": {
+          "target": "com.amazonaws.mgn#SourceServerID",
+          "traits": {
+            "smithy.api#documentation": "<p>ID of source server on which to update replication type.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "replicationType": {
+          "target": "com.amazonaws.mgn#ReplicationType",
+          "traits": {
+            "smithy.api#documentation": "<p>Replication type to which to update source server.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
     "com.amazonaws.mgn#ValidationException": {
       "type": "structure",
       "members": {
@@ -3936,6 +4285,100 @@
             "name": "OTHER"
           }
         ]
+      }
+    },
+    "com.amazonaws.mgn#VcenterClient": {
+      "type": "structure",
+      "members": {
+        "vcenterClientID": {
+          "target": "com.amazonaws.mgn#VcenterClientID",
+          "traits": {
+            "smithy.api#documentation": "<p>ID of vCenter client.</p>"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.mgn#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>Arn of vCenter client.</p>"
+          }
+        },
+        "hostname": {
+          "target": "com.amazonaws.mgn#BoundedString",
+          "traits": {
+            "smithy.api#documentation": "<p>Hostname of vCenter client .</p>"
+          }
+        },
+        "vcenterUUID": {
+          "target": "com.amazonaws.mgn#BoundedString",
+          "traits": {
+            "smithy.api#documentation": "<p>Vcenter UUID of vCenter client.</p>"
+          }
+        },
+        "datacenterName": {
+          "target": "com.amazonaws.mgn#BoundedString",
+          "traits": {
+            "smithy.api#documentation": "<p>Datacenter name of vCenter client.</p>"
+          }
+        },
+        "lastSeenDatetime": {
+          "target": "com.amazonaws.mgn#ISO8601DatetimeString",
+          "traits": {
+            "smithy.api#documentation": "<p>Last seen time of vCenter client.</p>"
+          }
+        },
+        "sourceServerTags": {
+          "target": "com.amazonaws.mgn#TagsMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags for Source Server of vCenter client.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.mgn#TagsMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags for vCenter client.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>vCenter client.</p>"
+      }
+    },
+    "com.amazonaws.mgn#VcenterClientID": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 21,
+          "max": 21
+        },
+        "smithy.api#pattern": "^vcc-[0-9a-zA-Z]{17}$"
+      }
+    },
+    "com.amazonaws.mgn#VcenterClientList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mgn#VcenterClient"
+      }
+    },
+    "com.amazonaws.mgn#VcenterClientResource": {
+      "type": "resource",
+      "identifiers": {
+        "vcenterClientID": {
+          "target": "com.amazonaws.mgn#VcenterClientID"
+        }
+      },
+      "delete": {
+        "target": "com.amazonaws.mgn#DeleteVcenterClient"
+      },
+      "list": {
+        "target": "com.amazonaws.mgn#DescribeVcenterClients"
+      },
+      "traits": {
+        "aws.api#arn": {
+          "template": "vcenter-client/{vcenterClientID}",
+          "absolute": false,
+          "noAccount": false,
+          "noRegion": false
+        }
       }
     }
   }
