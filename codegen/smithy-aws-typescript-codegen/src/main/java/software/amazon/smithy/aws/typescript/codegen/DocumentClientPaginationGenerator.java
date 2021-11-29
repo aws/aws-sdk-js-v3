@@ -38,8 +38,6 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 final class DocumentClientPaginationGenerator implements Runnable {
 
     static final String PAGINATION_FOLDER = "pagination";
-    static final String PAGINATION_INTERFACE_FILE =
-        Paths.get(CodegenUtils.SOURCE_FOLDER, PAGINATION_FOLDER, "Interfaces.ts").toString();
 
     private final TypeScriptWriter writer;
     private final PaginationInfo paginatedInfo;
@@ -112,20 +110,26 @@ final class DocumentClientPaginationGenerator implements Runnable {
             DocumentClientUtils.getModifiedName(operation.getId().getName()) + "Paginator");
     }
 
-    static void generateServicePaginationInterfaces(
-            Symbol service,
-            TypeScriptWriter writer
-    ) {
+    static String getInterfaceFilelocation() {
+        return String.format("%s%s/%s.ts", DocumentClientUtils.DOC_CLIENT_PREFIX,
+            DocumentClientPaginationGenerator.PAGINATION_FOLDER, "Interfaces");
+    }
+
+    static void generateServicePaginationInterfaces(TypeScriptWriter writer) {
         writer.addImport("PaginationConfiguration", "PaginationConfiguration", "@aws-sdk/types");
-        String aggregatedClientLocation = service.getNamespace().replace(
-            service.getName(), DocumentClientUtils.CLIENT_FULL_NAME);
-        writer.addImport(DocumentClientUtils.CLIENT_FULL_NAME,
-            DocumentClientUtils.CLIENT_FULL_NAME, aggregatedClientLocation);
-        writer.addImport(service.getName(), service.getName(), service.getNamespace());
+
+        writer.addImport(
+            DocumentClientUtils.CLIENT_NAME,
+            DocumentClientUtils.CLIENT_NAME,
+            Paths.get(".", DocumentClientUtils.CLIENT_NAME).toString());
+        writer.addImport(
+            DocumentClientUtils.CLIENT_FULL_NAME,
+            DocumentClientUtils.CLIENT_FULL_NAME,
+            Paths.get(".", DocumentClientUtils.CLIENT_FULL_NAME).toString());
 
         writer.openBlock("export interface $LPaginationConfiguration extends PaginationConfiguration {",
                 "}", DocumentClientUtils.CLIENT_FULL_NAME, () -> {
-            writer.write("client: $L | $L;", DocumentClientUtils.CLIENT_FULL_NAME, service.getName());
+            writer.write("client: $L | $L;", DocumentClientUtils.CLIENT_FULL_NAME, DocumentClientUtils.CLIENT_NAME);
         });
     }
 
@@ -142,7 +146,7 @@ final class DocumentClientPaginationGenerator implements Runnable {
             FileManifest fileManifest
     ) {
         TypeScriptWriter writer = new TypeScriptWriter("");
-        writer.write("export * from \"./$L\"", getModulePath(PAGINATION_INTERFACE_FILE));
+        // writer.write("export * from \"./$L\"", getModulePath(PAGINATION_INTERFACE_FILE));
 
         TopDownIndex topDownIndex = TopDownIndex.of(model);
         Set<OperationShape> containedOperations = new TreeSet<>(topDownIndex.getContainedOperations(service));

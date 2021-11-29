@@ -92,6 +92,11 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
                         writer.write("export * from './$L';", operationFileName);
                     }
             });
+
+            String paginationInterfaceFileName = DocumentClientPaginationGenerator.getInterfaceFilelocation();
+            writerFactory.accept(paginationInterfaceFileName, paginationWriter ->
+                    DocumentClientPaginationGenerator.generateServicePaginationInterfaces(paginationWriter));
+
             writerFactory.accept(String.format("%sindex.ts", DocumentClientUtils.DOC_CLIENT_PREFIX), writer -> {
                 writer.write("export * from './commands';");
                 writer.write("export * from './$L';", DocumentClientUtils.CLIENT_NAME);
