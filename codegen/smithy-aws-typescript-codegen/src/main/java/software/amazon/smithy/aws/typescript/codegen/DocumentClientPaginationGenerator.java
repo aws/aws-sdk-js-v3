@@ -133,35 +133,6 @@ final class DocumentClientPaginationGenerator implements Runnable {
         });
     }
 
-    private static String getModulePath(String fileLocation) {
-        return fileLocation.substring(
-            fileLocation.lastIndexOf("/") + 1,
-            fileLocation.length()
-        ).replace(".ts", "");
-    }
-
-    static void writeIndex(
-            Model model,
-            ServiceShape service,
-            FileManifest fileManifest
-    ) {
-        TypeScriptWriter writer = new TypeScriptWriter("");
-        // writer.write("export * from \"./$L\"", getModulePath(PAGINATION_INTERFACE_FILE));
-
-        TopDownIndex topDownIndex = TopDownIndex.of(model);
-        Set<OperationShape> containedOperations = new TreeSet<>(topDownIndex.getContainedOperations(service));
-        for (OperationShape operation : containedOperations) {
-            if (operation.hasTrait(PaginatedTrait.ID)) {
-                String outputFilepath = DocumentClientPaginationGenerator.getOutputFilelocation(operation);
-                writer.write("export * from \"./$L\"", getModulePath(outputFilepath));
-            }
-        }
-
-        fileManifest.writeFile(
-            Paths.get(CodegenUtils.SOURCE_FOLDER, PAGINATION_FOLDER, "index.ts").toString(),
-            writer.toString());
-    }
-
     private String destructurePath(String path) {
         return "."  + path.replace(".", "!.");
     }
