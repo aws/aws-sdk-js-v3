@@ -22,7 +22,6 @@ import java.util.TreeSet;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import software.amazon.smithy.aws.traits.ServiceTrait;
-import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.TopDownIndex;
@@ -68,12 +67,10 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
                     );
 
                     if (operation.hasTrait(PaginatedTrait.ID)) {
-                        Symbol serviceSymbol = symbolProvider.toSymbol(service);
-                        String aggregatedClientName = serviceSymbol.getName().replace("Client", "");
                         String paginationFileName = DocumentClientPaginationGenerator.getOutputFilelocation(operation);
                         writerFactory.accept(paginationFileName, paginationWriter ->
                             new DocumentClientPaginationGenerator(model, service, operation, symbolProvider,
-                                    paginationWriter, aggregatedClientName).run());
+                                    paginationWriter).run());
                     }
                 }
             }

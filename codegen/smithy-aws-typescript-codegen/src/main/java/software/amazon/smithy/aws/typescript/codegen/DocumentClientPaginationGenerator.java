@@ -51,7 +51,6 @@ final class DocumentClientPaginationGenerator implements Runnable {
 
     private final String operationName;
     private final String methodName;
-    private final String aggregatedClientName;
     private final String paginationType;
 
     DocumentClientPaginationGenerator(
@@ -59,8 +58,7 @@ final class DocumentClientPaginationGenerator implements Runnable {
             ServiceShape service,
             OperationShape operation,
             SymbolProvider symbolProvider,
-            TypeScriptWriter writer,
-            String aggregatedClientName
+            TypeScriptWriter writer
     ) {
 
         this.writer = writer;
@@ -71,11 +69,10 @@ final class DocumentClientPaginationGenerator implements Runnable {
         this.outputSymbol = symbolProvider.toSymbol(operation).expectProperty("outputType", Symbol.class);
 
         this.operationName = operation.getId().getName();
-        this.aggregatedClientName = aggregatedClientName;
 
         // e.g. listObjects
         this.methodName = Character.toLowerCase(operationName.charAt(0)) + operationName.substring(1);
-        this.paginationType = this.aggregatedClientName + "PaginationConfiguration";
+        this.paginationType = DocumentClientUtils.CLIENT_FULL_NAME + "PaginationConfiguration";
 
         PaginatedIndex paginatedIndex = PaginatedIndex.of(model);
         Optional<PaginationInfo> paginationInfo = paginatedIndex.getPaginationInfo(service, operation);
@@ -87,24 +84,28 @@ final class DocumentClientPaginationGenerator implements Runnable {
     @Override
     public void run() {
         // Import Service Types
-        writer.addImport(operationSymbol.getName(),
-                operationSymbol.getName(),
-                operationSymbol.getNamespace());
-        writer.addImport(inputSymbol.getName(),
-                inputSymbol.getName(),
-                inputSymbol.getNamespace());
-        writer.addImport(outputSymbol.getName(),
-                outputSymbol.getName(),
-                outputSymbol.getNamespace());
-        String aggregatedClientLocation = serviceSymbol.getNamespace()
-                .replace(serviceSymbol.getName(), aggregatedClientName);
-        writer.addImport(aggregatedClientName, aggregatedClientName, aggregatedClientLocation);
-        writer.addImport(serviceSymbol.getName(), serviceSymbol.getName(), serviceSymbol.getNamespace());
+        // writer.addImport(operationSymbol.getName(),
+        //         operationSymbol.getName(),
+        //         operationSymbol.getNamespace());
+        // writer.addImport(inputSymbol.getName(),
+        //         inputSymbol.getName(),
+        //         inputSymbol.getNamespace());
+        // writer.addImport(outputSymbol.getName(),
+        //         outputSymbol.getName(),
+        //         outputSymbol.getNamespace());
+        writer.addImport(
+            DocumentClientUtils.CLIENT_NAME,
+            DocumentClientUtils.CLIENT_NAME,
+            Paths.get(".", DocumentClientUtils.CLIENT_NAME).toString());
+        writer.addImport(
+            DocumentClientUtils.CLIENT_FULL_NAME,
+            DocumentClientUtils.CLIENT_FULL_NAME,
+            Paths.get(".", DocumentClientUtils.CLIENT_FULL_NAME).toString());
 
         // Import Pagination types
-        writer.addImport("Paginator", "Paginator", "@aws-sdk/types");
-        writer.addImport(paginationType, paginationType,
-            Paths.get(".", PAGINATION_INTERFACE_FILE.replace(".ts", "")).toString());
+        // writer.addImport("Paginator", "Paginator", "@aws-sdk/types");
+        // writer.addImport(paginationType, paginationType,
+        //     Paths.get(".", PAGINATION_INTERFACE_FILE.replace(".ts", "")).toString());
 
         writeCommandRequest();
         writeMethodRequest();
@@ -118,18 +119,19 @@ final class DocumentClientPaginationGenerator implements Runnable {
     }
 
     static void generateServicePaginationInterfaces(
-            String aggregatedClientName,
             Symbol service,
             TypeScriptWriter writer
     ) {
         writer.addImport("PaginationConfiguration", "PaginationConfiguration", "@aws-sdk/types");
-        String aggregatedClientLocation = service.getNamespace().replace(service.getName(), aggregatedClientName);
-        writer.addImport(aggregatedClientName, aggregatedClientName, aggregatedClientLocation);
+        String aggregatedClientLocation = service.getNamespace().replace(
+            service.getName(), DocumentClientUtils.CLIENT_FULL_NAME);
+        writer.addImport(DocumentClientUtils.CLIENT_FULL_NAME,
+            DocumentClientUtils.CLIENT_FULL_NAME, aggregatedClientLocation);
         writer.addImport(service.getName(), service.getName(), service.getNamespace());
 
         writer.openBlock("export interface $LPaginationConfiguration extends PaginationConfiguration {",
-                "}", aggregatedClientName, () -> {
-            writer.write("client: $L | $L;", aggregatedClientName, service.getName());
+                "}", DocumentClientUtils.CLIENT_FULL_NAME, () -> {
+            writer.write("client: $L | $L;", DocumentClientUtils.CLIENT_FULL_NAME, service.getName());
         });
     }
 
@@ -167,7 +169,6 @@ final class DocumentClientPaginationGenerator implements Runnable {
     }
 
     private void writePager() {
-        String serviceTypeName = serviceSymbol.getName();
         String inputTypeName = inputSymbol.getName();
         String outputTypeName = outputSymbol.getName();
 
@@ -192,15 +193,20 @@ final class DocumentClientPaginationGenerator implements Runnable {
                     writer.write("input[$S] = config.pageSize;", pageSize);
                 }
 
-                writer.openBlock("if (config.client instanceof $L) {", "}", aggregatedClientName, () -> {
-                    writer.write("page = await makePagedRequest(config.client, input, ...additionalArguments);");
-                });
-                writer.openBlock("else if (config.client instanceof $L) {", "}", serviceTypeName, () -> {
-                    writer.write("page = await makePagedClientRequest(config.client, input, ...additionalArguments);");
-                });
+                writer.openBlock("if (config.client instanceof $L) {", "}", DocumentClientUtils.CLIENT_FULL_NAME,
+                    () -> {
+                        writer.write("page = await makePagedRequest(config.client, input, ...additionalArguments);");
+                    }
+                );
+                writer.openBlock("else if (config.client instanceof $L) {", "}", DocumentClientUtils.CLIENT_NAME,
+                    () -> {
+                        writer.write(
+                            "page = await makePagedClientRequest(config.client, input, ...additionalArguments);");
+                    }
+                );
                 writer.openBlock("else {", "}", () -> {
                     writer.write("throw new Error(\"Invalid client, expected $L | $L\");",
-                            aggregatedClientName, serviceTypeName);
+                            DocumentClientUtils.CLIENT_FULL_NAME, DocumentClientUtils.CLIENT_NAME);
                 });
 
                 writer.write("yield page;");
@@ -223,7 +229,7 @@ final class DocumentClientPaginationGenerator implements Runnable {
         writer.writeDocs("@private");
         writer.openBlock(
                 "const makePagedRequest = async (client: $L, input: $L, ...args: any): Promise<$L> => {",
-                "}", aggregatedClientName, inputSymbol.getName(),
+                "}", DocumentClientUtils.CLIENT_FULL_NAME, inputSymbol.getName(),
                 outputSymbol.getName(), () -> {
             writer.write("// @ts-ignore");
             writer.write("return await client.$L(input, ...args);", methodName);
@@ -238,7 +244,7 @@ final class DocumentClientPaginationGenerator implements Runnable {
         writer.writeDocs("@private");
         writer.openBlock(
                 "const makePagedClientRequest = async (client: $L, input: $L, ...args: any): Promise<$L> => {",
-                "}", serviceSymbol.getName(), inputSymbol.getName(),
+                "}", DocumentClientUtils.CLIENT_NAME, inputSymbol.getName(),
                 outputSymbol.getName(), () -> {
             writer.write("// @ts-ignore");
             writer.write("return await client.send(new $L(input), ...args);", operationSymbol.getName());
