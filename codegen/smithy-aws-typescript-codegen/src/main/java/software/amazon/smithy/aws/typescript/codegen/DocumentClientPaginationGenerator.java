@@ -36,10 +36,11 @@ final class DocumentClientPaginationGenerator implements Runnable {
     private final TypeScriptWriter writer;
     private final PaginationInfo paginatedInfo;
 
-    private final String operationName;
+    private final String operationTypeName;
     private final String inputTypeName;
     private final String outputTypeName;
 
+    private final String operationName;
     private final String methodName;
     private final String paginationType;
 
@@ -56,11 +57,12 @@ final class DocumentClientPaginationGenerator implements Runnable {
         Symbol inputSymbol = symbolProvider.toSymbol(operation).expectProperty("inputType", Symbol.class);
         Symbol outputSymbol = symbolProvider.toSymbol(operation).expectProperty("outputType", Symbol.class);
 
-        this.operationName = DocumentClientUtils.getModifiedName(operationSymbol.getName());
+        this.operationTypeName = DocumentClientUtils.getModifiedName(operationSymbol.getName());
         this.inputTypeName = DocumentClientUtils.getModifiedName(inputSymbol.getName());
         this.outputTypeName = DocumentClientUtils.getModifiedName(outputSymbol.getName());
 
         // e.g. listObjects
+        this.operationName = operationTypeName.replace("Command", "");
         this.methodName = Character.toLowerCase(operationName.charAt(0)) + operationName.substring(1);
         this.paginationType = DocumentClientUtils.CLIENT_FULL_NAME + "PaginationConfiguration";
 
@@ -75,8 +77,8 @@ final class DocumentClientPaginationGenerator implements Runnable {
     public void run() {
         // Import Service Types
         String commandFileLocation = Paths.get(".", DocumentClientUtils.CLIENT_COMMANDS_FOLDER,
-            DocumentClientUtils.getModifiedName(operationName)).toString();
-        writer.addImport(operationName, operationName, commandFileLocation);
+            DocumentClientUtils.getModifiedName(operationTypeName)).toString();
+        writer.addImport(operationTypeName, operationTypeName, commandFileLocation);
         writer.addImport(inputTypeName, inputTypeName, commandFileLocation);
         writer.addImport(outputTypeName, outputTypeName, commandFileLocation);
         writer.addImport(
@@ -207,7 +209,7 @@ final class DocumentClientPaginationGenerator implements Runnable {
                 "}", DocumentClientUtils.CLIENT_NAME, inputTypeName,
                 outputTypeName, () -> {
             writer.write("// @ts-ignore");
-            writer.write("return await client.send(new $L(input), ...args);", operationName);
+            writer.write("return await client.send(new $L(input), ...args);", operationTypeName);
         });
     }
 }
