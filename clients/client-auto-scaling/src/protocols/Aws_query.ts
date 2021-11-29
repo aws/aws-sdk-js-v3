@@ -328,9 +328,12 @@ import {
   LocalStorageType,
   MemoryGiBPerVCpuRequest,
   MemoryMiBRequest,
+  Metric,
   MetricCollectionType,
+  MetricDataQuery,
   MetricDimension,
   MetricGranularityType,
+  MetricStat,
   MixedInstancesPolicy,
   NetworkInterfaceCountRequest,
   NotificationConfiguration,
@@ -338,6 +341,9 @@ import {
   PolicyARNType,
   PredefinedMetricSpecification,
   PredictiveScalingConfiguration,
+  PredictiveScalingCustomizedCapacityMetric,
+  PredictiveScalingCustomizedLoadMetric,
+  PredictiveScalingCustomizedScalingMetric,
   PredictiveScalingMetricSpecification,
   PredictiveScalingPredefinedLoadMetric,
   PredictiveScalingPredefinedMetricPair,
@@ -6784,6 +6790,64 @@ const serializeAws_queryMemoryMiBRequest = (input: MemoryMiBRequest, context: __
   return entries;
 };
 
+const serializeAws_queryMetric = (input: Metric, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Namespace !== undefined && input.Namespace !== null) {
+    entries["Namespace"] = input.Namespace;
+  }
+  if (input.MetricName !== undefined && input.MetricName !== null) {
+    entries["MetricName"] = input.MetricName;
+  }
+  if (input.Dimensions !== undefined && input.Dimensions !== null) {
+    const memberEntries = serializeAws_queryMetricDimensions(input.Dimensions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Dimensions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryMetricDataQueries = (input: MetricDataQuery[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_queryMetricDataQuery(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryMetricDataQuery = (input: MetricDataQuery, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Id !== undefined && input.Id !== null) {
+    entries["Id"] = input.Id;
+  }
+  if (input.Expression !== undefined && input.Expression !== null) {
+    entries["Expression"] = input.Expression;
+  }
+  if (input.MetricStat !== undefined && input.MetricStat !== null) {
+    const memberEntries = serializeAws_queryMetricStat(input.MetricStat, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MetricStat.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Label !== undefined && input.Label !== null) {
+    entries["Label"] = input.Label;
+  }
+  if (input.ReturnData !== undefined && input.ReturnData !== null) {
+    entries["ReturnData"] = input.ReturnData;
+  }
+  return entries;
+};
+
 const serializeAws_queryMetricDimension = (input: MetricDimension, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Name !== undefined && input.Name !== null) {
@@ -6820,6 +6884,24 @@ const serializeAws_queryMetrics = (input: string[], context: __SerdeContext): an
     }
     entries[`member.${counter}`] = entry;
     counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryMetricStat = (input: MetricStat, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Metric !== undefined && input.Metric !== null) {
+    const memberEntries = serializeAws_queryMetric(input.Metric, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Metric.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Stat !== undefined && input.Stat !== null) {
+    entries["Stat"] = input.Stat;
+  }
+  if (input.Unit !== undefined && input.Unit !== null) {
+    entries["Unit"] = input.Unit;
   }
   return entries;
 };
@@ -6940,6 +7022,51 @@ const serializeAws_queryPredictiveScalingConfiguration = (
   return entries;
 };
 
+const serializeAws_queryPredictiveScalingCustomizedCapacityMetric = (
+  input: PredictiveScalingCustomizedCapacityMetric,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.MetricDataQueries !== undefined && input.MetricDataQueries !== null) {
+    const memberEntries = serializeAws_queryMetricDataQueries(input.MetricDataQueries, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MetricDataQueries.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryPredictiveScalingCustomizedLoadMetric = (
+  input: PredictiveScalingCustomizedLoadMetric,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.MetricDataQueries !== undefined && input.MetricDataQueries !== null) {
+    const memberEntries = serializeAws_queryMetricDataQueries(input.MetricDataQueries, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MetricDataQueries.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryPredictiveScalingCustomizedScalingMetric = (
+  input: PredictiveScalingCustomizedScalingMetric,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.MetricDataQueries !== undefined && input.MetricDataQueries !== null) {
+    const memberEntries = serializeAws_queryMetricDataQueries(input.MetricDataQueries, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MetricDataQueries.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_queryPredictiveScalingMetricSpecification = (
   input: PredictiveScalingMetricSpecification,
   context: __SerdeContext
@@ -6975,6 +7102,39 @@ const serializeAws_queryPredictiveScalingMetricSpecification = (
     );
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PredefinedLoadMetricSpecification.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.CustomizedScalingMetricSpecification !== undefined && input.CustomizedScalingMetricSpecification !== null) {
+    const memberEntries = serializeAws_queryPredictiveScalingCustomizedScalingMetric(
+      input.CustomizedScalingMetricSpecification,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CustomizedScalingMetricSpecification.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.CustomizedLoadMetricSpecification !== undefined && input.CustomizedLoadMetricSpecification !== null) {
+    const memberEntries = serializeAws_queryPredictiveScalingCustomizedLoadMetric(
+      input.CustomizedLoadMetricSpecification,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CustomizedLoadMetricSpecification.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (
+    input.CustomizedCapacityMetricSpecification !== undefined &&
+    input.CustomizedCapacityMetricSpecification !== null
+  ) {
+    const memberEntries = serializeAws_queryPredictiveScalingCustomizedCapacityMetric(
+      input.CustomizedCapacityMetricSpecification,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CustomizedCapacityMetricSpecification.${key}`;
       entries[loc] = value;
     });
   }
@@ -9789,6 +9949,30 @@ const deserializeAws_queryMemoryMiBRequest = (output: any, context: __SerdeConte
   return contents;
 };
 
+const deserializeAws_queryMetric = (output: any, context: __SerdeContext): Metric => {
+  const contents: any = {
+    Namespace: undefined,
+    MetricName: undefined,
+    Dimensions: undefined,
+  };
+  if (output["Namespace"] !== undefined) {
+    contents.Namespace = __expectString(output["Namespace"]);
+  }
+  if (output["MetricName"] !== undefined) {
+    contents.MetricName = __expectString(output["MetricName"]);
+  }
+  if (output.Dimensions === "") {
+    contents.Dimensions = [];
+  }
+  if (output["Dimensions"] !== undefined && output["Dimensions"]["member"] !== undefined) {
+    contents.Dimensions = deserializeAws_queryMetricDimensions(
+      __getArrayIfSingleItem(output["Dimensions"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryMetricCollectionType = (output: any, context: __SerdeContext): MetricCollectionType => {
   const contents: any = {
     Metric: undefined,
@@ -9808,6 +9992,43 @@ const deserializeAws_queryMetricCollectionTypes = (output: any, context: __Serde
       }
       return deserializeAws_queryMetricCollectionType(entry, context);
     });
+};
+
+const deserializeAws_queryMetricDataQueries = (output: any, context: __SerdeContext): MetricDataQuery[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryMetricDataQuery(entry, context);
+    });
+};
+
+const deserializeAws_queryMetricDataQuery = (output: any, context: __SerdeContext): MetricDataQuery => {
+  const contents: any = {
+    Id: undefined,
+    Expression: undefined,
+    MetricStat: undefined,
+    Label: undefined,
+    ReturnData: undefined,
+  };
+  if (output["Id"] !== undefined) {
+    contents.Id = __expectString(output["Id"]);
+  }
+  if (output["Expression"] !== undefined) {
+    contents.Expression = __expectString(output["Expression"]);
+  }
+  if (output["MetricStat"] !== undefined) {
+    contents.MetricStat = deserializeAws_queryMetricStat(output["MetricStat"], context);
+  }
+  if (output["Label"] !== undefined) {
+    contents.Label = __expectString(output["Label"]);
+  }
+  if (output["ReturnData"] !== undefined) {
+    contents.ReturnData = __parseBoolean(output["ReturnData"]);
+  }
+  return contents;
 };
 
 const deserializeAws_queryMetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
@@ -9854,6 +10075,24 @@ const deserializeAws_queryMetricGranularityTypes = (output: any, context: __Serd
       }
       return deserializeAws_queryMetricGranularityType(entry, context);
     });
+};
+
+const deserializeAws_queryMetricStat = (output: any, context: __SerdeContext): MetricStat => {
+  const contents: any = {
+    Metric: undefined,
+    Stat: undefined,
+    Unit: undefined,
+  };
+  if (output["Metric"] !== undefined) {
+    contents.Metric = deserializeAws_queryMetric(output["Metric"], context);
+  }
+  if (output["Stat"] !== undefined) {
+    contents.Stat = __expectString(output["Stat"]);
+  }
+  if (output["Unit"] !== undefined) {
+    contents.Unit = __expectString(output["Unit"]);
+  }
+  return contents;
 };
 
 const deserializeAws_queryMixedInstancesPolicy = (output: any, context: __SerdeContext): MixedInstancesPolicy => {
@@ -10025,6 +10264,63 @@ const deserializeAws_queryPredictiveScalingConfiguration = (
   return contents;
 };
 
+const deserializeAws_queryPredictiveScalingCustomizedCapacityMetric = (
+  output: any,
+  context: __SerdeContext
+): PredictiveScalingCustomizedCapacityMetric => {
+  const contents: any = {
+    MetricDataQueries: undefined,
+  };
+  if (output.MetricDataQueries === "") {
+    contents.MetricDataQueries = [];
+  }
+  if (output["MetricDataQueries"] !== undefined && output["MetricDataQueries"]["member"] !== undefined) {
+    contents.MetricDataQueries = deserializeAws_queryMetricDataQueries(
+      __getArrayIfSingleItem(output["MetricDataQueries"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryPredictiveScalingCustomizedLoadMetric = (
+  output: any,
+  context: __SerdeContext
+): PredictiveScalingCustomizedLoadMetric => {
+  const contents: any = {
+    MetricDataQueries: undefined,
+  };
+  if (output.MetricDataQueries === "") {
+    contents.MetricDataQueries = [];
+  }
+  if (output["MetricDataQueries"] !== undefined && output["MetricDataQueries"]["member"] !== undefined) {
+    contents.MetricDataQueries = deserializeAws_queryMetricDataQueries(
+      __getArrayIfSingleItem(output["MetricDataQueries"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryPredictiveScalingCustomizedScalingMetric = (
+  output: any,
+  context: __SerdeContext
+): PredictiveScalingCustomizedScalingMetric => {
+  const contents: any = {
+    MetricDataQueries: undefined,
+  };
+  if (output.MetricDataQueries === "") {
+    contents.MetricDataQueries = [];
+  }
+  if (output["MetricDataQueries"] !== undefined && output["MetricDataQueries"]["member"] !== undefined) {
+    contents.MetricDataQueries = deserializeAws_queryMetricDataQueries(
+      __getArrayIfSingleItem(output["MetricDataQueries"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryPredictiveScalingForecastTimestamps = (output: any, context: __SerdeContext): Date[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -10056,6 +10352,9 @@ const deserializeAws_queryPredictiveScalingMetricSpecification = (
     PredefinedMetricPairSpecification: undefined,
     PredefinedScalingMetricSpecification: undefined,
     PredefinedLoadMetricSpecification: undefined,
+    CustomizedScalingMetricSpecification: undefined,
+    CustomizedLoadMetricSpecification: undefined,
+    CustomizedCapacityMetricSpecification: undefined,
   };
   if (output["TargetValue"] !== undefined) {
     contents.TargetValue = __strictParseFloat(output["TargetValue"]) as number;
@@ -10075,6 +10374,24 @@ const deserializeAws_queryPredictiveScalingMetricSpecification = (
   if (output["PredefinedLoadMetricSpecification"] !== undefined) {
     contents.PredefinedLoadMetricSpecification = deserializeAws_queryPredictiveScalingPredefinedLoadMetric(
       output["PredefinedLoadMetricSpecification"],
+      context
+    );
+  }
+  if (output["CustomizedScalingMetricSpecification"] !== undefined) {
+    contents.CustomizedScalingMetricSpecification = deserializeAws_queryPredictiveScalingCustomizedScalingMetric(
+      output["CustomizedScalingMetricSpecification"],
+      context
+    );
+  }
+  if (output["CustomizedLoadMetricSpecification"] !== undefined) {
+    contents.CustomizedLoadMetricSpecification = deserializeAws_queryPredictiveScalingCustomizedLoadMetric(
+      output["CustomizedLoadMetricSpecification"],
+      context
+    );
+  }
+  if (output["CustomizedCapacityMetricSpecification"] !== undefined) {
+    contents.CustomizedCapacityMetricSpecification = deserializeAws_queryPredictiveScalingCustomizedCapacityMetric(
+      output["CustomizedCapacityMetricSpecification"],
       context
     );
   }

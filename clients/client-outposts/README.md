@@ -7,10 +7,10 @@
 
 AWS SDK for JavaScript Outposts Client for Node.js, Browser and React Native.
 
-<p>AWS Outposts is a fully managed service that extends AWS infrastructure, APIs, and tools
-to customer premises. By providing local access to AWS managed infrastructure, AWS Outposts
+<p>Amazon Web Services Outposts is a fully managed service that extends Amazon Web Services infrastructure, APIs, and tools
+to customer premises. By providing local access to Amazon Web Services managed infrastructure, Amazon Web Services Outposts
 enables customers to build and run applications on premises using the same programming
-interfaces as in AWS Regions, while using local compute and storage resources for lower
+interfaces as in Amazon Web Services Regions, while using local compute and storage resources for lower
 latency and local data processing needs.</p>
 
 ## Installing
@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `OutpostsClient` and
-the commands you need, for example `CreateOrderCommand`:
+the commands you need, for example `CancelOrderCommand`:
 
 ```js
 // ES5 example
-const { OutpostsClient, CreateOrderCommand } = require("@aws-sdk/client-outposts");
+const { OutpostsClient, CancelOrderCommand } = require("@aws-sdk/client-outposts");
 ```
 
 ```ts
 // ES6+ example
-import { OutpostsClient, CreateOrderCommand } from "@aws-sdk/client-outposts";
+import { OutpostsClient, CancelOrderCommand } from "@aws-sdk/client-outposts";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new OutpostsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateOrderCommand(params);
+const command = new CancelOrderCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.Outposts({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createOrder(params);
+  const data = await client.cancelOrder(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .createOrder(params)
+  .cancelOrder(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.createOrder(params, (err, data) => {
+client.cancelOrder(params, (err, data) => {
   // proccess err and data.
 });
 ```

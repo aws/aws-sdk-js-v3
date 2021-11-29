@@ -334,6 +334,11 @@ import {
   DescribePartnersCommandOutput,
 } from "./commands/DescribePartnersCommand";
 import {
+  DescribeReservedNodeExchangeStatusCommand,
+  DescribeReservedNodeExchangeStatusCommandInput,
+  DescribeReservedNodeExchangeStatusCommandOutput,
+} from "./commands/DescribeReservedNodeExchangeStatusCommand";
+import {
   DescribeReservedNodeOfferingsCommand,
   DescribeReservedNodeOfferingsCommandInput,
   DescribeReservedNodeOfferingsCommandOutput,
@@ -413,6 +418,11 @@ import {
   GetClusterCredentialsCommandInput,
   GetClusterCredentialsCommandOutput,
 } from "./commands/GetClusterCredentialsCommand";
+import {
+  GetReservedNodeExchangeConfigurationOptionsCommand,
+  GetReservedNodeExchangeConfigurationOptionsCommandInput,
+  GetReservedNodeExchangeConfigurationOptionsCommandOutput,
+} from "./commands/GetReservedNodeExchangeConfigurationOptionsCommand";
 import {
   GetReservedNodeExchangeOfferingsCommand,
   GetReservedNodeExchangeOfferingsCommandInput,
@@ -3060,6 +3070,39 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
+   * <p>Returns exchange status details and associated metadata for a reserved-node
+   *             exchange. Statuses include such values as in progress and requested.</p>
+   */
+  public describeReservedNodeExchangeStatus(
+    args: DescribeReservedNodeExchangeStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReservedNodeExchangeStatusCommandOutput>;
+  public describeReservedNodeExchangeStatus(
+    args: DescribeReservedNodeExchangeStatusCommandInput,
+    cb: (err: any, data?: DescribeReservedNodeExchangeStatusCommandOutput) => void
+  ): void;
+  public describeReservedNodeExchangeStatus(
+    args: DescribeReservedNodeExchangeStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReservedNodeExchangeStatusCommandOutput) => void
+  ): void;
+  public describeReservedNodeExchangeStatus(
+    args: DescribeReservedNodeExchangeStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservedNodeExchangeStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReservedNodeExchangeStatusCommandOutput) => void
+  ): Promise<DescribeReservedNodeExchangeStatusCommandOutput> | void {
+    const command = new DescribeReservedNodeExchangeStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of the available reserved node offerings by Amazon Redshift with their
    *             descriptions including the node type, the fixed and recurring costs of reserving the
    *             node and duration the node will be reserved for you. These descriptions help you
@@ -3655,6 +3698,42 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: GetClusterCredentialsCommandOutput) => void
   ): Promise<GetClusterCredentialsCommandOutput> | void {
     const command = new GetClusterCredentialsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the configuration options for the reserved-node exchange. These options
+   *             include information about the source reserved node and target reserved node offering.
+   *             Details include the node type, the price, the node count, and the offering type.</p>
+   */
+  public getReservedNodeExchangeConfigurationOptions(
+    args: GetReservedNodeExchangeConfigurationOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetReservedNodeExchangeConfigurationOptionsCommandOutput>;
+  public getReservedNodeExchangeConfigurationOptions(
+    args: GetReservedNodeExchangeConfigurationOptionsCommandInput,
+    cb: (err: any, data?: GetReservedNodeExchangeConfigurationOptionsCommandOutput) => void
+  ): void;
+  public getReservedNodeExchangeConfigurationOptions(
+    args: GetReservedNodeExchangeConfigurationOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetReservedNodeExchangeConfigurationOptionsCommandOutput) => void
+  ): void;
+  public getReservedNodeExchangeConfigurationOptions(
+    args: GetReservedNodeExchangeConfigurationOptionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetReservedNodeExchangeConfigurationOptionsCommandOutput) => void),
+    cb?: (err: any, data?: GetReservedNodeExchangeConfigurationOptionsCommandOutput) => void
+  ): Promise<GetReservedNodeExchangeConfigurationOptionsCommandOutput> | void {
+    const command = new GetReservedNodeExchangeConfigurationOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -284,6 +284,10 @@ import {
 } from "./commands/DescribeOrderableClusterOptionsCommand";
 import { DescribePartnersCommandInput, DescribePartnersCommandOutput } from "./commands/DescribePartnersCommand";
 import {
+  DescribeReservedNodeExchangeStatusCommandInput,
+  DescribeReservedNodeExchangeStatusCommandOutput,
+} from "./commands/DescribeReservedNodeExchangeStatusCommand";
+import {
   DescribeReservedNodeOfferingsCommandInput,
   DescribeReservedNodeOfferingsCommandOutput,
 } from "./commands/DescribeReservedNodeOfferingsCommand";
@@ -329,6 +333,10 @@ import {
   GetClusterCredentialsCommandInput,
   GetClusterCredentialsCommandOutput,
 } from "./commands/GetClusterCredentialsCommand";
+import {
+  GetReservedNodeExchangeConfigurationOptionsCommandInput,
+  GetReservedNodeExchangeConfigurationOptionsCommandOutput,
+} from "./commands/GetReservedNodeExchangeConfigurationOptionsCommand";
 import {
   GetReservedNodeExchangeOfferingsCommandInput,
   GetReservedNodeExchangeOfferingsCommandOutput,
@@ -504,6 +512,7 @@ export type ServiceInputTypes =
   | DescribeNodeConfigurationOptionsCommandInput
   | DescribeOrderableClusterOptionsCommandInput
   | DescribePartnersCommandInput
+  | DescribeReservedNodeExchangeStatusCommandInput
   | DescribeReservedNodeOfferingsCommandInput
   | DescribeReservedNodesCommandInput
   | DescribeResizeCommandInput
@@ -520,6 +529,7 @@ export type ServiceInputTypes =
   | EnableLoggingCommandInput
   | EnableSnapshotCopyCommandInput
   | GetClusterCredentialsCommandInput
+  | GetReservedNodeExchangeConfigurationOptionsCommandInput
   | GetReservedNodeExchangeOfferingsCommandInput
   | ModifyAquaConfigurationCommandInput
   | ModifyAuthenticationProfileCommandInput
@@ -622,6 +632,7 @@ export type ServiceOutputTypes =
   | DescribeNodeConfigurationOptionsCommandOutput
   | DescribeOrderableClusterOptionsCommandOutput
   | DescribePartnersCommandOutput
+  | DescribeReservedNodeExchangeStatusCommandOutput
   | DescribeReservedNodeOfferingsCommandOutput
   | DescribeReservedNodesCommandOutput
   | DescribeResizeCommandOutput
@@ -638,6 +649,7 @@ export type ServiceOutputTypes =
   | EnableLoggingCommandOutput
   | EnableSnapshotCopyCommandOutput
   | GetClusterCredentialsCommandOutput
+  | GetReservedNodeExchangeConfigurationOptionsCommandOutput
   | GetReservedNodeExchangeOfferingsCommandOutput
   | ModifyAquaConfigurationCommandOutput
   | ModifyAuthenticationProfileCommandOutput

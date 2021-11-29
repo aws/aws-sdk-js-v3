@@ -23,6 +23,10 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
 
 /**
  * <p>Creates a project in the specified portal.</p>
+ *          <note>
+ *             <p>Make sure that the project name and description don't contain confidential
+ *         information.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -2297,7 +2297,7 @@ export namespace DeleteAssessmentResponse {
 
 export interface DeleteAssessmentFrameworkRequest {
   /**
-   * <p> The identifier for the framework. </p>
+   * <p> The identifier for the custom framework. </p>
    */
   frameworkId: string | undefined;
 }
@@ -2361,7 +2361,7 @@ export namespace DeleteAssessmentFrameworkShareResponse {
 
 export interface DeleteAssessmentReportRequest {
   /**
-   * <p> The identifier for the assessment. </p>
+   * <p> The unique identifier for the assessment. </p>
    */
   assessmentId: string | undefined;
 
@@ -2393,7 +2393,7 @@ export namespace DeleteAssessmentReportResponse {
 
 export interface DeleteControlRequest {
   /**
-   * <p> The identifier for the control. </p>
+   * <p> The unique identifier for the control. </p>
    */
   controlId: string | undefined;
 }
@@ -2474,12 +2474,12 @@ export namespace DeregisterOrganizationAdminAccountResponse {
 
 export interface DisassociateAssessmentReportEvidenceFolderRequest {
   /**
-   * <p> The identifier for the assessment. </p>
+   * <p> The unique identifier for the assessment. </p>
    */
   assessmentId: string | undefined;
 
   /**
-   * <p> The identifier for the folder in which evidence is stored. </p>
+   * <p> The unique identifier for the folder that the evidence is stored in. </p>
    */
   evidenceFolderId: string | undefined;
 }
@@ -2533,7 +2533,7 @@ export namespace GetAccountStatusResponse {
 
 export interface GetAssessmentRequest {
   /**
-   * <p> The identifier for the assessment. </p>
+   * <p>The unique identifier for the assessment. </p>
    */
   assessmentId: string | undefined;
 }
@@ -2606,12 +2606,12 @@ export namespace GetAssessmentFrameworkResponse {
 
 export interface GetAssessmentReportUrlRequest {
   /**
-   * <p> The identifier for the assessment report. </p>
+   * <p> The unique identifier for the assessment report. </p>
    */
   assessmentReportId: string | undefined;
 
   /**
-   * <p> The identifier for the assessment. </p>
+   * <p> The unique identifier for the assessment. </p>
    */
   assessmentId: string | undefined;
 }
@@ -2669,17 +2669,17 @@ export namespace GetAssessmentReportUrlResponse {
 
 export interface GetChangeLogsRequest {
   /**
-   * <p> The identifier for the assessment. </p>
+   * <p>The unique identifier for the assessment. </p>
    */
   assessmentId: string | undefined;
 
   /**
-   * <p> The identifier for the control set. </p>
+   * <p> The unique identifier for the control set. </p>
    */
   controlSetId?: string;
 
   /**
-   * <p> The identifier for the control. </p>
+   * <p> The unique identifier for the control. </p>
    */
   controlId?: string;
 
@@ -2689,7 +2689,7 @@ export interface GetChangeLogsRequest {
   nextToken?: string;
 
   /**
-   * <p> Represents the maximum number of results on a page or for an API request call. </p>
+   * <p>Represents the maximum number of results on a page or for an API request call. </p>
    */
   maxResults?: number;
 }
@@ -2754,12 +2754,12 @@ export namespace ChangeLog {
 
 export interface GetChangeLogsResponse {
   /**
-   * <p> The list of user activity for the control. </p>
+   * <p>The list of user activity for the control. </p>
    */
   changeLogs?: ChangeLog[];
 
   /**
-   * <p> The pagination token that's used to fetch the next set of results. </p>
+   * <p>The pagination token that's used to fetch the next set of results. </p>
    */
   nextToken?: string;
 }
@@ -2898,22 +2898,22 @@ export namespace GetDelegationsResponse {
 
 export interface GetEvidenceRequest {
   /**
-   * <p> The identifier for the assessment. </p>
+   * <p> The unique identifier for the assessment. </p>
    */
   assessmentId: string | undefined;
 
   /**
-   * <p> The identifier for the control set. </p>
+   * <p> The unique identifier for the control set. </p>
    */
   controlSetId: string | undefined;
 
   /**
-   * <p> The identifier for the folder that the evidence is stored in. </p>
+   * <p> The unique identifier for the folder that the evidence is stored in. </p>
    */
   evidenceFolderId: string | undefined;
 
   /**
-   * <p> The identifier for the evidence. </p>
+   * <p> The unique identifier for the evidence. </p>
    */
   evidenceId: string | undefined;
 }
@@ -3125,17 +3125,17 @@ export namespace GetEvidenceByEvidenceFolderResponse {
 
 export interface GetEvidenceFolderRequest {
   /**
-   * <p> The identifier for the assessment. </p>
+   * <p> The unique identifier for the assessment. </p>
    */
   assessmentId: string | undefined;
 
   /**
-   * <p> The identifier for the control set. </p>
+   * <p> The unique identifier for the control set. </p>
    */
   controlSetId: string | undefined;
 
   /**
-   * <p> The identifier for the folder that the evidence is stored in. </p>
+   * <p> The unique identifier for the folder that the evidence is stored in. </p>
    */
   evidenceFolderId: string | undefined;
 }
@@ -3167,7 +3167,7 @@ export namespace GetEvidenceFolderResponse {
 
 export interface GetEvidenceFoldersByAssessmentRequest {
   /**
-   * <p> The identifier for the assessment. </p>
+   * <p> The unique identifier for the assessment. </p>
    */
   assessmentId: string | undefined;
 
@@ -3267,6 +3267,239 @@ export namespace GetEvidenceFoldersByAssessmentControlResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetEvidenceFoldersByAssessmentControlResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInsightsRequest {}
+
+export namespace GetInsightsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInsightsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A summary of the latest analytics data for all your active assessments. </p>
+ *          <p>This summary is a snapshot of the data that your active assessments collected on the
+ *          <code>lastUpdated</code> date. It’s important to understand that the following totals
+ *          are daily counts based on this date — they aren’t a total sum to date. </p>
+ *          <p>The <code>Insights</code> data is eventually consistent. This means that, when you read
+ *          data from <code>Insights</code>, the response might not instantly reflect the results of a
+ *          recently completed write or update operation. If you repeat your read request after a few
+ *          hours, the response should return the latest data.</p>
+ *          <note>
+ *             <p>If you delete an assessment or change its status to inactive,
+ *             <code>InsightsByAssessment</code> includes data for that assessment as
+ *             follows.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <b>Inactive assessments</b> - If Audit Manager collected
+ *                evidence for your assessment before you changed it inactive, that evidence is
+ *                included in the <code>InsightsByAssessment</code> counts for that day.</p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <b>Deleted assessments</b> - If Audit Manager collected
+ *                evidence for your assessment before you deleted it, that evidence isn't included
+ *                in the <code>InsightsByAssessment</code> counts for that day.</p>
+ *                </li>
+ *             </ul>
+ *          </note>
+ */
+export interface Insights {
+  /**
+   * <p>The number of active assessments in Audit Manager. </p>
+   */
+  activeAssessmentsCount?: number;
+
+  /**
+   * <p>The number of compliance check evidence that Audit Manager classified as non-compliant
+   *          on the <code>lastUpdated</code> date. This includes evidence that was collected from
+   *          Security Hub with a <i>Fail</i> ruling, or collected from
+   *          Config with a <i>Non-compliant</i> ruling. </p>
+   */
+  noncompliantEvidenceCount?: number;
+
+  /**
+   * <p>The number of compliance check evidence that Audit Manager classified as compliant on
+   *          the <code>lastUpdated</code> date. This includes evidence that was collected from Security Hub with a <i>Pass</i> ruling, or collected from Config with a <i>Compliant</i> ruling. </p>
+   */
+  compliantEvidenceCount?: number;
+
+  /**
+   * <p>The number of evidence without a compliance check ruling. Evidence is inconclusive when the
+   *          associated control uses Security Hub or Config as a data source
+   *          but you didn't enable those services. This is also the case when a control uses a data
+   *          source that doesn’t support compliance checks (for example: manual evidence, API calls, or
+   *          CloudTrail). </p>
+   *          <note>
+   *             <p>If evidence has a compliance check status of <i>not applicable</i>, it's classed
+   *          as <i>inconclusive</i> in <code>Insights</code> data.</p>
+   *          </note>
+   */
+  inconclusiveEvidenceCount?: number;
+
+  /**
+   * <p>The number of assessment controls that collected non-compliant evidence on the
+   *          <code>lastUpdated</code> date. </p>
+   */
+  assessmentControlsCountByNoncompliantEvidence?: number;
+
+  /**
+   * <p>The total number of controls across all active assessments. </p>
+   */
+  totalAssessmentControlsCount?: number;
+
+  /**
+   * <p>The time when the cross-assessment insights were last updated. </p>
+   */
+  lastUpdated?: Date;
+}
+
+export namespace Insights {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Insights): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInsightsResponse {
+  /**
+   * <p>The analytics data that the <code>GetInsights</code> API returned. </p>
+   */
+  insights?: Insights;
+}
+
+export namespace GetInsightsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInsightsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInsightsByAssessmentRequest {
+  /**
+   * <p>The unique identifier for the assessment. </p>
+   */
+  assessmentId: string | undefined;
+}
+
+export namespace GetInsightsByAssessmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInsightsByAssessmentRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A summary of the latest analytics data for a specific active assessment.</p>
+ *          <p>This summary is a snapshot of the data that was collected on the <code>lastUpdated</code>
+ *          date. It’s important to understand that the totals in <code>InsightsByAssessment</code> are
+ *          daily counts based on this date — they aren’t a total sum to date. </p>
+ *          <p>The <code>InsightsByAssessment</code> data is eventually consistent. This means that
+ *          when you read data from <code>InsightsByAssessment</code>, the response might not instantly
+ *          reflect the results of a recently completed write or update operation. If you repeat your
+ *          read request after a few hours, the response returns the latest data.</p>
+ *          <note>
+ *             <p>If you delete an assessment or change its status to inactive,
+ *             <code>InsightsByAssessment</code> includes data for that assessment as
+ *             follows.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <b>Inactive assessments</b> - If Audit Manager collected
+ *                evidence for your assessment before you changed it inactive, that evidence is
+ *                included in the <code>InsightsByAssessment</code> counts for that day.</p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <b>Deleted assessments</b> - If Audit Manager collected
+ *                evidence for your assessment before you deleted it, that evidence isn't included
+ *                in the <code>InsightsByAssessment</code> counts for that day.</p>
+ *                </li>
+ *             </ul>
+ *          </note>
+ */
+export interface InsightsByAssessment {
+  /**
+   * <p>The number of compliance check evidence that Audit Manager classified as non-compliant.
+   *          This includes evidence that was collected from Security Hub with a
+   *          <i>Fail</i> ruling, or collected from Config with a
+   *          <i>Non-compliant</i> ruling. </p>
+   */
+  noncompliantEvidenceCount?: number;
+
+  /**
+   * <p>The number of compliance check evidence that Audit Manager classified as compliant.
+   *          This includes evidence that was collected from Security Hub with a
+   *          <i>Pass</i> ruling, or collected from Config with a
+   *          <i>Compliant</i> ruling. </p>
+   */
+  compliantEvidenceCount?: number;
+
+  /**
+   * <p>The amount of evidence without a compliance check ruling. Evidence is inconclusive if the
+   *          associated control uses Security Hub or Config as a data source
+   *          and you didn't enable those services. This is also the case if a control uses a data source
+   *          that doesn’t support compliance checks (for example, manual evidence, API calls, or CloudTrail). </p>
+   *          <note>
+   *             <p>If evidence has a compliance check status of <i>not applicable</i>, it's
+   *          classified as <i>inconclusive</i> in <code>InsightsByAssessment</code>
+   *          data.</p>
+   *          </note>
+   */
+  inconclusiveEvidenceCount?: number;
+
+  /**
+   * <p>The number of assessment controls that collected non-compliant evidence on the
+   *          <code>lastUpdated</code> date. </p>
+   */
+  assessmentControlsCountByNoncompliantEvidence?: number;
+
+  /**
+   * <p>The total number of controls in the assessment. </p>
+   */
+  totalAssessmentControlsCount?: number;
+
+  /**
+   * <p>The time when the assessment insights were last updated.</p>
+   */
+  lastUpdated?: Date;
+}
+
+export namespace InsightsByAssessment {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InsightsByAssessment): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInsightsByAssessmentResponse {
+  /**
+   * <p> The assessment analytics data that the <code>GetInsightsByAssessment</code> API
+   *          returned. </p>
+   */
+  insights?: InsightsByAssessment;
+}
+
+export namespace GetInsightsByAssessmentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInsightsByAssessmentResponse): any => ({
     ...obj,
   });
 }
@@ -3444,6 +3677,146 @@ export namespace GetSettingsResponse {
   });
 }
 
+export interface ListAssessmentControlInsightsByControlDomainRequest {
+  /**
+   * <p>The unique identifier for the control domain. </p>
+   */
+  controlDomainId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the active assessment. </p>
+   */
+  assessmentId: string | undefined;
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results. </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Represents the maximum number of results on a page or for an API request call. </p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListAssessmentControlInsightsByControlDomainRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAssessmentControlInsightsByControlDomainRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A breakdown of the latest compliance check status for the evidence in your Audit Manager
+ *          assessments. </p>
+ */
+export interface EvidenceInsights {
+  /**
+   * <p>The number of compliance check evidence that Audit Manager classified as non-compliant.
+   *          This includes evidence that was collected from Security Hub with a
+   *          <i>Fail</i> ruling, or collected from Config with a
+   *          <i>Non-compliant</i> ruling. </p>
+   */
+  noncompliantEvidenceCount?: number;
+
+  /**
+   * <p>The number of compliance check evidence that Audit Manager classified as compliant. This
+   *          includes evidence that was collected from Security Hub with a
+   *          <i>Pass</i> ruling, or collected from Config with a
+   *          <i>Compliant</i> ruling. </p>
+   */
+  compliantEvidenceCount?: number;
+
+  /**
+   * <p>The number of evidence that a compliance check ruling isn't available for. Evidence is
+   *          inconclusive when the associated control uses Security Hub or Config as a data source but you didn't enable those services. This is also the case when a
+   *          control uses a data source that doesn’t support compliance checks (for example, manual
+   *          evidence, API calls, or CloudTrail). </p>
+   *          <note>
+   *             <p>If evidence has a compliance check status of <i>not applicable</i> in the
+   *          console, it's classified as <i>inconclusive</i> in
+   *          <code>EvidenceInsights</code> data.</p>
+   *          </note>
+   */
+  inconclusiveEvidenceCount?: number;
+}
+
+export namespace EvidenceInsights {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EvidenceInsights): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A summary of the latest analytics data for a specific control in a specific active
+ *          assessment.</p>
+ *          <p>Control insights are grouped by control domain, and ranked by the highest total count of non-compliant evidence.
+ *       </p>
+ */
+export interface ControlInsightsMetadataByAssessmentItem {
+  /**
+   * <p>The name of the assessment control. </p>
+   */
+  name?: string;
+
+  /**
+   * <p>The unique identifier for the assessment control. </p>
+   */
+  id?: string;
+
+  /**
+   * <p>A breakdown of the compliance check status for the evidence that’s associated with the
+   *          assessment control. </p>
+   */
+  evidenceInsights?: EvidenceInsights;
+
+  /**
+   * <p>The name of the control set that the assessment control belongs to. </p>
+   */
+  controlSetName?: string;
+
+  /**
+   * <p>The time when the assessment control insights were last updated. </p>
+   */
+  lastUpdated?: Date;
+}
+
+export namespace ControlInsightsMetadataByAssessmentItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ControlInsightsMetadataByAssessmentItem): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAssessmentControlInsightsByControlDomainResponse {
+  /**
+   * <p>The assessment control analytics data that the
+   *          <code>ListAssessmentControlInsightsByControlDomain</code> API returned. </p>
+   */
+  controlInsightsByAssessment?: ControlInsightsMetadataByAssessmentItem[];
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results. </p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListAssessmentControlInsightsByControlDomainResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAssessmentControlInsightsByControlDomainResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListAssessmentFrameworksRequest {
   /**
    * <p> The type of framework, such as a standard framework or a custom framework. </p>
@@ -3584,6 +3957,11 @@ export namespace ListAssessmentReportsResponse {
 
 export interface ListAssessmentsRequest {
   /**
+   * <p> The current status of the assessment.</p>
+   */
+  status?: AssessmentStatus | string;
+
+  /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
    */
   nextToken?: string;
@@ -3620,6 +3998,228 @@ export namespace ListAssessmentsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListAssessmentsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListControlDomainInsightsRequest {
+  /**
+   * <p>The pagination token that's used to fetch the next set of results. </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Represents the maximum number of results on a page or for an API request call. </p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListControlDomainInsightsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListControlDomainInsightsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A summary of the latest analytics data for a specific control domain.</p>
+ *          <p>Control domain insights are grouped by control domain, and ranked by the highest total count of non-compliant evidence.</p>
+ */
+export interface ControlDomainInsights {
+  /**
+   * <p>The name of the control domain. </p>
+   */
+  name?: string;
+
+  /**
+   * <p>The unique identifier for the control domain. </p>
+   */
+  id?: string;
+
+  /**
+   * <p>The number of controls in the control domain that collected non-compliant evidence on the
+   *          <code>lastUpdated</code> date. </p>
+   */
+  controlsCountByNoncompliantEvidence?: number;
+
+  /**
+   * <p>The total number of controls in the control domain. </p>
+   */
+  totalControlsCount?: number;
+
+  /**
+   * <p>A breakdown of the compliance check status for the evidence that’s associated with the control
+   *          domain. </p>
+   */
+  evidenceInsights?: EvidenceInsights;
+
+  /**
+   * <p>The time when the control domain insights were last updated. </p>
+   */
+  lastUpdated?: Date;
+}
+
+export namespace ControlDomainInsights {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ControlDomainInsights): any => ({
+    ...obj,
+  });
+}
+
+export interface ListControlDomainInsightsResponse {
+  /**
+   * <p>The control domain analytics data that the <code>ListControlDomainInsights</code> API
+   *          returned. </p>
+   */
+  controlDomainInsights?: ControlDomainInsights[];
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results. </p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListControlDomainInsightsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListControlDomainInsightsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListControlDomainInsightsByAssessmentRequest {
+  /**
+   * <p>The unique identifier for the active assessment. </p>
+   */
+  assessmentId: string | undefined;
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results. </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Represents the maximum number of results on a page or for an API request call. </p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListControlDomainInsightsByAssessmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListControlDomainInsightsByAssessmentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListControlDomainInsightsByAssessmentResponse {
+  /**
+   * <p>The control domain analytics data that the
+   *          <code>ListControlDomainInsightsByAssessment</code> API returned. </p>
+   */
+  controlDomainInsights?: ControlDomainInsights[];
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results. </p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListControlDomainInsightsByAssessmentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListControlDomainInsightsByAssessmentResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListControlInsightsByControlDomainRequest {
+  /**
+   * <p>The unique identifier for the control domain. </p>
+   */
+  controlDomainId: string | undefined;
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results. </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Represents the maximum number of results on a page or for an API request call. </p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListControlInsightsByControlDomainRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListControlInsightsByControlDomainRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A summary of the latest analytics data for a specific control. </p>
+ *          <p>This data reflects the total counts for the specified control across all active assessments. Control insights are grouped by control domain, and ranked by the highest total count of non-compliant evidence.</p>
+ */
+export interface ControlInsightsMetadataItem {
+  /**
+   * <p>The name of the control. </p>
+   */
+  name?: string;
+
+  /**
+   * <p>The unique identifier for the control. </p>
+   */
+  id?: string;
+
+  /**
+   * <p>A breakdown of the compliance check status for the evidence that’s associated with the
+   *          control. </p>
+   */
+  evidenceInsights?: EvidenceInsights;
+
+  /**
+   * <p>The time when the control insights were last updated. </p>
+   */
+  lastUpdated?: Date;
+}
+
+export namespace ControlInsightsMetadataItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ControlInsightsMetadataItem): any => ({
+    ...obj,
+  });
+}
+
+export interface ListControlInsightsByControlDomainResponse {
+  /**
+   * <p>The control analytics data that the <code>ListControlInsightsByControlDomain</code> API
+   *          returned. </p>
+   */
+  controlInsightsMetadata?: ControlInsightsMetadataItem[];
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results. </p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListControlInsightsByControlDomainResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListControlInsightsByControlDomainResponse): any => ({
     ...obj,
   });
 }
@@ -4082,7 +4682,7 @@ export namespace UntagResourceResponse {
 
 export interface UpdateAssessmentRequest {
   /**
-   * <p> The identifier for the assessment. </p>
+   * <p> The unique identifier for the assessment. </p>
    */
   assessmentId: string | undefined;
 
@@ -4141,17 +4741,17 @@ export namespace UpdateAssessmentResponse {
 
 export interface UpdateAssessmentControlRequest {
   /**
-   * <p> The identifier for the assessment. </p>
+   * <p> The unique identifier for the assessment. </p>
    */
   assessmentId: string | undefined;
 
   /**
-   * <p> The identifier for the control set. </p>
+   * <p> The unique identifier for the control set. </p>
    */
   controlSetId: string | undefined;
 
   /**
-   * <p> The identifier for the control. </p>
+   * <p> The unique identifier for the control. </p>
    */
   controlId: string | undefined;
 
@@ -4194,12 +4794,12 @@ export namespace UpdateAssessmentControlResponse {
 
 export interface UpdateAssessmentControlSetStatusRequest {
   /**
-   * <p> The identifier for the assessment. </p>
+   * <p> The unique identifier for the assessment. </p>
    */
   assessmentId: string | undefined;
 
   /**
-   * <p> The identifier for the control set. </p>
+   * <p> The unique identifier for the control set. </p>
    */
   controlSetId: string | undefined;
 
@@ -4271,7 +4871,7 @@ export namespace UpdateAssessmentFrameworkControlSet {
 
 export interface UpdateAssessmentFrameworkRequest {
   /**
-   * <p> The identifier for the framework. </p>
+   * <p> The unique identifier for the framework. </p>
    */
   frameworkId: string | undefined;
 
@@ -4373,7 +4973,7 @@ export namespace UpdateAssessmentFrameworkShareResponse {
 
 export interface UpdateAssessmentStatusRequest {
   /**
-   * <p> The identifier for the assessment. </p>
+   * <p> The unique identifier for the assessment. </p>
    */
   assessmentId: string | undefined;
 

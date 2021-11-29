@@ -10,6 +10,7 @@ import {
   ClientVpnAuthorizationRuleStatus,
   CurrencyCodeValues,
   DnsSupportValue,
+  HostnameType,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   InstanceEventWindow,
@@ -27,6 +28,8 @@ import {
 import {
   AutoAcceptSharedAttachmentsValue,
   BlockDeviceMapping,
+  CapacityReservationPreference,
+  CapacityReservationTarget,
   CreditSpecificationRequest,
   DefaultRouteTableAssociationValue,
   DefaultRouteTablePropagationValue,
@@ -95,12 +98,252 @@ import {
   SpotPlacement,
 } from "./models_3";
 import {
-  CapacityReservationSpecification,
-  InstanceCreditSpecificationRequest,
+  BlobAttributeValue,
+  InstanceBlockDeviceMappingSpecification,
   OperationType,
   Purchase,
   VolumeModification,
 } from "./models_4";
+
+export interface ModifyInstanceAttributeRequest {
+  /**
+   * <p>Enable or disable source/destination checks, which ensure that the instance
+   *             is either the source or the destination of any traffic that it receives.
+   *             If the value is <code>true</code>, source/destination checks are enabled;
+   *             otherwise, they are disabled. The default value is <code>true</code>.
+   *             You must disable source/destination checks if the instance runs services
+   *             such as network address translation, routing, or firewalls.</p>
+   */
+  SourceDestCheck?: AttributeBooleanValue;
+
+  /**
+   * <p>The name of the attribute.</p>
+   */
+  Attribute?: InstanceAttributeName | string;
+
+  /**
+   * <p>Modifies the <code>DeleteOnTermination</code> attribute for volumes that are currently
+   *             attached. The volume must be owned by the caller. If no value is specified for
+   *                 <code>DeleteOnTermination</code>, the default is <code>true</code> and the volume is
+   *             deleted when the instance is terminated.</p>
+   *         <p>To add instance store volumes to an Amazon EBS-backed instance, you must add them when
+   *             you launch the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Update the block device mapping when launching an instance</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
+   */
+  BlockDeviceMappings?: InstanceBlockDeviceMappingSpecification[];
+
+  /**
+   * <p>If the value is <code>true</code>, you can't terminate the instance using the Amazon
+   *             EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot
+   *             Instances.</p>
+   */
+  DisableApiTermination?: AttributeBooleanValue;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Specifies whether the instance is optimized for Amazon EBS I/O. This optimization
+   *             provides dedicated throughput to Amazon EBS and an optimized configuration stack to
+   *             provide optimal EBS I/O performance. This optimization isn't available with all instance
+   *             types. Additional usage charges apply when using an EBS Optimized instance.</p>
+   */
+  EbsOptimized?: AttributeBooleanValue;
+
+  /**
+   * <p>Set to <code>true</code> to enable enhanced networking with ENA for the
+   *             instance.</p>
+   *         <p>This option is supported only for HVM instances. Specifying this option with a PV
+   *             instance can make it unreachable.</p>
+   */
+  EnaSupport?: AttributeBooleanValue;
+
+  /**
+   * <p>[EC2-VPC] Replaces the security groups of the instance with the specified security groups.
+   *             You must specify at least one security group, even if it's just the default security group for the VPC. You must
+   *             specify the security group ID, not the security group name.</p>
+   */
+  Groups?: string[];
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Specifies whether an instance stops or terminates when you initiate shutdown from the
+   *             instance (using the operating system command for system shutdown).</p>
+   */
+  InstanceInitiatedShutdownBehavior?: AttributeValue;
+
+  /**
+   * <p>Changes the instance type to the specified value. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
+   *             types</a> in the <i>Amazon EC2 User Guide</i>. If the instance type is not valid,
+   *             the error returned is <code>InvalidInstanceAttributeValue</code>.</p>
+   */
+  InstanceType?: AttributeValue;
+
+  /**
+   * <p>Changes the instance's kernel to the specified value. We recommend that you use
+   *             PV-GRUB instead of kernels and RAM disks. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">PV-GRUB</a>.</p>
+   */
+  Kernel?: AttributeValue;
+
+  /**
+   * <p>Changes the instance's RAM disk to the specified value. We recommend that you use
+   *             PV-GRUB instead of kernels and RAM disks. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">PV-GRUB</a>.</p>
+   */
+  Ramdisk?: AttributeValue;
+
+  /**
+   * <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual
+   *             Function interface for the instance.</p>
+   *         <p>There is no way to disable enhanced networking with the Intel 82599 Virtual Function
+   *             interface at this time.</p>
+   *         <p>This option is supported only for HVM instances. Specifying this option with a PV
+   *             instance can make it unreachable.</p>
+   */
+  SriovNetSupport?: AttributeValue;
+
+  /**
+   * <p>Changes the instance's user data to the specified value. If you are using an Amazon Web Services SDK
+   *             or command line tool, base64-encoding is performed for you, and you can load the text
+   *             from a file. Otherwise, you must provide base64-encoded text.</p>
+   */
+  UserData?: BlobAttributeValue;
+
+  /**
+   * <p>A new value for the attribute. Use only with the <code>kernel</code>,
+   *                 <code>ramdisk</code>, <code>userData</code>, <code>disableApiTermination</code>, or
+   *                 <code>instanceInitiatedShutdownBehavior</code> attribute.</p>
+   */
+  Value?: string;
+}
+
+export namespace ModifyInstanceAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyInstanceAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an instance's Capacity Reservation targeting option. You can specify only one parameter
+ * 			at a time. If you specify <code>CapacityReservationPreference</code> and
+ * 			<code>CapacityReservationTarget</code>, the request fails.</p>
+ * 			      <p>Use the <code>CapacityReservationPreference</code> parameter to configure the instance
+ * 			to run as an On-Demand Instance or to run in any <code>open</code> Capacity Reservation that has
+ * 			matching attributes (instance type, platform, Availability Zone). Use the
+ * 			<code>CapacityReservationTarget</code> parameter to explicitly target a specific
+ * 			   	Capacity Reservation or a Capacity Reservation group.</p>
+ */
+export interface CapacityReservationSpecification {
+  /**
+   * <p>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>open</code> - The instance can run in any <code>open</code> Capacity Reservation that has matching attributes
+   * 				(instance type, platform, Availability Zone).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>none</code> - The instance avoids running in a Capacity Reservation even if one is available. The
+   * 					instance runs as an On-Demand Instance.</p>
+   *             </li>
+   *          </ul>
+   */
+  CapacityReservationPreference?: CapacityReservationPreference | string;
+
+  /**
+   * <p>Information about the target Capacity Reservation or Capacity Reservation group.</p>
+   */
+  CapacityReservationTarget?: CapacityReservationTarget;
+}
+
+export namespace CapacityReservationSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CapacityReservationSpecification): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyInstanceCapacityReservationAttributesRequest {
+  /**
+   * <p>The ID of the instance to be modified.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Information about the Capacity Reservation targeting option.</p>
+   */
+  CapacityReservationSpecification: CapacityReservationSpecification | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ModifyInstanceCapacityReservationAttributesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyInstanceCapacityReservationAttributesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyInstanceCapacityReservationAttributesResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace ModifyInstanceCapacityReservationAttributesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyInstanceCapacityReservationAttributesResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the credit option for CPU usage of a burstable performance instance.</p>
+ */
+export interface InstanceCreditSpecificationRequest {
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The credit option for CPU usage of the instance. Valid values are
+   *                 <code>standard</code> and <code>unlimited</code>.</p>
+   *         <p>T3 instances with <code>host</code> tenancy do not support the <code>unlimited</code>
+   *             CPU credit option.</p>
+   */
+  CpuCredits?: string;
+}
+
+export namespace InstanceCreditSpecificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceCreditSpecificationRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface ModifyInstanceCreditSpecificationRequest {
   /**
@@ -393,22 +636,23 @@ export interface ModifyInstanceMetadataOptionsRequest {
   HttpPutResponseHopLimit?: number;
 
   /**
-   * <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If
+   * <p>Enables or disables the HTTP metadata endpoint on your instances. If
    *             the parameter is not specified, the existing state is maintained.</p>
-   *         <note>
-   *             <p>If you specify a value of <code>disabled</code>, you will not be able to access your
-   *                 instance metadata.</p>
-   *         </note>
+   *         <p>If you specify a value of <code>disabled</code>, you cannot access your
+   *             instance metadata.</p>
    */
   HttpEndpoint?: InstanceMetadataEndpointState | string;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is
+   *             <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
   /**
-   * <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
+   * <p>Enables or disables the IPv6 endpoint for the instance metadata service. This setting
+   *             applies only if you have enabled the HTTP metadata endpoint.</p>
    */
   HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
 }
@@ -484,7 +728,8 @@ export interface ModifyInstancePlacementRequest {
   Tenancy?: HostTenancy | string;
 
   /**
-   * <p>Reserved for future use.</p>
+   * <p>The number of the partition in which to place the instance. Valid only if the
+   *             placement group strategy is set to <code>partition</code>.</p>
    */
   PartitionNumber?: number;
 
@@ -737,6 +982,63 @@ export namespace ModifyNetworkInterfaceAttributeRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: ModifyNetworkInterfaceAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyPrivateDnsNameOptionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be
+   *             based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based
+   *             on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance
+   *             IPv4 address or the instance ID.</p>
+   */
+  PrivateDnsHostnameType?: HostnameType | string;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p>
+   */
+  EnableResourceNameDnsARecord?: boolean;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p>
+   */
+  EnableResourceNameDnsAAAARecord?: boolean;
+}
+
+export namespace ModifyPrivateDnsNameOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyPrivateDnsNameOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyPrivateDnsNameOptionsResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace ModifyPrivateDnsNameOptionsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyPrivateDnsNameOptionsResult): any => ({
     ...obj,
   });
 }
@@ -1112,6 +1414,24 @@ export interface ModifySubnetAttributeRequest {
    *             should return synthetic IPv6 addresses for IPv4-only destinations.</p>
    */
   EnableDns64?: AttributeBooleanValue;
+
+  /**
+   * <p>The type of hostnames to assign to instances in the subnet at launch. For IPv4 only subnets, an
+   *             instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance
+   *             DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
+   *             names use the instance IPv4 address or the instance ID.</p>
+   */
+  PrivateDnsHostnameTypeOnLaunch?: HostnameType | string;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p>
+   */
+  EnableResourceNameDnsARecordOnLaunch?: AttributeBooleanValue;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p>
+   */
+  EnableResourceNameDnsAAAARecordOnLaunch?: AttributeBooleanValue;
 }
 
 export namespace ModifySubnetAttributeRequest {
@@ -3971,6 +4291,9 @@ export interface ReplaceRouteRequest {
    */
   VpcPeeringConnectionId?: string;
 
+  /**
+   * <p>The Amazon Resource Name (ARN) of the core network.</p>
+   */
   CoreNetworkArn?: string;
 }
 
@@ -5349,6 +5672,38 @@ export namespace InstanceMetadataOptionsRequest {
   });
 }
 
+/**
+ * <p>Describes the options for instance hostnames.</p>
+ */
+export interface PrivateDnsNameOptionsRequest {
+  /**
+   * <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be
+   *             based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based
+   *             on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance
+   *             IPv4 address or the instance ID.</p>
+   */
+  HostnameType?: HostnameType | string;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p>
+   */
+  EnableResourceNameDnsARecord?: boolean;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p>
+   */
+  EnableResourceNameDnsAAAARecord?: boolean;
+}
+
+export namespace PrivateDnsNameOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PrivateDnsNameOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface RunInstancesRequest {
   /**
    * <p>The block device mapping, which defines the EBS volumes and instance store
@@ -5480,8 +5835,8 @@ export interface RunInstancesRequest {
   SubnetId?: string;
 
   /**
-   * <p>The user data to make available to the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Running commands
-   *                 on your Linux instance at launch</a> (Linux) and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data">Adding User Data</a> (Windows). If you are using a command line tool,
+   * <p>The user data to make available to the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands
+   *                 on your Linux instance at launch</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html">Run commands on your Windows instance at launch</a>. If you are using a command line tool,
    *             base64-encoding is performed for you, and you can load the text from a file. Otherwise,
    *             you must provide base64-encoded text. User data is limited to 16 KB.</p>
    */
@@ -5617,7 +5972,7 @@ export interface RunInstancesRequest {
   CreditSpecification?: CreditSpecificationRequest;
 
   /**
-   * <p>The CPU options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimizing CPU options</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>The CPU options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimize CPU options</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   CpuOptions?: CpuOptionsRequest;
 
@@ -5654,6 +6009,11 @@ export interface RunInstancesRequest {
    * 	        <p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same instance.</p>
    */
   EnclaveOptions?: EnclaveOptionsRequest;
+
+  /**
+   * <p>The options for the instance hostname. The default values are inherited from the subnet.</p>
+   */
+  PrivateDnsNameOptions?: PrivateDnsNameOptionsRequest;
 }
 
 export namespace RunInstancesRequest {

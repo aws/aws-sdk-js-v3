@@ -15,7 +15,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   ModifyInstanceCapacityReservationAttributesRequest,
   ModifyInstanceCapacityReservationAttributesResult,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2ModifyInstanceCapacityReservationAttributesCommand,
   serializeAws_ec2ModifyInstanceCapacityReservationAttributesCommand,

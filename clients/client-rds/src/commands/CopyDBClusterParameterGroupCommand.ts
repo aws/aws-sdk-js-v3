@@ -23,9 +23,6 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
 
 /**
  * <p>Copies the specified DB cluster parameter group.</p>
- *         <note>
- *             <p>This action only applies to Aurora DB clusters.</p>
- *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

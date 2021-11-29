@@ -30,6 +30,19 @@ export interface StartReplicationTaskAssessmentCommandOutput
 /**
  * <p> Starts the replication task assessment for unsupported data types in the source
  *          database. </p>
+ *          <p>You can only use this operation for a task if the following conditions are true:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The task must be in the <code>stopped</code> state.</p>
+ *             </li>
+ *             <li>
+ *                <p>The task must have successful connections to the source and target.</p>
+ *             </li>
+ *          </ul>
+ *          <p>If either of these conditions are not met, an <code>InvalidResourceStateFault</code> error will result. </p>
+ *          <p>For information about DMS task assessments, see
+ *           <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html">Creating a task assessment report</a>
+ *           in the <i>Database Migration Service User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

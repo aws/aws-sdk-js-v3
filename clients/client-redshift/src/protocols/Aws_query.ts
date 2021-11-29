@@ -257,6 +257,10 @@ import {
 } from "../commands/DescribeOrderableClusterOptionsCommand";
 import { DescribePartnersCommandInput, DescribePartnersCommandOutput } from "../commands/DescribePartnersCommand";
 import {
+  DescribeReservedNodeExchangeStatusCommandInput,
+  DescribeReservedNodeExchangeStatusCommandOutput,
+} from "../commands/DescribeReservedNodeExchangeStatusCommand";
+import {
   DescribeReservedNodeOfferingsCommandInput,
   DescribeReservedNodeOfferingsCommandOutput,
 } from "../commands/DescribeReservedNodeOfferingsCommand";
@@ -302,6 +306,10 @@ import {
   GetClusterCredentialsCommandInput,
   GetClusterCredentialsCommandOutput,
 } from "../commands/GetClusterCredentialsCommand";
+import {
+  GetReservedNodeExchangeConfigurationOptionsCommandInput,
+  GetReservedNodeExchangeConfigurationOptionsCommandOutput,
+} from "../commands/GetReservedNodeExchangeConfigurationOptionsCommand";
 import {
   GetReservedNodeExchangeOfferingsCommandInput,
   GetReservedNodeExchangeOfferingsCommandOutput,
@@ -559,7 +567,6 @@ import {
   DescribeEventSubscriptionsMessage,
   DescribeHsmClientCertificatesMessage,
   DescribeHsmConfigurationsMessage,
-  DescribeLoggingStatusMessage,
   EC2SecurityGroup,
   ElasticIpStatus,
   Endpoint,
@@ -588,7 +595,6 @@ import {
   HsmClientCertificateQuotaExceededFault,
   HsmConfiguration,
   HsmConfigurationAlreadyExistsFault,
-  HsmConfigurationMessage,
   HsmConfigurationNotFoundFault,
   HsmConfigurationQuotaExceededFault,
   HsmStatus,
@@ -635,6 +641,7 @@ import {
   ReservedNode,
   ReservedNodeAlreadyExistsFault,
   ReservedNodeAlreadyMigratedFault,
+  ReservedNodeExchangeStatus,
   ReservedNodeNotFoundFault,
   ReservedNodeOfferingNotFoundFault,
   ResizeClusterMessage,
@@ -690,10 +697,13 @@ import {
   VpcSecurityGroupMembership,
 } from "../models/models_0";
 import {
+  DescribeLoggingStatusMessage,
   DescribeNodeConfigurationOptionsMessage,
   DescribeOrderableClusterOptionsMessage,
   DescribePartnersInputMessage,
   DescribePartnersOutputMessage,
+  DescribeReservedNodeExchangeStatusInputMessage,
+  DescribeReservedNodeExchangeStatusOutputMessage,
   DescribeReservedNodeOfferingsMessage,
   DescribeReservedNodesMessage,
   DescribeResizeMessage,
@@ -713,8 +723,11 @@ import {
   EnableSnapshotCopyResult,
   EndpointAuthorizationNotFoundFault,
   GetClusterCredentialsMessage,
+  GetReservedNodeExchangeConfigurationOptionsInputMessage,
+  GetReservedNodeExchangeConfigurationOptionsOutputMessage,
   GetReservedNodeExchangeOfferingsInputMessage,
   GetReservedNodeExchangeOfferingsOutputMessage,
+  HsmConfigurationMessage,
   IncompatibleOrderableOptions,
   InProgressTableRestoreQuotaExceededFault,
   InsufficientS3BucketPolicyFault,
@@ -761,6 +774,8 @@ import {
   RebootClusterMessage,
   RebootClusterResult,
   RejectDataShareMessage,
+  ReservedNodeConfigurationOption,
+  ReservedNodeExchangeNotFoundFault,
   ReservedNodeOffering,
   ReservedNodeOfferingsMessage,
   ReservedNodeQuotaExceededFault,
@@ -1903,6 +1918,22 @@ export const serializeAws_queryDescribePartnersCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryDescribeReservedNodeExchangeStatusCommand = async (
+  input: DescribeReservedNodeExchangeStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeReservedNodeExchangeStatusInputMessage(input, context),
+    Action: "DescribeReservedNodeExchangeStatus",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryDescribeReservedNodeOfferingsCommand = async (
   input: DescribeReservedNodeOfferingsCommandInput,
   context: __SerdeContext
@@ -2152,6 +2183,22 @@ export const serializeAws_queryGetClusterCredentialsCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryGetClusterCredentialsMessage(input, context),
     Action: "GetClusterCredentials",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommand = async (
+  input: GetReservedNodeExchangeConfigurationOptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryGetReservedNodeExchangeConfigurationOptionsInputMessage(input, context),
+    Action: "GetReservedNodeExchangeConfigurationOptions",
     Version: "2012-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -7625,6 +7672,79 @@ const deserializeAws_queryDescribePartnersCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryDescribeReservedNodeExchangeStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReservedNodeExchangeStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribeReservedNodeExchangeStatusCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDescribeReservedNodeExchangeStatusOutputMessage(
+    data.DescribeReservedNodeExchangeStatusResult,
+    context
+  );
+  const response: DescribeReservedNodeExchangeStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeReservedNodeExchangeStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReservedNodeExchangeStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ReservedNodeExchangeNotFoundFault":
+    case "com.amazonaws.redshift#ReservedNodeExchangeNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryReservedNodeExchangeNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReservedNodeNotFoundFault":
+    case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryReservedNodeNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      response = {
+        ...(await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryDescribeReservedNodeOfferingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -8684,6 +8804,119 @@ const deserializeAws_queryGetClusterCredentialsCommandError = async (
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      response = {
+        ...(await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReservedNodeExchangeConfigurationOptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryGetReservedNodeExchangeConfigurationOptionsOutputMessage(
+    data.GetReservedNodeExchangeConfigurationOptionsResult,
+    context
+  );
+  const response: GetReservedNodeExchangeConfigurationOptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReservedNodeExchangeConfigurationOptionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ClusterSnapshotNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DependentServiceUnavailableFault":
+    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
+      response = {
+        ...(await deserializeAws_queryDependentServiceUnavailableFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidReservedNodeStateFault":
+    case "com.amazonaws.redshift#InvalidReservedNodeStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidReservedNodeStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReservedNodeAlreadyMigratedFault":
+    case "com.amazonaws.redshift#ReservedNodeAlreadyMigratedFault":
+      response = {
+        ...(await deserializeAws_queryReservedNodeAlreadyMigratedFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReservedNodeNotFoundFault":
+    case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryReservedNodeNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReservedNodeOfferingNotFoundFault":
+    case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10517,6 +10750,14 @@ const deserializeAws_queryResizeClusterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "DependentServiceUnavailableFault":
+    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
+      response = {
+        ...(await deserializeAws_queryDependentServiceUnavailableFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InsufficientClusterCapacityFault":
     case "com.amazonaws.redshift#InsufficientClusterCapacityFault":
       response = {
@@ -10529,6 +10770,14 @@ const deserializeAws_queryResizeClusterCommandError = async (
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidReservedNodeStateFault":
+    case "com.amazonaws.redshift#InvalidReservedNodeStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidReservedNodeStateFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10553,6 +10802,38 @@ const deserializeAws_queryResizeClusterCommandError = async (
     case "com.amazonaws.redshift#NumberOfNodesQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryNumberOfNodesQuotaExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReservedNodeAlreadyExistsFault":
+    case "com.amazonaws.redshift#ReservedNodeAlreadyExistsFault":
+      response = {
+        ...(await deserializeAws_queryReservedNodeAlreadyExistsFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReservedNodeAlreadyMigratedFault":
+    case "com.amazonaws.redshift#ReservedNodeAlreadyMigratedFault":
+      response = {
+        ...(await deserializeAws_queryReservedNodeAlreadyMigratedFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReservedNodeNotFoundFault":
+    case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryReservedNodeNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReservedNodeOfferingNotFoundFault":
+    case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10691,6 +10972,14 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "DependentServiceUnavailableFault":
+    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
+      response = {
+        ...(await deserializeAws_queryDependentServiceUnavailableFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "HsmClientCertificateNotFoundFault":
     case "com.amazonaws.redshift#HsmClientCertificateNotFoundFault":
       response = {
@@ -10743,6 +11032,14 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
     case "com.amazonaws.redshift#InvalidElasticIpFault":
       response = {
         ...(await deserializeAws_queryInvalidElasticIpFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidReservedNodeStateFault":
+    case "com.amazonaws.redshift#InvalidReservedNodeStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidReservedNodeStateFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10803,6 +11100,38 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ReservedNodeAlreadyExistsFault":
+    case "com.amazonaws.redshift#ReservedNodeAlreadyExistsFault":
+      response = {
+        ...(await deserializeAws_queryReservedNodeAlreadyExistsFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReservedNodeAlreadyMigratedFault":
+    case "com.amazonaws.redshift#ReservedNodeAlreadyMigratedFault":
+      response = {
+        ...(await deserializeAws_queryReservedNodeAlreadyMigratedFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReservedNodeNotFoundFault":
+    case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryReservedNodeNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReservedNodeOfferingNotFoundFault":
+    case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "SnapshotScheduleNotFoundFault":
     case "com.amazonaws.redshift#SnapshotScheduleNotFoundFault":
       response = {
@@ -10823,6 +11152,14 @@ const deserializeAws_queryRestoreFromClusterSnapshotCommandError = async (
     case "com.amazonaws.redshift#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_queryUnauthorizedOperationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      response = {
+        ...(await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -12679,6 +13016,21 @@ const deserializeAws_queryReservedNodeAlreadyMigratedFaultResponse = async (
   return contents;
 };
 
+const deserializeAws_queryReservedNodeExchangeNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ReservedNodeExchangeNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryReservedNodeExchangeNotFoundFault(body.Error, context);
+  const contents: ReservedNodeExchangeNotFoundFault = {
+    name: "ReservedNodeExchangeNotFoundFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryReservedNodeNotFoundFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -13599,6 +13951,9 @@ const serializeAws_queryCreateClusterMessage = (input: CreateClusterMessage, con
   }
   if (input.AquaConfigurationStatus !== undefined && input.AquaConfigurationStatus !== null) {
     entries["AquaConfigurationStatus"] = input.AquaConfigurationStatus;
+  }
+  if (input.DefaultIamRoleArn !== undefined && input.DefaultIamRoleArn !== null) {
+    entries["DefaultIamRoleArn"] = input.DefaultIamRoleArn;
   }
   return entries;
 };
@@ -14793,6 +15148,26 @@ const serializeAws_queryDescribePartnersInputMessage = (
   return entries;
 };
 
+const serializeAws_queryDescribeReservedNodeExchangeStatusInputMessage = (
+  input: DescribeReservedNodeExchangeStatusInputMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ReservedNodeId !== undefined && input.ReservedNodeId !== null) {
+    entries["ReservedNodeId"] = input.ReservedNodeId;
+  }
+  if (input.ReservedNodeExchangeRequestId !== undefined && input.ReservedNodeExchangeRequestId !== null) {
+    entries["ReservedNodeExchangeRequestId"] = input.ReservedNodeExchangeRequestId;
+  }
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker !== undefined && input.Marker !== null) {
+    entries["Marker"] = input.Marker;
+  }
+  return entries;
+};
+
 const serializeAws_queryDescribeReservedNodeOfferingsMessage = (
   input: DescribeReservedNodeOfferingsMessage,
   context: __SerdeContext
@@ -15140,6 +15515,29 @@ const serializeAws_queryGetClusterCredentialsMessage = (
   return entries;
 };
 
+const serializeAws_queryGetReservedNodeExchangeConfigurationOptionsInputMessage = (
+  input: GetReservedNodeExchangeConfigurationOptionsInputMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ActionType !== undefined && input.ActionType !== null) {
+    entries["ActionType"] = input.ActionType;
+  }
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
+    entries["ClusterIdentifier"] = input.ClusterIdentifier;
+  }
+  if (input.SnapshotIdentifier !== undefined && input.SnapshotIdentifier !== null) {
+    entries["SnapshotIdentifier"] = input.SnapshotIdentifier;
+  }
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker !== undefined && input.Marker !== null) {
+    entries["Marker"] = input.Marker;
+  }
+  return entries;
+};
+
 const serializeAws_queryGetReservedNodeExchangeOfferingsInputMessage = (
   input: GetReservedNodeExchangeOfferingsInputMessage,
   context: __SerdeContext
@@ -15230,6 +15628,9 @@ const serializeAws_queryModifyClusterIamRolesMessage = (
       const loc = `RemoveIamRoles.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.DefaultIamRoleArn !== undefined && input.DefaultIamRoleArn !== null) {
+    entries["DefaultIamRoleArn"] = input.DefaultIamRoleArn;
   }
   return entries;
 };
@@ -15745,6 +16146,12 @@ const serializeAws_queryResizeClusterMessage = (input: ResizeClusterMessage, con
   if (input.Classic !== undefined && input.Classic !== null) {
     entries["Classic"] = input.Classic;
   }
+  if (input.ReservedNodeId !== undefined && input.ReservedNodeId !== null) {
+    entries["ReservedNodeId"] = input.ReservedNodeId;
+  }
+  if (input.TargetReservedNodeOfferingId !== undefined && input.TargetReservedNodeOfferingId !== null) {
+    entries["TargetReservedNodeOfferingId"] = input.TargetReservedNodeOfferingId;
+  }
   return entries;
 };
 
@@ -15848,6 +16255,15 @@ const serializeAws_queryRestoreFromClusterSnapshotMessage = (
   }
   if (input.AquaConfigurationStatus !== undefined && input.AquaConfigurationStatus !== null) {
     entries["AquaConfigurationStatus"] = input.AquaConfigurationStatus;
+  }
+  if (input.DefaultIamRoleArn !== undefined && input.DefaultIamRoleArn !== null) {
+    entries["DefaultIamRoleArn"] = input.DefaultIamRoleArn;
+  }
+  if (input.ReservedNodeId !== undefined && input.ReservedNodeId !== null) {
+    entries["ReservedNodeId"] = input.ReservedNodeId;
+  }
+  if (input.TargetReservedNodeOfferingId !== undefined && input.TargetReservedNodeOfferingId !== null) {
+    entries["TargetReservedNodeOfferingId"] = input.TargetReservedNodeOfferingId;
   }
   return entries;
 };
@@ -16724,6 +17140,8 @@ const deserializeAws_queryCluster = (output: any, context: __SerdeContext): Clus
     ClusterNamespaceArn: undefined,
     TotalStorageCapacityInMegaBytes: undefined,
     AquaConfiguration: undefined,
+    DefaultIamRoleArn: undefined,
+    ReservedNodeExchangeStatus: undefined,
   };
   if (output["ClusterIdentifier"] !== undefined) {
     contents.ClusterIdentifier = __expectString(output["ClusterIdentifier"]);
@@ -16940,6 +17358,15 @@ const deserializeAws_queryCluster = (output: any, context: __SerdeContext): Clus
   }
   if (output["AquaConfiguration"] !== undefined) {
     contents.AquaConfiguration = deserializeAws_queryAquaConfiguration(output["AquaConfiguration"], context);
+  }
+  if (output["DefaultIamRoleArn"] !== undefined) {
+    contents.DefaultIamRoleArn = __expectString(output["DefaultIamRoleArn"]);
+  }
+  if (output["ReservedNodeExchangeStatus"] !== undefined) {
+    contents.ReservedNodeExchangeStatus = deserializeAws_queryReservedNodeExchangeStatus(
+      output["ReservedNodeExchangeStatus"],
+      context
+    );
   }
   return contents;
 };
@@ -18290,6 +18717,32 @@ const deserializeAws_queryDescribePartnersOutputMessage = (
   return contents;
 };
 
+const deserializeAws_queryDescribeReservedNodeExchangeStatusOutputMessage = (
+  output: any,
+  context: __SerdeContext
+): DescribeReservedNodeExchangeStatusOutputMessage => {
+  const contents: any = {
+    ReservedNodeExchangeStatusDetails: undefined,
+    Marker: undefined,
+  };
+  if (output.ReservedNodeExchangeStatusDetails === "") {
+    contents.ReservedNodeExchangeStatusDetails = [];
+  }
+  if (
+    output["ReservedNodeExchangeStatusDetails"] !== undefined &&
+    output["ReservedNodeExchangeStatusDetails"]["ReservedNodeExchangeStatus"] !== undefined
+  ) {
+    contents.ReservedNodeExchangeStatusDetails = deserializeAws_queryReservedNodeExchangeStatusList(
+      __getArrayIfSingleItem(output["ReservedNodeExchangeStatusDetails"]["ReservedNodeExchangeStatus"]),
+      context
+    );
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = __expectString(output["Marker"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryDescribeSnapshotSchedulesOutputMessage = (
   output: any,
   context: __SerdeContext
@@ -18957,6 +19410,32 @@ const deserializeAws_queryEventSubscriptionsMessage = (
   ) {
     contents.EventSubscriptionsList = deserializeAws_queryEventSubscriptionsList(
       __getArrayIfSingleItem(output["EventSubscriptionsList"]["EventSubscription"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryGetReservedNodeExchangeConfigurationOptionsOutputMessage = (
+  output: any,
+  context: __SerdeContext
+): GetReservedNodeExchangeConfigurationOptionsOutputMessage => {
+  const contents: any = {
+    Marker: undefined,
+    ReservedNodeConfigurationOptionList: undefined,
+  };
+  if (output["Marker"] !== undefined) {
+    contents.Marker = __expectString(output["Marker"]);
+  }
+  if (output.ReservedNodeConfigurationOptionList === "") {
+    contents.ReservedNodeConfigurationOptionList = [];
+  }
+  if (
+    output["ReservedNodeConfigurationOptionList"] !== undefined &&
+    output["ReservedNodeConfigurationOptionList"]["ReservedNodeConfigurationOption"] !== undefined
+  ) {
+    contents.ReservedNodeConfigurationOptionList = deserializeAws_queryReservedNodeConfigurationOptionList(
+      __getArrayIfSingleItem(output["ReservedNodeConfigurationOptionList"]["ReservedNodeConfigurationOption"]),
       context
     );
   }
@@ -20420,6 +20899,116 @@ const deserializeAws_queryReservedNodeAlreadyMigratedFault = (
   return contents;
 };
 
+const deserializeAws_queryReservedNodeConfigurationOption = (
+  output: any,
+  context: __SerdeContext
+): ReservedNodeConfigurationOption => {
+  const contents: any = {
+    SourceReservedNode: undefined,
+    TargetReservedNodeCount: undefined,
+    TargetReservedNodeOffering: undefined,
+  };
+  if (output["SourceReservedNode"] !== undefined) {
+    contents.SourceReservedNode = deserializeAws_queryReservedNode(output["SourceReservedNode"], context);
+  }
+  if (output["TargetReservedNodeCount"] !== undefined) {
+    contents.TargetReservedNodeCount = __strictParseInt32(output["TargetReservedNodeCount"]) as number;
+  }
+  if (output["TargetReservedNodeOffering"] !== undefined) {
+    contents.TargetReservedNodeOffering = deserializeAws_queryReservedNodeOffering(
+      output["TargetReservedNodeOffering"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryReservedNodeConfigurationOptionList = (
+  output: any,
+  context: __SerdeContext
+): ReservedNodeConfigurationOption[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryReservedNodeConfigurationOption(entry, context);
+    });
+};
+
+const deserializeAws_queryReservedNodeExchangeNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): ReservedNodeExchangeNotFoundFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryReservedNodeExchangeStatus = (
+  output: any,
+  context: __SerdeContext
+): ReservedNodeExchangeStatus => {
+  const contents: any = {
+    ReservedNodeExchangeRequestId: undefined,
+    Status: undefined,
+    RequestTime: undefined,
+    SourceReservedNodeId: undefined,
+    SourceReservedNodeType: undefined,
+    SourceReservedNodeCount: undefined,
+    TargetReservedNodeOfferingId: undefined,
+    TargetReservedNodeType: undefined,
+    TargetReservedNodeCount: undefined,
+  };
+  if (output["ReservedNodeExchangeRequestId"] !== undefined) {
+    contents.ReservedNodeExchangeRequestId = __expectString(output["ReservedNodeExchangeRequestId"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  if (output["RequestTime"] !== undefined) {
+    contents.RequestTime = __expectNonNull(__parseRfc3339DateTime(output["RequestTime"]));
+  }
+  if (output["SourceReservedNodeId"] !== undefined) {
+    contents.SourceReservedNodeId = __expectString(output["SourceReservedNodeId"]);
+  }
+  if (output["SourceReservedNodeType"] !== undefined) {
+    contents.SourceReservedNodeType = __expectString(output["SourceReservedNodeType"]);
+  }
+  if (output["SourceReservedNodeCount"] !== undefined) {
+    contents.SourceReservedNodeCount = __strictParseInt32(output["SourceReservedNodeCount"]) as number;
+  }
+  if (output["TargetReservedNodeOfferingId"] !== undefined) {
+    contents.TargetReservedNodeOfferingId = __expectString(output["TargetReservedNodeOfferingId"]);
+  }
+  if (output["TargetReservedNodeType"] !== undefined) {
+    contents.TargetReservedNodeType = __expectString(output["TargetReservedNodeType"]);
+  }
+  if (output["TargetReservedNodeCount"] !== undefined) {
+    contents.TargetReservedNodeCount = __strictParseInt32(output["TargetReservedNodeCount"]) as number;
+  }
+  return contents;
+};
+
+const deserializeAws_queryReservedNodeExchangeStatusList = (
+  output: any,
+  context: __SerdeContext
+): ReservedNodeExchangeStatus[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryReservedNodeExchangeStatus(entry, context);
+    });
+};
+
 const deserializeAws_queryReservedNodeList = (output: any, context: __SerdeContext): ReservedNode[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -20582,6 +21171,8 @@ const deserializeAws_queryResizeClusterMessage = (output: any, context: __SerdeC
     NodeType: undefined,
     NumberOfNodes: undefined,
     Classic: undefined,
+    ReservedNodeId: undefined,
+    TargetReservedNodeOfferingId: undefined,
   };
   if (output["ClusterIdentifier"] !== undefined) {
     contents.ClusterIdentifier = __expectString(output["ClusterIdentifier"]);
@@ -20597,6 +21188,12 @@ const deserializeAws_queryResizeClusterMessage = (output: any, context: __SerdeC
   }
   if (output["Classic"] !== undefined) {
     contents.Classic = __parseBoolean(output["Classic"]);
+  }
+  if (output["ReservedNodeId"] !== undefined) {
+    contents.ReservedNodeId = __expectString(output["ReservedNodeId"]);
+  }
+  if (output["TargetReservedNodeOfferingId"] !== undefined) {
+    contents.TargetReservedNodeOfferingId = __expectString(output["TargetReservedNodeOfferingId"]);
   }
   return contents;
 };

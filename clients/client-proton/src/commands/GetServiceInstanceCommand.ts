@@ -23,7 +23,7 @@ export interface GetServiceInstanceCommandOutput extends GetServiceInstanceOutpu
 
 /**
  * <p>Get detail data for a service instance. A service instance is an instantiation of service template, which is running in a specific
- *             environment.</p>
+ *    environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

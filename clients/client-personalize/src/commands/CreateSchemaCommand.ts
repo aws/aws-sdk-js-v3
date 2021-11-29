@@ -25,7 +25,8 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * <p>Creates an Amazon Personalize schema from the specified schema string. The schema you create
  *       must be in Avro JSON format.</p>
  *          <p>Amazon Personalize recognizes three schema variants. Each schema is associated with a dataset
- *       type and has a set of required field and keywords.
+ *       type and has a set of required field and keywords. If you are creating a schema for a dataset in a Domain dataset group, you
+ *     provide the domain of the Domain dataset group.
  *       You specify a schema when you call <a>CreateDataset</a>.</p>
  *
  *          <p class="title">

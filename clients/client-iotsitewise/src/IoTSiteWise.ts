@@ -6,6 +6,11 @@ import {
   AssociateAssetsCommandOutput,
 } from "./commands/AssociateAssetsCommand";
 import {
+  AssociateTimeSeriesToAssetPropertyCommand,
+  AssociateTimeSeriesToAssetPropertyCommandInput,
+  AssociateTimeSeriesToAssetPropertyCommandOutput,
+} from "./commands/AssociateTimeSeriesToAssetPropertyCommand";
+import {
   BatchAssociateProjectAssetsCommand,
   BatchAssociateProjectAssetsCommandInput,
   BatchAssociateProjectAssetsCommandOutput,
@@ -83,6 +88,11 @@ import {
   DeleteProjectCommandOutput,
 } from "./commands/DeleteProjectCommand";
 import {
+  DeleteTimeSeriesCommand,
+  DeleteTimeSeriesCommandInput,
+  DeleteTimeSeriesCommandOutput,
+} from "./commands/DeleteTimeSeriesCommand";
+import {
   DescribeAccessPolicyCommand,
   DescribeAccessPolicyCommandInput,
   DescribeAccessPolicyCommandOutput,
@@ -143,10 +153,20 @@ import {
   DescribeStorageConfigurationCommandOutput,
 } from "./commands/DescribeStorageConfigurationCommand";
 import {
+  DescribeTimeSeriesCommand,
+  DescribeTimeSeriesCommandInput,
+  DescribeTimeSeriesCommandOutput,
+} from "./commands/DescribeTimeSeriesCommand";
+import {
   DisassociateAssetsCommand,
   DisassociateAssetsCommandInput,
   DisassociateAssetsCommandOutput,
 } from "./commands/DisassociateAssetsCommand";
+import {
+  DisassociateTimeSeriesFromAssetPropertyCommand,
+  DisassociateTimeSeriesFromAssetPropertyCommandInput,
+  DisassociateTimeSeriesFromAssetPropertyCommandOutput,
+} from "./commands/DisassociateTimeSeriesFromAssetPropertyCommand";
 import {
   GetAssetPropertyAggregatesCommand,
   GetAssetPropertyAggregatesCommandInput,
@@ -214,6 +234,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTimeSeriesCommand,
+  ListTimeSeriesCommandInput,
+  ListTimeSeriesCommandOutput,
+} from "./commands/ListTimeSeriesCommand";
 import {
   PutDefaultEncryptionConfigurationCommand,
   PutDefaultEncryptionConfigurationCommandInput,
@@ -307,6 +332,38 @@ export class IoTSiteWise extends IoTSiteWiseClient {
     cb?: (err: any, data?: AssociateAssetsCommandOutput) => void
   ): Promise<AssociateAssetsCommandOutput> | void {
     const command = new AssociateAssetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates a time series (data stream) with an asset property.</p>
+   */
+  public associateTimeSeriesToAssetProperty(
+    args: AssociateTimeSeriesToAssetPropertyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateTimeSeriesToAssetPropertyCommandOutput>;
+  public associateTimeSeriesToAssetProperty(
+    args: AssociateTimeSeriesToAssetPropertyCommandInput,
+    cb: (err: any, data?: AssociateTimeSeriesToAssetPropertyCommandOutput) => void
+  ): void;
+  public associateTimeSeriesToAssetProperty(
+    args: AssociateTimeSeriesToAssetPropertyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateTimeSeriesToAssetPropertyCommandOutput) => void
+  ): void;
+  public associateTimeSeriesToAssetProperty(
+    args: AssociateTimeSeriesToAssetPropertyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateTimeSeriesToAssetPropertyCommandOutput) => void),
+    cb?: (err: any, data?: AssociateTimeSeriesToAssetPropertyCommandOutput) => void
+  ): Promise<AssociateTimeSeriesToAssetPropertyCommandOutput> | void {
+    const command = new AssociateTimeSeriesToAssetPropertyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -636,6 +693,10 @@ export class IoTSiteWise extends IoTSiteWiseClient {
 
   /**
    * <p>Creates a project in the specified portal.</p>
+   *          <note>
+   *             <p>Make sure that the project name and description don't contain confidential
+   *         information.</p>
+   *          </note>
    */
   public createProject(
     args: CreateProjectCommandInput,
@@ -883,6 +944,59 @@ export class IoTSiteWise extends IoTSiteWiseClient {
     cb?: (err: any, data?: DeleteProjectCommandOutput) => void
   ): Promise<DeleteProjectCommandOutput> | void {
     const command = new DeleteProjectCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a time series (data stream). If you delete a time series that's associated with an
+   *       asset property, the asset property still exists, but the time series will no longer be
+   *       associated with this asset property.</p>
+   *          <p>To identify a time series, do one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the time series isn't associated with an asset property,
+   *           specify the <code>alias</code> of the time series.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the time series is associated with an asset property,
+   *           specify one of the following: </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>The <code>alias</code> of the time series.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The <code>assetId</code> and <code>propertyId</code> that identifies the asset property.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   */
+  public deleteTimeSeries(
+    args: DeleteTimeSeriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTimeSeriesCommandOutput>;
+  public deleteTimeSeries(
+    args: DeleteTimeSeriesCommandInput,
+    cb: (err: any, data?: DeleteTimeSeriesCommandOutput) => void
+  ): void;
+  public deleteTimeSeries(
+    args: DeleteTimeSeriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTimeSeriesCommandOutput) => void
+  ): void;
+  public deleteTimeSeries(
+    args: DeleteTimeSeriesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTimeSeriesCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTimeSeriesCommandOutput) => void
+  ): Promise<DeleteTimeSeriesCommandOutput> | void {
+    const command = new DeleteTimeSeriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1296,6 +1410,57 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * <p>Retrieves information about a time series (data stream).</p>
+   *          <p>To identify a time series, do one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the time series isn't associated with an asset property,
+   *           specify the <code>alias</code> of the time series.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the time series is associated with an asset property,
+   *           specify one of the following: </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>The <code>alias</code> of the time series.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The <code>assetId</code> and <code>propertyId</code> that identifies the asset property.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   */
+  public describeTimeSeries(
+    args: DescribeTimeSeriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTimeSeriesCommandOutput>;
+  public describeTimeSeries(
+    args: DescribeTimeSeriesCommandInput,
+    cb: (err: any, data?: DescribeTimeSeriesCommandOutput) => void
+  ): void;
+  public describeTimeSeries(
+    args: DescribeTimeSeriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTimeSeriesCommandOutput) => void
+  ): void;
+  public describeTimeSeries(
+    args: DescribeTimeSeriesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTimeSeriesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTimeSeriesCommandOutput) => void
+  ): Promise<DescribeTimeSeriesCommandOutput> | void {
+    const command = new DescribeTimeSeriesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disassociates a child asset from the given parent asset through a hierarchy defined in the
    *       parent asset's model.</p>
    */
@@ -1318,6 +1483,40 @@ export class IoTSiteWise extends IoTSiteWiseClient {
     cb?: (err: any, data?: DisassociateAssetsCommandOutput) => void
   ): Promise<DisassociateAssetsCommandOutput> | void {
     const command = new DisassociateAssetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disassociates a time series (data stream) from an asset property.</p>
+   */
+  public disassociateTimeSeriesFromAssetProperty(
+    args: DisassociateTimeSeriesFromAssetPropertyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateTimeSeriesFromAssetPropertyCommandOutput>;
+  public disassociateTimeSeriesFromAssetProperty(
+    args: DisassociateTimeSeriesFromAssetPropertyCommandInput,
+    cb: (err: any, data?: DisassociateTimeSeriesFromAssetPropertyCommandOutput) => void
+  ): void;
+  public disassociateTimeSeriesFromAssetProperty(
+    args: DisassociateTimeSeriesFromAssetPropertyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateTimeSeriesFromAssetPropertyCommandOutput) => void
+  ): void;
+  public disassociateTimeSeriesFromAssetProperty(
+    args: DisassociateTimeSeriesFromAssetPropertyCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisassociateTimeSeriesFromAssetPropertyCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateTimeSeriesFromAssetPropertyCommandOutput) => void
+  ): Promise<DisassociateTimeSeriesFromAssetPropertyCommandOutput> | void {
+    const command = new DisassociateTimeSeriesFromAssetPropertyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1461,8 +1660,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
    * <p>Get interpolated values for an asset property for a specified time interval, during a
    *       period of time. If your time series is missing data points during the specified time interval,
    *       you can use interpolation to estimate the missing data.</p>
-   *          <p>For example, you can use this operation to return the interpolated
-   *       temperature values for a wind turbine every 24 hours over a duration of 7 days.</p>
+   *          <p>For example, you can use this operation to return the interpolated temperature values for
+   *       a wind turbine every 24 hours over a duration of 7 days.</p>
    *          <p>To identify an asset property, you must specify one of the following:</p>
    *          <ul>
    *             <li>
@@ -1851,6 +2050,38 @@ export class IoTSiteWise extends IoTSiteWiseClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a paginated list of time series (data streams).</p>
+   */
+  public listTimeSeries(
+    args: ListTimeSeriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTimeSeriesCommandOutput>;
+  public listTimeSeries(
+    args: ListTimeSeriesCommandInput,
+    cb: (err: any, data?: ListTimeSeriesCommandOutput) => void
+  ): void;
+  public listTimeSeries(
+    args: ListTimeSeriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTimeSeriesCommandOutput) => void
+  ): void;
+  public listTimeSeries(
+    args: ListTimeSeriesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTimeSeriesCommandOutput) => void),
+    cb?: (err: any, data?: ListTimeSeriesCommandOutput) => void
+  ): Promise<ListTimeSeriesCommandOutput> | void {
+    const command = new ListTimeSeriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

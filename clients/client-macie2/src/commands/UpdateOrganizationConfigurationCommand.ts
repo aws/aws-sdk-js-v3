@@ -24,7 +24,7 @@ export interface UpdateOrganizationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates the Amazon Macie configuration settings for an Amazon Web Services organization.</p>
+ * <p>Updates the Amazon Macie configuration settings for an organization in Organizations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -78,6 +78,10 @@ import {
 import { CreateAgentStatusCommandInput, CreateAgentStatusCommandOutput } from "./commands/CreateAgentStatusCommand";
 import { CreateContactFlowCommandInput, CreateContactFlowCommandOutput } from "./commands/CreateContactFlowCommand";
 import {
+  CreateContactFlowModuleCommandInput,
+  CreateContactFlowModuleCommandOutput,
+} from "./commands/CreateContactFlowModuleCommand";
+import {
   CreateHoursOfOperationCommandInput,
   CreateHoursOfOperationCommandOutput,
 } from "./commands/CreateHoursOfOperationCommand";
@@ -102,6 +106,11 @@ import {
   CreateUserHierarchyGroupCommandInput,
   CreateUserHierarchyGroupCommandOutput,
 } from "./commands/CreateUserHierarchyGroupCommand";
+import { DeleteContactFlowCommandInput, DeleteContactFlowCommandOutput } from "./commands/DeleteContactFlowCommand";
+import {
+  DeleteContactFlowModuleCommandInput,
+  DeleteContactFlowModuleCommandOutput,
+} from "./commands/DeleteContactFlowModuleCommand";
 import {
   DeleteHoursOfOperationCommandInput,
   DeleteHoursOfOperationCommandOutput,
@@ -131,6 +140,10 @@ import {
   DescribeContactFlowCommandInput,
   DescribeContactFlowCommandOutput,
 } from "./commands/DescribeContactFlowCommand";
+import {
+  DescribeContactFlowModuleCommandInput,
+  DescribeContactFlowModuleCommandOutput,
+} from "./commands/DescribeContactFlowModuleCommand";
 import {
   DescribeHoursOfOperationCommandInput,
   DescribeHoursOfOperationCommandOutput,
@@ -208,6 +221,10 @@ import {
   ListApprovedOriginsCommandOutput,
 } from "./commands/ListApprovedOriginsCommand";
 import { ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
+import {
+  ListContactFlowModulesCommandInput,
+  ListContactFlowModulesCommandOutput,
+} from "./commands/ListContactFlowModulesCommand";
 import { ListContactFlowsCommandInput, ListContactFlowsCommandOutput } from "./commands/ListContactFlowsCommand";
 import {
   ListContactReferencesCommandInput,
@@ -314,6 +331,18 @@ import {
   UpdateContactFlowContentCommandOutput,
 } from "./commands/UpdateContactFlowContentCommand";
 import {
+  UpdateContactFlowMetadataCommandInput,
+  UpdateContactFlowMetadataCommandOutput,
+} from "./commands/UpdateContactFlowMetadataCommand";
+import {
+  UpdateContactFlowModuleContentCommandInput,
+  UpdateContactFlowModuleContentCommandOutput,
+} from "./commands/UpdateContactFlowModuleContentCommand";
+import {
+  UpdateContactFlowModuleMetadataCommandInput,
+  UpdateContactFlowModuleMetadataCommandOutput,
+} from "./commands/UpdateContactFlowModuleMetadataCommand";
+import {
   UpdateContactFlowNameCommandInput,
   UpdateContactFlowNameCommandOutput,
 } from "./commands/UpdateContactFlowNameCommand";
@@ -416,6 +445,7 @@ export type ServiceInputTypes =
   | AssociateSecurityKeyCommandInput
   | CreateAgentStatusCommandInput
   | CreateContactFlowCommandInput
+  | CreateContactFlowModuleCommandInput
   | CreateHoursOfOperationCommandInput
   | CreateInstanceCommandInput
   | CreateIntegrationAssociationCommandInput
@@ -426,6 +456,8 @@ export type ServiceInputTypes =
   | CreateUseCaseCommandInput
   | CreateUserCommandInput
   | CreateUserHierarchyGroupCommandInput
+  | DeleteContactFlowCommandInput
+  | DeleteContactFlowModuleCommandInput
   | DeleteHoursOfOperationCommandInput
   | DeleteInstanceCommandInput
   | DeleteIntegrationAssociationCommandInput
@@ -437,6 +469,7 @@ export type ServiceInputTypes =
   | DescribeAgentStatusCommandInput
   | DescribeContactCommandInput
   | DescribeContactFlowCommandInput
+  | DescribeContactFlowModuleCommandInput
   | DescribeHoursOfOperationCommandInput
   | DescribeInstanceAttributeCommandInput
   | DescribeInstanceCommandInput
@@ -463,6 +496,7 @@ export type ServiceInputTypes =
   | ListAgentStatusesCommandInput
   | ListApprovedOriginsCommandInput
   | ListBotsCommandInput
+  | ListContactFlowModulesCommandInput
   | ListContactFlowsCommandInput
   | ListContactReferencesCommandInput
   | ListHoursOfOperationsCommandInput
@@ -502,6 +536,9 @@ export type ServiceInputTypes =
   | UpdateContactAttributesCommandInput
   | UpdateContactCommandInput
   | UpdateContactFlowContentCommandInput
+  | UpdateContactFlowMetadataCommandInput
+  | UpdateContactFlowModuleContentCommandInput
+  | UpdateContactFlowModuleMetadataCommandInput
   | UpdateContactFlowNameCommandInput
   | UpdateContactScheduleCommandInput
   | UpdateHoursOfOperationCommandInput
@@ -538,6 +575,7 @@ export type ServiceOutputTypes =
   | AssociateSecurityKeyCommandOutput
   | CreateAgentStatusCommandOutput
   | CreateContactFlowCommandOutput
+  | CreateContactFlowModuleCommandOutput
   | CreateHoursOfOperationCommandOutput
   | CreateInstanceCommandOutput
   | CreateIntegrationAssociationCommandOutput
@@ -548,6 +586,8 @@ export type ServiceOutputTypes =
   | CreateUseCaseCommandOutput
   | CreateUserCommandOutput
   | CreateUserHierarchyGroupCommandOutput
+  | DeleteContactFlowCommandOutput
+  | DeleteContactFlowModuleCommandOutput
   | DeleteHoursOfOperationCommandOutput
   | DeleteInstanceCommandOutput
   | DeleteIntegrationAssociationCommandOutput
@@ -559,6 +599,7 @@ export type ServiceOutputTypes =
   | DescribeAgentStatusCommandOutput
   | DescribeContactCommandOutput
   | DescribeContactFlowCommandOutput
+  | DescribeContactFlowModuleCommandOutput
   | DescribeHoursOfOperationCommandOutput
   | DescribeInstanceAttributeCommandOutput
   | DescribeInstanceCommandOutput
@@ -585,6 +626,7 @@ export type ServiceOutputTypes =
   | ListAgentStatusesCommandOutput
   | ListApprovedOriginsCommandOutput
   | ListBotsCommandOutput
+  | ListContactFlowModulesCommandOutput
   | ListContactFlowsCommandOutput
   | ListContactReferencesCommandOutput
   | ListHoursOfOperationsCommandOutput
@@ -624,6 +666,9 @@ export type ServiceOutputTypes =
   | UpdateContactAttributesCommandOutput
   | UpdateContactCommandOutput
   | UpdateContactFlowContentCommandOutput
+  | UpdateContactFlowMetadataCommandOutput
+  | UpdateContactFlowModuleContentCommandOutput
+  | UpdateContactFlowModuleMetadataCommandOutput
   | UpdateContactFlowNameCommandOutput
   | UpdateContactScheduleCommandOutput
   | UpdateHoursOfOperationCommandOutput
@@ -806,11 +851,9 @@ export interface ConnectClientResolvedConfig extends ConnectClientResolvedConfig
  *          <p>There are limits to the number of Amazon Connect resources that you can create. There are also limits
  *    to the number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect
  *     Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
- *          <p>You can
- *    connect
- *    programmatically to an AWS service by using an endpoint. For a list of Amazon Connect endpoints, see
- *     <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
- *    Endpoints</a>.</p>
+ *          <p>You can connect programmatically to an AWS service by using an endpoint. For a list of Amazon Connect
+ *    endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
+ *     Endpoints</a>.</p>
  *          <note>
  *             <p>Working with contact flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p>
  *          </note>

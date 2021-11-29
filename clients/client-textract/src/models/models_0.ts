@@ -832,7 +832,7 @@ export namespace ThrottlingException {
 
 /**
  * <p>The format of the input document isn't supported. Documents for synchronous operations can be in
- *          PNG or JPEG format. Documents for asynchronous operations can also be in PDF format.</p>
+ *          PNG or JPEG format only. Documents for asynchronous operations can be in PDF format.</p>
  */
 export interface UnsupportedDocumentException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedDocumentException";
@@ -938,7 +938,7 @@ export namespace ExpenseType {
 
 /**
  * <p>Breakdown of detected information, seperated into
- *          the catagories Type, LableDetection, and ValueDetection</p>
+ *          the catagories Type, LabelDetection, and ValueDetection</p>
  */
 export interface ExpenseField {
   /**
@@ -1061,6 +1061,159 @@ export namespace AnalyzeExpenseResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: AnalyzeExpenseResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface AnalyzeIDRequest {
+  /**
+   * <p>The document being passed to AnalyzeID.</p>
+   */
+  DocumentPages: Document[] | undefined;
+}
+
+export namespace AnalyzeIDRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AnalyzeIDRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ValueType {
+  DATE = "DATE",
+}
+
+/**
+ * <p>Contains information relating to dates in a document, including the type
+ *          of value, and the value.</p>
+ */
+export interface NormalizedValue {
+  /**
+   * <p>The value of the date, written as Year-Month-DayTHour:Minute:Second.</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>The normalized type of the value detected. In this case, DATE.</p>
+   */
+  ValueType?: ValueType | string;
+}
+
+export namespace NormalizedValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NormalizedValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Used to contain the information detected by an AnalyzeID operation.</p>
+ */
+export interface AnalyzeIDDetections {
+  /**
+   * <p>Text of either the normalized field or value associated with it.</p>
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>Only returned for dates, returns the type of value detected and the date
+   *          written in a more machine readable way.</p>
+   */
+  NormalizedValue?: NormalizedValue;
+
+  /**
+   * <p>The confidence score of the detected text.</p>
+   */
+  Confidence?: number;
+}
+
+export namespace AnalyzeIDDetections {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AnalyzeIDDetections): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Structure containing both the normalized type of the extracted information
+ *          and the text associated with it. These are extracted as Type and Value respectively.</p>
+ */
+export interface IdentityDocumentField {
+  /**
+   * <p>Used to contain the information detected by an AnalyzeID operation.</p>
+   */
+  Type?: AnalyzeIDDetections;
+
+  /**
+   * <p>Used to contain the information detected by an AnalyzeID operation.</p>
+   */
+  ValueDetection?: AnalyzeIDDetections;
+}
+
+export namespace IdentityDocumentField {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IdentityDocumentField): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The structure that lists each document processed in an AnalyzeID operation.</p>
+ */
+export interface IdentityDocument {
+  /**
+   * <p>Denotes the placement of a document in the IdentityDocument list. The first document
+   *          is marked 1, the second 2 and so on.</p>
+   */
+  DocumentIndex?: number;
+
+  /**
+   * <p>The structure used to record information extracted from identity documents.
+   *          Contains both normalized field and value of the extracted text.</p>
+   */
+  IdentityDocumentFields?: IdentityDocumentField[];
+}
+
+export namespace IdentityDocument {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IdentityDocument): any => ({
+    ...obj,
+  });
+}
+
+export interface AnalyzeIDResponse {
+  /**
+   * <p>The list of documents processed by AnalyzeID. Includes a number denoting their
+   *          place in the list and the response structure for the document.</p>
+   */
+  IdentityDocuments?: IdentityDocument[];
+
+  /**
+   * <p>Information about the input document.</p>
+   */
+  DocumentMetadata?: DocumentMetadata;
+
+  /**
+   * <p>The version of the AnalyzeIdentity API being used to process documents.</p>
+   */
+  AnalyzeIDModelVersion?: string;
+}
+
+export namespace AnalyzeIDResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AnalyzeIDResponse): any => ({
     ...obj,
   });
 }

@@ -22,7 +22,7 @@ export interface UpdateAccountSettingsCommandInput extends UpdateAccountSettings
 export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSettingsOutput, __MetadataBearer {}
 
 /**
- * <p>Update the AWS Proton pipeline service account settings.</p>
+ * <p>Update the Proton service pipeline role or repository settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

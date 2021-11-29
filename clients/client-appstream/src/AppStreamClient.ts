@@ -49,6 +49,10 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import {
+  AssociateApplicationFleetCommandInput,
+  AssociateApplicationFleetCommandOutput,
+} from "./commands/AssociateApplicationFleetCommand";
 import { AssociateFleetCommandInput, AssociateFleetCommandOutput } from "./commands/AssociateFleetCommand";
 import {
   BatchAssociateUserStackCommandInput,
@@ -59,6 +63,8 @@ import {
   BatchDisassociateUserStackCommandOutput,
 } from "./commands/BatchDisassociateUserStackCommand";
 import { CopyImageCommandInput, CopyImageCommandOutput } from "./commands/CopyImageCommand";
+import { CreateAppBlockCommandInput, CreateAppBlockCommandOutput } from "./commands/CreateAppBlockCommand";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
 import {
   CreateDirectoryConfigCommandInput,
   CreateDirectoryConfigCommandOutput,
@@ -77,6 +83,8 @@ import {
   CreateUsageReportSubscriptionCommandOutput,
 } from "./commands/CreateUsageReportSubscriptionCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import { DeleteAppBlockCommandInput, DeleteAppBlockCommandOutput } from "./commands/DeleteAppBlockCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
 import {
   DeleteDirectoryConfigCommandInput,
   DeleteDirectoryConfigCommandOutput,
@@ -94,6 +102,15 @@ import {
   DeleteUsageReportSubscriptionCommandOutput,
 } from "./commands/DeleteUsageReportSubscriptionCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import { DescribeAppBlocksCommandInput, DescribeAppBlocksCommandOutput } from "./commands/DescribeAppBlocksCommand";
+import {
+  DescribeApplicationFleetAssociationsCommandInput,
+  DescribeApplicationFleetAssociationsCommandOutput,
+} from "./commands/DescribeApplicationFleetAssociationsCommand";
+import {
+  DescribeApplicationsCommandInput,
+  DescribeApplicationsCommandOutput,
+} from "./commands/DescribeApplicationsCommand";
 import {
   DescribeDirectoryConfigsCommandInput,
   DescribeDirectoryConfigsCommandOutput,
@@ -120,6 +137,10 @@ import {
   DescribeUserStackAssociationsCommandOutput,
 } from "./commands/DescribeUserStackAssociationsCommand";
 import { DisableUserCommandInput, DisableUserCommandOutput } from "./commands/DisableUserCommand";
+import {
+  DisassociateApplicationFleetCommandInput,
+  DisassociateApplicationFleetCommandOutput,
+} from "./commands/DisassociateApplicationFleetCommand";
 import { DisassociateFleetCommandInput, DisassociateFleetCommandOutput } from "./commands/DisassociateFleetCommand";
 import { EnableUserCommandInput, EnableUserCommandOutput } from "./commands/EnableUserCommand";
 import { ExpireSessionCommandInput, ExpireSessionCommandOutput } from "./commands/ExpireSessionCommand";
@@ -141,6 +162,7 @@ import { StopFleetCommandInput, StopFleetCommandOutput } from "./commands/StopFl
 import { StopImageBuilderCommandInput, StopImageBuilderCommandOutput } from "./commands/StopImageBuilderCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import {
   UpdateDirectoryConfigCommandInput,
   UpdateDirectoryConfigCommandOutput,
@@ -154,10 +176,13 @@ import { UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/Up
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | AssociateApplicationFleetCommandInput
   | AssociateFleetCommandInput
   | BatchAssociateUserStackCommandInput
   | BatchDisassociateUserStackCommandInput
   | CopyImageCommandInput
+  | CreateAppBlockCommandInput
+  | CreateApplicationCommandInput
   | CreateDirectoryConfigCommandInput
   | CreateFleetCommandInput
   | CreateImageBuilderCommandInput
@@ -167,6 +192,8 @@ export type ServiceInputTypes =
   | CreateUpdatedImageCommandInput
   | CreateUsageReportSubscriptionCommandInput
   | CreateUserCommandInput
+  | DeleteAppBlockCommandInput
+  | DeleteApplicationCommandInput
   | DeleteDirectoryConfigCommandInput
   | DeleteFleetCommandInput
   | DeleteImageBuilderCommandInput
@@ -175,6 +202,9 @@ export type ServiceInputTypes =
   | DeleteStackCommandInput
   | DeleteUsageReportSubscriptionCommandInput
   | DeleteUserCommandInput
+  | DescribeAppBlocksCommandInput
+  | DescribeApplicationFleetAssociationsCommandInput
+  | DescribeApplicationsCommandInput
   | DescribeDirectoryConfigsCommandInput
   | DescribeFleetsCommandInput
   | DescribeImageBuildersCommandInput
@@ -186,6 +216,7 @@ export type ServiceInputTypes =
   | DescribeUserStackAssociationsCommandInput
   | DescribeUsersCommandInput
   | DisableUserCommandInput
+  | DisassociateApplicationFleetCommandInput
   | DisassociateFleetCommandInput
   | EnableUserCommandInput
   | ExpireSessionCommandInput
@@ -198,16 +229,20 @@ export type ServiceInputTypes =
   | StopImageBuilderCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateApplicationCommandInput
   | UpdateDirectoryConfigCommandInput
   | UpdateFleetCommandInput
   | UpdateImagePermissionsCommandInput
   | UpdateStackCommandInput;
 
 export type ServiceOutputTypes =
+  | AssociateApplicationFleetCommandOutput
   | AssociateFleetCommandOutput
   | BatchAssociateUserStackCommandOutput
   | BatchDisassociateUserStackCommandOutput
   | CopyImageCommandOutput
+  | CreateAppBlockCommandOutput
+  | CreateApplicationCommandOutput
   | CreateDirectoryConfigCommandOutput
   | CreateFleetCommandOutput
   | CreateImageBuilderCommandOutput
@@ -217,6 +252,8 @@ export type ServiceOutputTypes =
   | CreateUpdatedImageCommandOutput
   | CreateUsageReportSubscriptionCommandOutput
   | CreateUserCommandOutput
+  | DeleteAppBlockCommandOutput
+  | DeleteApplicationCommandOutput
   | DeleteDirectoryConfigCommandOutput
   | DeleteFleetCommandOutput
   | DeleteImageBuilderCommandOutput
@@ -225,6 +262,9 @@ export type ServiceOutputTypes =
   | DeleteStackCommandOutput
   | DeleteUsageReportSubscriptionCommandOutput
   | DeleteUserCommandOutput
+  | DescribeAppBlocksCommandOutput
+  | DescribeApplicationFleetAssociationsCommandOutput
+  | DescribeApplicationsCommandOutput
   | DescribeDirectoryConfigsCommandOutput
   | DescribeFleetsCommandOutput
   | DescribeImageBuildersCommandOutput
@@ -236,6 +276,7 @@ export type ServiceOutputTypes =
   | DescribeUserStackAssociationsCommandOutput
   | DescribeUsersCommandOutput
   | DisableUserCommandOutput
+  | DisassociateApplicationFleetCommandOutput
   | DisassociateFleetCommandOutput
   | EnableUserCommandOutput
   | ExpireSessionCommandOutput
@@ -248,6 +289,7 @@ export type ServiceOutputTypes =
   | StopImageBuilderCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateApplicationCommandOutput
   | UpdateDirectoryConfigCommandOutput
   | UpdateFleetCommandOutput
   | UpdateImagePermissionsCommandOutput

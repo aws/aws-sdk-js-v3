@@ -22,10 +22,10 @@ export interface GetConfigurationCommandInput extends GetConfigurationRequest {}
 export interface GetConfigurationCommandOutput extends Configuration, __MetadataBearer {}
 
 /**
- * <p>Receive information about a configuration.</p>
+ * <p>Retrieves information about a configuration.</p>
  *          <important>
- *             <p>AWS AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter
- *             to identify the configuration version on your clients. If you don’t send
+ *             <p>AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter to
+ *             identify the configuration version on your clients. If you don’t send
  *                <code>ClientConfigurationVersion</code> with each call to
  *                <code>GetConfiguration</code>, your clients receive the current configuration. You
  *             are charged each time your clients receive a configuration.</p>

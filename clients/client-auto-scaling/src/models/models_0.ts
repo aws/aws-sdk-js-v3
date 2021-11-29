@@ -744,37 +744,9 @@ export namespace LaunchTemplateSpecification {
 /**
  * <p>Describes information used to specify a lifecycle hook for an Auto Scaling
  *             group.</p>
- *         <p>A lifecycle hook tells Amazon EC2 Auto Scaling to perform an action on an instance when the instance
- *             launches (before it is put into service) or as the instance terminates (before it is
- *             fully terminated).</p>
- *         <p>This step is a part of the procedure for creating a lifecycle hook for an Auto Scaling
- *             group:</p>
- *         <ol>
- *             <li>
- *                 <p>(Optional) Create a Lambda function and a rule that allows CloudWatch Events to
- *                     invoke your Lambda function when Amazon EC2 Auto Scaling launches or terminates
- *                     instances.</p>
- *             </li>
- *             <li>
- *                 <p>(Optional) Create a notification target and an IAM role. The target can be
- *                     either an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to
- *                     publish lifecycle notifications to the target.</p>
- *             </li>
- *             <li>
- *                 <p>
- *                     <b>Create the lifecycle hook. Specify whether the hook is
- *                         used when the instances launch or terminate.</b>
- *                 </p>
- *             </li>
- *             <li>
- *                 <p>If you need more time, record the lifecycle action heartbeat to keep the
- *                     instance in a pending state.</p>
- *             </li>
- *             <li>
- *                 <p>If you finish before the timeout period ends, complete the lifecycle
- *                     action.</p>
- *             </li>
- *          </ol>
+ *
+ *
+ *
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling lifecycle
  *                 hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
@@ -1385,7 +1357,7 @@ export namespace InstanceRequirements {
 }
 
 /**
- * <p>Describes an override for a launch template. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-override-options.html">Configuring overrides</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+ * <p>Describes an override for a launch template. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-configuring-overrides.html">Configuring overrides</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
  */
 export interface LaunchTemplateOverrides {
   /**
@@ -1405,7 +1377,7 @@ export interface LaunchTemplateOverrides {
    *             overage. For example, if there are two units remaining to fulfill capacity, and Amazon EC2 Auto Scaling
    *             can only launch an instance with a <code>WeightedCapacity</code> of five units, the
    *             instance is launched, and the desired capacity is exceeded by three units. For more
-   *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html">Instance weighting for
+   *             information, see <a href="https://docs.aws.amazon.com/ec2-auto-scaling-mixed-instances-groups-instance-weighting.html">Instance weighting for
    *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. Value must be in the
    *             range of 1–999.</p>
    */
@@ -1415,7 +1387,7 @@ export interface LaunchTemplateOverrides {
    * <p>Provides the launch template to be used when launching the instance type specified in
    *                 <code>InstanceType</code>. For example, some instance types might require a launch
    *             template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's
-   *             defined for your mixed instances policy. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-template-overrides.html">Specifying a
+   *             defined for your mixed instances policy. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html">Specifying a
    *                 different launch template for an instance type</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
    */
@@ -1471,7 +1443,7 @@ export namespace LaunchTemplate {
 /**
  * <p>Describes a mixed instances policy. A mixed instances policy contains the instance
  *             types that Amazon EC2 Auto Scaling can launch and other information that Amazon EC2 Auto Scaling can use to launch
- *             instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling
+ *             instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling
  *                 groups with multiple instance types and purchase options</a> in the
  *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
@@ -1572,7 +1544,7 @@ export interface CreateAutoScalingGroupType {
    *
    *
    *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple
    *                 instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User
    *                 Guide</i>.</p>
    */
@@ -1656,9 +1628,8 @@ export interface CreateAutoScalingGroupType {
 
   /**
    * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status
-   *             of an EC2 instance that has come into service. During this time, any health check
-   *             failures for the instance are ignored. The default value is <code>0</code>. For more
-   *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health
+   *             of an EC2 instance that has come into service and marking it unhealthy due to a failed
+   *             health check. The default value is <code>0</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health
    *                 check grace period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *         <p>Conditional: Required if you are adding an <code>ELB</code> health check.</p>
    */
@@ -1695,7 +1666,8 @@ export interface CreateAutoScalingGroupType {
   /**
    * <p>Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling
    *             when scaling in. For more information about preventing instances from terminating on
-   *             scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance scale-in protection</a> in the
+   *             scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Using
+   *                 instance scale-in protection</a> in the
    *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   NewInstancesProtectedFromScaleIn?: boolean;
@@ -1705,8 +1677,8 @@ export interface CreateAutoScalingGroupType {
    *             disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot
    *             Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of
    *             interruption. After launching a new instance, it then terminates an old instance. For
-   *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html">Amazon EC2 Auto Scaling Capacity
-   *                 Rebalancing</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html">Amazon EC2 Auto Scaling
+   *                 Capacity Rebalancing</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   CapacityRebalance?: boolean;
 
@@ -2344,8 +2316,7 @@ export interface DeleteNotificationConfigurationType {
   AutoScalingGroupName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS)
-   *             topic.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic.</p>
    */
   TopicARN: string | undefined;
 }
@@ -3031,7 +3002,8 @@ export interface AutoScalingGroup {
 
   /**
    * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status
-   *             of an EC2 instance that has come into service.</p>
+   *             of an EC2 instance that has come into service and marking it unhealthy due to a failed
+   *             health check.</p>
    */
   HealthCheckGracePeriod?: number;
 
@@ -3356,7 +3328,7 @@ export interface DesiredConfiguration {
   /**
    * <p>Describes a mixed instances policy. A mixed instances policy contains the instance
    *             types that Amazon EC2 Auto Scaling can launch and other information that Amazon EC2 Auto Scaling can use to launch
-   *             instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling
+   *             instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling
    *                 groups with multiple instance types and purchase options</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
@@ -3899,9 +3871,9 @@ export namespace LaunchConfigurationsType {
 }
 
 /**
- * <p>Describes a lifecycle hook, which tells Amazon EC2 Auto Scaling that you want to perform an action
- *             whenever it launches instances or terminates
- *             instances.</p>
+ * <p>Describes a lifecycle hook, which enables an Auto Scaling group to be aware of events in the
+ *             Auto Scaling instance lifecycle, and then perform a custom action when the corresponding
+ *             lifecycle event occurs.</p>
  */
 export interface LifecycleHook {
   /**
@@ -4412,8 +4384,7 @@ export interface NotificationConfiguration {
   AutoScalingGroupName?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS)
-   *             topic.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic.</p>
    */
   TopicARN?: string;
 
@@ -4559,6 +4530,234 @@ export enum PredictiveScalingMaxCapacityBreachBehavior {
   IncreaseMaxCapacity = "IncreaseMaxCapacity",
 }
 
+/**
+ * <p>Describes the dimension of a metric.</p>
+ */
+export interface MetricDimension {
+  /**
+   * <p>The name of the dimension.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The value of the dimension.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace MetricDimension {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MetricDimension): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents a specific metric. </p>
+ */
+export interface Metric {
+  /**
+   * <p>The namespace of the metric. For more information, see the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon Web Services
+   *                 services that publish CloudWatch metrics </a> in the <i>Amazon CloudWatch User
+   *                 Guide</i>.</p>
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The name of the metric.</p>
+   */
+  MetricName: string | undefined;
+
+  /**
+   * <p>The dimensions for the metric. For the list of available dimensions, see the Amazon Web Services
+   *             documentation available from the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon Web Services
+   *                 services that publish CloudWatch metrics </a> in the <i>Amazon CloudWatch User
+   *                 Guide</i>. </p>
+   *         <p>Conditional: If you published your metric with dimensions, you must specify the same
+   *             dimensions in your scaling policy.</p>
+   */
+  Dimensions?: MetricDimension[];
+}
+
+export namespace Metric {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Metric): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This structure defines the CloudWatch metric to return, along with the statistic, period,
+ *             and unit.</p>
+ *
+ *         <p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
+ *                 concepts</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+ */
+export interface MetricStat {
+  /**
+   * <p>The CloudWatch metric to return, including the metric name, namespace, and dimensions. To
+   *             get the exact metric name, namespace, and dimensions, inspect the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a> object that is returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</p>
+   */
+  Metric: Metric | undefined;
+
+  /**
+   * <p>The statistic to return. It can include any CloudWatch statistic or extended statistic. For
+   *             a list of valid values, see the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic">Statistics</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+   *         <p>The most commonly used metrics for predictive scaling are <code>Average</code> and
+   *                 <code>Sum</code>.</p>
+   */
+  Stat: string | undefined;
+
+  /**
+   * <p>The unit to use for the returned data points. For a complete list of the units that
+   *             CloudWatch supports, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">MetricDatum</a>
+   *             data type in the <i>Amazon CloudWatch API Reference</i>.</p>
+   */
+  Unit?: string;
+}
+
+export namespace MetricStat {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MetricStat): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The metric data to return. Also defines whether this call is returning data for one
+ *             metric only, or whether it is performing a math expression on the values of returned
+ *             metric statistics to create a new time series. A time series is a series of data points,
+ *             each of which is associated with a timestamp.</p>
+ *
+ *
+ *         <p>For more information and examples, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/predictive-scaling-customized-metric-specification.html">Advanced predictive scaling policy configurations using custom metrics</a> in
+ *             the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
+export interface MetricDataQuery {
+  /**
+   * <p>A short name that identifies the object's results in the response. This name must be
+   *             unique among all <code>MetricDataQuery</code> objects specified for a single scaling
+   *             policy. If you are performing math expressions on this set of data, this name represents
+   *             that data and can serve as a variable in the mathematical expression. The valid
+   *             characters are letters, numbers, and underscores. The first character must be a
+   *             lowercase letter. </p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The math expression to perform on the returned data, if this object is performing a
+   *             math expression. This expression can use the <code>Id</code> of the other metrics to
+   *             refer to those metrics, and can also use the <code>Id</code> of other expressions to use
+   *             the result of those expressions. </p>
+   *         <p>Conditional: Within each <code>MetricDataQuery</code> object, you must specify either
+   *                 <code>Expression</code> or <code>MetricStat</code>, but not both.</p>
+   */
+  Expression?: string;
+
+  /**
+   * <p>Information about the metric data to return.</p>
+   *         <p>Conditional: Within each <code>MetricDataQuery</code> object, you must specify either
+   *                 <code>Expression</code> or <code>MetricStat</code>, but not both.</p>
+   */
+  MetricStat?: MetricStat;
+
+  /**
+   * <p>A human-readable label for this metric or expression. This is especially useful if
+   *             this is a math expression, so that you know what the value represents.</p>
+   */
+  Label?: string;
+
+  /**
+   * <p>Indicates whether to return the timestamps and raw data values of this metric. </p>
+   *         <p>If you use any math expressions, specify <code>true</code> for this value for only the
+   *             final math expression that the metric specification is based on. You must specify
+   *                 <code>false</code> for <code>ReturnData</code> for all the other metrics and
+   *             expressions used in the metric specification.</p>
+   *         <p>If you are only retrieving metrics and not performing any math expressions, do not
+   *             specify anything for <code>ReturnData</code>. This sets it to its default
+   *                 (<code>true</code>).</p>
+   */
+  ReturnData?: boolean;
+}
+
+export namespace MetricDataQuery {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MetricDataQuery): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a customized capacity metric for a predictive scaling policy.</p>
+ */
+export interface PredictiveScalingCustomizedCapacityMetric {
+  /**
+   * <p>One or more metric data queries to provide the data points for a capacity metric. Use
+   *             multiple metric data queries only if you are performing a math expression on returned
+   *             data. </p>
+   */
+  MetricDataQueries: MetricDataQuery[] | undefined;
+}
+
+export namespace PredictiveScalingCustomizedCapacityMetric {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PredictiveScalingCustomizedCapacityMetric): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a custom load metric for a predictive scaling policy.</p>
+ */
+export interface PredictiveScalingCustomizedLoadMetric {
+  /**
+   * <p>One or more metric data queries to provide the data points for a load metric. Use
+   *             multiple metric data queries only if you are performing a math expression on returned
+   *             data. </p>
+   */
+  MetricDataQueries: MetricDataQuery[] | undefined;
+}
+
+export namespace PredictiveScalingCustomizedLoadMetric {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PredictiveScalingCustomizedLoadMetric): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a custom scaling metric for a predictive scaling policy.</p>
+ */
+export interface PredictiveScalingCustomizedScalingMetric {
+  /**
+   * <p>One or more metric data queries to provide the data points for a scaling metric. Use
+   *             multiple metric data queries only if you are performing a math expression on returned
+   *             data. </p>
+   */
+  MetricDataQueries: MetricDataQuery[] | undefined;
+}
+
+export namespace PredictiveScalingCustomizedScalingMetric {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PredictiveScalingCustomizedScalingMetric): any => ({
+    ...obj,
+  });
+}
+
 export enum PredefinedLoadMetricType {
   ALBTargetGroupRequestCount = "ALBTargetGroupRequestCount",
   ASGTotalCPUUtilization = "ASGTotalCPUUtilization",
@@ -4580,8 +4779,8 @@ export interface PredictiveScalingPredefinedLoadMetric {
 
   /**
    * <p>A label that uniquely identifies a specific Application Load Balancer target group from which to determine
-   *             the request count served by your Auto Scaling group. You can't specify a resource label
-   *             unless the target group is attached to the Auto Scaling group.</p>
+   *             the request count served by your Auto Scaling group. You can't specify a resource label unless
+   *             the target group is attached to the Auto Scaling group.</p>
    *          <p>You create the resource label by appending the final portion of the load balancer ARN
    *             and the final portion of the target group ARN into a single value, separated by a forward
    *             slash (/). The format of the resource label is:</p>
@@ -4688,8 +4887,8 @@ export interface PredictiveScalingPredefinedScalingMetric {
 
   /**
    * <p>A label that uniquely identifies a specific Application Load Balancer target group from which to determine
-   *             the average request count served by your Auto Scaling group. You can't specify a resource
-   *             label unless the target group is attached to the Auto Scaling group.</p>
+   *             the average request count served by your Auto Scaling group. You can't specify a resource label
+   *             unless the target group is attached to the Auto Scaling group.</p>
    *          <p>You create the resource label by appending the final portion of the load balancer ARN
    *             and the final portion of the target group ARN into a single value, separated by a forward
    *             slash (/). The format of the resource label is:</p>
@@ -4764,28 +4963,52 @@ export namespace PredictiveScalingPredefinedScalingMetric {
  *                     1000 requests per minute as possible at all times.</p>
  *             </li>
  *          </ul>
+ *         <p>For information about using custom metrics with predictive scaling, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/predictive-scaling-customized-metric-specification.html">Advanced predictive scaling policy configurations using custom metrics</a> in
+ *             the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 export interface PredictiveScalingMetricSpecification {
   /**
    * <p>Specifies the target utilization.</p>
+   *         <note>
+   *             <p>Some metrics are based on a count instead of a percentage, such as the request
+   *                 count for an Application Load Balancer or the number of messages in an SQS queue. If the scaling policy
+   *                 specifies one of these metrics, specify the target utilization as the optimal
+   *                 average request or message count per instance during any one-minute interval.
+   *             </p>
+   *         </note>
    */
   TargetValue: number | undefined;
 
   /**
-   * <p>The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling
-   *             metric and load metric to use.</p>
+   * <p>The predefined metric pair specification from which Amazon EC2 Auto Scaling determines the
+   *             appropriate scaling metric and load metric to use.</p>
    */
   PredefinedMetricPairSpecification?: PredictiveScalingPredefinedMetricPair;
 
   /**
-   * <p>The scaling metric specification.</p>
+   * <p>The predefined scaling metric specification.</p>
    */
   PredefinedScalingMetricSpecification?: PredictiveScalingPredefinedScalingMetric;
 
   /**
-   * <p>The load metric specification.</p>
+   * <p>The predefined load metric specification.</p>
    */
   PredefinedLoadMetricSpecification?: PredictiveScalingPredefinedLoadMetric;
+
+  /**
+   * <p>The customized scaling metric specification.</p>
+   */
+  CustomizedScalingMetricSpecification?: PredictiveScalingCustomizedScalingMetric;
+
+  /**
+   * <p>The customized load metric specification.</p>
+   */
+  CustomizedLoadMetricSpecification?: PredictiveScalingCustomizedLoadMetric;
+
+  /**
+   * <p>The customized capacity metric specification.</p>
+   */
+  CustomizedCapacityMetricSpecification?: PredictiveScalingCustomizedCapacityMetric;
 }
 
 export namespace PredictiveScalingMetricSpecification {
@@ -4952,30 +5175,6 @@ export namespace StepAdjustment {
   });
 }
 
-/**
- * <p>Describes the dimension of a metric.</p>
- */
-export interface MetricDimension {
-  /**
-   * <p>The name of the dimension.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The value of the dimension.</p>
-   */
-  Value: string | undefined;
-}
-
-export namespace MetricDimension {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricDimension): any => ({
-    ...obj,
-  });
-}
-
 export enum MetricStatistic {
   Average = "Average",
   Maximum = "Maximum",
@@ -4993,7 +5192,7 @@ export enum MetricStatistic {
  *                 <p>Add values for each required parameter from CloudWatch. You can use an existing
  *                     metric, or a new metric that you create. To use your own metric, you must first
  *                     publish the metric to CloudWatch. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publish
- *                         Custom Metrics</a> in the <i>Amazon CloudWatch User
+ *                         custom metrics</a> in the <i>Amazon CloudWatch User
  *                     Guide</i>.</p>
  *             </li>
  *             <li>
@@ -5003,12 +5202,19 @@ export enum MetricStatistic {
  *                     increases.</p>
  *             </li>
  *          </ul>
- *         <p>For more information about CloudWatch, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
- *                 Concepts</a>.</p>
+ *         <p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
+ *                 concepts</a>.</p>
+ *         <note>
+ *             <p>Each individual service provides information about the metrics, namespace, and
+ *                 dimensions they use. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon Web Services services that publish CloudWatch metrics</a> in the <i>Amazon CloudWatch User
+ *                     Guide</i>.</p>
+ *         </note>
  */
 export interface CustomizedMetricSpecification {
   /**
-   * <p>The name of the metric.</p>
+   * <p>The name of the metric. To get the exact metric name, namespace, and dimensions,
+   *             inspect the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a> object
+   *             that is returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</p>
    */
   MetricName: string | undefined;
 
@@ -5030,7 +5236,9 @@ export interface CustomizedMetricSpecification {
   Statistic: MetricStatistic | string | undefined;
 
   /**
-   * <p>The unit of the metric.</p>
+   * <p>The unit of the metric. For a complete list of the units that CloudWatch supports, see the
+   *                 <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">MetricDatum</a>
+   *             data type in the <i>Amazon CloudWatch API Reference</i>.</p>
    */
   Unit?: string;
 }
@@ -6219,7 +6427,7 @@ export namespace ExitStandbyQuery {
  */
 export interface CapacityForecast {
   /**
-   * <p>The time stamps for the data points, in UTC format.</p>
+   * <p>The timestamps for the data points, in UTC format.</p>
    */
   Timestamps: Date[] | undefined;
 
@@ -6246,7 +6454,7 @@ export namespace CapacityForecast {
  */
 export interface LoadForecast {
   /**
-   * <p>The time stamps for the data points, in UTC format.</p>
+   * <p>The timestamps for the data points, in UTC format.</p>
    */
   Timestamps: Date[] | undefined;
 
@@ -6381,9 +6589,8 @@ export interface PutLifecycleHookType {
    *             is in the transition state for the lifecycle hook. This target can be either an SQS
    *             queue or an SNS topic.</p>
    *         <p>If you specify an empty string, this overrides the current ARN.</p>
-   *         <p>This operation uses the JSON format when sending notifications to an Amazon SQS queue,
-   *             and an email key-value pair format when sending notifications to an Amazon SNS
-   *             topic.</p>
+   *         <p>This operation uses the JSON format when sending notifications to an Amazon SQS queue, and
+   *             an email key-value pair format when sending notifications to an Amazon SNS topic.</p>
    *         <p>When you specify a notification target, Amazon EC2 Auto Scaling sends it a test message. Test
    *             messages contain the following additional key-value pair: <code>"Event":
    *                 "autoscaling:TEST_NOTIFICATION"</code>.</p>
@@ -6430,8 +6637,7 @@ export interface PutNotificationConfigurationType {
   AutoScalingGroupName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS)
-   *             topic.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic.</p>
    */
   TopicARN: string | undefined;
 
@@ -6593,7 +6799,7 @@ export interface PutScalingPolicyType {
   EstimatedInstanceWarmup?: number;
 
   /**
-   * <p>A target tracking scaling policy. Provides support for predefined or customized
+   * <p>A target tracking scaling policy. Provides support for predefined or custom
    *             metrics.</p>
    *         <p>The following predefined metrics are available:</p>
    *         <ul>
@@ -6636,9 +6842,10 @@ export interface PutScalingPolicyType {
   Enabled?: boolean;
 
   /**
-   * <p>A predictive scaling policy. Provides support for only predefined metrics.</p>
-   *         <p>Predictive scaling works with CPU utilization, network in/out, and the Application
-   *             Load Balancer request count.</p>
+   * <p>A predictive scaling policy. Provides support for predefined and custom
+   *             metrics.</p>
+   *         <p>Predefined metrics include CPU utilization, network in/out, and the Application Load
+   *             Balancer request count.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API
    *                 Reference</i>.</p>
    *         <p>Required if the policy type is <code>PredictiveScaling</code>.</p>
@@ -7143,7 +7350,7 @@ export interface UpdateAutoScalingGroupType {
 
   /**
    * <p>An embedded object that specifies a mixed instances policy. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple
+   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple
    *                 instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User
    *                 Guide</i>.</p>
    */
@@ -7198,8 +7405,8 @@ export interface UpdateAutoScalingGroupType {
 
   /**
    * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status
-   *             of an EC2 instance that has come into service. The default value is <code>0</code>. For
-   *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health
+   *             of an EC2 instance that has come into service and marking it unhealthy due to a failed
+   *             health check. The default value is <code>0</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health
    *                 check grace period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *         <p>Conditional: Required if you are adding an <code>ELB</code> health check.</p>
    */
@@ -7231,7 +7438,8 @@ export interface UpdateAutoScalingGroupType {
   /**
    * <p>Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling
    *             when scaling in. For more information about preventing instances from terminating on
-   *             scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance scale-in protection</a> in the
+   *             scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Using
+   *                 instance scale-in protection</a> in the
    *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   NewInstancesProtectedFromScaleIn?: boolean;
@@ -7254,8 +7462,8 @@ export interface UpdateAutoScalingGroupType {
   MaxInstanceLifetime?: number;
 
   /**
-   * <p>Enables or disables Capacity Rebalancing. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html">Amazon EC2 Auto Scaling Capacity Rebalancing</a> in the
-   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   * <p>Enables or disables Capacity Rebalancing. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html">Amazon EC2 Auto Scaling
+   *                 Capacity Rebalancing</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   CapacityRebalance?: boolean;
 

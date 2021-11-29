@@ -31,11 +31,14 @@ export interface CreateDBClusterParameterGroupCommandOutput
  *             database engine used by instances in the DB cluster. To provide custom values for any of the
  *             parameters, you must modify the group after creating it using
  *             <code>ModifyDBClusterParameterGroup</code>. Once you've created a DB cluster parameter group, you need to
- *             associate it with your DB cluster using <code>ModifyDBCluster</code>. When you associate
- *             a new DB cluster parameter group with a running DB cluster, you need to reboot the DB
+ *             associate it with your DB cluster using <code>ModifyDBCluster</code>.</p>
+ *         <p>When you associate a new DB cluster parameter group with a running Aurora DB cluster, reboot the DB
  *             instances in the DB cluster without failover for the new DB cluster parameter group and
  *             associated settings to take effect.
  *         </p>
+ *          <p>When you associate a new DB cluster parameter group with a running Multi-AZ DB cluster, reboot the DB
+ *           cluster without failover for the new DB cluster parameter group and associated settings to take effect.
+ *       </p>
  *         <important>
  *             <p>After you create a DB cluster parameter group, you should wait at least 5 minutes
  *                 before creating your first DB cluster
@@ -48,13 +51,16 @@ export interface CreateDBClusterParameterGroupCommandOutput
  *                 <code>DescribeDBClusterParameters</code> action to verify
  *                 that your DB cluster parameter group has been created or modified.</p>
  *         </important>
- *
  *          <p>For more information on Amazon Aurora, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
- *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *          </p>
+ *          <p>For more information on Multi-AZ DB clusters, see
+ *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+ *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
  *          </p>
  *          <note>
- *             <p>This action only applies to Aurora DB clusters.</p>
+ *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

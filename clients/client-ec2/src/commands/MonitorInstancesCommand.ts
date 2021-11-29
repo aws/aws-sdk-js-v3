@@ -23,8 +23,8 @@ export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, _
 
 /**
  * <p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is
- *             enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring your instances and
- *                 volumes</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *             enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitor your instances using
+ *                 CloudWatch</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *         <p>To disable detailed monitoring, see .</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

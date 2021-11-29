@@ -142,6 +142,7 @@ import {
   ResourceInUseException,
   ResourceLimitExceededException,
   ResourceNotFoundException,
+  ResourcePropagationDelayException,
   ServerException,
   ServiceUnavailableException,
   Taint,
@@ -3798,10 +3799,26 @@ const deserializeAws_restJson1RegisterClusterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ResourceInUseException":
+    case "com.amazonaws.eks#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.eks#ResourceLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourcePropagationDelayException":
+    case "com.amazonaws.eks#ResourcePropagationDelayException":
+      response = {
+        ...(await deserializeAws_restJson1ResourcePropagationDelayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4657,6 +4674,23 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   }
   if (data.nodegroupName !== undefined && data.nodegroupName !== null) {
     contents.nodegroupName = __expectString(data.nodegroupName);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ResourcePropagationDelayExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourcePropagationDelayException> => {
+  const contents: ResourcePropagationDelayException = {
+    name: "ResourcePropagationDelayException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
   }
   return contents;
 };

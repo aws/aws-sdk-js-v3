@@ -7740,6 +7740,14 @@ const serializeAws_restJson1LaunchPermissionConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.organizationArns !== undefined &&
+      input.organizationArns !== null && {
+        organizationArns: serializeAws_restJson1OrganizationArnList(input.organizationArns, context),
+      }),
+    ...(input.organizationalUnitArns !== undefined &&
+      input.organizationalUnitArns !== null && {
+        organizationalUnitArns: serializeAws_restJson1OrganizationalUnitArnList(input.organizationalUnitArns, context),
+      }),
     ...(input.userGroups !== undefined &&
       input.userGroups !== null && { userGroups: serializeAws_restJson1StringList(input.userGroups, context) }),
     ...(input.userIds !== undefined &&
@@ -7790,6 +7798,28 @@ const serializeAws_restJson1Logging = (input: Logging, context: __SerdeContext):
     ...(input.s3Logs !== undefined &&
       input.s3Logs !== null && { s3Logs: serializeAws_restJson1S3Logs(input.s3Logs, context) }),
   };
+};
+
+const serializeAws_restJson1OrganizationalUnitArnList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1OrganizationArnList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1OsVersionList = (input: string[], context: __SerdeContext): any => {
@@ -8750,6 +8780,14 @@ const deserializeAws_restJson1LaunchPermissionConfiguration = (
   context: __SerdeContext
 ): LaunchPermissionConfiguration => {
   return {
+    organizationArns:
+      output.organizationArns !== undefined && output.organizationArns !== null
+        ? deserializeAws_restJson1OrganizationArnList(output.organizationArns, context)
+        : undefined,
+    organizationalUnitArns:
+      output.organizationalUnitArns !== undefined && output.organizationalUnitArns !== null
+        ? deserializeAws_restJson1OrganizationalUnitArnList(output.organizationalUnitArns, context)
+        : undefined,
     userGroups:
       output.userGroups !== undefined && output.userGroups !== null
         ? deserializeAws_restJson1StringList(output.userGroups, context)
@@ -8804,6 +8842,28 @@ const deserializeAws_restJson1Logging = (output: any, context: __SerdeContext): 
         ? deserializeAws_restJson1S3Logs(output.s3Logs, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1OrganizationalUnitArnList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1OrganizationArnList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_restJson1OsVersionList = (output: any, context: __SerdeContext): string[] => {

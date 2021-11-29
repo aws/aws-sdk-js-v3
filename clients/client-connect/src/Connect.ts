@@ -51,6 +51,11 @@ import {
   CreateContactFlowCommandOutput,
 } from "./commands/CreateContactFlowCommand";
 import {
+  CreateContactFlowModuleCommand,
+  CreateContactFlowModuleCommandInput,
+  CreateContactFlowModuleCommandOutput,
+} from "./commands/CreateContactFlowModuleCommand";
+import {
   CreateHoursOfOperationCommand,
   CreateHoursOfOperationCommandInput,
   CreateHoursOfOperationCommandOutput,
@@ -92,6 +97,16 @@ import {
   CreateUserHierarchyGroupCommandInput,
   CreateUserHierarchyGroupCommandOutput,
 } from "./commands/CreateUserHierarchyGroupCommand";
+import {
+  DeleteContactFlowCommand,
+  DeleteContactFlowCommandInput,
+  DeleteContactFlowCommandOutput,
+} from "./commands/DeleteContactFlowCommand";
+import {
+  DeleteContactFlowModuleCommand,
+  DeleteContactFlowModuleCommandInput,
+  DeleteContactFlowModuleCommandOutput,
+} from "./commands/DeleteContactFlowModuleCommand";
 import {
   DeleteHoursOfOperationCommand,
   DeleteHoursOfOperationCommandInput,
@@ -143,6 +158,11 @@ import {
   DescribeContactFlowCommandInput,
   DescribeContactFlowCommandOutput,
 } from "./commands/DescribeContactFlowCommand";
+import {
+  DescribeContactFlowModuleCommand,
+  DescribeContactFlowModuleCommandInput,
+  DescribeContactFlowModuleCommandOutput,
+} from "./commands/DescribeContactFlowModuleCommand";
 import {
   DescribeHoursOfOperationCommand,
   DescribeHoursOfOperationCommandInput,
@@ -269,6 +289,11 @@ import {
   ListApprovedOriginsCommandOutput,
 } from "./commands/ListApprovedOriginsCommand";
 import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
+import {
+  ListContactFlowModulesCommand,
+  ListContactFlowModulesCommandInput,
+  ListContactFlowModulesCommandOutput,
+} from "./commands/ListContactFlowModulesCommand";
 import {
   ListContactFlowsCommand,
   ListContactFlowsCommandInput,
@@ -441,6 +466,21 @@ import {
   UpdateContactFlowContentCommandOutput,
 } from "./commands/UpdateContactFlowContentCommand";
 import {
+  UpdateContactFlowMetadataCommand,
+  UpdateContactFlowMetadataCommandInput,
+  UpdateContactFlowMetadataCommandOutput,
+} from "./commands/UpdateContactFlowMetadataCommand";
+import {
+  UpdateContactFlowModuleContentCommand,
+  UpdateContactFlowModuleContentCommandInput,
+  UpdateContactFlowModuleContentCommandOutput,
+} from "./commands/UpdateContactFlowModuleContentCommand";
+import {
+  UpdateContactFlowModuleMetadataCommand,
+  UpdateContactFlowModuleMetadataCommandInput,
+  UpdateContactFlowModuleMetadataCommandOutput,
+} from "./commands/UpdateContactFlowModuleMetadataCommand";
+import {
   UpdateContactFlowNameCommand,
   UpdateContactFlowNameCommandInput,
   UpdateContactFlowNameCommandOutput,
@@ -571,11 +611,9 @@ import { ConnectClient } from "./ConnectClient";
  *          <p>There are limits to the number of Amazon Connect resources that you can create. There are also limits
  *    to the number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect
  *     Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
- *          <p>You can
- *    connect
- *    programmatically to an AWS service by using an endpoint. For a list of Amazon Connect endpoints, see
- *     <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
- *    Endpoints</a>.</p>
+ *          <p>You can connect programmatically to an AWS service by using an endpoint. For a list of Amazon Connect
+ *    endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
+ *     Endpoints</a>.</p>
  *          <note>
  *             <p>Working with contact flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p>
  *          </note>
@@ -914,7 +952,40 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Creates hours of operation. </p>
+   * <p>Creates a contact flow module for the specified Amazon Connect instance. </p>
+   */
+  public createContactFlowModule(
+    args: CreateContactFlowModuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContactFlowModuleCommandOutput>;
+  public createContactFlowModule(
+    args: CreateContactFlowModuleCommandInput,
+    cb: (err: any, data?: CreateContactFlowModuleCommandOutput) => void
+  ): void;
+  public createContactFlowModule(
+    args: CreateContactFlowModuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContactFlowModuleCommandOutput) => void
+  ): void;
+  public createContactFlowModule(
+    args: CreateContactFlowModuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateContactFlowModuleCommandOutput) => void),
+    cb?: (err: any, data?: CreateContactFlowModuleCommandOutput) => void
+  ): Promise<CreateContactFlowModuleCommandOutput> | void {
+    const command = new CreateContactFlowModuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Creates hours of operation. </p>
    */
   public createHoursOfOperation(
     args: CreateHoursOfOperationCommandInput,
@@ -1232,7 +1303,72 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Deletes an hours of operation.</p>
+   * <p>Deletes a contact flow for the specified Amazon Connect instance.</p>
+   */
+  public deleteContactFlow(
+    args: DeleteContactFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContactFlowCommandOutput>;
+  public deleteContactFlow(
+    args: DeleteContactFlowCommandInput,
+    cb: (err: any, data?: DeleteContactFlowCommandOutput) => void
+  ): void;
+  public deleteContactFlow(
+    args: DeleteContactFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContactFlowCommandOutput) => void
+  ): void;
+  public deleteContactFlow(
+    args: DeleteContactFlowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteContactFlowCommandOutput) => void),
+    cb?: (err: any, data?: DeleteContactFlowCommandOutput) => void
+  ): Promise<DeleteContactFlowCommandOutput> | void {
+    const command = new DeleteContactFlowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified contact flow module.</p>
+   */
+  public deleteContactFlowModule(
+    args: DeleteContactFlowModuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContactFlowModuleCommandOutput>;
+  public deleteContactFlowModule(
+    args: DeleteContactFlowModuleCommandInput,
+    cb: (err: any, data?: DeleteContactFlowModuleCommandOutput) => void
+  ): void;
+  public deleteContactFlowModule(
+    args: DeleteContactFlowModuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContactFlowModuleCommandOutput) => void
+  ): void;
+  public deleteContactFlowModule(
+    args: DeleteContactFlowModuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteContactFlowModuleCommandOutput) => void),
+    cb?: (err: any, data?: DeleteContactFlowModuleCommandOutput) => void
+  ): Promise<DeleteContactFlowModuleCommandOutput> | void {
+    const command = new DeleteContactFlowModuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Deletes an hours of operation.</p>
    */
   public deleteHoursOfOperation(
     args: DeleteHoursOfOperationCommandInput,
@@ -1528,7 +1664,8 @@ export class Connect extends ConnectClient {
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Describes the specified contact. </p>
    *          <important>
-   *             <p>Contact information is available in Amazon Connect for 24 months, and then it is deleted.</p>
+   *             <p>Contact information remains available in Amazon Connect for 24 months, and then it is
+   *     deleted.</p>
    *          </important>
    */
   public describeContact(
@@ -1595,7 +1732,40 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Describes the hours of operation.</p>
+   * <p>Describes the specified contact flow module.</p>
+   */
+  public describeContactFlowModule(
+    args: DescribeContactFlowModuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeContactFlowModuleCommandOutput>;
+  public describeContactFlowModule(
+    args: DescribeContactFlowModuleCommandInput,
+    cb: (err: any, data?: DescribeContactFlowModuleCommandOutput) => void
+  ): void;
+  public describeContactFlowModule(
+    args: DescribeContactFlowModuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeContactFlowModuleCommandOutput) => void
+  ): void;
+  public describeContactFlowModule(
+    args: DescribeContactFlowModuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeContactFlowModuleCommandOutput) => void),
+    cb?: (err: any, data?: DescribeContactFlowModuleCommandOutput) => void
+  ): Promise<DescribeContactFlowModuleCommandOutput> | void {
+    const command = new DescribeContactFlowModuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Describes the hours of operation.</p>
    */
   public describeHoursOfOperation(
     args: DescribeHoursOfOperationCommandInput,
@@ -2430,8 +2600,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently
-   *    associated with the instance. </p>
+   *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the
+   *    instance. </p>
    */
   public listBots(args: ListBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListBotsCommandOutput>;
   public listBots(args: ListBotsCommandInput, cb: (err: any, data?: ListBotsCommandOutput) => void): void;
@@ -2446,6 +2616,38 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: ListBotsCommandOutput) => void
   ): Promise<ListBotsCommandOutput> | void {
     const command = new ListBotsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides information about the contact flow modules for the specified Amazon Connect instance.</p>
+   */
+  public listContactFlowModules(
+    args: ListContactFlowModulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContactFlowModulesCommandOutput>;
+  public listContactFlowModules(
+    args: ListContactFlowModulesCommandInput,
+    cb: (err: any, data?: ListContactFlowModulesCommandOutput) => void
+  ): void;
+  public listContactFlowModules(
+    args: ListContactFlowModulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListContactFlowModulesCommandOutput) => void
+  ): void;
+  public listContactFlowModules(
+    args: ListContactFlowModulesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListContactFlowModulesCommandOutput) => void),
+    cb?: (err: any, data?: ListContactFlowModulesCommandOutput) => void
+  ): Promise<ListContactFlowModulesCommandOutput> | void {
+    const command = new ListContactFlowModulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3336,7 +3538,7 @@ export class Connect extends ConnectClient {
   /**
    * <p> Initiates real-time message streaming for a new chat contact.</p>
    *          <p> For more information about message streaming, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat message
-   *     streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *    streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public startContactStreaming(
     args: StartContactStreamingCommandInput,
@@ -3384,9 +3586,8 @@ export class Connect extends ConnectClient {
    *          </note>
    *          <note>
    *             <p>Campaign calls are not allowed by default. Before you can make a call with
-   *      <code>TrafficType</code> = <code>CAMPAIGN</code>, you must submit a service quota increase
-   *     request. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a>
-   *     in the <i>Amazon Connect Administrator Guide</i>. </p>
+   *     <code>TrafficType</code> = <code>CAMPAIGN</code>, you must submit a service quota increase request. For more information, see
+   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
    *          </note>
    */
   public startOutboundVoiceContact(
@@ -3419,8 +3620,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Initiates a contact flow to start a new task immediately or at a future date and
-   *    time.</p>
+   * <p>Initiates a contact flow to start a new task.</p>
    */
   public startTaskContact(
     args: StartTaskContactCommandInput,
@@ -3588,8 +3788,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Adds the specified tags to the specified resource.</p>
-   *          <p>The supported resource types are users, routing profiles, queues, quick connects, contact
-   *    flows, agent status, and hours of operation.</p>
+   *          <p>The supported resource types are users, routing profiles, queues, quick connects,
+   *    contact flows, agent status, and hours of operation.</p>
    *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based
    *     Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
@@ -3683,7 +3883,7 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Adds or updates user defined contact information associated with the specified contact. At
+   *          <p>Adds or updates user-defined contact information associated with the specified contact. At
    *    least one field to be updated must be present in the request.</p>
    *          <important>
    *             <p>You can add or update user-defined contact information for both ongoing and completed
@@ -3805,6 +4005,102 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Updates metadata about specified contact flow.</p>
+   */
+  public updateContactFlowMetadata(
+    args: UpdateContactFlowMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContactFlowMetadataCommandOutput>;
+  public updateContactFlowMetadata(
+    args: UpdateContactFlowMetadataCommandInput,
+    cb: (err: any, data?: UpdateContactFlowMetadataCommandOutput) => void
+  ): void;
+  public updateContactFlowMetadata(
+    args: UpdateContactFlowMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateContactFlowMetadataCommandOutput) => void
+  ): void;
+  public updateContactFlowMetadata(
+    args: UpdateContactFlowMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateContactFlowMetadataCommandOutput) => void),
+    cb?: (err: any, data?: UpdateContactFlowMetadataCommandOutput) => void
+  ): Promise<UpdateContactFlowMetadataCommandOutput> | void {
+    const command = new UpdateContactFlowMetadataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates specified contact flow module for the specified Amazon Connect instance. </p>
+   */
+  public updateContactFlowModuleContent(
+    args: UpdateContactFlowModuleContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContactFlowModuleContentCommandOutput>;
+  public updateContactFlowModuleContent(
+    args: UpdateContactFlowModuleContentCommandInput,
+    cb: (err: any, data?: UpdateContactFlowModuleContentCommandOutput) => void
+  ): void;
+  public updateContactFlowModuleContent(
+    args: UpdateContactFlowModuleContentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateContactFlowModuleContentCommandOutput) => void
+  ): void;
+  public updateContactFlowModuleContent(
+    args: UpdateContactFlowModuleContentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateContactFlowModuleContentCommandOutput) => void),
+    cb?: (err: any, data?: UpdateContactFlowModuleContentCommandOutput) => void
+  ): Promise<UpdateContactFlowModuleContentCommandOutput> | void {
+    const command = new UpdateContactFlowModuleContentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates metadata about specified contact flow module.</p>
+   */
+  public updateContactFlowModuleMetadata(
+    args: UpdateContactFlowModuleMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContactFlowModuleMetadataCommandOutput>;
+  public updateContactFlowModuleMetadata(
+    args: UpdateContactFlowModuleMetadataCommandInput,
+    cb: (err: any, data?: UpdateContactFlowModuleMetadataCommandOutput) => void
+  ): void;
+  public updateContactFlowModuleMetadata(
+    args: UpdateContactFlowModuleMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateContactFlowModuleMetadataCommandOutput) => void
+  ): void;
+  public updateContactFlowModuleMetadata(
+    args: UpdateContactFlowModuleMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateContactFlowModuleMetadataCommandOutput) => void),
+    cb?: (err: any, data?: UpdateContactFlowModuleMetadataCommandOutput) => void
+  ): Promise<UpdateContactFlowModuleMetadataCommandOutput> | void {
+    const command = new UpdateContactFlowModuleMetadataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>The name of the contact flow.</p>
    *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
@@ -3871,7 +4167,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Updates the hours of operation.</p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Updates the hours of operation.</p>
    */
   public updateHoursOfOperation(
     args: UpdateHoursOfOperationCommandInput,

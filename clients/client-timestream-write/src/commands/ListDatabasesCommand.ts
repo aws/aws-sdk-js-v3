@@ -24,7 +24,8 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
 
 /**
  * <p>Returns a list of your Timestream databases.
- *          Service quotas apply. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Access Management</a> in the Timestream Developer Guide.
+ *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. See
+ *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-db.html">code sample</a> for details.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

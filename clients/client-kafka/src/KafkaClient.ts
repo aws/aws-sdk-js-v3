@@ -126,6 +126,7 @@ import {
   UpdateConfigurationCommandInput,
   UpdateConfigurationCommandOutput,
 } from "./commands/UpdateConfigurationCommand";
+import { UpdateConnectivityCommandInput, UpdateConnectivityCommandOutput } from "./commands/UpdateConnectivityCommand";
 import { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "./commands/UpdateMonitoringCommand";
 import { UpdateSecurityCommandInput, UpdateSecurityCommandOutput } from "./commands/UpdateSecurityCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -160,6 +161,7 @@ export type ServiceInputTypes =
   | UpdateClusterConfigurationCommandInput
   | UpdateClusterKafkaVersionCommandInput
   | UpdateConfigurationCommandInput
+  | UpdateConnectivityCommandInput
   | UpdateMonitoringCommandInput
   | UpdateSecurityCommandInput;
 
@@ -193,6 +195,7 @@ export type ServiceOutputTypes =
   | UpdateClusterConfigurationCommandOutput
   | UpdateClusterKafkaVersionCommandOutput
   | UpdateConfigurationCommandOutput
+  | UpdateConnectivityCommandOutput
   | UpdateMonitoringCommandOutput
   | UpdateSecurityCommandOutput;
 

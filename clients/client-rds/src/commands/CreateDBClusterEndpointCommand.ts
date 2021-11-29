@@ -23,9 +23,9 @@ export interface CreateDBClusterEndpointCommandOutput extends DBClusterEndpoint,
 
 /**
  * <p>Creates a new custom endpoint and associates it with an Amazon Aurora DB cluster.</p>
- *          <note>
- *            <p>This action only applies to Aurora DB clusters.</p>
- *          </note>
+ *         <note>
+ *             <p>This action only applies to Aurora DB clusters.</p>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

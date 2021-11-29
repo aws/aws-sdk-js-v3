@@ -13,6 +13,7 @@ import {
   CurrencyCodeValues,
   FleetLaunchTemplateSpecification,
   FleetType,
+  HostnameType,
   HostRecovery,
   IamInstanceProfile,
   IamInstanceProfileAssociation,
@@ -68,9 +69,200 @@ import {
   Filter,
   IdFormat,
   InstanceTagNotificationAttribute,
+  PaymentOption,
   PermissionGroup,
   ProductCode,
 } from "./models_2";
+
+export enum ReservationState {
+  ACTIVE = "active",
+  PAYMENT_FAILED = "payment-failed",
+  PAYMENT_PENDING = "payment-pending",
+  RETIRED = "retired",
+}
+
+/**
+ * <p>Details about the Dedicated Host Reservation and associated Dedicated
+ *             Hosts.</p>
+ */
+export interface HostReservation {
+  /**
+   * <p>The number of Dedicated Hosts the reservation is associated with.</p>
+   */
+  Count?: number;
+
+  /**
+   * <p>The currency in which the <code>upfrontPrice</code> and <code>hourlyPrice</code>
+   *             amounts are specified. At this time, the only supported currency is
+   *             <code>USD</code>.</p>
+   */
+  CurrencyCode?: CurrencyCodeValues | string;
+
+  /**
+   * <p>The length of the reservation's term, specified in seconds. Can be <code>31536000
+   *                 (1 year)</code> | <code>94608000 (3 years)</code>.</p>
+   */
+  Duration?: number;
+
+  /**
+   * <p>The date and time that the reservation ends.</p>
+   */
+  End?: Date;
+
+  /**
+   * <p>The IDs of the Dedicated Hosts associated with the reservation.</p>
+   */
+  HostIdSet?: string[];
+
+  /**
+   * <p>The ID of the reservation that specifies the associated Dedicated Hosts.</p>
+   */
+  HostReservationId?: string;
+
+  /**
+   * <p>The hourly price of the reservation.</p>
+   */
+  HourlyPrice?: string;
+
+  /**
+   * <p>The instance family of the Dedicated Host Reservation. The instance family on the
+   *             Dedicated Host must be the same in order for it to benefit from the
+   *             reservation.</p>
+   */
+  InstanceFamily?: string;
+
+  /**
+   * <p>The ID of the reservation. This remains the same regardless of which Dedicated
+   *             Hosts are associated with it.</p>
+   */
+  OfferingId?: string;
+
+  /**
+   * <p>The payment option selected for this reservation.</p>
+   */
+  PaymentOption?: PaymentOption | string;
+
+  /**
+   * <p>The date and time that the reservation started.</p>
+   */
+  Start?: Date;
+
+  /**
+   * <p>The state of the reservation.</p>
+   */
+  State?: ReservationState | string;
+
+  /**
+   * <p>The upfront price of the reservation.</p>
+   */
+  UpfrontPrice?: string;
+
+  /**
+   * <p>Any tags assigned to the Dedicated Host Reservation.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace HostReservation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HostReservation): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeHostReservationsResult {
+  /**
+   * <p>Details about the reservation's configuration.</p>
+   */
+  HostReservationSet?: HostReservation[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeHostReservationsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeHostReservationsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeHostsRequest {
+  /**
+   * <p>The filters.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>auto-placement</code> - Whether auto-placement is enabled or disabled
+   *                         (<code>on</code> | <code>off</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>availability-zone</code> - The Availability Zone of the
+   *                     host.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>client-token</code> - The idempotency token that you provided when you
+   *                     allocated the host.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>host-reservation-id</code> - The ID of the reservation assigned to
+   *                     this host.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>instance-type</code> - The instance type size that the Dedicated Host
+   *                     is configured to support.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>state</code> - The allocation state of the Dedicated Host
+   *                         (<code>available</code> | <code>under-assessment</code> |
+   *                         <code>permanent-failure</code> | <code>released</code> |
+   *                         <code>released-permanent-failure</code>).</p>
+   *             </li>
+   *             <li>
+   *         		     <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *         	   </li>
+   *          </ul>
+   */
+  Filter?: Filter[];
+
+  /**
+   * <p>The IDs of the Dedicated Hosts. The IDs are used for targeted instance
+   *             launches.</p>
+   */
+  HostIds?: string[];
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+   *          <p>You cannot specify this parameter and the host IDs parameter in the same request.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeHostsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeHostsRequest): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Information about the number of instances that can be launched onto the Dedicated
@@ -3109,6 +3301,35 @@ export namespace InstanceNetworkInterface {
   });
 }
 
+/**
+ * <p>Describes the options for instance hostnames.</p>
+ */
+export interface PrivateDnsNameOptionsResponse {
+  /**
+   * <p>The type of hostname to assign to an instance.</p>
+   */
+  HostnameType?: HostnameType | string;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p>
+   */
+  EnableResourceNameDnsARecord?: boolean;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p>
+   */
+  EnableResourceNameDnsAAAARecord?: boolean;
+}
+
+export namespace PrivateDnsNameOptionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PrivateDnsNameOptionsResponse): any => ({
+    ...obj,
+  });
+}
+
 export type InstanceStateName = "pending" | "running" | "shutting-down" | "stopped" | "stopping" | "terminated";
 
 /**
@@ -3464,6 +3685,16 @@ export interface Instance {
    * <p>The time that the usage operation was last updated.</p>
    */
   UsageOperationUpdateTime?: Date;
+
+  /**
+   * <p>The options for the instance hostname.</p>
+   */
+  PrivateDnsNameOptions?: PrivateDnsNameOptionsResponse;
+
+  /**
+   * <p>The IPv6 address assigned to the instance.</p>
+   */
+  Ipv6Address?: string;
 }
 
 export namespace Instance {
@@ -11547,6 +11778,8 @@ export interface SpotCapacityRebalance {
   /**
    * <p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
    *             Instance after launching a new replacement Spot Instance.</p>
+   *         <p>Valid only when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>
+   *         <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>
    */
   TerminationDelay?: number;
 }
@@ -12718,270 +12951,6 @@ export namespace StaleSecurityGroup {
    * @internal
    */
   export const filterSensitiveLog = (obj: StaleSecurityGroup): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeStaleSecurityGroupsResult {
-  /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the stale security groups.</p>
-   */
-  StaleSecurityGroupSet?: StaleSecurityGroup[];
-}
-
-export namespace DescribeStaleSecurityGroupsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStaleSecurityGroupsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeStoreImageTasksRequest {
-  /**
-   * <p>The AMI IDs for which to show progress. Up to 20 AMI IDs can be included in a request.</p>
-   */
-  ImageIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>task-state</code> - Returns tasks in a certain state (<code>InProgress</code> |
-   *             <code>Completed</code> | <code>Failed</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>bucket</code> - Returns task information for tasks that targeted a specific
-   *           bucket. For the filter value, specify the bucket name.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *       results, make another call with the returned <code>NextToken</code> value. This value can be
-   *       between 1 and 200. You cannot specify this parameter and the <code>ImageIDs</code> parameter
-   *       in the same call.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace DescribeStoreImageTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStoreImageTasksRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The information about the AMI store task, including the progress of the task.</p>
- */
-export interface StoreImageTaskResult {
-  /**
-   * <p>The ID of the AMI that is being stored.</p>
-   */
-  AmiId?: string;
-
-  /**
-   * <p>The time the task started.</p>
-   */
-  TaskStartTime?: Date;
-
-  /**
-   * <p>The name of the Amazon S3 bucket that contains the stored AMI object.</p>
-   */
-  Bucket?: string;
-
-  /**
-   * <p>The name of the stored AMI object in the bucket.</p>
-   */
-  S3objectKey?: string;
-
-  /**
-   * <p>The progress of the task as a percentage.</p>
-   */
-  ProgressPercentage?: number;
-
-  /**
-   * <p>The state of the store task (<code>InProgress</code>, <code>Completed</code>, or
-   *         <code>Failed</code>).</p>
-   */
-  StoreTaskState?: string;
-
-  /**
-   * <p>If the tasks fails, the reason for the failure is returned. If the task succeeds,
-   *         <code>null</code> is returned.</p>
-   */
-  StoreTaskFailureReason?: string;
-}
-
-export namespace StoreImageTaskResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StoreImageTaskResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeStoreImageTasksResult {
-  /**
-   * <p>The information about the AMI store tasks.</p>
-   */
-  StoreImageTaskResults?: StoreImageTaskResult[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *       when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeStoreImageTasksResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStoreImageTasksResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeSubnetsRequest {
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>availability-zone</code> - The Availability Zone for the subnet. You can also use
-   *                     <code>availabilityZone</code> as the filter name.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>availability-zone-id</code> - The ID of the Availability Zone for the subnet.
-   *                     You can also use <code>availabilityZoneId</code> as the filter name.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>available-ip-address-count</code> - The number of IPv4 addresses in the
-   *                     subnet that are available.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>cidr-block</code> - The IPv4 CIDR block of the subnet. The CIDR block you
-   *                     specify must exactly match the subnet's CIDR block for information to be
-   *                     returned for the subnet. You can also use <code>cidr</code> or
-   *                     <code>cidrBlock</code> as the filter names.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>default-for-az</code> - Indicates whether this is the default subnet for the
-   *                     Availability Zone. You can also use <code>defaultForAz</code> as the filter name.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR
-   *                     block associated with the subnet.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ipv6-cidr-block-association.association-id</code> - An association ID
-   *                     for an IPv6 CIDR block associated with the subnet.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR
-   *                     block associated with the subnet.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the subnet.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>subnet-arn</code> - The Amazon Resource Name (ARN) of the subnet.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>subnet-id</code> - The ID of the subnet.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>vpc-id</code> - The ID of the VPC for the subnet.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>One or more subnet IDs.</p>
-   * 		       <p>Default: Describes all your subnets.</p>
-   */
-  SubnetIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace DescribeSubnetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSubnetsRequest): any => ({
     ...obj,
   });
 }

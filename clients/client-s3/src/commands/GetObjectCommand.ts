@@ -105,13 +105,16 @@ export interface GetObjectCommandOutput extends GetObjectOutput, __MetadataBeare
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>You need the <code>s3:GetObjectVersion</code> permission to access a specific version of an object.
- *             </p>
+ *                   <p>
+ *                     If you supply a <code>versionId</code>, you need the <code>s3:GetObjectVersion</code> permission to
+ *                     access a specific version of an object. If you request a specific version, you do not need to have
+ *                     the <code>s3:GetObject</code> permission.
+ *                 </p>
  *                </li>
  *                <li>
  *                   <p>If the current version of the object is a delete marker, Amazon S3 behaves as if the
- *             object was deleted and includes <code>x-amz-delete-marker: true</code> in the
- *             response.</p>
+ *                   object was deleted and includes <code>x-amz-delete-marker: true</code> in the
+ *                   response.</p>
  *                </li>
  *             </ul>
  *          </note>

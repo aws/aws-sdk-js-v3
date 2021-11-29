@@ -41,6 +41,11 @@ import {
   CreateEnvironmentTemplateVersionCommandOutput,
 } from "./commands/CreateEnvironmentTemplateVersionCommand";
 import {
+  CreateRepositoryCommand,
+  CreateRepositoryCommandInput,
+  CreateRepositoryCommandOutput,
+} from "./commands/CreateRepositoryCommand";
+import {
   CreateServiceCommand,
   CreateServiceCommandInput,
   CreateServiceCommandOutput,
@@ -55,6 +60,11 @@ import {
   CreateServiceTemplateVersionCommandInput,
   CreateServiceTemplateVersionCommandOutput,
 } from "./commands/CreateServiceTemplateVersionCommand";
+import {
+  CreateTemplateSyncConfigCommand,
+  CreateTemplateSyncConfigCommandInput,
+  CreateTemplateSyncConfigCommandOutput,
+} from "./commands/CreateTemplateSyncConfigCommand";
 import {
   DeleteEnvironmentAccountConnectionCommand,
   DeleteEnvironmentAccountConnectionCommandInput,
@@ -76,6 +86,11 @@ import {
   DeleteEnvironmentTemplateVersionCommandOutput,
 } from "./commands/DeleteEnvironmentTemplateVersionCommand";
 import {
+  DeleteRepositoryCommand,
+  DeleteRepositoryCommandInput,
+  DeleteRepositoryCommandOutput,
+} from "./commands/DeleteRepositoryCommand";
+import {
   DeleteServiceCommand,
   DeleteServiceCommandInput,
   DeleteServiceCommandOutput,
@@ -90,6 +105,11 @@ import {
   DeleteServiceTemplateVersionCommandInput,
   DeleteServiceTemplateVersionCommandOutput,
 } from "./commands/DeleteServiceTemplateVersionCommand";
+import {
+  DeleteTemplateSyncConfigCommand,
+  DeleteTemplateSyncConfigCommandInput,
+  DeleteTemplateSyncConfigCommandOutput,
+} from "./commands/DeleteTemplateSyncConfigCommand";
 import {
   GetAccountSettingsCommand,
   GetAccountSettingsCommandInput,
@@ -115,6 +135,16 @@ import {
   GetEnvironmentTemplateVersionCommandInput,
   GetEnvironmentTemplateVersionCommandOutput,
 } from "./commands/GetEnvironmentTemplateVersionCommand";
+import {
+  GetRepositoryCommand,
+  GetRepositoryCommandInput,
+  GetRepositoryCommandOutput,
+} from "./commands/GetRepositoryCommand";
+import {
+  GetRepositorySyncStatusCommand,
+  GetRepositorySyncStatusCommandInput,
+  GetRepositorySyncStatusCommandOutput,
+} from "./commands/GetRepositorySyncStatusCommand";
 import { GetServiceCommand, GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
 import {
   GetServiceInstanceCommand,
@@ -132,10 +162,30 @@ import {
   GetServiceTemplateVersionCommandOutput,
 } from "./commands/GetServiceTemplateVersionCommand";
 import {
+  GetTemplateSyncConfigCommand,
+  GetTemplateSyncConfigCommandInput,
+  GetTemplateSyncConfigCommandOutput,
+} from "./commands/GetTemplateSyncConfigCommand";
+import {
+  GetTemplateSyncStatusCommand,
+  GetTemplateSyncStatusCommandInput,
+  GetTemplateSyncStatusCommandOutput,
+} from "./commands/GetTemplateSyncStatusCommand";
+import {
   ListEnvironmentAccountConnectionsCommand,
   ListEnvironmentAccountConnectionsCommandInput,
   ListEnvironmentAccountConnectionsCommandOutput,
 } from "./commands/ListEnvironmentAccountConnectionsCommand";
+import {
+  ListEnvironmentOutputsCommand,
+  ListEnvironmentOutputsCommandInput,
+  ListEnvironmentOutputsCommandOutput,
+} from "./commands/ListEnvironmentOutputsCommand";
+import {
+  ListEnvironmentProvisionedResourcesCommand,
+  ListEnvironmentProvisionedResourcesCommandInput,
+  ListEnvironmentProvisionedResourcesCommandOutput,
+} from "./commands/ListEnvironmentProvisionedResourcesCommand";
 import {
   ListEnvironmentsCommand,
   ListEnvironmentsCommandInput,
@@ -152,10 +202,40 @@ import {
   ListEnvironmentTemplateVersionsCommandOutput,
 } from "./commands/ListEnvironmentTemplateVersionsCommand";
 import {
+  ListRepositoriesCommand,
+  ListRepositoriesCommandInput,
+  ListRepositoriesCommandOutput,
+} from "./commands/ListRepositoriesCommand";
+import {
+  ListRepositorySyncDefinitionsCommand,
+  ListRepositorySyncDefinitionsCommandInput,
+  ListRepositorySyncDefinitionsCommandOutput,
+} from "./commands/ListRepositorySyncDefinitionsCommand";
+import {
+  ListServiceInstanceOutputsCommand,
+  ListServiceInstanceOutputsCommandInput,
+  ListServiceInstanceOutputsCommandOutput,
+} from "./commands/ListServiceInstanceOutputsCommand";
+import {
+  ListServiceInstanceProvisionedResourcesCommand,
+  ListServiceInstanceProvisionedResourcesCommandInput,
+  ListServiceInstanceProvisionedResourcesCommandOutput,
+} from "./commands/ListServiceInstanceProvisionedResourcesCommand";
+import {
   ListServiceInstancesCommand,
   ListServiceInstancesCommandInput,
   ListServiceInstancesCommandOutput,
 } from "./commands/ListServiceInstancesCommand";
+import {
+  ListServicePipelineOutputsCommand,
+  ListServicePipelineOutputsCommandInput,
+  ListServicePipelineOutputsCommandOutput,
+} from "./commands/ListServicePipelineOutputsCommand";
+import {
+  ListServicePipelineProvisionedResourcesCommand,
+  ListServicePipelineProvisionedResourcesCommandInput,
+  ListServicePipelineProvisionedResourcesCommandOutput,
+} from "./commands/ListServicePipelineProvisionedResourcesCommand";
 import {
   ListServicesCommand,
   ListServicesCommandInput,
@@ -176,6 +256,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  NotifyResourceDeploymentStatusChangeCommand,
+  NotifyResourceDeploymentStatusChangeCommandInput,
+  NotifyResourceDeploymentStatusChangeCommandOutput,
+} from "./commands/NotifyResourceDeploymentStatusChangeCommand";
 import {
   RejectEnvironmentAccountConnectionCommand,
   RejectEnvironmentAccountConnectionCommandInput,
@@ -237,138 +322,151 @@ import {
   UpdateServiceTemplateVersionCommandInput,
   UpdateServiceTemplateVersionCommandOutput,
 } from "./commands/UpdateServiceTemplateVersionCommand";
+import {
+  UpdateTemplateSyncConfigCommand,
+  UpdateTemplateSyncConfigCommandInput,
+  UpdateTemplateSyncConfigCommandOutput,
+} from "./commands/UpdateTemplateSyncConfigCommand";
 import { ProtonClient } from "./ProtonClient";
 
 /**
- * <p>This is the AWS Proton Service API Reference. It provides descriptions, syntax and usage examples for each of the <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Operations.html">actions</a> and <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Types.html">data types</a> for the AWS Proton service.</p>
- *         <p>The documentation for each action shows the Query API request parameters and the XML response.</p>
- *         <p>Alternatively, you can use the AWS CLI to access an API. For more information, see the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">AWS Command Line Interface User Guide</a>.</p>
- *         <p>The AWS Proton service is a two-pronged automation framework. Administrators create service templates to provide standardized
- *             infrastructure and deployment tooling for serverless and container based applications. Developers, in turn, select from the available
- *             service templates to automate their application or service deployments.</p>
- *         <p>Because administrators define the infrastructure and tooling that AWS Proton deploys and manages, they need permissions to use all of the
- *             listed API operations.</p>
- *         <p>When developers select a specific infrastructure and tooling set, AWS Proton deploys their applications. To monitor their applications
- *             that are running on AWS Proton, developers need permissions to the service <i>create</i>, <i>list</i>,
- *                 <i>update</i> and <i>delete</i> API operations and the service instance <i>list</i> and
- *                 <i>update</i> API operations.</p>
- *         <p>To learn more about AWS Proton administration, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/Welcome.html">AWS Proton
- *                 Administrator Guide</a>.</p>
- *         <p>To learn more about deploying serverless and containerized applications on AWS Proton, see the <a href="https://docs.aws.amazon.com/proton/latest/userguide/Welcome.html">AWS Proton User Guide</a>.</p>
- *         <p>
+ * <p>This is the Proton Service API Reference. It provides descriptions, syntax and usage examples for each of the
+ *     <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Operations.html">actions</a> and <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Types.html">data types</a> for the Proton
+ *    service.</p>
+ *          <p>The documentation for each action shows the Query API request parameters and the XML response.</p>
+ *          <p>Alternatively, you can use the Amazon Web Services CLI to access an API. For more information, see the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">Amazon Web Services Command Line Interface User
+ *     Guide</a>.</p>
+ *          <p>The Proton service is a two-pronged automation framework. Administrators create service templates to provide
+ *    standardized infrastructure and deployment tooling for serverless and container based applications. Developers, in
+ *    turn, select from the available service templates to automate their application or service deployments.</p>
+ *          <p>Because administrators define the infrastructure and tooling that Proton deploys and manages, they need
+ *    permissions to use all of the listed API operations.</p>
+ *          <p>When developers select a specific infrastructure and tooling set, Proton deploys their applications. To
+ *    monitor their applications that are running on Proton, developers need permissions to the service
+ *     <i>create</i>, <i>list</i>, <i>update</i> and <i>delete</i>
+ *    API operations and the service instance <i>list</i> and <i>update</i> API
+ *    operations.</p>
+ *          <p>To learn more about Proton administration, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/Welcome.html">Proton Administrator Guide</a>.</p>
+ *          <p>To learn more about deploying serverless and containerized applications on Proton, see the <a href="https://docs.aws.amazon.com/proton/latest/userguide/Welcome.html">Proton User Guide</a>.</p>
+ *          <p>
  *             <b>Ensuring Idempotency</b>
  *          </p>
- *         <p>When you make a mutating API request, the request typically returns a result before the asynchronous workflows of the operation are
- *             complete. Operations might also time out or encounter other server issues before they're complete, even if the request already returned a
- *             result. This might make it difficult to determine whether the request succeeded. Moreover, you might need to retry the request multiple
- *             times to ensure that the operation completes successfully. However, if the original request and the subsequent retries are successful, the
- *             operation occurs multiple times. This means that you might create more resources than you intended.</p>
- *         <p>
- *             <i>Idempotency</i> ensures that an API request action completes no more than one time. With an idempotent request, if the
- *             original request action completes successfully, any subsequent retries complete successfully without performing any further actions.
- *             However, the result might contain updated information, such as the current creation status.</p>
- *         <p>The following lists of APIs are grouped according to methods that ensure idempotency.</p>
- *         <p>
+ *          <p>When you make a mutating API request, the request typically returns a result before the asynchronous workflows
+ *    of the operation are complete. Operations might also time out or encounter other server issues before they're
+ *    complete, even if the request already returned a result. This might make it difficult to determine whether the
+ *    request succeeded. Moreover, you might need to retry the request multiple times to ensure that the operation
+ *    completes successfully. However, if the original request and the subsequent retries are successful, the operation
+ *    occurs multiple times. This means that you might create more resources than you intended.</p>
+ *          <p>
+ *             <i>Idempotency</i> ensures that an API request action completes no more than one time. With an
+ *    idempotent request, if the original request action completes successfully, any subsequent retries complete
+ *    successfully without performing any further actions. However, the result might contain updated information, such as
+ *    the current creation status.</p>
+ *          <p>The following lists of APIs are grouped according to methods that ensure idempotency.</p>
+ *          <p>
  *             <b>Idempotent create APIs with a client token</b>
  *          </p>
- *         <p>The API actions in this list support idempotency with the use of a <i>client token</i>. The corresponding AWS CLI
- *             commands also support idempotency using a client token. A client token is a unique, case-sensitive string of up to 64 ASCII characters. To
- *             make an idempotent API request using one of these actions, specify a client token in the request. We recommend that you
- *                 <i>don't</i> reuse the same client token for other API requests. If you don’t provide a client token for these APIs, a
- *             default client token is automatically provided by SDKs.</p>
- *         <p>Given a request action that has succeeded:</p>
- *         <p>If you retry the request using the same client token and the same parameters, the retry succeeds without performing any further actions
- *             other than returning the original resource detail data in the response.</p>
- *         <p>If you retry the request using the same client token, but one or more of the parameters are different, the retry throws a
- *                 <code>ValidationException</code> with an <code>IdempotentParameterMismatch</code> error.</p>
- *         <p>Client tokens expire eight hours after a request is made. If you retry the request with the expired token, a new resource is
- *             created.</p>
- *         <p>If the original resource is deleted and you retry the request, a new resource is created.</p>
- *         <p>Idempotent create APIs with a client token:</p>
- *         <ul>
+ *          <p>The API actions in this list support idempotency with the use of a <i>client token</i>. The
+ *    corresponding Amazon Web Services CLI commands also support idempotency using a client token. A client token is a unique,
+ *    case-sensitive string of up to 64 ASCII characters. To make an idempotent API request using one of these actions,
+ *    specify a client token in the request. We recommend that you <i>don't</i> reuse the same client token
+ *    for other API requests. If you don’t provide a client token for these APIs, a default client token is automatically
+ *    provided by SDKs.</p>
+ *          <p>Given a request action that has succeeded:</p>
+ *          <p>If you retry the request using the same client token and the same parameters, the retry succeeds without
+ *    performing any further actions other than returning the original resource detail data in the response.</p>
+ *          <p>If you retry the request using the same client token, but one or more of the parameters are different, the retry
+ *    throws a <code>ValidationException</code> with an <code>IdempotentParameterMismatch</code> error.</p>
+ *          <p>Client tokens expire eight hours after a request is made. If you retry the request with the expired token, a new
+ *    resource is created.</p>
+ *          <p>If the original resource is deleted and you retry the request, a new resource is created.</p>
+ *          <p>Idempotent create APIs with a client token:</p>
+ *          <ul>
  *             <li>
- *                 <p>CreateEnvironmentTemplateVersion</p>
+ *                <p>CreateEnvironmentTemplateVersion</p>
  *             </li>
  *             <li>
- *                 <p>CreateServiceTemplateVersion</p>
+ *                <p>CreateServiceTemplateVersion</p>
  *             </li>
  *             <li>
- *                 <p>CreateEnvironmentAccountConnection</p>
+ *                <p>CreateEnvironmentAccountConnection</p>
  *             </li>
  *          </ul>
- *         <p>
+ *          <p>
  *             <b>Idempotent create APIs</b>
  *          </p>
- *         <p>Given a request action that has succeeded:</p>
- *         <p>If you retry the request with an API from this group, and the original resource <i>hasn't</i> been modified, the retry
- *             succeeds without performing any further actions other than returning the original resource detail data in the response.</p>
- *         <p>If the original resource has been modified, the retry throws a <code>ConflictException</code>.</p>
- *         <p>If you retry with different input parameters, the retry throws a <code>ValidationException</code> with an
- *                 <code>IdempotentParameterMismatch</code> error.</p>
- *         <p>Idempotent create APIs:</p>
- *         <ul>
+ *          <p>Given a request action that has succeeded:</p>
+ *          <p>If you retry the request with an API from this group, and the original resource <i>hasn't</i> been
+ *    modified, the retry succeeds without performing any further actions other than returning the original resource detail
+ *    data in the response.</p>
+ *          <p>If the original resource has been modified, the retry throws a <code>ConflictException</code>.</p>
+ *          <p>If you retry with different input parameters, the retry throws a <code>ValidationException</code> with an
+ *     <code>IdempotentParameterMismatch</code> error.</p>
+ *          <p>Idempotent create APIs:</p>
+ *          <ul>
  *             <li>
- *                 <p>CreateEnvironmentTemplate</p>
+ *                <p>CreateEnvironmentTemplate</p>
  *             </li>
  *             <li>
- *                 <p>CreateServiceTemplate</p>
+ *                <p>CreateServiceTemplate</p>
  *             </li>
  *             <li>
- *                 <p>CreateEnvironment</p>
+ *                <p>CreateEnvironment</p>
  *             </li>
  *             <li>
- *                 <p>CreateService</p>
+ *                <p>CreateService</p>
  *             </li>
  *          </ul>
- *         <p>
+ *          <p>
  *             <b>Idempotent delete APIs</b>
  *          </p>
- *         <p>Given a request action that has succeeded:</p>
- *         <p>When you retry the request with an API from this group and the resource was deleted, its metadata is returned in the response.</p>
- *         <p>If you retry and the resource doesn't exist, the response is empty.</p>
- *         <p>In both cases, the retry succeeds.</p>
- *         <p>Idempotent delete APIs:</p>
- *         <ul>
+ *          <p>Given a request action that has succeeded:</p>
+ *          <p>When you retry the request with an API from this group and the resource was deleted, its metadata is returned in
+ *    the response.</p>
+ *          <p>If you retry and the resource doesn't exist, the response is empty.</p>
+ *          <p>In both cases, the retry succeeds.</p>
+ *          <p>Idempotent delete APIs:</p>
+ *          <ul>
  *             <li>
- *                 <p>DeleteEnvironmentTemplate</p>
+ *                <p>DeleteEnvironmentTemplate</p>
  *             </li>
  *             <li>
- *                 <p>DeleteEnvironmentTemplateVersion</p>
+ *                <p>DeleteEnvironmentTemplateVersion</p>
  *             </li>
  *             <li>
- *                 <p>DeleteServiceTemplate</p>
+ *                <p>DeleteServiceTemplate</p>
  *             </li>
  *             <li>
- *                 <p>DeleteServiceTemplateVersion</p>
+ *                <p>DeleteServiceTemplateVersion</p>
  *             </li>
  *             <li>
- *                 <p>DeleteEnvironmentAccountConnection</p>
+ *                <p>DeleteEnvironmentAccountConnection</p>
  *             </li>
  *          </ul>
- *         <p>
+ *          <p>
  *             <b>Asynchronous idempotent delete APIs</b>
  *          </p>
- *         <p>Given a request action that has succeeded:</p>
- *         <p>If you retry the request with an API from this group, if the original request delete operation status is
- *             <code>DELETE_IN_PROGRESS</code>, the retry returns the resource detail data in the response without performing any further actions.</p>
- *         <p>If the original request delete operation is complete, a retry returns an empty response.</p>
- *         <p>Asynchronous idempotent delete APIs:</p>
- *         <ul>
+ *          <p>Given a request action that has succeeded:</p>
+ *          <p>If you retry the request with an API from this group, if the original request delete operation status is
+ *     <code>DELETE_IN_PROGRESS</code>, the retry returns the resource detail data in the response without performing any
+ *    further actions.</p>
+ *          <p>If the original request delete operation is complete, a retry returns an empty response.</p>
+ *          <p>Asynchronous idempotent delete APIs:</p>
+ *          <ul>
  *             <li>
- *                 <p>DeleteEnvironment</p>
+ *                <p>DeleteEnvironment</p>
  *             </li>
  *             <li>
- *                 <p>DeleteService</p>
+ *                <p>DeleteService</p>
  *             </li>
  *          </ul>
  */
 export class Proton extends ProtonClient {
   /**
-   * <p>In a management account, an environment account connection request is accepted. When the environment account connection request is
-   *             accepted, AWS Proton can use the associated IAM role to provision environment infrastructure resources in the associated environment
-   *             account.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *                 connections</a> in the <i>AWS Proton Administrator guide</i>.</p>
+   * <p>In a management account, an environment account connection request is accepted. When the environment account connection request is accepted,
+   *    Proton can use the associated IAM role to provision environment infrastructure resources in the associated environment account.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
+   *     connections</a> in the <i>Proton Administrator guide</i>.</p>
    */
   public acceptEnvironmentAccountConnection(
     args: AcceptEnvironmentAccountConnectionCommandInput,
@@ -400,19 +498,20 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Attempts to cancel an environment deployment on an <a>UpdateEnvironment</a> action, if the deployment is
-   *                 <code>IN_PROGRESS</code>. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-update.html">Update an environment</a> in the <i>AWS Proton Administrator guide</i>.</p>
-   *         <p>The following list includes potential cancellation scenarios.</p>
-   *         <ul>
+   * <p>Attempts to cancel an environment deployment on an <a>UpdateEnvironment</a> action, if the deployment is <code>IN_PROGRESS</code>.
+   *    For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-update.html">Update an environment</a> in the
+   *     <i>Proton Administrator guide</i>.</p>
+   *          <p>The following list includes potential cancellation scenarios.</p>
+   *          <ul>
    *             <li>
-   *                 <p>If the cancellation attempt succeeds, the resulting deployment state is <code>CANCELLED</code>.</p>
+   *                <p>If the cancellation attempt succeeds, the resulting deployment state is <code>CANCELLED</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.</p>
+   *                <p>If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>If the current <a>UpdateEnvironment</a> action succeeds before the cancellation attempt starts, the resulting
-   *                     deployment state is <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p>
+   *                <p>If the current <a>UpdateEnvironment</a> action succeeds before the cancellation attempt starts, the resulting deployment state is
+   *       <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p>
    *             </li>
    *          </ul>
    */
@@ -447,18 +546,18 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Attempts to cancel a service instance deployment on an <a>UpdateServiceInstance</a> action, if the deployment is
-   *                 <code>IN_PROGRESS</code>. For more information, see <i>Update a service instance</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-instance-update.html">AWS Proton Administrator guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-instance-update.html">AWS Proton User guide</a>.</p>
-   *         <p>The following list includes potential cancellation scenarios.</p>
-   *         <ul>
+   *     <code>IN_PROGRESS</code>. For more information, see <i>Update a service instance</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-instance-update.html">Proton Administrator guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-instance-update.html">Proton User guide</a>.</p>
+   *          <p>The following list includes potential cancellation scenarios.</p>
+   *          <ul>
    *             <li>
-   *                 <p>If the cancellation attempt succeeds, the resulting deployment state is <code>CANCELLED</code>.</p>
+   *                <p>If the cancellation attempt succeeds, the resulting deployment state is <code>CANCELLED</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.</p>
+   *                <p>If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>If the current <a>UpdateServiceInstance</a> action succeeds before the cancellation attempt starts, the resulting
-   *                     deployment state is <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p>
+   *                <p>If the current <a>UpdateServiceInstance</a> action succeeds before the cancellation attempt starts, the resulting deployment
+   *      state is <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p>
    *             </li>
    *          </ul>
    */
@@ -493,18 +592,18 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Attempts to cancel a service pipeline deployment on an <a>UpdateServicePipeline</a> action, if the deployment is
-   *                 <code>IN_PROGRESS</code>. For more information, see <i>Update a service pipeline</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-pipeline-update.html">AWS Proton Administrator guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-pipeline-update.html">AWS Proton User guide</a>.</p>
-   *         <p>The following list includes potential cancellation scenarios.</p>
-   *         <ul>
+   *     <code>IN_PROGRESS</code>. For more information, see <i>Update a service pipeline</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-pipeline-update.html">Proton Administrator guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-pipeline-update.html">Proton User guide</a>.</p>
+   *          <p>The following list includes potential cancellation scenarios.</p>
+   *          <ul>
    *             <li>
-   *                 <p>If the cancellation attempt succeeds, the resulting deployment state is <code>CANCELLED</code>.</p>
+   *                <p>If the cancellation attempt succeeds, the resulting deployment state is <code>CANCELLED</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.</p>
+   *                <p>If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>If the current <a>UpdateServicePipeline</a> action succeeds before the cancellation attempt starts, the resulting
-   *                     deployment state is <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p>
+   *                <p>If the current <a>UpdateServicePipeline</a> action succeeds before the cancellation attempt starts, the resulting deployment
+   *      state is <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p>
    *             </li>
    *          </ul>
    */
@@ -538,9 +637,22 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Deploy a new environment. An AWS Proton environment is created from an environment template that defines infrastructure and resources
-   *             that can be shared across services. For more information, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a> in the <i>AWS Proton Administrator
-   *             Guide.</i>
+   * <p>Deploy a new environment. An Proton environment is created from an environment template that defines infrastructure and resources that can
+   *    be shared across services.</p>
+   *          <p class="title">
+   *             <b>You can provision environments using the following methods:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>Standard provisioning: Proton makes direct calls to provision your resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>Pull request provisioning: Proton makes pull requests on your repository to provide compiled infrastructure as code (IaC) files that your
+   *      IaC engine uses to provision resources.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a> in the
+   *     <i>Proton Administrator Guide.</i>
    *          </p>
    */
   public createEnvironment(
@@ -573,11 +685,11 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Create an environment account connection in an environment account so that environment infrastructure resources can be provisioned in
-   *             the environment account from a management account.</p>
-   *         <p>An environment account connection is a secure bi-directional connection between a <i>management account</i> and an
-   *                 <i>environment account</i> that maintains authorization and permissions. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a> in the
-   *                 <i>AWS Proton Administrator guide</i>.</p>
+   * <p>Create an environment account connection in an environment account so that environment infrastructure resources can be provisioned in the
+   *    environment account from a management account.</p>
+   *          <p>An environment account connection is a secure bi-directional connection between a <i>management account</i> and an
+   *     <i>environment account</i> that maintains authorization and permissions. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a> in the <i>Proton Administrator
+   *     guide</i>.</p>
    */
   public createEnvironmentAccountConnection(
     args: CreateEnvironmentAccountConnectionCommandInput,
@@ -609,20 +721,18 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Create an environment template for AWS Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html">Environment Templates</a> in the <i>AWS Proton Administrator
-   *                 Guide</i>.</p>
-   *         <p>You can create an environment template in one of the two following ways:</p>
-   *         <ul>
+   * <p>Create an environment template for Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html">Environment Templates</a> in the <i>Proton Administrator Guide</i>.</p>
+   *          <p>You can create an environment template in one of the two following ways:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Register and publish a <i>standard</i> environment template that instructs AWS Proton to deploy and manage
-   *                     environment infrastructure.</p>
+   *                <p>Register and publish a <i>standard</i> environment template that instructs Proton to deploy and manage environment
+   *      infrastructure.</p>
    *             </li>
    *             <li>
-   *                 <p>Register and publish a <i>customer managed</i> environment template that connects AWS Proton to your existing
-   *                     provisioned infrastructure that you manage. AWS Proton <i>doesn't</i> manage your existing provisioned
-   *                     infrastructure. To create an environment template for customer provisioned and managed infrastructure, include the
-   *                         <code>provisioning</code> parameter and set the value to <code>CUSTOMER_MANAGED</code>. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/template-create.html">Register and publish an environment template</a>
-   *                     in the <i>AWS Proton Administrator Guide</i>.</p>
+   *                <p>Register and publish a <i>customer managed</i> environment template that connects Proton to your existing provisioned
+   *      infrastructure that you manage. Proton <i>doesn't</i> manage your existing provisioned infrastructure. To create an environment
+   *      template for customer provisioned and managed infrastructure, include the <code>provisioning</code> parameter and set the value to
+   *       <code>CUSTOMER_MANAGED</code>. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/template-create.html">Register and publish an environment template</a> in the <i>Proton Administrator Guide</i>.</p>
    *             </li>
    *          </ul>
    */
@@ -657,8 +767,8 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Create a new major or minor version of an environment template. A major version of an environment template is a version that
-   *                 <i>isn't</i> backwards compatible. A minor version of an environment template is a version that's backwards compatible
-   *             within its major version.</p>
+   *     <i>isn't</i> backwards compatible. A minor version of an environment template is a version that's backwards compatible within its
+   *    major version.</p>
    */
   public createEnvironmentTemplateVersion(
     args: CreateEnvironmentTemplateVersionCommandInput,
@@ -690,9 +800,44 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Create an AWS Proton service. An AWS Proton service is an instantiation of a service template and often includes several service instances
-   *             and pipeline. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-services.html">Services</a> in
-   *             the <i>AWS Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-service.html">Services</a> in the <i>AWS Proton User Guide</i>.</p>
+   * <p>Create and register a link to a repository that can be used with pull request provisioning or template sync configurations. For more
+   *    information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html">Template bundles</a> and <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-sync-configs.html">Template sync configurations</a> in the <i>Proton
+   *     Administrator Guide</i>.</p>
+   */
+  public createRepository(
+    args: CreateRepositoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRepositoryCommandOutput>;
+  public createRepository(
+    args: CreateRepositoryCommandInput,
+    cb: (err: any, data?: CreateRepositoryCommandOutput) => void
+  ): void;
+  public createRepository(
+    args: CreateRepositoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRepositoryCommandOutput) => void
+  ): void;
+  public createRepository(
+    args: CreateRepositoryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRepositoryCommandOutput) => void),
+    cb?: (err: any, data?: CreateRepositoryCommandOutput) => void
+  ): Promise<CreateRepositoryCommandOutput> | void {
+    const command = new CreateRepositoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Create an Proton service. An Proton service is an instantiation of a service template and often includes several service instances and
+   *    pipeline. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-services.html">Services</a> in the
+   *     <i>Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-service.html">Services</a>
+   *    in the <i>Proton User Guide</i>.</p>
    */
   public createService(
     args: CreateServiceCommandInput,
@@ -724,11 +869,11 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Create a service template. The administrator creates a service template to define standardized infrastructure and an optional CICD
-   *             service pipeline. Developers, in turn, select the service template from AWS Proton. If the selected service template includes a service
-   *             pipeline definition, they provide a link to their source code repository. AWS Proton then deploys and manages the infrastructure defined by
-   *             the selected service template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/managing-svc-templates.html">Service Templates</a> in the <i>AWS Proton Administrator
-   *                 Guide</i>.</p>
+   * <p>Create a service template. The administrator creates a service template to define standardized infrastructure and an optional CICD service
+   *    pipeline. Developers, in turn, select the service template from Proton. If the selected service template includes a service pipeline definition,
+   *    they provide a link to their source code repository. Proton then deploys and manages the infrastructure defined by the selected service
+   *    template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/managing-svc-templates.html">Service
+   *     Templates</a> in the <i>Proton Administrator Guide</i>.</p>
    */
   public createServiceTemplate(
     args: CreateServiceTemplateCommandInput,
@@ -760,9 +905,8 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Create a new major or minor version of a service template. A major version of a service template is a version that
-   *                 <i>isn't</i> backwards compatible. A minor version of a service template is a version that's backwards compatible within
-   *             its major version.</p>
+   * <p>Create a new major or minor version of a service template. A major version of a service template is a version that <i>isn't</i>
+   *    backward compatible. A minor version of a service template is a version that's backward compatible within its major version.</p>
    */
   public createServiceTemplateVersion(
     args: CreateServiceTemplateVersionCommandInput,
@@ -783,6 +927,41 @@ export class Proton extends ProtonClient {
     cb?: (err: any, data?: CreateServiceTemplateVersionCommandOutput) => void
   ): Promise<CreateServiceTemplateVersionCommandOutput> | void {
     const command = new CreateServiceTemplateVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Set up a template for automated template version creation. When a commit is pushed to your registered <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Repository.html">repository</a>, Proton checks for changes to your repository template bundles. If it
+   *    detects a template bundle change, a new minor or major version of its template is created, if the version doesn’t already exist. For more
+   *    information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-sync-configs.html">Template sync configurations</a> in
+   *    the <i>Proton Administrator Guide</i>.</p>
+   */
+  public createTemplateSyncConfig(
+    args: CreateTemplateSyncConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTemplateSyncConfigCommandOutput>;
+  public createTemplateSyncConfig(
+    args: CreateTemplateSyncConfigCommandInput,
+    cb: (err: any, data?: CreateTemplateSyncConfigCommandOutput) => void
+  ): void;
+  public createTemplateSyncConfig(
+    args: CreateTemplateSyncConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTemplateSyncConfigCommandOutput) => void
+  ): void;
+  public createTemplateSyncConfig(
+    args: CreateTemplateSyncConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTemplateSyncConfigCommandOutput) => void),
+    cb?: (err: any, data?: CreateTemplateSyncConfigCommandOutput) => void
+  ): Promise<CreateTemplateSyncConfigCommandOutput> | void {
+    const command = new CreateTemplateSyncConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -827,11 +1006,11 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>In an environment account, delete an environment account connection.</p>
-   *         <p>After you delete an environment account connection that’s in use by an AWS Proton environment, AWS Proton <i>can’t</i>
-   *             manage the environment infrastructure resources until a new environment account connection is accepted for the environment account and
-   *             associated environment. You're responsible for cleaning up provisioned resources that remain without an environment connection.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *                 connections</a> in the <i>AWS Proton Administrator guide</i>.</p>
+   *          <p>After you delete an environment account connection that’s in use by an Proton environment, Proton <i>can’t</i> manage the
+   *    environment infrastructure resources until a new environment account connection is accepted for the environment account and associated environment.
+   *    You're responsible for cleaning up provisioned resources that remain without an environment connection.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
+   *     connections</a> in the <i>Proton Administrator guide</i>.</p>
    */
   public deleteEnvironmentAccountConnection(
     args: DeleteEnvironmentAccountConnectionCommandInput,
@@ -896,12 +1075,11 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>If no other minor versions of an environment template exist, delete a major version of the environment template if it's not the
-   *                 <code>Recommended</code> version. Delete the <code>Recommended</code> version of the environment template if no other major versions
-   *             or minor versions of the environment template exist. A major version of an environment template is a version that's not backwards
-   *             compatible.</p>
-   *         <p>Delete a minor version of an environment template if it <i>isn't</i> the <code>Recommended</code> version. Delete a
-   *                 <code>Recommended</code> minor version of the environment template if no other minor versions of the environment template exist. A
-   *             minor version of an environment template is a version that's backwards compatible.</p>
+   *     <code>Recommended</code> version. Delete the <code>Recommended</code> version of the environment template if no other major versions or minor
+   *    versions of the environment template exist. A major version of an environment template is a version that's not backward compatible.</p>
+   *          <p>Delete a minor version of an environment template if it <i>isn't</i> the <code>Recommended</code> version. Delete a
+   *     <code>Recommended</code> minor version of the environment template if no other minor versions of the environment template exist. A minor version
+   *    of an environment template is a version that's backward compatible.</p>
    */
   public deleteEnvironmentTemplateVersion(
     args: DeleteEnvironmentTemplateVersionCommandInput,
@@ -922,6 +1100,38 @@ export class Proton extends ProtonClient {
     cb?: (err: any, data?: DeleteEnvironmentTemplateVersionCommandOutput) => void
   ): Promise<DeleteEnvironmentTemplateVersionCommandOutput> | void {
     const command = new DeleteEnvironmentTemplateVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>De-register and unlink your repository.</p>
+   */
+  public deleteRepository(
+    args: DeleteRepositoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRepositoryCommandOutput>;
+  public deleteRepository(
+    args: DeleteRepositoryCommandInput,
+    cb: (err: any, data?: DeleteRepositoryCommandOutput) => void
+  ): void;
+  public deleteRepository(
+    args: DeleteRepositoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRepositoryCommandOutput) => void
+  ): void;
+  public deleteRepository(
+    args: DeleteRepositoryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRepositoryCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRepositoryCommandOutput) => void
+  ): Promise<DeleteRepositoryCommandOutput> | void {
+    const command = new DeleteRepositoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -998,12 +1208,11 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>If no other minor versions of a service template exist, delete a major version of the service template if it's not the
-   *                 <code>Recommended</code> version. Delete the <code>Recommended</code> version of the service template if no other major versions or
-   *             minor versions of the service template exist. A major version of a service template is a version that <i>isn't</i> backwards
-   *             compatible.</p>
-   *         <p>Delete a minor version of a service template if it's not the <code>Recommended</code> version. Delete a <code>Recommended</code> minor
-   *             version of the service template if no other minor versions of the service template exist. A minor version of a service template is a
-   *             version that's backwards compatible.</p>
+   *     <code>Recommended</code> version. Delete the <code>Recommended</code> version of the service template if no other major versions or minor versions
+   *    of the service template exist. A major version of a service template is a version that <i>isn't</i> backwards compatible.</p>
+   *          <p>Delete a minor version of a service template if it's not the <code>Recommended</code> version. Delete a <code>Recommended</code> minor version
+   *    of the service template if no other minor versions of the service template exist. A minor version of a service template is a version that's
+   *    backwards compatible.</p>
    */
   public deleteServiceTemplateVersion(
     args: DeleteServiceTemplateVersionCommandInput,
@@ -1035,7 +1244,39 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Get detail data for the AWS Proton pipeline service role.</p>
+   * <p>Delete a template sync configuration.</p>
+   */
+  public deleteTemplateSyncConfig(
+    args: DeleteTemplateSyncConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTemplateSyncConfigCommandOutput>;
+  public deleteTemplateSyncConfig(
+    args: DeleteTemplateSyncConfigCommandInput,
+    cb: (err: any, data?: DeleteTemplateSyncConfigCommandOutput) => void
+  ): void;
+  public deleteTemplateSyncConfig(
+    args: DeleteTemplateSyncConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTemplateSyncConfigCommandOutput) => void
+  ): void;
+  public deleteTemplateSyncConfig(
+    args: DeleteTemplateSyncConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTemplateSyncConfigCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTemplateSyncConfigCommandOutput) => void
+  ): Promise<DeleteTemplateSyncConfigCommandOutput> | void {
+    const command = new DeleteTemplateSyncConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get detail data for the Proton pipeline service role.</p>
    */
   public getAccountSettings(
     args: GetAccountSettingsCommandInput,
@@ -1100,8 +1341,8 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>In an environment account, view the detail data for an environment account connection.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *                 connections</a> in the <i>AWS Proton Administrator guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
+   *     connections</a> in the <i>Proton Administrator guide</i>.</p>
    */
   public getEnvironmentAccountConnection(
     args: GetEnvironmentAccountConnectionCommandInput,
@@ -1197,6 +1438,70 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * <p>Get detail data for a repository.</p>
+   */
+  public getRepository(
+    args: GetRepositoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRepositoryCommandOutput>;
+  public getRepository(
+    args: GetRepositoryCommandInput,
+    cb: (err: any, data?: GetRepositoryCommandOutput) => void
+  ): void;
+  public getRepository(
+    args: GetRepositoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRepositoryCommandOutput) => void
+  ): void;
+  public getRepository(
+    args: GetRepositoryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRepositoryCommandOutput) => void),
+    cb?: (err: any, data?: GetRepositoryCommandOutput) => void
+  ): Promise<GetRepositoryCommandOutput> | void {
+    const command = new GetRepositoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get the repository sync status.</p>
+   */
+  public getRepositorySyncStatus(
+    args: GetRepositorySyncStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRepositorySyncStatusCommandOutput>;
+  public getRepositorySyncStatus(
+    args: GetRepositorySyncStatusCommandInput,
+    cb: (err: any, data?: GetRepositorySyncStatusCommandOutput) => void
+  ): void;
+  public getRepositorySyncStatus(
+    args: GetRepositorySyncStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRepositorySyncStatusCommandOutput) => void
+  ): void;
+  public getRepositorySyncStatus(
+    args: GetRepositorySyncStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRepositorySyncStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetRepositorySyncStatusCommandOutput) => void
+  ): Promise<GetRepositorySyncStatusCommandOutput> | void {
+    const command = new GetRepositorySyncStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Get detail data for a service.</p>
    */
   public getService(args: GetServiceCommandInput, options?: __HttpHandlerOptions): Promise<GetServiceCommandOutput>;
@@ -1224,7 +1529,7 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Get detail data for a service instance. A service instance is an instantiation of service template, which is running in a specific
-   *             environment.</p>
+   *    environment.</p>
    */
   public getServiceInstance(
     args: GetServiceInstanceCommandInput,
@@ -1320,9 +1625,73 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * <p>Get detail data for a template sync configuration.</p>
+   */
+  public getTemplateSyncConfig(
+    args: GetTemplateSyncConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTemplateSyncConfigCommandOutput>;
+  public getTemplateSyncConfig(
+    args: GetTemplateSyncConfigCommandInput,
+    cb: (err: any, data?: GetTemplateSyncConfigCommandOutput) => void
+  ): void;
+  public getTemplateSyncConfig(
+    args: GetTemplateSyncConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTemplateSyncConfigCommandOutput) => void
+  ): void;
+  public getTemplateSyncConfig(
+    args: GetTemplateSyncConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTemplateSyncConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetTemplateSyncConfigCommandOutput) => void
+  ): Promise<GetTemplateSyncConfigCommandOutput> | void {
+    const command = new GetTemplateSyncConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get the status of a template sync.</p>
+   */
+  public getTemplateSyncStatus(
+    args: GetTemplateSyncStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTemplateSyncStatusCommandOutput>;
+  public getTemplateSyncStatus(
+    args: GetTemplateSyncStatusCommandInput,
+    cb: (err: any, data?: GetTemplateSyncStatusCommandOutput) => void
+  ): void;
+  public getTemplateSyncStatus(
+    args: GetTemplateSyncStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTemplateSyncStatusCommandOutput) => void
+  ): void;
+  public getTemplateSyncStatus(
+    args: GetTemplateSyncStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTemplateSyncStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetTemplateSyncStatusCommandOutput) => void
+  ): Promise<GetTemplateSyncStatusCommandOutput> | void {
+    const command = new GetTemplateSyncStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>View a list of environment account connections.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *                 connections</a> in the <i>AWS Proton Administrator guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
+   *     connections</a> in the <i>Proton Administrator guide</i>.</p>
    */
   public listEnvironmentAccountConnections(
     args: ListEnvironmentAccountConnectionsCommandInput,
@@ -1343,6 +1712,70 @@ export class Proton extends ProtonClient {
     cb?: (err: any, data?: ListEnvironmentAccountConnectionsCommandOutput) => void
   ): Promise<ListEnvironmentAccountConnectionsCommandOutput> | void {
     const command = new ListEnvironmentAccountConnectionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List the infrastructure as code outputs for your environment.</p>
+   */
+  public listEnvironmentOutputs(
+    args: ListEnvironmentOutputsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEnvironmentOutputsCommandOutput>;
+  public listEnvironmentOutputs(
+    args: ListEnvironmentOutputsCommandInput,
+    cb: (err: any, data?: ListEnvironmentOutputsCommandOutput) => void
+  ): void;
+  public listEnvironmentOutputs(
+    args: ListEnvironmentOutputsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEnvironmentOutputsCommandOutput) => void
+  ): void;
+  public listEnvironmentOutputs(
+    args: ListEnvironmentOutputsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEnvironmentOutputsCommandOutput) => void),
+    cb?: (err: any, data?: ListEnvironmentOutputsCommandOutput) => void
+  ): Promise<ListEnvironmentOutputsCommandOutput> | void {
+    const command = new ListEnvironmentOutputsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List the provisioned resources for your environment.</p>
+   */
+  public listEnvironmentProvisionedResources(
+    args: ListEnvironmentProvisionedResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEnvironmentProvisionedResourcesCommandOutput>;
+  public listEnvironmentProvisionedResources(
+    args: ListEnvironmentProvisionedResourcesCommandInput,
+    cb: (err: any, data?: ListEnvironmentProvisionedResourcesCommandOutput) => void
+  ): void;
+  public listEnvironmentProvisionedResources(
+    args: ListEnvironmentProvisionedResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEnvironmentProvisionedResourcesCommandOutput) => void
+  ): void;
+  public listEnvironmentProvisionedResources(
+    args: ListEnvironmentProvisionedResourcesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEnvironmentProvisionedResourcesCommandOutput) => void),
+    cb?: (err: any, data?: ListEnvironmentProvisionedResourcesCommandOutput) => void
+  ): Promise<ListEnvironmentProvisionedResourcesCommandOutput> | void {
+    const command = new ListEnvironmentProvisionedResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1450,6 +1883,136 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * <p>List repositories with detail data.</p>
+   */
+  public listRepositories(
+    args: ListRepositoriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRepositoriesCommandOutput>;
+  public listRepositories(
+    args: ListRepositoriesCommandInput,
+    cb: (err: any, data?: ListRepositoriesCommandOutput) => void
+  ): void;
+  public listRepositories(
+    args: ListRepositoriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRepositoriesCommandOutput) => void
+  ): void;
+  public listRepositories(
+    args: ListRepositoriesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRepositoriesCommandOutput) => void),
+    cb?: (err: any, data?: ListRepositoriesCommandOutput) => void
+  ): Promise<ListRepositoriesCommandOutput> | void {
+    const command = new ListRepositoriesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List repository sync definitions with detail data.</p>
+   */
+  public listRepositorySyncDefinitions(
+    args: ListRepositorySyncDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRepositorySyncDefinitionsCommandOutput>;
+  public listRepositorySyncDefinitions(
+    args: ListRepositorySyncDefinitionsCommandInput,
+    cb: (err: any, data?: ListRepositorySyncDefinitionsCommandOutput) => void
+  ): void;
+  public listRepositorySyncDefinitions(
+    args: ListRepositorySyncDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRepositorySyncDefinitionsCommandOutput) => void
+  ): void;
+  public listRepositorySyncDefinitions(
+    args: ListRepositorySyncDefinitionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRepositorySyncDefinitionsCommandOutput) => void),
+    cb?: (err: any, data?: ListRepositorySyncDefinitionsCommandOutput) => void
+  ): Promise<ListRepositorySyncDefinitionsCommandOutput> | void {
+    const command = new ListRepositorySyncDefinitionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>View a list service instance infrastructure as code outputs with detail data.</p>
+   */
+  public listServiceInstanceOutputs(
+    args: ListServiceInstanceOutputsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServiceInstanceOutputsCommandOutput>;
+  public listServiceInstanceOutputs(
+    args: ListServiceInstanceOutputsCommandInput,
+    cb: (err: any, data?: ListServiceInstanceOutputsCommandOutput) => void
+  ): void;
+  public listServiceInstanceOutputs(
+    args: ListServiceInstanceOutputsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServiceInstanceOutputsCommandOutput) => void
+  ): void;
+  public listServiceInstanceOutputs(
+    args: ListServiceInstanceOutputsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServiceInstanceOutputsCommandOutput) => void),
+    cb?: (err: any, data?: ListServiceInstanceOutputsCommandOutput) => void
+  ): Promise<ListServiceInstanceOutputsCommandOutput> | void {
+    const command = new ListServiceInstanceOutputsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List provisioned resources for a service instance with details.</p>
+   */
+  public listServiceInstanceProvisionedResources(
+    args: ListServiceInstanceProvisionedResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServiceInstanceProvisionedResourcesCommandOutput>;
+  public listServiceInstanceProvisionedResources(
+    args: ListServiceInstanceProvisionedResourcesCommandInput,
+    cb: (err: any, data?: ListServiceInstanceProvisionedResourcesCommandOutput) => void
+  ): void;
+  public listServiceInstanceProvisionedResources(
+    args: ListServiceInstanceProvisionedResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServiceInstanceProvisionedResourcesCommandOutput) => void
+  ): void;
+  public listServiceInstanceProvisionedResources(
+    args: ListServiceInstanceProvisionedResourcesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListServiceInstanceProvisionedResourcesCommandOutput) => void),
+    cb?: (err: any, data?: ListServiceInstanceProvisionedResourcesCommandOutput) => void
+  ): Promise<ListServiceInstanceProvisionedResourcesCommandOutput> | void {
+    const command = new ListServiceInstanceProvisionedResourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>List service instances with summaries of detail data.</p>
    */
   public listServiceInstances(
@@ -1471,6 +2034,72 @@ export class Proton extends ProtonClient {
     cb?: (err: any, data?: ListServiceInstancesCommandOutput) => void
   ): Promise<ListServiceInstancesCommandOutput> | void {
     const command = new ListServiceInstancesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>View a list service pipeline infrastructure as code outputs with detail.</p>
+   */
+  public listServicePipelineOutputs(
+    args: ListServicePipelineOutputsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServicePipelineOutputsCommandOutput>;
+  public listServicePipelineOutputs(
+    args: ListServicePipelineOutputsCommandInput,
+    cb: (err: any, data?: ListServicePipelineOutputsCommandOutput) => void
+  ): void;
+  public listServicePipelineOutputs(
+    args: ListServicePipelineOutputsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServicePipelineOutputsCommandOutput) => void
+  ): void;
+  public listServicePipelineOutputs(
+    args: ListServicePipelineOutputsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServicePipelineOutputsCommandOutput) => void),
+    cb?: (err: any, data?: ListServicePipelineOutputsCommandOutput) => void
+  ): Promise<ListServicePipelineOutputsCommandOutput> | void {
+    const command = new ListServicePipelineOutputsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List provisioned resources for a service and pipeline with details.</p>
+   */
+  public listServicePipelineProvisionedResources(
+    args: ListServicePipelineProvisionedResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServicePipelineProvisionedResourcesCommandOutput>;
+  public listServicePipelineProvisionedResources(
+    args: ListServicePipelineProvisionedResourcesCommandInput,
+    cb: (err: any, data?: ListServicePipelineProvisionedResourcesCommandOutput) => void
+  ): void;
+  public listServicePipelineProvisionedResources(
+    args: ListServicePipelineProvisionedResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServicePipelineProvisionedResourcesCommandOutput) => void
+  ): void;
+  public listServicePipelineProvisionedResources(
+    args: ListServicePipelineProvisionedResourcesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListServicePipelineProvisionedResourcesCommandOutput) => void),
+    cb?: (err: any, data?: ListServicePipelineProvisionedResourcesCommandOutput) => void
+  ): Promise<ListServicePipelineProvisionedResourcesCommandOutput> | void {
+    const command = new ListServicePipelineProvisionedResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1575,7 +2204,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>List tags for a resource. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
+   * <p>List tags for a resource. For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1607,12 +2236,50 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * <p>Notify Proton of status changes to a provisioned resource when you use pull request provisioning. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html">Template bundles</a>.</p>
+   *          <important>
+   *             <p>Provisioning by pull request is currently in feature preview and is
+   *     only usable with Terraform based Proton Templates. To learn more about
+   *     <a href="https://aws.amazon.com/service-terms">Amazon Web Services Feature Preview terms</a>, see section 2 on Beta and
+   *     Previews.</p>
+   *          </important>
+   */
+  public notifyResourceDeploymentStatusChange(
+    args: NotifyResourceDeploymentStatusChangeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<NotifyResourceDeploymentStatusChangeCommandOutput>;
+  public notifyResourceDeploymentStatusChange(
+    args: NotifyResourceDeploymentStatusChangeCommandInput,
+    cb: (err: any, data?: NotifyResourceDeploymentStatusChangeCommandOutput) => void
+  ): void;
+  public notifyResourceDeploymentStatusChange(
+    args: NotifyResourceDeploymentStatusChangeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: NotifyResourceDeploymentStatusChangeCommandOutput) => void
+  ): void;
+  public notifyResourceDeploymentStatusChange(
+    args: NotifyResourceDeploymentStatusChangeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: NotifyResourceDeploymentStatusChangeCommandOutput) => void),
+    cb?: (err: any, data?: NotifyResourceDeploymentStatusChangeCommandOutput) => void
+  ): Promise<NotifyResourceDeploymentStatusChangeCommandOutput> | void {
+    const command = new NotifyResourceDeploymentStatusChangeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>In a management account, reject an environment account connection from another environment account.</p>
-   *         <p>After you reject an environment account connection request, you <i>won’t</i> be able to accept or use the rejected
-   *             environment account connection.</p>
-   *         <p>You <i>can’t</i> reject an environment account connection that is connected to an environment.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *                 connections</a> in the <i>AWS Proton Administrator guide</i>.</p>
+   *          <p>After you reject an environment account connection request, you <i>won’t</i> be able to accept or use the rejected environment
+   *    account connection.</p>
+   *          <p>You <i>can’t</i> reject an environment account connection that is connected to an environment.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
+   *     connections</a> in the <i>Proton Administrator guide</i>.</p>
    */
   public rejectEnvironmentAccountConnection(
     args: RejectEnvironmentAccountConnectionCommandInput,
@@ -1644,7 +2311,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Tag a resource. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
+   * <p>Tag a resource. For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -1670,7 +2337,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Remove a tag from a resource. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
+   * <p>Remove a tag from a resource. For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1702,7 +2369,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Update the AWS Proton pipeline service account settings.</p>
+   * <p>Update the Proton service pipeline role or repository settings.</p>
    */
   public updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
@@ -1735,50 +2402,52 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Update an environment.</p>
-   *         <p>If the environment is associated with an environment account connection, <i>don't</i> update or include the
-   *                 <code>protonServiceRoleArn</code> parameter to update or connect to an environment account connection. </p>
-   *         <p>You can only update to a new environment account connection if it was created in the same environment account that the current
-   *             environment account connection was created in and is associated with the current environment.</p>
-   *         <p>If the environment <i>isn't</i> associated with an environment account connection, <i>don't</i> update or
-   *             include the <code>environmentAccountConnectionId</code> parameter to update or connect to an environment account connection.</p>
-   *         <p>You can update either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter and value. You
-   *             can’t update both.</p>
-   *         <p>There are four modes for updating an environment as described in the following. The <code>deploymentType</code> field defines the
-   *             mode.</p>
-   *         <dl>
+   *          <p>If the environment is associated with an environment account connection, <i>don't</i> update or include the
+   *     <code>protonServiceRoleArn</code> and <code>provisioningRepository</code> parameter to update or connect to an environment account
+   *    connection.</p>
+   *          <p>You can only update to a new environment account connection if it was created in the same environment account that the current environment
+   *    account connection was created in and is associated with the current environment.</p>
+   *          <p>If the environment <i>isn't</i> associated with an environment account connection, <i>don't</i> update or include
+   *    the <code>environmentAccountConnectionId</code> parameter to update or connect to an environment account connection.</p>
+   *          <p>You can update either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter and value. You can’t
+   *    update both.</p>
+   *          <p>If the environment was provisioned with pull request provisioning, include the <code>provisioningRepository</code> parameter and omit the
+   *     <code>protonServiceRoleArn</code> and <code>environmentAccountConnectionId</code> parameters.</p>
+   *          <p>If the environment wasn't provisioned with pull request provisioning, omit the <code>provisioningRepository</code> parameter.</p>
+   *          <p>There are four modes for updating an environment as described in the following. The <code>deploymentType</code> field defines the mode.</p>
+   *          <dl>
    *             <dt/>
    *             <dd>
-   *                     <p>
+   *                <p>
    *                   <code>NONE</code>
    *                </p>
-   *                     <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters are updated.</p>
-   *                 </dd>
+   *                <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters are updated.</p>
+   *             </dd>
    *             <dt/>
    *             <dd>
-   *                     <p>
+   *                <p>
    *                   <code>CURRENT_VERSION</code>
    *                </p>
-   *                     <p>In this mode, the environment is deployed and updated with the new spec that you provide. Only requested parameters are
-   *                         updated. <i>Don’t</i> include minor or major version parameters when you use this
-   *                         <code>deployment-type</code>.</p>
-   *                 </dd>
+   *                <p>In this mode, the environment is deployed and updated with the new spec that you provide. Only requested parameters are updated.
+   *        <i>Don’t</i> include minor or major version parameters when you use this <code>deployment-type</code>.</p>
+   *             </dd>
    *             <dt/>
    *             <dd>
-   *                     <p>
+   *                <p>
    *                   <code>MINOR_VERSION</code>
    *                </p>
-   *                     <p>In this mode, the environment is deployed and updated with the published, recommended (latest) minor version of the current
-   *                         major version in use, by default. You can also specify a different minor version of the current major version in use.</p>
-   *                 </dd>
+   *                <p>In this mode, the environment is deployed and updated with the published, recommended (latest) minor version of the current major version
+   *       in use, by default. You can also specify a different minor version of the current major version in use.</p>
+   *             </dd>
    *             <dt/>
    *             <dd>
-   *                     <p>
+   *                <p>
    *                   <code>MAJOR_VERSION</code>
    *                </p>
-   *                     <p>In this mode, the environment is deployed and updated with the published, recommended (latest) major and minor version of
-   *                         the current template, by default. You can also specify a different major version that's higher than the major version in use
-   *                         and a minor version (optional).</p>
-   *                 </dd>
+   *                <p>In this mode, the environment is deployed and updated with the published, recommended (latest) major and minor version of the current
+   *       template, by default. You can also specify a different major version that's higher than the major version in use and a minor version
+   *       (optional).</p>
+   *             </dd>
    *          </dl>
    */
   public updateEnvironment(
@@ -1812,8 +2481,8 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>In an environment account, update an environment account connection to use a new IAM role.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *                 connections</a> in the <i>AWS Proton Administrator guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
+   *     connections</a> in the <i>Proton Administrator guide</i>.</p>
    */
   public updateEnvironmentAccountConnection(
     args: UpdateEnvironmentAccountConnectionCommandInput,
@@ -1910,12 +2579,11 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Edit a service description or use a spec to add and delete service instances.</p>
-   *         <note>
-   *             <p>Existing service instances and the service pipeline <i>can't</i> be edited using this API. They can only be
-   *                 deleted.</p>
-   *         </note>
-   *         <p>Use the <code>description</code> parameter to modify the description.</p>
-   *         <p>Edit the <code>spec</code> parameter to add or delete instances.</p>
+   *          <note>
+   *             <p>Existing service instances and the service pipeline <i>can't</i> be edited using this API. They can only be deleted.</p>
+   *          </note>
+   *          <p>Use the <code>description</code> parameter to modify the description.</p>
+   *          <p>Edit the <code>spec</code> parameter to add or delete instances.</p>
    */
   public updateService(
     args: UpdateServiceCommandInput,
@@ -1948,43 +2616,41 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Update a service instance.</p>
-   *         <p>There are four modes for updating a service instance as described in the following. The <code>deploymentType</code> field defines the
-   *             mode.</p>
-   *         <dl>
+   *          <p>There are four modes for updating a service instance as described in the following. The <code>deploymentType</code> field defines the
+   *    mode.</p>
+   *          <dl>
    *             <dt/>
    *             <dd>
-   *                     <p>
+   *                <p>
    *                   <code>NONE</code>
    *                </p>
-   *                     <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters are updated.</p>
-   *                 </dd>
+   *                <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters are updated.</p>
+   *             </dd>
    *             <dt/>
    *             <dd>
-   *                     <p>
+   *                <p>
    *                   <code>CURRENT_VERSION</code>
    *                </p>
-   *                     <p>In this mode, the service instance is deployed and updated with the new spec that you provide. Only requested parameters are
-   *                         updated. <i>Don’t</i> include minor or major version parameters when you use this
-   *                         <code>deployment-type</code>.</p>
-   *                 </dd>
+   *                <p>In this mode, the service instance is deployed and updated with the new spec that you provide. Only requested parameters are updated.
+   *        <i>Don’t</i> include minor or major version parameters when you use this <code>deployment-type</code>.</p>
+   *             </dd>
    *             <dt/>
    *             <dd>
-   *                     <p>
+   *                <p>
    *                   <code>MINOR_VERSION</code>
    *                </p>
-   *                     <p>In this mode, the service instance is deployed and updated with the published, recommended (latest) minor version of the
-   *                         current major version in use, by default. You can also specify a different minor version of the current major version in
-   *                         use.</p>
-   *                 </dd>
+   *                <p>In this mode, the service instance is deployed and updated with the published, recommended (latest) minor version of the current major
+   *       version in use, by default. You can also specify a different minor version of the current major version in use.</p>
+   *             </dd>
    *             <dt/>
    *             <dd>
-   *                     <p>
+   *                <p>
    *                   <code>MAJOR_VERSION</code>
    *                </p>
-   *                     <p>In this mode, the service instance is deployed and updated with the published, recommended (latest) major and minor version
-   *                         of the current template, by default. You can also specify a different major version that is higher than the major version in
-   *                         use and a minor version (optional).</p>
-   *                 </dd>
+   *                <p>In this mode, the service instance is deployed and updated with the published, recommended (latest) major and minor version of the current
+   *       template, by default. You can also specify a different major version that is higher than the major version in use and a minor version
+   *       (optional).</p>
+   *             </dd>
    *          </dl>
    */
   public updateServiceInstance(
@@ -2018,43 +2684,41 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Update the service pipeline.</p>
-   *         <p>There are four modes for updating a service pipeline as described in the following. The <code>deploymentType</code> field defines the
-   *             mode.</p>
-   *         <dl>
+   *          <p>There are four modes for updating a service pipeline as described in the following. The <code>deploymentType</code> field defines the
+   *    mode.</p>
+   *          <dl>
    *             <dt/>
    *             <dd>
-   *                     <p>
+   *                <p>
    *                   <code>NONE</code>
    *                </p>
-   *                     <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters are updated.</p>
-   *                 </dd>
+   *                <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters are updated.</p>
+   *             </dd>
    *             <dt/>
    *             <dd>
-   *                     <p>
+   *                <p>
    *                   <code>CURRENT_VERSION</code>
    *                </p>
-   *                     <p>In this mode, the service pipeline is deployed and updated with the new spec that you provide. Only requested parameters are
-   *                         updated. <i>Don’t</i> include minor or major version parameters when you use this
-   *                         <code>deployment-type</code>.</p>
-   *                 </dd>
+   *                <p>In this mode, the service pipeline is deployed and updated with the new spec that you provide. Only requested parameters are updated.
+   *        <i>Don’t</i> include minor or major version parameters when you use this <code>deployment-type</code>.</p>
+   *             </dd>
    *             <dt/>
    *             <dd>
-   *                     <p>
+   *                <p>
    *                   <code>MINOR_VERSION</code>
    *                </p>
-   *                     <p>In this mode, the service pipeline is deployed and updated with the published, recommended (latest) minor version of the
-   *                         current major version in use, by default. You can also specify a different minor version of the current major version in
-   *                         use.</p>
-   *                 </dd>
+   *                <p>In this mode, the service pipeline is deployed and updated with the published, recommended (latest) minor version of the current major
+   *       version in use, by default. You can also specify a different minor version of the current major version in use.</p>
+   *             </dd>
    *             <dt/>
    *             <dd>
-   *                     <p>
+   *                <p>
    *                   <code>MAJOR_VERSION</code>
    *                </p>
-   *                     <p>In this mode, the service pipeline is deployed and updated with the published, recommended (latest) major and minor version
-   *                         of the current template by default. You can also specify a different major version that is higher than the major version in
-   *                         use and a minor version (optional).</p>
-   *                 </dd>
+   *                <p>In this mode, the service pipeline is deployed and updated with the published, recommended (latest) major and minor version of the current
+   *       template by default. You can also specify a different major version that is higher than the major version in use and a minor version
+   *       (optional).</p>
+   *             </dd>
    *          </dl>
    */
   public updateServicePipeline(
@@ -2140,6 +2804,38 @@ export class Proton extends ProtonClient {
     cb?: (err: any, data?: UpdateServiceTemplateVersionCommandOutput) => void
   ): Promise<UpdateServiceTemplateVersionCommandOutput> | void {
     const command = new UpdateServiceTemplateVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update template sync configuration parameters, except for the <code>templateName</code> and <code>templateType</code>.</p>
+   */
+  public updateTemplateSyncConfig(
+    args: UpdateTemplateSyncConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTemplateSyncConfigCommandOutput>;
+  public updateTemplateSyncConfig(
+    args: UpdateTemplateSyncConfigCommandInput,
+    cb: (err: any, data?: UpdateTemplateSyncConfigCommandOutput) => void
+  ): void;
+  public updateTemplateSyncConfig(
+    args: UpdateTemplateSyncConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTemplateSyncConfigCommandOutput) => void
+  ): void;
+  public updateTemplateSyncConfig(
+    args: UpdateTemplateSyncConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTemplateSyncConfigCommandOutput) => void),
+    cb?: (err: any, data?: UpdateTemplateSyncConfigCommandOutput) => void
+  ): Promise<UpdateTemplateSyncConfigCommandOutput> | void {
+    const command = new UpdateTemplateSyncConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

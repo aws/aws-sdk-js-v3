@@ -22,9 +22,8 @@ export interface ListStackInstancesCommandInput extends ListStackInstancesInput 
 export interface ListStackInstancesCommandOutput extends ListStackInstancesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns summary information about stack instances that are associated with the
- *          specified stack set. You can filter for stack instances that are associated with a specific
- *          Amazon Web Services account name or Region, or that have a specific status.</p>
+ * <p>Returns summary information about stack instances that are associated with the specified
+ *          stack set. You can filter for stack instances that are associated with a specific Amazon Web Services account name or Region, or that have a specific status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

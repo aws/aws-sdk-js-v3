@@ -23,50 +23,52 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
 
 /**
  * <p>Update an environment.</p>
- *         <p>If the environment is associated with an environment account connection, <i>don't</i> update or include the
- *                 <code>protonServiceRoleArn</code> parameter to update or connect to an environment account connection. </p>
- *         <p>You can only update to a new environment account connection if it was created in the same environment account that the current
- *             environment account connection was created in and is associated with the current environment.</p>
- *         <p>If the environment <i>isn't</i> associated with an environment account connection, <i>don't</i> update or
- *             include the <code>environmentAccountConnectionId</code> parameter to update or connect to an environment account connection.</p>
- *         <p>You can update either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter and value. You
- *             can’t update both.</p>
- *         <p>There are four modes for updating an environment as described in the following. The <code>deploymentType</code> field defines the
- *             mode.</p>
- *         <dl>
+ *          <p>If the environment is associated with an environment account connection, <i>don't</i> update or include the
+ *     <code>protonServiceRoleArn</code> and <code>provisioningRepository</code> parameter to update or connect to an environment account
+ *    connection.</p>
+ *          <p>You can only update to a new environment account connection if it was created in the same environment account that the current environment
+ *    account connection was created in and is associated with the current environment.</p>
+ *          <p>If the environment <i>isn't</i> associated with an environment account connection, <i>don't</i> update or include
+ *    the <code>environmentAccountConnectionId</code> parameter to update or connect to an environment account connection.</p>
+ *          <p>You can update either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter and value. You can’t
+ *    update both.</p>
+ *          <p>If the environment was provisioned with pull request provisioning, include the <code>provisioningRepository</code> parameter and omit the
+ *     <code>protonServiceRoleArn</code> and <code>environmentAccountConnectionId</code> parameters.</p>
+ *          <p>If the environment wasn't provisioned with pull request provisioning, omit the <code>provisioningRepository</code> parameter.</p>
+ *          <p>There are four modes for updating an environment as described in the following. The <code>deploymentType</code> field defines the mode.</p>
+ *          <dl>
  *             <dt/>
  *             <dd>
- *                     <p>
+ *                <p>
  *                   <code>NONE</code>
  *                </p>
- *                     <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters are updated.</p>
- *                 </dd>
+ *                <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters are updated.</p>
+ *             </dd>
  *             <dt/>
  *             <dd>
- *                     <p>
+ *                <p>
  *                   <code>CURRENT_VERSION</code>
  *                </p>
- *                     <p>In this mode, the environment is deployed and updated with the new spec that you provide. Only requested parameters are
- *                         updated. <i>Don’t</i> include minor or major version parameters when you use this
- *                         <code>deployment-type</code>.</p>
- *                 </dd>
+ *                <p>In this mode, the environment is deployed and updated with the new spec that you provide. Only requested parameters are updated.
+ *        <i>Don’t</i> include minor or major version parameters when you use this <code>deployment-type</code>.</p>
+ *             </dd>
  *             <dt/>
  *             <dd>
- *                     <p>
+ *                <p>
  *                   <code>MINOR_VERSION</code>
  *                </p>
- *                     <p>In this mode, the environment is deployed and updated with the published, recommended (latest) minor version of the current
- *                         major version in use, by default. You can also specify a different minor version of the current major version in use.</p>
- *                 </dd>
+ *                <p>In this mode, the environment is deployed and updated with the published, recommended (latest) minor version of the current major version
+ *       in use, by default. You can also specify a different minor version of the current major version in use.</p>
+ *             </dd>
  *             <dt/>
  *             <dd>
- *                     <p>
+ *                <p>
  *                   <code>MAJOR_VERSION</code>
  *                </p>
- *                     <p>In this mode, the environment is deployed and updated with the published, recommended (latest) major and minor version of
- *                         the current template, by default. You can also specify a different major version that's higher than the major version in use
- *                         and a minor version (optional).</p>
- *                 </dd>
+ *                <p>In this mode, the environment is deployed and updated with the published, recommended (latest) major and minor version of the current
+ *       template, by default. You can also specify a different major version that's higher than the major version in use and a minor version
+ *       (optional).</p>
+ *             </dd>
  *          </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

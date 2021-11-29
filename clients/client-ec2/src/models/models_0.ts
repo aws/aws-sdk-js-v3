@@ -2662,11 +2662,11 @@ export namespace SubnetCidrBlockState {
 }
 
 /**
- * <p>Describes an IPv6 CIDR block associated with a subnet.</p>
+ * <p>Describes an association between a subnet and an IPv6 CIDR block.</p>
  */
 export interface SubnetIpv6CidrBlockAssociation {
   /**
-   * <p>The association ID for the CIDR block.</p>
+   * <p>The ID of the association.</p>
    */
   AssociationId?: string;
 
@@ -2676,7 +2676,7 @@ export interface SubnetIpv6CidrBlockAssociation {
   Ipv6CidrBlock?: string;
 
   /**
-   * <p>Information about the state of the CIDR block.</p>
+   * <p>The state of the CIDR block.</p>
    */
   Ipv6CidrBlockState?: SubnetCidrBlockState;
 }
@@ -2692,7 +2692,7 @@ export namespace SubnetIpv6CidrBlockAssociation {
 
 export interface AssociateSubnetCidrBlockResult {
   /**
-   * <p>Information about the IPv6 CIDR block association.</p>
+   * <p>Information about the IPv6 association.</p>
    */
   Ipv6CidrBlockAssociation?: SubnetIpv6CidrBlockAssociation;
 
@@ -7123,6 +7123,12 @@ export interface CreateDefaultSubnetRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>Indicates whether to create an IPv6 only subnet. If you already have a default subnet
+   *             for this Availability Zone, you must delete it before you can create an IPv6 only subnet.</p>
+   */
+  Ipv6Native?: boolean;
 }
 
 export namespace CreateDefaultSubnetRequest {
@@ -7130,6 +7136,43 @@ export namespace CreateDefaultSubnetRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateDefaultSubnetRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum HostnameType {
+  ip_name = "ip-name",
+  resource_name = "resource-name",
+}
+
+/**
+ * <p>Describes the options for instance hostnames.</p>
+ */
+export interface PrivateDnsNameOptionsOnLaunch {
+  /**
+   * <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be
+   *             based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based
+   *             on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance
+   *             IPv4 address or the instance ID.</p>
+   */
+  HostnameType?: HostnameType | string;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p>
+   */
+  EnableResourceNameDnsARecord?: boolean;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostname with DNS AAAA records.</p>
+   */
+  EnableResourceNameDnsAAAARecord?: boolean;
+}
+
+export namespace PrivateDnsNameOptionsOnLaunch {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PrivateDnsNameOptionsOnLaunch): any => ({
     ...obj,
   });
 }
@@ -7233,6 +7276,17 @@ export interface Subnet {
    *             should return synthetic IPv6 addresses for IPv4-only destinations.</p>
    */
   EnableDns64?: boolean;
+
+  /**
+   * <p>Indicates whether this is an IPv6 only subnet.</p>
+   */
+  Ipv6Native?: boolean;
+
+  /**
+   * <p>The type of hostnames to assign to instances in the subnet at launch. An instance hostname
+   *             is based on the IPv4 address or ID of the instance.</p>
+   */
+  PrivateDnsNameOptionsOnLaunch?: PrivateDnsNameOptionsOnLaunch;
 }
 
 export namespace Subnet {
@@ -8170,7 +8224,7 @@ export interface Placement {
   GroupName?: string;
 
   /**
-   * <p>The number of the partition the instance is in. Valid only if the placement group
+   * <p>The number of the partition that the instance is in. Valid only if the placement group
    *             strategy is set to <code>partition</code>.</p>
    *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
    */
@@ -8369,35 +8423,46 @@ export namespace CapacityReservationOptionsRequest {
  */
 export interface OnDemandOptionsRequest {
   /**
-   * <p>The order of the launch template overrides to use in fulfilling On-Demand capacity. If
-   *          you specify <code>lowest-price</code>, EC2 Fleet uses price to determine the order, launching
-   *          the lowest price first. If you specify <code>prioritized</code>, EC2 Fleet uses the priority
-   *          that you assigned to each launch template override, launching the highest priority first.
-   *          If you do not specify a value, EC2 Fleet defaults to <code>lowest-price</code>.</p>
+   * <p>The strategy that determines the order of the launch template overrides to use in
+   *          fulfilling On-Demand capacity.</p>
+   *          <p>
+   *             <code>lowest-price</code> - EC2 Fleet uses price to determine the order, launching the lowest
+   *          price first.</p>
+   *          <p>
+   *             <code>prioritized</code> - EC2 Fleet uses the priority that you assigned to each launch
+   *          template override, launching the highest priority first.</p>
+   *          <p>Default: <code>lowest-price</code>
+   *          </p>
    */
   AllocationStrategy?: FleetOnDemandAllocationStrategy | string;
 
   /**
-   * <p>The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
-   *          Supported only for fleets of type <code>instant</code>.</p>
+   * <p>The strategy for using unused Capacity Reservations for fulfilling On-Demand
+   *          capacity.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
    */
   CapacityReservationOptions?: CapacityReservationOptionsRequest;
 
   /**
-   * <p>Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet.
-   *          Supported only for fleets of type <code>instant</code>.</p>
+   * <p>Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the
+   *          fleet.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
    */
   SingleInstanceType?: boolean;
 
   /**
-   * <p>Indicates that the fleet launches all On-Demand Instances into a single Availability Zone. Supported
-   *          only for fleets of type <code>instant</code>.</p>
+   * <p>Indicates that the fleet launches all On-Demand Instances into a single Availability Zone.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
    */
   SingleAvailabilityZone?: boolean;
 
   /**
    * <p>The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is
    *          not reached, the fleet launches no instances.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   *          <p>At least one of the following must be specified: <code>SingleAvailabilityZone</code> |
+   *          <code>SingleInstanceType</code>
+   *          </p>
    */
   MinTargetCapacity?: number;
 
@@ -8456,6 +8521,8 @@ export interface FleetSpotCapacityRebalanceRequest {
   /**
    * <p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
    *          Instance after launching a new replacement Spot Instance.</p>
+   *          <p>Valid only when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>
+   *          <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>
    */
   TerminationDelay?: number;
 }
@@ -8494,13 +8561,16 @@ export namespace FleetSpotMaintenanceStrategiesRequest {
  */
 export interface SpotOptionsRequest {
   /**
-   * <p>Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by
+   * <p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by
    *          the EC2 Fleet.</p>
-   *          <p>If the allocation strategy is <code>lowest-price</code>, EC2 Fleet launches instances from
-   *          the Spot Instance pools with the lowest price. This is the default allocation strategy.</p>
-   *          <p>If the allocation strategy is <code>diversified</code>, EC2 Fleet launches instances from all
+   *          <p>
+   *             <code>lowest-price</code> - EC2 Fleet launches instances from
+   *          the Spot Instance pools with the lowest price.</p>
+   *          <p>
+   *             <code>diversified</code> - EC2 Fleet launches instances from all
    *          of the Spot Instance pools that you specify.</p>
-   *          <p>If the allocation strategy is <code>capacity-optimized</code> (recommended), EC2 Fleet
+   *          <p>
+   *             <code>capacity-optimized</code> (recommended) - EC2 Fleet
    *          launches instances from Spot Instance pools with optimal capacity for the number of instances that
    *          are launching. To give certain instance types a higher chance of launching first, use
    *             <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by
@@ -8511,6 +8581,8 @@ export interface SpotOptionsRequest {
    *          launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to
    *             <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
    *          capacity.</p>
+   *          <p>Default: <code>lowest-price</code>
+   *          </p>
    */
   AllocationStrategy?: SpotAllocationStrategy | string;
 
@@ -8521,15 +8593,17 @@ export interface SpotOptionsRequest {
   MaintenanceStrategies?: FleetSpotMaintenanceStrategiesRequest;
 
   /**
-   * <p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>
+   * <p>The behavior when a Spot Instance is interrupted.</p>
+   *          <p>Default: <code>terminate</code>
+   *          </p>
    */
   InstanceInterruptionBehavior?: SpotInstanceInterruptionBehavior | string;
 
   /**
-   * <p>The number of Spot pools across which to allocate your target Spot capacity. Valid only
-   *          when Spot <b>AllocationStrategy</b> is set to
-   *             <code>lowest-price</code>. EC2 Fleet selects the cheapest Spot pools and evenly allocates
-   *          your target Spot capacity across the number of Spot pools that you specify.</p>
+   * <p>The number of Spot pools across which to allocate your target Spot capacity. Supported
+   *          only when Spot <code>AllocationStrategy</code> is set to <code>lowest-price</code>. EC2 Fleet
+   *          selects the cheapest Spot pools and evenly allocates your target Spot capacity across the
+   *          number of Spot pools that you specify.</p>
    *          <p>Note that EC2 Fleet attempts to draw Spot Instances from the number of pools that you specify on a
    *          best effort basis. If a pool runs out of Spot capacity before fulfilling your target
    *          capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest
@@ -8541,20 +8615,25 @@ export interface SpotOptionsRequest {
   InstancePoolsToUseCount?: number;
 
   /**
-   * <p>Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
-   *          Supported only for fleets of type <code>instant</code>.</p>
+   * <p>Indicates that the fleet uses a single instance type to launch all Spot Instances in the
+   *          fleet.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
    */
   SingleInstanceType?: boolean;
 
   /**
-   * <p>Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported
-   *          only for fleets of type <code>instant</code>.</p>
+   * <p>Indicates that the fleet launches all Spot Instances into a single Availability Zone.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
    */
   SingleAvailabilityZone?: boolean;
 
   /**
    * <p>The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is
    *          not reached, the fleet launches no instances.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   *          <p>At least one of the following must be specified: <code>SingleAvailabilityZone</code> |
+   *          <code>SingleInstanceType</code>
+   *          </p>
    */
   MinTargetCapacity?: number;
 
@@ -8799,61 +8878,6 @@ export namespace FleetLaunchTemplateSpecification {
    * @internal
    */
   export const filterSensitiveLog = (obj: FleetLaunchTemplateSpecification): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
- *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
- *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
- */
-export interface BaselineEbsBandwidthMbps {
-  /**
-   * <p>The minimum baseline bandwidth, in Mbps. If this parameter is not specified, there is no
-   *          minimum limit.</p>
-   */
-  Min?: number;
-
-  /**
-   * <p>The maximum baseline bandwidth, in Mbps. If this parameter is not specified, there is no
-   *          maximum limit.</p>
-   */
-  Max?: number;
-}
-
-export namespace BaselineEbsBandwidthMbps {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BaselineEbsBandwidthMbps): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
- *          <p></p>
- */
-export interface MemoryGiBPerVCpu {
-  /**
-   * <p>The minimum amount of memory per vCPU, in GiB. If this parameter is not specified, there is
-   *          no minimum limit.</p>
-   */
-  Min?: number;
-
-  /**
-   * <p>The maximum amount of memory per vCPU, in GiB. If this parameter is not specified, there is
-   *          no maximum limit.</p>
-   */
-  Max?: number;
-}
-
-export namespace MemoryGiBPerVCpu {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemoryGiBPerVCpu): any => ({
     ...obj,
   });
 }

@@ -26,21 +26,24 @@ export interface GetRecommendationsCommandInput extends GetRecommendationsReques
 export interface GetRecommendationsCommandOutput extends GetRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of recommended items. The required input depends on the recipe type used to
- *       create the solution backing the campaign, as follows:</p>
+ * <p>Returns a list of recommended items. For campaigns, the campaign's Amazon Resource Name (ARN) is required and the required user and item input depends on the recipe type used to
+ *       create the solution backing the campaign as follows:</p>
  *          <ul>
  *             <li>
- *                <p>RELATED_ITEMS - <code>itemId</code> required, <code>userId</code> not used</p>
+ *                <p>USER_PERSONALIZATION - <code>userId</code> required, <code>itemId</code> not used</p>
  *             </li>
  *             <li>
- *                <p>USER_PERSONALIZATION - <code>itemId</code> optional, <code>userId</code>
- *           required</p>
+ *                <p>RELATED_ITEMS - <code>itemId</code> required, <code>userId</code> not used</p>
  *             </li>
  *          </ul>
  *          <note>
  *             <p>Campaigns that are backed by a solution created using a recipe of type
  *         PERSONALIZED_RANKING use the  API.</p>
  *          </note>
+ *          <p>
+ *       For recommenders, the recommender's ARN is required and the required item and user input depends on the use case (domain-based recipe) backing the recommender.
+ *       For information on use case requirements see <a href="https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html">Choosing recommender use cases</a>.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

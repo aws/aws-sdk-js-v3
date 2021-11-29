@@ -11112,6 +11112,7 @@ const serializeAws_restJson1InputSettings = (input: InputSettings, context: __Se
       input.NetworkInputSettings !== null && {
         networkInputSettings: serializeAws_restJson1NetworkInputSettings(input.NetworkInputSettings, context),
       }),
+    ...(input.Scte35Pid !== undefined && input.Scte35Pid !== null && { scte35Pid: input.Scte35Pid }),
     ...(input.Smpte2038DataPreference !== undefined &&
       input.Smpte2038DataPreference !== null && { smpte2038DataPreference: input.Smpte2038DataPreference }),
     ...(input.SourceEndBehavior !== undefined &&
@@ -14623,6 +14624,7 @@ const deserializeAws_restJson1InputSettings = (output: any, context: __SerdeCont
       output.networkInputSettings !== undefined && output.networkInputSettings !== null
         ? deserializeAws_restJson1NetworkInputSettings(output.networkInputSettings, context)
         : undefined,
+    Scte35Pid: __expectInt32(output.scte35Pid),
     Smpte2038DataPreference: __expectString(output.smpte2038DataPreference),
     SourceEndBehavior: __expectString(output.sourceEndBehavior),
     VideoSelector:

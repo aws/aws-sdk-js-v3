@@ -78,6 +78,7 @@ import {
   CreateEnvironmentTemplateVersionCommandInput,
   CreateEnvironmentTemplateVersionCommandOutput,
 } from "./commands/CreateEnvironmentTemplateVersionCommand";
+import { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "./commands/CreateRepositoryCommand";
 import { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
 import {
   CreateServiceTemplateCommandInput,
@@ -87,6 +88,10 @@ import {
   CreateServiceTemplateVersionCommandInput,
   CreateServiceTemplateVersionCommandOutput,
 } from "./commands/CreateServiceTemplateVersionCommand";
+import {
+  CreateTemplateSyncConfigCommandInput,
+  CreateTemplateSyncConfigCommandOutput,
+} from "./commands/CreateTemplateSyncConfigCommand";
 import {
   DeleteEnvironmentAccountConnectionCommandInput,
   DeleteEnvironmentAccountConnectionCommandOutput,
@@ -100,6 +105,7 @@ import {
   DeleteEnvironmentTemplateVersionCommandInput,
   DeleteEnvironmentTemplateVersionCommandOutput,
 } from "./commands/DeleteEnvironmentTemplateVersionCommand";
+import { DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput } from "./commands/DeleteRepositoryCommand";
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
 import {
   DeleteServiceTemplateCommandInput,
@@ -109,6 +115,10 @@ import {
   DeleteServiceTemplateVersionCommandInput,
   DeleteServiceTemplateVersionCommandOutput,
 } from "./commands/DeleteServiceTemplateVersionCommand";
+import {
+  DeleteTemplateSyncConfigCommandInput,
+  DeleteTemplateSyncConfigCommandOutput,
+} from "./commands/DeleteTemplateSyncConfigCommand";
 import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand";
 import {
   GetEnvironmentAccountConnectionCommandInput,
@@ -123,6 +133,11 @@ import {
   GetEnvironmentTemplateVersionCommandInput,
   GetEnvironmentTemplateVersionCommandOutput,
 } from "./commands/GetEnvironmentTemplateVersionCommand";
+import { GetRepositoryCommandInput, GetRepositoryCommandOutput } from "./commands/GetRepositoryCommand";
+import {
+  GetRepositorySyncStatusCommandInput,
+  GetRepositorySyncStatusCommandOutput,
+} from "./commands/GetRepositorySyncStatusCommand";
 import { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
 import { GetServiceInstanceCommandInput, GetServiceInstanceCommandOutput } from "./commands/GetServiceInstanceCommand";
 import { GetServiceTemplateCommandInput, GetServiceTemplateCommandOutput } from "./commands/GetServiceTemplateCommand";
@@ -131,9 +146,25 @@ import {
   GetServiceTemplateVersionCommandOutput,
 } from "./commands/GetServiceTemplateVersionCommand";
 import {
+  GetTemplateSyncConfigCommandInput,
+  GetTemplateSyncConfigCommandOutput,
+} from "./commands/GetTemplateSyncConfigCommand";
+import {
+  GetTemplateSyncStatusCommandInput,
+  GetTemplateSyncStatusCommandOutput,
+} from "./commands/GetTemplateSyncStatusCommand";
+import {
   ListEnvironmentAccountConnectionsCommandInput,
   ListEnvironmentAccountConnectionsCommandOutput,
 } from "./commands/ListEnvironmentAccountConnectionsCommand";
+import {
+  ListEnvironmentOutputsCommandInput,
+  ListEnvironmentOutputsCommandOutput,
+} from "./commands/ListEnvironmentOutputsCommand";
+import {
+  ListEnvironmentProvisionedResourcesCommandInput,
+  ListEnvironmentProvisionedResourcesCommandOutput,
+} from "./commands/ListEnvironmentProvisionedResourcesCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
 import {
   ListEnvironmentTemplatesCommandInput,
@@ -143,10 +174,31 @@ import {
   ListEnvironmentTemplateVersionsCommandInput,
   ListEnvironmentTemplateVersionsCommandOutput,
 } from "./commands/ListEnvironmentTemplateVersionsCommand";
+import { ListRepositoriesCommandInput, ListRepositoriesCommandOutput } from "./commands/ListRepositoriesCommand";
+import {
+  ListRepositorySyncDefinitionsCommandInput,
+  ListRepositorySyncDefinitionsCommandOutput,
+} from "./commands/ListRepositorySyncDefinitionsCommand";
+import {
+  ListServiceInstanceOutputsCommandInput,
+  ListServiceInstanceOutputsCommandOutput,
+} from "./commands/ListServiceInstanceOutputsCommand";
+import {
+  ListServiceInstanceProvisionedResourcesCommandInput,
+  ListServiceInstanceProvisionedResourcesCommandOutput,
+} from "./commands/ListServiceInstanceProvisionedResourcesCommand";
 import {
   ListServiceInstancesCommandInput,
   ListServiceInstancesCommandOutput,
 } from "./commands/ListServiceInstancesCommand";
+import {
+  ListServicePipelineOutputsCommandInput,
+  ListServicePipelineOutputsCommandOutput,
+} from "./commands/ListServicePipelineOutputsCommand";
+import {
+  ListServicePipelineProvisionedResourcesCommandInput,
+  ListServicePipelineProvisionedResourcesCommandOutput,
+} from "./commands/ListServicePipelineProvisionedResourcesCommand";
 import { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
 import {
   ListServiceTemplatesCommandInput,
@@ -160,6 +212,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  NotifyResourceDeploymentStatusChangeCommandInput,
+  NotifyResourceDeploymentStatusChangeCommandOutput,
+} from "./commands/NotifyResourceDeploymentStatusChangeCommand";
 import {
   RejectEnvironmentAccountConnectionCommandInput,
   RejectEnvironmentAccountConnectionCommandOutput,
@@ -200,6 +256,10 @@ import {
   UpdateServiceTemplateVersionCommandInput,
   UpdateServiceTemplateVersionCommandOutput,
 } from "./commands/UpdateServiceTemplateVersionCommand";
+import {
+  UpdateTemplateSyncConfigCommandInput,
+  UpdateTemplateSyncConfigCommandOutput,
+} from "./commands/UpdateTemplateSyncConfigCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -211,34 +271,51 @@ export type ServiceInputTypes =
   | CreateEnvironmentCommandInput
   | CreateEnvironmentTemplateCommandInput
   | CreateEnvironmentTemplateVersionCommandInput
+  | CreateRepositoryCommandInput
   | CreateServiceCommandInput
   | CreateServiceTemplateCommandInput
   | CreateServiceTemplateVersionCommandInput
+  | CreateTemplateSyncConfigCommandInput
   | DeleteEnvironmentAccountConnectionCommandInput
   | DeleteEnvironmentCommandInput
   | DeleteEnvironmentTemplateCommandInput
   | DeleteEnvironmentTemplateVersionCommandInput
+  | DeleteRepositoryCommandInput
   | DeleteServiceCommandInput
   | DeleteServiceTemplateCommandInput
   | DeleteServiceTemplateVersionCommandInput
+  | DeleteTemplateSyncConfigCommandInput
   | GetAccountSettingsCommandInput
   | GetEnvironmentAccountConnectionCommandInput
   | GetEnvironmentCommandInput
   | GetEnvironmentTemplateCommandInput
   | GetEnvironmentTemplateVersionCommandInput
+  | GetRepositoryCommandInput
+  | GetRepositorySyncStatusCommandInput
   | GetServiceCommandInput
   | GetServiceInstanceCommandInput
   | GetServiceTemplateCommandInput
   | GetServiceTemplateVersionCommandInput
+  | GetTemplateSyncConfigCommandInput
+  | GetTemplateSyncStatusCommandInput
   | ListEnvironmentAccountConnectionsCommandInput
+  | ListEnvironmentOutputsCommandInput
+  | ListEnvironmentProvisionedResourcesCommandInput
   | ListEnvironmentTemplateVersionsCommandInput
   | ListEnvironmentTemplatesCommandInput
   | ListEnvironmentsCommandInput
+  | ListRepositoriesCommandInput
+  | ListRepositorySyncDefinitionsCommandInput
+  | ListServiceInstanceOutputsCommandInput
+  | ListServiceInstanceProvisionedResourcesCommandInput
   | ListServiceInstancesCommandInput
+  | ListServicePipelineOutputsCommandInput
+  | ListServicePipelineProvisionedResourcesCommandInput
   | ListServiceTemplateVersionsCommandInput
   | ListServiceTemplatesCommandInput
   | ListServicesCommandInput
   | ListTagsForResourceCommandInput
+  | NotifyResourceDeploymentStatusChangeCommandInput
   | RejectEnvironmentAccountConnectionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -251,7 +328,8 @@ export type ServiceInputTypes =
   | UpdateServiceInstanceCommandInput
   | UpdateServicePipelineCommandInput
   | UpdateServiceTemplateCommandInput
-  | UpdateServiceTemplateVersionCommandInput;
+  | UpdateServiceTemplateVersionCommandInput
+  | UpdateTemplateSyncConfigCommandInput;
 
 export type ServiceOutputTypes =
   | AcceptEnvironmentAccountConnectionCommandOutput
@@ -262,34 +340,51 @@ export type ServiceOutputTypes =
   | CreateEnvironmentCommandOutput
   | CreateEnvironmentTemplateCommandOutput
   | CreateEnvironmentTemplateVersionCommandOutput
+  | CreateRepositoryCommandOutput
   | CreateServiceCommandOutput
   | CreateServiceTemplateCommandOutput
   | CreateServiceTemplateVersionCommandOutput
+  | CreateTemplateSyncConfigCommandOutput
   | DeleteEnvironmentAccountConnectionCommandOutput
   | DeleteEnvironmentCommandOutput
   | DeleteEnvironmentTemplateCommandOutput
   | DeleteEnvironmentTemplateVersionCommandOutput
+  | DeleteRepositoryCommandOutput
   | DeleteServiceCommandOutput
   | DeleteServiceTemplateCommandOutput
   | DeleteServiceTemplateVersionCommandOutput
+  | DeleteTemplateSyncConfigCommandOutput
   | GetAccountSettingsCommandOutput
   | GetEnvironmentAccountConnectionCommandOutput
   | GetEnvironmentCommandOutput
   | GetEnvironmentTemplateCommandOutput
   | GetEnvironmentTemplateVersionCommandOutput
+  | GetRepositoryCommandOutput
+  | GetRepositorySyncStatusCommandOutput
   | GetServiceCommandOutput
   | GetServiceInstanceCommandOutput
   | GetServiceTemplateCommandOutput
   | GetServiceTemplateVersionCommandOutput
+  | GetTemplateSyncConfigCommandOutput
+  | GetTemplateSyncStatusCommandOutput
   | ListEnvironmentAccountConnectionsCommandOutput
+  | ListEnvironmentOutputsCommandOutput
+  | ListEnvironmentProvisionedResourcesCommandOutput
   | ListEnvironmentTemplateVersionsCommandOutput
   | ListEnvironmentTemplatesCommandOutput
   | ListEnvironmentsCommandOutput
+  | ListRepositoriesCommandOutput
+  | ListRepositorySyncDefinitionsCommandOutput
+  | ListServiceInstanceOutputsCommandOutput
+  | ListServiceInstanceProvisionedResourcesCommandOutput
   | ListServiceInstancesCommandOutput
+  | ListServicePipelineOutputsCommandOutput
+  | ListServicePipelineProvisionedResourcesCommandOutput
   | ListServiceTemplateVersionsCommandOutput
   | ListServiceTemplatesCommandOutput
   | ListServicesCommandOutput
   | ListTagsForResourceCommandOutput
+  | NotifyResourceDeploymentStatusChangeCommandOutput
   | RejectEnvironmentAccountConnectionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
@@ -302,7 +397,8 @@ export type ServiceOutputTypes =
   | UpdateServiceInstanceCommandOutput
   | UpdateServicePipelineCommandOutput
   | UpdateServiceTemplateCommandOutput
-  | UpdateServiceTemplateVersionCommandOutput;
+  | UpdateServiceTemplateVersionCommandOutput
+  | UpdateTemplateSyncConfigCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -453,125 +549,134 @@ type ProtonClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandle
 export interface ProtonClientResolvedConfig extends ProtonClientResolvedConfigType {}
 
 /**
- * <p>This is the AWS Proton Service API Reference. It provides descriptions, syntax and usage examples for each of the <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Operations.html">actions</a> and <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Types.html">data types</a> for the AWS Proton service.</p>
- *         <p>The documentation for each action shows the Query API request parameters and the XML response.</p>
- *         <p>Alternatively, you can use the AWS CLI to access an API. For more information, see the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">AWS Command Line Interface User Guide</a>.</p>
- *         <p>The AWS Proton service is a two-pronged automation framework. Administrators create service templates to provide standardized
- *             infrastructure and deployment tooling for serverless and container based applications. Developers, in turn, select from the available
- *             service templates to automate their application or service deployments.</p>
- *         <p>Because administrators define the infrastructure and tooling that AWS Proton deploys and manages, they need permissions to use all of the
- *             listed API operations.</p>
- *         <p>When developers select a specific infrastructure and tooling set, AWS Proton deploys their applications. To monitor their applications
- *             that are running on AWS Proton, developers need permissions to the service <i>create</i>, <i>list</i>,
- *                 <i>update</i> and <i>delete</i> API operations and the service instance <i>list</i> and
- *                 <i>update</i> API operations.</p>
- *         <p>To learn more about AWS Proton administration, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/Welcome.html">AWS Proton
- *                 Administrator Guide</a>.</p>
- *         <p>To learn more about deploying serverless and containerized applications on AWS Proton, see the <a href="https://docs.aws.amazon.com/proton/latest/userguide/Welcome.html">AWS Proton User Guide</a>.</p>
- *         <p>
+ * <p>This is the Proton Service API Reference. It provides descriptions, syntax and usage examples for each of the
+ *     <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Operations.html">actions</a> and <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Types.html">data types</a> for the Proton
+ *    service.</p>
+ *          <p>The documentation for each action shows the Query API request parameters and the XML response.</p>
+ *          <p>Alternatively, you can use the Amazon Web Services CLI to access an API. For more information, see the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">Amazon Web Services Command Line Interface User
+ *     Guide</a>.</p>
+ *          <p>The Proton service is a two-pronged automation framework. Administrators create service templates to provide
+ *    standardized infrastructure and deployment tooling for serverless and container based applications. Developers, in
+ *    turn, select from the available service templates to automate their application or service deployments.</p>
+ *          <p>Because administrators define the infrastructure and tooling that Proton deploys and manages, they need
+ *    permissions to use all of the listed API operations.</p>
+ *          <p>When developers select a specific infrastructure and tooling set, Proton deploys their applications. To
+ *    monitor their applications that are running on Proton, developers need permissions to the service
+ *     <i>create</i>, <i>list</i>, <i>update</i> and <i>delete</i>
+ *    API operations and the service instance <i>list</i> and <i>update</i> API
+ *    operations.</p>
+ *          <p>To learn more about Proton administration, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/Welcome.html">Proton Administrator Guide</a>.</p>
+ *          <p>To learn more about deploying serverless and containerized applications on Proton, see the <a href="https://docs.aws.amazon.com/proton/latest/userguide/Welcome.html">Proton User Guide</a>.</p>
+ *          <p>
  *             <b>Ensuring Idempotency</b>
  *          </p>
- *         <p>When you make a mutating API request, the request typically returns a result before the asynchronous workflows of the operation are
- *             complete. Operations might also time out or encounter other server issues before they're complete, even if the request already returned a
- *             result. This might make it difficult to determine whether the request succeeded. Moreover, you might need to retry the request multiple
- *             times to ensure that the operation completes successfully. However, if the original request and the subsequent retries are successful, the
- *             operation occurs multiple times. This means that you might create more resources than you intended.</p>
- *         <p>
- *             <i>Idempotency</i> ensures that an API request action completes no more than one time. With an idempotent request, if the
- *             original request action completes successfully, any subsequent retries complete successfully without performing any further actions.
- *             However, the result might contain updated information, such as the current creation status.</p>
- *         <p>The following lists of APIs are grouped according to methods that ensure idempotency.</p>
- *         <p>
+ *          <p>When you make a mutating API request, the request typically returns a result before the asynchronous workflows
+ *    of the operation are complete. Operations might also time out or encounter other server issues before they're
+ *    complete, even if the request already returned a result. This might make it difficult to determine whether the
+ *    request succeeded. Moreover, you might need to retry the request multiple times to ensure that the operation
+ *    completes successfully. However, if the original request and the subsequent retries are successful, the operation
+ *    occurs multiple times. This means that you might create more resources than you intended.</p>
+ *          <p>
+ *             <i>Idempotency</i> ensures that an API request action completes no more than one time. With an
+ *    idempotent request, if the original request action completes successfully, any subsequent retries complete
+ *    successfully without performing any further actions. However, the result might contain updated information, such as
+ *    the current creation status.</p>
+ *          <p>The following lists of APIs are grouped according to methods that ensure idempotency.</p>
+ *          <p>
  *             <b>Idempotent create APIs with a client token</b>
  *          </p>
- *         <p>The API actions in this list support idempotency with the use of a <i>client token</i>. The corresponding AWS CLI
- *             commands also support idempotency using a client token. A client token is a unique, case-sensitive string of up to 64 ASCII characters. To
- *             make an idempotent API request using one of these actions, specify a client token in the request. We recommend that you
- *                 <i>don't</i> reuse the same client token for other API requests. If you don’t provide a client token for these APIs, a
- *             default client token is automatically provided by SDKs.</p>
- *         <p>Given a request action that has succeeded:</p>
- *         <p>If you retry the request using the same client token and the same parameters, the retry succeeds without performing any further actions
- *             other than returning the original resource detail data in the response.</p>
- *         <p>If you retry the request using the same client token, but one or more of the parameters are different, the retry throws a
- *                 <code>ValidationException</code> with an <code>IdempotentParameterMismatch</code> error.</p>
- *         <p>Client tokens expire eight hours after a request is made. If you retry the request with the expired token, a new resource is
- *             created.</p>
- *         <p>If the original resource is deleted and you retry the request, a new resource is created.</p>
- *         <p>Idempotent create APIs with a client token:</p>
- *         <ul>
+ *          <p>The API actions in this list support idempotency with the use of a <i>client token</i>. The
+ *    corresponding Amazon Web Services CLI commands also support idempotency using a client token. A client token is a unique,
+ *    case-sensitive string of up to 64 ASCII characters. To make an idempotent API request using one of these actions,
+ *    specify a client token in the request. We recommend that you <i>don't</i> reuse the same client token
+ *    for other API requests. If you don’t provide a client token for these APIs, a default client token is automatically
+ *    provided by SDKs.</p>
+ *          <p>Given a request action that has succeeded:</p>
+ *          <p>If you retry the request using the same client token and the same parameters, the retry succeeds without
+ *    performing any further actions other than returning the original resource detail data in the response.</p>
+ *          <p>If you retry the request using the same client token, but one or more of the parameters are different, the retry
+ *    throws a <code>ValidationException</code> with an <code>IdempotentParameterMismatch</code> error.</p>
+ *          <p>Client tokens expire eight hours after a request is made. If you retry the request with the expired token, a new
+ *    resource is created.</p>
+ *          <p>If the original resource is deleted and you retry the request, a new resource is created.</p>
+ *          <p>Idempotent create APIs with a client token:</p>
+ *          <ul>
  *             <li>
- *                 <p>CreateEnvironmentTemplateVersion</p>
+ *                <p>CreateEnvironmentTemplateVersion</p>
  *             </li>
  *             <li>
- *                 <p>CreateServiceTemplateVersion</p>
+ *                <p>CreateServiceTemplateVersion</p>
  *             </li>
  *             <li>
- *                 <p>CreateEnvironmentAccountConnection</p>
+ *                <p>CreateEnvironmentAccountConnection</p>
  *             </li>
  *          </ul>
- *         <p>
+ *          <p>
  *             <b>Idempotent create APIs</b>
  *          </p>
- *         <p>Given a request action that has succeeded:</p>
- *         <p>If you retry the request with an API from this group, and the original resource <i>hasn't</i> been modified, the retry
- *             succeeds without performing any further actions other than returning the original resource detail data in the response.</p>
- *         <p>If the original resource has been modified, the retry throws a <code>ConflictException</code>.</p>
- *         <p>If you retry with different input parameters, the retry throws a <code>ValidationException</code> with an
- *                 <code>IdempotentParameterMismatch</code> error.</p>
- *         <p>Idempotent create APIs:</p>
- *         <ul>
+ *          <p>Given a request action that has succeeded:</p>
+ *          <p>If you retry the request with an API from this group, and the original resource <i>hasn't</i> been
+ *    modified, the retry succeeds without performing any further actions other than returning the original resource detail
+ *    data in the response.</p>
+ *          <p>If the original resource has been modified, the retry throws a <code>ConflictException</code>.</p>
+ *          <p>If you retry with different input parameters, the retry throws a <code>ValidationException</code> with an
+ *     <code>IdempotentParameterMismatch</code> error.</p>
+ *          <p>Idempotent create APIs:</p>
+ *          <ul>
  *             <li>
- *                 <p>CreateEnvironmentTemplate</p>
+ *                <p>CreateEnvironmentTemplate</p>
  *             </li>
  *             <li>
- *                 <p>CreateServiceTemplate</p>
+ *                <p>CreateServiceTemplate</p>
  *             </li>
  *             <li>
- *                 <p>CreateEnvironment</p>
+ *                <p>CreateEnvironment</p>
  *             </li>
  *             <li>
- *                 <p>CreateService</p>
+ *                <p>CreateService</p>
  *             </li>
  *          </ul>
- *         <p>
+ *          <p>
  *             <b>Idempotent delete APIs</b>
  *          </p>
- *         <p>Given a request action that has succeeded:</p>
- *         <p>When you retry the request with an API from this group and the resource was deleted, its metadata is returned in the response.</p>
- *         <p>If you retry and the resource doesn't exist, the response is empty.</p>
- *         <p>In both cases, the retry succeeds.</p>
- *         <p>Idempotent delete APIs:</p>
- *         <ul>
+ *          <p>Given a request action that has succeeded:</p>
+ *          <p>When you retry the request with an API from this group and the resource was deleted, its metadata is returned in
+ *    the response.</p>
+ *          <p>If you retry and the resource doesn't exist, the response is empty.</p>
+ *          <p>In both cases, the retry succeeds.</p>
+ *          <p>Idempotent delete APIs:</p>
+ *          <ul>
  *             <li>
- *                 <p>DeleteEnvironmentTemplate</p>
+ *                <p>DeleteEnvironmentTemplate</p>
  *             </li>
  *             <li>
- *                 <p>DeleteEnvironmentTemplateVersion</p>
+ *                <p>DeleteEnvironmentTemplateVersion</p>
  *             </li>
  *             <li>
- *                 <p>DeleteServiceTemplate</p>
+ *                <p>DeleteServiceTemplate</p>
  *             </li>
  *             <li>
- *                 <p>DeleteServiceTemplateVersion</p>
+ *                <p>DeleteServiceTemplateVersion</p>
  *             </li>
  *             <li>
- *                 <p>DeleteEnvironmentAccountConnection</p>
+ *                <p>DeleteEnvironmentAccountConnection</p>
  *             </li>
  *          </ul>
- *         <p>
+ *          <p>
  *             <b>Asynchronous idempotent delete APIs</b>
  *          </p>
- *         <p>Given a request action that has succeeded:</p>
- *         <p>If you retry the request with an API from this group, if the original request delete operation status is
- *             <code>DELETE_IN_PROGRESS</code>, the retry returns the resource detail data in the response without performing any further actions.</p>
- *         <p>If the original request delete operation is complete, a retry returns an empty response.</p>
- *         <p>Asynchronous idempotent delete APIs:</p>
- *         <ul>
+ *          <p>Given a request action that has succeeded:</p>
+ *          <p>If you retry the request with an API from this group, if the original request delete operation status is
+ *     <code>DELETE_IN_PROGRESS</code>, the retry returns the resource detail data in the response without performing any
+ *    further actions.</p>
+ *          <p>If the original request delete operation is complete, a retry returns an empty response.</p>
+ *          <p>Asynchronous idempotent delete APIs:</p>
+ *          <ul>
  *             <li>
- *                 <p>DeleteEnvironment</p>
+ *                <p>DeleteEnvironment</p>
  *             </li>
  *             <li>
- *                 <p>DeleteService</p>
+ *                <p>DeleteService</p>
  *             </li>
  *          </ul>
  */

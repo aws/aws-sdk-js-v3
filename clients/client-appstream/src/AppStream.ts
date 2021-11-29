@@ -2,6 +2,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { AppStreamClient } from "./AppStreamClient";
 import {
+  AssociateApplicationFleetCommand,
+  AssociateApplicationFleetCommandInput,
+  AssociateApplicationFleetCommandOutput,
+} from "./commands/AssociateApplicationFleetCommand";
+import {
   AssociateFleetCommand,
   AssociateFleetCommandInput,
   AssociateFleetCommandOutput,
@@ -17,6 +22,16 @@ import {
   BatchDisassociateUserStackCommandOutput,
 } from "./commands/BatchDisassociateUserStackCommand";
 import { CopyImageCommand, CopyImageCommandInput, CopyImageCommandOutput } from "./commands/CopyImageCommand";
+import {
+  CreateAppBlockCommand,
+  CreateAppBlockCommandInput,
+  CreateAppBlockCommandOutput,
+} from "./commands/CreateAppBlockCommand";
+import {
+  CreateApplicationCommand,
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
 import {
   CreateDirectoryConfigCommand,
   CreateDirectoryConfigCommandInput,
@@ -51,6 +66,16 @@ import {
 } from "./commands/CreateUsageReportSubscriptionCommand";
 import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
+  DeleteAppBlockCommand,
+  DeleteAppBlockCommandInput,
+  DeleteAppBlockCommandOutput,
+} from "./commands/DeleteAppBlockCommand";
+import {
+  DeleteApplicationCommand,
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
+import {
   DeleteDirectoryConfigCommand,
   DeleteDirectoryConfigCommandInput,
   DeleteDirectoryConfigCommandOutput,
@@ -74,6 +99,21 @@ import {
   DeleteUsageReportSubscriptionCommandOutput,
 } from "./commands/DeleteUsageReportSubscriptionCommand";
 import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import {
+  DescribeAppBlocksCommand,
+  DescribeAppBlocksCommandInput,
+  DescribeAppBlocksCommandOutput,
+} from "./commands/DescribeAppBlocksCommand";
+import {
+  DescribeApplicationFleetAssociationsCommand,
+  DescribeApplicationFleetAssociationsCommandInput,
+  DescribeApplicationFleetAssociationsCommandOutput,
+} from "./commands/DescribeApplicationFleetAssociationsCommand";
+import {
+  DescribeApplicationsCommand,
+  DescribeApplicationsCommandInput,
+  DescribeApplicationsCommandOutput,
+} from "./commands/DescribeApplicationsCommand";
 import {
   DescribeDirectoryConfigsCommand,
   DescribeDirectoryConfigsCommandInput,
@@ -126,6 +166,11 @@ import {
 } from "./commands/DescribeUserStackAssociationsCommand";
 import { DisableUserCommand, DisableUserCommandInput, DisableUserCommandOutput } from "./commands/DisableUserCommand";
 import {
+  DisassociateApplicationFleetCommand,
+  DisassociateApplicationFleetCommandInput,
+  DisassociateApplicationFleetCommandOutput,
+} from "./commands/DisassociateApplicationFleetCommand";
+import {
   DisassociateFleetCommand,
   DisassociateFleetCommandInput,
   DisassociateFleetCommandOutput,
@@ -170,6 +215,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateApplicationCommand,
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
+import {
   UpdateDirectoryConfigCommand,
   UpdateDirectoryConfigCommandInput,
   UpdateDirectoryConfigCommandOutput,
@@ -206,6 +256,38 @@ import { UpdateStackCommand, UpdateStackCommandInput, UpdateStackCommandOutput }
  *          </ul>
  */
 export class AppStream extends AppStreamClient {
+  /**
+   * <p>Associates the specified application with the specified fleet. This is only supported for Elastic fleets.</p>
+   */
+  public associateApplicationFleet(
+    args: AssociateApplicationFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateApplicationFleetCommandOutput>;
+  public associateApplicationFleet(
+    args: AssociateApplicationFleetCommandInput,
+    cb: (err: any, data?: AssociateApplicationFleetCommandOutput) => void
+  ): void;
+  public associateApplicationFleet(
+    args: AssociateApplicationFleetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateApplicationFleetCommandOutput) => void
+  ): void;
+  public associateApplicationFleet(
+    args: AssociateApplicationFleetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateApplicationFleetCommandOutput) => void),
+    cb?: (err: any, data?: AssociateApplicationFleetCommandOutput) => void
+  ): Promise<AssociateApplicationFleetCommandOutput> | void {
+    const command = new AssociateApplicationFleetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Associates the specified fleet with the specified stack.</p>
    */
@@ -329,6 +411,82 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
+   * <p>Creates an app block.</p>
+   *         <p>App blocks are an Amazon AppStream 2.0 resource that stores the details about the
+   *             virtual hard disk in an S3 bucket. It also stores the setup script with details about
+   *             how to mount the virtual hard disk. The virtual hard disk includes the application
+   *             binaries and other files necessary to launch your applications. Multiple applications
+   *             can be assigned to a single app block.</p>
+   *         <p>This is only supported for Elastic fleets.</p>
+   */
+  public createAppBlock(
+    args: CreateAppBlockCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAppBlockCommandOutput>;
+  public createAppBlock(
+    args: CreateAppBlockCommandInput,
+    cb: (err: any, data?: CreateAppBlockCommandOutput) => void
+  ): void;
+  public createAppBlock(
+    args: CreateAppBlockCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAppBlockCommandOutput) => void
+  ): void;
+  public createAppBlock(
+    args: CreateAppBlockCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppBlockCommandOutput) => void),
+    cb?: (err: any, data?: CreateAppBlockCommandOutput) => void
+  ): Promise<CreateAppBlockCommandOutput> | void {
+    const command = new CreateAppBlockCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an application.</p>
+   *         <p>Applications are an Amazon AppStream 2.0 resource that stores the details about how to
+   *             launch applications on Elastic fleet streaming instances. An application consists of the
+   *             launch details, icon, and display name. Applications are associated with an app block
+   *             that contains the application binaries and other files. The applications assigned to an
+   *             Elastic fleet are the applications users can launch. </p>
+   *         <p>This is only supported for Elastic fleets.</p>
+   */
+  public createApplication(
+    args: CreateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateApplicationCommandOutput>;
+  public createApplication(
+    args: CreateApplicationCommandInput,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+  public createApplication(
+    args: CreateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+  public createApplication(
+    args: CreateApplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApplicationCommandOutput) => void),
+    cb?: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): Promise<CreateApplicationCommandOutput> | void {
+    const command = new CreateApplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
    */
   public createDirectoryConfig(
@@ -361,7 +519,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   * <p>Creates a fleet. A fleet consists of streaming instances that run a specified image.</p>
+   * <p>Creates a fleet. A fleet consists of streaming instances that run a specified image when using Always-On or On-Demand.</p>
    */
   public createFleet(args: CreateFleetCommandInput, options?: __HttpHandlerOptions): Promise<CreateFleetCommandOutput>;
   public createFleet(args: CreateFleetCommandInput, cb: (err: any, data?: CreateFleetCommandOutput) => void): void;
@@ -603,6 +761,70 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
+   * <p>Deletes an app block.</p>
+   */
+  public deleteAppBlock(
+    args: DeleteAppBlockCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppBlockCommandOutput>;
+  public deleteAppBlock(
+    args: DeleteAppBlockCommandInput,
+    cb: (err: any, data?: DeleteAppBlockCommandOutput) => void
+  ): void;
+  public deleteAppBlock(
+    args: DeleteAppBlockCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppBlockCommandOutput) => void
+  ): void;
+  public deleteAppBlock(
+    args: DeleteAppBlockCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppBlockCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAppBlockCommandOutput) => void
+  ): Promise<DeleteAppBlockCommandOutput> | void {
+    const command = new DeleteAppBlockCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an application.</p>
+   */
+  public deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteApplicationCommandOutput>;
+  public deleteApplication(
+    args: DeleteApplicationCommandInput,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+  public deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+  public deleteApplication(
+    args: DeleteApplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApplicationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): Promise<DeleteApplicationCommandOutput> | void {
+    const command = new DeleteApplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified Directory Config object from AppStream 2.0. This object includes the information required to join streaming instances to an Active Directory domain.</p>
    */
   public deleteDirectoryConfig(
@@ -825,6 +1047,102 @@ export class AppStream extends AppStreamClient {
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a list that describes one or more app blocks.</p>
+   */
+  public describeAppBlocks(
+    args: DescribeAppBlocksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAppBlocksCommandOutput>;
+  public describeAppBlocks(
+    args: DescribeAppBlocksCommandInput,
+    cb: (err: any, data?: DescribeAppBlocksCommandOutput) => void
+  ): void;
+  public describeAppBlocks(
+    args: DescribeAppBlocksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAppBlocksCommandOutput) => void
+  ): void;
+  public describeAppBlocks(
+    args: DescribeAppBlocksCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAppBlocksCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAppBlocksCommandOutput) => void
+  ): Promise<DescribeAppBlocksCommandOutput> | void {
+    const command = new DescribeAppBlocksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a list that describes one or more application fleet associations. Either ApplicationArn or FleetName must be specified.</p>
+   */
+  public describeApplicationFleetAssociations(
+    args: DescribeApplicationFleetAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeApplicationFleetAssociationsCommandOutput>;
+  public describeApplicationFleetAssociations(
+    args: DescribeApplicationFleetAssociationsCommandInput,
+    cb: (err: any, data?: DescribeApplicationFleetAssociationsCommandOutput) => void
+  ): void;
+  public describeApplicationFleetAssociations(
+    args: DescribeApplicationFleetAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeApplicationFleetAssociationsCommandOutput) => void
+  ): void;
+  public describeApplicationFleetAssociations(
+    args: DescribeApplicationFleetAssociationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeApplicationFleetAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeApplicationFleetAssociationsCommandOutput) => void
+  ): Promise<DescribeApplicationFleetAssociationsCommandOutput> | void {
+    const command = new DescribeApplicationFleetAssociationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a list that describes one or more applications.</p>
+   */
+  public describeApplications(
+    args: DescribeApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeApplicationsCommandOutput>;
+  public describeApplications(
+    args: DescribeApplicationsCommandInput,
+    cb: (err: any, data?: DescribeApplicationsCommandOutput) => void
+  ): void;
+  public describeApplications(
+    args: DescribeApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeApplicationsCommandOutput) => void
+  ): void;
+  public describeApplications(
+    args: DescribeApplicationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeApplicationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeApplicationsCommandOutput) => void
+  ): Promise<DescribeApplicationsCommandOutput> | void {
+    const command = new DescribeApplicationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1183,6 +1501,38 @@ export class AppStream extends AppStreamClient {
     cb?: (err: any, data?: DisableUserCommandOutput) => void
   ): Promise<DisableUserCommandOutput> | void {
     const command = new DisableUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disassociates the specified application from the fleet.</p>
+   */
+  public disassociateApplicationFleet(
+    args: DisassociateApplicationFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateApplicationFleetCommandOutput>;
+  public disassociateApplicationFleet(
+    args: DisassociateApplicationFleetCommandInput,
+    cb: (err: any, data?: DisassociateApplicationFleetCommandOutput) => void
+  ): void;
+  public disassociateApplicationFleet(
+    args: DisassociateApplicationFleetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateApplicationFleetCommandOutput) => void
+  ): void;
+  public disassociateApplicationFleet(
+    args: DisassociateApplicationFleetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateApplicationFleetCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateApplicationFleetCommandOutput) => void
+  ): Promise<DisassociateApplicationFleetCommandOutput> | void {
+    const command = new DisassociateApplicationFleetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1563,6 +1913,38 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
+   * <p>Updates the specified application.</p>
+   */
+  public updateApplication(
+    args: UpdateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateApplicationCommandOutput>;
+  public updateApplication(
+    args: UpdateApplicationCommandInput,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+  public updateApplication(
+    args: UpdateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+  public updateApplication(
+    args: UpdateApplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApplicationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): Promise<UpdateApplicationCommandOutput> | void {
+    const command = new UpdateApplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the specified Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
    */
   public updateDirectoryConfig(
@@ -1596,9 +1978,27 @@ export class AppStream extends AppStreamClient {
 
   /**
    * <p>Updates the specified fleet.</p>
-   *         <p>If the fleet is in the <code>STOPPED</code> state, you can update any attribute except the fleet name.
-   *             If the fleet is in the <code>RUNNING</code> state, you can update the <code>DisplayName</code>, <code>ComputeCapacity</code>, <code>ImageARN</code>, <code>ImageName</code>, <code>IdleDisconnectTimeoutInSeconds</code>, and <code>DisconnectTimeoutInSeconds</code> attributes.
-   *             If the fleet is in the <code>STARTING</code> or <code>STOPPING</code> state, you can't update it.</p>
+   *         <p>If the fleet is in the <code>STOPPED</code> state, you can update any attribute except
+   *             the fleet name.</p>
+   *         <p>If the fleet is in the <code>RUNNING</code> state, you can update the following based
+   *             on the fleet type:</p>
+   *         <ul>
+   *             <li>
+   *                <p>Always-On and On-Demand fleet types</p>
+   *                 <p>You can update the  <code>DisplayName</code>, <code>ComputeCapacity</code>,
+   *                         <code>ImageARN</code>, <code>ImageName</code>,
+   *                         <code>IdleDisconnectTimeoutInSeconds</code>, and
+   *                         <code>DisconnectTimeoutInSeconds</code> attributes.</p>
+   *             </li>
+   *             <li>
+   *                <p>Elastic fleet type</p>
+   *                 <p>You can update the  <code>DisplayName</code>,
+   *                         <code>IdleDisconnectTimeoutInSeconds</code>,
+   *                         <code>DisconnectTimeoutInSeconds</code>, <code>MaxConcurrentSessions</code>,
+   *                     and <code>UsbDeviceFilterStrings</code> attributes.</p>
+   *             </li>
+   *          </ul>
+   *         <p>If the fleet is in the <code>STARTING</code> or <code>STOPPED</code> state, you can't update it.</p>
    */
   public updateFleet(args: UpdateFleetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFleetCommandOutput>;
   public updateFleet(args: UpdateFleetCommandInput, cb: (err: any, data?: UpdateFleetCommandOutput) => void): void;

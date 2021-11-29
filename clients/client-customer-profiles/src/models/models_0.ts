@@ -207,6 +207,101 @@ export namespace Address {
   });
 }
 
+export enum ConflictResolvingModel {
+  RECENCY = "RECENCY",
+  SOURCE = "SOURCE",
+}
+
+/**
+ * <p>How the auto-merging process should resolve conflicts between different profiles.</p>
+ */
+export interface ConflictResolution {
+  /**
+   * <p>How the auto-merging process should resolve conflicts between different profiles.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>RECENCY</code>: Uses the data that was most recently updated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SOURCE</code>: Uses the data from a specific source. For example, if a
+   *                company has been aquired or two departments have merged, data from the specified
+   *                source is used. If two duplicate profiles are from the same source, then
+   *                   <code>RECENCY</code> is used again.</p>
+   *             </li>
+   *          </ul>
+   */
+  ConflictResolvingModel: ConflictResolvingModel | string | undefined;
+
+  /**
+   * <p>The <code>ObjectType</code> name that is used to resolve profile merging conflicts when
+   *          choosing <code>SOURCE</code> as the <code>ConflictResolvingModel</code>.</p>
+   */
+  SourceName?: string;
+}
+
+export namespace ConflictResolution {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConflictResolution): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The matching criteria to be used during the auto-merging process. </p>
+ */
+export interface Consolidation {
+  /**
+   * <p>A list of matching criteria.</p>
+   */
+  MatchingAttributesList: string[][] | undefined;
+}
+
+export namespace Consolidation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Consolidation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration settings for how to perform the auto-merging of profiles.</p>
+ */
+export interface AutoMerging {
+  /**
+   * <p>The flag that enables the auto-merging of duplicate profiles.</p>
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>A list of matching attributes that represent matching criteria. If two profiles meet at
+   *          least one of the requirements in the matching attributes list, they will be merged.</p>
+   */
+  Consolidation?: Consolidation;
+
+  /**
+   * <p>How the auto-merging process should resolve conflicts between different profiles. For
+   *          example, if Profile A and Profile B have the same <code>FirstName</code> and
+   *             <code>LastName</code> (and that is the matching criteria), which
+   *             <code>EmailAddress</code> should be used? </p>
+   */
+  ConflictResolution?: ConflictResolution;
+}
+
+export namespace AutoMerging {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoMerging): any => ({
+    ...obj,
+  });
+}
+
 export enum MarketoConnectorOperator {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -354,6 +449,89 @@ export namespace ConnectorOperator {
 }
 
 /**
+ * <p>Configuration information about the S3 bucket where Identity Resolution Jobs write result files.</p>
+ */
+export interface S3ExportingConfig {
+  /**
+   * <p>The name of the S3 bucket where Identity Resolution Jobs write result files.</p>
+   */
+  S3BucketName: string | undefined;
+
+  /**
+   * <p>The S3 key name of the location where Identity Resolution Jobs write result files.</p>
+   */
+  S3KeyName?: string;
+}
+
+export namespace S3ExportingConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3ExportingConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration information about the S3 bucket where Identity Resolution Jobs writes result files. </p>
+ *          <note>
+ *             <p>You need to give Customer Profiles service principal write permission to your S3 bucket.
+ *             Otherwise, you'll get an exception in the API response. For an example policy, see
+ *                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html#customer-profiles-cross-service">Amazon Connect Customer Profiles cross-service confused deputy prevention</a>.
+ *          </p>
+ *          </note>
+ */
+export interface ExportingConfig {
+  /**
+   * <p>The S3 location where Identity Resolution Jobs write result files.</p>
+   */
+  S3Exporting?: S3ExportingConfig;
+}
+
+export namespace ExportingConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExportingConfig): any => ({
+    ...obj,
+  });
+}
+
+export enum JobScheduleDayOfTheWeek {
+  FRIDAY = "FRIDAY",
+  MONDAY = "MONDAY",
+  SATURDAY = "SATURDAY",
+  SUNDAY = "SUNDAY",
+  THURSDAY = "THURSDAY",
+  TUESDAY = "TUESDAY",
+  WEDNESDAY = "WEDNESDAY",
+}
+
+/**
+ * <p>The day and time when do you want to start the Identity Resolution Job every week.</p>
+ */
+export interface JobSchedule {
+  /**
+   * <p>The day when the Identity Resolution Job should run every week.</p>
+   */
+  DayOfTheWeek: JobScheduleDayOfTheWeek | string | undefined;
+
+  /**
+   * <p>The time when the Identity Resolution Job should run every week.</p>
+   */
+  Time: string | undefined;
+}
+
+export namespace JobSchedule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JobSchedule): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The flag that enables the matching process of duplicate profiles.</p>
  */
 export interface MatchingRequest {
@@ -361,6 +539,22 @@ export interface MatchingRequest {
    * <p>The flag that enables the matching process of duplicate profiles.</p>
    */
   Enabled: boolean | undefined;
+
+  /**
+   * <p>The day and time when do you want to start the Identity Resolution Job every week.</p>
+   */
+  JobSchedule?: JobSchedule;
+
+  /**
+   * <p>Configuration information about the auto-merging process.</p>
+   */
+  AutoMerging?: AutoMerging;
+
+  /**
+   * <p>Configuration information for exporting Identity Resolution results, for example, to an S3
+   *          bucket.</p>
+   */
+  ExportingConfig?: ExportingConfig;
 }
 
 export namespace MatchingRequest {
@@ -399,10 +593,13 @@ export interface CreateDomainRequest {
   DeadLetterQueueUrl?: string;
 
   /**
-   * <p>The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process every Saturday at 12AM UTC to detect duplicate profiles in your domains.
-   * After that batch process completes, use the
+   * <p>The process of matching duplicate profiles. If <code>Matching</code> = <code>true</code>, Amazon Connect Customer Profiles starts a weekly
+   * batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every
+   * Saturday at 12AM UTC to detect duplicate profiles in your domains. </p>
+   *          <p>After the Identity Resolution Job completes, use the
    * <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
-   * API to return and review the results.  </p>
+   * API to return and review the results. Or, if you have configured <code>ExportingConfig</code> in the <code>MatchingRequest</code>, you can download the results from
+   * S3.</p>
    */
   Matching?: MatchingRequest;
 
@@ -429,6 +626,22 @@ export interface MatchingResponse {
    * <p>The flag that enables the matching process of duplicate profiles.</p>
    */
   Enabled?: boolean;
+
+  /**
+   * <p>The day and time when do you want to start the Identity Resolution Job every week.</p>
+   */
+  JobSchedule?: JobSchedule;
+
+  /**
+   * <p>Configuration information about the auto-merging process.</p>
+   */
+  AutoMerging?: AutoMerging;
+
+  /**
+   * <p>Configuration information for exporting Identity Resolution results, for example, to an S3
+   *          bucket.</p>
+   */
+  ExportingConfig?: ExportingConfig;
 }
 
 export namespace MatchingResponse {
@@ -465,10 +678,13 @@ export interface CreateDomainResponse {
   DeadLetterQueueUrl?: string;
 
   /**
-   * <p>The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process every Saturday at 12AM UTC to detect duplicate profiles in your domains.
-   * After that batch process completes, use the
+   * <p>The process of matching duplicate profiles. If <code>Matching</code> = <code>true</code>, Amazon Connect Customer Profiles starts a weekly
+   * batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every
+   * Saturday at 12AM UTC to detect duplicate profiles in your domains. </p>
+   *          <p>After the Identity Resolution Job completes, use the
    * <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
-   * API to return and review the results.  </p>
+   * API to return and review the results. Or, if you have configured <code>ExportingConfig</code> in the <code>MatchingRequest</code>, you can download the results from
+   * S3.</p>
    */
   Matching?: MatchingResponse;
 
@@ -886,6 +1102,64 @@ export namespace DeleteProfileObjectTypeResponse {
   });
 }
 
+export interface GetAutoMergingPreviewRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>A list of matching attributes that represent matching criteria.</p>
+   */
+  Consolidation: Consolidation | undefined;
+
+  /**
+   * <p>How the auto-merging process should resolve conflicts between different profiles.</p>
+   */
+  ConflictResolution: ConflictResolution | undefined;
+}
+
+export namespace GetAutoMergingPreviewRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetAutoMergingPreviewRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetAutoMergingPreviewResponse {
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The number of match groups in the domain that have been reviewed in this preview dry
+   *          run.</p>
+   */
+  NumberOfMatchesInSample?: number;
+
+  /**
+   * <p>The number of profiles found in this preview dry run.</p>
+   */
+  NumberOfProfilesInSample?: number;
+
+  /**
+   * <p>The number of profiles that would be merged if this wasn't a preview dry run.</p>
+   */
+  NumberOfProfilesWillBeMerged?: number;
+}
+
+export namespace GetAutoMergingPreviewResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetAutoMergingPreviewResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetDomainRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -968,10 +1242,13 @@ export interface GetDomainResponse {
   Stats?: DomainStats;
 
   /**
-   * <p>The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process every Saturday at 12AM UTC to detect duplicate profiles in your domains.
-   * After that batch process completes, use the
+   * <p>The process of matching duplicate profiles. If <code>Matching</code> = <code>true</code>, Amazon Connect Customer Profiles starts a weekly
+   * batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every
+   * Saturday at 12AM UTC to detect duplicate profiles in your domains. </p>
+   *          <p>After the Identity Resolution Job completes, use the
    * <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
-   * API to return and review the results.  </p>
+   * API to return and review the results. Or, if you have configured <code>ExportingConfig</code> in the <code>MatchingRequest</code>, you can download the results from
+   * S3.</p>
    */
   Matching?: MatchingResponse;
 
@@ -996,6 +1273,210 @@ export namespace GetDomainResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetDomainResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetIdentityResolutionJobRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Identity Resolution Job.</p>
+   */
+  JobId: string | undefined;
+}
+
+export namespace GetIdentityResolutionJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetIdentityResolutionJobRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The S3 location where Identity Resolution Jobs write result files.</p>
+ */
+export interface S3ExportingLocation {
+  /**
+   * <p>The name of the S3 bucket name where Identity Resolution Jobs write result files.</p>
+   */
+  S3BucketName?: string;
+
+  /**
+   * <p>The S3 key name of the location where Identity Resolution Jobs write result files.</p>
+   */
+  S3KeyName?: string;
+}
+
+export namespace S3ExportingLocation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3ExportingLocation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The S3 location where Identity Resolution Jobs write result files.</p>
+ */
+export interface ExportingLocation {
+  /**
+   * <p>Information about the S3 location where Identity Resolution Jobs write result files.</p>
+   */
+  S3Exporting?: S3ExportingLocation;
+}
+
+export namespace ExportingLocation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExportingLocation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Statistics about the Identity Resolution Job.</p>
+ */
+export interface JobStats {
+  /**
+   * <p>The number of profiles reviewed.</p>
+   */
+  NumberOfProfilesReviewed?: number;
+
+  /**
+   * <p>The number of matches found.</p>
+   */
+  NumberOfMatchesFound?: number;
+
+  /**
+   * <p>The number of merges completed.</p>
+   */
+  NumberOfMergesDone?: number;
+}
+
+export namespace JobStats {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JobStats): any => ({
+    ...obj,
+  });
+}
+
+export enum IdentityResolutionJobStatus {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  FIND_MATCHING = "FIND_MATCHING",
+  MERGING = "MERGING",
+  PARTIAL_SUCCESS = "PARTIAL_SUCCESS",
+  PENDING = "PENDING",
+  PREPROCESSING = "PREPROCESSING",
+}
+
+export interface GetIdentityResolutionJobResponse {
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName?: string;
+
+  /**
+   * <p>The unique identifier of the Identity Resolution Job.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>The status of the Identity Resolution Job.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code>: The Identity Resolution Job is scheduled but has not started yet. If you turn
+   *                off the Identity Resolution feature in your domain, jobs in the <code>PENDING</code> state are
+   *                deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PREPROCESSING</code>: The Identity Resolution Job is loading your data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FIND_MATCHING</code>: The Identity Resolution Job is using the machine learning model to
+   *                identify profiles that belong to the same matching group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MERGING</code>: The Identity Resolution Job is merging duplicate profiles.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code>: The Identity Resolution Job completed successfully.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PARTIAL_SUCCESS</code>: There's a system error and not all of the data is
+   *                merged. The Identity Resolution Job writes a message indicating the source of the problem.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>: The Identity Resolution Job did not merge any data. It writes a message
+   *                indicating the source of the problem.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: IdentityResolutionJobStatus | string;
+
+  /**
+   * <p>The error messages that are generated when the Identity Resolution Job runs.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The timestamp of when the Identity Resolution Job was started or will be started.</p>
+   */
+  JobStartTime?: Date;
+
+  /**
+   * <p>The timestamp of when the Identity Resolution Job was completed.</p>
+   */
+  JobEndTime?: Date;
+
+  /**
+   * <p>The timestamp of when the Identity Resolution Job was most recently edited.</p>
+   */
+  LastUpdatedAt?: Date;
+
+  /**
+   * <p>The timestamp of when the Identity Resolution Job will expire.</p>
+   */
+  JobExpirationTime?: Date;
+
+  /**
+   * <p>Configuration settings for how to perform the auto-merging of profiles.</p>
+   */
+  AutoMerging?: AutoMerging;
+
+  /**
+   * <p>The S3 location where the Identity Resolution Job writes result files.</p>
+   */
+  ExportingLocation?: ExportingLocation;
+
+  /**
+   * <p>Statistics about the Identity Resolution Job.</p>
+   */
+  JobStats?: JobStats;
+}
+
+export namespace GetIdentityResolutionJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetIdentityResolutionJobResponse): any => ({
     ...obj,
   });
 }
@@ -1102,6 +1583,12 @@ export interface MatchItem {
    * <p>A list of identifiers for profiles that match.</p>
    */
   ProfileIds?: string[];
+
+  /**
+   * <p>A number between 0 and 1 that represents the confidence level of assigning profiles to a
+   *          matching group. A score of 1 likely indicates an exact match.</p>
+   */
+  ConfidenceScore?: number;
 }
 
 export namespace MatchItem {
@@ -1221,13 +1708,13 @@ export enum StandardIdentifier {
 export interface ObjectTypeKey {
   /**
    * <p>The types of keys that a ProfileObject can have. Each ProfileObject can have only 1
-   *          UNIQUE key but multiple PROFILE keys. PROFILE, ASSET or CASE means that this key can be used to tie an
-   *          object to a PROFILE, ASSET or CASE respectively. UNIQUE means that it can be used to uniquely identify an object.
-   *          If a key a is marked as SECONDARY, it will be used to search for profiles after all other
-   *          PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is
-   *          not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the
-   *          profile does not already exist before the object is ingested, otherwise it is only used for
-   *          matching objects to profiles.</p>
+   *          UNIQUE key but multiple PROFILE keys. PROFILE, ASSET or CASE means that this key can be
+   *          used to tie an object to a PROFILE, ASSET or CASE respectively. UNIQUE means that it can be
+   *          used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to
+   *          search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is
+   *          only used to match a profile but is not persisted to be used for searching of the profile.
+   *          A NEW_ONLY key is only used if the profile does not already exist before the object is
+   *          ingested, otherwise it is only used for matching objects to profiles.</p>
    */
   StandardIdentifiers?: (StandardIdentifier | string)[];
 
@@ -1281,6 +1768,12 @@ export interface GetProfileObjectTypeResponse {
    *          is found, then the service creates a new standard profile.</p>
    */
   AllowProfileCreation?: boolean;
+
+  /**
+   * <p>The format of your <code>sourceLastUpdatedTimestamp</code> that was previously set
+   *          up.</p>
+   */
+  SourceLastUpdatedTimestampFormat?: string;
 
   /**
    * <p>A map of the name and ObjectType field.</p>
@@ -1357,6 +1850,12 @@ export interface GetProfileObjectTypeTemplateResponse {
    *          is found, then the service creates a new standard profile.</p>
    */
   AllowProfileCreation?: boolean;
+
+  /**
+   * <p>The format of your <code>sourceLastUpdatedTimestamp</code> that was previously set
+   *          up.</p>
+   */
+  SourceLastUpdatedTimestampFormat?: string;
 
   /**
    * <p>A map of the name and ObjectType field.</p>
@@ -1545,6 +2044,143 @@ export namespace ListDomainsResponse {
   });
 }
 
+export interface ListIdentityResolutionJobsRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListIdentityResolutionJobsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListIdentityResolutionJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the Identity Resolution Job.</p>
+ */
+export interface IdentityResolutionJob {
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName?: string;
+
+  /**
+   * <p>The unique identifier of the Identity Resolution Job.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>The status of the Identity Resolution Job.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code>: The Identity Resolution Job is scheduled but has not started yet. If you turn
+   *                off the Identity Resolution feature in your domain, jobs in the <code>PENDING</code> state are
+   *                deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PREPROCESSING</code>: The Identity Resolution Job is loading your data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FIND_MATCHING</code>: The Identity Resolution Job is using the machine learning model to
+   *                identify profiles that belong to the same matching group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MERGING</code>: The Identity Resolution Job is merging duplicate profiles.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code>: The Identity Resolution Job completed successfully.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PARTIAL_SUCCESS</code>: There's a system error and not all of the data is
+   *                merged. The Identity Resolution Job writes a message indicating the source of the problem.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>: The Identity Resolution Job did not merge any data. It writes a message
+   *                indicating the source of the problem.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: IdentityResolutionJobStatus | string;
+
+  /**
+   * <p>The timestamp of when the job was started or will be started.</p>
+   */
+  JobStartTime?: Date;
+
+  /**
+   * <p>The timestamp of when the job was completed.</p>
+   */
+  JobEndTime?: Date;
+
+  /**
+   * <p>Statistics about an Identity Resolution Job.</p>
+   */
+  JobStats?: JobStats;
+
+  /**
+   * <p>The S3 location where the Identity Resolution Job writes result files.</p>
+   */
+  ExportingLocation?: ExportingLocation;
+
+  /**
+   * <p>The error messages that are generated when the Identity Resolution Job runs.</p>
+   */
+  Message?: string;
+}
+
+export namespace IdentityResolutionJob {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IdentityResolutionJob): any => ({
+    ...obj,
+  });
+}
+
+export interface ListIdentityResolutionJobsResponse {
+  /**
+   * <p>A list of Identity Resolution Jobs.</p>
+   */
+  IdentityResolutionJobsList?: IdentityResolutionJob[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListIdentityResolutionJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListIdentityResolutionJobsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListIntegrationsRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -1593,13 +2229,15 @@ export namespace ListIntegrationsResponse {
 }
 
 /**
- * <p>The filter applied to ListProfileObjects response to include profile objects with the specified index values.
- *          This filter is only supported for ObjectTypeName _asset and _case.</p>
+ * <p>The filter applied to ListProfileObjects response to include profile objects with the
+ *          specified index values. This filter is only supported for ObjectTypeName _asset and
+ *          _case.</p>
  */
 export interface ObjectFilter {
   /**
-   * <p>A searchable identifier of a standard profile object. The predefined keys you can use to search for _asset include: _assetId, _assetName, _serialNumber.
-   *          The predefined keys you can use to search for _case include: _caseId.</p>
+   * <p>A searchable identifier of a standard profile object. The predefined keys you can use to
+   *          search for _asset include: _assetId, _assetName, _serialNumber. The predefined keys you can
+   *          use to search for _case include: _caseId.</p>
    */
   KeyName: string | undefined;
 
@@ -1645,8 +2283,8 @@ export interface ListProfileObjectsRequest {
   ProfileId: string | undefined;
 
   /**
-   * <p>Applies a filter to the response to include profile objects with the specified index values.
-   *          This filter is only supported for ObjectTypeName _asset and _case.</p>
+   * <p>Applies a filter to the response to include profile objects with the specified index
+   *          values. This filter is only supported for ObjectTypeName _asset and _case.</p>
    */
   ObjectFilter?: ObjectFilter;
 }
@@ -2679,6 +3317,12 @@ export interface PutProfileObjectTypeRequest {
   AllowProfileCreation?: boolean;
 
   /**
+   * <p>The format of your <code>sourceLastUpdatedTimestamp</code> that was previously set up.
+   *          </p>
+   */
+  SourceLastUpdatedTimestampFormat?: string;
+
+  /**
    * <p>A map of the name and ObjectType field.</p>
    */
   Fields?: { [key: string]: ObjectTypeField };
@@ -2738,6 +3382,13 @@ export interface PutProfileObjectTypeResponse {
    *          is found, then the service creates a new standard profile.</p>
    */
   AllowProfileCreation?: boolean;
+
+  /**
+   * <p>The format of your <code>sourceLastUpdatedTimestamp</code> that was previously set up in
+   *          fields that were parsed using <a href="https://docs.oracle.com/javase/10/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>. If you have <code>sourceLastUpdatedTimestamp</code> in your
+   *          field, you must set up <code>sourceLastUpdatedTimestampFormat</code>.</p>
+   */
+  SourceLastUpdatedTimestampFormat?: string;
 
   /**
    * <p>A map of the name and ObjectType field.</p>
@@ -3053,10 +3704,13 @@ export interface UpdateDomainRequest {
   DeadLetterQueueUrl?: string;
 
   /**
-   * <p>The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process every Saturday at 12AM UTC to detect duplicate profiles in your domains.
-   * After that batch process completes, use the
+   * <p>The process of matching duplicate profiles. If <code>Matching</code> = <code>true</code>, Amazon Connect Customer Profiles starts a weekly
+   * batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every
+   * Saturday at 12AM UTC to detect duplicate profiles in your domains. </p>
+   *          <p>After the Identity Resolution Job completes, use the
    * <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
-   * API to return and review the results.  </p>
+   * API to return and review the results. Or, if you have configured <code>ExportingConfig</code> in the <code>MatchingRequest</code>, you can download the results from
+   * S3.</p>
    */
   Matching?: MatchingRequest;
 
@@ -3100,10 +3754,13 @@ export interface UpdateDomainResponse {
   DeadLetterQueueUrl?: string;
 
   /**
-   * <p>The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process every Saturday at 12AM UTC to detect duplicate profiles in your domains.
-   * After that batch process completes, use the
+   * <p>The process of matching duplicate profiles. If <code>Matching</code> = <code>true</code>, Amazon Connect Customer Profiles starts a weekly
+   * batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every
+   * Saturday at 12AM UTC to detect duplicate profiles in your domains. </p>
+   *          <p>After the Identity Resolution Job completes, use the
    * <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
-   * API to return and review the results.  </p>
+   * API to return and review the results. Or, if you have configured <code>ExportingConfig</code> in the <code>MatchingRequest</code>, you can download the results from
+   * S3.</p>
    */
   Matching?: MatchingResponse;
 

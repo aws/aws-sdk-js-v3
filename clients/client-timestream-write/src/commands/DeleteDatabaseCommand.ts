@@ -27,11 +27,16 @@ export interface DeleteDatabaseCommandOutput extends __MetadataBearer {}
  *       After a database is deleted, the time series data from its tables cannot be recovered.</i>
  *          </p>
  *
- *          <p>All tables in the database must be deleted first, or a ValidationException error will be thrown.
+ *          <note>
+ *             <p>All tables in the database must be deleted first, or a ValidationException error will be thrown.
  *       </p>
  *
- *          <p>Due to the nature of distributed retries,
+ *             <p>Due to the nature of distributed retries,
  *          the operation can return either success or a ResourceNotFoundException. Clients should consider them equivalent.</p>
+ *          </note>
+ *
+ *          <p>See
+ *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.delete-db.html">code sample</a> for details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

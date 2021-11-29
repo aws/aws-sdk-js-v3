@@ -195,6 +195,7 @@ import { PutEventsCommandInput, PutEventsCommandOutput } from "../commands/PutEv
 import { PutEventStreamCommandInput, PutEventStreamCommandOutput } from "../commands/PutEventStreamCommand";
 import { RemoveAttributesCommandInput, RemoveAttributesCommandOutput } from "../commands/RemoveAttributesCommand";
 import { SendMessagesCommandInput, SendMessagesCommandOutput } from "../commands/SendMessagesCommand";
+import { SendOTPMessageCommandInput, SendOTPMessageCommandOutput } from "../commands/SendOTPMessageCommand";
 import { SendUsersMessagesCommandInput, SendUsersMessagesCommandOutput } from "../commands/SendUsersMessagesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -252,6 +253,7 @@ import {
   UpdateVoiceTemplateCommandInput,
   UpdateVoiceTemplateCommandOutput,
 } from "../commands/UpdateVoiceTemplateCommand";
+import { VerifyOTPMessageCommandInput, VerifyOTPMessageCommandOutput } from "../commands/VerifyOTPMessageCommand";
 import {
   __EndpointTypesElement,
   ActivitiesResponse,
@@ -443,6 +445,7 @@ import {
   NumberValidateResponse,
   PushNotificationTemplateResponse,
   SegmentsResponse,
+  SendOTPMessageRequestParameters,
   SendUsersMessageRequest,
   SendUsersMessageResponse,
   SMSChannelRequest,
@@ -455,6 +458,8 @@ import {
   TemplateVersionsResponse,
   UpdateAttributesRequest,
   UpdateRecommenderConfigurationShape,
+  VerificationResponse,
+  VerifyOTPMessageRequestParameters,
   VoiceChannelRequest,
   VoiceTemplateResponse,
   WriteApplicationSettingsRequest,
@@ -3630,6 +3635,44 @@ export const serializeAws_restJson1SendMessagesCommand = async (
   });
 };
 
+export const serializeAws_restJson1SendOTPMessageCommand = async (
+  input: SendOTPMessageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/apps/{ApplicationId}/otp";
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
+  }
+  let body: any;
+  if (input.SendOTPMessageRequestParameters !== undefined) {
+    body = serializeAws_restJson1SendOTPMessageRequestParameters(input.SendOTPMessageRequestParameters, context);
+  }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1SendUsersMessagesCommand = async (
   input: SendUsersMessagesCommandInput,
   context: __SerdeContext
@@ -4733,6 +4776,44 @@ export const serializeAws_restJson1UpdateVoiceTemplateCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1VerifyOTPMessageCommand = async (
+  input: VerifyOTPMessageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/apps/{ApplicationId}/verify-otp";
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
+  }
+  let body: any;
+  if (input.VerifyOTPMessageRequestParameters !== undefined) {
+    body = serializeAws_restJson1VerifyOTPMessageRequestParameters(input.VerifyOTPMessageRequestParameters, context);
+  }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -13681,6 +13762,107 @@ const deserializeAws_restJson1SendMessagesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1SendOTPMessageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendOTPMessageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SendOTPMessageCommandError(output, context);
+  }
+  const contents: SendOTPMessageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    MessageResponse: undefined,
+  };
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  contents.MessageResponse = deserializeAws_restJson1MessageResponse(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1SendOTPMessageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendOTPMessageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.pinpoint#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.pinpoint#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.pinpoint#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MethodNotAllowedException":
+    case "com.amazonaws.pinpoint#MethodNotAllowedException":
+      response = {
+        ...(await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.pinpoint#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.pinpoint#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1SendUsersMessagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -16300,6 +16482,107 @@ const deserializeAws_restJson1UpdateVoiceTemplateCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1VerifyOTPMessageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<VerifyOTPMessageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1VerifyOTPMessageCommandError(output, context);
+  }
+  const contents: VerifyOTPMessageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    VerificationResponse: undefined,
+  };
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  contents.VerificationResponse = deserializeAws_restJson1VerificationResponse(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1VerifyOTPMessageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<VerifyOTPMessageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.pinpoint#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.pinpoint#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.pinpoint#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MethodNotAllowedException":
+    case "com.amazonaws.pinpoint#MethodNotAllowedException":
+      response = {
+        ...(await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.pinpoint#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.pinpoint#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_restJson1BadRequestExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -18042,6 +18325,29 @@ const serializeAws_restJson1SegmentReference = (input: SegmentReference, context
   };
 };
 
+const serializeAws_restJson1SendOTPMessageRequestParameters = (
+  input: SendOTPMessageRequestParameters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AllowedAttempts !== undefined &&
+      input.AllowedAttempts !== null && { AllowedAttempts: input.AllowedAttempts }),
+    ...(input.BrandName !== undefined && input.BrandName !== null && { BrandName: input.BrandName }),
+    ...(input.Channel !== undefined && input.Channel !== null && { Channel: input.Channel }),
+    ...(input.CodeLength !== undefined && input.CodeLength !== null && { CodeLength: input.CodeLength }),
+    ...(input.DestinationIdentity !== undefined &&
+      input.DestinationIdentity !== null && { DestinationIdentity: input.DestinationIdentity }),
+    ...(input.EntityId !== undefined && input.EntityId !== null && { EntityId: input.EntityId }),
+    ...(input.Language !== undefined && input.Language !== null && { Language: input.Language }),
+    ...(input.OriginationIdentity !== undefined &&
+      input.OriginationIdentity !== null && { OriginationIdentity: input.OriginationIdentity }),
+    ...(input.ReferenceId !== undefined && input.ReferenceId !== null && { ReferenceId: input.ReferenceId }),
+    ...(input.TemplateId !== undefined && input.TemplateId !== null && { TemplateId: input.TemplateId }),
+    ...(input.ValidityPeriod !== undefined &&
+      input.ValidityPeriod !== null && { ValidityPeriod: input.ValidityPeriod }),
+  };
+};
+
 const serializeAws_restJson1SendUsersMessageRequest = (
   input: SendUsersMessageRequest,
   context: __SerdeContext
@@ -18255,6 +18561,18 @@ const serializeAws_restJson1UpdateRecommenderConfigurationShape = (
       input.RecommendationsDisplayName !== null && { RecommendationsDisplayName: input.RecommendationsDisplayName }),
     ...(input.RecommendationsPerMessage !== undefined &&
       input.RecommendationsPerMessage !== null && { RecommendationsPerMessage: input.RecommendationsPerMessage }),
+  };
+};
+
+const serializeAws_restJson1VerifyOTPMessageRequestParameters = (
+  input: VerifyOTPMessageRequestParameters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DestinationIdentity !== undefined &&
+      input.DestinationIdentity !== null && { DestinationIdentity: input.DestinationIdentity }),
+    ...(input.Otp !== undefined && input.Otp !== null && { Otp: input.Otp }),
+    ...(input.ReferenceId !== undefined && input.ReferenceId !== null && { ReferenceId: input.ReferenceId }),
   };
 };
 
@@ -20931,6 +21249,12 @@ const deserializeAws_restJson1TreatmentResource = (output: any, context: __Serde
         : undefined,
     TreatmentDescription: __expectString(output.TreatmentDescription),
     TreatmentName: __expectString(output.TreatmentName),
+  } as any;
+};
+
+const deserializeAws_restJson1VerificationResponse = (output: any, context: __SerdeContext): VerificationResponse => {
+  return {
+    Valid: __expectBoolean(output.Valid),
   } as any;
 };
 

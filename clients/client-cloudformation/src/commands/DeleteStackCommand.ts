@@ -19,9 +19,9 @@ export interface DeleteStackCommandInput extends DeleteStackInput {}
 export interface DeleteStackCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a specified stack. Once the call completes successfully, stack deletion
- *          starts. Deleted stacks do not show up in the <a>DescribeStacks</a> API if the
- *          deletion has been completed successfully.</p>
+ * <p>Deletes a specified stack. Once the call completes successfully, stack deletion starts.
+ *          Deleted stacks do not show up in the <a>DescribeStacks</a> API if the deletion
+ *          has been completed successfully.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

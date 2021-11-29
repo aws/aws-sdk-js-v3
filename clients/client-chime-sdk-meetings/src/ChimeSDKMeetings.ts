@@ -56,7 +56,8 @@ import {
  */
 export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   /**
-   * <p>Creates a group of meeting attendees.</p>
+   * <p>Creates up to 100 attendees for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
+   *             <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
    */
   public batchCreateAttendee(
     args: BatchCreateAttendeeCommandInput,

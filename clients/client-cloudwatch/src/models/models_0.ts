@@ -136,30 +136,317 @@ export namespace Dimension {
   });
 }
 
+/**
+ * <p>Represents a specific metric.</p>
+ */
+export interface Metric {
+  /**
+   * <p>The namespace of the metric.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * <p>The name of the metric. This is a required field.</p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>The dimensions for the metric.</p>
+   */
+  Dimensions?: Dimension[];
+}
+
+export namespace Metric {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Metric): any => ({
+    ...obj,
+  });
+}
+
+export type StandardUnit =
+  | "Bits"
+  | "Bits/Second"
+  | "Bytes"
+  | "Bytes/Second"
+  | "Count"
+  | "Count/Second"
+  | "Gigabits"
+  | "Gigabits/Second"
+  | "Gigabytes"
+  | "Gigabytes/Second"
+  | "Kilobits"
+  | "Kilobits/Second"
+  | "Kilobytes"
+  | "Kilobytes/Second"
+  | "Megabits"
+  | "Megabits/Second"
+  | "Megabytes"
+  | "Megabytes/Second"
+  | "Microseconds"
+  | "Milliseconds"
+  | "None"
+  | "Percent"
+  | "Seconds"
+  | "Terabits"
+  | "Terabits/Second"
+  | "Terabytes"
+  | "Terabytes/Second";
+
+/**
+ * <p>This structure defines the metric to be returned, along with the statistics, period, and units.</p>
+ */
+export interface MetricStat {
+  /**
+   * <p>The metric to return, including the metric name, namespace, and dimensions.</p>
+   */
+  Metric: Metric | undefined;
+
+  /**
+   * <p>The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can
+   * 			be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected
+   * 			at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics
+   * 			are those metrics stored by a <code>PutMetricData</code> call that includes a <code>StorageResolution</code> of 1 second.</p>
+   * 			      <p>If the <code>StartTime</code> parameter specifies a time stamp that is greater than
+   * 				3 hours ago, you must specify the period as follows or no data points in that time range is returned:</p>
+   * 			      <ul>
+   *             <li>
+   *                <p>Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).</p>
+   *             </li>
+   *             <li>
+   *                <p>Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).</p>
+   *             </li>
+   *             <li>
+   *                <p>Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).</p>
+   *             </li>
+   *          </ul>
+   */
+  Period: number | undefined;
+
+  /**
+   * <p>The statistic to return. It can include any CloudWatch statistic or extended statistic.</p>
+   */
+  Stat: string | undefined;
+
+  /**
+   * <p>When you are using a <code>Put</code> operation, this defines what unit you want to use when storing the metric.</p>
+   * 		       <p>In a <code>Get</code> operation, if you omit <code>Unit</code> then all data that was collected with any unit is returned, along with the corresponding units that were specified
+   * 			when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified.
+   * 			If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
+   */
+  Unit?: StandardUnit | string;
+}
+
+export namespace MetricStat {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MetricStat): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This structure is used in both <code>GetMetricData</code> and <code>PutMetricAlarm</code>. The supported
+ * 			use of this structure is different for those two operations.</p>
+ * 		       <p>When used in <code>GetMetricData</code>, it indicates the metric data to return, and whether this call is just retrieving
+ * 			a batch set of data for one metric, or is performing a math expression on metric data. A
+ * 			single <code>GetMetricData</code> call can include up to 500 <code>MetricDataQuery</code>
+ * 			structures.</p>
+ * 		       <p>When used in <code>PutMetricAlarm</code>, it enables you to create an alarm based on a
+ * 			metric math expression. Each <code>MetricDataQuery</code> in the array specifies either
+ * 			a metric to retrieve, or a math expression to be performed on retrieved metrics. A
+ * 			single <code>PutMetricAlarm</code> call can include up to 20
+ * 				<code>MetricDataQuery</code> structures in the array. The 20 structures can include
+ * 			as many as 10 structures that contain a <code>MetricStat</code> parameter to retrieve a
+ * 			metric, and as many as 10 structures that contain the <code>Expression</code> parameter
+ * 			to perform a math expression. Of those <code>Expression</code> structures, one must have <code>True</code>
+ * 		as the value for <code>ReturnData</code>. The result of this expression is the value the alarm watches.</p>
+ *
+ * 		       <p>Any expression used in a <code>PutMetricAlarm</code>
+ * 			operation must return a single time series. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric Math Syntax and Functions</a> in the <i>Amazon CloudWatch User
+ * 				Guide</i>.</p>
+ *
+ * 		       <p>Some of the parameters of this structure also have different uses whether you are using this structure in a <code>GetMetricData</code>
+ * 			operation or a <code>PutMetricAlarm</code> operation. These differences are explained in the following parameter list.</p>
+ */
+export interface MetricDataQuery {
+  /**
+   * <p>A short name used to tie this object to the results in the response. This name must be
+   * 			unique within a single call to <code>GetMetricData</code>. If you are performing math
+   * 			expressions on this set of data, this name represents that data and can serve as a
+   * 			variable in the mathematical expression. The valid characters are letters, numbers, and
+   * 			underscore. The first character must be a lowercase letter.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric
+   * 			and not performing a math expression on returned data.</p>
+   * 		       <p>Within one MetricDataQuery object, you must specify either
+   * 			<code>Expression</code> or <code>MetricStat</code> but not both.</p>
+   */
+  MetricStat?: MetricStat;
+
+  /**
+   * <p>The math expression to be performed on the returned data, if this object is performing a math expression. This expression
+   * 			can use the <code>Id</code> of the other metrics to refer to those metrics, and can also use the <code>Id</code> of other
+   * 			expressions to use the result of those expressions. For more information about metric math expressions, see
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric Math Syntax and Functions</a> in the
+   * 			<i>Amazon CloudWatch User Guide</i>.</p>
+   * 		       <p>Within each MetricDataQuery object, you must specify either
+   * 			<code>Expression</code> or <code>MetricStat</code> but not both.</p>
+   */
+  Expression?: string;
+
+  /**
+   * <p>A human-readable label for this metric or expression. This is especially useful
+   * 			if this is an expression, so that you know
+   * 			what the value represents. If the metric or expression is shown in a
+   * 			CloudWatch dashboard widget, the label is shown. If Label is omitted, CloudWatch
+   * 			generates a default.</p>
+   * 		       <p>You can put dynamic expressions into a label, so that it is more descriptive.
+   * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html">Using Dynamic Labels</a>.</p>
+   */
+  Label?: string;
+
+  /**
+   * <p>When used in <code>GetMetricData</code>, this option indicates whether to return the
+   * 			timestamps and raw data values of this metric. If you are performing this call just to
+   * 			do math expressions and do not also need the raw data returned, you can specify
+   * 				<code>False</code>. If you omit this, the default of <code>True</code> is
+   * 			used.</p>
+   * 		       <p>When used in <code>PutMetricAlarm</code>, specify <code>True</code> for the one expression result to use as the alarm. For all
+   * 		other metrics and expressions in the same <code>PutMetricAlarm</code> operation, specify <code>ReturnData</code> as False.</p>
+   */
+  ReturnData?: boolean;
+
+  /**
+   * <p>The granularity, in seconds, of the returned data points. For metrics with regular resolution, a
+   * 			period can be as short as one minute (60 seconds) and must be a multiple of 60.
+   * 			For high-resolution metrics that are collected at intervals of less than one minute,
+   * 			the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics
+   * 			stored by a <code>PutMetricData</code> operation that includes a <code>StorageResolution of 1 second</code>.</p>
+   */
+  Period?: number;
+
+  /**
+   * <p>The ID of the account where the metrics are located, if this is a cross-account alarm.</p>
+   * 		       <p>Use this field only for <code>PutMetricAlarm</code> operations. It is not used in
+   * 		<code>GetMetricData</code> operations.</p>
+   */
+  AccountId?: string;
+}
+
+export namespace MetricDataQuery {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MetricDataQuery): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Indicates the CloudWatch math expression that provides the time series the anomaly detector
+ * 			uses as input.
+ * 			The designated math expression must return a single time series.</p>
+ */
+export interface MetricMathAnomalyDetector {
+  /**
+   * <p>An array of metric data query structures
+   * 			that enables you to create an anomaly detector
+   * 			based on the result of a metric math expression.
+   * 			Each item in <code>MetricDataQueries</code> gets a metric or performs a math expression.
+   * 			One item in <code>MetricDataQueries</code> is the expression
+   * 			that provides the time series
+   * 			that the anomaly detector uses as input.
+   * 			Designate the expression by setting <code>ReturnData</code> to <code>True</code>
+   * 			for this object in the array.
+   * 			For all other expressions and metrics, set <code>ReturnData</code> to <code>False</code>.
+   * 			The designated expression must return
+   * 			a single time series.</p>
+   */
+  MetricDataQueries?: MetricDataQuery[];
+}
+
+export namespace MetricMathAnomalyDetector {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MetricMathAnomalyDetector): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Designates the CloudWatch metric and statistic that provides the time series the anomaly detector
+ * 			uses as input.</p>
+ */
+export interface SingleMetricAnomalyDetector {
+  /**
+   * <p>The namespace of the metric to create the anomaly detection model for.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * <p>The name of the metric to create the anomaly detection model for.</p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>The metric dimensions to create the anomaly detection model for.</p>
+   */
+  Dimensions?: Dimension[];
+
+  /**
+   * <p>The statistic to use for the metric and anomaly detection model.</p>
+   */
+  Stat?: string;
+}
+
+export namespace SingleMetricAnomalyDetector {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SingleMetricAnomalyDetector): any => ({
+    ...obj,
+  });
+}
+
 export type AnomalyDetectorStateValue = "PENDING_TRAINING" | "TRAINED" | "TRAINED_INSUFFICIENT_DATA";
 
 /**
- * <p>An anomaly detection model associated with a particular CloudWatch metric and statistic. You
- * 			can use the model to display a band of expected normal values when the metric is
- * 			graphed.</p>
+ * <p>An anomaly detection model associated with a particular CloudWatch metric, statistic, or metric math expression.
+ * 			You can use the model to display a band of expected, normal values
+ * 			when the metric is graphed.</p>
  */
 export interface AnomalyDetector {
   /**
+   * @deprecated
+   *
    * <p>The namespace of the metric associated with the anomaly detection model.</p>
    */
   Namespace?: string;
 
   /**
+   * @deprecated
+   *
    * <p>The name of the metric associated with the anomaly detection model.</p>
    */
   MetricName?: string;
 
   /**
+   * @deprecated
+   *
    * <p>The metric dimensions associated with the anomaly detection model.</p>
    */
   Dimensions?: Dimension[];
 
   /**
+   * @deprecated
+   *
    * <p>The statistic associated with the anomaly detection model.</p>
    */
   Stat?: string;
@@ -177,6 +464,16 @@ export interface AnomalyDetector {
    *          </p>
    */
   StateValue?: AnomalyDetectorStateValue | string;
+
+  /**
+   * <p>The CloudWatch metric and statistic for this anomaly detector.</p>
+   */
+  SingleMetricAnomalyDetector?: SingleMetricAnomalyDetector;
+
+  /**
+   * <p>The CloudWatch metric math expression for this anomaly detector.</p>
+   */
+  MetricMathAnomalyDetector?: MetricMathAnomalyDetector;
 }
 
 export namespace AnomalyDetector {
@@ -186,6 +483,11 @@ export namespace AnomalyDetector {
   export const filterSensitiveLog = (obj: AnomalyDetector): any => ({
     ...obj,
   });
+}
+
+export enum AnomalyDetectorType {
+  METRIC_MATH = "METRIC_MATH",
+  SINGLE_METRIC = "SINGLE_METRIC",
 }
 
 /**
@@ -427,35 +729,6 @@ export namespace DashboardNotFoundError {
   });
 }
 
-export type StandardUnit =
-  | "Bits"
-  | "Bits/Second"
-  | "Bytes"
-  | "Bytes/Second"
-  | "Count"
-  | "Count/Second"
-  | "Gigabits"
-  | "Gigabits/Second"
-  | "Gigabytes"
-  | "Gigabytes/Second"
-  | "Kilobits"
-  | "Kilobits/Second"
-  | "Kilobytes"
-  | "Kilobytes/Second"
-  | "Megabits"
-  | "Megabits/Second"
-  | "Megabytes"
-  | "Megabytes/Second"
-  | "Microseconds"
-  | "Milliseconds"
-  | "None"
-  | "Percent"
-  | "Seconds"
-  | "Terabits"
-  | "Terabits/Second"
-  | "Terabytes"
-  | "Terabytes/Second";
-
 /**
  * <p>Encapsulates the statistical data that CloudWatch computes from metric data.</p>
  */
@@ -550,24 +823,103 @@ export namespace ResourceNotFound {
 
 export interface DeleteAnomalyDetectorInput {
   /**
+   * @deprecated
+   *
    * <p>The namespace associated with the anomaly detection model to delete.</p>
    */
-  Namespace: string | undefined;
+  Namespace?: string;
 
   /**
+   * @deprecated
+   *
    * <p>The metric name associated with the anomaly detection model to delete.</p>
    */
-  MetricName: string | undefined;
+  MetricName?: string;
 
   /**
+   * @deprecated
+   *
    * <p>The metric dimensions associated with the anomaly detection model to delete.</p>
    */
   Dimensions?: Dimension[];
 
   /**
+   * @deprecated
+   *
    * <p>The statistic associated with the anomaly detection model to delete.</p>
    */
-  Stat: string | undefined;
+  Stat?: string;
+
+  /**
+   * <p>A single metric anomaly detector to be deleted.</p>
+   * 		       <p>When using <code>SingleMetricAnomalyDetector</code>,
+   * 			you cannot include the following parameters in the same operation:</p>
+   *
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Dimensions</code>,</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MetricName</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Namespace</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Stat</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>the <code>MetricMathAnomalyDetector</code> parameters of <code>DeleteAnomalyDetectorInput</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   * 		       <p>Instead, specify the single metric anomaly detector attributes
+   * 			as part of the <code>SingleMetricAnomalyDetector</code> property.</p>
+   */
+  SingleMetricAnomalyDetector?: SingleMetricAnomalyDetector;
+
+  /**
+   * <p>The metric math anomaly detector to be deleted.</p>
+   * 		       <p>When using <code>MetricMathAnomalyDetector</code>, you cannot include following parameters in the same operation:</p>
+   *
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Dimensions</code>,</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MetricName</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Namespace</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Stat</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>the <code>SingleMetricAnomalyDetector</code> parameters of <code>DeleteAnomalyDetectorInput</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   * 		       <p>Instead, specify the metric math anomaly detector attributes as part of the
+   * 			<code>MetricMathAnomalyDetector</code> property.</p>
+   */
+  MetricMathAnomalyDetector?: MetricMathAnomalyDetector;
 }
 
 export namespace DeleteAnomalyDetectorInput {
@@ -607,6 +959,27 @@ export namespace InternalServiceFault {
    * @internal
    */
   export const filterSensitiveLog = (obj: InternalServiceFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Parameters were used together that cannot be used together.</p>
+ */
+export interface InvalidParameterCombinationException extends __SmithyException, $MetadataBearer {
+  name: "InvalidParameterCombinationException";
+  $fault: "client";
+  /**
+   * <p></p>
+   */
+  message?: string;
+}
+
+export namespace InvalidParameterCombinationException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
     ...obj,
   });
 }
@@ -952,189 +1325,6 @@ export namespace DescribeAlarmsInput {
   });
 }
 
-/**
- * <p>Represents a specific metric.</p>
- */
-export interface Metric {
-  /**
-   * <p>The namespace of the metric.</p>
-   */
-  Namespace?: string;
-
-  /**
-   * <p>The name of the metric. This is a required field.</p>
-   */
-  MetricName?: string;
-
-  /**
-   * <p>The dimensions for the metric.</p>
-   */
-  Dimensions?: Dimension[];
-}
-
-export namespace Metric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Metric): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>This structure defines the metric to be returned, along with the statistics, period, and units.</p>
- */
-export interface MetricStat {
-  /**
-   * <p>The metric to return, including the metric name, namespace, and dimensions.</p>
-   */
-  Metric: Metric | undefined;
-
-  /**
-   * <p>The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can
-   * 			be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected
-   * 			at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics
-   * 			are those metrics stored by a <code>PutMetricData</code> call that includes a <code>StorageResolution</code> of 1 second.</p>
-   * 			      <p>If the <code>StartTime</code> parameter specifies a time stamp that is greater than
-   * 				3 hours ago, you must specify the period as follows or no data points in that time range is returned:</p>
-   * 			      <ul>
-   *             <li>
-   *                <p>Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).</p>
-   *             </li>
-   *             <li>
-   *                <p>Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).</p>
-   *             </li>
-   *             <li>
-   *                <p>Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).</p>
-   *             </li>
-   *          </ul>
-   */
-  Period: number | undefined;
-
-  /**
-   * <p>The statistic to return. It can include any CloudWatch statistic or extended statistic.</p>
-   */
-  Stat: string | undefined;
-
-  /**
-   * <p>When you are using a <code>Put</code> operation, this defines what unit you want to use when storing the metric.</p>
-   * 		       <p>In a <code>Get</code> operation, if you omit <code>Unit</code> then all data that was collected with any unit is returned, along with the corresponding units that were specified
-   * 			when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified.
-   * 			If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
-   */
-  Unit?: StandardUnit | string;
-}
-
-export namespace MetricStat {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricStat): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>This structure is used in both <code>GetMetricData</code> and <code>PutMetricAlarm</code>. The supported
- * 			use of this structure is different for those two operations.</p>
- * 		       <p>When used in <code>GetMetricData</code>, it indicates the metric data to return, and whether this call is just retrieving
- * 			a batch set of data for one metric, or is performing a math expression on metric data. A
- * 			single <code>GetMetricData</code> call can include up to 500 <code>MetricDataQuery</code>
- * 			structures.</p>
- * 		       <p>When used in <code>PutMetricAlarm</code>, it enables you to create an alarm based on a
- * 			metric math expression. Each <code>MetricDataQuery</code> in the array specifies either
- * 			a metric to retrieve, or a math expression to be performed on retrieved metrics. A
- * 			single <code>PutMetricAlarm</code> call can include up to 20
- * 				<code>MetricDataQuery</code> structures in the array. The 20 structures can include
- * 			as many as 10 structures that contain a <code>MetricStat</code> parameter to retrieve a
- * 			metric, and as many as 10 structures that contain the <code>Expression</code> parameter
- * 			to perform a math expression. Of those <code>Expression</code> structures, one must have <code>True</code>
- * 		as the value for <code>ReturnData</code>. The result of this expression is the value the alarm watches.</p>
- *
- * 		       <p>Any expression used in a <code>PutMetricAlarm</code>
- * 			operation must return a single time series. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric Math Syntax and Functions</a> in the <i>Amazon CloudWatch User
- * 				Guide</i>.</p>
- *
- * 		       <p>Some of the parameters of this structure also have different uses whether you are using this structure in a <code>GetMetricData</code>
- * 			operation or a <code>PutMetricAlarm</code> operation. These differences are explained in the following parameter list.</p>
- */
-export interface MetricDataQuery {
-  /**
-   * <p>A short name used to tie this object to the results in the response. This name must be
-   * 			unique within a single call to <code>GetMetricData</code>. If you are performing math
-   * 			expressions on this set of data, this name represents that data and can serve as a
-   * 			variable in the mathematical expression. The valid characters are letters, numbers, and
-   * 			underscore. The first character must be a lowercase letter.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric
-   * 			and not performing a math expression on returned data.</p>
-   * 		       <p>Within one MetricDataQuery object, you must specify either
-   * 			<code>Expression</code> or <code>MetricStat</code> but not both.</p>
-   */
-  MetricStat?: MetricStat;
-
-  /**
-   * <p>The math expression to be performed on the returned data, if this object is performing a math expression. This expression
-   * 			can use the <code>Id</code> of the other metrics to refer to those metrics, and can also use the <code>Id</code> of other
-   * 			expressions to use the result of those expressions. For more information about metric math expressions, see
-   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric Math Syntax and Functions</a> in the
-   * 			<i>Amazon CloudWatch User Guide</i>.</p>
-   * 		       <p>Within each MetricDataQuery object, you must specify either
-   * 			<code>Expression</code> or <code>MetricStat</code> but not both.</p>
-   */
-  Expression?: string;
-
-  /**
-   * <p>A human-readable label for this metric or expression. This is especially useful
-   * 			if this is an expression, so that you know
-   * 			what the value represents. If the metric or expression is shown in a
-   * 			CloudWatch dashboard widget, the label is shown. If Label is omitted, CloudWatch
-   * 			generates a default.</p>
-   * 		       <p>You can put dynamic expressions into a label, so that it is more descriptive.
-   * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html">Using Dynamic Labels</a>.</p>
-   */
-  Label?: string;
-
-  /**
-   * <p>When used in <code>GetMetricData</code>, this option indicates whether to return the
-   * 			timestamps and raw data values of this metric. If you are performing this call just to
-   * 			do math expressions and do not also need the raw data returned, you can specify
-   * 				<code>False</code>. If you omit this, the default of <code>True</code> is
-   * 			used.</p>
-   * 		       <p>When used in <code>PutMetricAlarm</code>, specify <code>True</code> for the one expression result to use as the alarm. For all
-   * 		other metrics and expressions in the same <code>PutMetricAlarm</code> operation, specify <code>ReturnData</code> as False.</p>
-   */
-  ReturnData?: boolean;
-
-  /**
-   * <p>The granularity, in seconds, of the returned data points. For metrics with regular resolution, a
-   * 			period can be as short as one minute (60 seconds) and must be a multiple of 60.
-   * 			For high-resolution metrics that are collected at intervals of less than one minute,
-   * 			the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics
-   * 			stored by a <code>PutMetricData</code> operation that includes a <code>StorageResolution of 1 second</code>.</p>
-   */
-  Period?: number;
-
-  /**
-   * <p>The ID of the account where the metrics are located, if this is a cross-account alarm.</p>
-   * 		       <p>Use this field only for <code>PutMetricAlarm</code> operations. It is not used in
-   * 		<code>GetMetricData</code> operations.</p>
-   */
-  AccountId?: string;
-}
-
-export namespace MetricDataQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricDataQuery): any => ({
-    ...obj,
-  });
-}
-
 export type Statistic = "Average" | "Maximum" | "Minimum" | "SampleCount" | "Sum";
 
 /**
@@ -1428,6 +1618,12 @@ export interface DescribeAnomalyDetectorsInput {
    * 			and have anomaly detection models associated, they're all returned.</p>
    */
   Dimensions?: Dimension[];
+
+  /**
+   * <p>The anomaly detector types to request when using <code>DescribeAnomalyDetectorsInput</code>.
+   * 			If empty, defaults to <code>SINGLE_METRIC</code>.</p>
+   */
+  AnomalyDetectorTypes?: (AnomalyDetectorType | string)[];
 }
 
 export namespace DescribeAnomalyDetectorsInput {
@@ -1484,7 +1680,12 @@ export namespace DescribeInsightRulesInput {
 }
 
 /**
- * <p>This structure contains the definition for a Contributor Insights rule.</p>
+ * <p>This structure contains the definition
+ * 			for a Contributor Insights rule.
+ * 			For more information about this rule,
+ * 			see<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">
+ * 				Using Constributor Insights to analyze high-cardinality data</a>
+ * 			in the <i>Amazon CloudWatch User Guide</i>.</p>
  */
 export interface InsightRule {
   /**
@@ -1498,7 +1699,7 @@ export interface InsightRule {
   State: string | undefined;
 
   /**
-   * <p>For rules that you create, this is always <code>{"Name": "CloudWatchLogRule", "Version": 1}</code>. For built-in rules,
+   * <p>For rules that you create, this is always <code>{"Name": "CloudWatchLogRule", "Version": 1}</code>. For managed rules,
    * 			this is <code>{"Name": "ServiceLogRule", "Version": 1}</code>
    *          </p>
    */
@@ -2345,27 +2546,6 @@ export namespace GetMetricStatisticsOutput {
   });
 }
 
-/**
- * <p>Parameters were used together that cannot be used together.</p>
- */
-export interface InvalidParameterCombinationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterCombinationException";
-  $fault: "client";
-  /**
-   * <p></p>
-   */
-  message?: string;
-}
-
-export namespace InvalidParameterCombinationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMetricStreamInput {
   /**
    * <p>The name of the metric stream to retrieve information about.</p>
@@ -2840,24 +3020,32 @@ export namespace ListTagsForResourceOutput {
 
 export interface PutAnomalyDetectorInput {
   /**
+   * @deprecated
+   *
    * <p>The namespace of the metric to create the anomaly detection model for.</p>
    */
-  Namespace: string | undefined;
+  Namespace?: string;
 
   /**
+   * @deprecated
+   *
    * <p>The name of the metric to create the anomaly detection model for.</p>
    */
-  MetricName: string | undefined;
+  MetricName?: string;
 
   /**
+   * @deprecated
+   *
    * <p>The metric dimensions to create the anomaly detection model for.</p>
    */
   Dimensions?: Dimension[];
 
   /**
+   * @deprecated
+   *
    * <p>The statistic to use for the metric and the anomaly detection model.</p>
    */
-  Stat: string | undefined;
+  Stat?: string;
 
   /**
    * <p>The configuration specifies details about how the
@@ -2868,6 +3056,80 @@ export interface PutAnomalyDetectorInput {
    * 			the metric.</p>
    */
   Configuration?: AnomalyDetectorConfiguration;
+
+  /**
+   * <p>A single metric anomaly detector to be created.</p>
+   * 		       <p>When using <code>SingleMetricAnomalyDetector</code>,
+   * 			you cannot include the following parameters in the same operation:</p>
+   *
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Dimensions</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MetricName</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Namespace</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Stat</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>the <code>MetricMatchAnomalyDetector</code> parameters of <code>PutAnomalyDetectorInput</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   * 		       <p>Instead, specify the single metric anomaly detector attributes
+   * 			as part of the property <code>SingleMetricAnomalyDetector</code>.</p>
+   */
+  SingleMetricAnomalyDetector?: SingleMetricAnomalyDetector;
+
+  /**
+   * <p>The metric math anomaly detector to be created.</p>
+   *
+   * 		       <p>When using <code>MetricMathAnomalyDetector</code>, you cannot include the following parameters in the same operation:</p>
+   *
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Dimensions</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MetricName</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Namespace</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Stat</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>the <code>SingleMetricAnomalyDetector</code> parameters of <code>PutAnomalyDetectorInput</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   * 		       <p>Instead, specify the metric math anomaly detector attributes
+   * 			as part of the property <code>MetricMathAnomalyDetector</code>.</p>
+   */
+  MetricMathAnomalyDetector?: MetricMathAnomalyDetector;
 }
 
 export namespace PutAnomalyDetectorInput {

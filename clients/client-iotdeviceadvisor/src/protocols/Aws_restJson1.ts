@@ -25,6 +25,7 @@ import {
   DeleteSuiteDefinitionCommandInput,
   DeleteSuiteDefinitionCommandOutput,
 } from "../commands/DeleteSuiteDefinitionCommand";
+import { GetEndpointCommandInput, GetEndpointCommandOutput } from "../commands/GetEndpointCommand";
 import { GetSuiteDefinitionCommandInput, GetSuiteDefinitionCommandOutput } from "../commands/GetSuiteDefinitionCommand";
 import { GetSuiteRunCommandInput, GetSuiteRunCommandOutput } from "../commands/GetSuiteRunCommand";
 import { GetSuiteRunReportCommandInput, GetSuiteRunReportCommandOutput } from "../commands/GetSuiteRunReportCommand";
@@ -116,6 +117,30 @@ export const serializeAws_restJson1DeleteSuiteDefinitionCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetEndpointCommand = async (
+  input: GetEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/endpoint";
+  const query: any = {
+    ...(input.thingArn !== undefined && { thingArn: input.thingArn }),
+    ...(input.certificateArn !== undefined && { certificateArn: input.certificateArn }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -599,6 +624,77 @@ const deserializeAws_restJson1DeleteSuiteDefinitionCommandError = async (
     case "com.amazonaws.iotdeviceadvisor#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotdeviceadvisor#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEndpointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetEndpointCommandError(output, context);
+  }
+  const contents: GetEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    endpoint: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.endpoint !== undefined && data.endpoint !== null) {
+    contents.endpoint = __expectString(data.endpoint);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetEndpointCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEndpointCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.iotdeviceadvisor#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotdeviceadvisor#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1600,6 +1696,7 @@ const serializeAws_restJson1SuiteDefinitionConfiguration = (
 
 const serializeAws_restJson1SuiteRunConfiguration = (input: SuiteRunConfiguration, context: __SerdeContext): any => {
   return {
+    ...(input.parallelRun !== undefined && input.parallelRun !== null && { parallelRun: input.parallelRun }),
     ...(input.primaryDevice !== undefined &&
       input.primaryDevice !== null && {
         primaryDevice: serializeAws_restJson1DeviceUnderTest(input.primaryDevice, context),
@@ -1725,6 +1822,7 @@ const deserializeAws_restJson1SuiteDefinitionInformationList = (
 
 const deserializeAws_restJson1SuiteRunConfiguration = (output: any, context: __SerdeContext): SuiteRunConfiguration => {
   return {
+    parallelRun: __expectBoolean(output.parallelRun),
     primaryDevice:
       output.primaryDevice !== undefined && output.primaryDevice !== null
         ? deserializeAws_restJson1DeviceUnderTest(output.primaryDevice, context)

@@ -69,6 +69,88 @@ import {
   TransitGatewayRouteTable,
 } from "./models_1";
 
+export enum ConnectionNotificationState {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
+
+export enum ConnectionNotificationType {
+  Topic = "Topic",
+}
+
+/**
+ * <p>Describes a connection notification for a VPC endpoint or VPC endpoint
+ *             service.</p>
+ */
+export interface ConnectionNotification {
+  /**
+   * <p>The ID of the notification.</p>
+   */
+  ConnectionNotificationId?: string;
+
+  /**
+   * <p>The ID of the endpoint service.</p>
+   */
+  ServiceId?: string;
+
+  /**
+   * <p>The ID of the VPC endpoint.</p>
+   */
+  VpcEndpointId?: string;
+
+  /**
+   * <p>The type of notification.</p>
+   */
+  ConnectionNotificationType?: ConnectionNotificationType | string;
+
+  /**
+   * <p>The ARN of the SNS topic for the notification.</p>
+   */
+  ConnectionNotificationArn?: string;
+
+  /**
+   * <p>The events for the notification. Valid values are <code>Accept</code>,
+   *                 <code>Connect</code>, <code>Delete</code>, and <code>Reject</code>.</p>
+   */
+  ConnectionEvents?: string[];
+
+  /**
+   * <p>The state of the notification.</p>
+   */
+  ConnectionNotificationState?: ConnectionNotificationState | string;
+}
+
+export namespace ConnectionNotification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectionNotification): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateVpcEndpointConnectionNotificationResult {
+  /**
+   * <p>Information about the notification.</p>
+   */
+  ConnectionNotification?: ConnectionNotification;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace CreateVpcEndpointConnectionNotificationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateVpcEndpointConnectionNotificationResult): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateVpcEndpointServiceConfigurationRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -2982,6 +3064,7 @@ export interface DeleteTagsRequest {
    *         <p>If you omit this parameter, we delete all user-defined tags for the specified
    *             resources. We do not delete Amazon Web Services-generated tags (tags that have the <code>aws:</code>
    *             prefix).</p>
+   *          <p>Constraints: Up to 1000 tags.</p>
    */
   Tags?: Tag[];
 }
@@ -8030,35 +8113,46 @@ export namespace CapacityReservationOptions {
  */
 export interface OnDemandOptions {
   /**
-   * <p>The order of the launch template overrides to use in fulfilling On-Demand capacity. If
-   *          you specify <code>lowest-price</code>, EC2 Fleet uses price to determine the order, launching
-   *          the lowest price first. If you specify <code>prioritized</code>, EC2 Fleet uses the priority
-   *          that you assigned to each launch template override, launching the highest priority first.
-   *          If you do not specify a value, EC2 Fleet defaults to <code>lowest-price</code>.</p>
+   * <p>The strategy that determines the order of the launch template overrides to use in
+   *          fulfilling On-Demand capacity.</p>
+   *          <p>
+   *             <code>lowest-price</code> - EC2 Fleet uses price to determine the order, launching the lowest
+   *          price first.</p>
+   *          <p>
+   *             <code>prioritized</code> - EC2 Fleet uses the priority that you assigned to each launch
+   *          template override, launching the highest priority first.</p>
+   *          <p>Default: <code>lowest-price</code>
+   *          </p>
    */
   AllocationStrategy?: FleetOnDemandAllocationStrategy | string;
 
   /**
-   * <p>The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
-   *          Supported only for fleets of type <code>instant</code>.</p>
+   * <p>The strategy for using unused Capacity Reservations for fulfilling On-Demand
+   *          capacity.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
    */
   CapacityReservationOptions?: CapacityReservationOptions;
 
   /**
-   * <p>Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet.
-   *          Supported only for fleets of type <code>instant</code>.</p>
+   * <p>Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the
+   *          fleet.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
    */
   SingleInstanceType?: boolean;
 
   /**
-   * <p>Indicates that the fleet launches all On-Demand Instances into a single Availability Zone. Supported
-   *          only for fleets of type <code>instant</code>.</p>
+   * <p>Indicates that the fleet launches all On-Demand Instances into a single Availability Zone.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
    */
   SingleAvailabilityZone?: boolean;
 
   /**
    * <p>The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is
    *          not reached, the fleet launches no instances.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   *          <p>At least one of the following must be specified: <code>SingleAvailabilityZone</code> |
+   *          <code>SingleInstanceType</code>
+   *          </p>
    */
   MinTargetCapacity?: number;
 
@@ -8102,6 +8196,8 @@ export interface FleetSpotCapacityRebalance {
   /**
    * <p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
    *          Instance after launching a new replacement Spot Instance.</p>
+   *          <p>Valid only when <code>replacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>
+   *          <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>
    */
   TerminationDelay?: number;
 }
@@ -8141,15 +8237,18 @@ export namespace FleetSpotMaintenanceStrategies {
  */
 export interface SpotOptions {
   /**
-   * <p>Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by
-   *          the EC2 Fleet.</p>
-   *          <p>If the allocation strategy is <code>lowest-price</code>, EC2 Fleet launches instances from
-   *          the Spot Instance pools with the lowest price. This is the default allocation strategy.</p>
-   *          <p>If the allocation strategy is <code>diversified</code>, EC2 Fleet launches instances from all
-   *          of the Spot Instance pools that you specify.</p>
-   *          <p>If the allocation strategy is <code>capacity-optimized</code> (recommended), EC2 Fleet
-   *          launches instances from Spot Instance pools with optimal capacity for the number of instances that
-   *          are launching. To give certain instance types a higher chance of launching first, use
+   * <p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance
+   *          pools specified by the EC2 Fleet.</p>
+   *          <p>
+   *             <code>lowest-price</code> - EC2 Fleet launches instances from the Spot Instance pools with the lowest
+   *          price.</p>
+   *          <p>
+   *             <code>diversified</code> - EC2 Fleet launches instances from all of the Spot Instance pools that you
+   *          specify.</p>
+   *          <p>
+   *             <code>capacity-optimized</code> (recommended) - EC2 Fleet launches instances from Spot Instance pools
+   *          with optimal capacity for the number of instances that are launching. To give certain
+   *          instance types a higher chance of launching first, use
    *             <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by
    *          using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can
    *          assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements
@@ -8158,6 +8257,8 @@ export interface SpotOptions {
    *          launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to
    *             <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
    *          capacity.</p>
+   *          <p>Default: <code>lowest-price</code>
+   *          </p>
    */
   AllocationStrategy?: SpotAllocationStrategy | string;
 
@@ -8168,15 +8269,17 @@ export interface SpotOptions {
   MaintenanceStrategies?: FleetSpotMaintenanceStrategies;
 
   /**
-   * <p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>
+   * <p>The behavior when a Spot Instance is interrupted.</p>
+   *          <p>Default: <code>terminate</code>
+   *          </p>
    */
   InstanceInterruptionBehavior?: SpotInstanceInterruptionBehavior | string;
 
   /**
-   * <p>The number of Spot pools across which to allocate your target Spot capacity. Valid only
-   *          when <b>AllocationStrategy</b> is set to
-   *             <code>lowest-price</code>. EC2 Fleet selects the cheapest Spot pools and evenly allocates
-   *          your target Spot capacity across the number of Spot pools that you specify.</p>
+   * <p>The number of Spot pools across which to allocate your target Spot capacity. Supported
+   *          only when <code>AllocationStrategy</code> is set to <code>lowest-price</code>. EC2 Fleet selects
+   *          the cheapest Spot pools and evenly allocates your target Spot capacity across the number of
+   *          Spot pools that you specify.</p>
    *          <p>Note that EC2 Fleet attempts to draw Spot Instances from the number of pools that you specify on a
    *          best effort basis. If a pool runs out of Spot capacity before fulfilling your target
    *          capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest
@@ -8188,20 +8291,25 @@ export interface SpotOptions {
   InstancePoolsToUseCount?: number;
 
   /**
-   * <p>Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
-   *          Supported only for fleets of type <code>instant</code>.</p>
+   * <p>Indicates that the fleet uses a single instance type to launch all Spot Instances in the
+   *          fleet.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
    */
   SingleInstanceType?: boolean;
 
   /**
-   * <p>Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported
-   *          only for fleets of type <code>instant</code>.</p>
+   * <p>Indicates that the fleet launches all Spot Instances into a single Availability Zone.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
    */
   SingleAvailabilityZone?: boolean;
 
   /**
    * <p>The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is
    *          not reached, the fleet launches no instances.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   *          <p>At least one of the following must be specified: <code>SingleAvailabilityZone</code> |
+   *             <code>SingleInstanceType</code>
+   *          </p>
    */
   MinTargetCapacity?: number;
 
@@ -9281,196 +9389,6 @@ export namespace DescribeHostReservationsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeHostReservationsRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum ReservationState {
-  ACTIVE = "active",
-  PAYMENT_FAILED = "payment-failed",
-  PAYMENT_PENDING = "payment-pending",
-  RETIRED = "retired",
-}
-
-/**
- * <p>Details about the Dedicated Host Reservation and associated Dedicated
- *             Hosts.</p>
- */
-export interface HostReservation {
-  /**
-   * <p>The number of Dedicated Hosts the reservation is associated with.</p>
-   */
-  Count?: number;
-
-  /**
-   * <p>The currency in which the <code>upfrontPrice</code> and <code>hourlyPrice</code>
-   *             amounts are specified. At this time, the only supported currency is
-   *             <code>USD</code>.</p>
-   */
-  CurrencyCode?: CurrencyCodeValues | string;
-
-  /**
-   * <p>The length of the reservation's term, specified in seconds. Can be <code>31536000
-   *                 (1 year)</code> | <code>94608000 (3 years)</code>.</p>
-   */
-  Duration?: number;
-
-  /**
-   * <p>The date and time that the reservation ends.</p>
-   */
-  End?: Date;
-
-  /**
-   * <p>The IDs of the Dedicated Hosts associated with the reservation.</p>
-   */
-  HostIdSet?: string[];
-
-  /**
-   * <p>The ID of the reservation that specifies the associated Dedicated Hosts.</p>
-   */
-  HostReservationId?: string;
-
-  /**
-   * <p>The hourly price of the reservation.</p>
-   */
-  HourlyPrice?: string;
-
-  /**
-   * <p>The instance family of the Dedicated Host Reservation. The instance family on the
-   *             Dedicated Host must be the same in order for it to benefit from the
-   *             reservation.</p>
-   */
-  InstanceFamily?: string;
-
-  /**
-   * <p>The ID of the reservation. This remains the same regardless of which Dedicated
-   *             Hosts are associated with it.</p>
-   */
-  OfferingId?: string;
-
-  /**
-   * <p>The payment option selected for this reservation.</p>
-   */
-  PaymentOption?: PaymentOption | string;
-
-  /**
-   * <p>The date and time that the reservation started.</p>
-   */
-  Start?: Date;
-
-  /**
-   * <p>The state of the reservation.</p>
-   */
-  State?: ReservationState | string;
-
-  /**
-   * <p>The upfront price of the reservation.</p>
-   */
-  UpfrontPrice?: string;
-
-  /**
-   * <p>Any tags assigned to the Dedicated Host Reservation.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace HostReservation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostReservation): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeHostReservationsResult {
-  /**
-   * <p>Details about the reservation's configuration.</p>
-   */
-  HostReservationSet?: HostReservation[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeHostReservationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHostReservationsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeHostsRequest {
-  /**
-   * <p>The filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>auto-placement</code> - Whether auto-placement is enabled or disabled
-   *                         (<code>on</code> | <code>off</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the
-   *                     host.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>client-token</code> - The idempotency token that you provided when you
-   *                     allocated the host.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>host-reservation-id</code> - The ID of the reservation assigned to
-   *                     this host.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-type</code> - The instance type size that the Dedicated Host
-   *                     is configured to support.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>state</code> - The allocation state of the Dedicated Host
-   *                         (<code>available</code> | <code>under-assessment</code> |
-   *                         <code>permanent-failure</code> | <code>released</code> |
-   *                         <code>released-permanent-failure</code>).</p>
-   *             </li>
-   *             <li>
-   *         		     <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *         	   </li>
-   *          </ul>
-   */
-  Filter?: Filter[];
-
-  /**
-   * <p>The IDs of the Dedicated Hosts. The IDs are used for targeted instance
-   *             launches.</p>
-   */
-  HostIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
-   *          <p>You cannot specify this parameter and the host IDs parameter in the same request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeHostsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHostsRequest): any => ({
     ...obj,
   });
 }

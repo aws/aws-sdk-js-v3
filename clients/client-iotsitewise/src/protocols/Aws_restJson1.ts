@@ -27,6 +27,10 @@ import { v4 as generateIdempotencyToken } from "uuid";
 
 import { AssociateAssetsCommandInput, AssociateAssetsCommandOutput } from "../commands/AssociateAssetsCommand";
 import {
+  AssociateTimeSeriesToAssetPropertyCommandInput,
+  AssociateTimeSeriesToAssetPropertyCommandOutput,
+} from "../commands/AssociateTimeSeriesToAssetPropertyCommand";
+import {
   BatchAssociateProjectAssetsCommandInput,
   BatchAssociateProjectAssetsCommandOutput,
 } from "../commands/BatchAssociateProjectAssetsCommand";
@@ -52,6 +56,7 @@ import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "../co
 import { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "../commands/DeleteGatewayCommand";
 import { DeletePortalCommandInput, DeletePortalCommandOutput } from "../commands/DeletePortalCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "../commands/DeleteProjectCommand";
+import { DeleteTimeSeriesCommandInput, DeleteTimeSeriesCommandOutput } from "../commands/DeleteTimeSeriesCommand";
 import {
   DescribeAccessPolicyCommandInput,
   DescribeAccessPolicyCommandOutput,
@@ -82,7 +87,12 @@ import {
   DescribeStorageConfigurationCommandInput,
   DescribeStorageConfigurationCommandOutput,
 } from "../commands/DescribeStorageConfigurationCommand";
+import { DescribeTimeSeriesCommandInput, DescribeTimeSeriesCommandOutput } from "../commands/DescribeTimeSeriesCommand";
 import { DisassociateAssetsCommandInput, DisassociateAssetsCommandOutput } from "../commands/DisassociateAssetsCommand";
+import {
+  DisassociateTimeSeriesFromAssetPropertyCommandInput,
+  DisassociateTimeSeriesFromAssetPropertyCommandOutput,
+} from "../commands/DisassociateTimeSeriesFromAssetPropertyCommand";
 import {
   GetAssetPropertyAggregatesCommandInput,
   GetAssetPropertyAggregatesCommandOutput,
@@ -119,6 +129,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListTimeSeriesCommandInput, ListTimeSeriesCommandOutput } from "../commands/ListTimeSeriesCommand";
 import {
   PutDefaultEncryptionConfigurationCommandInput,
   PutDefaultEncryptionConfigurationCommandOutput,
@@ -220,6 +231,7 @@ import {
   ServiceUnavailableException,
   ThrottlingException,
   TimeInNanos,
+  TimeSeriesSummary,
   TooManyTagsException,
   Transform,
   TransformProcessingConfig,
@@ -269,6 +281,43 @@ export const serializeAws_restJson1AssociateAssetsCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1AssociateTimeSeriesToAssetPropertyCommand = async (
+  input: AssociateTimeSeriesToAssetPropertyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/timeseries/associate";
+  const query: any = {
+    ...(input.alias !== undefined && { alias: input.alias }),
+    ...(input.assetId !== undefined && { assetId: input.assetId }),
+    ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -954,6 +1003,43 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteTimeSeriesCommand = async (
+  input: DeleteTimeSeriesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/timeseries/delete";
+  const query: any = {
+    ...(input.alias !== undefined && { alias: input.alias }),
+    ...(input.assetId !== undefined && { assetId: input.assetId }),
+    ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeAccessPolicyCommand = async (
   input: DescribeAccessPolicyCommandInput,
   context: __SerdeContext
@@ -1383,6 +1469,38 @@ export const serializeAws_restJson1DescribeStorageConfigurationCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeTimeSeriesCommand = async (
+  input: DescribeTimeSeriesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/timeseries/describe";
+  const query: any = {
+    ...(input.alias !== undefined && { alias: input.alias }),
+    ...(input.assetId !== undefined && { assetId: input.assetId }),
+    ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
+  };
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DisassociateAssetsCommand = async (
   input: DisassociateAssetsCommandInput,
   context: __SerdeContext
@@ -1422,6 +1540,44 @@ export const serializeAws_restJson1DisassociateAssetsCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DisassociateTimeSeriesFromAssetPropertyCommand = async (
+  input: DisassociateTimeSeriesFromAssetPropertyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/timeseries/disassociate";
+  const query: any = {
+    ...(input.alias !== undefined && { alias: input.alias }),
+    ...(input.assetId !== undefined && { assetId: input.assetId }),
+    ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1967,6 +2123,40 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListTimeSeriesCommand = async (
+  input: ListTimeSeriesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/timeseries";
+  const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.assetId !== undefined && { assetId: input.assetId }),
+    ...(input.aliasPrefix !== undefined && { aliasPrefix: input.aliasPrefix }),
+    ...(input.timeSeriesType !== undefined && { timeSeriesType: input.timeSeriesType }),
+  };
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1PutDefaultEncryptionConfigurationCommand = async (
   input: PutDefaultEncryptionConfigurationCommandInput,
   context: __SerdeContext
@@ -2047,6 +2237,8 @@ export const serializeAws_restJson1PutStorageConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration/account/storage";
   let body: any;
   body = JSON.stringify({
+    ...(input.disassociatedDataStorage !== undefined &&
+      input.disassociatedDataStorage !== null && { disassociatedDataStorage: input.disassociatedDataStorage }),
     ...(input.multiLayerStorage !== undefined &&
       input.multiLayerStorage !== null && {
         multiLayerStorage: serializeAws_restJson1MultiLayerStorage(input.multiLayerStorage, context),
@@ -2624,6 +2816,89 @@ const deserializeAws_restJson1AssociateAssetsCommandError = async (
     case "com.amazonaws.iotsitewise#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1AssociateTimeSeriesToAssetPropertyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateTimeSeriesToAssetPropertyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AssociateTimeSeriesToAssetPropertyCommandError(output, context);
+  }
+  const contents: AssociateTimeSeriesToAssetPropertyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AssociateTimeSeriesToAssetPropertyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateTimeSeriesToAssetPropertyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictingOperationException":
+    case "com.amazonaws.iotsitewise#ConflictingOperationException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4180,6 +4455,89 @@ const deserializeAws_restJson1DeleteProjectCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DeleteTimeSeriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTimeSeriesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteTimeSeriesCommandError(output, context);
+  }
+  const contents: DeleteTimeSeriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteTimeSeriesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTimeSeriesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictingOperationException":
+    case "com.amazonaws.iotsitewise#ConflictingOperationException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribeAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5331,6 +5689,7 @@ export const deserializeAws_restJson1DescribeStorageConfigurationCommand = async
   const contents: DescribeStorageConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     configurationStatus: undefined,
+    disassociatedDataStorage: undefined,
     lastUpdateDate: undefined,
     multiLayerStorage: undefined,
     storageType: undefined,
@@ -5338,6 +5697,9 @@ export const deserializeAws_restJson1DescribeStorageConfigurationCommand = async
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.configurationStatus !== undefined && data.configurationStatus !== null) {
     contents.configurationStatus = deserializeAws_restJson1ConfigurationStatus(data.configurationStatus, context);
+  }
+  if (data.disassociatedDataStorage !== undefined && data.disassociatedDataStorage !== null) {
+    contents.disassociatedDataStorage = __expectString(data.disassociatedDataStorage);
   }
   if (data.lastUpdateDate !== undefined && data.lastUpdateDate !== null) {
     contents.lastUpdateDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdateDate)));
@@ -5428,6 +5790,117 @@ const deserializeAws_restJson1DescribeStorageConfigurationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeTimeSeriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTimeSeriesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeTimeSeriesCommandError(output, context);
+  }
+  const contents: DescribeTimeSeriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    alias: undefined,
+    assetId: undefined,
+    dataType: undefined,
+    dataTypeSpec: undefined,
+    propertyId: undefined,
+    timeSeriesCreationDate: undefined,
+    timeSeriesId: undefined,
+    timeSeriesLastUpdateDate: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.alias !== undefined && data.alias !== null) {
+    contents.alias = __expectString(data.alias);
+  }
+  if (data.assetId !== undefined && data.assetId !== null) {
+    contents.assetId = __expectString(data.assetId);
+  }
+  if (data.dataType !== undefined && data.dataType !== null) {
+    contents.dataType = __expectString(data.dataType);
+  }
+  if (data.dataTypeSpec !== undefined && data.dataTypeSpec !== null) {
+    contents.dataTypeSpec = __expectString(data.dataTypeSpec);
+  }
+  if (data.propertyId !== undefined && data.propertyId !== null) {
+    contents.propertyId = __expectString(data.propertyId);
+  }
+  if (data.timeSeriesCreationDate !== undefined && data.timeSeriesCreationDate !== null) {
+    contents.timeSeriesCreationDate = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.timeSeriesCreationDate))
+    );
+  }
+  if (data.timeSeriesId !== undefined && data.timeSeriesId !== null) {
+    contents.timeSeriesId = __expectString(data.timeSeriesId);
+  }
+  if (data.timeSeriesLastUpdateDate !== undefined && data.timeSeriesLastUpdateDate !== null) {
+    contents.timeSeriesLastUpdateDate = __expectNonNull(
+      __parseEpochTimestamp(__expectNumber(data.timeSeriesLastUpdateDate))
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeTimeSeriesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTimeSeriesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DisassociateAssetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5446,6 +5919,89 @@ const deserializeAws_restJson1DisassociateAssetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateAssetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictingOperationException":
+    case "com.amazonaws.iotsitewise#ConflictingOperationException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DisassociateTimeSeriesFromAssetPropertyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateTimeSeriesFromAssetPropertyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisassociateTimeSeriesFromAssetPropertyCommandError(output, context);
+  }
+  const contents: DisassociateTimeSeriesFromAssetPropertyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DisassociateTimeSeriesFromAssetPropertyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateTimeSeriesFromAssetPropertyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -6757,6 +7313,89 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListTimeSeriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTimeSeriesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListTimeSeriesCommandError(output, context);
+  }
+  const contents: ListTimeSeriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    TimeSeriesSummaries: undefined,
+    nextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.TimeSeriesSummaries !== undefined && data.TimeSeriesSummaries !== null) {
+    contents.TimeSeriesSummaries = deserializeAws_restJson1TimeSeriesSummaries(data.TimeSeriesSummaries, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListTimeSeriesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTimeSeriesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1PutDefaultEncryptionConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6945,12 +7584,16 @@ export const deserializeAws_restJson1PutStorageConfigurationCommand = async (
   const contents: PutStorageConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     configurationStatus: undefined,
+    disassociatedDataStorage: undefined,
     multiLayerStorage: undefined,
     storageType: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.configurationStatus !== undefined && data.configurationStatus !== null) {
     contents.configurationStatus = deserializeAws_restJson1ConfigurationStatus(data.configurationStatus, context);
+  }
+  if (data.disassociatedDataStorage !== undefined && data.disassociatedDataStorage !== null) {
+    contents.disassociatedDataStorage = __expectString(data.disassociatedDataStorage);
   }
   if (data.multiLayerStorage !== undefined && data.multiLayerStorage !== null) {
     contents.multiLayerStorage = deserializeAws_restJson1MultiLayerStorage(data.multiLayerStorage, context);
@@ -9765,6 +10408,36 @@ const deserializeAws_restJson1TimeInNanos = (output: any, context: __SerdeContex
   return {
     offsetInNanos: __expectInt32(output.offsetInNanos),
     timeInSeconds: __expectLong(output.timeInSeconds),
+  } as any;
+};
+
+const deserializeAws_restJson1TimeSeriesSummaries = (output: any, context: __SerdeContext): TimeSeriesSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TimeSeriesSummary(entry, context);
+    });
+};
+
+const deserializeAws_restJson1TimeSeriesSummary = (output: any, context: __SerdeContext): TimeSeriesSummary => {
+  return {
+    alias: __expectString(output.alias),
+    assetId: __expectString(output.assetId),
+    dataType: __expectString(output.dataType),
+    dataTypeSpec: __expectString(output.dataTypeSpec),
+    propertyId: __expectString(output.propertyId),
+    timeSeriesCreationDate:
+      output.timeSeriesCreationDate !== undefined && output.timeSeriesCreationDate !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timeSeriesCreationDate)))
+        : undefined,
+    timeSeriesId: __expectString(output.timeSeriesId),
+    timeSeriesLastUpdateDate:
+      output.timeSeriesLastUpdateDate !== undefined && output.timeSeriesLastUpdateDate !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timeSeriesLastUpdateDate)))
+        : undefined,
   } as any;
 };
 

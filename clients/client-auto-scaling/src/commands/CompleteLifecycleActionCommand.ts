@@ -28,14 +28,14 @@ export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleA
  *             group:</p>
  *         <ol>
  *             <li>
- *                 <p>(Optional) Create a Lambda function and a rule that allows CloudWatch Events to
+ *                 <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to
  *                     invoke your Lambda function when Amazon EC2 Auto Scaling launches or terminates
  *                     instances.</p>
  *             </li>
  *             <li>
  *                 <p>(Optional) Create a notification target and an IAM role. The target can be
- *                     either an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to
- *                     publish lifecycle notifications to the target.</p>
+ *                     either an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to publish
+ *                     lifecycle notifications to the target.</p>
  *             </li>
  *             <li>
  *                 <p>Create the lifecycle hook. Specify whether the hook is used when the instances
@@ -47,8 +47,9 @@ export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleA
  *             </li>
  *             <li>
  *                 <p>
- *                     <b>If you finish before the timeout period ends, complete the
- *                         lifecycle action.</b>
+ *                     <b>If you finish before the timeout period ends, send a
+ *                         callback by using the <a>CompleteLifecycleAction</a> API
+ *                         call.</b>
  *                 </p>
  *             </li>
  *          </ol>

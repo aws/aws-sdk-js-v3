@@ -22,7 +22,7 @@ export interface ListDeploymentStrategiesCommandInput extends ListDeploymentStra
 export interface ListDeploymentStrategiesCommandOutput extends DeploymentStrategies, __MetadataBearer {}
 
 /**
- * <p>List deployment strategies.</p>
+ * <p>Lists deployment strategies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

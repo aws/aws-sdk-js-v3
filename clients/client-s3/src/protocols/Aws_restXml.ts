@@ -11360,6 +11360,18 @@ const serializeAws_restXmlLifecycleRuleAndOperator = (
       bodyNode.addChildNode(node);
     });
   }
+  if (input.ObjectSizeGreaterThan !== undefined && input.ObjectSizeGreaterThan !== null) {
+    const node = new __XmlNode("ObjectSizeGreaterThanBytes")
+      .addChildNode(new __XmlText(String(input.ObjectSizeGreaterThan)))
+      .withName("ObjectSizeGreaterThan");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ObjectSizeLessThan !== undefined && input.ObjectSizeLessThan !== null) {
+    const node = new __XmlNode("ObjectSizeLessThanBytes")
+      .addChildNode(new __XmlText(String(input.ObjectSizeLessThan)))
+      .withName("ObjectSizeLessThan");
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
@@ -11372,6 +11384,18 @@ const serializeAws_restXmlLifecycleRuleFilter = (input: LifecycleRuleFilter, con
     },
     Tag: (value) => {
       const node = serializeAws_restXmlTag(value, context).withName("Tag");
+      bodyNode.addChildNode(node);
+    },
+    ObjectSizeGreaterThan: (value) => {
+      const node = new __XmlNode("ObjectSizeGreaterThanBytes")
+        .addChildNode(new __XmlText(String(value)))
+        .withName("ObjectSizeGreaterThan");
+      bodyNode.addChildNode(node);
+    },
+    ObjectSizeLessThan: (value) => {
+      const node = new __XmlNode("ObjectSizeLessThanBytes")
+        .addChildNode(new __XmlText(String(value)))
+        .withName("ObjectSizeLessThan");
       bodyNode.addChildNode(node);
     },
     And: (value) => {
@@ -11522,6 +11546,12 @@ const serializeAws_restXmlNoncurrentVersionExpiration = (
       .withName("NoncurrentDays");
     bodyNode.addChildNode(node);
   }
+  if (input.NewerNoncurrentVersions !== undefined && input.NewerNoncurrentVersions !== null) {
+    const node = new __XmlNode("VersionCount")
+      .addChildNode(new __XmlText(String(input.NewerNoncurrentVersions)))
+      .withName("NewerNoncurrentVersions");
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
@@ -11540,6 +11570,12 @@ const serializeAws_restXmlNoncurrentVersionTransition = (
     const node = new __XmlNode("TransitionStorageClass")
       .addChildNode(new __XmlText(input.StorageClass))
       .withName("StorageClass");
+    bodyNode.addChildNode(node);
+  }
+  if (input.NewerNoncurrentVersions !== undefined && input.NewerNoncurrentVersions !== null) {
+    const node = new __XmlNode("VersionCount")
+      .addChildNode(new __XmlText(String(input.NewerNoncurrentVersions)))
+      .withName("NewerNoncurrentVersions");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -13568,6 +13604,8 @@ const deserializeAws_restXmlLifecycleRuleAndOperator = (
   const contents: any = {
     Prefix: undefined,
     Tags: undefined,
+    ObjectSizeGreaterThan: undefined,
+    ObjectSizeLessThan: undefined,
   };
   if (output["Prefix"] !== undefined) {
     contents.Prefix = __expectString(output["Prefix"]);
@@ -13577,6 +13615,12 @@ const deserializeAws_restXmlLifecycleRuleAndOperator = (
   }
   if (output["Tag"] !== undefined) {
     contents.Tags = deserializeAws_restXmlTagSet(__getArrayIfSingleItem(output["Tag"]), context);
+  }
+  if (output["ObjectSizeGreaterThan"] !== undefined) {
+    contents.ObjectSizeGreaterThan = __strictParseLong(output["ObjectSizeGreaterThan"]) as number;
+  }
+  if (output["ObjectSizeLessThan"] !== undefined) {
+    contents.ObjectSizeLessThan = __strictParseLong(output["ObjectSizeLessThan"]) as number;
   }
   return contents;
 };
@@ -13590,6 +13634,16 @@ const deserializeAws_restXmlLifecycleRuleFilter = (output: any, context: __Serde
   if (output["Tag"] !== undefined) {
     return {
       Tag: deserializeAws_restXmlTag(output["Tag"], context),
+    };
+  }
+  if (output["ObjectSizeGreaterThan"] !== undefined) {
+    return {
+      ObjectSizeGreaterThan: __strictParseLong(output["ObjectSizeGreaterThan"]) as number,
+    };
+  }
+  if (output["ObjectSizeLessThan"] !== undefined) {
+    return {
+      ObjectSizeLessThan: __strictParseLong(output["ObjectSizeLessThan"]) as number,
     };
   }
   if (output["And"] !== undefined) {
@@ -13769,9 +13823,13 @@ const deserializeAws_restXmlNoncurrentVersionExpiration = (
 ): NoncurrentVersionExpiration => {
   const contents: any = {
     NoncurrentDays: undefined,
+    NewerNoncurrentVersions: undefined,
   };
   if (output["NoncurrentDays"] !== undefined) {
     contents.NoncurrentDays = __strictParseInt32(output["NoncurrentDays"]) as number;
+  }
+  if (output["NewerNoncurrentVersions"] !== undefined) {
+    contents.NewerNoncurrentVersions = __strictParseInt32(output["NewerNoncurrentVersions"]) as number;
   }
   return contents;
 };
@@ -13783,12 +13841,16 @@ const deserializeAws_restXmlNoncurrentVersionTransition = (
   const contents: any = {
     NoncurrentDays: undefined,
     StorageClass: undefined,
+    NewerNoncurrentVersions: undefined,
   };
   if (output["NoncurrentDays"] !== undefined) {
     contents.NoncurrentDays = __strictParseInt32(output["NoncurrentDays"]) as number;
   }
   if (output["StorageClass"] !== undefined) {
     contents.StorageClass = __expectString(output["StorageClass"]);
+  }
+  if (output["NewerNoncurrentVersions"] !== undefined) {
+    contents.NewerNoncurrentVersions = __strictParseInt32(output["NewerNoncurrentVersions"]) as number;
   }
   return contents;
 };

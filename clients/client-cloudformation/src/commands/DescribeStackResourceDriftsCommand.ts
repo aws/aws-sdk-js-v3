@@ -29,9 +29,9 @@ export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackR
  *          resource that has been checked for drift. Resources that haven't yet been checked for drift
  *          are not included. Resources that do not currently support drift detection are not checked,
  *          and so not included. For a list of resources that support drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources that Support Drift Detection</a>.</p>
- *          <p>Use <a>DetectStackResourceDrift</a> to detect drift on individual
- *          resources, or <a>DetectStackDrift</a> to detect drift on all supported resources
- *          for a given stack.</p>
+ *          <p>Use <a>DetectStackResourceDrift</a> to detect drift on individual resources,
+ *          or <a>DetectStackDrift</a> to detect drift on all supported resources for a
+ *          given stack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

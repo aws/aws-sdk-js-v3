@@ -31,7 +31,6 @@ import {
   OpsItemNotification,
   OpsItemStatus,
   ParameterInlinePolicy,
-  ParameterMetadata,
   ParameterStringFilter,
   ParameterTier,
   ParameterType,
@@ -54,6 +53,79 @@ import {
   Target,
   TargetLocation,
 } from "./models_0";
+
+/**
+ * <p>Metadata includes information like the ARN of the last user and the date/time the parameter
+ *    was last used.</p>
+ */
+export interface ParameterMetadata {
+  /**
+   * <p>The parameter name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of parameter. Valid parameter types include the following: <code>String</code>,
+   *     <code>StringList</code>, and <code>SecureString</code>.</p>
+   */
+  Type?: ParameterType | string;
+
+  /**
+   * <p>The ID of the query key used for this parameter.</p>
+   */
+  KeyId?: string;
+
+  /**
+   * <p>Date the parameter was last changed or updated.</p>
+   */
+  LastModifiedDate?: Date;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the Amazon Web Services user who last changed the parameter.</p>
+   */
+  LastModifiedUser?: string;
+
+  /**
+   * <p>Description of the parameter actions.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A parameter name can include only the following letters and symbols.</p>
+   *          <p>a-zA-Z0-9_.-</p>
+   */
+  AllowedPattern?: string;
+
+  /**
+   * <p>The parameter version.</p>
+   */
+  Version?: number;
+
+  /**
+   * <p>The parameter tier.</p>
+   */
+  Tier?: ParameterTier | string;
+
+  /**
+   * <p>A list of policies associated with a parameter.</p>
+   */
+  Policies?: ParameterInlinePolicy[];
+
+  /**
+   * <p>The data type of the parameter, such as <code>text</code> or <code>aws:ec2:image</code>. The
+   *    default is <code>text</code>.</p>
+   */
+  DataType?: string;
+}
+
+export namespace ParameterMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ParameterMetadata): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeParametersResult {
   /**
@@ -2863,6 +2935,7 @@ export namespace MaintenanceWindowRunCommandParameters {
    */
   export const filterSensitiveLog = (obj: MaintenanceWindowRunCommandParameters): any => ({
     ...obj,
+    ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
   });
 }
 
@@ -2938,6 +3011,7 @@ export namespace MaintenanceWindowTaskInvocationParameters {
    */
   export const filterSensitiveLog = (obj: MaintenanceWindowTaskInvocationParameters): any => ({
     ...obj,
+    ...(obj.RunCommand && { RunCommand: MaintenanceWindowRunCommandParameters.filterSensitiveLog(obj.RunCommand) }),
     ...(obj.StepFunctions && {
       StepFunctions: MaintenanceWindowStepFunctionsParameters.filterSensitiveLog(obj.StepFunctions),
     }),
@@ -4580,6 +4654,7 @@ export namespace AssociationVersionInfo {
    */
   export const filterSensitiveLog = (obj: AssociationVersionInfo): any => ({
     ...obj,
+    ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
   });
 }
 
@@ -4602,6 +4677,9 @@ export namespace ListAssociationVersionsResult {
    */
   export const filterSensitiveLog = (obj: ListAssociationVersionsResult): any => ({
     ...obj,
+    ...(obj.AssociationVersions && {
+      AssociationVersions: obj.AssociationVersions.map((item) => AssociationVersionInfo.filterSensitiveLog(item)),
+    }),
   });
 }
 
@@ -4623,6 +4701,10 @@ export enum CommandFilterKey {
 export interface CommandFilter {
   /**
    * <p>The name of the filter.</p>
+   *          <note>
+   *             <p>The <code>ExecutionStage</code> filter can't be used with the
+   *      <code>ListCommandInvocations</code> operation, only with <code>ListCommands</code>.</p>
+   *          </note>
    */
   key: CommandFilterKey | string | undefined;
 
@@ -4784,8 +4866,8 @@ export interface CommandFilter {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>ExecutionStage</b>: Specify one of the following
-   *      values:</p>
+   *                   <b>ExecutionStage</b>: Specify one of the following values
+   *       (<code>ListCommands</code> operations only):</p>
    *                <ul>
    *                   <li>
    *                      <p>
@@ -5449,6 +5531,7 @@ export namespace Command {
    */
   export const filterSensitiveLog = (obj: Command): any => ({
     ...obj,
+    ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
   });
 }
 
@@ -5471,6 +5554,7 @@ export namespace ListCommandsResult {
    */
   export const filterSensitiveLog = (obj: ListCommandsResult): any => ({
     ...obj,
+    ...(obj.Commands && { Commands: obj.Commands.map((item) => Command.filterSensitiveLog(item)) }),
   });
 }
 
@@ -8279,10 +8363,10 @@ export interface PutParameterRequest {
    *    you specify the expiration date. You can update the expiration date and time by updating the
    *    policy. Updating the <i>parameter</i> doesn't affect the expiration date and time.
    *    When the expiration time is reached, Parameter Store deletes the parameter.</p>
-   *          <p>ExpirationNotification: This policy triggers an event in Amazon CloudWatch Events that
+   *          <p>ExpirationNotification: This policy initiates an event in Amazon CloudWatch Events that
    *    notifies you about the expiration. By using this policy, you can receive notification before or
    *    after the expiration time is reached, in units of days or hours.</p>
-   *          <p>NoChangeNotification: This policy triggers a CloudWatch Events event if a parameter hasn't
+   *          <p>NoChangeNotification: This policy initiates a CloudWatch Events event if a parameter hasn't
    *    been modified for a specified period of time. This policy type is useful when, for example, a
    *    secret needs to be changed within a period of time, but it hasn't been changed.</p>
    *          <p>All existing policies are preserved until you send new policies or an empty policy. For more
@@ -9255,6 +9339,7 @@ export namespace SendCommandRequest {
    */
   export const filterSensitiveLog = (obj: SendCommandRequest): any => ({
     ...obj,
+    ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
   });
 }
 
@@ -9272,6 +9357,7 @@ export namespace SendCommandResult {
    */
   export const filterSensitiveLog = (obj: SendCommandResult): any => ({
     ...obj,
+    ...(obj.Command && { Command: Command.filterSensitiveLog(obj.Command) }),
   });
 }
 
@@ -9679,7 +9765,8 @@ export interface StartSessionRequest {
   DocumentName?: string;
 
   /**
-   * <p>The reason for connecting to the instance. This value is included in the details for the Amazon CloudWatch Events event created when you start the session.</p>
+   * <p>The reason for connecting to the instance. This value is included in the details for the
+   *     Amazon CloudWatch Events event created when you start the session.</p>
    */
   Reason?: string;
 
@@ -10081,6 +10168,7 @@ export namespace UpdateAssociationRequest {
    */
   export const filterSensitiveLog = (obj: UpdateAssociationRequest): any => ({
     ...obj,
+    ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
   });
 }
 
@@ -10097,6 +10185,9 @@ export namespace UpdateAssociationResult {
    */
   export const filterSensitiveLog = (obj: UpdateAssociationResult): any => ({
     ...obj,
+    ...(obj.AssociationDescription && {
+      AssociationDescription: AssociationDescription.filterSensitiveLog(obj.AssociationDescription),
+    }),
   });
 }
 
@@ -10156,6 +10247,9 @@ export namespace UpdateAssociationStatusResult {
    */
   export const filterSensitiveLog = (obj: UpdateAssociationStatusResult): any => ({
     ...obj,
+    ...(obj.AssociationDescription && {
+      AssociationDescription: AssociationDescription.filterSensitiveLog(obj.AssociationDescription),
+    }),
   });
 }
 
@@ -10421,101 +10515,5 @@ export namespace UpdateDocumentMetadataResponse {
    */
   export const filterSensitiveLog = (obj: UpdateDocumentMetadataResponse): any => ({
     ...obj,
-  });
-}
-
-export interface UpdateMaintenanceWindowRequest {
-  /**
-   * <p>The ID of the maintenance window to update.</p>
-   */
-  WindowId: string | undefined;
-
-  /**
-   * <p>The name of the maintenance window.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>An optional description for the update request.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The time zone that the scheduled maintenance window executions are based on, in Internet
-   *    Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "UTC", or
-   *    "Asia/Seoul". For more information, see the <a href="https://www.iana.org/time-zones">Time
-   *     Zone Database</a> on the IANA website.</p>
-   */
-  StartDate?: string;
-
-  /**
-   * <p>The date and time, in ISO-8601 Extended format, for when you want the maintenance window to
-   *    become inactive. <code>EndDate</code> allows you to set a date and time in the future when the
-   *    maintenance window will no longer run.</p>
-   */
-  EndDate?: string;
-
-  /**
-   * <p>The schedule of the maintenance window in the form of a cron or rate expression.</p>
-   */
-  Schedule?: string;
-
-  /**
-   * <p>The time zone that the scheduled maintenance window executions are based on, in Internet
-   *    Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "UTC", or
-   *    "Asia/Seoul". For more information, see the <a href="https://www.iana.org/time-zones">Time
-   *     Zone Database</a> on the IANA website.</p>
-   */
-  ScheduleTimezone?: string;
-
-  /**
-   * <p>The number of days to wait after the date and time specified by a cron expression before
-   *    running the maintenance window.</p>
-   *          <p>For example, the following cron expression schedules a maintenance window to run the third
-   *    Tuesday of every month at 11:30 PM.</p>
-   *          <p>
-   *             <code>cron(30 23 ? * TUE#3 *)</code>
-   *          </p>
-   *          <p>If the schedule offset is <code>2</code>, the maintenance window won't run until two days
-   *    later.</p>
-   */
-  ScheduleOffset?: number;
-
-  /**
-   * <p>The duration of the maintenance window in hours.</p>
-   */
-  Duration?: number;
-
-  /**
-   * <p>The number of hours before the end of the maintenance window that Amazon Web Services Systems Manager stops scheduling
-   *    new tasks for execution.</p>
-   */
-  Cutoff?: number;
-
-  /**
-   * <p>Whether targets must be registered with the maintenance window before tasks can be defined
-   *    for those targets.</p>
-   */
-  AllowUnassociatedTargets?: boolean;
-
-  /**
-   * <p>Whether the maintenance window is enabled.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>If <code>True</code>, then all fields that are required by the <a>CreateMaintenanceWindow</a> operation are also required for this API request. Optional
-   *    fields that aren't specified are set to null. </p>
-   */
-  Replace?: boolean;
-}
-
-export namespace UpdateMaintenanceWindowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMaintenanceWindowRequest): any => ({
-    ...obj,
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
   });
 }

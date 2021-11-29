@@ -24,42 +24,42 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
 /**
  * <p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the
  *       event source and triggers the function.</p>
- *          <p>For details about each event source type, see the following topics. </p>
+ *          <p>For details about how to configure different event sources, see the following topics. </p>
  *          <ul>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping">
- *             Configuring a Dynamo DB stream as an event source</a>
+ *             Amazon DynamoDB Streams</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping">
- *             Configuring a Kinesis stream as an event source</a>
+ *             Amazon Kinesis</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource"> Configuring an
- *               Amazon SQS queue as an event source</a>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource">
+ *             Amazon SQS</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping">
- *             Configuring an MQ broker as an event source</a>
+ *             Amazon MQ and RabbitMQ</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html"> Configuring MSK as an event
- *             source</a>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">
+ *             Amazon MSK</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html"> Configuring Self-Managed Apache Kafka
- *             as an event source</a>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html">
+ *             Apache Kafka</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -85,6 +85,45 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *             <li>
  *                <p>
  *                   <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For information about which configuration parameters apply to each event source, see the following topics.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params">
+ *           Amazon DynamoDB Streams</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params">
+ *           Amazon Kinesis</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params">
+ *           Amazon SQS</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params">
+ *           Amazon MQ and RabbitMQ</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms">
+ *           Amazon MSK</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms">
+ *           Apache Kafka</a>
+ *                </p>
  *             </li>
  *          </ul>
  * @example

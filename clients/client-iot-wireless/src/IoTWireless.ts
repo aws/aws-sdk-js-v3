@@ -196,6 +196,11 @@ import {
   GetMulticastGroupSessionCommandOutput,
 } from "./commands/GetMulticastGroupSessionCommand";
 import {
+  GetNetworkAnalyzerConfigurationCommand,
+  GetNetworkAnalyzerConfigurationCommandInput,
+  GetNetworkAnalyzerConfigurationCommandOutput,
+} from "./commands/GetNetworkAnalyzerConfigurationCommand";
+import {
   GetPartnerAccountCommand,
   GetPartnerAccountCommandInput,
   GetPartnerAccountCommandOutput,
@@ -391,6 +396,11 @@ import {
   UpdateMulticastGroupCommandInput,
   UpdateMulticastGroupCommandOutput,
 } from "./commands/UpdateMulticastGroupCommand";
+import {
+  UpdateNetworkAnalyzerConfigurationCommand,
+  UpdateNetworkAnalyzerConfigurationCommandInput,
+  UpdateNetworkAnalyzerConfigurationCommandOutput,
+} from "./commands/UpdateNetworkAnalyzerConfigurationCommand";
 import {
   UpdatePartnerAccountCommand,
   UpdatePartnerAccountCommandInput,
@@ -1680,6 +1690,38 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * <p>Get NetworkAnalyzer configuration.</p>
+   */
+  public getNetworkAnalyzerConfiguration(
+    args: GetNetworkAnalyzerConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNetworkAnalyzerConfigurationCommandOutput>;
+  public getNetworkAnalyzerConfiguration(
+    args: GetNetworkAnalyzerConfigurationCommandInput,
+    cb: (err: any, data?: GetNetworkAnalyzerConfigurationCommandOutput) => void
+  ): void;
+  public getNetworkAnalyzerConfiguration(
+    args: GetNetworkAnalyzerConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetNetworkAnalyzerConfigurationCommandOutput) => void
+  ): void;
+  public getNetworkAnalyzerConfiguration(
+    args: GetNetworkAnalyzerConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNetworkAnalyzerConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetNetworkAnalyzerConfigurationCommandOutput) => void
+  ): Promise<GetNetworkAnalyzerConfigurationCommandOutput> | void {
+    const command = new GetNetworkAnalyzerConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets information about a partner account. If <code>PartnerAccountId</code> and <code>PartnerType</code> are <code>null</code>, returns all partner accounts.</p>
    */
   public getPartnerAccount(
@@ -2953,6 +2995,38 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: UpdateMulticastGroupCommandOutput) => void
   ): Promise<UpdateMulticastGroupCommandOutput> | void {
     const command = new UpdateMulticastGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update NetworkAnalyzer configuration.</p>
+   */
+  public updateNetworkAnalyzerConfiguration(
+    args: UpdateNetworkAnalyzerConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateNetworkAnalyzerConfigurationCommandOutput>;
+  public updateNetworkAnalyzerConfiguration(
+    args: UpdateNetworkAnalyzerConfigurationCommandInput,
+    cb: (err: any, data?: UpdateNetworkAnalyzerConfigurationCommandOutput) => void
+  ): void;
+  public updateNetworkAnalyzerConfiguration(
+    args: UpdateNetworkAnalyzerConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateNetworkAnalyzerConfigurationCommandOutput) => void
+  ): void;
+  public updateNetworkAnalyzerConfiguration(
+    args: UpdateNetworkAnalyzerConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateNetworkAnalyzerConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateNetworkAnalyzerConfigurationCommandOutput) => void
+  ): Promise<UpdateNetworkAnalyzerConfigurationCommandOutput> | void {
+    const command = new UpdateNetworkAnalyzerConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

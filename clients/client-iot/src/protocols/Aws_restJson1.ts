@@ -282,6 +282,10 @@ import {
   DescribeJobTemplateCommandOutput,
 } from "../commands/DescribeJobTemplateCommand";
 import {
+  DescribeManagedJobTemplateCommandInput,
+  DescribeManagedJobTemplateCommandOutput,
+} from "../commands/DescribeManagedJobTemplateCommand";
+import {
   DescribeMitigationActionCommandInput,
   DescribeMitigationActionCommandOutput,
 } from "../commands/DescribeMitigationActionCommand";
@@ -418,6 +422,10 @@ import {
 } from "../commands/ListJobExecutionsForThingCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
 import { ListJobTemplatesCommandInput, ListJobTemplatesCommandOutput } from "../commands/ListJobTemplatesCommand";
+import {
+  ListManagedJobTemplatesCommandInput,
+  ListManagedJobTemplatesCommandOutput,
+} from "../commands/ListManagedJobTemplatesCommand";
 import {
   ListMitigationActionsCommandInput,
   ListMitigationActionsCommandOutput,
@@ -817,6 +825,7 @@ import {
   DetectMitigationActionsTaskStatistics,
   DetectMitigationActionsTaskSummary,
   DetectMitigationActionsTaskTarget,
+  DocumentParameter,
   DomainConfigurationSummary,
   EffectivePolicy,
   ErrorInfo,
@@ -824,6 +833,7 @@ import {
   Field,
   FleetMetricNameAndArn,
   GroupNameAndArn,
+  InternalServerException,
   Job,
   JobExecution,
   JobExecutionStatusDetails,
@@ -833,6 +843,7 @@ import {
   JobProcessDetails,
   JobSummary,
   JobTemplateSummary,
+  ManagedJobTemplateSummary,
   MitigationAction,
   MitigationActionIdentifier,
   NotConfiguredException,
@@ -855,7 +866,6 @@ import {
   StreamSummary,
   TaskStatistics,
   TermsAggregation,
-  ThingAttribute,
   ThingGroupIndexingConfiguration,
   ThingGroupMetadata,
   ThingIndexingConfiguration,
@@ -876,6 +886,7 @@ import {
   RegistrationCodeValidationException,
   ResourceRegistrationFailureException,
   TaskAlreadyExistsException,
+  ThingAttribute,
   ThingConnectivity,
   ThingDocument,
   ThingGroupDocument,
@@ -1806,6 +1817,10 @@ export const serializeAws_restJson1CreateJobCommand = async (
       input.abortConfig !== null && { abortConfig: serializeAws_restJson1AbortConfig(input.abortConfig, context) }),
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.document !== undefined && input.document !== null && { document: input.document }),
+    ...(input.documentParameters !== undefined &&
+      input.documentParameters !== null && {
+        documentParameters: serializeAws_restJson1ParameterMap(input.documentParameters, context),
+      }),
     ...(input.documentSource !== undefined &&
       input.documentSource !== null && { documentSource: input.documentSource }),
     ...(input.jobExecutionsRolloutConfig !== undefined &&
@@ -4166,6 +4181,39 @@ export const serializeAws_restJson1DescribeJobTemplateCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeManagedJobTemplateCommand = async (
+  input: DescribeManagedJobTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/managed-job-templates/{templateName}";
+  if (input.templateName !== undefined) {
+    const labelValue: string = input.templateName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: templateName.");
+    }
+    resolvedPath = resolvedPath.replace("{templateName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: templateName.");
+  }
+  const query: any = {
+    ...(input.templateVersion !== undefined && { templateVersion: input.templateVersion }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeMitigationActionCommand = async (
   input: DescribeMitigationActionCommandInput,
   context: __SerdeContext
@@ -5770,6 +5818,31 @@ export const serializeAws_restJson1ListJobTemplatesCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/job-templates";
   const query: any = {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListManagedJobTemplatesCommand = async (
+  input: ListManagedJobTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/managed-job-templates";
+  const query: any = {
+    ...(input.templateName !== undefined && { templateName: input.templateName }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
@@ -17532,6 +17605,109 @@ const deserializeAws_restJson1DescribeJobTemplateCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeManagedJobTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeManagedJobTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeManagedJobTemplateCommandError(output, context);
+  }
+  const contents: DescribeManagedJobTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    description: undefined,
+    document: undefined,
+    documentParameters: undefined,
+    environments: undefined,
+    templateArn: undefined,
+    templateName: undefined,
+    templateVersion: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.description !== undefined && data.description !== null) {
+    contents.description = __expectString(data.description);
+  }
+  if (data.document !== undefined && data.document !== null) {
+    contents.document = __expectString(data.document);
+  }
+  if (data.documentParameters !== undefined && data.documentParameters !== null) {
+    contents.documentParameters = deserializeAws_restJson1DocumentParameters(data.documentParameters, context);
+  }
+  if (data.environments !== undefined && data.environments !== null) {
+    contents.environments = deserializeAws_restJson1Environments(data.environments, context);
+  }
+  if (data.templateArn !== undefined && data.templateArn !== null) {
+    contents.templateArn = __expectString(data.templateArn);
+  }
+  if (data.templateName !== undefined && data.templateName !== null) {
+    contents.templateName = __expectString(data.templateName);
+  }
+  if (data.templateVersion !== undefined && data.templateVersion !== null) {
+    contents.templateVersion = __expectString(data.templateVersion);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeManagedJobTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeManagedJobTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.iot#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribeMitigationActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -22739,6 +22915,92 @@ const deserializeAws_restJson1ListJobTemplatesCommandError = async (
     case "com.amazonaws.iot#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListManagedJobTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListManagedJobTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListManagedJobTemplatesCommandError(output, context);
+  }
+  const contents: ListManagedJobTemplatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    managedJobTemplates: undefined,
+    nextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.managedJobTemplates !== undefined && data.managedJobTemplates !== null) {
+    contents.managedJobTemplates = deserializeAws_restJson1ManagedJobTemplatesSummaryList(
+      data.managedJobTemplates,
+      context
+    );
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListManagedJobTemplatesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListManagedJobTemplatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.iot#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -30236,6 +30498,23 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1InternalServerExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InternalServerException> => {
+  const contents: InternalServerException = {
+    name: "InternalServerException",
+    $fault: "server",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1InvalidAggregationExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -31753,6 +32032,18 @@ const serializeAws_restJson1OTAUpdateFiles = (input: OTAUpdateFile[], context: _
       }
       return serializeAws_restJson1OTAUpdateFile(entry, context);
     });
+};
+
+const serializeAws_restJson1ParameterMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_restJson1Parameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
@@ -33753,6 +34044,27 @@ const deserializeAws_restJson1DimensionStringValues = (output: any, context: __S
     });
 };
 
+const deserializeAws_restJson1DocumentParameter = (output: any, context: __SerdeContext): DocumentParameter => {
+  return {
+    description: __expectString(output.description),
+    example: __expectString(output.example),
+    key: __expectString(output.key),
+    optional: __expectBoolean(output.optional),
+    regex: __expectString(output.regex),
+  } as any;
+};
+
+const deserializeAws_restJson1DocumentParameters = (output: any, context: __SerdeContext): DocumentParameter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DocumentParameter(entry, context);
+    });
+};
+
 const deserializeAws_restJson1DomainConfigurations = (
   output: any,
   context: __SerdeContext
@@ -33840,6 +34152,17 @@ const deserializeAws_restJson1EnableIoTLoggingParams = (
     logLevel: __expectString(output.logLevel),
     roleArnForLogging: __expectString(output.roleArnForLogging),
   } as any;
+};
+
+const deserializeAws_restJson1Environments = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_restJson1ErrorInfo = (output: any, context: __SerdeContext): ErrorInfo => {
@@ -34093,6 +34416,10 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
+    documentParameters:
+      output.documentParameters !== undefined && output.documentParameters !== null
+        ? deserializeAws_restJson1ParameterMap(output.documentParameters, context)
+        : undefined,
     forceCanceled: __expectBoolean(output.forceCanceled),
     jobArn: __expectString(output.jobArn),
     jobExecutionsRolloutConfig:
@@ -34415,6 +34742,36 @@ const deserializeAws_restJson1MachineLearningDetectionConfig = (
   } as any;
 };
 
+const deserializeAws_restJson1ManagedJobTemplatesSummaryList = (
+  output: any,
+  context: __SerdeContext
+): ManagedJobTemplateSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ManagedJobTemplateSummary(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ManagedJobTemplateSummary = (
+  output: any,
+  context: __SerdeContext
+): ManagedJobTemplateSummary => {
+  return {
+    description: __expectString(output.description),
+    environments:
+      output.environments !== undefined && output.environments !== null
+        ? deserializeAws_restJson1Environments(output.environments, context)
+        : undefined,
+    templateArn: __expectString(output.templateArn),
+    templateName: __expectString(output.templateName),
+    templateVersion: __expectString(output.templateVersion),
+  } as any;
+};
+
 const deserializeAws_restJson1MetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
   return {
     dimensionName: __expectString(output.dimensionName),
@@ -34733,6 +35090,18 @@ const deserializeAws_restJson1OutgoingCertificates = (output: any, context: __Se
       }
       return deserializeAws_restJson1OutgoingCertificate(entry, context);
     });
+};
+
+const deserializeAws_restJson1ParameterMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1Percentiles = (output: any, context: __SerdeContext): PercentPair[] => {

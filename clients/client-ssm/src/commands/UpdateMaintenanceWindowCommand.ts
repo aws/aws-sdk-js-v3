@@ -11,8 +11,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateMaintenanceWindowRequest } from "../models/models_1";
-import { UpdateMaintenanceWindowResult } from "../models/models_2";
+import { UpdateMaintenanceWindowRequest, UpdateMaintenanceWindowResult } from "../models/models_2";
 import {
   deserializeAws_json1_1UpdateMaintenanceWindowCommand,
   serializeAws_json1_1UpdateMaintenanceWindowCommand,

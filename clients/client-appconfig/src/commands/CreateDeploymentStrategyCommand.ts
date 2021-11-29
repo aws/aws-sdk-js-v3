@@ -22,10 +22,10 @@ export interface CreateDeploymentStrategyCommandInput extends CreateDeploymentSt
 export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrategy, __MetadataBearer {}
 
 /**
- * <p>A deployment strategy defines important criteria for rolling out your configuration to
- *          the designated targets. A deployment strategy includes: the overall duration required, a
- *          percentage of targets to receive the deployment during each interval, an algorithm that
- *          defines how percentage grows, and bake time.</p>
+ * <p>Creates a deployment strategy that defines important criteria for rolling out your
+ *          configuration to the designated targets. A deployment strategy includes the overall
+ *          duration required, a percentage of targets to receive the deployment during each interval,
+ *          an algorithm that defines how percentage grows, and bake time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

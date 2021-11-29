@@ -28,11 +28,9 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *    using the <code>memory</code> and <code>vcpus</code> parameters. Rather, you must specify updates to job definition
  *    parameters in a <code>ResourceRequirements</code> object that's included in the <code>containerOverrides</code>
  *    parameter.</p>
- *
  *          <note>
  *             <p>Job queues with a scheduling policy are limited to 500 active fair share identifiers at a time. </p>
  *          </note>
- *
  *          <important>
  *             <p>Jobs that run on Fargate resources can't be guaranteed to run for more than 14 days. This is because, after 14
  *     days, Fargate resources might become unavailable and job might be terminated.</p>

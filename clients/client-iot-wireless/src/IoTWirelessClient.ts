@@ -181,6 +181,10 @@ import {
   GetMulticastGroupSessionCommandInput,
   GetMulticastGroupSessionCommandOutput,
 } from "./commands/GetMulticastGroupSessionCommand";
+import {
+  GetNetworkAnalyzerConfigurationCommandInput,
+  GetNetworkAnalyzerConfigurationCommandOutput,
+} from "./commands/GetNetworkAnalyzerConfigurationCommand";
 import { GetPartnerAccountCommandInput, GetPartnerAccountCommandOutput } from "./commands/GetPartnerAccountCommand";
 import {
   GetResourceEventConfigurationCommandInput,
@@ -300,6 +304,10 @@ import {
   UpdateMulticastGroupCommandOutput,
 } from "./commands/UpdateMulticastGroupCommand";
 import {
+  UpdateNetworkAnalyzerConfigurationCommandInput,
+  UpdateNetworkAnalyzerConfigurationCommandOutput,
+} from "./commands/UpdateNetworkAnalyzerConfigurationCommand";
+import {
   UpdatePartnerAccountCommandInput,
   UpdatePartnerAccountCommandOutput,
 } from "./commands/UpdatePartnerAccountCommand";
@@ -357,6 +365,7 @@ export type ServiceInputTypes =
   | GetLogLevelsByResourceTypesCommandInput
   | GetMulticastGroupCommandInput
   | GetMulticastGroupSessionCommandInput
+  | GetNetworkAnalyzerConfigurationCommandInput
   | GetPartnerAccountCommandInput
   | GetResourceEventConfigurationCommandInput
   | GetResourceLogLevelCommandInput
@@ -397,6 +406,7 @@ export type ServiceInputTypes =
   | UpdateFuotaTaskCommandInput
   | UpdateLogLevelsByResourceTypesCommandInput
   | UpdateMulticastGroupCommandInput
+  | UpdateNetworkAnalyzerConfigurationCommandInput
   | UpdatePartnerAccountCommandInput
   | UpdateResourceEventConfigurationCommandInput
   | UpdateWirelessDeviceCommandInput
@@ -442,6 +452,7 @@ export type ServiceOutputTypes =
   | GetLogLevelsByResourceTypesCommandOutput
   | GetMulticastGroupCommandOutput
   | GetMulticastGroupSessionCommandOutput
+  | GetNetworkAnalyzerConfigurationCommandOutput
   | GetPartnerAccountCommandOutput
   | GetResourceEventConfigurationCommandOutput
   | GetResourceLogLevelCommandOutput
@@ -482,6 +493,7 @@ export type ServiceOutputTypes =
   | UpdateFuotaTaskCommandOutput
   | UpdateLogLevelsByResourceTypesCommandOutput
   | UpdateMulticastGroupCommandOutput
+  | UpdateNetworkAnalyzerConfigurationCommandOutput
   | UpdatePartnerAccountCommandOutput
   | UpdateResourceEventConfigurationCommandOutput
   | UpdateWirelessDeviceCommandOutput

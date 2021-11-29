@@ -22,7 +22,7 @@ export interface ListSitesCommandInput extends ListSitesInput {}
 export interface ListSitesCommandOutput extends ListSitesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the sites for the specified AWS account.</p>
+ * <p>Lists the sites for your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

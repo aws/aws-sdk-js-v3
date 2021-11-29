@@ -35,9 +35,6 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  *             can be copied or restored by all Amazon Web Services accounts.</p>
  *         <p>To add or remove access for an Amazon Web Services account to copy or restore a manual DB cluster snapshot, or to make the
  *             manual DB cluster snapshot public or private, use the <code>ModifyDBClusterSnapshotAttribute</code> API action.</p>
- *         <note>
- *             <p>This action only applies to Aurora DB clusters.</p>
- *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

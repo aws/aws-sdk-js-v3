@@ -746,7 +746,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves the Amazon Macie configuration settings for an Amazon Web Services organization.</p>
+   * <p>Retrieves the Amazon Macie configuration settings for an organization in Organizations.</p>
    */
   public describeOrganizationConfiguration(
     args: DescribeOrganizationConfigurationCommandInput,
@@ -778,7 +778,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Disables an Amazon Macie account and deletes Macie resources for the account.</p>
+   * <p>Disables Amazon Macie and deletes all settings and resources for a Macie account.</p>
    */
   public disableMacie(
     args: DisableMacieCommandInput,
@@ -807,7 +807,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Disables an account as the delegated Amazon Macie administrator account for an Amazon Web Services organization.</p>
+   * <p>Disables an account as the delegated Amazon Macie administrator account for an organization in Organizations.</p>
    */
   public disableOrganizationAdminAccount(
     args: DisableOrganizationAdminAccountCommandInput,
@@ -961,7 +961,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Designates an account as the delegated Amazon Macie administrator account for an Amazon Web Services organization.</p>
+   * <p>Designates an account as the delegated Amazon Macie administrator account for an organization in Organizations.</p>
    */
   public enableOrganizationAdminAccount(
     args: EnableOrganizationAdminAccountCommandInput,
@@ -1025,7 +1025,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves (queries) aggregated statistical data for all the S3 buckets that Amazon Macie monitors and analyzes.</p>
+   * <p>Retrieves (queries) aggregated statistical data about S3 buckets that Amazon Macie monitors and analyzes.</p>
    */
   public getBucketStatistics(
     args: GetBucketStatisticsCommandInput,
@@ -1644,7 +1644,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves information about the delegated Amazon Macie administrator account for an Amazon Web Services organization.</p>
+   * <p>Retrieves information about the delegated Amazon Macie administrator account for an organization in Organizations.</p>
    */
   public listOrganizationAdminAccounts(
     args: ListOrganizationAdminAccountsCommandInput,
@@ -1958,7 +1958,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Suspends or re-enables an Amazon Macie account, or updates the configuration settings for a Macie account.</p>
+   * <p>Suspends or re-enables Amazon Macie, or updates the configuration settings for a Macie account.</p>
    */
   public updateMacieSession(
     args: UpdateMacieSessionCommandInput,
@@ -2022,7 +2022,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Updates the Amazon Macie configuration settings for an Amazon Web Services organization.</p>
+   * <p>Updates the Amazon Macie configuration settings for an organization in Organizations.</p>
    */
   public updateOrganizationConfiguration(
     args: UpdateOrganizationConfigurationCommandInput,

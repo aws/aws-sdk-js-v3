@@ -4808,8 +4808,12 @@ export interface ContainerDefinition {
    * 				<code>memoryReservation</code>, then that value is subtracted from the available
    * 			memory resources for the container instance where the container is placed. Otherwise,
    * 			the value of <code>memory</code> is used.</p>
-   * 		       <p>The Docker daemon reserves a minimum of 4 MiB of memory for a container. Therefore, we
-   * 			recommend that you specify fewer than 4 MiB of memory for your containers.</p>
+   * 		       <p>The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of
+   * 			memory for a container, so you should not specify fewer than 6 MiB of
+   * 			memory for your containers.</p>
+   * 		       <p>The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB
+   * 			of memory for a container, so you should not specify fewer than 4 MiB of
+   * 			memory for your containers.</p>
    */
   memory?: number;
 
@@ -5583,10 +5587,13 @@ export enum OSFamily {
 
 /**
  * <p>Information about the platform for the Amazon ECS service or task.</p>
+ * 		       <p>For more informataion about <code>RuntimePlatform</code>, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform">RuntimePlatform</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface RuntimePlatform {
   /**
    * <p>The CPU architecture.</p>
+   * 		       <p>You can run your Linux tasks on an ARM-based platform by setting the value  to <code>ARM64</code>. This option is avaiable
+   * 			for tasks that run on Linuc Amazon EC2 instance or Linux containers on Fargate.</p>
    */
   cpuArchitecture?: CPUArchitecture | string;
 

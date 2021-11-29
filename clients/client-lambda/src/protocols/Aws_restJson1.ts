@@ -209,6 +209,8 @@ import {
   EnvironmentResponse,
   EventSourceMappingConfiguration,
   FileSystemConfig,
+  Filter,
+  FilterCriteria,
   FunctionCode,
   FunctionCodeLocation,
   FunctionConfiguration,
@@ -452,6 +454,10 @@ export const serializeAws_restJson1CreateEventSourceMappingCommand = async (
     ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
     ...(input.EventSourceArn !== undefined &&
       input.EventSourceArn !== null && { EventSourceArn: input.EventSourceArn }),
+    ...(input.FilterCriteria !== undefined &&
+      input.FilterCriteria !== null && {
+        FilterCriteria: serializeAws_restJson1FilterCriteria(input.FilterCriteria, context),
+      }),
     ...(input.FunctionName !== undefined && input.FunctionName !== null && { FunctionName: input.FunctionName }),
     ...(input.FunctionResponseTypes !== undefined &&
       input.FunctionResponseTypes !== null && {
@@ -2267,6 +2273,10 @@ export const serializeAws_restJson1UpdateEventSourceMappingCommand = async (
         DestinationConfig: serializeAws_restJson1DestinationConfig(input.DestinationConfig, context),
       }),
     ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+    ...(input.FilterCriteria !== undefined &&
+      input.FilterCriteria !== null && {
+        FilterCriteria: serializeAws_restJson1FilterCriteria(input.FilterCriteria, context),
+      }),
     ...(input.FunctionName !== undefined && input.FunctionName !== null && { FunctionName: input.FunctionName }),
     ...(input.FunctionResponseTypes !== undefined &&
       input.FunctionResponseTypes !== null && {
@@ -2850,6 +2860,7 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
     BisectBatchOnFunctionError: undefined,
     DestinationConfig: undefined,
     EventSourceArn: undefined,
+    FilterCriteria: undefined,
     FunctionArn: undefined,
     FunctionResponseTypes: undefined,
     LastModified: undefined,
@@ -2881,6 +2892,9 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
   }
   if (data.EventSourceArn !== undefined && data.EventSourceArn !== null) {
     contents.EventSourceArn = __expectString(data.EventSourceArn);
+  }
+  if (data.FilterCriteria !== undefined && data.FilterCriteria !== null) {
+    contents.FilterCriteria = deserializeAws_restJson1FilterCriteria(data.FilterCriteria, context);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
     contents.FunctionArn = __expectString(data.FunctionArn);
@@ -3425,6 +3439,7 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
     BisectBatchOnFunctionError: undefined,
     DestinationConfig: undefined,
     EventSourceArn: undefined,
+    FilterCriteria: undefined,
     FunctionArn: undefined,
     FunctionResponseTypes: undefined,
     LastModified: undefined,
@@ -3456,6 +3471,9 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
   }
   if (data.EventSourceArn !== undefined && data.EventSourceArn !== null) {
     contents.EventSourceArn = __expectString(data.EventSourceArn);
+  }
+  if (data.FilterCriteria !== undefined && data.FilterCriteria !== null) {
+    contents.FilterCriteria = deserializeAws_restJson1FilterCriteria(data.FilterCriteria, context);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
     contents.FunctionArn = __expectString(data.FunctionArn);
@@ -4326,6 +4344,7 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
     BisectBatchOnFunctionError: undefined,
     DestinationConfig: undefined,
     EventSourceArn: undefined,
+    FilterCriteria: undefined,
     FunctionArn: undefined,
     FunctionResponseTypes: undefined,
     LastModified: undefined,
@@ -4357,6 +4376,9 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
   }
   if (data.EventSourceArn !== undefined && data.EventSourceArn !== null) {
     contents.EventSourceArn = __expectString(data.EventSourceArn);
+  }
+  if (data.FilterCriteria !== undefined && data.FilterCriteria !== null) {
+    contents.FilterCriteria = deserializeAws_restJson1FilterCriteria(data.FilterCriteria, context);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
     contents.FunctionArn = __expectString(data.FunctionArn);
@@ -8064,6 +8086,7 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
     BisectBatchOnFunctionError: undefined,
     DestinationConfig: undefined,
     EventSourceArn: undefined,
+    FilterCriteria: undefined,
     FunctionArn: undefined,
     FunctionResponseTypes: undefined,
     LastModified: undefined,
@@ -8095,6 +8118,9 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
   }
   if (data.EventSourceArn !== undefined && data.EventSourceArn !== null) {
     contents.EventSourceArn = __expectString(data.EventSourceArn);
+  }
+  if (data.FilterCriteria !== undefined && data.FilterCriteria !== null) {
+    contents.FilterCriteria = deserializeAws_restJson1FilterCriteria(data.FilterCriteria, context);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
     contents.FunctionArn = __expectString(data.FunctionArn);
@@ -9727,6 +9753,30 @@ const serializeAws_restJson1FileSystemConfigList = (input: FileSystemConfig[], c
     });
 };
 
+const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
+  return {
+    ...(input.Pattern !== undefined && input.Pattern !== null && { Pattern: input.Pattern }),
+  };
+};
+
+const serializeAws_restJson1FilterCriteria = (input: FilterCriteria, context: __SerdeContext): any => {
+  return {
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_restJson1FilterList(input.Filters, context) }),
+  };
+};
+
+const serializeAws_restJson1FilterList = (input: Filter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Filter(entry, context);
+    });
+};
+
 const serializeAws_restJson1FunctionCode = (input: FunctionCode, context: __SerdeContext): any => {
   return {
     ...(input.ImageUri !== undefined && input.ImageUri !== null && { ImageUri: input.ImageUri }),
@@ -10171,6 +10221,10 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
         ? deserializeAws_restJson1DestinationConfig(output.DestinationConfig, context)
         : undefined,
     EventSourceArn: __expectString(output.EventSourceArn),
+    FilterCriteria:
+      output.FilterCriteria !== undefined && output.FilterCriteria !== null
+        ? deserializeAws_restJson1FilterCriteria(output.FilterCriteria, context)
+        : undefined,
     FunctionArn: __expectString(output.FunctionArn),
     FunctionResponseTypes:
       output.FunctionResponseTypes !== undefined && output.FunctionResponseTypes !== null
@@ -10242,6 +10296,32 @@ const deserializeAws_restJson1FileSystemConfigList = (output: any, context: __Se
         return null as any;
       }
       return deserializeAws_restJson1FileSystemConfig(entry, context);
+    });
+};
+
+const deserializeAws_restJson1Filter = (output: any, context: __SerdeContext): Filter => {
+  return {
+    Pattern: __expectString(output.Pattern),
+  } as any;
+};
+
+const deserializeAws_restJson1FilterCriteria = (output: any, context: __SerdeContext): FilterCriteria => {
+  return {
+    Filters:
+      output.Filters !== undefined && output.Filters !== null
+        ? deserializeAws_restJson1FilterList(output.Filters, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FilterList = (output: any, context: __SerdeContext): Filter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Filter(entry, context);
     });
 };
 

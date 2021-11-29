@@ -31,8 +31,9 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  *                 <p>
  *                     <b>Status checks</b> - Amazon EC2 performs status
  *                     checks on running EC2 instances to identify hardware and software issues. For
- *                     more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html">Status checks for your instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html">Troubleshooting
- *                         instances with failed status checks</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *                     more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html">Status checks for your instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html">Troubleshoot
+ *                         instances with failed status checks</a> in the <i>Amazon EC2 User
+ *                         Guide</i>.</p>
  *             </li>
  *             <li>
  *                 <p>

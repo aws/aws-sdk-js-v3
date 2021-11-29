@@ -63,6 +63,11 @@ import {
   GetStreamKeyCommandOutput,
 } from "./commands/GetStreamKeyCommand";
 import {
+  GetStreamSessionCommand,
+  GetStreamSessionCommandInput,
+  GetStreamSessionCommandOutput,
+} from "./commands/GetStreamSessionCommand";
+import {
   ImportPlaybackKeyPairCommand,
   ImportPlaybackKeyPairCommandInput,
   ImportPlaybackKeyPairCommandOutput,
@@ -88,6 +93,11 @@ import {
   ListStreamKeysCommandOutput,
 } from "./commands/ListStreamKeysCommand";
 import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
+import {
+  ListStreamSessionsCommand,
+  ListStreamSessionsCommandInput,
+  ListStreamSessionsCommandOutput,
+} from "./commands/ListStreamSessionsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -126,7 +136,6 @@ import { IvsClient } from "./IvsClient";
  *          </p>
  *          <p>For a summary of notable documentation changes in each release, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/doc-history.html"> Document
  *       History</a>.</p>
- *
  *          <p>
  *             <b>Allowed Header Values</b>
  *          </p>
@@ -316,8 +325,18 @@ import { IvsClient } from "./IvsClient";
  *             </li>
  *             <li>
  *                <p>
+ *                   <a>GetStreamSession</a> — Gets metadata on a specified stream.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>ListStreams</a> — Gets summary information about live streams in
  *           your account, in the Amazon Web Services region where the API request is processed.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListStreamSessions</a> — Gets a summary of current and previous
+ *           streams for a specified channel in your account, in the AWS region where the API request
+ *           is processed.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -513,16 +532,16 @@ export class Ivs extends IvsClient {
   /**
    * <p>Creates a new recording configuration, used to enable recording to Amazon S3.</p>
    *          <p>
-   *             <b>Known issue:</b> In the us-east-1 region, if you use the Amazon Web Services
-   *       CLI to create a recording configuration, it returns success even if the S3 bucket is in a
-   *       different region. In this case, the <code>state</code> of the recording configuration is
-   *         <code>CREATE_FAILED</code> (instead of <code>ACTIVE</code>). (In other regions, the CLI
-   *       correctly returns failure if the bucket is in a different region.)</p>
+   *             <b>Known issue:</b> In the us-east-1 region, if you use the
+   *         Amazon Web Services CLI to create a recording configuration, it returns success even if the
+   *       S3 bucket is in a different region. In this case, the <code>state</code> of the recording
+   *       configuration is <code>CREATE_FAILED</code> (instead of <code>ACTIVE</code>). (In other
+   *       regions, the CLI correctly returns failure if the bucket is in a different region.)</p>
    *          <p>
-   *             <b>Workaround:</b> Ensure that your S3 bucket is in the same region as the recording
-   *       configuration. If you create a recording configuration in a different region as your S3
-   *       bucket, delete that recording configuration and create a new one with an S3 bucket from the
-   *       correct region.</p>
+   *             <b>Workaround:</b> Ensure that your S3 bucket is in the same
+   *       region as the recording configuration. If you create a recording configuration in a different
+   *       region as your S3 bucket, delete that recording configuration and create a new one with an S3
+   *       bucket from the correct region.</p>
    */
   public createRecordingConfiguration(
     args: CreateRecordingConfigurationCommandInput,
@@ -593,7 +612,8 @@ export class Ivs extends IvsClient {
    *          <p>If you try to delete a live channel, you will get an error (409 ConflictException). To
    *       delete a channel that is live, call <a>StopStream</a>, wait for the Amazon
    *       EventBridge "Stream End" event (to verify that the stream's state was changed from Live to
-   *       Offline), then call DeleteChannel. (See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html"> Using EventBridge with Amazon IVS</a>.) </p>
+   *       Offline), then call DeleteChannel. (See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html"> Using EventBridge with Amazon IVS</a>.)
+   *     </p>
    */
   public deleteChannel(
     args: DeleteChannelCommandInput,
@@ -878,6 +898,38 @@ export class Ivs extends IvsClient {
   }
 
   /**
+   * <p>Gets metadata on a specified stream.</p>
+   */
+  public getStreamSession(
+    args: GetStreamSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStreamSessionCommandOutput>;
+  public getStreamSession(
+    args: GetStreamSessionCommandInput,
+    cb: (err: any, data?: GetStreamSessionCommandOutput) => void
+  ): void;
+  public getStreamSession(
+    args: GetStreamSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetStreamSessionCommandOutput) => void
+  ): void;
+  public getStreamSession(
+    args: GetStreamSessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStreamSessionCommandOutput) => void),
+    cb?: (err: any, data?: GetStreamSessionCommandOutput) => void
+  ): Promise<GetStreamSessionCommandOutput> | void {
+    const command = new GetStreamSessionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Imports the public portion of a new key pair and returns its <code>arn</code> and
    *         <code>fingerprint</code>. The <code>privateKey</code> can then be used to generate viewer
    *       authorization tokens, to grant viewers access to private channels. For more information, see
@@ -914,9 +966,9 @@ export class Ivs extends IvsClient {
   }
 
   /**
-   * <p>Gets summary information about all channels in your account, in the Amazon Web Services region where the
-   *       API request is processed. This list can be filtered to match a specified name or
-   *       recording-configuration ARN. Filters are mutually exclusive and cannot be used together. If
+   * <p>Gets summary information about all channels in your account, in the Amazon Web Services
+   *       region where the API request is processed. This list can be filtered to match a specified name
+   *       or recording-configuration ARN. Filters are mutually exclusive and cannot be used together. If
    *       you try to use both filters, you will get an error (409 ConflictException).</p>
    */
   public listChannels(
@@ -979,8 +1031,8 @@ export class Ivs extends IvsClient {
   }
 
   /**
-   * <p>Gets summary information about all recording configurations in your account, in the Amazon Web Services
-   *       region where the API request is processed.</p>
+   * <p>Gets summary information about all recording configurations in your account, in the
+   *         Amazon Web Services region where the API request is processed.</p>
    */
   public listRecordingConfigurations(
     args: ListRecordingConfigurationsCommandInput,
@@ -1044,8 +1096,8 @@ export class Ivs extends IvsClient {
   }
 
   /**
-   * <p>Gets summary information about live streams in your account, in the Amazon Web Services region where the
-   *       API request is processed.</p>
+   * <p>Gets summary information about live streams in your account, in the Amazon Web Services
+   *       region where the API request is processed.</p>
    */
   public listStreams(args: ListStreamsCommandInput, options?: __HttpHandlerOptions): Promise<ListStreamsCommandOutput>;
   public listStreams(args: ListStreamsCommandInput, cb: (err: any, data?: ListStreamsCommandOutput) => void): void;
@@ -1060,6 +1112,39 @@ export class Ivs extends IvsClient {
     cb?: (err: any, data?: ListStreamsCommandOutput) => void
   ): Promise<ListStreamsCommandOutput> | void {
     const command = new ListStreamsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a summary of current and previous streams for a specified channel in your account, in
+   *       the AWS region where the API request is processed.</p>
+   */
+  public listStreamSessions(
+    args: ListStreamSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStreamSessionsCommandOutput>;
+  public listStreamSessions(
+    args: ListStreamSessionsCommandInput,
+    cb: (err: any, data?: ListStreamSessionsCommandOutput) => void
+  ): void;
+  public listStreamSessions(
+    args: ListStreamSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStreamSessionsCommandOutput) => void
+  ): void;
+  public listStreamSessions(
+    args: ListStreamSessionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStreamSessionsCommandOutput) => void),
+    cb?: (err: any, data?: ListStreamSessionsCommandOutput) => void
+  ): Promise<ListStreamSessionsCommandOutput> | void {
+    const command = new ListStreamSessionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1103,7 +1188,7 @@ export class Ivs extends IvsClient {
   }
 
   /**
-   * <p>Inserts metadata into the active stream of the specified channel.  At most 5 requests per
+   * <p>Inserts metadata into the active stream of the specified channel. At most 5 requests per
    *       second per channel are allowed, each with a maximum 1 KB payload. (If 5 TPS is not sufficient
    *       for your needs, we recommend batching your data into a single PutMetadata call.) At most 155
    *       requests per second per account are allowed. Also see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/metadata.html">Embedding Metadata within a Video Stream</a> in

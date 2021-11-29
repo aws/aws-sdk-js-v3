@@ -51,6 +51,7 @@ import {
 
 import { AnalyzeDocumentCommandInput, AnalyzeDocumentCommandOutput } from "./commands/AnalyzeDocumentCommand";
 import { AnalyzeExpenseCommandInput, AnalyzeExpenseCommandOutput } from "./commands/AnalyzeExpenseCommand";
+import { AnalyzeIDCommandInput, AnalyzeIDCommandOutput } from "./commands/AnalyzeIDCommand";
 import { DetectDocumentTextCommandInput, DetectDocumentTextCommandOutput } from "./commands/DetectDocumentTextCommand";
 import {
   GetDocumentAnalysisCommandInput,
@@ -78,6 +79,7 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 export type ServiceInputTypes =
   | AnalyzeDocumentCommandInput
   | AnalyzeExpenseCommandInput
+  | AnalyzeIDCommandInput
   | DetectDocumentTextCommandInput
   | GetDocumentAnalysisCommandInput
   | GetDocumentTextDetectionCommandInput
@@ -89,6 +91,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AnalyzeDocumentCommandOutput
   | AnalyzeExpenseCommandOutput
+  | AnalyzeIDCommandOutput
   | DetectDocumentTextCommandOutput
   | GetDocumentAnalysisCommandOutput
   | GetDocumentTextDetectionCommandOutput

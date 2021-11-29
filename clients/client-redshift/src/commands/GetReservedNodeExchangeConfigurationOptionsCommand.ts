@@ -1,0 +1,112 @@
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
+  SerdeContext as __SerdeContext,
+} from "@aws-sdk/types";
+
+import {
+  GetReservedNodeExchangeConfigurationOptionsInputMessage,
+  GetReservedNodeExchangeConfigurationOptionsOutputMessage,
+} from "../models/models_1";
+import {
+  deserializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommand,
+  serializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommand,
+} from "../protocols/Aws_query";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+
+export interface GetReservedNodeExchangeConfigurationOptionsCommandInput
+  extends GetReservedNodeExchangeConfigurationOptionsInputMessage {}
+export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput
+  extends GetReservedNodeExchangeConfigurationOptionsOutputMessage,
+    __MetadataBearer {}
+
+/**
+ * <p>Gets the configuration options for the reserved-node exchange. These options
+ *             include information about the source reserved node and target reserved node offering.
+ *             Details include the node type, the price, the node count, and the offering type.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RedshiftClient, GetReservedNodeExchangeConfigurationOptionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, GetReservedNodeExchangeConfigurationOptionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * const client = new RedshiftClient(config);
+ * const command = new GetReservedNodeExchangeConfigurationOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetReservedNodeExchangeConfigurationOptionsCommandInput} for command's `input` shape.
+ * @see {@link GetReservedNodeExchangeConfigurationOptionsCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ */
+export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command<
+  GetReservedNodeExchangeConfigurationOptionsCommandInput,
+  GetReservedNodeExchangeConfigurationOptionsCommandOutput,
+  RedshiftClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: GetReservedNodeExchangeConfigurationOptionsCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  /**
+   * @internal
+   */
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: RedshiftClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<
+    GetReservedNodeExchangeConfigurationOptionsCommandInput,
+    GetReservedNodeExchangeConfigurationOptionsCommandOutput
+  > {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "GetReservedNodeExchangeConfigurationOptionsCommand";
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: GetReservedNodeExchangeConfigurationOptionsInputMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: GetReservedNodeExchangeConfigurationOptionsOutputMessage.filterSensitiveLog,
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(
+    input: GetReservedNodeExchangeConfigurationOptionsCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommand(input, context);
+  }
+
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<GetReservedNodeExchangeConfigurationOptionsCommandOutput> {
+    return deserializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}

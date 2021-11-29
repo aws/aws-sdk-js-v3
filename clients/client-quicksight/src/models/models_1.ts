@@ -30,6 +30,7 @@ import {
   GroupMember,
   IdentityType,
   Ingestion,
+  LinkSharingConfiguration,
   LogicalTable,
   NamespaceInfoV2,
   PhysicalTable,
@@ -44,10 +45,127 @@ import {
   ThemeAlias,
   ThemeConfiguration,
   ThemeType,
-  User,
-  UserRole,
   VpcConnectionProperties,
 } from "./models_0";
+
+export enum UserRole {
+  ADMIN = "ADMIN",
+  AUTHOR = "AUTHOR",
+  READER = "READER",
+  RESTRICTED_AUTHOR = "RESTRICTED_AUTHOR",
+  RESTRICTED_READER = "RESTRICTED_READER",
+}
+
+/**
+ * <p>A registered user of Amazon QuickSight. </p>
+ */
+export interface User {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the user.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The user's user name. In the output, the value for <code>UserName</code> is
+   *                 <code>N/A</code> when the value for <code>IdentityType</code> is <code>IAM</code>
+   *             and the corresponding IAM user is deleted.</p>
+   */
+  UserName?: string;
+
+  /**
+   * <p>The user's email address.</p>
+   */
+  Email?: string;
+
+  /**
+   * <p>The Amazon QuickSight role for the user. The user role can be one of the
+   *             following:.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>READER</code>: A user who has read-only access to dashboards.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>AUTHOR</code>: A user who can create data sources, datasets, analyses,
+   *                     and dashboards.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ADMIN</code>: A user who is an author, who can also manage Amazon
+   *                     Amazon QuickSight settings.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>RESTRICTED_READER</code>: This role isn't currently available for
+   *                     use.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for
+   *                     use.</p>
+   *             </li>
+   *          </ul>
+   */
+  Role?: UserRole | string;
+
+  /**
+   * <p>The type of identity authentication used by the user.</p>
+   */
+  IdentityType?: IdentityType | string;
+
+  /**
+   * <p>The active status of user. When you create an Amazon QuickSight user that’s not an IAM
+   *             user or an Active Directory user, that user is inactive until they sign in and provide a
+   *             password.</p>
+   */
+  Active?: boolean;
+
+  /**
+   * <p>The principal ID of the user.</p>
+   */
+  PrincipalId?: string;
+
+  /**
+   * <p>The custom permissions profile associated with this user.</p>
+   */
+  CustomPermissionsName?: string;
+
+  /**
+   * <p>The type of supported external login provider that provides identity to let the user
+   *             federate into Amazon QuickSight with an associated IAM role. The type can be one of the following.</p>
+   *         <ul>
+   *             <li>
+   *                     <p>
+   *                   <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.</p>
+   *                 </li>
+   *             <li>
+   *                     <p>
+   *                   <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider.</p>
+   *                 </li>
+   *          </ul>
+   */
+  ExternalLoginFederationProviderType?: string;
+
+  /**
+   * <p>The URL of the external login provider.</p>
+   */
+  ExternalLoginFederationProviderUrl?: string;
+
+  /**
+   * <p>The identity ID for the user in the external login provider.</p>
+   */
+  ExternalLoginId?: string;
+}
+
+export namespace User {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: User): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeUserResponse {
   /**
@@ -109,7 +227,7 @@ export enum FolderFilterAttribute {
 }
 
 /**
- * <p>An object that consists of the member Amazon Resource Name (ARN) and member ID.</p>
+ * <p>An object that consists of a member Amazon Resource Name (ARN) and a member ID.</p>
  */
 export interface MemberIdArnPair {
   /**
@@ -133,16 +251,16 @@ export namespace MemberIdArnPair {
 }
 
 /**
- * <p>Searches a folder by a filter.</p>
+ * <p>A filter to use to search a Amazon QuickSight folder.</p>
  */
 export interface FolderSearchFilter {
   /**
-   * <p>The comparison operator that you want to use as a filter. For example, <code>"Operator": "StringEquals"</code>.</p>
+   * <p>The comparison operator that you want to use in the filter. For example, <code>"Operator": "StringEquals"</code>.</p>
    */
   Operator?: FilterOperator | string;
 
   /**
-   * <p>The name of the value that you want to use as a filter. For example, <code>"Name": "PARENT_FOLDER_ARN"</code>.</p>
+   * <p>The name of a value that you want to use in the filter. For example, <code>"Name": "PARENT_FOLDER_ARN"</code>.</p>
    */
   Name?: FolderFilterAttribute | string;
 
@@ -162,16 +280,16 @@ export namespace FolderSearchFilter {
 }
 
 /**
- * <p>A summary of the folder. </p>
+ * <p>A summary of information about an existing Amazon QuickSight folder. </p>
  */
 export interface FolderSummary {
   /**
-   * <p>The Amazon Resource Name (ARN).</p>
+   * <p>The Amazon Resource Name (ARN) of the folder.</p>
    */
   Arn?: string;
 
   /**
-   * <p>The folder ID.</p>
+   * <p>The ID of the folder.</p>
    */
   FolderId?: string;
 
@@ -327,10 +445,12 @@ export namespace SessionLifetimeInMinutesInvalidException {
 /**
  * <p>This error indicates that you are calling an embedding operation in Amazon QuickSight
  * 			without the required pricing plan on your Amazon Web Services account. Before you can use embedding
- * 			for anonymous users, a Amazon QuickSight administrator needs to add capacity pricing to Amazon QuickSight. You
+ * 			for anonymous users, a QuickSight administrator needs to add capacity pricing to Amazon QuickSight. You
  * 		    can do this on the <b>Manage Amazon QuickSight</b> page. </p>
  *         <p>After capacity pricing is added, you can use the
- *             <a>GetDashboardEmbedUrl</a> API operation with the
+ *             <code>
+ *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html">GetDashboardEmbedUrl</a>
+ *             </code> API operation with the
  *             <code>--identity-type ANONYMOUS</code> option.</p>
  */
 export interface UnsupportedPricingPlanException extends __SmithyException, $MetadataBearer {
@@ -377,8 +497,12 @@ export namespace RegisteredUserDashboardEmbeddingConfiguration {
  */
 export interface RegisteredUserQSearchBarEmbeddingConfiguration {
   /**
-   * <p>The ID of the Q topic that you want to make the starting topic in the Q search bar. You can find a topic ID by navigating to the Topics pane in the Amazon QuickSight application and opening a topic. The ID is in the URL for the topic that you open.</p>
-   *          <p>If you don't specify an initial topic, a list of all shared topics is shown in the Q bar for your readers. When you select an initial topic, you can specify whether or not readers are allowed to select other topics from the available ones in the list.</p>
+   * <p>The ID of the Q topic that you want to make the starting topic in the Q search bar.
+   *       You can find a topic ID by navigating to the Topics pane in the Amazon QuickSight application and opening
+   *       a topic. The ID is in the URL for the topic that you open.</p>
+   *          <p>If you don't specify an initial topic, a list of all shared topics is shown in the Q bar
+   *       for your readers. When you select an initial topic, you can specify whether or not readers
+   *       are allowed to select other topics from the available ones in the list.</p>
    */
   InitialTopicId?: string;
 }
@@ -443,9 +567,11 @@ export namespace RegisteredUserQuickSightConsoleEmbeddingConfiguration {
 }
 
 /**
- * <p>The type of experience you want to embed. For registered users, you can embed an Amazon QuickSight dashboard or the Amazon QuickSight console.</p>
+ * <p>The type of experience you want to embed. For registered users, you can embed Amazon QuickSight dashboards or the Amazon QuickSight console.</p>
  *          <note>
- *             <p>Exactly one of the experience configurations is required. You can choose <code>Dashboard</code> or <code>QuickSightConsole</code>. You cannot choose more than one experience configuraton.</p>
+ *             <p>Exactly one of the experience configurations is required. You can choose
+ *                     <code>Dashboard</code> or <code>QuickSightConsole</code>. You cannot choose more
+ *                 than one experience configuration.</p>
  *          </note>
  */
 export interface RegisteredUserEmbeddingExperienceConfiguration {
@@ -455,17 +581,20 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
   Dashboard?: RegisteredUserDashboardEmbeddingConfiguration;
 
   /**
-   * <p>The configuration details for providing an Amazon QuickSight console embedding experience. This can be used along with custom permissions to restrict access to certain features. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon QuickSight Console</a> in the <i>Amazon QuickSight User
+   * <p>The configuration details for providing each Amazon QuickSight console embedding experience. This can be used along with custom permissions to restrict access to certain features. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon QuickSight Console</a> in the <i>Amazon QuickSight User
    *             Guide</i>.</p>
-   *         <p>Use <code>GenerateEmbedUrlForRegisteredUser</code> where
+   *         <p>Use <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html">GenerateEmbedUrlForRegisteredUser</a>
+   *             </code>
+   *             where
    *             you want to provide an authoring portal that allows users to create data sources,
    *             datasets, analyses, and dashboards. The users who accesses an embedded Amazon QuickSight console
    *             needs to belong to the author or admin security cohort. If you want to restrict permissions
    *             to some of these features, add a custom permissions profile to the user with the
    *             <code>
-   *                <a>UpdateUser</a>
-   *             </code> API operation. Use <code>
-   *                <a>RegisterUser</a>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html">UpdateUser</a>
+   *             </code> API operation. Use the <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html">RegisterUser</a>
    *             </code> API operation to add a new user with a custom permission profile attached. For more
    *             information, see the following sections in the <i>Amazon QuickSight User
    *             Guide</i>:</p>
@@ -487,7 +616,8 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
 
   /**
    * <p>The configuration details for embedding the Q search bar.</p>
-   *          <p>For more information about embedding the Q search bar, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html">Embedding Overview</a>.</p>
+   *          <p>For more information about embedding the Q search bar, see
+   *       <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html">Embedding Overview</a>.</p>
    */
   QSearchBar?: RegisteredUserQSearchBarEmbeddingConfiguration;
 }
@@ -518,7 +648,7 @@ export interface GenerateEmbedUrlForRegisteredUserRequest {
   UserArn: string | undefined;
 
   /**
-   * <p>The experience you are embedding. For registered users, you can embed Amazon QuickSight dashboards, the entire Amazon QuickSight console, or the Amazon QuickSight Q search bar.</p>
+   * <p>The experience you are embedding. For registered users, you can embed Amazon QuickSight dashboards or the entire Amazon QuickSight console.</p>
    */
   ExperienceConfiguration: RegisteredUserEmbeddingExperienceConfiguration | undefined;
 }
@@ -534,7 +664,7 @@ export namespace GenerateEmbedUrlForRegisteredUserRequest {
 
 export interface GenerateEmbedUrlForRegisteredUserResponse {
   /**
-   * <p>The embed URL for the Amazon QuickSight dashboard, console, or Q search bar.</p>
+   * <p>The embed URL for the Amazon QuickSight dashboard or console.</p>
    */
   EmbedUrl: string | undefined;
 
@@ -640,11 +770,11 @@ export interface GetDashboardEmbedUrlRequest {
    * 				           <p>Invited nonfederated users</p>
    * 			         </li>
    *             <li>
-   * 				           <p>IAMusers and IAMrole-based sessions authenticated through Federated Single Sign-On using
-   * 					SAML, OpenID Connect, or IAMfederation.</p>
+   * 				           <p>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On using
+   * 					SAML, OpenID Connect, or IAM federation.</p>
    * 			         </li>
    *          </ul>
-   *          <p>Omit this parameter for users in the third group – IAMusers and IAM
+   *          <p>Omit this parameter for users in the third group – IAM users and IAM
    *             role-based sessions.</p>
    */
   UserArn?: string;
@@ -659,7 +789,7 @@ export interface GetDashboardEmbedUrlRequest {
    * <p>A list of one or more dashboard IDs that you want to add to a session that includes
    *             anonymous users. The <code>IdentityType</code> parameter must be set to
    *                 <code>ANONYMOUS</code> for this to work, because other identity types authenticate
-   *             as Amazon QuickSight or IAMusers. For example, if you set "<code>--dashboard-id dash_id1
+   *             as Amazon QuickSight or IAM users. For example, if you set "<code>--dashboard-id dash_id1
    *                 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS</code>", the session
    *             can access all three dashboards. </p>
    */
@@ -843,7 +973,7 @@ export namespace GetSessionEmbedUrlResponse {
 }
 
 /**
- * <p>IAMpolicy assignment summary.</p>
+ * <p>IAM policy assignment summary.</p>
  */
 export interface IAMPolicyAssignmentSummary {
   /**
@@ -1162,12 +1292,12 @@ export namespace ListDataSourcesResponse {
 
 export interface ListFolderMembersRequest {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The folder ID.</p>
+   * <p>The ID of the folder.</p>
    */
   FolderId: string | undefined;
 
@@ -1193,8 +1323,7 @@ export namespace ListFolderMembersRequest {
 
 export interface ListFolderMembersResponse {
   /**
-   * <p>The status. If succeeded, the status is <code>SC_OK</code>
-   *          </p>
+   * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
@@ -1209,7 +1338,7 @@ export interface ListFolderMembersResponse {
   NextToken?: string;
 
   /**
-   * <p>The request ID.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -1225,7 +1354,7 @@ export namespace ListFolderMembersResponse {
 
 export interface ListFoldersRequest {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -1251,13 +1380,12 @@ export namespace ListFoldersRequest {
 
 export interface ListFoldersResponse {
   /**
-   * <p>The status. If succeeded, the status is <code>SC_OK</code>
-   *          </p>
+   * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
   /**
-   * <p>A structure that contains all of the folders in your AWS account. This structure provides basic information about the folders.</p>
+   * <p>A structure that contains all of the folders in the Amazon Web Services account. This structure provides basic information about the folders.</p>
    */
   FolderSummaryList?: FolderSummary[];
 
@@ -1267,7 +1395,7 @@ export interface ListFoldersResponse {
   NextToken?: string;
 
   /**
-   * <p>The request ID.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -1414,7 +1542,7 @@ export namespace ListGroupsResponse {
 
 export interface ListIAMPolicyAssignmentsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that contains these IAMpolicy assignments.</p>
+   * <p>The ID of the Amazon Web Services account that contains these IAM policy assignments.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -1450,7 +1578,7 @@ export namespace ListIAMPolicyAssignmentsRequest {
 
 export interface ListIAMPolicyAssignmentsResponse {
   /**
-   * <p>Information describing the IAMpolicy assignments.</p>
+   * <p>Information describing the IAM policy assignments.</p>
    */
   IAMPolicyAssignments?: IAMPolicyAssignmentSummary[];
 
@@ -2395,7 +2523,7 @@ export interface RegisterUserRequest {
    * 		       <ul>
    *             <li>
    * 				           <p>
-   *                   <code>IAM</code>: A user whose identity maps to an existing IAMuser or role.
+   *                   <code>IAM</code>: A user whose identity maps to an existing IAM user or role.
    * 				</p>
    * 			         </li>
    *             <li>
@@ -2445,18 +2573,18 @@ export interface RegisterUserRequest {
   UserRole: UserRole | string | undefined;
 
   /**
-   * <p>The ARN of the IAMuser or role that you are registering with Amazon QuickSight. </p>
+   * <p>The ARN of the IAM user or role that you are registering with Amazon QuickSight. </p>
    */
   IamArn?: string;
 
   /**
    * <p>You need to use this parameter only when you register one or more users using an assumed
-   * 			IAMrole. You don't need to provide the session name for other scenarios, for example when
-   * 			you are registering an IAMuser or an Amazon QuickSight user. You can register multiple
-   * 			users using the same IAMrole if each user has a different session name. For more
-   * 			information on assuming IAMroles, see <a href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html">
+   * 			IAM role. You don't need to provide the session name for other scenarios, for example when
+   * 			you are registering an IAM user or an Amazon QuickSight user. You can register multiple
+   * 			users using the same IAM role if each user has a different session name. For more
+   * 			information on assuming IAM roles, see <a href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html">
    *                <code>assume-role</code>
-   *             </a> in the <i>AWS CLI Reference.</i>
+   *             </a> in the <i>CLI Reference.</i>
    *          </p>
    */
   SessionName?: string;
@@ -2497,13 +2625,13 @@ export interface RegisterUserRequest {
    *             </li>
    *          </ul>
    *         <p>To add custom permissions to an existing user, use <code>
-   *                <a>UpdateUser</a>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html">UpdateUser</a>
    *             </code> instead.</p>
    *         <p>A set of custom permissions includes any combination of these restrictions. Currently,
    *             you need to create the profile names for custom permission sets by using the Amazon QuickSight
    *             console. Then, you use the <code>RegisterUser</code> API operation to assign the named set of
-   *             permissions to a Amazon QuickSight user. </p>
-   *         <p>Amazon QuickSight custom permissions are applied through IAMpolicies. Therefore, they
+   *             permissions to a QuickSight user. </p>
+   *         <p>Amazon QuickSight custom permissions are applied through IAM policies. Therefore, they
    *             override the permissions typically granted by assigning Amazon QuickSight users to one of the
    *             default security cohorts in Amazon QuickSight (admin, author, reader).</p>
    *         <p>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</p>
@@ -2765,7 +2893,7 @@ export namespace SearchDashboardsResponse {
 
 export interface SearchFoldersRequest {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -2796,12 +2924,12 @@ export namespace SearchFoldersRequest {
 
 export interface SearchFoldersResponse {
   /**
-   * <p>The status. If succeeded, the status is <code>SC_OK</code>.</p>
+   * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
   /**
-   * <p>A structure that contains all of the folders in your AWS account. This structure provides basic information about the folders.</p>
+   * <p>A structure that contains all of the folders in the Amazon Web Services account. This structure provides basic information about the folders.</p>
    */
   FolderSummaryList?: FolderSummary[];
 
@@ -2811,7 +2939,7 @@ export interface SearchFoldersResponse {
   NextToken?: string;
 
   /**
-   * <p>The request ID.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -3207,7 +3335,9 @@ export interface UpdateDashboardRequest {
    *             <code>SourceEntity</code>, you specify the type of object you're using as source. You
    *             can only update a dashboard from a template, so you use a <code>SourceTemplate</code>
    *             entity. If you need to update a dashboard from an analysis, first convert the analysis
-   *             to a template by using the <a>CreateTemplate</a> API operation. For
+   *             to a template by using the <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
+   *             </code> API operation. For
    *             <code>SourceTemplate</code>, specify the Amazon Resource Name (ARN) of the source
    *             template. The <code>SourceTemplate</code> ARN can contain any Amazon Web Services account and any
    *             Amazon QuickSight-supported Amazon Web Services Region. </p>
@@ -3337,6 +3467,16 @@ export interface UpdateDashboardPermissionsRequest {
    * <p>The permissions that you want to revoke from this resource.</p>
    */
   RevokePermissions?: ResourcePermission[];
+
+  /**
+   * <p>Grants link permissions to all users in a defined namespace.</p>
+   */
+  GrantLinkPermissions?: ResourcePermission[];
+
+  /**
+   * <p>Revokes link permissions from all users in a defined namespace.</p>
+   */
+  RevokeLinkPermissions?: ResourcePermission[];
 }
 
 export namespace UpdateDashboardPermissionsRequest {
@@ -3373,6 +3513,11 @@ export interface UpdateDashboardPermissionsResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
+
+  /**
+   * <p>Updates the permissions of a shared link to an Amazon QuickSight dashboard.</p>
+   */
+  LinkSharingConfiguration?: LinkSharingConfiguration;
 }
 
 export namespace UpdateDashboardPermissionsResponse {
@@ -3496,7 +3641,7 @@ export interface UpdateDataSetRequest {
 
   /**
    * <p>A set of one or more definitions of a <code>
-   *                <a>ColumnLevelPermissionRule</a>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
    *             </code>.</p>
    */
   ColumnLevelPermissionRules?: ColumnLevelPermissionRule[];
@@ -3799,12 +3944,12 @@ export namespace UpdateDataSourcePermissionsResponse {
 
 export interface UpdateFolderRequest {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The ID for the Amazon Web Services account that contains the folder to update.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The folder ID.</p>
+   * <p>The ID of the folder.</p>
    */
   FolderId: string | undefined;
 
@@ -3825,22 +3970,22 @@ export namespace UpdateFolderRequest {
 
 export interface UpdateFolderResponse {
   /**
-   * <p>The status. If succeeded, the status is <code>SC_OK</code>.</p>
+   * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN).</p>
+   * <p>The Amazon Resource Name (ARN) of the folder.</p>
    */
   Arn?: string;
 
   /**
-   * <p>The folder ID.</p>
+   * <p>The ID of the folder.</p>
    */
   FolderId?: string;
 
   /**
-   * <p>The request ID.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -3856,12 +4001,12 @@ export namespace UpdateFolderResponse {
 
 export interface UpdateFolderPermissionsRequest {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The ID for the Amazon Web Services account that contains the folder to update.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The folder ID.</p>
+   * <p>The ID of the folder.</p>
    */
   FolderId: string | undefined;
 
@@ -3887,27 +4032,27 @@ export namespace UpdateFolderPermissionsRequest {
 
 export interface UpdateFolderPermissionsResponse {
   /**
-   * <p>The status. If succeeded, the status is <code>SC_OK</code>.</p>
+   * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN).</p>
+   * <p>The Amazon Resource Name (ARN) of the folder.</p>
    */
   Arn?: string;
 
   /**
-   * <p>The folder ID.</p>
+   * <p>The ID of the folder.</p>
    */
   FolderId?: string;
 
   /**
-   * <p>Information about the permissions on the dashboard.</p>
+   * <p>Information about the permissions for the folder.</p>
    */
   Permissions?: ResourcePermission[];
 
   /**
-   * <p>The request ID.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -3981,7 +4126,7 @@ export namespace UpdateGroupResponse {
 
 export interface UpdateIAMPolicyAssignmentRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that contains the IAMpolicy assignment. </p>
+   * <p>The ID of the Amazon Web Services account that contains the IAM policy assignment. </p>
    */
   AwsAccountId: string | undefined;
 
@@ -4017,7 +4162,7 @@ export interface UpdateIAMPolicyAssignmentRequest {
   AssignmentStatus?: AssignmentStatus | string;
 
   /**
-   * <p>The ARN for the IAMpolicy to apply to the Amazon QuickSight users and groups
+   * <p>The ARN for the IAM policy to apply to the Amazon QuickSight users and groups
    * 			specified in this assignment.</p>
    */
   PolicyArn?: string;
@@ -4049,13 +4194,13 @@ export interface UpdateIAMPolicyAssignmentResponse {
   AssignmentId?: string;
 
   /**
-   * <p>The ARN for the IAMpolicy applied to the Amazon QuickSight users and groups specified in this
+   * <p>The ARN for the IAM policy applied to the Amazon QuickSight users and groups specified in this
    * 			assignment.</p>
    */
   PolicyArn?: string;
 
   /**
-   * <p>The Amazon QuickSight users, groups, or both that the IAMpolicy is assigned to.</p>
+   * <p>The Amazon QuickSight users, groups, or both that the IAM policy is assigned to.</p>
    */
   Identities?: { [key: string]: string[] };
 
@@ -4102,17 +4247,17 @@ export namespace UpdateIAMPolicyAssignmentResponse {
 
 export interface UpdateIpRestrictionRequest {
   /**
-   * <p>Your AWS account ID.</p>
+   * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>Describes updated IP rules.</p>
+   * <p>A map that describes the updated IP rules with CIDR ranges and descriptions.</p>
    */
   IpRestrictionRuleMap?: { [key: string]: string };
 
   /**
-   * <p>Whether or not IP rules are enabled.</p>
+   * <p>A value that specifies whether IP rules are turned on.</p>
    */
   Enabled?: boolean;
 }
@@ -4128,17 +4273,17 @@ export namespace UpdateIpRestrictionRequest {
 
 export interface UpdateIpRestrictionResponse {
   /**
-   * <p>Your AWS account ID.</p>
+   * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
    */
   AwsAccountId?: string;
 
   /**
-   * <p>The ID of the update request.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
   /**
-   * <p>The status of the updated IP rules. A successful request returns a 200 code.</p>
+   * <p>The HTTP status of the request. </p>
    */
   Status?: number;
 }
@@ -4644,8 +4789,8 @@ export interface UpdateUserRequest {
    *         <p>A set of custom permissions includes any combination of these restrictions. Currently,
    *             you need to create the profile names for custom permission sets by using the Amazon QuickSight
    *             console. Then, you use the <code>RegisterUser</code> API operation to assign the named set of
-   *             permissions to a Amazon QuickSight user. </p>
-   *         <p>Amazon QuickSight custom permissions are applied through IAMpolicies. Therefore, they
+   *             permissions to a QuickSight user. </p>
+   *         <p>Amazon QuickSight custom permissions are applied through IAM policies. Therefore, they
    *             override the permissions typically granted by assigning Amazon QuickSight users to one of the
    *             default security cohorts in Amazon QuickSight (admin, author, reader).</p>
    *         <p>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</p>
@@ -4673,9 +4818,11 @@ export interface UpdateUserRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NONE</code>: This clears all the previously saved external login information for a user. Use <code>
-   *                      <a>DescribeUser</a>
-   *                   </code> API to check the external login information.</p>
+   *                   <code>NONE</code>: This clears all the previously saved external login information for a user. Use the
+   *           <code>
+   *                      <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeUser.html">DescribeUser</a>
+   *                   </code>
+   *           API operation to check the external login information.</p>
    *             </li>
    *          </ul>
    */

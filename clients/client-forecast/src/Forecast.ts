@@ -1,6 +1,11 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  CreateAutoPredictorCommand,
+  CreateAutoPredictorCommandInput,
+  CreateAutoPredictorCommandOutput,
+} from "./commands/CreateAutoPredictorCommand";
+import {
   CreateDatasetCommand,
   CreateDatasetCommandInput,
   CreateDatasetCommandOutput,
@@ -15,6 +20,16 @@ import {
   CreateDatasetImportJobCommandInput,
   CreateDatasetImportJobCommandOutput,
 } from "./commands/CreateDatasetImportJobCommand";
+import {
+  CreateExplainabilityCommand,
+  CreateExplainabilityCommandInput,
+  CreateExplainabilityCommandOutput,
+} from "./commands/CreateExplainabilityCommand";
+import {
+  CreateExplainabilityExportCommand,
+  CreateExplainabilityExportCommandInput,
+  CreateExplainabilityExportCommandOutput,
+} from "./commands/CreateExplainabilityExportCommand";
 import {
   CreateForecastCommand,
   CreateForecastCommandInput,
@@ -51,6 +66,16 @@ import {
   DeleteDatasetImportJobCommandOutput,
 } from "./commands/DeleteDatasetImportJobCommand";
 import {
+  DeleteExplainabilityCommand,
+  DeleteExplainabilityCommandInput,
+  DeleteExplainabilityCommandOutput,
+} from "./commands/DeleteExplainabilityCommand";
+import {
+  DeleteExplainabilityExportCommand,
+  DeleteExplainabilityExportCommandInput,
+  DeleteExplainabilityExportCommandOutput,
+} from "./commands/DeleteExplainabilityExportCommand";
+import {
   DeleteForecastCommand,
   DeleteForecastCommandInput,
   DeleteForecastCommandOutput,
@@ -76,6 +101,11 @@ import {
   DeleteResourceTreeCommandOutput,
 } from "./commands/DeleteResourceTreeCommand";
 import {
+  DescribeAutoPredictorCommand,
+  DescribeAutoPredictorCommandInput,
+  DescribeAutoPredictorCommandOutput,
+} from "./commands/DescribeAutoPredictorCommand";
+import {
   DescribeDatasetCommand,
   DescribeDatasetCommandInput,
   DescribeDatasetCommandOutput,
@@ -90,6 +120,16 @@ import {
   DescribeDatasetImportJobCommandInput,
   DescribeDatasetImportJobCommandOutput,
 } from "./commands/DescribeDatasetImportJobCommand";
+import {
+  DescribeExplainabilityCommand,
+  DescribeExplainabilityCommandInput,
+  DescribeExplainabilityCommandOutput,
+} from "./commands/DescribeExplainabilityCommand";
+import {
+  DescribeExplainabilityExportCommand,
+  DescribeExplainabilityExportCommandInput,
+  DescribeExplainabilityExportCommandOutput,
+} from "./commands/DescribeExplainabilityExportCommand";
 import {
   DescribeForecastCommand,
   DescribeForecastCommandInput,
@@ -130,6 +170,16 @@ import {
   ListDatasetsCommandInput,
   ListDatasetsCommandOutput,
 } from "./commands/ListDatasetsCommand";
+import {
+  ListExplainabilitiesCommand,
+  ListExplainabilitiesCommandInput,
+  ListExplainabilitiesCommandOutput,
+} from "./commands/ListExplainabilitiesCommand";
+import {
+  ListExplainabilityExportsCommand,
+  ListExplainabilityExportsCommandInput,
+  ListExplainabilityExportsCommandOutput,
+} from "./commands/ListExplainabilityExportsCommand";
 import {
   ListForecastExportJobsCommand,
   ListForecastExportJobsCommandInput,
@@ -177,6 +227,86 @@ import { ForecastClient } from "./ForecastClient";
  * <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
  */
 export class Forecast extends ForecastClient {
+  /**
+   * <p>Creates an Amazon Forecast predictor.</p>
+   *         <p>Amazon Forecast creates predictors with AutoPredictor, which involves applying the
+   *             optimal combination of algorithms to each time series in your datasets. You can use
+   *             CreateAutoPredictor to create new predictors or upgrade/retrain existing
+   *             predictors.</p>
+   *         <p>
+   *             <b>Creating new predictors</b>
+   *          </p>
+   *         <p>The following parameters are required when creating a new predictor:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>PredictorName</code> - A unique name for the predictor.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DatasetGroupArn</code> - The ARN of the dataset group used to train the
+   *                     predictor.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ForecastFrequency</code> - The granularity of your forecasts (hourly,
+   *                     daily, weekly, etc).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ForecastHorizon</code> - The number of time steps being
+   *                     forecasted.</p>
+   *             </li>
+   *          </ul>
+   *         <p>When creating a new predictor, do not specify a value for
+   *                 <code>ReferencePredictorArn</code>.</p>
+   *         <p>
+   *             <b>Upgrading and retraining predictors</b>
+   *          </p>
+   *         <p>The following parameters are required when retraining or upgrading a predictor:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>PredictorName</code> - A unique name for the predictor.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ReferencePredictorArn</code> - The ARN of the predictor to retrain or
+   *                     upgrade.</p>
+   *             </li>
+   *          </ul>
+   *         <p>When upgrading or retraining a predictor, only specify values for the
+   *                 <code>ReferencePredictorArn</code> and <code>PredictorName</code>. </p>
+   */
+  public createAutoPredictor(
+    args: CreateAutoPredictorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAutoPredictorCommandOutput>;
+  public createAutoPredictor(
+    args: CreateAutoPredictorCommandInput,
+    cb: (err: any, data?: CreateAutoPredictorCommandOutput) => void
+  ): void;
+  public createAutoPredictor(
+    args: CreateAutoPredictorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAutoPredictorCommandOutput) => void
+  ): void;
+  public createAutoPredictor(
+    args: CreateAutoPredictorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAutoPredictorCommandOutput) => void),
+    cb?: (err: any, data?: CreateAutoPredictorCommandOutput) => void
+  ): Promise<CreateAutoPredictorCommandOutput> | void {
+    const command = new CreateAutoPredictorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Creates an Amazon Forecast dataset. The information about the dataset that you provide helps
    *       Forecast understand how to consume the data for model training. This includes the
@@ -343,6 +473,196 @@ export class Forecast extends ForecastClient {
   }
 
   /**
+   * <note>
+   *             <p>Explainability is only available for Forecasts and Predictors generated from an
+   *                 AutoPredictor (<a>CreateAutoPredictor</a>)</p>
+   *         </note>
+   *         <p>Creates an Amazon Forecast Explainability.</p>
+   *         <p>Explainability helps you better understand how the attributes in your datasets impact
+   *             forecast. Amazon Forecast uses a metric called Impact scores to quantify the relative
+   *             impact of each attribute and determine whether they increase or decrease forecast
+   *             values.</p>
+   *         <p>To enable Forecast Explainability, your predictor must include at least one of the
+   *             following: related time series, item metadata, or additional datasets like Holidays and
+   *             the Weather Index.</p>
+   *         <p>CreateExplainability accepts either a Predictor ARN or Forecast ARN. To receive
+   *             aggregated Impact scores for all time series and time points in your datasets, provide a
+   *             Predictor ARN. To receive Impact scores for specific time series and time points,
+   *             provide a Forecast ARN.</p>
+   *         <p>
+   *             <b>CreateExplainability with a Predictor ARN</b>
+   *          </p>
+   *         <note>
+   *             <p>You can only have one Explainability resource per predictor. If you already
+   *                 enabled <code>ExplainPredictor</code> in <a>CreateAutoPredictor</a>, that
+   *                 predictor already has an Explainability resource.</p>
+   *         </note>
+   *         <p>The following parameters are required when providing a Predictor ARN:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>ExplainabilityName</code> - A unique name for the Explainability.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ResourceArn</code> - The Arn of the predictor.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>TimePointGranularity</code> - Must be set to “ALL”.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>TimeSeriesGranularity</code> - Must be set to “ALL”.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Do not specify a value for the following parameters:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>DataSource</code> - Only valid when TimeSeriesGranularity is
+   *                     “SPECIFIC”.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Schema</code> - Only valid when TimeSeriesGranularity is
+   *                     “SPECIFIC”.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>StartDateTime</code> - Only valid when TimePointGranularity is
+   *                     “SPECIFIC”.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>EndDateTime</code> - Only valid when TimePointGranularity is
+   *                     “SPECIFIC”.</p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *             <b>CreateExplainability with a Forecast ARN</b>
+   *          </p>
+   *         <note>
+   *             <p>You can specify a maximum of 50 time series and 1500 time points.</p>
+   *         </note>
+   *         <p>The following parameters are required when providing a Predictor ARN:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>ExplainabilityName</code> - A unique name for the Explainability.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ResourceArn</code> - The Arn of the forecast.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>TimePointGranularity</code> - Either “ALL” or “SPECIFIC”.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>TimeSeriesGranularity</code> - Either “ALL” or “SPECIFIC”.</p>
+   *             </li>
+   *          </ul>
+   *         <p>If you set TimeSeriesGranularity to “SPECIFIC”, you must also provide the
+   *             following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>DataSource</code> - The S3 location of the CSV file specifying your time
+   *                     series.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Schema</code> - The Schema defines the attributes and attribute types
+   *                     listed in the Data Source.</p>
+   *             </li>
+   *          </ul>
+   *         <p>If you set TimePointGranularity to “SPECIFIC”, you must also provide the
+   *             following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>StartDateTime</code> - The first timestamp in the range of time
+   *                     points.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>EndDateTime</code> - The last timestamp in the range of time
+   *                     points.</p>
+   *             </li>
+   *          </ul>
+   */
+  public createExplainability(
+    args: CreateExplainabilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateExplainabilityCommandOutput>;
+  public createExplainability(
+    args: CreateExplainabilityCommandInput,
+    cb: (err: any, data?: CreateExplainabilityCommandOutput) => void
+  ): void;
+  public createExplainability(
+    args: CreateExplainabilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateExplainabilityCommandOutput) => void
+  ): void;
+  public createExplainability(
+    args: CreateExplainabilityCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateExplainabilityCommandOutput) => void),
+    cb?: (err: any, data?: CreateExplainabilityCommandOutput) => void
+  ): Promise<CreateExplainabilityCommandOutput> | void {
+    const command = new CreateExplainabilityCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Exports an Explainability resource created by the <a>CreateExplainability</a> operation. Exported files are exported to an Amazon Simple Storage Service (Amazon
+   *             S3) bucket.</p>
+   *         <p>You must specify a <a>DataDestination</a> object that includes an Amazon S3
+   *             bucket and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the Amazon S3
+   *             bucket. For more information, see <a>aws-forecast-iam-roles</a>.</p>
+   *         <note>
+   *             <p>The <code>Status</code> of the export job must be <code>ACTIVE</code> before you
+   *                 can access the export in your Amazon S3 bucket. To get the status, use the <a>DescribeExplainabilityExport</a> operation.</p>
+   *         </note>
+   */
+  public createExplainabilityExport(
+    args: CreateExplainabilityExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateExplainabilityExportCommandOutput>;
+  public createExplainabilityExport(
+    args: CreateExplainabilityExportCommandInput,
+    cb: (err: any, data?: CreateExplainabilityExportCommandOutput) => void
+  ): void;
+  public createExplainabilityExport(
+    args: CreateExplainabilityExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateExplainabilityExportCommandOutput) => void
+  ): void;
+  public createExplainabilityExport(
+    args: CreateExplainabilityExportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateExplainabilityExportCommandOutput) => void),
+    cb?: (err: any, data?: CreateExplainabilityExportCommandOutput) => void
+  ): Promise<CreateExplainabilityExportCommandOutput> | void {
+    const command = new CreateExplainabilityExportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a forecast for each item in the <code>TARGET_TIME_SERIES</code> dataset that was
    *       used to train the predictor. This is known as inference. To retrieve the forecast for a single
    *       item at low latency, use the  operation. To
@@ -438,35 +758,36 @@ export class Forecast extends ForecastClient {
   }
 
   /**
-   * <p>Creates an Amazon Forecast predictor.</p>
-   *          <p>In the request, provide a dataset group and either specify an algorithm or let
-   *       Amazon Forecast choose an algorithm for you using AutoML. If you specify an algorithm, you also can
-   *       override algorithm-specific hyperparameters.</p>
-   *          <p>Amazon Forecast uses the algorithm to train a predictor using the latest version of the
-   *       datasets in the specified dataset group. You can then generate a
-   *       forecast using the <a>CreateForecast</a> operation.</p>
-   *          <p>
-   *       To see the evaluation metrics, use the <a>GetAccuracyMetrics</a> operation.
-   *     </p>
-   *          <p>You can specify a featurization configuration to fill and aggregate the data
-   *       fields in the <code>TARGET_TIME_SERIES</code> dataset to improve model training. For more
-   *       information, see <a>FeaturizationConfig</a>.</p>
+   * <note>
+   *             <p> This operation creates a legacy predictor that does not include all the predictor
+   *         functionalities provided by Amazon Forecast. To create a predictor that is compatible with all
+   *         aspects of Forecast, use CreateAutoPredictor.</p>
+   *          </note>
+   *          <p>Creates an Amazon Forecast predictor.</p>
+   *          <p>In the request, provide a dataset group and either specify an algorithm or let Amazon Forecast
+   *       choose an algorithm for you using AutoML. If you specify an algorithm, you also can override
+   *       algorithm-specific hyperparameters.</p>
+   *          <p>Amazon Forecast uses the algorithm to train a predictor using the latest version of the datasets
+   *       in the specified dataset group. You can then generate a forecast using the <a>CreateForecast</a> operation.</p>
+   *          <p> To see the evaluation metrics, use the <a>GetAccuracyMetrics</a> operation. </p>
+   *          <p>You can specify a featurization configuration to fill and aggregate the data fields in the
+   *         <code>TARGET_TIME_SERIES</code> dataset to improve model training. For more information, see
+   *         <a>FeaturizationConfig</a>.</p>
    *          <p>For RELATED_TIME_SERIES datasets, <code>CreatePredictor</code> verifies that the
    *         <code>DataFrequency</code> specified when the dataset was created matches the
    *         <code>ForecastFrequency</code>. TARGET_TIME_SERIES datasets don't have this restriction.
    *       Amazon Forecast also verifies the delimiter and timestamp format. For more information, see <a>howitworks-datasets-groups</a>.</p>
    *          <p>By default, predictors are trained and evaluated at the 0.1 (P10), 0.5 (P50), and 0.9
-   *       (P90) quantiles. You can choose custom forecast types to train and evaluate your predictor
-   *       by setting the <code>ForecastTypes</code>.
-   *     </p>
+   *       (P90) quantiles. You can choose custom forecast types to train and evaluate your predictor by
+   *       setting the <code>ForecastTypes</code>. </p>
    *          <p>
    *             <b>AutoML</b>
    *          </p>
    *          <p>If you want Amazon Forecast to evaluate each algorithm and choose the one that minimizes the
    *         <code>objective function</code>, set <code>PerformAutoML</code> to <code>true</code>. The
    *         <code>objective function</code> is defined as the mean of the weighted losses over the
-   *       forecast types. By default, these are the p10, p50, and p90
-   *       quantile losses. For more information, see <a>EvaluationResult</a>.</p>
+   *       forecast types. By default, these are the p10, p50, and p90 quantile losses. For more
+   *       information, see <a>EvaluationResult</a>.</p>
    *          <p>When AutoML is enabled, the following properties are disallowed:</p>
    *          <ul>
    *             <li>
@@ -686,6 +1007,72 @@ export class Forecast extends ForecastClient {
   }
 
   /**
+   * <p>Deletes an Explainability resource.</p>
+   *         <p>You can delete only predictor that have a status of <code>ACTIVE</code> or
+   *                 <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeExplainability</a> operation.</p>
+   */
+  public deleteExplainability(
+    args: DeleteExplainabilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteExplainabilityCommandOutput>;
+  public deleteExplainability(
+    args: DeleteExplainabilityCommandInput,
+    cb: (err: any, data?: DeleteExplainabilityCommandOutput) => void
+  ): void;
+  public deleteExplainability(
+    args: DeleteExplainabilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteExplainabilityCommandOutput) => void
+  ): void;
+  public deleteExplainability(
+    args: DeleteExplainabilityCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteExplainabilityCommandOutput) => void),
+    cb?: (err: any, data?: DeleteExplainabilityCommandOutput) => void
+  ): Promise<DeleteExplainabilityCommandOutput> | void {
+    const command = new DeleteExplainabilityCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an Explainability export job.</p>
+   */
+  public deleteExplainabilityExport(
+    args: DeleteExplainabilityExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteExplainabilityExportCommandOutput>;
+  public deleteExplainabilityExport(
+    args: DeleteExplainabilityExportCommandInput,
+    cb: (err: any, data?: DeleteExplainabilityExportCommandOutput) => void
+  ): void;
+  public deleteExplainabilityExport(
+    args: DeleteExplainabilityExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteExplainabilityExportCommandOutput) => void
+  ): void;
+  public deleteExplainabilityExport(
+    args: DeleteExplainabilityExportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteExplainabilityExportCommandOutput) => void),
+    cb?: (err: any, data?: DeleteExplainabilityExportCommandOutput) => void
+  ): Promise<DeleteExplainabilityExportCommandOutput> | void {
+    const command = new DeleteExplainabilityExportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a forecast created using the <a>CreateForecast</a> operation. You can
    *       delete only forecasts that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
    *       To get the status, use the <a>DescribeForecast</a> operation.</p>
@@ -885,6 +1272,38 @@ export class Forecast extends ForecastClient {
   }
 
   /**
+   * <p>Describes a predictor created using the CreateAutoPredictor operation.</p>
+   */
+  public describeAutoPredictor(
+    args: DescribeAutoPredictorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAutoPredictorCommandOutput>;
+  public describeAutoPredictor(
+    args: DescribeAutoPredictorCommandInput,
+    cb: (err: any, data?: DescribeAutoPredictorCommandOutput) => void
+  ): void;
+  public describeAutoPredictor(
+    args: DescribeAutoPredictorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAutoPredictorCommandOutput) => void
+  ): void;
+  public describeAutoPredictor(
+    args: DescribeAutoPredictorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAutoPredictorCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAutoPredictorCommandOutput) => void
+  ): Promise<DescribeAutoPredictorCommandOutput> | void {
+    const command = new DescribeAutoPredictorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes an Amazon Forecast dataset created using the <a>CreateDataset</a>
    *       operation.</p>
    *          <p>In addition to listing the parameters specified in the <code>CreateDataset</code> request,
@@ -1059,6 +1478,70 @@ export class Forecast extends ForecastClient {
   }
 
   /**
+   * <p>Describes an Explainability resource created using the <a>CreateExplainability</a> operation.</p>
+   */
+  public describeExplainability(
+    args: DescribeExplainabilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeExplainabilityCommandOutput>;
+  public describeExplainability(
+    args: DescribeExplainabilityCommandInput,
+    cb: (err: any, data?: DescribeExplainabilityCommandOutput) => void
+  ): void;
+  public describeExplainability(
+    args: DescribeExplainabilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeExplainabilityCommandOutput) => void
+  ): void;
+  public describeExplainability(
+    args: DescribeExplainabilityCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeExplainabilityCommandOutput) => void),
+    cb?: (err: any, data?: DescribeExplainabilityCommandOutput) => void
+  ): Promise<DescribeExplainabilityCommandOutput> | void {
+    const command = new DescribeExplainabilityCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes an Explainability export created using the <a>CreateExplainabilityExport</a> operation.</p>
+   */
+  public describeExplainabilityExport(
+    args: DescribeExplainabilityExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeExplainabilityExportCommandOutput>;
+  public describeExplainabilityExport(
+    args: DescribeExplainabilityExportCommandInput,
+    cb: (err: any, data?: DescribeExplainabilityExportCommandOutput) => void
+  ): void;
+  public describeExplainabilityExport(
+    args: DescribeExplainabilityExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeExplainabilityExportCommandOutput) => void
+  ): void;
+  public describeExplainabilityExport(
+    args: DescribeExplainabilityExportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeExplainabilityExportCommandOutput) => void),
+    cb?: (err: any, data?: DescribeExplainabilityExportCommandOutput) => void
+  ): Promise<DescribeExplainabilityExportCommandOutput> | void {
+    const command = new DescribeExplainabilityExportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes a forecast created using the <a>CreateForecast</a> operation.</p>
    *          <p>In addition to listing the properties provided in the <code>CreateForecast</code> request,
    *       this operation lists the following properties:</p>
@@ -1175,7 +1658,12 @@ export class Forecast extends ForecastClient {
   }
 
   /**
-   * <p>Describes a predictor created using the <a>CreatePredictor</a>
+   * <note>
+   *             <p> This operation is only valid for legacy predictors created with CreatePredictor. If you
+   *         are not using a legacy predictor, use DescribeAutoPredictor.</p>
+   *             <p>To upgrade a legacy predictor to AutoPredictor, see Upgrading to AutoPredictor.</p>
+   *          </note>
+   *          <p>Describes a predictor created using the <a>CreatePredictor</a>
    *       operation.</p>
    *          <p>In addition to listing the properties provided in the <code>CreatePredictor</code>
    *       request, this operation lists the following properties:</p>
@@ -1436,6 +1924,77 @@ export class Forecast extends ForecastClient {
     cb?: (err: any, data?: ListDatasetsCommandOutput) => void
   ): Promise<ListDatasetsCommandOutput> | void {
     const command = new ListDatasetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of Explainability resources created using the <a>CreateExplainability</a> operation. This operation returns a summary for
+   *             each Explainability. You can filter the list using an array of <a>Filter</a>
+   *             objects.</p>
+   *         <p>To retrieve the complete set of properties for a particular Explainability resource,
+   *             use the ARN with the <a>DescribeExplainability</a> operation.</p>
+   */
+  public listExplainabilities(
+    args: ListExplainabilitiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExplainabilitiesCommandOutput>;
+  public listExplainabilities(
+    args: ListExplainabilitiesCommandInput,
+    cb: (err: any, data?: ListExplainabilitiesCommandOutput) => void
+  ): void;
+  public listExplainabilities(
+    args: ListExplainabilitiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExplainabilitiesCommandOutput) => void
+  ): void;
+  public listExplainabilities(
+    args: ListExplainabilitiesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExplainabilitiesCommandOutput) => void),
+    cb?: (err: any, data?: ListExplainabilitiesCommandOutput) => void
+  ): Promise<ListExplainabilitiesCommandOutput> | void {
+    const command = new ListExplainabilitiesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of Explainability exports created using the <a>CreateExplainabilityExport</a> operation. This operation returns a summary
+   *             for each Explainability export. You can filter the list using an array of <a>Filter</a> objects.</p>
+   *         <p>To retrieve the complete set of properties for a particular Explainability export, use
+   *             the ARN with the <a>DescribeExplainability</a> operation.</p>
+   */
+  public listExplainabilityExports(
+    args: ListExplainabilityExportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExplainabilityExportsCommandOutput>;
+  public listExplainabilityExports(
+    args: ListExplainabilityExportsCommandInput,
+    cb: (err: any, data?: ListExplainabilityExportsCommandOutput) => void
+  ): void;
+  public listExplainabilityExports(
+    args: ListExplainabilityExportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExplainabilityExportsCommandOutput) => void
+  ): void;
+  public listExplainabilityExports(
+    args: ListExplainabilityExportsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExplainabilityExportsCommandOutput) => void),
+    cb?: (err: any, data?: ListExplainabilityExportsCommandOutput) => void
+  ): Promise<ListExplainabilityExportsCommandOutput> | void {
+    const command = new ListExplainabilityExportsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

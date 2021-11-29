@@ -22,7 +22,7 @@ export interface CreateHostedConfigurationVersionCommandInput extends CreateHost
 export interface CreateHostedConfigurationVersionCommandOutput extends HostedConfigurationVersion, __MetadataBearer {}
 
 /**
- * <p>Create a new configuration in the AppConfig configuration store.</p>
+ * <p>Creates a new configuration in the AppConfig hosted configuration store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

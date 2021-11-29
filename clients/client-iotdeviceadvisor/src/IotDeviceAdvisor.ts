@@ -10,6 +10,7 @@ import {
   DeleteSuiteDefinitionCommandInput,
   DeleteSuiteDefinitionCommandOutput,
 } from "./commands/DeleteSuiteDefinitionCommand";
+import { GetEndpointCommand, GetEndpointCommandInput, GetEndpointCommandOutput } from "./commands/GetEndpointCommand";
 import {
   GetSuiteDefinitionCommand,
   GetSuiteDefinitionCommandInput,
@@ -60,11 +61,20 @@ import {
 import { IotDeviceAdvisorClient } from "./IotDeviceAdvisorClient";
 
 /**
- * <p>AWS IoT Core Device Advisor is a cloud-based, fully managed test capability for validating IoT devices during device software development. Device Advisor provides pre-built tests that you can use to validate IoT devices for reliable and secure connectivity with AWS IoT Core before deploying devices to production. By using Device Advisor, you can confirm that your devices can connect to AWS IoT Core, follow security best practices and, if applicable, receive software updates from IoT Device Management. You can also download signed qualification reports to submit to the AWS Partner Network to get your device qualified for the AWS Partner Device Catalog without the need to send your device in and wait for it to be tested.</p>
+ * <p>Amazon Web Services IoT Core Device Advisor is a cloud-based, fully managed test capability for
+ *             validating IoT devices during device software development. Device Advisor provides
+ *             pre-built tests that you can use to validate IoT devices for reliable and secure
+ *             connectivity with Amazon Web Services IoT Core before deploying devices to production. By using Device Advisor,
+ *             you can confirm that your devices can connect to Amazon Web Services IoT Core, follow security
+ *             best practices and, if applicable, receive software updates from IoT Device Management.
+ *             You can also download signed qualification reports to submit to the Amazon Web Services Partner Network
+ *             to get your device qualified for the Amazon Web Services Partner Device Catalog without the need to send
+ *             your device in and wait for it to be tested.</p>
  */
 export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
   /**
    * <p>Creates a Device Advisor test suite.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateSuiteDefinition</a> action.</p>
    */
   public createSuiteDefinition(
     args: CreateSuiteDefinitionCommandInput,
@@ -97,6 +107,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
 
   /**
    * <p>Deletes a Device Advisor test suite.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteSuiteDefinition</a> action.</p>
    */
   public deleteSuiteDefinition(
     args: DeleteSuiteDefinitionCommandInput,
@@ -128,7 +139,34 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
   }
 
   /**
+   * <p>Gets information about an Device Advisor endpoint.</p>
+   */
+  public getEndpoint(args: GetEndpointCommandInput, options?: __HttpHandlerOptions): Promise<GetEndpointCommandOutput>;
+  public getEndpoint(args: GetEndpointCommandInput, cb: (err: any, data?: GetEndpointCommandOutput) => void): void;
+  public getEndpoint(
+    args: GetEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEndpointCommandOutput) => void
+  ): void;
+  public getEndpoint(
+    args: GetEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEndpointCommandOutput) => void),
+    cb?: (err: any, data?: GetEndpointCommandOutput) => void
+  ): Promise<GetEndpointCommandOutput> | void {
+    const command = new GetEndpointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets information about a Device Advisor test suite.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetSuiteDefinition</a> action.</p>
    */
   public getSuiteDefinition(
     args: GetSuiteDefinitionCommandInput,
@@ -161,6 +199,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
 
   /**
    * <p>Gets information about a Device Advisor test suite run.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetSuiteRun</a> action.</p>
    */
   public getSuiteRun(args: GetSuiteRunCommandInput, options?: __HttpHandlerOptions): Promise<GetSuiteRunCommandOutput>;
   public getSuiteRun(args: GetSuiteRunCommandInput, cb: (err: any, data?: GetSuiteRunCommandOutput) => void): void;
@@ -187,6 +226,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
 
   /**
    * <p>Gets a report download link for a successful Device Advisor qualifying test suite run.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetSuiteRunReport</a> action.</p>
    */
   public getSuiteRunReport(
     args: GetSuiteRunReportCommandInput,
@@ -219,6 +259,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
 
   /**
    * <p>Lists the Device Advisor test suites you have created.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSuiteDefinitions</a> action.</p>
    */
   public listSuiteDefinitions(
     args: ListSuiteDefinitionsCommandInput,
@@ -250,8 +291,9 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
   }
 
   /**
-   * <p>Lists the runs of the specified Device Advisor test suite.
-   *             You can list all runs of the test suite, or the runs of a specific version of the test suite.</p>
+   * <p>Lists runs of the specified Device Advisor test suite. You can list all runs of the test
+   *             suite, or the runs of a specific version of the test suite.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSuiteRuns</a> action.</p>
    */
   public listSuiteRuns(
     args: ListSuiteRunsCommandInput,
@@ -284,6 +326,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
 
   /**
    * <p>Lists the tags attached to an IoT Device Advisor resource.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTagsForResource</a> action.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -316,6 +359,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
 
   /**
    * <p>Starts a Device Advisor test suite run.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartSuiteRun</a> action.</p>
    */
   public startSuiteRun(
     args: StartSuiteRunCommandInput,
@@ -348,6 +392,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
 
   /**
    * <p>Stops a Device Advisor test suite run that is currently running.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StopSuiteRun</a> action.</p>
    */
   public stopSuiteRun(
     args: StopSuiteRunCommandInput,
@@ -377,6 +422,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
 
   /**
    * <p>Adds to and modifies existing tags of an IoT Device Advisor resource.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TagResource</a> action.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -403,6 +449,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
 
   /**
    * <p>Removes tags from an IoT Device Advisor resource.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UntagResource</a> action.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -435,6 +482,7 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
 
   /**
    * <p>Updates a Device Advisor test suite.</p>
+   *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateSuiteDefinition</a> action.</p>
    */
   public updateSuiteDefinition(
     args: UpdateSuiteDefinitionCommandInput,

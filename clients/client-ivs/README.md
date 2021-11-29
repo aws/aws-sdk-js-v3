@@ -24,7 +24,6 @@ Amazon IVS HTTPS service endpoints, see the <a href="https://docs.aws.amazon.com
 </p>
 <p>For a summary of notable documentation changes in each release, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/doc-history.html"> Document
 History</a>.</p>
-
 <p>
 <b>Allowed Header Values</b>
 </p>
@@ -214,8 +213,18 @@ a specified channel.</p>
 </li>
 <li>
 <p>
+<a>GetStreamSession</a> — Gets metadata on a specified stream.</p>
+</li>
+<li>
+<p>
 <a>ListStreams</a> — Gets summary information about live streams in
 your account, in the Amazon Web Services region where the API request is processed.</p>
+</li>
+<li>
+<p>
+<a>ListStreamSessions</a> — Gets a summary of current and previous
+streams for a specified channel in your account, in the AWS region where the API request
+is processed.</p>
 </li>
 <li>
 <p>

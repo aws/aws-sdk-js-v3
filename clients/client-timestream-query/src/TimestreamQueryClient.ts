@@ -56,16 +56,73 @@ import {
 
 import { CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
 import {
+  CreateScheduledQueryCommandInput,
+  CreateScheduledQueryCommandOutput,
+} from "./commands/CreateScheduledQueryCommand";
+import {
+  DeleteScheduledQueryCommandInput,
+  DeleteScheduledQueryCommandOutput,
+} from "./commands/DeleteScheduledQueryCommand";
+import {
   DescribeEndpointsCommand,
   DescribeEndpointsCommandInput,
   DescribeEndpointsCommandOutput,
 } from "./commands/DescribeEndpointsCommand";
+import {
+  DescribeScheduledQueryCommandInput,
+  DescribeScheduledQueryCommandOutput,
+} from "./commands/DescribeScheduledQueryCommand";
+import {
+  ExecuteScheduledQueryCommandInput,
+  ExecuteScheduledQueryCommandOutput,
+} from "./commands/ExecuteScheduledQueryCommand";
+import {
+  ListScheduledQueriesCommandInput,
+  ListScheduledQueriesCommandOutput,
+} from "./commands/ListScheduledQueriesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { PrepareQueryCommandInput, PrepareQueryCommandOutput } from "./commands/PrepareQueryCommand";
 import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateScheduledQueryCommandInput,
+  UpdateScheduledQueryCommandOutput,
+} from "./commands/UpdateScheduledQueryCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
-export type ServiceInputTypes = CancelQueryCommandInput | DescribeEndpointsCommandInput | QueryCommandInput;
+export type ServiceInputTypes =
+  | CancelQueryCommandInput
+  | CreateScheduledQueryCommandInput
+  | DeleteScheduledQueryCommandInput
+  | DescribeEndpointsCommandInput
+  | DescribeScheduledQueryCommandInput
+  | ExecuteScheduledQueryCommandInput
+  | ListScheduledQueriesCommandInput
+  | ListTagsForResourceCommandInput
+  | PrepareQueryCommandInput
+  | QueryCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateScheduledQueryCommandInput;
 
-export type ServiceOutputTypes = CancelQueryCommandOutput | DescribeEndpointsCommandOutput | QueryCommandOutput;
+export type ServiceOutputTypes =
+  | CancelQueryCommandOutput
+  | CreateScheduledQueryCommandOutput
+  | DeleteScheduledQueryCommandOutput
+  | DescribeEndpointsCommandOutput
+  | DescribeScheduledQueryCommandOutput
+  | ExecuteScheduledQueryCommandOutput
+  | ListScheduledQueriesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | PrepareQueryCommandOutput
+  | QueryCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateScheduledQueryCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -225,9 +282,9 @@ type TimestreamQueryClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface TimestreamQueryClientResolvedConfig extends TimestreamQueryClientResolvedConfigType {}
 
 /**
- * <p>
- *
- *         </p>
+ * <fullname>Amazon Timestream Query
+ *         </fullname>
+ *         <p></p>
  */
 export class TimestreamQueryClient extends __Client<
   __HttpHandlerOptions,

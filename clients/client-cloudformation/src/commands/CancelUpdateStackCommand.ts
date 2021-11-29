@@ -22,8 +22,8 @@ export interface CancelUpdateStackCommandInput extends CancelUpdateStackInput {}
 export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Cancels an update on the specified stack. If the call completes successfully, the
- *          stack rolls back the update and reverts to the previous stack configuration.</p>
+ * <p>Cancels an update on the specified stack. If the call completes successfully, the stack
+ *          rolls back the update and reverts to the previous stack configuration.</p>
  *          <note>
  *             <p>You can cancel only stacks that are in the UPDATE_IN_PROGRESS state.</p>
  *          </note>

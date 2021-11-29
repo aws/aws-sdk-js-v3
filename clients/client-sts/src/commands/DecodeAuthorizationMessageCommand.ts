@@ -34,9 +34,9 @@ export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthoriza
  *             documentation for an individual operation indicates whether that operation returns an
  *             encoded message in addition to returning an HTTP code.</p>
  *          </note>
- *          <p>The message is encoded because the details of the authorization status can constitute
+ *          <p>The message is encoded because the details of the authorization status can contain
  *          privileged information that the user who requested the operation should not see. To decode
- *          an authorization status message, a user must be granted permissions via an IAM policy to
+ *          an authorization status message, a user must be granted permissions through an IAM <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">policy</a> to
  *          request the <code>DecodeAuthorizationMessage</code>
  *             (<code>sts:DecodeAuthorizationMessage</code>) action. </p>
  *          <p>The decoded message includes the following type of information:</p>

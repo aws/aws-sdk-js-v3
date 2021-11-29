@@ -24,7 +24,10 @@ export interface RegisterCertificateWithoutCACommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Register a certificate that does not have a certificate authority (CA).</p>
+ * <p>Register a certificate that does not have a certificate authority (CA).
+ *          For supported certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms">
+ *          Certificate signing algorithms supported by IoT</a>.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

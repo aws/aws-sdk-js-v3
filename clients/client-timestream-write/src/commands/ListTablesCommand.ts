@@ -24,6 +24,8 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
 
 /**
  * <p>A list of tables, along with the name, status and retention properties of each table.
+ *          See
+ *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-table.html">code sample</a> for details.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

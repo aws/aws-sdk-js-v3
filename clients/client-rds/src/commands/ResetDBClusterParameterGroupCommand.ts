@@ -36,13 +36,16 @@ export interface ResetDBClusterParameterGroupCommandOutput
  *             are set to <code>pending-reboot</code> to take effect on the next DB instance restart
  *             or <code>RebootDBInstance</code> request. You must call <code>RebootDBInstance</code> for every
  *             DB instance in your DB cluster that you want the updated static parameter to apply to.</p>
- *
- *          <p>For more information on Amazon Aurora, see
+ *          <p>For more information on Amazon Aurora DB clusters, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
- *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *          </p>
+ *          <p>For more information on Multi-AZ DB clusters, see
+ *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+ *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
  *          </p>
  *          <note>
- *             <p>This action only applies to Aurora DB clusters.</p>
+ *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

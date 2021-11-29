@@ -176,8 +176,8 @@ export namespace S3BucketLogDestination {
 export interface AudioLogDestination {
   /**
    * <p>The Amazon S3 bucket where the audio log files are stored. The IAM
-   *          role specified in the <code>roleArn</code> parameter of the <a>CreateBot</a> operation must have permission to write to
-   *          this bucket.</p>
+   *          role specified in the <code>roleArn</code> parameter of the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBot.html">CreateBot</a> operation must have permission to write to this
+   *          bucket.</p>
    */
   s3Bucket: S3BucketLogDestination | undefined;
 }
@@ -330,12 +330,12 @@ export enum BotAliasStatus {
 }
 
 /**
- * <p>Summary information about bot aliases returned from the <a>ListBotAliases</a> operation.</p>
+ * <p>Summary information about bot aliases returned from the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBotAliases.html">ListBotAliases</a> operation.</p>
  */
 export interface BotAliasSummary {
   /**
    * <p>The unique identifier assigned to the bot alias. You can use this ID
-   *          to get detailed information about the alias using the <a>DescribeBotAlias</a> operation.</p>
+   *          to get detailed information about the alias using the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeBotAlias.html">DescribeBotAlias</a> operation.</p>
    */
   botAliasId?: string;
 
@@ -656,6 +656,11 @@ export namespace BotLocaleHistoryEvent {
   });
 }
 
+export enum VoiceEngine {
+  Neural = "neural",
+  Standard = "standard",
+}
+
 /**
  * <p>Defines settings for using an Amazon Polly voice to communicate with a
  *          user.</p>
@@ -665,6 +670,13 @@ export interface VoiceSettings {
    * <p>The identifier of the Amazon Polly voice to use.</p>
    */
   voiceId: string | undefined;
+
+  /**
+   * <p>Indicates the type of Amazon Polly
+   *          voice that Amazon Lex should use for voice interaction with the user.
+   *       For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Voices in Amazon Polly</a>.</p>
+   */
+  engine?: VoiceEngine | string;
 }
 
 export namespace VoiceSettings {
@@ -795,7 +807,7 @@ export enum BotLocaleStatus {
 }
 
 /**
- * <p>Summary information about bot locales returned by the <a>ListBotLocales</a> operation.</p>
+ * <p>Summary information about bot locales returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBotLocales.html">ListBotLocales</a> operation.</p>
  */
 export interface BotLocaleSummary {
   /**
@@ -881,12 +893,12 @@ export enum BotStatus {
 }
 
 /**
- * <p>Summary information about a bot returned by the <a>ListBots</a> operation.</p>
+ * <p>Summary information about a bot returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBots.html">ListBots</a> operation.</p>
  */
 export interface BotSummary {
   /**
    * <p>The unique identifier assigned to the bot. Use this ID to get
-   *          detailed information about the bot with the <a>DescribeBot</a> operation.</p>
+   *          detailed information about the bot with the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeBot.html">DescribeBot</a> operation.</p>
    */
   botId?: string;
 
@@ -975,7 +987,7 @@ export namespace BotVersionSortBy {
 }
 
 /**
- * <p>Summary information about a bot version returned by the <a>ListBotVersions</a> operation.</p>
+ * <p>Summary information about a bot version returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBotVersions.html">ListBotVersions</a> operation.</p>
  */
 export interface BotVersionSummary {
   /**
@@ -1019,7 +1031,7 @@ export namespace BotVersionSummary {
 export interface BuildBotLocaleRequest {
   /**
    * <p>The identifier of the bot to build. The identifier is returned in
-   *          the response from the  operation.</p>
+   *          the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBot.html">CreateBot</a> operation.</p>
    */
   botId: string | undefined;
 
@@ -1236,7 +1248,7 @@ export namespace BuiltInIntentSortBy {
 }
 
 /**
- * <p>Provides summary information about a built-in intent for the <a>ListBuiltInIntents</a> operation.</p>
+ * <p>Provides summary information about a built-in intent for the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBuiltInIntents.html"> ListBuiltInIntents </a> operation.</p>
  */
 export interface BuiltInIntentSummary {
   /**
@@ -1292,7 +1304,8 @@ export namespace BuiltInSlotTypeSortBy {
 
 /**
  * <p>Provides summary information about a built-in slot type for the
- *             <a>ListBuiltInSlotTypes</a> operation.</p>
+ *             <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBuiltInSlotTypes.html"> ListBuiltInSlotTypes </a>
+ *          operation.</p>
  */
 export interface BuiltInSlotTypeSummary {
   /**
@@ -1605,8 +1618,8 @@ export interface CreateBotAliasRequest {
 
   /**
    * <p>The version of the bot that this alias points to. You can use the
-   *              operation to change the bot
-   *          version associated with the alias.</p>
+   *             <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_UpdateBotAlias.html">UpdateBotAlias</a> operation to change the
+   *          bot version associated with the alias.</p>
    */
   botVersion?: string;
 
@@ -2029,8 +2042,8 @@ export interface CreateExportResponse {
 
   /**
    * <p>The status of the export. When the status is <code>Completed</code>,
-   *          you can use the  operation to get
-   *          the pre-signed S3 URL link to your exported bot or bot locale.</p>
+   *          you can use the <a href="https://docs.aws.amazon.com/latest/dg/API_DescribeExport.html">DescribeExport</a> operation to get the
+   *          pre-signed S3 URL link to your exported bot or bot locale.</p>
    */
   exportStatus?: ExportStatus | string;
 
@@ -3756,7 +3769,7 @@ export namespace CreateUploadUrlRequest {
 export interface CreateUploadUrlResponse {
   /**
    * <p>An identifier for a unique import job. Use it when you call the
-   *              operation.</p>
+   *             <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_StartImport.html">StartImport</a> operation.</p>
    */
   importId?: string;
 
@@ -4021,7 +4034,8 @@ export interface DeleteExportResponse {
 
   /**
    * <p>The current status of the deletion. When the deletion is complete,
-   *          the export will no longer be returned by the  operation and calls to the  with the export identifier will
+   *          the export will no longer be returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListExports.html">ListExports</a> operation and calls to the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html">
+   *             DescribeExport</a> operation with the export identifier will
    *          fail.</p>
    */
   exportStatus?: ExportStatus | string;
@@ -4067,7 +4081,7 @@ export interface DeleteImportResponse {
 
   /**
    * <p>The current status of the deletion. When the deletion is complete,
-   *          the import will no longer be returned by the  operation and calls to the  with the import identifier will
+   *          the import will no longer be returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListImports.html">ListImports</a> operation and calls to the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeImport.html">DescribeImport</a> operation with the import identifier will
    *          fail.</p>
    */
   importStatus?: ImportStatus | string;
@@ -4318,7 +4332,7 @@ export interface DeleteUtterancesRequest {
 
   /**
    * <p>The unique identifier of the session with the user. The ID is
-   *          returned in the response from the  and  operations.</p>
+   *          returned in the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_RecognizeText.html">RecognizeText</a> and <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_RecognizeUtterance.html">RecognizeUtterance</a> operations.</p>
    */
   sessionId?: string;
 }
@@ -5367,8 +5381,7 @@ export enum ExportFilterOperator {
 }
 
 /**
- * <p>Filters the response form the
- *          operation</p>
+ * <p>Filters the response form the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListExports.html">ListExports</a> operation</p>
  */
 export interface ExportFilter {
   /**
@@ -5484,8 +5497,7 @@ export enum ImportFilterOperator {
 }
 
 /**
- * <p>Filters the response from the
- *          operation.</p>
+ * <p>Filters the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListImports.html">ListImports</a> operation.</p>
  */
 export interface ImportFilter {
   /**
@@ -7217,7 +7229,7 @@ export namespace ListTagsForResourceResponse {
 export interface StartImportRequest {
   /**
    * <p>The unique identifier for the import. It is included in the response
-   *          from the  operation.</p>
+   *          from the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateUploadUrl.html">CreateUploadUrl</a> operation.</p>
    */
   importId: string | undefined;
 
@@ -7363,7 +7375,7 @@ export namespace UntagResourceResponse {
 export interface UpdateBotRequest {
   /**
    * <p>The unique identifier of the bot to update. This identifier is
-   *          returned by the <a>CreateBot</a> operation.</p>
+   *          returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBot.html">CreateBot</a> operation.</p>
    */
   botId: string | undefined;
 

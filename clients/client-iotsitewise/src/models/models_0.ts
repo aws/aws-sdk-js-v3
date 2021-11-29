@@ -735,22 +735,23 @@ export namespace ExpressionVariable {
 
 /**
  * <p>Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and
- *       contiguous time window. You use this window in metrics to aggregate data from properties and other assets.</p>
- *          <p>You can use <code>m</code>, <code>h</code>, <code>d</code>, and <code>w</code>
- *       when you specify an interval or offset. Note that <code>m</code> represents minutes,
- *       and <code>w</code> represents weeks. You can also use <code>s</code> to represent seconds
- *       in <code>offset</code>.</p>
- *          <p>The <code>interval</code> and <code>offset</code> parameters support the
- *       <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 format</a>.
- *       For example, <code>PT5S</code> represents five seconds, <code>PT5M</code> represents five minutes,
- *       and <code>PT5H</code> represents five hours.</p>
+ *       contiguous time window. You can use this window in metrics to aggregate data from properties
+ *       and other assets.</p>
+ *          <p>You can use <code>m</code>, <code>h</code>, <code>d</code>, and <code>w</code> when you
+ *       specify an interval or offset. Note that <code>m</code> represents minutes, <code>h</code>
+ *       represents hours, <code>d</code> represents days, and <code>w</code> represents weeks. You can
+ *       also use <code>s</code> to represent seconds in <code>offset</code>.</p>
+ *          <p>The <code>interval</code> and <code>offset</code> parameters support the <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 format</a>. For example,
+ *         <code>PT5S</code> represents 5 seconds, <code>PT5M</code> represents 5 minutes, and
+ *         <code>PT5H</code> represents 5 hours.</p>
  */
 export interface TumblingWindow {
   /**
-   * <p>The time interval for the tumbling window. The interval time must be between 1 minute and 1 week.</p>
-   *          <p>IoT SiteWise computes the <code>1w</code> interval the end of Sunday at midnight
-   *       each week (UTC), the <code>1d</code> interval at the end of each day at midnight (UTC), the
-   *       <code>1h</code> interval at the end of each hour, and so on. </p>
+   * <p>The time interval for the tumbling window. The interval time must be between 1 minute and
+   *       1 week.</p>
+   *          <p>IoT SiteWise computes the <code>1w</code> interval the end of Sunday at midnight each week (UTC),
+   *       the <code>1d</code> interval at the end of each day at midnight (UTC), the <code>1h</code>
+   *       interval at the end of each hour, and so on. </p>
    *          <p>When IoT SiteWise aggregates data points for metric computations, the start of each interval is
    *       exclusive and the end of each interval is inclusive. IoT SiteWise places the computed data point at
    *       the end of the interval.</p>
@@ -758,57 +759,61 @@ export interface TumblingWindow {
   interval: string | undefined;
 
   /**
-   * <p>The offset for the tumbling window. The <code>offset</code> parameter accepts the following:</p>
+   * <p>The offset for the tumbling window. The <code>offset</code> parameter accepts the
+   *       following:</p>
    *          <ul>
    *             <li>
    *                <p>The offset time.</p>
-   *                <p>For example, if you specify <code>18h</code> for <code>offset</code>
-   *           and <code>1d</code> for <code>interval</code>, IoT SiteWise aggregates data in one of the following ways:</p>
+   *                <p>For example, if you specify <code>18h</code> for <code>offset</code> and
+   *             <code>1d</code> for <code>interval</code>, IoT SiteWise aggregates data in one of the following
+   *           ways:</p>
    *                <ul>
    *                   <li>
-   *                      <p>If you create the metric before or at 6:00 PM (UTC),
-   *               you get the first aggregation result at 6 PM (UTC) on the day when you create the metric.</p>
+   *                      <p>If you create the metric before or at 6 PM (UTC), you get the first aggregation
+   *               result at 6 PM (UTC) on the day when you create the metric.</p>
    *                   </li>
    *                   <li>
-   *                      <p>If you create the metric after 6:00 PM (UTC),
-   *               you get the first aggregation result at 6 PM (UTC) the next day.</p>
+   *                      <p>If you create the metric after 6 PM (UTC), you get the first aggregation result at
+   *               6 PM (UTC) the next day.</p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>The ISO 8601 format.</p>
-   *                <p>For example, if you specify <code>PT18H</code> for <code>offset</code>
-   *           and <code>1d</code> for <code>interval</code>, IoT SiteWise aggregates data in one of the following ways:</p>
+   *                <p>For example, if you specify <code>PT18H</code> for <code>offset</code> and
+   *             <code>1d</code> for <code>interval</code>, IoT SiteWise aggregates data in one of the following
+   *           ways:</p>
    *                <ul>
    *                   <li>
-   *                      <p>If you create the metric before or at 6:00 PM (UTC),
-   *               you get the first aggregation result at 6 PM (UTC) on the day when you create the metric.</p>
+   *                      <p>If you create the metric before or at 6 PM (UTC), you get the first aggregation
+   *               result at 6 PM (UTC) on the day when you create the metric.</p>
    *                   </li>
    *                   <li>
-   *                      <p>If you create the metric after 6:00 PM (UTC),
-   *               you get the first aggregation result at 6 PM (UTC) the next day.</p>
+   *                      <p>If you create the metric after 6 PM (UTC), you get the first aggregation result at
+   *               6 PM (UTC) the next day.</p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>The 24-hour clock.</p>
-   *                <p>For example, if you specify <code>00:03:00</code> for <code>offset</code>
-   *           and <code>5m</code> for <code>interval</code>, and you create the metric at 2 PM (UTC),
-   *           you get the first aggregation result at 2:03 PM (UTC).
-   *           You get the second aggregation result at 2:08 PM (UTC). </p>
+   *                <p>For example, if you specify <code>00:03:00</code> for <code>offset</code>,
+   *             <code>5m</code> for <code>interval</code>, and you create the metric at 2 PM (UTC), you
+   *           get the first aggregation result at 2:03 PM (UTC). You get the second aggregation result
+   *           at 2:08 PM (UTC). </p>
    *             </li>
    *             <li>
    *                <p>The offset time zone.</p>
    *                <p>For example, if you specify <code>2021-07-23T18:00-08</code> for <code>offset</code>
-   *           and <code>1d</code> for <code>interval</code>, IoT SiteWise aggregates data in one of the following ways:</p>
+   *           and <code>1d</code> for <code>interval</code>, IoT SiteWise aggregates data in one of the
+   *           following ways:</p>
    *                <ul>
    *                   <li>
-   *                      <p>If you create the metric before or at 6:00 PM (PST),
-   *               you get the first aggregation result at 6 PM (PST) on the day when you create the metric.</p>
+   *                      <p>If you create the metric before or at 6 PM (PST), you get the first aggregation
+   *               result at 6 PM (PST) on the day when you create the metric.</p>
    *                   </li>
    *                   <li>
-   *                      <p>If you create the metric after 6:00 PM (PST),
-   *               you get the first aggregation result at 6 PM (PST) the next day.</p>
+   *                      <p>If you create the metric after 6 PM (PST), you get the first aggregation result at
+   *               6 PM (PST) the next day.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -1806,6 +1811,37 @@ export namespace AssociatedAssetsSummary {
   });
 }
 
+export interface AssociateTimeSeriesToAssetPropertyRequest {
+  /**
+   * <p>The alias that identifies the time series.</p>
+   */
+  alias: string | undefined;
+
+  /**
+   * <p>The ID of the asset in which the asset property was created.</p>
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The ID of the asset property.</p>
+   */
+  propertyId: string | undefined;
+
+  /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   */
+  clientToken?: string;
+}
+
+export namespace AssociateTimeSeriesToAssetPropertyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateTimeSeriesToAssetPropertyRequest): any => ({
+    ...obj,
+  });
+}
+
 export enum AuthMode {
   IAM = "IAM",
   SSO = "SSO",
@@ -2393,12 +2429,11 @@ export namespace Greengrass {
 }
 
 /**
- * <p>Contains details for a gateway that runs on IoT Greengrass V2. To create a gateway that runs on IoT Greengrass V2,
- *       you must deploy the IoT SiteWise Edge component to your gateway device.
- *       Your <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/device-service-role.html">Greengrass device role</a>
- *       must use the <code>AWSIoTSiteWiseEdgeAccess</code> policy. For more information,
- *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/sw-gateways.html">Using IoT SiteWise at the edge</a>
- *       in the <i>IoT SiteWise User Guide</i>.</p>
+ * <p>Contains details for a gateway that runs on IoT Greengrass V2. To create a gateway that runs on IoT Greengrass
+ *       V2, you must deploy the IoT SiteWise Edge component to your gateway device. Your <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/device-service-role.html">Greengrass
+ *         device role</a> must use the <code>AWSIoTSiteWiseEdgeAccess</code> policy. For more
+ *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/sw-gateways.html">Using IoT SiteWise at the edge</a> in the
+ *         <i>IoT SiteWise User Guide</i>.</p>
  */
 export interface GreengrassV2 {
   /**
@@ -3005,6 +3040,37 @@ export namespace DeleteProjectResponse {
   });
 }
 
+export interface DeleteTimeSeriesRequest {
+  /**
+   * <p>The alias that identifies the time series.</p>
+   */
+  alias?: string;
+
+  /**
+   * <p>The ID of the asset in which the asset property was created.</p>
+   */
+  assetId?: string;
+
+  /**
+   * <p>The ID of the asset property.</p>
+   */
+  propertyId?: string;
+
+  /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   */
+  clientToken?: string;
+}
+
+export namespace DeleteTimeSeriesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteTimeSeriesRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeAccessPolicyRequest {
   /**
    * <p>The ID of the access policy.</p>
@@ -3530,8 +3596,8 @@ export interface DescribeDefaultEncryptionConfigurationResponse {
   encryptionType: EncryptionType | string | undefined;
 
   /**
-   * <p>The key ARN of the customer managed customer master key (CMK) used for KMS encryption if
-   *       you use <code>KMS_BASED_ENCRYPTION</code>.</p>
+   * <p>The key ARN of the customer managed key used for KMS encryption if you use
+   *         <code>KMS_BASED_ENCRYPTION</code>.</p>
    */
   kmsKeyArn?: string;
 
@@ -4002,6 +4068,11 @@ export namespace DescribeStorageConfigurationRequest {
   });
 }
 
+export enum DisassociatedDataStorageState {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
 /**
  * <p>Contains information about a customer managed Amazon S3 bucket.</p>
  */
@@ -4009,7 +4080,7 @@ export interface CustomerManagedS3Storage {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the Amazon S3 object. For more information about how to find the ARN for an
    *       Amazon S3 object, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-arn-format.html">Amazon S3 resources</a> in the
-   *       <i>Amazon Simple Storage Service User Guide</i>.</p>
+   *         <i>Amazon Simple Storage Service User Guide</i>.</p>
    */
   s3ResourceArn: string | undefined;
 
@@ -4074,6 +4145,27 @@ export interface DescribeStorageConfigurationResponse {
   multiLayerStorage?: MultiLayerStorage;
 
   /**
+   * <p>Contains the storage configuration for time series (data streams) that aren't associated with asset properties.
+   *       The <code>disassociatedDataStorage</code> can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> – IoT SiteWise accepts time series that aren't associated with asset properties.</p>
+   *                <important>
+   *                   <p>After the <code>disassociatedDataStorage</code> is enabled, you can't disable it.</p>
+   *                </important>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – IoT SiteWise doesn't accept time series (data streams) that aren't associated with asset properties.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html">Data streams</a>
+   *     in the <i>IoT SiteWise User Guide</i>.</p>
+   */
+  disassociatedDataStorage?: DisassociatedDataStorageState | string;
+
+  /**
    * <p>Contains current status information for the configuration.</p>
    */
   configurationStatus: ConfigurationStatus | undefined;
@@ -4089,6 +4181,88 @@ export namespace DescribeStorageConfigurationResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeStorageConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTimeSeriesRequest {
+  /**
+   * <p>The alias that identifies the time series.</p>
+   */
+  alias?: string;
+
+  /**
+   * <p>The ID of the asset in which the asset property was created.</p>
+   */
+  assetId?: string;
+
+  /**
+   * <p>The ID of the asset property.</p>
+   */
+  propertyId?: string;
+}
+
+export namespace DescribeTimeSeriesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTimeSeriesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTimeSeriesResponse {
+  /**
+   * <p>The ID of the asset in which the asset property was created.</p>
+   */
+  assetId?: string;
+
+  /**
+   * <p>The ID of the asset property.</p>
+   */
+  propertyId?: string;
+
+  /**
+   * <p>The alias that identifies the time series.</p>
+   */
+  alias?: string;
+
+  /**
+   * <p>The ID of the time series.</p>
+   */
+  timeSeriesId: string | undefined;
+
+  /**
+   * <p>The data type of the time series.</p>
+   *          <p>If you specify <code>STRUCT</code>, you must also specify <code>dataTypeSpec</code> to identify the type of the structure for this time series.</p>
+   */
+  dataType: PropertyDataType | string | undefined;
+
+  /**
+   * <p>The data type of the structure for this time series. This parameter is required for time series
+   *       that have the <code>STRUCT</code> data type.</p>
+   *          <p>The options for this parameter depend on the type of the composite model
+   *       in which you created the asset property that is associated with your time series.
+   *       Use <code>AWS/ALARM_STATE</code> for alarm state in alarm composite models.</p>
+   */
+  dataTypeSpec?: string;
+
+  /**
+   * <p>The date that the time series was created, in Unix epoch time.</p>
+   */
+  timeSeriesCreationDate: Date | undefined;
+
+  /**
+   * <p>The date that the time series was last updated, in Unix epoch time.</p>
+   */
+  timeSeriesLastUpdateDate: Date | undefined;
+}
+
+export namespace DescribeTimeSeriesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTimeSeriesResponse): any => ({
     ...obj,
   });
 }
@@ -4123,6 +4297,37 @@ export namespace DisassociateAssetsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DisassociateAssetsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateTimeSeriesFromAssetPropertyRequest {
+  /**
+   * <p>The alias that identifies the time series.</p>
+   */
+  alias: string | undefined;
+
+  /**
+   * <p>The ID of the asset in which the asset property was created.</p>
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The ID of the asset property.</p>
+   */
+  propertyId: string | undefined;
+
+  /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   */
+  clientToken?: string;
+}
+
+export namespace DisassociateTimeSeriesFromAssetPropertyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateTimeSeriesFromAssetPropertyRequest): any => ({
     ...obj,
   });
 }
@@ -4423,49 +4628,55 @@ export interface GetInterpolatedAssetPropertyValuesRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>LINEAR_INTERPOLATION</code> – Estimates missing data using <a href="https://en.wikipedia.org/wiki/Linear_interpolation">linear interpolation</a>.</p>
-   *                <p>For example, you can use this operation to return the interpolated temperature values for a wind turbine every 24 hours over a duration of 7 days.
-   *           If the interpolation starts on July 1, 2021, at 9 AM, IoT SiteWise returns the first interpolated value on July 2, 2021, at 9 AM, the second interpolated value
-   *           on July 3, 2021, at 9 AM, and so on.</p>
+   *                   <code>LINEAR_INTERPOLATION</code> – Estimates missing data using <a href="https://en.wikipedia.org/wiki/Linear_interpolation">linear
+   *           interpolation</a>.</p>
+   *                <p>For example, you can use this operation to return the interpolated temperature values
+   *           for a wind turbine every 24 hours over a duration of 7 days. If the interpolation starts
+   *           July 1, 2021, at 9 AM, IoT SiteWise returns the first interpolated value on July 2, 2021, at 9 AM,
+   *           the second interpolated value on July 3, 2021, at 9 AM, and so on.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>LOCF_INTERPOLATION</code> – Estimates missing data using last observation carried forward interpolation</p>
-   *                <p>If no data point is found for an interval,
-   *           IoT SiteWise returns the last observed data point for the previous interval
-   *           and carries forward this interpolated value until a new data point is found.</p>
-   *                <p>For example, you can get the state of an on-off valve every 24 hours over a duration of 7 days.
-   *           If the interpolation starts on July 1, 2021, at 9 AM, IoT SiteWise returns the last observed data point between July 1, 2021,
-   *           at 9 AM and July 2, 2021, at 9 AM as the first interpolated value.
-   *           If no data point is found after 9 AM on July 2, 2021, IoT SiteWise uses the same interpolated value for the rest of the days.</p>
+   *                   <code>LOCF_INTERPOLATION</code> – Estimates missing data using last observation
+   *           carried forward interpolation</p>
+   *                <p>If no data point is found for an interval, IoT SiteWise returns the last observed data point
+   *           for the previous interval and carries forward this interpolated value until a new data
+   *           point is found.</p>
+   *                <p>For example, you can get the state of an on-off valve every 24 hours over a duration
+   *           of 7 days. If the interpolation starts July 1, 2021, at 9 AM, IoT SiteWise returns the last
+   *           observed data point between July 1, 2021, at 9 AM and July 2, 2021, at 9 AM as the first
+   *           interpolated value. If a data point isn't found after 9 AM on July 2, 2021, IoT SiteWise uses the
+   *           same interpolated value for the rest of the days.</p>
    *             </li>
    *          </ul>
    */
   type: string | undefined;
 
   /**
-   * <p>The query interval for the window in seconds. IoT SiteWise computes each interpolated value by using data points
-   *       from the timestamp of each interval minus the window to the timestamp of each interval plus the window.
-   *       If not specified, the window is between the start time minus the interval and the end time plus the interval. </p>
+   * <p>The query interval for the window, in seconds. IoT SiteWise computes each interpolated value by
+   *       using data points from the timestamp of each interval, minus the window to the timestamp of
+   *       each interval plus the window. If not specified, the window ranges between the start time
+   *       minus the interval and the end time plus the interval.</p>
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>If you specify a value for the <code>intervalWindowInSeconds</code> parameter,
-   *             the <code>type</code> parameter must be <code>LINEAR_INTERPOLATION</code>.</p>
+   *                   <p>If you specify a value for the <code>intervalWindowInSeconds</code> parameter, the
+   *             value for the <code>type</code> parameter must be
+   *             <code>LINEAR_INTERPOLATION</code>.</p>
    *                </li>
    *                <li>
-   *                   <p>If no data point is found during the specified query window,
-   *             IoT SiteWise won't return an interpolated value for the interval.
-   *             This indicates that there's a gap in the ingested data points.</p>
+   *                   <p>If a data point isn't found during the specified query window, IoT SiteWise won't return an
+   *             interpolated value for the interval. This indicates that there's a gap in the ingested
+   *             data points.</p>
    *                </li>
    *             </ul>
    *          </note>
-   *          <p>For example, you can get the interpolated temperature values for a wind turbine
-   *       every 24 hours over a duration of 7 days. If the interpolation starts on July 1, 2021,
-   *       at 9 AM with a window of 2 hours, IoT SiteWise uses the data points from 7 AM (9 AM - 2 hours)
-   *       to 11 AM (9 AM + 2 hours) on July 2, 2021 to compute the first interpolated value,
-   *       uses the data points from 7 AM (9 AM - 2 hours) to 11 AM (9 AM + 2 hours) on July 3, 2021
-   *       to compute the second interpolated value, and so on. </p>
+   *          <p>For example, you can get the interpolated temperature values for a wind turbine every 24
+   *       hours over a duration of 7 days. If the interpolation starts on July 1, 2021, at 9 AM with a
+   *       window of 2 hours, IoT SiteWise uses the data points from 7 AM (9 AM minus 2 hours) to 11 AM (9 AM
+   *       plus 2 hours) on July 2, 2021 to compute the first interpolated value. Next, IoT SiteWise uses the
+   *       data points from 7 AM (9 AM minus 2 hours) to 11 AM (9 AM plus 2 hours) on July 3, 2021 to
+   *       compute the second interpolated value, and so on. </p>
    */
   intervalWindowInSeconds?: number;
 }
@@ -5336,6 +5547,140 @@ export namespace UnauthorizedException {
   });
 }
 
+export enum ListTimeSeriesType {
+  ASSOCIATED = "ASSOCIATED",
+  DISASSOCIATED = "DISASSOCIATED",
+}
+
+export interface ListTimeSeriesRequest {
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The ID of the asset in which the asset property was created.</p>
+   */
+  assetId?: string;
+
+  /**
+   * <p>The alias prefix of the time series.</p>
+   */
+  aliasPrefix?: string;
+
+  /**
+   * <p>The type of the time series. The time series type can be one of the following
+   *       values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ASSOCIATED</code> – The time series is associated with an asset
+   *           property.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISASSOCIATED</code> – The time series isn't associated with any asset
+   *           property.</p>
+   *             </li>
+   *          </ul>
+   */
+  timeSeriesType?: ListTimeSeriesType | string;
+}
+
+export namespace ListTimeSeriesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTimeSeriesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains a summary of a time series (data stream).</p>
+ */
+export interface TimeSeriesSummary {
+  /**
+   * <p>The ID of the asset in which the asset property was created.</p>
+   */
+  assetId?: string;
+
+  /**
+   * <p>The ID of the asset property.</p>
+   */
+  propertyId?: string;
+
+  /**
+   * <p>The alias that identifies the time series.</p>
+   */
+  alias?: string;
+
+  /**
+   * <p>The ID of the time series.</p>
+   */
+  timeSeriesId: string | undefined;
+
+  /**
+   * <p>The data type of the time series.</p>
+   *          <p>If you specify <code>STRUCT</code>, you must also specify <code>dataTypeSpec</code> to identify the type of the structure for this time series.</p>
+   */
+  dataType: PropertyDataType | string | undefined;
+
+  /**
+   * <p>The data type of the structure for this time series. This parameter is required for time series
+   *       that have the <code>STRUCT</code> data type.</p>
+   *          <p>The options for this parameter depend on the type of the composite model
+   *       in which you created the asset property that is associated with your time series.
+   *       Use <code>AWS/ALARM_STATE</code> for alarm state in alarm composite models.</p>
+   */
+  dataTypeSpec?: string;
+
+  /**
+   * <p>The date that the time series was created, in Unix epoch time.</p>
+   */
+  timeSeriesCreationDate: Date | undefined;
+
+  /**
+   * <p>The date that the time series was last updated, in Unix epoch time.</p>
+   */
+  timeSeriesLastUpdateDate: Date | undefined;
+}
+
+export namespace TimeSeriesSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TimeSeriesSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTimeSeriesResponse {
+  /**
+   * <p>One or more time series summaries to list.</p>
+   */
+  TimeSeriesSummaries: TimeSeriesSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListTimeSeriesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTimeSeriesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface PutDefaultEncryptionConfigurationRequest {
   /**
    * <p>The type of encryption used for the encryption configuration.</p>
@@ -5343,8 +5688,8 @@ export interface PutDefaultEncryptionConfigurationRequest {
   encryptionType: EncryptionType | string | undefined;
 
   /**
-   * <p>The Key ID of the customer managed customer master key (CMK) used for KMS encryption.
-   *       This is required if you use <code>KMS_BASED_ENCRYPTION</code>.</p>
+   * <p>The Key ID of the customer managed key used for KMS encryption. This is required if you
+   *       use <code>KMS_BASED_ENCRYPTION</code>.</p>
    */
   kmsKeyId?: string;
 }
@@ -5365,7 +5710,7 @@ export interface PutDefaultEncryptionConfigurationResponse {
   encryptionType: EncryptionType | string | undefined;
 
   /**
-   * <p>The Key ARN of the KMS CMK used for KMS encryption if you use
+   * <p>The Key ARN of the KMS key used for KMS encryption if you use
    *         <code>KMS_BASED_ENCRYPTION</code>.</p>
    */
   kmsKeyArn?: string;
@@ -5435,6 +5780,27 @@ export interface PutStorageConfigurationRequest {
    *       you must specify a <code>MultiLayerStorage</code> object.</p>
    */
   multiLayerStorage?: MultiLayerStorage;
+
+  /**
+   * <p>Contains the storage configuration for time series (data streams) that aren't associated with asset properties.
+   *       The <code>disassociatedDataStorage</code> can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> – IoT SiteWise accepts time series that aren't associated with asset properties.</p>
+   *                <important>
+   *                   <p>After the <code>disassociatedDataStorage</code> is enabled, you can't disable it.</p>
+   *                </important>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – IoT SiteWise doesn't accept time series (data streams) that aren't associated with asset properties.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html">Data streams</a>
+   *     in the <i>IoT SiteWise User Guide</i>.</p>
+   */
+  disassociatedDataStorage?: DisassociatedDataStorageState | string;
 }
 
 export namespace PutStorageConfigurationRequest {
@@ -5466,6 +5832,27 @@ export interface PutStorageConfigurationResponse {
    * <p>Contains information about the storage destination.</p>
    */
   multiLayerStorage?: MultiLayerStorage;
+
+  /**
+   * <p>Contains the storage configuration for time series (data streams) that aren't associated with asset properties.
+   *       The <code>disassociatedDataStorage</code> can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> – IoT SiteWise accepts time series that aren't associated with asset properties.</p>
+   *                <important>
+   *                   <p>After the <code>disassociatedDataStorage</code> is enabled, you can't disable it.</p>
+   *                </important>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – IoT SiteWise doesn't accept time series (data streams) that aren't associated with asset properties.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html">Data streams</a>
+   *     in the <i>IoT SiteWise User Guide</i>.</p>
+   */
+  disassociatedDataStorage?: DisassociatedDataStorageState | string;
 
   /**
    * <p>Contains current status information for the configuration.</p>

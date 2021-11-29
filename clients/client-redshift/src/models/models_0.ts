@@ -629,7 +629,7 @@ export enum DataShareStatus {
 
 /**
  * <p>The association of a datashare from a producer account with a data consumer.
- *         </p>
+ * </p>
  */
 export interface DataShareAssociation {
   /**
@@ -1126,7 +1126,7 @@ export interface AuthorizeDataShareMessage {
   DataShareArn: string | undefined;
 
   /**
-   * <p>The identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID.</p>
+   * <p>The identifier of the data consumer that is authorized to access the datashare. This identifier is an Amazon Web Services account ID.</p>
    */
   ConsumerIdentifier: string | undefined;
 }
@@ -2612,6 +2612,76 @@ export namespace PendingModifiedValues {
   });
 }
 
+export enum ReservedNodeExchangeStatusType {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  PENDING = "PENDING",
+  REQUESTED = "REQUESTED",
+  RETRYING = "RETRYING",
+  SUCCEEDED = "SUCCEEDED",
+}
+
+/**
+ * <p>Reserved-node status details, such as the source reserved-node
+ *             identifier, the target reserved-node identifier, the node type, the node count, and
+ *             other details.</p>
+ */
+export interface ReservedNodeExchangeStatus {
+  /**
+   * <p>The identifier of the reserved-node exchange request.</p>
+   */
+  ReservedNodeExchangeRequestId?: string;
+
+  /**
+   * <p>The status of the reserved-node exchange request. Statuses include in-progress and requested.</p>
+   */
+  Status?: ReservedNodeExchangeStatusType | string;
+
+  /**
+   * <p>A date and time that indicate when the reserved-node exchange was requested.</p>
+   */
+  RequestTime?: Date;
+
+  /**
+   * <p>The identifier of the source reserved node.</p>
+   */
+  SourceReservedNodeId?: string;
+
+  /**
+   * <p>The source reserved-node type, for example ds2.xlarge.</p>
+   */
+  SourceReservedNodeType?: string;
+
+  /**
+   * <p>The source reserved-node count in the cluster.</p>
+   */
+  SourceReservedNodeCount?: number;
+
+  /**
+   * <p>The identifier of the target reserved node offering.</p>
+   */
+  TargetReservedNodeOfferingId?: string;
+
+  /**
+   * <p>The node type of the target reserved node, for example ra3.4xlarge.</p>
+   */
+  TargetReservedNodeType?: string;
+
+  /**
+   * <p>The count of target reserved nodes in the cluster.</p>
+   */
+  TargetReservedNodeCount?: number;
+}
+
+export namespace ReservedNodeExchangeStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReservedNodeExchangeStatus): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Describes a resize operation.</p>
  */
@@ -3138,6 +3208,16 @@ export interface Cluster {
    * <p>The AQUA (Advanced Query Accelerator) configuration of the cluster.</p>
    */
   AquaConfiguration?: AquaConfiguration;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the IAM role set as default for the cluster.</p>
+   */
+  DefaultIamRoleArn?: string;
+
+  /**
+   * <p>The status of the reserved-node exchange request. Statuses include in-progress and requested.</p>
+   */
+  ReservedNodeExchangeStatus?: ReservedNodeExchangeStatus;
 }
 
 export namespace Cluster {
@@ -4498,6 +4578,11 @@ export interface CreateClusterMessage {
    *          </ul>
    */
   AquaConfigurationStatus?: AquaConfigurationStatus | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created. </p>
+   */
+  DefaultIamRoleArn?: string;
 }
 
 export namespace CreateClusterMessage {
@@ -5897,6 +5982,16 @@ export interface ResizeClusterMessage {
    *             <code>false</code>, the resize type is elastic. </p>
    */
   Classic?: boolean;
+
+  /**
+   * <p>The identifier of the reserved node.</p>
+   */
+  ReservedNodeId?: string;
+
+  /**
+   * <p>The identifier of the target reserved node offering.</p>
+   */
+  TargetReservedNodeOfferingId?: string;
 }
 
 export namespace ResizeClusterMessage {
@@ -6748,7 +6843,7 @@ export interface DeauthorizeDataShareMessage {
 
   /**
    * <p>The identifier of the data consumer that is to have authorization removed from the datashare.
-   *             This identifier is an AWS account ID.</p>
+   *             This identifier is an Amazon Web Services account ID.</p>
    */
   ConsumerIdentifier: string | undefined;
 }
@@ -8209,7 +8304,7 @@ export interface DescribeDataSharesMessage {
   MaxRecords?: number;
 
   /**
-   * <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeDataShares</a> request exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
+   * <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeDataShares</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
    */
   Marker?: string;
 }
@@ -8230,7 +8325,7 @@ export interface DescribeDataSharesResult {
   DataShares?: DataShare[];
 
   /**
-   * <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeDataShares</a> request exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
+   * <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeDataShares</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
    */
   Marker?: string;
 }
@@ -8267,7 +8362,7 @@ export interface DescribeDataSharesForConsumerMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeDataSharesForConsumer</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
    *             <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
@@ -8293,7 +8388,7 @@ export interface DescribeDataSharesForConsumerResult {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeDataSharesForConsumer</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
    *             <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
@@ -8333,7 +8428,7 @@ export interface DescribeDataSharesForProducerMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeDataSharesForProducer</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
    *             <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
@@ -8359,7 +8454,7 @@ export interface DescribeDataSharesForProducerResult {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeDataSharesForProducer</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
    *             <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
@@ -9113,55 +9208,6 @@ export namespace DescribeHsmConfigurationsMessage {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeHsmConfigurationsMessage): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p></p>
- */
-export interface HsmConfigurationMessage {
-  /**
-   * <p>A value that indicates the starting point for the next set of response records in a
-   *             subsequent request. If a value is returned in a response, you can retrieve the next set
-   *             of records by providing this returned marker value in the <code>Marker</code> parameter
-   *             and retrying the command. If the <code>Marker</code> field is empty, all response
-   *             records have been retrieved for the request. </p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>A list of <code>HsmConfiguration</code> objects.</p>
-   */
-  HsmConfigurations?: HsmConfiguration[];
-}
-
-export namespace HsmConfigurationMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HsmConfigurationMessage): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p></p>
- */
-export interface DescribeLoggingStatusMessage {
-  /**
-   * <p>The identifier of the cluster from which to get the logging status.</p>
-   *         <p>Example: <code>examplecluster</code>
-   *         </p>
-   */
-  ClusterIdentifier: string | undefined;
-}
-
-export namespace DescribeLoggingStatusMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoggingStatusMessage): any => ({
     ...obj,
   });
 }

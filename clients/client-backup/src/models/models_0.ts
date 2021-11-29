@@ -342,7 +342,8 @@ export namespace CopyAction {
  */
 export interface BackupRule {
   /**
-   * <p>An optional display name for a backup rule.</p>
+   * <p>A display name for a backup rule. Must contain 1 to 50 alphanumeric or '-_.'
+   *          characters.</p>
    */
   RuleName: string | undefined;
 
@@ -356,10 +357,11 @@ export interface BackupRule {
 
   /**
    * <p>A cron expression in UTC specifying when Backup initiates a backup job. For
-   *          more information about cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">Schedule Expressions for Rules</a> in the <i>Amazon CloudWatch Events User
-   *             Guide.</i>. Prior to specifying a value for this parameter, we recommend testing
-   *          your cron expression using one of the many available cron generator and testing
-   *          tools.</p>
+   *          more information about Amazon Web Services cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">Schedule Expressions for Rules</a> in the <i>Amazon CloudWatch Events User
+   *             Guide.</i>. Two examples of Amazon Web Services cron expressions are <code> 15 * ?
+   *             * * *</code> (take a backup every hour at 15 minutes past the hour) and <code>0 12 * * ?
+   *             *</code> (take a backup every day at 12 noon UTC). For a table of examples, click the
+   *          preceding link and scroll down the page.</p>
    */
   ScheduleExpression?: string;
 
@@ -430,7 +432,8 @@ export namespace BackupRule {
  */
 export interface BackupPlan {
   /**
-   * <p>The display name of a backup plan.</p>
+   * <p>The display name of a backup plan. Must contain 1 to 50 alphanumeric or '-_.'
+   *          characters.</p>
    */
   BackupPlanName: string | undefined;
 
@@ -461,7 +464,8 @@ export namespace BackupPlan {
  */
 export interface BackupRuleInput {
   /**
-   * <p>An optional display name for a backup rule.</p>
+   * <p>A display name for a backup rule. Must contain 1 to 50 alphanumeric or '-_.'
+   *          characters.</p>
    */
   RuleName: string | undefined;
 
@@ -539,7 +543,8 @@ export namespace BackupRuleInput {
  */
 export interface BackupPlanInput {
   /**
-   * <p>The optional display name of a backup plan.</p>
+   * <p>The display name of a backup plan. Must contain 1 to 50 alphanumeric or '-_.'
+   *          characters.</p>
    */
   BackupPlanName: string | undefined;
 
@@ -610,7 +615,8 @@ export interface BackupPlansListMember {
 
   /**
    * <p>A unique string that identifies the request and allows failed requests to be retried
-   *          without the risk of running the operation twice.</p>
+   *          without the risk of running the operation twice. This parameter is optional.</p>
+   *          <p>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
    */
   CreatorRequestId?: string;
 
@@ -661,8 +667,21 @@ export namespace BackupPlanTemplatesListMember {
   });
 }
 
+/**
+ * <p>Includes information about tags you define to assign tagged resources to a backup
+ *          plan.</p>
+ */
 export interface ConditionParameter {
+  /**
+   * <p>The key in a key-value pair. For example, in the tag <code>Department:
+   *          Accounting</code>, <code>Department</code> is the key.</p>
+   */
   ConditionKey?: string;
+
+  /**
+   * <p>The value in a key-value pair. For example, in the tag <code>Department:
+   *             Accounting</code>, <code>Accounting</code> is the value.</p>
+   */
   ConditionValue?: string;
 }
 
@@ -675,10 +694,34 @@ export namespace ConditionParameter {
   });
 }
 
+/**
+ * <p>Contains information about which resources to include or exclude from a backup plan
+ *          using their tags. Conditions are case sensitive.</p>
+ */
 export interface Conditions {
+  /**
+   * <p>Filters the values of your tagged resources for only those resources that you tagged
+   *          with the same value. Also called "exact matching."</p>
+   */
   StringEquals?: ConditionParameter[];
+
+  /**
+   * <p>Filters the values of your tagged resources for only those resources that you tagged
+   *          that do not have the same value. Also called "negated matching."</p>
+   */
   StringNotEquals?: ConditionParameter[];
+
+  /**
+   * <p>Filters the values of your tagged resources for matching tag values with the use of a
+   *          wildcard character (*) anywhere in the string. For example, "prod*" or "*rod*" matches the
+   *          tag value "production".</p>
+   */
   StringLike?: ConditionParameter[];
+
+  /**
+   * <p>Filters the values of your tagged resources for non-matching tag values with the use of
+   *          a wildcard character (*) anywhere in the string.</p>
+   */
   StringNotLike?: ConditionParameter[];
 }
 
@@ -697,25 +740,29 @@ export enum ConditionType {
 
 /**
  * <p>Contains an array of triplets made up of a condition type (such as
- *             <code>StringEquals</code>), a key, and a value. Conditions are used to filter resources
- *          in a selection that is assigned to a backup plan.</p>
+ *             <code>StringEquals</code>), a key, and a value. Used to filter resources using their
+ *          tags and assign them to a backup plan. Case sensitive.</p>
  */
 export interface Condition {
   /**
-   * <p>An operation, such as <code>StringEquals</code>, that is applied to a key-value pair
-   *          used to filter resources in a selection.</p>
+   * <p>An operation applied to a key-value pair used to assign resources to your backup plan.
+   *          Condition only supports <code>StringEquals</code>. For more flexible assignment options,
+   *          incluidng <code>StringLike</code> and the ability to exclude resources from your backup
+   *          plan, use <code>Conditions</code> (with an "s" on the end) for your <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_BackupSelection.html">
+   *                <code>BackupSelection</code>
+   *             </a>.</p>
    */
   ConditionType: ConditionType | string | undefined;
 
   /**
-   * <p>The key in a key-value pair. For example, in <code>"ec2:ResourceTag/Department":
-   *             "accounting"</code>, <code>"ec2:ResourceTag/Department"</code> is the key.</p>
+   * <p>The key in a key-value pair. For example, in the tag <code>Department:
+   *          Accounting</code>, <code>Department</code> is the key.</p>
    */
   ConditionKey: string | undefined;
 
   /**
-   * <p>The value in a key-value pair. For example, in <code>"ec2:ResourceTag/Department":
-   *             "accounting"</code>, <code>"accounting"</code> is the value.</p>
+   * <p>The value in a key-value pair. For example, in the tag <code>Department:
+   *             Accounting</code>, <code>Accounting</code> is the value.</p>
    */
   ConditionValue: string | undefined;
 }
@@ -734,7 +781,8 @@ export namespace Condition {
  */
 export interface BackupSelection {
   /**
-   * <p>The display name of a resource selection document.</p>
+   * <p>The display name of a resource selection document. Must contain 1 to 50 alphanumeric or
+   *          '-_.' characters.</p>
    */
   SelectionName: string | undefined;
 
@@ -745,20 +793,65 @@ export interface BackupSelection {
   IamRoleArn: string | undefined;
 
   /**
-   * <p>An array of strings that contain Amazon Resource Names (ARNs)
-   *
-   *          of resources to assign to a backup plan.</p>
+   * <p>A list of Amazon Resource Names (ARNs) to assign to a backup plan. The maximum number of
+   *          ARNs is 500 without wildcards, or 30 ARNs with wildcards.</p>
+   *          <p>If you need to assign many resources to a backup plan, consider a different resource
+   *          selection strategy, such as assigning all resources of a resource type or refining your
+   *          resource selection using tags.</p>
    */
   Resources?: string[];
 
   /**
-   * <p>An array of conditions used to specify a set of resources to assign to a backup plan;
-   *          for example, <code>"StringEquals": {"ec2:ResourceTag/Department": "accounting"</code>.
-   *          Assigns the backup plan to every resource with at least one matching tag.</p>
+   * <p>A list of conditions that you define to assign resources to your backup plans using
+   *          tags. For example, <code>"StringEquals": {"Department": "accounting"</code>. Condition
+   *          operators are case sensitive.</p>
+   *          <p>
+   *             <code>ListOfTags</code> differs from <code>Conditions</code> as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>When you specify more than one condition, you assign all resources that match AT
+   *                LEAST ONE condition (using OR logic).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ListOfTags</code> only supports <code>StringEquals</code>.
+   *                   <code>Conditions</code> supports <code>StringEquals</code>,
+   *                   <code>StringLike</code>, <code>StringNotEquals</code>, and
+   *                   <code>StringNotLike</code>. </p>
+   *             </li>
+   *          </ul>
    */
   ListOfTags?: Condition[];
 
+  /**
+   * <p>A list of Amazon Resource Names (ARNs) to exclude from a backup plan. The maximum number
+   *          of ARNs is 500 without wildcards, or 30 ARNs with wildcards.</p>
+   *          <p>If you need to exclude many resources from a backup plan, consider a different resource
+   *          selection strategy, such as assigning only one or a few resource types or refining your
+   *          resource selection using tags.</p>
+   */
   NotResources?: string[];
+
+  /**
+   * <p>A list of conditions that you define to assign resources to your backup plans using
+   *          tags. For example, <code>"StringEquals": {"Department": "accounting"</code>. Condition
+   *          operators are case sensitive.</p>
+   *          <p>
+   *             <code>Conditions</code> differs from <code>ListOfTags</code> as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>When you specify more than one condition, you only assign the resources that match
+   *                ALL conditions (using AND logic).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Conditions</code> supports <code>StringEquals</code>,
+   *                   <code>StringLike</code>, <code>StringNotEquals</code>, and
+   *                   <code>StringNotLike</code>. <code>ListOfTags</code> only supports
+   *                   <code>StringEquals</code>.</p>
+   *             </li>
+   *          </ul>
+   */
   Conditions?: Conditions;
 }
 
@@ -800,7 +893,8 @@ export interface BackupSelectionsListMember {
 
   /**
    * <p>A unique string that identifies the request and allows failed requests to be retried
-   *          without the risk of running the operation twice.</p>
+   *          without the risk of running the operation twice. This parameter is optional.</p>
+   *          <p>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
    */
   CreatorRequestId?: string;
 
@@ -872,7 +966,8 @@ export interface BackupVaultListMember {
 
   /**
    * <p>A unique string that identifies the request and allows failed requests to be retried
-   *          without the risk of running the operation twice.</p>
+   *          without the risk of running the operation twice. This parameter is optional.</p>
+   *          <p>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
    */
   CreatorRequestId?: string;
 
@@ -1027,9 +1122,10 @@ export namespace ControlInputParameter {
 
 /**
  * <p>A framework consists of one or more controls. Each control has its own control scope.
- *          The control scope defines what the control will evaluate. Three examples of control scopes
- *          are: a specific backup plan, all backup plans with a specific tag, or all backup
- *          plans.</p>
+ *          The control scope can include one or more resource types, a combination of a tag key and
+ *          value, or a combination of one resource type and one resource ID. If no scope is specified,
+ *          evaluations for the rule are triggered when any resource in your recording group changes in
+ *          configuration.</p>
  *          <note>
  *             <p>To set a control scope that includes all of a particular resource, leave the
  *                <code>ControlScope</code> empty or do not pass it when calling
@@ -1050,8 +1146,10 @@ export interface ControlScope {
   ComplianceResourceTypes?: string[];
 
   /**
-   * <p>Describes whether the control scope includes resources with one or more tags. Each tag
-   *          is a key-value pair.</p>
+   * <p>The tag key-value pair applied to those Amazon Web Services resources that you want to
+   *          trigger an evaluation for a rule. A maximum of one key-value pair can be provided. The tag
+   *          value is optional, but it cannot be an empty string. The structure to assign a tag is:
+   *             <code>[{"Key":"string","Value":"string"}]</code>.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -1191,6 +1289,7 @@ export interface CreateBackupPlanInput {
    * <p>Identifies the request and allows failed requests to be retried without the risk of
    *          running the operation twice. If the request includes a <code>CreatorRequestId</code> that
    *          matches an existing backup plan, that plan is returned. This parameter is optional.</p>
+   *          <p>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
    */
   CreatorRequestId?: string;
 }
@@ -1376,7 +1475,8 @@ export interface CreateBackupSelectionInput {
 
   /**
    * <p>A unique string that identifies the request and allows failed requests to be retried
-   *          without the risk of running the operation twice.</p>
+   *          without the risk of running the operation twice. This parameter is optional.</p>
+   *          <p>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
    */
   CreatorRequestId?: string;
 }
@@ -1442,7 +1542,8 @@ export interface CreateBackupVaultInput {
 
   /**
    * <p>A unique string that identifies the request and allows failed requests to be retried
-   *          without the risk of running the operation twice.</p>
+   *          without the risk of running the operation twice. This parameter is optional.</p>
+   *          <p>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
    */
   CreatorRequestId?: string;
 }
@@ -2748,6 +2849,14 @@ export interface DescribeRegionSettingsOutput {
    * <p>Returns a list of all services along with the opt-in preferences in the Region.</p>
    */
   ResourceTypeOptInPreference?: { [key: string]: boolean };
+
+  /**
+   * <p>Returns whether a DynamoDB recovery point was taken using
+   *          <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html">
+   *             Backup's advanced DynamoDB backup features</a>.
+   *       </p>
+   */
+  ResourceTypeManagementPreference?: { [key: string]: boolean };
 }
 
 export namespace DescribeRegionSettingsOutput {
@@ -5093,19 +5202,31 @@ export interface PutBackupVaultNotificationsInput {
   /**
    * <p>An array of events that indicate the status of jobs to back up resources to the backup
    *          vault.</p>
+   *          <p>For common use cases and code samples, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/sns-notifications.html">Using Amazon SNS to
+   *             track Backup events</a>.</p>
+   *          <p>The following events are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BACKUP_JOB_STARTED</code> | <code>BACKUP_JOB_COMPLETED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COPY_JOB_STARTED</code> | <code>COPY_JOB_SUCCESSFUL</code> |
+   *                   <code>COPY_JOB_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESTORE_JOB_STARTED</code> | <code>RESTORE_JOB_COMPLETED</code> |
+   *                   <code>RECOVERY_POINT_MODIFIED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    *          <note>
-   *             <p>The following events are supported:</p>
-   *             <p>
-   *                <code>BACKUP_JOB_STARTED</code>, <code>BACKUP_JOB_COMPLETED</code>,</p>
-   *             <p>
-   *                <code>COPY_JOB_STARTED</code>, <code>COPY_JOB_SUCCESSFUL</code>,
-   *                <code>COPY_JOB_FAILED</code>,</p>
-   *             <p>
-   *                <code>RESTORE_JOB_STARTED</code>, <code>RESTORE_JOB_COMPLETED</code>, and
-   *                <code>RECOVERY_POINT_MODIFIED</code>.</p>
-   *             <p>To find failed backup jobs, use <code>BACKUP_JOB_COMPLETED</code> and filter using
-   *             event metadata.</p>
-   *             <p>Other events in the following list are deprecated.</p>
+   *             <p>Ignore the list below because it includes deprecated events. Refer to the list
+   *             above.</p>
    *          </note>
    */
   BackupVaultEvents: (BackupVaultEvent | string)[] | undefined;
@@ -5512,7 +5633,8 @@ export interface TagResourceInput {
 
   /**
    * <p>Key-value pairs that are used to help organize your resources. You can assign your own
-   *          metadata to the resources you create.</p>
+   *          metadata to the resources you create. For clarity, this is the structure to assign tags:
+   *             <code>[{"Key":"string","Value":"string"}]</code>.</p>
    */
   Tags: { [key: string]: string } | undefined;
 }
@@ -5780,6 +5902,14 @@ export interface UpdateRegionSettingsInput {
    * <p>Updates the list of services along with the opt-in preferences for the Region.</p>
    */
   ResourceTypeOptInPreference?: { [key: string]: boolean };
+
+  /**
+   * <p>Enables or disables
+   *          <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html">
+   *             Backup's advanced DynamoDB backup features</a> for the
+   *          Region.</p>
+   */
+  ResourceTypeManagementPreference?: { [key: string]: boolean };
 }
 
 export namespace UpdateRegionSettingsInput {

@@ -23,43 +23,41 @@ export interface UpdateServiceInstanceCommandOutput extends UpdateServiceInstanc
 
 /**
  * <p>Update a service instance.</p>
- *         <p>There are four modes for updating a service instance as described in the following. The <code>deploymentType</code> field defines the
- *             mode.</p>
- *         <dl>
+ *          <p>There are four modes for updating a service instance as described in the following. The <code>deploymentType</code> field defines the
+ *    mode.</p>
+ *          <dl>
  *             <dt/>
  *             <dd>
- *                     <p>
+ *                <p>
  *                   <code>NONE</code>
  *                </p>
- *                     <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters are updated.</p>
- *                 </dd>
+ *                <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters are updated.</p>
+ *             </dd>
  *             <dt/>
  *             <dd>
- *                     <p>
+ *                <p>
  *                   <code>CURRENT_VERSION</code>
  *                </p>
- *                     <p>In this mode, the service instance is deployed and updated with the new spec that you provide. Only requested parameters are
- *                         updated. <i>Don’t</i> include minor or major version parameters when you use this
- *                         <code>deployment-type</code>.</p>
- *                 </dd>
+ *                <p>In this mode, the service instance is deployed and updated with the new spec that you provide. Only requested parameters are updated.
+ *        <i>Don’t</i> include minor or major version parameters when you use this <code>deployment-type</code>.</p>
+ *             </dd>
  *             <dt/>
  *             <dd>
- *                     <p>
+ *                <p>
  *                   <code>MINOR_VERSION</code>
  *                </p>
- *                     <p>In this mode, the service instance is deployed and updated with the published, recommended (latest) minor version of the
- *                         current major version in use, by default. You can also specify a different minor version of the current major version in
- *                         use.</p>
- *                 </dd>
+ *                <p>In this mode, the service instance is deployed and updated with the published, recommended (latest) minor version of the current major
+ *       version in use, by default. You can also specify a different minor version of the current major version in use.</p>
+ *             </dd>
  *             <dt/>
  *             <dd>
- *                     <p>
+ *                <p>
  *                   <code>MAJOR_VERSION</code>
  *                </p>
- *                     <p>In this mode, the service instance is deployed and updated with the published, recommended (latest) major and minor version
- *                         of the current template, by default. You can also specify a different major version that is higher than the major version in
- *                         use and a minor version (optional).</p>
- *                 </dd>
+ *                <p>In this mode, the service instance is deployed and updated with the published, recommended (latest) major and minor version of the current
+ *       template, by default. You can also specify a different major version that is higher than the major version in use and a minor version
+ *       (optional).</p>
+ *             </dd>
  *          </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

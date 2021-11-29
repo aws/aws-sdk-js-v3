@@ -26,7 +26,7 @@ export interface AuthorizeSecurityGroupEgressCommandOutput
 /**
  * <p>[VPC only] Adds the specified outbound (egress) rules to a security group for use with a VPC.</p>
  *          <p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR address
- *       ranges, or to the instances that are associated with the specified destination security groups.</p>
+ *       ranges, or to the instances that are associated with the specified source security groups.</p>
  *          <p>You specify a protocol for each rule (for example, TCP).
  *        For the TCP and UDP protocols, you must also specify the destination port or port range.
  *        For the ICMP protocol, you must also specify the ICMP type and code.

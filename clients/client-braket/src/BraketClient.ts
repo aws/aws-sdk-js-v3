@@ -49,38 +49,50 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
 import { CancelQuantumTaskCommandInput, CancelQuantumTaskCommandOutput } from "./commands/CancelQuantumTaskCommand";
+import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import { CreateQuantumTaskCommandInput, CreateQuantumTaskCommandOutput } from "./commands/CreateQuantumTaskCommand";
 import { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand";
+import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
 import { GetQuantumTaskCommandInput, GetQuantumTaskCommandOutput } from "./commands/GetQuantumTaskCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { SearchDevicesCommandInput, SearchDevicesCommandOutput } from "./commands/SearchDevicesCommand";
+import { SearchJobsCommandInput, SearchJobsCommandOutput } from "./commands/SearchJobsCommand";
 import { SearchQuantumTasksCommandInput, SearchQuantumTasksCommandOutput } from "./commands/SearchQuantumTasksCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | CancelJobCommandInput
   | CancelQuantumTaskCommandInput
+  | CreateJobCommandInput
   | CreateQuantumTaskCommandInput
   | GetDeviceCommandInput
+  | GetJobCommandInput
   | GetQuantumTaskCommandInput
   | ListTagsForResourceCommandInput
   | SearchDevicesCommandInput
+  | SearchJobsCommandInput
   | SearchQuantumTasksCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
+  | CancelJobCommandOutput
   | CancelQuantumTaskCommandOutput
+  | CreateJobCommandOutput
   | CreateQuantumTaskCommandOutput
   | GetDeviceCommandOutput
+  | GetJobCommandOutput
   | GetQuantumTaskCommandOutput
   | ListTagsForResourceCommandOutput
   | SearchDevicesCommandOutput
+  | SearchJobsCommandOutput
   | SearchQuantumTasksCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;

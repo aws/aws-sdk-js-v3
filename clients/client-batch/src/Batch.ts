@@ -157,9 +157,8 @@ export class Batch extends BatchClient {
    *    within the environment. This is based on the compute resource specification that you define or the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch template</a> that you
    *    specify when you create the compute environment. Either, you can choose to use EC2 On-Demand Instances and EC2 Spot
    *    Instances. Or, you can use Fargate and Fargate Spot capacity in your managed compute environment. You can
-   *    optionally set a maximum price so that Spot Instances only launch
-   *    when
-   *    the Spot Instance price is less than a specified percentage of the On-Demand price.</p>
+   *    optionally set a maximum price so that Spot Instances only launch when the Spot Instance price is less than a
+   *    specified percentage of the On-Demand price.</p>
    *          <note>
    *             <p>Multi-node parallel jobs aren't supported on Spot Instances.</p>
    *          </note>
@@ -258,8 +257,7 @@ export class Batch extends BatchClient {
   }
 
   /**
-   * <p>Creates an Batch scheduling
-   *    policy.</p>
+   * <p>Creates an Batch scheduling policy.</p>
    */
   public createSchedulingPolicy(
     args: CreateSchedulingPolicyCommandInput,
@@ -361,9 +359,8 @@ export class Batch extends BatchClient {
   }
 
   /**
-   * <p>Deletes the specified scheduling
-   *    policy.</p>
-   *          <p>You can't delete a scheduling policy that is used in any job queues.</p>
+   * <p>Deletes the specified scheduling policy.</p>
+   *          <p>You can't delete a scheduling policy that's used in any job queues.</p>
    */
   public deleteSchedulingPolicy(
     args: DeleteSchedulingPolicyCommandInput,
@@ -556,8 +553,7 @@ export class Batch extends BatchClient {
   }
 
   /**
-   * <p>Describes one or more of your scheduling
-   *    policies.</p>
+   * <p>Describes one or more of your scheduling policies.</p>
    */
   public describeSchedulingPolicies(
     args: DescribeSchedulingPoliciesCommandInput,
@@ -629,8 +625,7 @@ export class Batch extends BatchClient {
   }
 
   /**
-   * <p>Returns a list of Batch scheduling
-   *    policies.</p>
+   * <p>Returns a list of Batch scheduling policies.</p>
    */
   public listSchedulingPolicies(
     args: ListSchedulingPoliciesCommandInput,
@@ -733,11 +728,9 @@ export class Batch extends BatchClient {
    *    using the <code>memory</code> and <code>vcpus</code> parameters. Rather, you must specify updates to job definition
    *    parameters in a <code>ResourceRequirements</code> object that's included in the <code>containerOverrides</code>
    *    parameter.</p>
-   *
    *          <note>
    *             <p>Job queues with a scheduling policy are limited to 500 active fair share identifiers at a time. </p>
    *          </note>
-   *
    *          <important>
    *             <p>Jobs that run on Fargate resources can't be guaranteed to run for more than 14 days. This is because, after 14
    *     days, Fargate resources might become unavailable and job might be terminated.</p>
@@ -923,8 +916,7 @@ export class Batch extends BatchClient {
   }
 
   /**
-   * <p>Updates a scheduling
-   *    policy.</p>
+   * <p>Updates a scheduling policy.</p>
    */
   public updateSchedulingPolicy(
     args: UpdateSchedulingPolicyCommandInput,

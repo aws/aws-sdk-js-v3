@@ -42,6 +42,7 @@ import {
 } from "../commands/GetRecordingConfigurationCommand";
 import { GetStreamCommandInput, GetStreamCommandOutput } from "../commands/GetStreamCommand";
 import { GetStreamKeyCommandInput, GetStreamKeyCommandOutput } from "../commands/GetStreamKeyCommand";
+import { GetStreamSessionCommandInput, GetStreamSessionCommandOutput } from "../commands/GetStreamSessionCommand";
 import {
   ImportPlaybackKeyPairCommandInput,
   ImportPlaybackKeyPairCommandOutput,
@@ -57,6 +58,7 @@ import {
 } from "../commands/ListRecordingConfigurationsCommand";
 import { ListStreamKeysCommandInput, ListStreamKeysCommandOutput } from "../commands/ListStreamKeysCommand";
 import { ListStreamsCommandInput, ListStreamsCommandOutput } from "../commands/ListStreamsCommand";
+import { ListStreamSessionsCommandInput, ListStreamSessionsCommandOutput } from "../commands/ListStreamSessionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -69,12 +71,14 @@ import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "../comman
 import {
   _Stream,
   AccessDeniedException,
+  AudioConfiguration,
   BatchError,
   Channel,
   ChannelNotBroadcasting,
   ChannelSummary,
   ConflictException,
   DestinationConfiguration,
+  IngestConfiguration,
   InternalServerException,
   PendingVerification,
   PlaybackKeyPair,
@@ -84,12 +88,17 @@ import {
   ResourceNotFoundException,
   S3DestinationConfiguration,
   ServiceQuotaExceededException,
+  StreamEvent,
+  StreamFilters,
   StreamKey,
   StreamKeySummary,
+  StreamSession,
+  StreamSessionSummary,
   StreamSummary,
   StreamUnavailable,
   ThrottlingException,
   ValidationException,
+  VideoConfiguration,
 } from "../models/models_0";
 
 export const serializeAws_restJson1BatchGetChannelCommand = async (
@@ -448,6 +457,31 @@ export const serializeAws_restJson1GetStreamKeyCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetStreamSessionCommand = async (
+  input: GetStreamSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetStreamSession";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.channelArn !== undefined && input.channelArn !== null && { channelArn: input.channelArn }),
+    ...(input.streamId !== undefined && input.streamId !== null && { streamId: input.streamId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ImportPlaybackKeyPairCommand = async (
   input: ImportPlaybackKeyPairCommandInput,
   context: __SerdeContext
@@ -593,6 +627,34 @@ export const serializeAws_restJson1ListStreamsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListStreams";
   let body: any;
   body = JSON.stringify({
+    ...(input.filterBy !== undefined &&
+      input.filterBy !== null && { filterBy: serializeAws_restJson1StreamFilters(input.filterBy, context) }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListStreamSessionsCommand = async (
+  input: ListStreamSessionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListStreamSessions";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.channelArn !== undefined && input.channelArn !== null && { channelArn: input.channelArn }),
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
@@ -1847,6 +1909,77 @@ const deserializeAws_restJson1GetStreamKeyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetStreamSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetStreamSessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetStreamSessionCommandError(output, context);
+  }
+  const contents: GetStreamSessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    streamSession: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.streamSession !== undefined && data.streamSession !== null) {
+    contents.streamSession = deserializeAws_restJson1StreamSession(data.streamSession, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetStreamSessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetStreamSessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ivs#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ivs#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.ivs#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ImportPlaybackKeyPairCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2267,6 +2400,81 @@ const deserializeAws_restJson1ListStreamsCommandError = async (
     case "com.amazonaws.ivs#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListStreamSessionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStreamSessionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListStreamSessionsCommandError(output, context);
+  }
+  const contents: ListStreamSessionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    streamSessions: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.streamSessions !== undefined && data.streamSessions !== null) {
+    contents.streamSessions = deserializeAws_restJson1StreamSessionList(data.streamSessions, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListStreamSessionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStreamSessionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ivs#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ivs#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.ivs#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2946,6 +3154,12 @@ const serializeAws_restJson1S3DestinationConfiguration = (
   };
 };
 
+const serializeAws_restJson1StreamFilters = (input: StreamFilters, context: __SerdeContext): any => {
+  return {
+    ...(input.health !== undefined && input.health !== null && { health: input.health }),
+  };
+};
+
 const serializeAws_restJson1StreamKeyArnList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -2967,6 +3181,15 @@ const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: _
       [key]: value,
     };
   }, {});
+};
+
+const deserializeAws_restJson1AudioConfiguration = (output: any, context: __SerdeContext): AudioConfiguration => {
+  return {
+    channels: __expectLong(output.channels),
+    codec: __expectString(output.codec),
+    sampleRate: __expectLong(output.sampleRate),
+    targetBitrate: __expectLong(output.targetBitrate),
+  } as any;
 };
 
 const deserializeAws_restJson1BatchError = (output: any, context: __SerdeContext): BatchError => {
@@ -3049,6 +3272,19 @@ const deserializeAws_restJson1DestinationConfiguration = (
     s3:
       output.s3 !== undefined && output.s3 !== null
         ? deserializeAws_restJson1S3DestinationConfiguration(output.s3, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1IngestConfiguration = (output: any, context: __SerdeContext): IngestConfiguration => {
+  return {
+    audio:
+      output.audio !== undefined && output.audio !== null
+        ? deserializeAws_restJson1AudioConfiguration(output.audio, context)
+        : undefined,
+    video:
+      output.video !== undefined && output.video !== null
+        ? deserializeAws_restJson1VideoConfiguration(output.video, context)
         : undefined,
   } as any;
 };
@@ -3164,8 +3400,31 @@ const deserializeAws_restJson1_Stream = (output: any, context: __SerdeContext): 
         ? __expectNonNull(__parseRfc3339DateTime(output.startTime))
         : undefined,
     state: __expectString(output.state),
+    streamId: __expectString(output.streamId),
     viewerCount: __expectLong(output.viewerCount),
   } as any;
+};
+
+const deserializeAws_restJson1StreamEvent = (output: any, context: __SerdeContext): StreamEvent => {
+  return {
+    eventTime:
+      output.eventTime !== undefined && output.eventTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.eventTime))
+        : undefined,
+    name: __expectString(output.name),
+    type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_restJson1StreamEvents = (output: any, context: __SerdeContext): StreamEvent[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1StreamEvent(entry, context);
+    });
 };
 
 const deserializeAws_restJson1StreamKey = (output: any, context: __SerdeContext): StreamKey => {
@@ -3224,6 +3483,62 @@ const deserializeAws_restJson1StreamList = (output: any, context: __SerdeContext
     });
 };
 
+const deserializeAws_restJson1StreamSession = (output: any, context: __SerdeContext): StreamSession => {
+  return {
+    channel:
+      output.channel !== undefined && output.channel !== null
+        ? deserializeAws_restJson1Channel(output.channel, context)
+        : undefined,
+    endTime:
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.endTime))
+        : undefined,
+    ingestConfiguration:
+      output.ingestConfiguration !== undefined && output.ingestConfiguration !== null
+        ? deserializeAws_restJson1IngestConfiguration(output.ingestConfiguration, context)
+        : undefined,
+    recordingConfiguration:
+      output.recordingConfiguration !== undefined && output.recordingConfiguration !== null
+        ? deserializeAws_restJson1RecordingConfiguration(output.recordingConfiguration, context)
+        : undefined,
+    startTime:
+      output.startTime !== undefined && output.startTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.startTime))
+        : undefined,
+    streamId: __expectString(output.streamId),
+    truncatedEvents:
+      output.truncatedEvents !== undefined && output.truncatedEvents !== null
+        ? deserializeAws_restJson1StreamEvents(output.truncatedEvents, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1StreamSessionList = (output: any, context: __SerdeContext): StreamSessionSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1StreamSessionSummary(entry, context);
+    });
+};
+
+const deserializeAws_restJson1StreamSessionSummary = (output: any, context: __SerdeContext): StreamSessionSummary => {
+  return {
+    endTime:
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.endTime))
+        : undefined,
+    hasErrorEvent: __expectBoolean(output.hasErrorEvent),
+    startTime:
+      output.startTime !== undefined && output.startTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.startTime))
+        : undefined,
+    streamId: __expectString(output.streamId),
+  } as any;
+};
+
 const deserializeAws_restJson1StreamSummary = (output: any, context: __SerdeContext): StreamSummary => {
   return {
     channelArn: __expectString(output.channelArn),
@@ -3233,6 +3548,7 @@ const deserializeAws_restJson1StreamSummary = (output: any, context: __SerdeCont
         ? __expectNonNull(__parseRfc3339DateTime(output.startTime))
         : undefined,
     state: __expectString(output.state),
+    streamId: __expectString(output.streamId),
     viewerCount: __expectLong(output.viewerCount),
   } as any;
 };
@@ -3247,6 +3563,19 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1VideoConfiguration = (output: any, context: __SerdeContext): VideoConfiguration => {
+  return {
+    avcLevel: __expectString(output.avcLevel),
+    avcProfile: __expectString(output.avcProfile),
+    codec: __expectString(output.codec),
+    encoder: __expectString(output.encoder),
+    targetBitrate: __expectLong(output.targetBitrate),
+    targetFramerate: __expectLong(output.targetFramerate),
+    videoHeight: __expectLong(output.videoHeight),
+    videoWidth: __expectLong(output.videoWidth),
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

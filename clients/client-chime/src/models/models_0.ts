@@ -5834,6 +5834,10 @@ export namespace EmergencyCallingConfiguration {
   });
 }
 
+export enum TranscribeMedicalContentIdentificationType {
+  PHI = "PHI",
+}
+
 export enum TranscribeMedicalLanguageCode {
   EN_US = "en-US",
 }
@@ -5890,6 +5894,11 @@ export interface EngineTranscribeMedicalSettings {
    * <p>The AWS Region passed to Amazon Transcribe Medical. If you don't specify a Region, Amazon Chime uses the meeting's Region.</p>
    */
   Region?: TranscribeMedicalRegion | string;
+
+  /**
+   * <p>Set this field to <code>PHI</code> to identify personal health information in the transcription output.</p>
+   */
+  ContentIdentificationType?: TranscribeMedicalContentIdentificationType | string;
 }
 
 export namespace EngineTranscribeMedicalSettings {
@@ -5899,6 +5908,14 @@ export namespace EngineTranscribeMedicalSettings {
   export const filterSensitiveLog = (obj: EngineTranscribeMedicalSettings): any => ({
     ...obj,
   });
+}
+
+export enum TranscribeContentIdentificationType {
+  PII = "PII",
+}
+
+export enum TranscribeContentRedactionType {
+  PII = "PII",
 }
 
 export enum TranscribeLanguageCode {
@@ -5914,6 +5931,12 @@ export enum TranscribeLanguageCode {
   KO_KR = "ko-KR",
   PT_BR = "pt-BR",
   ZH_CN = "zh-CN",
+}
+
+export enum TranscribePartialResultsStability {
+  HIGH = "high",
+  LOW = "low",
+  MEDIUM = "medium",
 }
 
 export enum TranscribeRegion {
@@ -5965,6 +5988,43 @@ export interface EngineTranscribeSettings {
    * <p>The AWS Region passed to Amazon Transcribe. If you don't specify a Region, Amazon Chime uses the meeting's Region.</p>
    */
   Region?: TranscribeRegion | string;
+
+  /**
+   * <p>Generates partial transcription results that are less likely to change as meeting attendees speak. It does so by only allowing the last few words from the partial results to change.</p>
+   */
+  EnablePartialResultsStabilization?: boolean;
+
+  /**
+   * <p>The stabity level of a partial results transcription. Determines how stable you want the transcription results to be. A higher level means the transcription results are less likely to change.</p>
+   */
+  PartialResultsStability?: TranscribePartialResultsStability | string;
+
+  /**
+   * <p>Set this field to <code>PII</code> to identify personal health information in the transcription output.</p>
+   */
+  ContentIdentificationType?: TranscribeContentIdentificationType | string;
+
+  /**
+   * <p>Set this field to <code>PII</code> to redact personally identifiable information in the transcription output. Content redaction is performed only upon complete transcription of the audio segments.</p>
+   */
+  ContentRedactionType?: TranscribeContentRedactionType | string;
+
+  /**
+   * <p>Lists the PII entity types you want to identify or redact. To specify entity types, you must enable <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</p>
+   *         <p>
+   *             <code>PIIEntityTypes</code> must be comma-separated. The available values are:
+   *             <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING, CREDIT_DEBIT_NUMBER</code>, <code>CREDIT_DEBIT_CVV</code>, <code>CREDIT_DEBIT_EXPIRY</code>, <code>PIN</code>, <code>EMAIL</code>,
+   *             <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>, <code>SSN</code>, and <code>ALL</code>.</p>
+   *
+   *         <p>
+   *             <code>PiiEntityTypes</code> is an optional parameter with a default value of <code>ALL</code>.</p>
+   */
+  PiiEntityTypes?: string;
+
+  /**
+   * <p>The name of the language model used during transcription.</p>
+   */
+  LanguageModelName?: string;
 }
 
 export namespace EngineTranscribeSettings {
@@ -6822,81 +6882,6 @@ export namespace RetentionSettings {
    * @internal
    */
   export const filterSensitiveLog = (obj: RetentionSettings): any => ({
-    ...obj,
-  });
-}
-
-export interface GetRetentionSettingsResponse {
-  /**
-   * <p>The retention settings.</p>
-   */
-  RetentionSettings?: RetentionSettings;
-
-  /**
-   * <p>The timestamp representing the time at which the specified items are permanently deleted, in ISO 8601 format.</p>
-   */
-  InitiateDeletionTimestamp?: Date;
-}
-
-export namespace GetRetentionSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRetentionSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetRoomRequest {
-  /**
-   * <p>The Amazon Chime account ID.</p>
-   */
-  AccountId: string | undefined;
-
-  /**
-   * <p>The room ID.</p>
-   */
-  RoomId: string | undefined;
-}
-
-export namespace GetRoomRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRoomRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetRoomResponse {
-  /**
-   * <p>The room details.</p>
-   */
-  Room?: Room;
-}
-
-export namespace GetRoomResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRoomResponse): any => ({
-    ...obj,
-    ...(obj.Room && { Room: Room.filterSensitiveLog(obj.Room) }),
-  });
-}
-
-export interface GetSipMediaApplicationRequest {
-  /**
-   * <p>The SIP media application ID.</p>
-   */
-  SipMediaApplicationId: string | undefined;
-}
-
-export namespace GetSipMediaApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSipMediaApplicationRequest): any => ({
     ...obj,
   });
 }

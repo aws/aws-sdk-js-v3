@@ -16,6 +16,10 @@ import {
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
+import {
+  AssociateApplicationFleetCommandInput,
+  AssociateApplicationFleetCommandOutput,
+} from "../commands/AssociateApplicationFleetCommand";
 import { AssociateFleetCommandInput, AssociateFleetCommandOutput } from "../commands/AssociateFleetCommand";
 import {
   BatchAssociateUserStackCommandInput,
@@ -26,6 +30,8 @@ import {
   BatchDisassociateUserStackCommandOutput,
 } from "../commands/BatchDisassociateUserStackCommand";
 import { CopyImageCommandInput, CopyImageCommandOutput } from "../commands/CopyImageCommand";
+import { CreateAppBlockCommandInput, CreateAppBlockCommandOutput } from "../commands/CreateAppBlockCommand";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand";
 import {
   CreateDirectoryConfigCommandInput,
   CreateDirectoryConfigCommandOutput,
@@ -44,6 +50,8 @@ import {
   CreateUsageReportSubscriptionCommandOutput,
 } from "../commands/CreateUsageReportSubscriptionCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "../commands/CreateUserCommand";
+import { DeleteAppBlockCommandInput, DeleteAppBlockCommandOutput } from "../commands/DeleteAppBlockCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "../commands/DeleteApplicationCommand";
 import {
   DeleteDirectoryConfigCommandInput,
   DeleteDirectoryConfigCommandOutput,
@@ -61,6 +69,15 @@ import {
   DeleteUsageReportSubscriptionCommandOutput,
 } from "../commands/DeleteUsageReportSubscriptionCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand";
+import { DescribeAppBlocksCommandInput, DescribeAppBlocksCommandOutput } from "../commands/DescribeAppBlocksCommand";
+import {
+  DescribeApplicationFleetAssociationsCommandInput,
+  DescribeApplicationFleetAssociationsCommandOutput,
+} from "../commands/DescribeApplicationFleetAssociationsCommand";
+import {
+  DescribeApplicationsCommandInput,
+  DescribeApplicationsCommandOutput,
+} from "../commands/DescribeApplicationsCommand";
 import {
   DescribeDirectoryConfigsCommandInput,
   DescribeDirectoryConfigsCommandOutput,
@@ -87,6 +104,10 @@ import {
   DescribeUserStackAssociationsCommandOutput,
 } from "../commands/DescribeUserStackAssociationsCommand";
 import { DisableUserCommandInput, DisableUserCommandOutput } from "../commands/DisableUserCommand";
+import {
+  DisassociateApplicationFleetCommandInput,
+  DisassociateApplicationFleetCommandOutput,
+} from "../commands/DisassociateApplicationFleetCommand";
 import { DisassociateFleetCommandInput, DisassociateFleetCommandOutput } from "../commands/DisassociateFleetCommand";
 import { EnableUserCommandInput, EnableUserCommandOutput } from "../commands/EnableUserCommand";
 import { ExpireSessionCommandInput, ExpireSessionCommandOutput } from "../commands/ExpireSessionCommand";
@@ -108,6 +129,7 @@ import { StopFleetCommandInput, StopFleetCommandOutput } from "../commands/StopF
 import { StopImageBuilderCommandInput, StopImageBuilderCommandOutput } from "../commands/StopImageBuilderCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "../commands/UpdateApplicationCommand";
 import {
   UpdateDirectoryConfigCommandInput,
   UpdateDirectoryConfigCommandOutput,
@@ -120,9 +142,14 @@ import {
 import { UpdateStackCommandInput, UpdateStackCommandOutput } from "../commands/UpdateStackCommand";
 import {
   AccessEndpoint,
+  AppBlock,
   Application,
+  ApplicationAttribute,
+  ApplicationFleetAssociation,
   ApplicationSettings,
   ApplicationSettingsResponse,
+  AssociateApplicationFleetRequest,
+  AssociateApplicationFleetResult,
   AssociateFleetRequest,
   AssociateFleetResult,
   BatchAssociateUserStackRequest,
@@ -134,6 +161,10 @@ import {
   ConcurrentModificationException,
   CopyImageRequest,
   CopyImageResponse,
+  CreateAppBlockRequest,
+  CreateAppBlockResult,
+  CreateApplicationRequest,
+  CreateApplicationResult,
   CreateDirectoryConfigRequest,
   CreateDirectoryConfigResult,
   CreateFleetRequest,
@@ -152,6 +183,10 @@ import {
   CreateUsageReportSubscriptionResult,
   CreateUserRequest,
   CreateUserResult,
+  DeleteAppBlockRequest,
+  DeleteAppBlockResult,
+  DeleteApplicationRequest,
+  DeleteApplicationResult,
   DeleteDirectoryConfigRequest,
   DeleteDirectoryConfigResult,
   DeleteFleetRequest,
@@ -168,6 +203,12 @@ import {
   DeleteUsageReportSubscriptionResult,
   DeleteUserRequest,
   DeleteUserResult,
+  DescribeAppBlocksRequest,
+  DescribeAppBlocksResult,
+  DescribeApplicationFleetAssociationsRequest,
+  DescribeApplicationFleetAssociationsResult,
+  DescribeApplicationsRequest,
+  DescribeApplicationsResult,
   DescribeDirectoryConfigsRequest,
   DescribeDirectoryConfigsResult,
   DescribeFleetsRequest,
@@ -191,6 +232,8 @@ import {
   DirectoryConfig,
   DisableUserRequest,
   DisableUserResult,
+  DisassociateApplicationFleetRequest,
+  DisassociateApplicationFleetResult,
   DisassociateFleetRequest,
   DisassociateFleetResult,
   DomainJoinInfo,
@@ -220,12 +263,15 @@ import {
   ListTagsForResourceResponse,
   NetworkAccessConfiguration,
   OperationNotPermittedException,
+  PlatformType,
   RequestLimitExceededException,
   ResourceAlreadyExistsException,
   ResourceError,
   ResourceInUseException,
   ResourceNotAvailableException,
   ResourceNotFoundException,
+  S3Location,
+  ScriptDetails,
   ServiceAccountCredentials,
   Session,
   SharedImagePermissions,
@@ -245,6 +291,8 @@ import {
   TagResourceResponse,
   UntagResourceRequest,
   UntagResourceResponse,
+  UpdateApplicationRequest,
+  UpdateApplicationResult,
   UpdateDirectoryConfigRequest,
   UpdateDirectoryConfigResult,
   UpdateFleetRequest,
@@ -260,6 +308,19 @@ import {
   UserStackAssociationError,
   VpcConfig,
 } from "../models/models_0";
+
+export const serializeAws_json1_1AssociateApplicationFleetCommand = async (
+  input: AssociateApplicationFleetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "PhotonAdminProxyService.AssociateApplicationFleet",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AssociateApplicationFleetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_json1_1AssociateFleetCommand = async (
   input: AssociateFleetCommandInput,
@@ -310,6 +371,32 @@ export const serializeAws_json1_1CopyImageCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CopyImageRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateAppBlockCommand = async (
+  input: CreateAppBlockCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "PhotonAdminProxyService.CreateAppBlock",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateAppBlockRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateApplicationCommand = async (
+  input: CreateApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "PhotonAdminProxyService.CreateApplication",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -430,6 +517,32 @@ export const serializeAws_json1_1CreateUserCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteAppBlockCommand = async (
+  input: DeleteAppBlockCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "PhotonAdminProxyService.DeleteAppBlock",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteAppBlockRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteApplicationCommand = async (
+  input: DeleteApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "PhotonAdminProxyService.DeleteApplication",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteApplicationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteDirectoryConfigCommand = async (
   input: DeleteDirectoryConfigCommandInput,
   context: __SerdeContext
@@ -531,6 +644,45 @@ export const serializeAws_json1_1DeleteUserCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteUserRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeAppBlocksCommand = async (
+  input: DescribeAppBlocksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "PhotonAdminProxyService.DescribeAppBlocks",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeAppBlocksRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeApplicationFleetAssociationsCommand = async (
+  input: DescribeApplicationFleetAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "PhotonAdminProxyService.DescribeApplicationFleetAssociations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeApplicationFleetAssociationsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeApplicationsCommand = async (
+  input: DescribeApplicationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "PhotonAdminProxyService.DescribeApplications",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeApplicationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -674,6 +826,19 @@ export const serializeAws_json1_1DisableUserCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisableUserRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DisassociateApplicationFleetCommand = async (
+  input: DisassociateApplicationFleetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "PhotonAdminProxyService.DisassociateApplicationFleet",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DisassociateApplicationFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -833,6 +998,19 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateApplicationCommand = async (
+  input: UpdateApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "PhotonAdminProxyService.UpdateApplication",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateApplicationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateDirectoryConfigCommand = async (
   input: UpdateDirectoryConfigCommandInput,
   context: __SerdeContext
@@ -883,6 +1061,92 @@ export const serializeAws_json1_1UpdateStackCommand = async (
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateStackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_json1_1AssociateApplicationFleetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateApplicationFleetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1AssociateApplicationFleetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AssociateApplicationFleetResult(data, context);
+  const response: AssociateApplicationFleetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AssociateApplicationFleetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateApplicationFleetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1AssociateFleetCommand = async (
@@ -1168,6 +1432,170 @@ const deserializeAws_json1_1CopyImageCommandError = async (
     case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateAppBlockCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAppBlockCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateAppBlockCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateAppBlockResult(data, context);
+  const response: CreateAppBlockCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateAppBlockCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAppBlockCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateApplicationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateApplicationResult(data, context);
+  const response: CreateApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2059,6 +2487,154 @@ const deserializeAws_json1_1CreateUserCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteAppBlockCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAppBlockCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteAppBlockCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteAppBlockResult(data, context);
+  const response: DeleteAppBlockCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteAppBlockCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAppBlockCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.appstream#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteApplicationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteApplicationResult(data, context);
+  const response: DeleteApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.appstream#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeleteDirectoryConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2562,6 +3138,192 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeAppBlocksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAppBlocksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeAppBlocksCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeAppBlocksResult(data, context);
+  const response: DescribeAppBlocksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeAppBlocksCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAppBlocksCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeApplicationFleetAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApplicationFleetAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeApplicationFleetAssociationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeApplicationFleetAssociationsResult(data, context);
+  const response: DescribeApplicationFleetAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeApplicationFleetAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApplicationFleetAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeApplicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApplicationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeApplicationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeApplicationsResult(data, context);
+  const response: DescribeApplicationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeApplicationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApplicationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
@@ -3200,6 +3962,76 @@ const deserializeAws_json1_1DisableUserCommandError = async (
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DisassociateApplicationFleetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateApplicationFleetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DisassociateApplicationFleetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DisassociateApplicationFleetResult(data, context);
+  const response: DisassociateApplicationFleetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DisassociateApplicationFleetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateApplicationFleetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4005,6 +4837,76 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateApplicationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateApplicationResult(data, context);
+  const response: UpdateApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateDirectoryConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4611,6 +5513,20 @@ const serializeAws_json1_1AccessEndpointList = (input: AccessEndpoint[], context
     });
 };
 
+const serializeAws_json1_1ApplicationAttributes = (
+  input: (ApplicationAttribute | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1ApplicationSettings = (input: ApplicationSettings, context: __SerdeContext): any => {
   return {
     ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
@@ -4627,6 +5543,17 @@ const serializeAws_json1_1ArnList = (input: string[], context: __SerdeContext): 
       }
       return entry;
     });
+};
+
+const serializeAws_json1_1AssociateApplicationFleetRequest = (
+  input: AssociateApplicationFleetRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ApplicationArn !== undefined &&
+      input.ApplicationArn !== null && { ApplicationArn: input.ApplicationArn }),
+    ...(input.FleetName !== undefined && input.FleetName !== null && { FleetName: input.FleetName }),
+  };
 };
 
 const serializeAws_json1_1AssociateFleetRequest = (input: AssociateFleetRequest, context: __SerdeContext): any => {
@@ -4691,6 +5618,51 @@ const serializeAws_json1_1CopyImageRequest = (input: CopyImageRequest, context: 
   };
 };
 
+const serializeAws_json1_1CreateAppBlockRequest = (input: CreateAppBlockRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.DisplayName !== undefined && input.DisplayName !== null && { DisplayName: input.DisplayName }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.SetupScriptDetails !== undefined &&
+      input.SetupScriptDetails !== null && {
+        SetupScriptDetails: serializeAws_json1_1ScriptDetails(input.SetupScriptDetails, context),
+      }),
+    ...(input.SourceS3Location !== undefined &&
+      input.SourceS3Location !== null && {
+        SourceS3Location: serializeAws_json1_1S3Location(input.SourceS3Location, context),
+      }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateApplicationRequest = (
+  input: CreateApplicationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AppBlockArn !== undefined && input.AppBlockArn !== null && { AppBlockArn: input.AppBlockArn }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.DisplayName !== undefined && input.DisplayName !== null && { DisplayName: input.DisplayName }),
+    ...(input.IconS3Location !== undefined &&
+      input.IconS3Location !== null && {
+        IconS3Location: serializeAws_json1_1S3Location(input.IconS3Location, context),
+      }),
+    ...(input.InstanceFamilies !== undefined &&
+      input.InstanceFamilies !== null && {
+        InstanceFamilies: serializeAws_json1_1StringList(input.InstanceFamilies, context),
+      }),
+    ...(input.LaunchParameters !== undefined &&
+      input.LaunchParameters !== null && { LaunchParameters: input.LaunchParameters }),
+    ...(input.LaunchPath !== undefined && input.LaunchPath !== null && { LaunchPath: input.LaunchPath }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Platforms !== undefined &&
+      input.Platforms !== null && { Platforms: serializeAws_json1_1Platforms(input.Platforms, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.WorkingDirectory !== undefined &&
+      input.WorkingDirectory !== null && { WorkingDirectory: input.WorkingDirectory }),
+  };
+};
+
 const serializeAws_json1_1CreateDirectoryConfigRequest = (
   input: CreateDirectoryConfigRequest,
   context: __SerdeContext
@@ -4739,11 +5711,18 @@ const serializeAws_json1_1CreateFleetRequest = (input: CreateFleetRequest, conte
     ...(input.ImageArn !== undefined && input.ImageArn !== null && { ImageArn: input.ImageArn }),
     ...(input.ImageName !== undefined && input.ImageName !== null && { ImageName: input.ImageName }),
     ...(input.InstanceType !== undefined && input.InstanceType !== null && { InstanceType: input.InstanceType }),
+    ...(input.MaxConcurrentSessions !== undefined &&
+      input.MaxConcurrentSessions !== null && { MaxConcurrentSessions: input.MaxConcurrentSessions }),
     ...(input.MaxUserDurationInSeconds !== undefined &&
       input.MaxUserDurationInSeconds !== null && { MaxUserDurationInSeconds: input.MaxUserDurationInSeconds }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Platform !== undefined && input.Platform !== null && { Platform: input.Platform }),
     ...(input.StreamView !== undefined && input.StreamView !== null && { StreamView: input.StreamView }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.UsbDeviceFilterStrings !== undefined &&
+      input.UsbDeviceFilterStrings !== null && {
+        UsbDeviceFilterStrings: serializeAws_json1_1UsbDeviceFilterStrings(input.UsbDeviceFilterStrings, context),
+      }),
     ...(input.VpcConfig !== undefined &&
       input.VpcConfig !== null && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
@@ -4871,6 +5850,21 @@ const serializeAws_json1_1CreateUserRequest = (input: CreateUserRequest, context
   };
 };
 
+const serializeAws_json1_1DeleteAppBlockRequest = (input: DeleteAppBlockRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1DeleteApplicationRequest = (
+  input: DeleteApplicationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
 const serializeAws_json1_1DeleteDirectoryConfigRequest = (
   input: DeleteDirectoryConfigRequest,
   context: __SerdeContext
@@ -4930,6 +5924,41 @@ const serializeAws_json1_1DeleteUserRequest = (input: DeleteUserRequest, context
     ...(input.AuthenticationType !== undefined &&
       input.AuthenticationType !== null && { AuthenticationType: input.AuthenticationType }),
     ...(input.UserName !== undefined && input.UserName !== null && { UserName: input.UserName }),
+  };
+};
+
+const serializeAws_json1_1DescribeAppBlocksRequest = (
+  input: DescribeAppBlocksRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Arns !== undefined && input.Arns !== null && { Arns: serializeAws_json1_1ArnList(input.Arns, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1DescribeApplicationFleetAssociationsRequest = (
+  input: DescribeApplicationFleetAssociationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ApplicationArn !== undefined &&
+      input.ApplicationArn !== null && { ApplicationArn: input.ApplicationArn }),
+    ...(input.FleetName !== undefined && input.FleetName !== null && { FleetName: input.FleetName }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1DescribeApplicationsRequest = (
+  input: DescribeApplicationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Arns !== undefined && input.Arns !== null && { Arns: serializeAws_json1_1ArnList(input.Arns, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5065,6 +6094,17 @@ const serializeAws_json1_1DisableUserRequest = (input: DisableUserRequest, conte
   };
 };
 
+const serializeAws_json1_1DisassociateApplicationFleetRequest = (
+  input: DisassociateApplicationFleetRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ApplicationArn !== undefined &&
+      input.ApplicationArn !== null && { ApplicationArn: input.ApplicationArn }),
+    ...(input.FleetName !== undefined && input.FleetName !== null && { FleetName: input.FleetName }),
+  };
+};
+
 const serializeAws_json1_1DisassociateFleetRequest = (
   input: DisassociateFleetRequest,
   context: __SerdeContext
@@ -5181,6 +6221,39 @@ const serializeAws_json1_1OrganizationalUnitDistinguishedNamesList = (
       }
       return entry;
     });
+};
+
+const serializeAws_json1_1Platforms = (input: (PlatformType | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1S3Location = (input: S3Location, context: __SerdeContext): any => {
+  return {
+    ...(input.S3Bucket !== undefined && input.S3Bucket !== null && { S3Bucket: input.S3Bucket }),
+    ...(input.S3Key !== undefined && input.S3Key !== null && { S3Key: input.S3Key }),
+  };
+};
+
+const serializeAws_json1_1ScriptDetails = (input: ScriptDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.ExecutableParameters !== undefined &&
+      input.ExecutableParameters !== null && { ExecutableParameters: input.ExecutableParameters }),
+    ...(input.ExecutablePath !== undefined &&
+      input.ExecutablePath !== null && { ExecutablePath: input.ExecutablePath }),
+    ...(input.ScriptS3Location !== undefined &&
+      input.ScriptS3Location !== null && {
+        ScriptS3Location: serializeAws_json1_1S3Location(input.ScriptS3Location, context),
+      }),
+    ...(input.TimeoutInSeconds !== undefined &&
+      input.TimeoutInSeconds !== null && { TimeoutInSeconds: input.TimeoutInSeconds }),
+  };
 };
 
 const serializeAws_json1_1SecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
@@ -5326,6 +6399,31 @@ const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, c
   };
 };
 
+const serializeAws_json1_1UpdateApplicationRequest = (
+  input: UpdateApplicationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AppBlockArn !== undefined && input.AppBlockArn !== null && { AppBlockArn: input.AppBlockArn }),
+    ...(input.AttributesToDelete !== undefined &&
+      input.AttributesToDelete !== null && {
+        AttributesToDelete: serializeAws_json1_1ApplicationAttributes(input.AttributesToDelete, context),
+      }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.DisplayName !== undefined && input.DisplayName !== null && { DisplayName: input.DisplayName }),
+    ...(input.IconS3Location !== undefined &&
+      input.IconS3Location !== null && {
+        IconS3Location: serializeAws_json1_1S3Location(input.IconS3Location, context),
+      }),
+    ...(input.LaunchParameters !== undefined &&
+      input.LaunchParameters !== null && { LaunchParameters: input.LaunchParameters }),
+    ...(input.LaunchPath !== undefined && input.LaunchPath !== null && { LaunchPath: input.LaunchPath }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.WorkingDirectory !== undefined &&
+      input.WorkingDirectory !== null && { WorkingDirectory: input.WorkingDirectory }),
+  };
+};
+
 const serializeAws_json1_1UpdateDirectoryConfigRequest = (
   input: UpdateDirectoryConfigRequest,
   context: __SerdeContext
@@ -5379,10 +6477,17 @@ const serializeAws_json1_1UpdateFleetRequest = (input: UpdateFleetRequest, conte
     ...(input.ImageArn !== undefined && input.ImageArn !== null && { ImageArn: input.ImageArn }),
     ...(input.ImageName !== undefined && input.ImageName !== null && { ImageName: input.ImageName }),
     ...(input.InstanceType !== undefined && input.InstanceType !== null && { InstanceType: input.InstanceType }),
+    ...(input.MaxConcurrentSessions !== undefined &&
+      input.MaxConcurrentSessions !== null && { MaxConcurrentSessions: input.MaxConcurrentSessions }),
     ...(input.MaxUserDurationInSeconds !== undefined &&
       input.MaxUserDurationInSeconds !== null && { MaxUserDurationInSeconds: input.MaxUserDurationInSeconds }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Platform !== undefined && input.Platform !== null && { Platform: input.Platform }),
     ...(input.StreamView !== undefined && input.StreamView !== null && { StreamView: input.StreamView }),
+    ...(input.UsbDeviceFilterStrings !== undefined &&
+      input.UsbDeviceFilterStrings !== null && {
+        UsbDeviceFilterStrings: serializeAws_json1_1UsbDeviceFilterStrings(input.UsbDeviceFilterStrings, context),
+      }),
     ...(input.VpcConfig !== undefined &&
       input.VpcConfig !== null && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
@@ -5437,6 +6542,17 @@ const serializeAws_json1_1UpdateStackRequest = (input: UpdateStackRequest, conte
         UserSettings: serializeAws_json1_1UserSettingList(input.UserSettings, context),
       }),
   };
+};
+
+const serializeAws_json1_1UsbDeviceFilterStrings = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1UserSetting = (input: UserSetting, context: __SerdeContext): any => {
@@ -5508,11 +6624,58 @@ const deserializeAws_json1_1AccessEndpointList = (output: any, context: __SerdeC
     });
 };
 
+const deserializeAws_json1_1AppBlock = (output: any, context: __SerdeContext): AppBlock => {
+  return {
+    Arn: __expectString(output.Arn),
+    CreatedTime:
+      output.CreatedTime !== undefined && output.CreatedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
+        : undefined,
+    Description: __expectString(output.Description),
+    DisplayName: __expectString(output.DisplayName),
+    Name: __expectString(output.Name),
+    SetupScriptDetails:
+      output.SetupScriptDetails !== undefined && output.SetupScriptDetails !== null
+        ? deserializeAws_json1_1ScriptDetails(output.SetupScriptDetails, context)
+        : undefined,
+    SourceS3Location:
+      output.SourceS3Location !== undefined && output.SourceS3Location !== null
+        ? deserializeAws_json1_1S3Location(output.SourceS3Location, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AppBlocks = (output: any, context: __SerdeContext): AppBlock[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AppBlock(entry, context);
+    });
+};
+
 const deserializeAws_json1_1Application = (output: any, context: __SerdeContext): Application => {
   return {
+    AppBlockArn: __expectString(output.AppBlockArn),
+    Arn: __expectString(output.Arn),
+    CreatedTime:
+      output.CreatedTime !== undefined && output.CreatedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
+        : undefined,
+    Description: __expectString(output.Description),
     DisplayName: __expectString(output.DisplayName),
     Enabled: __expectBoolean(output.Enabled),
+    IconS3Location:
+      output.IconS3Location !== undefined && output.IconS3Location !== null
+        ? deserializeAws_json1_1S3Location(output.IconS3Location, context)
+        : undefined,
     IconURL: __expectString(output.IconURL),
+    InstanceFamilies:
+      output.InstanceFamilies !== undefined && output.InstanceFamilies !== null
+        ? deserializeAws_json1_1StringList(output.InstanceFamilies, context)
+        : undefined,
     LaunchParameters: __expectString(output.LaunchParameters),
     LaunchPath: __expectString(output.LaunchPath),
     Metadata:
@@ -5520,7 +6683,36 @@ const deserializeAws_json1_1Application = (output: any, context: __SerdeContext)
         ? deserializeAws_json1_1Metadata(output.Metadata, context)
         : undefined,
     Name: __expectString(output.Name),
+    Platforms:
+      output.Platforms !== undefined && output.Platforms !== null
+        ? deserializeAws_json1_1Platforms(output.Platforms, context)
+        : undefined,
+    WorkingDirectory: __expectString(output.WorkingDirectory),
   } as any;
+};
+
+const deserializeAws_json1_1ApplicationFleetAssociation = (
+  output: any,
+  context: __SerdeContext
+): ApplicationFleetAssociation => {
+  return {
+    ApplicationArn: __expectString(output.ApplicationArn),
+    FleetName: __expectString(output.FleetName),
+  } as any;
+};
+
+const deserializeAws_json1_1ApplicationFleetAssociationList = (
+  output: any,
+  context: __SerdeContext
+): ApplicationFleetAssociation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ApplicationFleetAssociation(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Applications = (output: any, context: __SerdeContext): Application[] => {
@@ -5542,6 +6734,18 @@ const deserializeAws_json1_1ApplicationSettingsResponse = (
     Enabled: __expectBoolean(output.Enabled),
     S3BucketName: __expectString(output.S3BucketName),
     SettingsGroup: __expectString(output.SettingsGroup),
+  } as any;
+};
+
+const deserializeAws_json1_1AssociateApplicationFleetResult = (
+  output: any,
+  context: __SerdeContext
+): AssociateApplicationFleetResult => {
+  return {
+    ApplicationFleetAssociation:
+      output.ApplicationFleetAssociation !== undefined && output.ApplicationFleetAssociation !== null
+        ? deserializeAws_json1_1ApplicationFleetAssociation(output.ApplicationFleetAssociation, context)
+        : undefined,
   } as any;
 };
 
@@ -5594,6 +6798,27 @@ const deserializeAws_json1_1ConcurrentModificationException = (
 const deserializeAws_json1_1CopyImageResponse = (output: any, context: __SerdeContext): CopyImageResponse => {
   return {
     DestinationImageName: __expectString(output.DestinationImageName),
+  } as any;
+};
+
+const deserializeAws_json1_1CreateAppBlockResult = (output: any, context: __SerdeContext): CreateAppBlockResult => {
+  return {
+    AppBlock:
+      output.AppBlock !== undefined && output.AppBlock !== null
+        ? deserializeAws_json1_1AppBlock(output.AppBlock, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateApplicationResult = (
+  output: any,
+  context: __SerdeContext
+): CreateApplicationResult => {
+  return {
+    Application:
+      output.Application !== undefined && output.Application !== null
+        ? deserializeAws_json1_1Application(output.Application, context)
+        : undefined,
   } as any;
 };
 
@@ -5692,6 +6917,17 @@ const deserializeAws_json1_1CreateUserResult = (output: any, context: __SerdeCon
   return {} as any;
 };
 
+const deserializeAws_json1_1DeleteAppBlockResult = (output: any, context: __SerdeContext): DeleteAppBlockResult => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DeleteApplicationResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteApplicationResult => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeleteDirectoryConfigResult = (
   output: any,
   context: __SerdeContext
@@ -5744,6 +6980,45 @@ const deserializeAws_json1_1DeleteUsageReportSubscriptionResult = (
 
 const deserializeAws_json1_1DeleteUserResult = (output: any, context: __SerdeContext): DeleteUserResult => {
   return {} as any;
+};
+
+const deserializeAws_json1_1DescribeAppBlocksResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeAppBlocksResult => {
+  return {
+    AppBlocks:
+      output.AppBlocks !== undefined && output.AppBlocks !== null
+        ? deserializeAws_json1_1AppBlocks(output.AppBlocks, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeApplicationFleetAssociationsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeApplicationFleetAssociationsResult => {
+  return {
+    ApplicationFleetAssociations:
+      output.ApplicationFleetAssociations !== undefined && output.ApplicationFleetAssociations !== null
+        ? deserializeAws_json1_1ApplicationFleetAssociationList(output.ApplicationFleetAssociations, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeApplicationsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeApplicationsResult => {
+  return {
+    Applications:
+      output.Applications !== undefined && output.Applications !== null
+        ? deserializeAws_json1_1Applications(output.Applications, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeDirectoryConfigsResult = (
@@ -5898,6 +7173,13 @@ const deserializeAws_json1_1DisableUserResult = (output: any, context: __SerdeCo
   return {} as any;
 };
 
+const deserializeAws_json1_1DisassociateApplicationFleetResult = (
+  output: any,
+  context: __SerdeContext
+): DisassociateApplicationFleetResult => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DisassociateFleetResult = (
   output: any,
   context: __SerdeContext
@@ -5971,10 +7253,16 @@ const deserializeAws_json1_1Fleet = (output: any, context: __SerdeContext): Flee
     ImageArn: __expectString(output.ImageArn),
     ImageName: __expectString(output.ImageName),
     InstanceType: __expectString(output.InstanceType),
+    MaxConcurrentSessions: __expectInt32(output.MaxConcurrentSessions),
     MaxUserDurationInSeconds: __expectInt32(output.MaxUserDurationInSeconds),
     Name: __expectString(output.Name),
+    Platform: __expectString(output.Platform),
     State: __expectString(output.State),
     StreamView: __expectString(output.StreamView),
+    UsbDeviceFilterStrings:
+      output.UsbDeviceFilterStrings !== undefined && output.UsbDeviceFilterStrings !== null
+        ? deserializeAws_json1_1UsbDeviceFilterStrings(output.UsbDeviceFilterStrings, context)
+        : undefined,
     VpcConfig:
       output.VpcConfig !== undefined && output.VpcConfig !== null
         ? deserializeAws_json1_1VpcConfig(output.VpcConfig, context)
@@ -6285,6 +7573,17 @@ const deserializeAws_json1_1OrganizationalUnitDistinguishedNamesList = (
     });
 };
 
+const deserializeAws_json1_1Platforms = (output: any, context: __SerdeContext): (PlatformType | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_json1_1RequestLimitExceededException = (
   output: any,
   context: __SerdeContext
@@ -6346,6 +7645,25 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1S3Location = (output: any, context: __SerdeContext): S3Location => {
+  return {
+    S3Bucket: __expectString(output.S3Bucket),
+    S3Key: __expectString(output.S3Key),
+  } as any;
+};
+
+const deserializeAws_json1_1ScriptDetails = (output: any, context: __SerdeContext): ScriptDetails => {
+  return {
+    ExecutableParameters: __expectString(output.ExecutableParameters),
+    ExecutablePath: __expectString(output.ExecutablePath),
+    ScriptS3Location:
+      output.ScriptS3Location !== undefined && output.ScriptS3Location !== null
+        ? deserializeAws_json1_1S3Location(output.ScriptS3Location, context)
+        : undefined,
+    TimeoutInSeconds: __expectInt32(output.TimeoutInSeconds),
   } as any;
 };
 
@@ -6590,6 +7908,18 @@ const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __Ser
   return {} as any;
 };
 
+const deserializeAws_json1_1UpdateApplicationResult = (
+  output: any,
+  context: __SerdeContext
+): UpdateApplicationResult => {
+  return {
+    Application:
+      output.Application !== undefined && output.Application !== null
+        ? deserializeAws_json1_1Application(output.Application, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1UpdateDirectoryConfigResult = (
   output: any,
   context: __SerdeContext
@@ -6656,6 +7986,17 @@ const deserializeAws_json1_1UsageReportSubscriptionList = (
         return null as any;
       }
       return deserializeAws_json1_1UsageReportSubscription(entry, context);
+    });
+};
+
+const deserializeAws_json1_1UsbDeviceFilterStrings = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
 };
 

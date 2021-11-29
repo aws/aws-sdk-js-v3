@@ -22,8 +22,8 @@ export interface UpdateTerminationProtectionCommandInput extends UpdateTerminati
 export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminationProtectionOutput, __MetadataBearer {}
 
 /**
- * <p>Updates termination protection for the specified stack. If a user attempts to delete
- *          a stack with termination protection enabled, the operation fails and the stack remains
+ * <p>Updates termination protection for the specified stack. If a user attempts to delete a
+ *          stack with termination protection enabled, the operation fails and the stack remains
  *          unchanged. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a
  *             Stack From Being Deleted</a> in the <i>CloudFormation User Guide</i>.</p>
  *          <p>For <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested

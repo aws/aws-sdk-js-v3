@@ -15,7 +15,7 @@ export interface Entity {
   EndTime?: number;
 
   /**
-   * <p>The category of of information identified in this entity; for example, PII.</p>
+   * <p>The category of information identified in this entity; for example, PII.</p>
    */
   Category?: string;
 
@@ -66,9 +66,9 @@ export interface Item {
   EndTime?: number;
 
   /**
-   * <p>The type of the item. <code>PRONUNCIATION</code> indicates that the item is a word that
-   *       was recognized in the input audio. <code>PUNCTUATION</code> indicates that the item was
-   *       interpreted as a pause in the input audio.</p>
+   * <p>The type of the item. <code>PRONUNCIATION</code> indicates that the item is a word
+   *       that was recognized in the input audio. <code>PUNCTUATION</code> indicates that the item
+   *       was interpreted as a pause in the input audio.</p>
    */
   Type?: ItemType | string;
 
@@ -79,19 +79,19 @@ export interface Item {
 
   /**
    * <p>Indicates whether a word in the item matches a word in the vocabulary filter you've chosen
-   *       for your real-time stream. If <code>true</code> then a word in the item matches your
+   *       for your media stream. If <code>true</code> then a word in the item matches your
    *       vocabulary filter.</p>
    */
   VocabularyFilterMatch?: boolean;
 
   /**
-   * <p>If speaker identification is enabled, shows the speakers identified in the real-time
+   * <p>If speaker identification is enabled, shows the speakers identified in the media
    *       stream.</p>
    */
   Speaker?: string;
 
   /**
-   * <p>A value between 0 and 1 for an item that is a confidence score that Amazon Transcribe assigns to each
+   * <p>A value between zero and one for an item that is a confidence score that Amazon Transcribe assigns to each
    *       word or phrase that it transcribes.</p>
    */
   Confidence?: number;
@@ -288,6 +288,34 @@ export enum LanguageCode {
   KO_KR = "ko-KR",
   PT_BR = "pt-BR",
   ZH_CN = "zh-CN",
+}
+
+/**
+ * <p>The language codes of the identified languages and their associated confidence scores.
+ *       The confidence score is a value between zero and one; a larger value indicates a higher
+ *       confidence in the identified language.</p>
+ */
+export interface LanguageWithScore {
+  /**
+   * <p>The language code of the language identified by Amazon Transcribe.</p>
+   */
+  LanguageCode?: LanguageCode | string;
+
+  /**
+   * <p>The confidence score for the associated language code. Confidence scores are values
+   *       between zero and one; larger values indicate a higher confidence in the identified language.
+   *      </p>
+   */
+  Score?: number;
+}
+
+export namespace LanguageWithScore {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LanguageWithScore): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -757,7 +785,7 @@ export interface Result {
 
   /**
    * <p>A list of possible transcriptions for the audio. Each alternative typically contains one
-   *         <code>item</code> that contains the result of the transcription.</p>
+   *       <code>item</code> that contains the result of the transcription.</p>
    */
   Alternatives?: Alternative[];
 
@@ -768,6 +796,16 @@ export interface Result {
    *       channel in your audio stream.</p>
    */
   ChannelId?: string;
+
+  /**
+   * <p>The language code of the identified language in your media stream.</p>
+   */
+  LanguageCode?: LanguageCode | string;
+
+  /**
+   * <p>The language code of the dominant language identified in your media.</p>
+   */
+  LanguageIdentification?: LanguageWithScore[];
 }
 
 export namespace Result {
@@ -966,13 +1004,13 @@ export enum VocabularyFilterMethod {
 
 export interface StartStreamTranscriptionRequest {
   /**
-   * <p>Indicates the source language used in the input audio stream.</p>
+   * <p>The language code of the input audio stream.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode?: LanguageCode | string;
 
   /**
-   * <p>The sample rate, in Hertz, of the input audio. We suggest that you use 8,000 Hz for low
-   *       quality audio and 16,000 Hz for high quality audio.</p>
+   * <p>The sample rate, in Hertz (Hz), of the input audio. We suggest that you use 8,000 Hz
+   *       for low quality audio and 16,000 Hz or higher for high quality audio.</p>
    */
   MediaSampleRateHertz: number | undefined;
 
@@ -1007,26 +1045,26 @@ export interface StartStreamTranscriptionRequest {
 
   /**
    * <p>The manner in which you use your vocabulary filter to filter words in your transcript.
-   *         <code>Remove</code> removes filtered words from your transcription results.
-   *         <code>Mask</code> masks filtered words with a <code>***</code> in your transcription results.
-   *         <code>Tag</code> keeps the filtered words in your transcription results and tags them. The
-   *       tag appears as <code>VocabularyFilterMatch</code> equal to <code>True</code>
-   *          </p>
+   *       <code>Remove</code> removes filtered words from your transcription results.
+   *       <code>Mask</code> masks filtered words with a <code>***</code> in your transcription
+   *       results. <code>Tag</code> keeps the filtered words in your transcription results and tags
+   *       them. The tag appears as <code>VocabularyFilterMatch</code> equal to
+   *       <code>True</code>.</p>
    */
   VocabularyFilterMethod?: VocabularyFilterMethod | string;
 
   /**
-   * <p>When <code>true</code>, enables speaker identification in your real-time stream.</p>
+   * <p>When <code>true</code>, enables speaker identification in your media stream.</p>
    */
   ShowSpeakerLabel?: boolean;
 
   /**
-   * <p>When <code>true</code>, instructs Amazon Transcribe to process each audio channel separately and then
-   *       merge the transcription output of each channel into a single transcription.</p>
+   * <p>When <code>true</code>, instructs Amazon Transcribe to process each audio channel separately,
+   *       then merges the transcription output of each channel into a single transcription.</p>
    *          <p>Amazon Transcribe also produces a transcription of each item. An item includes the start time, end
    *       time, and any alternative transcriptions.</p>
    *          <p>You can't set both <code>ShowSpeakerLabel</code> and
-   *         <code>EnableChannelIdentification</code> in the same request. If you set both, your request
+   *       <code>EnableChannelIdentification</code> in the same request. If you set both, your request
    *       returns a <code>BadRequestException</code>.</p>
    */
   EnableChannelIdentification?: boolean;
@@ -1052,22 +1090,39 @@ export interface StartStreamTranscriptionRequest {
   PartialResultsStability?: PartialResultsStability | string;
 
   /**
-   * <p>Set this field to PII to identify personally identifiable information (PII) in the transcription output. Content identification is performed only upon complete transcription of the audio segments.</p>
-   *          <p>You can’t set both <code>ContentIdentificationType</code> and <code>ContentRedactionType</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>
+   * <p>Set this field to PII to identify personally identifiable information (PII) in the transcription
+   *       output. Content identification is performed only upon complete transcription of the audio
+   *       segments.</p>
+   *          <p>You can’t set both <code>ContentIdentificationType</code> and
+   *       <code>ContentRedactionType</code> in the same request. If you set both, your request
+   *       returns a <code>BadRequestException</code>.</p>
    */
   ContentIdentificationType?: ContentIdentificationType | string;
 
   /**
-   * <p>Set this field to PII to redact personally identifiable information (PII) in the transcription output. Content redaction is performed only upon complete transcription of the audio segments.</p>
-   *          <p>You can’t set both <code>ContentRedactionType</code> and <code>ContentIdentificationType</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>
+   * <p>Set this field to PII to redact personally identifiable information (PII) in the transcription
+   *       output. Content redaction is performed only upon complete transcription of the audio
+   *       segments.</p>
+   *          <p>You can’t set both <code>ContentRedactionType</code> and
+   *       <code>ContentIdentificationType</code> in the same request. If you set both, your request
+   *       returns a <code>BadRequestException</code>.</p>
    */
   ContentRedactionType?: ContentRedactionType | string;
 
   /**
-   * <p>List the PII entity types you want to identify or redact. In order to specify entity types, you must have
-   *       either <code>ContentIdentificationType</code> or <code>ContentRedactionType</code> enabled.</p>
+   * <p>List the PII entity types you want to identify or redact. In order to specify entity types,
+   *       you must have either <code>ContentIdentificationType</code> or
+   *       <code>ContentRedactionType</code> enabled.</p>
    *          <p>
-   *             <code>PiiEntityTypes</code> is an optional parameter with a default value of <code>ALL</code>.</p>
+   *             <code>PIIEntityTypes</code> must be comma-separated; the available values are:
+   *       <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING</code>,
+   *       <code>CREDIT_DEBIT_NUMBER</code>, <code>CREDIT_DEBIT_CVV</code>,
+   *       <code>CREDIT_DEBIT_EXPIRY</code>, <code>PIN</code>, <code>EMAIL</code>,
+   *       <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>,
+   *       <code>SSN</code>, and <code>ALL</code>.</p>
+   *          <p>
+   *             <code>PiiEntityTypes</code> is an optional parameter with a default value of
+   *       <code>ALL</code>.</p>
    */
   PiiEntityTypes?: string;
 
@@ -1075,6 +1130,32 @@ export interface StartStreamTranscriptionRequest {
    * <p>The name of the language model you want to use.</p>
    */
   LanguageModelName?: string;
+
+  /**
+   * <p>Optional. Set this value to <code>true</code> to enable language identification for
+   *       your media stream.</p>
+   */
+  IdentifyLanguage?: boolean;
+
+  /**
+   * <p>An object containing a list of languages that might be present in your audio.</p>
+   *          <p>You must provide two or more language codes to help Amazon Transcribe identify the correct
+   *       language of your media stream with the highest possible accuracy. You can only select one
+   *       variant per language; for example, you can't include both <code>en-US</code> and
+   *       <code>en-UK</code> in the same request.</p>
+   *          <p>You can only use this parameter if you've set <code>IdentifyLanguage</code> to
+   *       <code>true</code>in your request.</p>
+   */
+  LanguageOptions?: string;
+
+  /**
+   * <p>Optional. From the subset of languages codes you provided for
+   *       <code>LanguageOptions</code>, you can select one preferred language for your
+   *       transcription.</p>
+   *          <p>You can only use this parameter if you've set <code>IdentifyLanguage</code> to
+   *       <code>true</code>in your request.</p>
+   */
+  PreferredLanguage?: LanguageCode | string;
 }
 
 export namespace StartStreamTranscriptionRequest {
@@ -1145,8 +1226,7 @@ export namespace TranscriptResultStream {
   /**
    * <p>A portion of the transcription of the audio stream. Events are sent periodically from
    *       Amazon Transcribe to your application. The event can be a partial transcription of a section of the audio
-   *       stream, or it can be the entire transcription of that portion of the audio stream.
-   *       </p>
+   *       stream, or it can be the entire transcription of that portion of the audio stream. </p>
    */
   export interface TranscriptEventMember {
     TranscriptEvent: TranscriptEvent;
@@ -1287,13 +1367,13 @@ export interface StartStreamTranscriptionResponse {
   RequestId?: string;
 
   /**
-   * <p>The language code for the input audio stream.</p>
+   * <p>The language code of the input audio stream.</p>
    */
   LanguageCode?: LanguageCode | string;
 
   /**
-   * <p>The sample rate for the input audio stream. Use 8,000 Hz for low quality audio and 16,000 Hz
-   *       for high quality audio.</p>
+   * <p>The sample rate, in Hertz (Hz), for the input audio stream. Use 8,000 Hz for low quality
+   *       audio and 16,000 Hz or higher for high quality audio.</p>
    */
   MediaSampleRateHertz?: number;
 
@@ -1318,12 +1398,12 @@ export interface StartStreamTranscriptionResponse {
   TranscriptResultStream?: AsyncIterable<TranscriptResultStream>;
 
   /**
-   * <p>The name of the vocabulary filter used in your real-time stream.</p>
+   * <p>The name of the vocabulary filter used in your media stream.</p>
    */
   VocabularyFilterName?: string;
 
   /**
-   * <p>The vocabulary filtering method used in the real-time stream.</p>
+   * <p>The vocabulary filtering method used in the media stream.</p>
    */
   VocabularyFilterMethod?: VocabularyFilterMethod | string;
 
@@ -1368,7 +1448,26 @@ export interface StartStreamTranscriptionResponse {
    */
   PiiEntityTypes?: string;
 
+  /**
+   * <p>The name of the language model used in your media stream.</p>
+   */
   LanguageModelName?: string;
+
+  /**
+   * <p>The language code of the language identified in your media stream.</p>
+   */
+  IdentifyLanguage?: boolean;
+
+  /**
+   * <p>The language codes used in the identification of your media stream's predominant
+   *       language.</p>
+   */
+  LanguageOptions?: string;
+
+  /**
+   * <p>The preferred language you specified in your request.</p>
+   */
+  PreferredLanguage?: LanguageCode | string;
 }
 
 export namespace StartStreamTranscriptionResponse {

@@ -22,7 +22,7 @@ export interface ListEnvironmentsCommandInput extends ListEnvironmentsRequest {}
 export interface ListEnvironmentsCommandOutput extends Environments, __MetadataBearer {}
 
 /**
- * <p>List the environments for an application.</p>
+ * <p>Lists the environments for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

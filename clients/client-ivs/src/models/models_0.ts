@@ -262,8 +262,8 @@ export interface CreateChannelRequest {
   /**
    * <p>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video up to
    *       Full HD. Use <code>LOW</code> for near-real-time interaction with viewers. (Note: In the
-   *       Amazon IVS console, <code>LOW</code> and <code>NORMAL</code> correspond to Ultra-low and Standard,
-   *       respectively.) Default: <code>LOW</code>.</p>
+   *       Amazon IVS console, <code>LOW</code> and <code>NORMAL</code> correspond to Ultra-low and
+   *       Standard, respectively.) Default: <code>LOW</code>.</p>
    */
   latencyMode?: ChannelLatencyMode | string;
 
@@ -893,6 +893,11 @@ export interface _Stream {
   channelArn?: string;
 
   /**
+   * <p>Unique identifier for a live or previously live stream in the specified channel.</p>
+   */
+  streamId?: string;
+
+  /**
    * <p>URL of the master playlist, required by the video player to play the HLS stream.</p>
    */
   playbackUrl?: string;
@@ -976,6 +981,244 @@ export namespace GetStreamKeyResponse {
   export const filterSensitiveLog = (obj: GetStreamKeyResponse): any => ({
     ...obj,
     ...(obj.streamKey && { streamKey: StreamKey.filterSensitiveLog(obj.streamKey) }),
+  });
+}
+
+export interface GetStreamSessionRequest {
+  /**
+   * <p>ARN of the channel resource</p>
+   */
+  channelArn: string | undefined;
+
+  /**
+   * <p>Unique identifier for a live or previously live stream in the specified channel. If no
+   *         <code>streamId</code> is provided, this returns the most recent stream session for the
+   *       channel, if it exists.</p>
+   */
+  streamId?: string;
+}
+
+export namespace GetStreamSessionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetStreamSessionRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Object specifying a stream’s audio configuration.</p>
+ */
+export interface AudioConfiguration {
+  /**
+   * <p>Codec used for the audio encoding.</p>
+   */
+  codec?: string;
+
+  /**
+   * <p>The expected ingest bitrate (bits per second). This is configured in the encoder.</p>
+   */
+  targetBitrate?: number;
+
+  /**
+   * <p>Number of audio samples recorded per second.</p>
+   */
+  sampleRate?: number;
+
+  /**
+   * <p>Number of audio channels.</p>
+   */
+  channels?: number;
+}
+
+export namespace AudioConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AudioConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Object specifying a stream’s video configuration.</p>
+ */
+export interface VideoConfiguration {
+  /**
+   * <p>Indicates to the decoder the requirements for decoding the stream. For definitions of the
+   *       valid values, see the H.264 specification.</p>
+   */
+  avcProfile?: string;
+
+  /**
+   * <p>Indicates the degree of required decoder performance for a profile. Normally this is set
+   *       automatically by the encoder. For details, see the H.264 specification.</p>
+   */
+  avcLevel?: string;
+
+  /**
+   * <p>Codec used for the video encoding.</p>
+   */
+  codec?: string;
+
+  /**
+   * <p>Software or hardware used to encode the video.</p>
+   */
+  encoder?: string;
+
+  /**
+   * <p>The expected ingest bitrate (bits per second). This is configured in the encoder.</p>
+   */
+  targetBitrate?: number;
+
+  /**
+   * <p>The expected ingest framerate. This is configured in the encoder.</p>
+   */
+  targetFramerate?: number;
+
+  /**
+   * <p>Video-resolution height in pixels.</p>
+   */
+  videoHeight?: number;
+
+  /**
+   * <p>Video-resolution width in pixels.</p>
+   */
+  videoWidth?: number;
+}
+
+export namespace VideoConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VideoConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Object specifying the ingest configuration set up by the broadcaster, usually in an
+ *       encoder.</p>
+ */
+export interface IngestConfiguration {
+  /**
+   * <p>Encoder settings for video.</p>
+   */
+  video?: VideoConfiguration;
+
+  /**
+   * <p>Encoder settings for audio.</p>
+   */
+  audio?: AudioConfiguration;
+}
+
+export namespace IngestConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IngestConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Object specifying a stream’s events. For a list of events, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html">Using Amazon EventBridge with Amazon
+ *       IVS</a>.</p>
+ */
+export interface StreamEvent {
+  /**
+   * <p>Name that identifies the stream event within a <code>type</code>.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Logical group for certain events.</p>
+   */
+  type?: string;
+
+  /**
+   * <p>UTC ISO-8601 formatted timestamp of when the event occurred.</p>
+   */
+  eventTime?: Date;
+}
+
+export namespace StreamEvent {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StreamEvent): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Object that captures the Amazon IVS configuration that the customer provisioned, the
+ *       ingest configurations that the broadcaster used, and the most recent Amazon IVS stream events
+ *       it encountered.</p>
+ */
+export interface StreamSession {
+  /**
+   * <p>Unique identifier for a live or previously live stream in the specified channel.</p>
+   */
+  streamId?: string;
+
+  /**
+   * <p>UTC ISO-8601 formatted timestamp of when the channel went live.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * <p>UTC ISO-8601 formatted timestamp of when the channel went offline. For live streams, this
+   *       is <code>NULL</code>.</p>
+   */
+  endTime?: Date;
+
+  /**
+   * <p>The properties of the channel at the time of going live.</p>
+   */
+  channel?: Channel;
+
+  /**
+   * <p>The properties of the incoming RTMP stream for the stream.</p>
+   */
+  ingestConfiguration?: IngestConfiguration;
+
+  /**
+   * <p>The properties of recording the live stream.</p>
+   */
+  recordingConfiguration?: RecordingConfiguration;
+
+  /**
+   * <p>List of Amazon IVS events that the stream encountered. The list is sorted by most recent
+   *       events and contains up to 500 events. For Amazon IVS events, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html">Using Amazon EventBridge with Amazon
+   *       IVS</a>.</p>
+   */
+  truncatedEvents?: StreamEvent[];
+}
+
+export namespace StreamSession {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StreamSession): any => ({
+    ...obj,
+  });
+}
+
+export interface GetStreamSessionResponse {
+  /**
+   * <p>List of stream details.</p>
+   */
+  streamSession?: StreamSession;
+}
+
+export namespace GetStreamSessionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetStreamSessionResponse): any => ({
+    ...obj,
   });
 }
 
@@ -1359,7 +1602,31 @@ export namespace ListStreamKeysResponse {
   });
 }
 
+/**
+ * <p>Object specifying the stream attribute on which to filter.</p>
+ */
+export interface StreamFilters {
+  /**
+   * <p>The stream’s health.</p>
+   */
+  health?: StreamHealth | string;
+}
+
+export namespace StreamFilters {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StreamFilters): any => ({
+    ...obj,
+  });
+}
+
 export interface ListStreamsRequest {
+  /**
+   * <p>Filters the stream list to match the specified criterion.</p>
+   */
+  filterBy?: StreamFilters;
+
   /**
    * <p>The first stream to retrieve. This is used for pagination; see the <code>nextToken</code>
    *       response field.</p>
@@ -1389,6 +1656,11 @@ export interface StreamSummary {
    * <p>Channel ARN for the stream.</p>
    */
   channelArn?: string;
+
+  /**
+   * <p>Unique identifier for a live or previously live stream in the specified channel.</p>
+   */
+  streamId?: string;
 
   /**
    * <p>The stream’s state.</p>
@@ -1441,6 +1713,90 @@ export namespace ListStreamsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListStreamsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListStreamSessionsRequest {
+  /**
+   * <p>Channel ARN used to filter the list.</p>
+   */
+  channelArn: string | undefined;
+
+  /**
+   * <p>The first stream to retrieve. This is used for pagination; see the <code>nextToken</code>
+   *       response field.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Maximum number of streams to return. Default: 50.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListStreamSessionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStreamSessionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summary information about a stream session.</p>
+ */
+export interface StreamSessionSummary {
+  /**
+   * <p>Unique identifier for a live or previously live stream in the specified channel.</p>
+   */
+  streamId?: string;
+
+  /**
+   * <p>UTC ISO-8601 formatted timestamp of when the channel went live.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * <p>UTC ISO-8601 formatted timestamp of when the channel went offline. For live streams, this
+   *       is <code>NULL</code>.</p>
+   */
+  endTime?: Date;
+
+  /**
+   * <p>If <code>true</code>, this stream encountered a quota breach or failure.</p>
+   */
+  hasErrorEvent?: boolean;
+}
+
+export namespace StreamSessionSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StreamSessionSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListStreamSessionsResponse {
+  /**
+   * <p/>
+   */
+  streamSessions: StreamSessionSummary[] | undefined;
+
+  /**
+   * <p>If there are more streams than <code>maxResults</code>, use <code>nextToken</code> in the
+   *       request to get the next set.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListStreamSessionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStreamSessionsResponse): any => ({
     ...obj,
   });
 }
@@ -1645,10 +2001,10 @@ export interface UpdateChannelRequest {
   name?: string;
 
   /**
-   * <p>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video up to Full HD. Use
-   *       <code>LOW</code> for near-real-time interaction with viewers. (Note: In the Amazon IVS console,
-   *         <code>LOW</code> and <code>NORMAL</code> correspond to Ultra-low and Standard,
-   *       respectively.)</p>
+   * <p>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video up to
+   *       Full HD. Use <code>LOW</code> for near-real-time interaction with viewers. (Note: In the
+   *       Amazon IVS console, <code>LOW</code> and <code>NORMAL</code> correspond to Ultra-low and
+   *       Standard, respectively.)</p>
    */
   latencyMode?: ChannelLatencyMode | string;
 

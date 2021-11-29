@@ -280,6 +280,7 @@ import {
   ListTypeVersionsInput,
   ListTypeVersionsOutput,
   LoggingConfig,
+  ManagedExecution,
   ModuleInfo,
   NameAlreadyExistsException,
   OperationIdAlreadyExistsException,
@@ -5919,6 +5920,13 @@ const serializeAws_queryCreateStackSetInput = (input: CreateStackSetInput, conte
   if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
   }
+  if (input.ManagedExecution !== undefined && input.ManagedExecution !== null) {
+    const memberEntries = serializeAws_queryManagedExecution(input.ManagedExecution, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ManagedExecution.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -6423,6 +6431,16 @@ const serializeAws_queryImportStacksToStackSetInput = (
       entries[loc] = value;
     });
   }
+  if (input.StackIdsUrl !== undefined && input.StackIdsUrl !== null) {
+    entries["StackIdsUrl"] = input.StackIdsUrl;
+  }
+  if (input.OrganizationalUnitIds !== undefined && input.OrganizationalUnitIds !== null) {
+    const memberEntries = serializeAws_queryOrganizationalUnitIdList(input.OrganizationalUnitIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `OrganizationalUnitIds.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input.OperationPreferences !== undefined && input.OperationPreferences !== null) {
     const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6690,6 +6708,14 @@ const serializeAws_queryLogicalResourceIds = (input: string[], context: __SerdeC
     }
     entries[`member.${counter}`] = entry;
     counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryManagedExecution = (input: ManagedExecution, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Active !== undefined && input.Active !== null) {
+    entries["Active"] = input.Active;
   }
   return entries;
 };
@@ -7513,6 +7539,13 @@ const serializeAws_queryUpdateStackSetInput = (input: UpdateStackSetInput, conte
   }
   if (input.CallAs !== undefined && input.CallAs !== null) {
     entries["CallAs"] = input.CallAs;
+  }
+  if (input.ManagedExecution !== undefined && input.ManagedExecution !== null) {
+    const memberEntries = serializeAws_queryManagedExecution(input.ManagedExecution, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ManagedExecution.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -8987,6 +9020,16 @@ const deserializeAws_queryLogicalResourceIds = (output: any, context: __SerdeCon
     });
 };
 
+const deserializeAws_queryManagedExecution = (output: any, context: __SerdeContext): ManagedExecution => {
+  const contents: any = {
+    Active: undefined,
+  };
+  if (output["Active"] !== undefined) {
+    contents.Active = __parseBoolean(output["Active"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryModuleInfo = (output: any, context: __SerdeContext): ModuleInfo => {
   const contents: any = {
     TypeHierarchy: undefined,
@@ -10308,6 +10351,7 @@ const deserializeAws_queryStackSet = (output: any, context: __SerdeContext): Sta
     AutoDeployment: undefined,
     PermissionModel: undefined,
     OrganizationalUnitIds: undefined,
+    ManagedExecution: undefined,
   };
   if (output["StackSetName"] !== undefined) {
     contents.StackSetName = __expectString(output["StackSetName"]);
@@ -10377,6 +10421,9 @@ const deserializeAws_queryStackSet = (output: any, context: __SerdeContext): Sta
       __getArrayIfSingleItem(output["OrganizationalUnitIds"]["member"]),
       context
     );
+  }
+  if (output["ManagedExecution"] !== undefined) {
+    contents.ManagedExecution = deserializeAws_queryManagedExecution(output["ManagedExecution"], context);
   }
   return contents;
 };
@@ -10658,6 +10705,7 @@ const deserializeAws_queryStackSetSummary = (output: any, context: __SerdeContex
     PermissionModel: undefined,
     DriftStatus: undefined,
     LastDriftCheckTimestamp: undefined,
+    ManagedExecution: undefined,
   };
   if (output["StackSetName"] !== undefined) {
     contents.StackSetName = __expectString(output["StackSetName"]);
@@ -10682,6 +10730,9 @@ const deserializeAws_queryStackSetSummary = (output: any, context: __SerdeContex
   }
   if (output["LastDriftCheckTimestamp"] !== undefined) {
     contents.LastDriftCheckTimestamp = __expectNonNull(__parseRfc3339DateTime(output["LastDriftCheckTimestamp"]));
+  }
+  if (output["ManagedExecution"] !== undefined) {
+    contents.ManagedExecution = deserializeAws_queryManagedExecution(output["ManagedExecution"], context);
   }
   return contents;
 };

@@ -27,5 +27,6 @@ export * from "./UpdateBrokerTypeCommand";
 export * from "./UpdateClusterConfigurationCommand";
 export * from "./UpdateClusterKafkaVersionCommand";
 export * from "./UpdateConfigurationCommand";
+export * from "./UpdateConnectivityCommand";
 export * from "./UpdateMonitoringCommand";
 export * from "./UpdateSecurityCommand";

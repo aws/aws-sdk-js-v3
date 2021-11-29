@@ -22,7 +22,12 @@ export interface DescribePredictorCommandInput extends DescribePredictorRequest 
 export interface DescribePredictorCommandOutput extends DescribePredictorResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a predictor created using the <a>CreatePredictor</a>
+ * <note>
+ *             <p> This operation is only valid for legacy predictors created with CreatePredictor. If you
+ *         are not using a legacy predictor, use DescribeAutoPredictor.</p>
+ *             <p>To upgrade a legacy predictor to AutoPredictor, see Upgrading to AutoPredictor.</p>
+ *          </note>
+ *          <p>Describes a predictor created using the <a>CreatePredictor</a>
  *       operation.</p>
  *          <p>In addition to listing the properties provided in the <code>CreatePredictor</code>
  *       request, this operation lists the following properties:</p>

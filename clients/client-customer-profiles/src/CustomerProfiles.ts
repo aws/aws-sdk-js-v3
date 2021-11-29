@@ -45,7 +45,17 @@ import {
   DeleteProfileObjectTypeCommandInput,
   DeleteProfileObjectTypeCommandOutput,
 } from "./commands/DeleteProfileObjectTypeCommand";
+import {
+  GetAutoMergingPreviewCommand,
+  GetAutoMergingPreviewCommandInput,
+  GetAutoMergingPreviewCommandOutput,
+} from "./commands/GetAutoMergingPreviewCommand";
 import { GetDomainCommand, GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
+import {
+  GetIdentityResolutionJobCommand,
+  GetIdentityResolutionJobCommandInput,
+  GetIdentityResolutionJobCommandOutput,
+} from "./commands/GetIdentityResolutionJobCommand";
 import {
   GetIntegrationCommand,
   GetIntegrationCommandInput,
@@ -68,6 +78,11 @@ import {
   ListAccountIntegrationsCommandOutput,
 } from "./commands/ListAccountIntegrationsCommand";
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import {
+  ListIdentityResolutionJobsCommand,
+  ListIdentityResolutionJobsCommandInput,
+  ListIdentityResolutionJobsCommandOutput,
+} from "./commands/ListIdentityResolutionJobsCommand";
 import {
   ListIntegrationsCommand,
   ListIntegrationsCommandInput,
@@ -193,6 +208,8 @@ export class CustomerProfiles extends CustomerProfilesClient {
    *          <p>Use this API or <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html">UpdateDomain</a> to
    *          enable <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">identity
    *             resolution</a>: set <code>Matching</code> to true. </p>
+   *          <p>To prevent cross-service impersonation when you call this API, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html">Cross-service confused deputy prevention</a> for sample policies that you should
+   *          apply. </p>
    */
   public createDomain(
     args: CreateDomainCommandInput,
@@ -448,6 +465,51 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * <p>Tests the auto-merging settings of your Identity Resolution Job without merging your data. It randomly
+   *          selects a sample of matching groups from the existing matching results, and applies the
+   *          automerging settings that you provided. You can then view the number of profiles in the
+   *          sample, the number of matches, and the number of profiles identified to be merged. This
+   *          enables you to evaluate the accuracy of the attributes in your matching list. </p>
+   *          <p>You can't view which profiles are matched and would be merged.</p>
+   *          <important>
+   *
+   *             <p>We strongly recommend you use this API to do a dry run of the automerging process
+   *             before running the Identity Resolution Job. Include <b>at least</b> two matching
+   *             attributes. If your matching list includes too few attributes (such as only
+   *                <code>FirstName</code> or only <code>LastName</code>), there may be a large number of
+   *             matches. This increases the chances of erroneous merges.</p>
+   *          </important>
+   */
+  public getAutoMergingPreview(
+    args: GetAutoMergingPreviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAutoMergingPreviewCommandOutput>;
+  public getAutoMergingPreview(
+    args: GetAutoMergingPreviewCommandInput,
+    cb: (err: any, data?: GetAutoMergingPreviewCommandOutput) => void
+  ): void;
+  public getAutoMergingPreview(
+    args: GetAutoMergingPreviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAutoMergingPreviewCommandOutput) => void
+  ): void;
+  public getAutoMergingPreview(
+    args: GetAutoMergingPreviewCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAutoMergingPreviewCommandOutput) => void),
+    cb?: (err: any, data?: GetAutoMergingPreviewCommandOutput) => void
+  ): Promise<GetAutoMergingPreviewCommandOutput> | void {
+    const command = new GetAutoMergingPreviewCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about a specific domain.</p>
    */
   public getDomain(args: GetDomainCommandInput, options?: __HttpHandlerOptions): Promise<GetDomainCommandOutput>;
@@ -463,6 +525,40 @@ export class CustomerProfiles extends CustomerProfilesClient {
     cb?: (err: any, data?: GetDomainCommandOutput) => void
   ): Promise<GetDomainCommandOutput> | void {
     const command = new GetDomainCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about an Identity Resolution Job in a specific domain. </p>
+   *          <p>Identity Resolution Jobs are set up using the Amazon Connect admin console. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/use-identity-resolution.html">Use
+   *             Identity Resolution to consolidate similar profiles</a>.</p>
+   */
+  public getIdentityResolutionJob(
+    args: GetIdentityResolutionJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIdentityResolutionJobCommandOutput>;
+  public getIdentityResolutionJob(
+    args: GetIdentityResolutionJobCommandInput,
+    cb: (err: any, data?: GetIdentityResolutionJobCommandOutput) => void
+  ): void;
+  public getIdentityResolutionJob(
+    args: GetIdentityResolutionJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIdentityResolutionJobCommandOutput) => void
+  ): void;
+  public getIdentityResolutionJob(
+    args: GetIdentityResolutionJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIdentityResolutionJobCommandOutput) => void),
+    cb?: (err: any, data?: GetIdentityResolutionJobCommandOutput) => void
+  ): Promise<GetIdentityResolutionJobCommandOutput> | void {
+    const command = new GetIdentityResolutionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -513,8 +609,13 @@ export class CustomerProfiles extends CustomerProfilesClient {
    *          <p>GetMatches returns potentially matching profiles, based on the results of the latest run
    *          of a machine learning process. </p>
    *          <important>
-   *             <p>Amazon Connect starts a batch process every Saturday at 12AM UTC to identify matching profiles.
-   *             The results are returned up to seven days after the Saturday run.</p>
+   *             <p>The process of matching duplicate profiles. If <code>Matching</code> = <code>true</code>, Amazon Connect Customer Profiles starts a weekly
+   * batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every
+   * Saturday at 12AM UTC to detect duplicate profiles in your domains. </p>
+   *             <p>After the Identity Resolution Job completes, use the
+   * <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
+   * API to return and review the results. Or, if you have configured <code>ExportingConfig</code> in the <code>MatchingRequest</code>, you can download the results from
+   * S3.</p>
    *          </important>
    *
    *          <p>Amazon Connect uses the following profile attributes to identify matches:</p>
@@ -691,6 +792,39 @@ export class CustomerProfiles extends CustomerProfilesClient {
     cb?: (err: any, data?: ListDomainsCommandOutput) => void
   ): Promise<ListDomainsCommandOutput> | void {
     const command = new ListDomainsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all of the Identity Resolution Jobs in your domain. The response sorts the list by
+   *             <code>JobStartTime</code>.</p>
+   */
+  public listIdentityResolutionJobs(
+    args: ListIdentityResolutionJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIdentityResolutionJobsCommandOutput>;
+  public listIdentityResolutionJobs(
+    args: ListIdentityResolutionJobsCommandInput,
+    cb: (err: any, data?: ListIdentityResolutionJobsCommandOutput) => void
+  ): void;
+  public listIdentityResolutionJobs(
+    args: ListIdentityResolutionJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIdentityResolutionJobsCommandOutput) => void
+  ): void;
+  public listIdentityResolutionJobs(
+    args: ListIdentityResolutionJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIdentityResolutionJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListIdentityResolutionJobsCommandOutput) => void
+  ): Promise<ListIdentityResolutionJobsCommandOutput> | void {
+    const command = new ListIdentityResolutionJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1155,6 +1289,8 @@ export class CustomerProfiles extends CustomerProfilesClient {
    *          <p>Use this API or <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html">CreateDomain</a> to
    *          enable <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">identity
    *             resolution</a>: set <code>Matching</code> to true. </p>
+   *          <p>To prevent cross-service impersonation when you call this API, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html">Cross-service confused deputy prevention</a> for sample policies that you should
+   *          apply. </p>
    */
   public updateDomain(
     args: UpdateDomainCommandInput,

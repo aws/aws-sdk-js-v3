@@ -23,8 +23,7 @@ export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanc
 
 /**
  * <p>Returns the stack instance that's associated with the specified stack set, Amazon Web Services account, and Region.</p>
- *          <p>For a list of stack instances that are associated with a specific stack set, use
- *             <a>ListStackInstances</a>.</p>
+ *          <p>For a list of stack instances that are associated with a specific stack set, use <a>ListStackInstances</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

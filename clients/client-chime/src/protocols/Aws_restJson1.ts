@@ -27927,6 +27927,8 @@ const serializeAws_restJson1EngineTranscribeMedicalSettings = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.ContentIdentificationType !== undefined &&
+      input.ContentIdentificationType !== null && { ContentIdentificationType: input.ContentIdentificationType }),
     ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
     ...(input.Region !== undefined && input.Region !== null && { Region: input.Region }),
     ...(input.Specialty !== undefined && input.Specialty !== null && { Specialty: input.Specialty }),
@@ -27941,7 +27943,21 @@ const serializeAws_restJson1EngineTranscribeSettings = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.ContentIdentificationType !== undefined &&
+      input.ContentIdentificationType !== null && { ContentIdentificationType: input.ContentIdentificationType }),
+    ...(input.ContentRedactionType !== undefined &&
+      input.ContentRedactionType !== null && { ContentRedactionType: input.ContentRedactionType }),
+    ...(input.EnablePartialResultsStabilization !== undefined &&
+      input.EnablePartialResultsStabilization !== null && {
+        EnablePartialResultsStabilization: input.EnablePartialResultsStabilization,
+      }),
     ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.LanguageModelName !== undefined &&
+      input.LanguageModelName !== null && { LanguageModelName: input.LanguageModelName }),
+    ...(input.PartialResultsStability !== undefined &&
+      input.PartialResultsStability !== null && { PartialResultsStability: input.PartialResultsStability }),
+    ...(input.PiiEntityTypes !== undefined &&
+      input.PiiEntityTypes !== null && { PiiEntityTypes: input.PiiEntityTypes }),
     ...(input.Region !== undefined && input.Region !== null && { Region: input.Region }),
     ...(input.VocabularyFilterMethod !== undefined &&
       input.VocabularyFilterMethod !== null && { VocabularyFilterMethod: input.VocabularyFilterMethod }),

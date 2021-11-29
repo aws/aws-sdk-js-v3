@@ -407,6 +407,11 @@ import {
   SendMessagesCommandOutput,
 } from "./commands/SendMessagesCommand";
 import {
+  SendOTPMessageCommand,
+  SendOTPMessageCommandInput,
+  SendOTPMessageCommandOutput,
+} from "./commands/SendOTPMessageCommand";
+import {
   SendUsersMessagesCommand,
   SendUsersMessagesCommandInput,
   SendUsersMessagesCommandOutput,
@@ -537,6 +542,11 @@ import {
   UpdateVoiceTemplateCommandInput,
   UpdateVoiceTemplateCommandOutput,
 } from "./commands/UpdateVoiceTemplateCommand";
+import {
+  VerifyOTPMessageCommand,
+  VerifyOTPMessageCommandInput,
+  VerifyOTPMessageCommandOutput,
+} from "./commands/VerifyOTPMessageCommand";
 import { PinpointClient } from "./PinpointClient";
 
 /**
@@ -3343,6 +3353,38 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
+   * <p>Send an OTP message</p>
+   */
+  public sendOTPMessage(
+    args: SendOTPMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendOTPMessageCommandOutput>;
+  public sendOTPMessage(
+    args: SendOTPMessageCommandInput,
+    cb: (err: any, data?: SendOTPMessageCommandOutput) => void
+  ): void;
+  public sendOTPMessage(
+    args: SendOTPMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendOTPMessageCommandOutput) => void
+  ): void;
+  public sendOTPMessage(
+    args: SendOTPMessageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendOTPMessageCommandOutput) => void),
+    cb?: (err: any, data?: SendOTPMessageCommandOutput) => void
+  ): Promise<SendOTPMessageCommandOutput> | void {
+    const command = new SendOTPMessageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates and sends a message to a list of users.</p>
    */
   public sendUsersMessages(
@@ -4190,6 +4232,38 @@ export class Pinpoint extends PinpointClient {
     cb?: (err: any, data?: UpdateVoiceTemplateCommandOutput) => void
   ): Promise<UpdateVoiceTemplateCommandOutput> | void {
     const command = new UpdateVoiceTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Verify an OTP</p>
+   */
+  public verifyOTPMessage(
+    args: VerifyOTPMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<VerifyOTPMessageCommandOutput>;
+  public verifyOTPMessage(
+    args: VerifyOTPMessageCommandInput,
+    cb: (err: any, data?: VerifyOTPMessageCommandOutput) => void
+  ): void;
+  public verifyOTPMessage(
+    args: VerifyOTPMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: VerifyOTPMessageCommandOutput) => void
+  ): void;
+  public verifyOTPMessage(
+    args: VerifyOTPMessageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: VerifyOTPMessageCommandOutput) => void),
+    cb?: (err: any, data?: VerifyOTPMessageCommandOutput) => void
+  ): Promise<VerifyOTPMessageCommandOutput> | void {
+    const command = new VerifyOTPMessageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

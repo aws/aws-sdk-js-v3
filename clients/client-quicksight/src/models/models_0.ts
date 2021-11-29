@@ -27,13 +27,18 @@ export namespace AccessDeniedException {
 }
 
 /**
- * <p>The Amazon QuickSight customizations associated with your Amazon Web Services account or a Amazon QuickSight namespace in a specific Amazon Web Services Region.</p>
+ * <p>The Amazon QuickSight customizations associated with your Amazon Web Services account or a QuickSight namespace in a specific Amazon Web Services Region.</p>
  */
 export interface AccountCustomization {
   /**
    * <p>The default theme for this Amazon QuickSight subscription.</p>
    */
   DefaultTheme?: string;
+
+  /**
+   * <p>The default email customization template.</p>
+   */
+  DefaultEmailCustomizationTemplate?: string;
 }
 
 export namespace AccountCustomization {
@@ -92,7 +97,7 @@ export namespace AccountSettings {
  */
 export interface ActiveIAMPolicyAssignment {
   /**
-   * <p>A name for the IAMpolicy assignment.</p>
+   * <p>A name for the IAM policy assignment.</p>
    */
   AssignmentName?: string;
 
@@ -154,7 +159,13 @@ export namespace AmazonElasticsearchParameters {
   });
 }
 
+/**
+ * <p>The parameters for OpenSearch.</p>
+ */
 export interface AmazonOpenSearchParameters {
+  /**
+   * <p>The OpenSearch domain.</p>
+   */
   Domain: string | undefined;
 }
 
@@ -481,11 +492,11 @@ export namespace AnonymousUserDashboardEmbeddingConfiguration {
 }
 
 /**
- * <p>The type of experience you want to embed. For anonymous users, you can embed an Amazon QuickSight dashboard.</p>
+ * <p>The type of experience you want to embed. For anonymous users, you can embed Amazon QuickSight dashboards.</p>
  */
 export interface AnonymousUserEmbeddingExperienceConfiguration {
   /**
-   * <p>The type of embedding experience. In this case, an Amazon QuickSight dashboard.</p>
+   * <p>The type of embedding experience. In this case, Amazon QuickSight dashboards.</p>
    */
   Dashboard?: AnonymousUserDashboardEmbeddingConfiguration;
 }
@@ -1062,7 +1073,11 @@ export enum GeoSpatialDataRole {
 }
 
 /**
- * <p>A tag for a column in a <a>TagColumnOperation</a> structure. This is a
+ * <p>A tag for a column in a
+ *             <code>
+ *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html">TagColumnOperation</a>
+ *             </code>
+ *             structure. This is a
  *             variant type structure. For this structure to be valid, only one of the attributes can
  *             be non-null.</p>
  */
@@ -1172,7 +1187,7 @@ export interface CreateAccountCustomizationRequest {
 
   /**
    * <p>The Amazon QuickSight customizations you're adding in the current Amazon Web Services Region. You can add
-   *             these to an Amazon Web Services account and a Amazon QuickSight namespace. </p>
+   *             these to an Amazon Web Services account and a QuickSight namespace. </p>
    *         <p>For example, you can add a default theme by setting <code>AccountCustomization</code>
    *             to the midnight theme: <code>"AccountCustomization": { "DefaultTheme":
    *                 "arn:aws:quicksight::aws:theme/MIDNIGHT" }</code>. Or, you can add a custom theme by
@@ -1410,7 +1425,7 @@ export interface ResourcePermission {
    *                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
    *             </li>
    *             <li>
-   *                 <p>The ARN of an Amazon Web Services account root: This is an IAMARN rather than a Amazon QuickSight
+   *                 <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
    *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
    *                     (This is less common.) </p>
    *             </li>
@@ -1419,7 +1434,7 @@ export interface ResourcePermission {
   Principal: string | undefined;
 
   /**
-   * <p>The IAMaction to grant or revoke permissions on.</p>
+   * <p>The IAM action to grant or revoke permissions on.</p>
    */
   Actions: string[] | undefined;
 }
@@ -1698,7 +1713,7 @@ export interface CreateDashboardRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID for the dashboard, also added to the IAMpolicy.</p>
+   * <p>The ID for the dashboard, also added to the IAM policy.</p>
    */
   DashboardId: string | undefined;
 
@@ -1716,7 +1731,7 @@ export interface CreateDashboardRequest {
 
   /**
    * <p>A structure that contains the permissions of the dashboard. You can use this structure
-   *             for granting permissions by providing a list of IAMaction information for each
+   *             for granting permissions by providing a list of IAM action information for each
    *             principal ARN. </p>
    *
    *         <p>To specify no permissions, omit the permissions list.</p>
@@ -1728,7 +1743,10 @@ export interface CreateDashboardRequest {
    *             <code>SourceEntity</code>, you specify the type of object you're using as source. You
    *             can only create a dashboard from a template, so you use a <code>SourceTemplate</code>
    *             entity. If you need to create a dashboard from an analysis, first convert the analysis
-   *             to a template by using the <a>CreateTemplate</a> API operation. For
+   *             to a template by using the <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
+   *             </code>
+   *             API operation. For
    *             <code>SourceTemplate</code>, specify the Amazon Resource Name (ARN) of the source
    *             template. The <code>SourceTemplate</code>ARN can contain any Amazon Web Services account and any
    *             Amazon QuickSight-supported Amazon Web Services Region. </p>
@@ -2758,7 +2776,7 @@ export interface CreateDataSetRequest {
 
   /**
    * <p>A set of one or more definitions of a <code>
-   *                <a>ColumnLevelPermissionRule</a>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
    *             </code>.</p>
    */
   ColumnLevelPermissionRules?: ColumnLevelPermissionRule[];
@@ -2872,6 +2890,30 @@ export namespace LimitExceededException {
    * @internal
    */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The required parameters for connecting to an Exasol data source.</p>
+ */
+export interface ExasolParameters {
+  /**
+   * <p>The hostname or IP address of the Exasol data source.</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>The port for the Exasol data source.</p>
+   */
+  Port: number | undefined;
+}
+
+export namespace ExasolParameters {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExasolParameters): any => ({
     ...obj,
   });
 }
@@ -3311,6 +3353,7 @@ export type DataSourceParameters =
   | DataSourceParameters.AuroraParametersMember
   | DataSourceParameters.AuroraPostgreSqlParametersMember
   | DataSourceParameters.AwsIotAnalyticsParametersMember
+  | DataSourceParameters.ExasolParametersMember
   | DataSourceParameters.JiraParametersMember
   | DataSourceParameters.MariaDbParametersMember
   | DataSourceParameters.MySqlParametersMember
@@ -3354,6 +3397,7 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
@@ -3382,6 +3426,7 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
@@ -3410,6 +3455,7 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
@@ -3438,6 +3484,7 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
@@ -3466,6 +3513,7 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
@@ -3494,6 +3542,7 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
@@ -3522,6 +3571,7 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
@@ -3550,6 +3600,7 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
@@ -3578,6 +3629,7 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
@@ -3606,6 +3658,7 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
@@ -3634,6 +3687,7 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
@@ -3662,6 +3716,7 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
@@ -3690,6 +3745,7 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
@@ -3718,6 +3774,7 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
@@ -3746,6 +3803,7 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
@@ -3774,6 +3832,7 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
@@ -3802,6 +3861,7 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
@@ -3830,6 +3890,7 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
@@ -3858,6 +3919,7 @@ export namespace DataSourceParameters {
     TeradataParameters: TeradataParameters;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
@@ -3886,9 +3948,13 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters: TwitterParameters;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown?: never;
   }
 
+  /**
+   * <p>The parameters for OpenSearch.</p>
+   */
   export interface AmazonOpenSearchParametersMember {
     AmazonElasticsearchParameters?: never;
     AthenaParameters?: never;
@@ -3911,6 +3977,36 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters: AmazonOpenSearchParameters;
+    ExasolParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for Exasol.</p>
+   */
+  export interface ExasolParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters: ExasolParameters;
     $unknown?: never;
   }
 
@@ -3936,6 +4032,7 @@ export namespace DataSourceParameters {
     TeradataParameters?: never;
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
     $unknown: [string, any];
   }
 
@@ -3961,6 +4058,7 @@ export namespace DataSourceParameters {
     TeradataParameters: (value: TeradataParameters) => T;
     TwitterParameters: (value: TwitterParameters) => T;
     AmazonOpenSearchParameters: (value: AmazonOpenSearchParameters) => T;
+    ExasolParameters: (value: ExasolParameters) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -3990,6 +4088,7 @@ export namespace DataSourceParameters {
     if (value.TwitterParameters !== undefined) return visitor.TwitterParameters(value.TwitterParameters);
     if (value.AmazonOpenSearchParameters !== undefined)
       return visitor.AmazonOpenSearchParameters(value.AmazonOpenSearchParameters);
+    if (value.ExasolParameters !== undefined) return visitor.ExasolParameters(value.ExasolParameters);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
@@ -4045,6 +4144,8 @@ export namespace DataSourceParameters {
       return {
         AmazonOpenSearchParameters: AmazonOpenSearchParameters.filterSensitiveLog(obj.AmazonOpenSearchParameters),
       };
+    if (obj.ExasolParameters !== undefined)
+      return { ExasolParameters: ExasolParameters.filterSensitiveLog(obj.ExasolParameters) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
@@ -4097,7 +4198,10 @@ export namespace CredentialPair {
  */
 export interface DataSourceCredentials {
   /**
-   * <p>Credential pair. For more information, see <a>CredentialPair</a>.</p>
+   * <p>Credential pair. For more information, see
+   *             <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html">CredentialPair</a>
+   *             </code>.</p>
    */
   CredentialPair?: CredentialPair;
 
@@ -4148,6 +4252,7 @@ export enum DataSourceType {
   AURORA = "AURORA",
   AURORA_POSTGRESQL = "AURORA_POSTGRESQL",
   AWS_IOT_ANALYTICS = "AWS_IOT_ANALYTICS",
+  EXASOL = "EXASOL",
   GITHUB = "GITHUB",
   JIRA = "JIRA",
   MARIADB = "MARIADB",
@@ -4297,12 +4402,12 @@ export enum FolderType {
 
 export interface CreateFolderRequest {
   /**
-   * <p>The AWS Account ID.</p>
+   * <p>The ID for the Amazon Web Services account where you want to create the folder.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The folder ID.</p>
+   * <p>The ID of the folder.</p>
    */
   FolderId: string | undefined;
 
@@ -4318,14 +4423,14 @@ export interface CreateFolderRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the parent folder.</p>
-   * 	        <p>
+   *         <p>
    *             <code>ParentFolderArn</code> can be null. An empty <code>parentFolderArn</code> creates a root-level folder.</p>
    */
   ParentFolderArn?: string;
 
   /**
    * <p>A structure that describes the principals and the resource-level permissions of a folder.</p>
-   * 	        <p>To specify no permissions, omit <code>Permissions</code>.</p>
+   *         <p>To specify no permissions, omit <code>Permissions</code>.</p>
    */
   Permissions?: ResourcePermission[];
 
@@ -4346,7 +4451,7 @@ export namespace CreateFolderRequest {
 
 export interface CreateFolderResponse {
   /**
-   * <p>The status of the newly created folder. If succeeded, the status is <code>SC_OK (200)</code>.</p>
+   * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
@@ -4383,12 +4488,12 @@ export enum MemberType {
 
 export interface CreateFolderMembershipRequest {
   /**
-   * <p>The AWS Account ID.</p>
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The folder ID.</p>
+   * <p>The ID of the folder.</p>
    */
   FolderId: string | undefined;
 
@@ -4413,16 +4518,16 @@ export namespace CreateFolderMembershipRequest {
 }
 
 /**
- * <p>An asset in a folder, such as a dashboard, analysis, or dataset.</p>
+ * <p>An asset in a Amazon QuickSight folder, such as a dashboard, analysis, or dataset.</p>
  */
 export interface FolderMember {
   /**
-   * <p>The ID of the asset.</p>
+   * <p>The ID of an asset in the folder.</p>
    */
   MemberId?: string;
 
   /**
-   * <p>The type of the asset.</p>
+   * <p>The type of asset that it is.</p>
    */
   MemberType?: MemberType | string;
 }
@@ -4438,7 +4543,7 @@ export namespace FolderMember {
 
 export interface CreateFolderMembershipResponse {
   /**
-   * <p>The status of the folder membership. If succeeded, the status is <code>SC_OK (200)</code>.</p>
+   * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
@@ -4448,7 +4553,7 @@ export interface CreateFolderMembershipResponse {
   FolderMember?: FolderMember;
 
   /**
-   * <p>The request ID.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -4668,7 +4773,7 @@ export namespace CreateGroupMembershipResponse {
 
 export interface CreateIAMPolicyAssignmentRequest {
   /**
-   * <p>The ID of the Amazon Web Services account where you want to assign an IAMpolicy to Amazon QuickSight users or
+   * <p>The ID of the Amazon Web Services account where you want to assign an IAM policy to Amazon QuickSight users or
    * 			groups.</p>
    */
   AwsAccountId: string | undefined;
@@ -4700,7 +4805,7 @@ export interface CreateIAMPolicyAssignmentRequest {
   AssignmentStatus: AssignmentStatus | string | undefined;
 
   /**
-   * <p>The ARN for the IAMpolicy to apply to the Amazon QuickSight users and groups
+   * <p>The ARN for the IAM policy to apply to the Amazon QuickSight users and groups
    * 			specified in this assignment.</p>
    */
   PolicyArn?: string;
@@ -4758,12 +4863,12 @@ export interface CreateIAMPolicyAssignmentResponse {
   AssignmentStatus?: AssignmentStatus | string;
 
   /**
-   * <p>The ARN for the IAMpolicy that is applied to the Amazon QuickSight users and groups specified in this assignment.</p>
+   * <p>The ARN for the IAM policy that is applied to the Amazon QuickSight users and groups specified in this assignment.</p>
    */
   PolicyArn?: string;
 
   /**
-   * <p>The Amazon QuickSight users, groups, or both that the IAMpolicy is assigned to.</p>
+   * <p>The Amazon QuickSight users, groups, or both that the IAM policy is assigned to.</p>
    */
   Identities?: { [key: string]: string[] };
 
@@ -5519,7 +5624,7 @@ export interface CreateThemeRequest {
    * <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
    * 			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
    * 				<code>ListThemes</code> or choose <b>Themes</b> from
-   * 			within a Amazon QuickSight analysis. </p>
+   * 			within an analysis. </p>
    */
   BaseThemeId: string | undefined;
 
@@ -6077,7 +6182,7 @@ export interface DataSet {
 
   /**
    * <p>A set of one or more definitions of a <code>
-   *                <a>ColumnLevelPermissionRule</a>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
    *             </code>.</p>
    */
   ColumnLevelPermissionRules?: ColumnLevelPermissionRule[];
@@ -6637,12 +6742,12 @@ export namespace DeleteDataSourceResponse {
 
 export interface DeleteFolderRequest {
   /**
-   * <p>The AWS Account ID for the folder.</p>
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The folder ID.</p>
+   * <p>The ID of the folder.</p>
    */
   FolderId: string | undefined;
 }
@@ -6658,7 +6763,7 @@ export namespace DeleteFolderRequest {
 
 export interface DeleteFolderResponse {
   /**
-   * <p>The status of deleting the folder. If succeeded, the status is <code>SC_OK (200)</code>.</p>
+   * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
@@ -6668,12 +6773,12 @@ export interface DeleteFolderResponse {
   Arn?: string;
 
   /**
-   * <p>The folder ID.</p>
+   * <p>The ID of the folder.</p>
    */
   FolderId?: string;
 
   /**
-   * <p>The request ID.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -6689,7 +6794,7 @@ export namespace DeleteFolderResponse {
 
 export interface DeleteFolderMembershipRequest {
   /**
-   * <p>The AWS Account ID.</p>
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6721,12 +6826,12 @@ export namespace DeleteFolderMembershipRequest {
 
 export interface DeleteFolderMembershipResponse {
   /**
-   * <p>The status of deleting the asset. If succeeded, the status is <code>SC_OK (200)</code>.</p>
+   * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
   /**
-   * <p>The request ID.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -6843,7 +6948,7 @@ export namespace DeleteGroupMembershipResponse {
 
 export interface DeleteIAMPolicyAssignmentRequest {
   /**
-   * <p>The Amazon Web Services account ID where you want to delete the IAMpolicy assignment.</p>
+   * <p>The Amazon Web Services account ID where you want to delete the IAM policy assignment.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -7373,8 +7478,8 @@ export interface DescribeAccountSettingsResponse {
   /**
    * <p>The Amazon QuickSight settings for this Amazon Web Services account. This information includes the edition of Amazon
    *             Amazon QuickSight that you subscribed to (Standard or Enterprise) and the notification email for the
-   *             Amazon QuickSight subscription. In the Amazon QuickSight console, the Amazon QuickSight subscription is sometimes
-   *             referred to as a Amazon QuickSight "account" even though it's technically not an account
+   *             Amazon QuickSight subscription. In the QuickSight console, the Amazon QuickSight subscription is sometimes
+   *             referred to as a QuickSight "account" even though it's technically not an account
    *             by itself. Instead, it's a subscription to the Amazon QuickSight service for your Amazon Web Services account. The
    *             edition that you subscribe to applies to Amazon QuickSight in every Amazon Web Services Region where you use it.</p>
    */
@@ -7578,7 +7683,7 @@ export interface DescribeDashboardPermissionsRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID for the dashboard, also added to the IAMpolicy.</p>
+   * <p>The ID for the dashboard, also added to the IAM policy.</p>
    */
   DashboardId: string | undefined;
 }
@@ -7588,6 +7693,25 @@ export namespace DescribeDashboardPermissionsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeDashboardPermissionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A structure that contains the configuration of a shareable link to the dashboard.</p>
+ */
+export interface LinkSharingConfiguration {
+  /**
+   * <p>A structure that contains the permissions of a shareable link.</p>
+   */
+  Permissions?: ResourcePermission[];
+}
+
+export namespace LinkSharingConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LinkSharingConfiguration): any => ({
     ...obj,
   });
 }
@@ -7617,6 +7741,14 @@ export interface DescribeDashboardPermissionsResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
+
+  /**
+   * <p>A structure that contains the configuration of a shareable link that grants access to
+   *             the dashboard. Your users can use the link to view and interact with the dashboard, if
+   *             the dashboard has been shared with them. For more information about sharing dashboards,
+   *             see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sharing-a-dashboard.html">Sharing Dashboards</a>.</p>
+   */
+  LinkSharingConfiguration?: LinkSharingConfiguration;
 }
 
 export namespace DescribeDashboardPermissionsResponse {
@@ -7840,12 +7972,12 @@ export namespace DescribeDataSourcePermissionsResponse {
 
 export interface DescribeFolderRequest {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The folder ID.</p>
+   * <p>The ID of the folder.</p>
    */
   FolderId: string | undefined;
 }
@@ -7860,16 +7992,16 @@ export namespace DescribeFolderRequest {
 }
 
 /**
- * <p>A folder.</p>
+ * <p>A folder in Amazon QuickSight.</p>
  */
 export interface Folder {
   /**
-   * <p>The folder ID.</p>
+   * <p>The ID of the folder.</p>
    */
   FolderId?: string;
 
   /**
-   * <p>The folder Amazon Resource Name (ARN).</p>
+   * <p>The Amazon Resource Name (ARN) for the folder.</p>
    */
   Arn?: string;
 
@@ -7879,12 +8011,12 @@ export interface Folder {
   Name?: string;
 
   /**
-   * <p>The type of the folder.</p>
+   * <p>The type of folder it is.</p>
    */
   FolderType?: FolderType | string;
 
   /**
-   * <p>An array of ancestor folder ARN strings.</p>
+   * <p>An array of ancestor ARN strings for the folder.</p>
    */
   FolderPath?: string[];
 
@@ -7910,7 +8042,7 @@ export namespace Folder {
 
 export interface DescribeFolderResponse {
   /**
-   * <p>The status. If succeeded, the status is <code>SC_OK (200)</code>.</p>
+   * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
@@ -7920,7 +8052,7 @@ export interface DescribeFolderResponse {
   Folder?: Folder;
 
   /**
-   * <p>The request ID.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -7936,12 +8068,12 @@ export namespace DescribeFolderResponse {
 
 export interface DescribeFolderPermissionsRequest {
   /**
-   * <p>The AWS Account ID.</p>
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The folder ID.</p>
+   * <p>The ID of the folder.</p>
    */
   FolderId: string | undefined;
 }
@@ -7957,12 +8089,12 @@ export namespace DescribeFolderPermissionsRequest {
 
 export interface DescribeFolderPermissionsResponse {
   /**
-   * <p>The status. If succeeded, the status is <code>SC_OK</code>.</p>
+   * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
   /**
-   * <p>The folder ID.</p>
+   * <p>The ID of the folder.</p>
    */
   FolderId?: string;
 
@@ -7977,7 +8109,7 @@ export interface DescribeFolderPermissionsResponse {
   Permissions?: ResourcePermission[];
 
   /**
-   * <p>The request ID.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -7993,12 +8125,12 @@ export namespace DescribeFolderPermissionsResponse {
 
 export interface DescribeFolderResolvedPermissionsRequest {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The folder ID.</p>
+   * <p>The ID of the folder.</p>
    */
   FolderId: string | undefined;
 }
@@ -8014,28 +8146,27 @@ export namespace DescribeFolderResolvedPermissionsRequest {
 
 export interface DescribeFolderResolvedPermissionsResponse {
   /**
-   * <p>The status. If succeeded, the status is <code>SC_OK</code>
-   *          </p>
+   * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
   /**
-   * <p>The folder ID.</p>
+   * <p>The ID of the folder.</p>
    */
   FolderId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN).</p>
+   * <p>The Amazon Resource Name (ARN) of the folder.</p>
    */
   Arn?: string;
 
   /**
-   * <p>Information about the permissions on the dashboard.</p>
+   * <p>Information about the permissions for the folder.</p>
    */
   Permissions?: ResourcePermission[];
 
   /**
-   * <p>The request ID.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -8148,7 +8279,7 @@ export interface IAMPolicyAssignment {
   AssignmentName?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the IAMpolicy.</p>
+   * <p>The Amazon Resource Name (ARN) for the IAM policy.</p>
    */
   PolicyArn?: string;
 
@@ -8174,7 +8305,7 @@ export namespace IAMPolicyAssignment {
 
 export interface DescribeIAMPolicyAssignmentResponse {
   /**
-   * <p>Information describing the IAMpolicy assignment.</p>
+   * <p>Information describing the IAM policy assignment.</p>
    */
   IAMPolicyAssignment?: IAMPolicyAssignment;
 
@@ -8480,7 +8611,7 @@ export namespace DescribeIngestionResponse {
 
 export interface DescribeIpRestrictionRequest {
   /**
-   * <p>Your AWS account ID.</p>
+   * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
    */
   AwsAccountId: string | undefined;
 }
@@ -8496,27 +8627,27 @@ export namespace DescribeIpRestrictionRequest {
 
 export interface DescribeIpRestrictionResponse {
   /**
-   * <p>Your AWS account ID.</p>
+   * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
    */
   AwsAccountId?: string;
 
   /**
-   * <p>Describes the IP rules with CIDR range and description.</p>
+   * <p>A map that describes the IP rules with CIDR range and description.</p>
    */
   IpRestrictionRuleMap?: { [key: string]: string };
 
   /**
-   * <p>Whether or not IP rules are enabled.</p>
+   * <p>A value that specifies whether IP rules are turned on.</p>
    */
   Enabled?: boolean;
 
   /**
-   * <p>The ID of the describe request.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
   /**
-   * <p>The status of a set of IP restrictions. A successful request returns a 200 status code.</p>
+   * <p>The HTTP status of the request. </p>
    */
   Status?: number;
 }
@@ -9311,121 +9442,4 @@ export namespace DescribeUserRequest {
 export enum IdentityType {
   IAM = "IAM",
   QUICKSIGHT = "QUICKSIGHT",
-}
-
-export enum UserRole {
-  ADMIN = "ADMIN",
-  AUTHOR = "AUTHOR",
-  READER = "READER",
-  RESTRICTED_AUTHOR = "RESTRICTED_AUTHOR",
-  RESTRICTED_READER = "RESTRICTED_READER",
-}
-
-/**
- * <p>A registered user of Amazon QuickSight. </p>
- */
-export interface User {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the user.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The user's user name.</p>
-   */
-  UserName?: string;
-
-  /**
-   * <p>The user's email address.</p>
-   */
-  Email?: string;
-
-  /**
-   * <p>The Amazon QuickSight role for the user. The user role can be one of the
-   *             following:.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>READER</code>: A user who has read-only access to dashboards.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>AUTHOR</code>: A user who can create data sources, datasets, analyses,
-   *                     and dashboards.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ADMIN</code>: A user who is an author, who can also manage Amazon
-   *                     Amazon QuickSight settings.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>RESTRICTED_READER</code>: This role isn't currently available for
-   *                     use.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for
-   *                     use.</p>
-   *             </li>
-   *          </ul>
-   */
-  Role?: UserRole | string;
-
-  /**
-   * <p>The type of identity authentication used by the user.</p>
-   */
-  IdentityType?: IdentityType | string;
-
-  /**
-   * <p>The active status of user. When you create an Amazon QuickSight user that’s not an IAM
-   *             user or an Active Directory user, that user is inactive until they sign in and provide a
-   *             password.</p>
-   */
-  Active?: boolean;
-
-  /**
-   * <p>The principal ID of the user.</p>
-   */
-  PrincipalId?: string;
-
-  /**
-   * <p>The custom permissions profile associated with this user.</p>
-   */
-  CustomPermissionsName?: string;
-
-  /**
-   * <p>The type of supported external login provider that provides identity to let the user
-   *             federate into Amazon QuickSight with an associated IAMrole. The type can be one of the following.</p>
-   *         <ul>
-   *             <li>
-   *                     <p>
-   *                   <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.</p>
-   *                 </li>
-   *             <li>
-   *                     <p>
-   *                   <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider.</p>
-   *                 </li>
-   *          </ul>
-   */
-  ExternalLoginFederationProviderType?: string;
-
-  /**
-   * <p>The URL of the external login provider.</p>
-   */
-  ExternalLoginFederationProviderUrl?: string;
-
-  /**
-   * <p>The identity ID for the user in the external login provider.</p>
-   */
-  ExternalLoginId?: string;
-}
-
-export namespace User {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: User): any => ({
-    ...obj,
-  });
 }

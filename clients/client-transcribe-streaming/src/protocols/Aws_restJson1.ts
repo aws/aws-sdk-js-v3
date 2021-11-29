@@ -33,6 +33,7 @@ import {
   Entity,
   InternalFailureException,
   Item,
+  LanguageWithScore,
   LimitExceededException,
   MedicalAlternative,
   MedicalEntity,
@@ -144,6 +145,15 @@ export const serializeAws_restJson1StartStreamTranscriptionCommand = async (
     }),
     ...(isSerializableHeaderValue(input.LanguageModelName) && {
       "x-amzn-transcribe-language-model-name": input.LanguageModelName!,
+    }),
+    ...(isSerializableHeaderValue(input.IdentifyLanguage) && {
+      "x-amzn-transcribe-identify-language": input.IdentifyLanguage!.toString(),
+    }),
+    ...(isSerializableHeaderValue(input.LanguageOptions) && {
+      "x-amzn-transcribe-language-options": input.LanguageOptions!,
+    }),
+    ...(isSerializableHeaderValue(input.PreferredLanguage) && {
+      "x-amzn-transcribe-preferred-language": input.PreferredLanguage!,
     }),
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/stream-transcription";
@@ -326,13 +336,16 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
     ContentRedactionType: undefined,
     EnableChannelIdentification: undefined,
     EnablePartialResultsStabilization: undefined,
+    IdentifyLanguage: undefined,
     LanguageCode: undefined,
     LanguageModelName: undefined,
+    LanguageOptions: undefined,
     MediaEncoding: undefined,
     MediaSampleRateHertz: undefined,
     NumberOfChannels: undefined,
     PartialResultsStability: undefined,
     PiiEntityTypes: undefined,
+    PreferredLanguage: undefined,
     RequestId: undefined,
     SessionId: undefined,
     ShowSpeakerLabel: undefined,
@@ -395,6 +408,15 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
   }
   if (output.headers["x-amzn-transcribe-language-model-name"] !== undefined) {
     contents.LanguageModelName = output.headers["x-amzn-transcribe-language-model-name"];
+  }
+  if (output.headers["x-amzn-transcribe-identify-language"] !== undefined) {
+    contents.IdentifyLanguage = __parseBoolean(output.headers["x-amzn-transcribe-identify-language"]);
+  }
+  if (output.headers["x-amzn-transcribe-language-options"] !== undefined) {
+    contents.LanguageOptions = output.headers["x-amzn-transcribe-language-options"];
+  }
+  if (output.headers["x-amzn-transcribe-preferred-language"] !== undefined) {
+    contents.PreferredLanguage = output.headers["x-amzn-transcribe-preferred-language"];
   }
   const data: any = context.eventStreamMarshaller.deserialize(output.body, async (event) => {
     const eventName = Object.keys(event)[0];
@@ -862,6 +884,24 @@ const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext):
     });
 };
 
+const deserializeAws_restJson1LanguageIdentification = (output: any, context: __SerdeContext): LanguageWithScore[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1LanguageWithScore(entry, context);
+    });
+};
+
+const deserializeAws_restJson1LanguageWithScore = (output: any, context: __SerdeContext): LanguageWithScore => {
+  return {
+    LanguageCode: __expectString(output.LanguageCode),
+    Score: __limitedParseDouble(output.Score),
+  } as any;
+};
+
 const deserializeAws_restJson1LimitExceededException = (
   output: any,
   context: __SerdeContext
@@ -1037,6 +1077,11 @@ const deserializeAws_restJson1Result = (output: any, context: __SerdeContext): R
     ChannelId: __expectString(output.ChannelId),
     EndTime: __limitedParseDouble(output.EndTime),
     IsPartial: __expectBoolean(output.IsPartial),
+    LanguageCode: __expectString(output.LanguageCode),
+    LanguageIdentification:
+      output.LanguageIdentification !== undefined && output.LanguageIdentification !== null
+        ? deserializeAws_restJson1LanguageIdentification(output.LanguageIdentification, context)
+        : undefined,
     ResultId: __expectString(output.ResultId),
     StartTime: __limitedParseDouble(output.StartTime),
   } as any;

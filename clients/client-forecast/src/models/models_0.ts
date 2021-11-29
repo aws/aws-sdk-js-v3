@@ -1,20 +1,386 @@
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
-export enum DatasetType {
-  ITEM_METADATA = "ITEM_METADATA",
-  RELATED_TIME_SERIES = "RELATED_TIME_SERIES",
-  TARGET_TIME_SERIES = "TARGET_TIME_SERIES",
+/**
+ * <p>Describes an additional dataset. This object is part of the <a>DataConfig</a> object. Forecast supports the Weather Index and Holidays additional datasets.</p>
+ *         <p>
+ *             <b>Weather Index</b>
+ *          </p>
+ *         <p>The Amazon Forecast Weather Index is a built-in dataset that incorporates historical and
+ *             projected weather information into your model. The Weather Index supplements your
+ *             datasets with over two years of historical weather data and up to 14 days of projected
+ *             weather data. For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/weather.html">Amazon Forecast
+ *                 Weather Index</a>.</p>
+ *         <p>
+ *             <b>Holidays</b>
+ *          </p>
+ *         <p>Holidays is a built-in dataset that incorporates national holiday information into
+ *             your model. It provides native support for the holiday calendars of 66 countries. To
+ *             view the holiday calendars, refer to the <a href="http://jollyday.sourceforge.net/data.html">Jollyday</a> library. For more
+ *             information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/holidays.html">Holidays
+ *                 Featurization</a>.</p>
+ */
+export interface AdditionalDataset {
+  /**
+   * <p>The name of the additional dataset. Valid names: <code>"holiday"</code> and
+   *                 <code>"weather"</code>.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>
+   *             <b>Weather Index</b>
+   *          </p>
+   *         <p>To enable the Weather Index, do not specify a value for
+   *             <code>Configuration</code>.</p>
+   *         <p>
+   *             <b>Holidays</b>
+   *          </p>
+   *         <p>To enable Holidays, specify a country with one of the following two-letter country
+   *             codes:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>"AL" - ALBANIA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"AR" - ARGENTINA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"AT" - AUSTRIA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"AU" - AUSTRALIA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"BA" - BOSNIA HERZEGOVINA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"BE" - BELGIUM</p>
+   *             </li>
+   *             <li>
+   *                 <p>"BG" - BULGARIA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"BO" - BOLIVIA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"BR" - BRAZIL</p>
+   *             </li>
+   *             <li>
+   *                 <p>"BY" - BELARUS</p>
+   *             </li>
+   *             <li>
+   *                 <p>"CA" - CANADA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"CL" - CHILE</p>
+   *             </li>
+   *             <li>
+   *                 <p>"CO" - COLOMBIA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"CR" - COSTA RICA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"HR" - CROATIA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"CZ" - CZECH REPUBLIC</p>
+   *             </li>
+   *             <li>
+   *                 <p>"DK" - DENMARK</p>
+   *             </li>
+   *             <li>
+   *                 <p>"EC" - ECUADOR</p>
+   *             </li>
+   *             <li>
+   *                 <p>"EE" - ESTONIA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"ET" - ETHIOPIA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"FI" - FINLAND</p>
+   *             </li>
+   *             <li>
+   *                 <p>"FR" - FRANCE</p>
+   *             </li>
+   *             <li>
+   *                 <p>"DE" - GERMANY</p>
+   *             </li>
+   *             <li>
+   *                 <p>"GR" - GREECE</p>
+   *             </li>
+   *             <li>
+   *                 <p>"HU" - HUNGARY</p>
+   *             </li>
+   *             <li>
+   *                 <p>"IS" - ICELAND</p>
+   *             </li>
+   *             <li>
+   *                 <p>"IN" - INDIA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"IE" - IRELAND</p>
+   *             </li>
+   *             <li>
+   *                 <p>"IT" - ITALY</p>
+   *             </li>
+   *             <li>
+   *                 <p>"JP" - JAPAN</p>
+   *             </li>
+   *             <li>
+   *                 <p>"KZ" - KAZAKHSTAN</p>
+   *             </li>
+   *             <li>
+   *                 <p>"KR" - KOREA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"LV" - LATVIA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"LI" - LIECHTENSTEIN</p>
+   *             </li>
+   *             <li>
+   *                 <p>"LT" - LITHUANIA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"LU" - LUXEMBOURG</p>
+   *             </li>
+   *             <li>
+   *                 <p>"MK" - MACEDONIA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"MT" - MALTA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"MX" - MEXICO</p>
+   *             </li>
+   *             <li>
+   *                 <p>"MD" - MOLDOVA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"ME" - MONTENEGRO</p>
+   *             </li>
+   *             <li>
+   *                 <p>"NL" - NETHERLANDS</p>
+   *             </li>
+   *             <li>
+   *                 <p>"NZ" - NEW ZEALAND</p>
+   *             </li>
+   *             <li>
+   *                 <p>"NI" - NICARAGUA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"NG" - NIGERIA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"NO" - NORWAY</p>
+   *             </li>
+   *             <li>
+   *                 <p>"PA" - PANAMA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"PY" - PARAGUAY</p>
+   *             </li>
+   *             <li>
+   *                 <p>"PE" - PERU</p>
+   *             </li>
+   *             <li>
+   *                 <p>"PL" - POLAND</p>
+   *             </li>
+   *             <li>
+   *                 <p>"PT" - PORTUGAL</p>
+   *             </li>
+   *             <li>
+   *                 <p>"RO" - ROMANIA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"RU" - RUSSIA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"RS" - SERBIA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"SK" - SLOVAKIA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"SI" - SLOVENIA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"ZA" - SOUTH AFRICA</p>
+   *             </li>
+   *             <li>
+   *                 <p>"ES" - SPAIN</p>
+   *             </li>
+   *             <li>
+   *                 <p>"SE" - SWEDEN</p>
+   *             </li>
+   *             <li>
+   *                 <p>"CH" - SWITZERLAND</p>
+   *             </li>
+   *             <li>
+   *                 <p>"UA" - UKRAINE</p>
+   *             </li>
+   *             <li>
+   *                 <p>"AE" - UNITED ARAB EMIRATES</p>
+   *             </li>
+   *             <li>
+   *                 <p>"US" - UNITED STATES</p>
+   *             </li>
+   *             <li>
+   *                 <p>"UK" - UNITED KINGDOM</p>
+   *             </li>
+   *             <li>
+   *                 <p>"UY" - URUGUAY</p>
+   *             </li>
+   *             <li>
+   *                 <p>"VE" - VENEZUELA</p>
+   *             </li>
+   *          </ul>
+   */
+  Configuration?: { [key: string]: string[] };
 }
 
-export enum Domain {
-  CUSTOM = "CUSTOM",
-  EC2_CAPACITY = "EC2_CAPACITY",
-  INVENTORY_PLANNING = "INVENTORY_PLANNING",
-  METRICS = "METRICS",
-  RETAIL = "RETAIL",
-  WEB_TRAFFIC = "WEB_TRAFFIC",
-  WORK_FORCE = "WORK_FORCE",
+export namespace AdditionalDataset {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AdditionalDataset): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the method used to transform attributes.</p>
+ *         <p>The following is an example using the RETAIL domain:</p>
+ *         <p>
+ *             <code>{</code>
+ *          </p>
+ *         <p>
+ *             <code>"AttributeName": "demand",</code>
+ *          </p>
+ *         <p>
+ *             <code>"Transformations": {"aggregation": "sum", "middlefill": "zero", "backfill":
+ *                 "zero"}</code>
+ *          </p>
+ *         <p>
+ *             <code>}</code>
+ *          </p>
+ */
+export interface AttributeConfig {
+  /**
+   * <p>The name of the attribute as specified in the schema. Amazon Forecast supports the
+   *             target field of the target time series and the related time series datasets. For
+   *             example, for the RETAIL domain, the target is <code>demand</code>.</p>
+   */
+  AttributeName: string | undefined;
+
+  /**
+   * <p>The method parameters (key-value pairs), which are a map of override parameters.
+   *             Specify these parameters to override the default values. Related Time Series attributes
+   *             do not accept aggregation parameters.</p>
+   *         <p>The following list shows the parameters and their valid values for the "filling"
+   *             featurization method for a <b>Target Time Series</b> dataset.
+   *             Default values are bolded.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>aggregation</code>: <b>sum</b>,
+   *                         <code>avg</code>, <code>first</code>, <code>min</code>,
+   *                     <code>max</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>frontfill</code>: <b>none</b>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>middlefill</code>: <b>zero</b>,
+   *                         <code>nan</code> (not a number), <code>value</code>, <code>median</code>,
+   *                         <code>mean</code>, <code>min</code>, <code>max</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>backfill</code>: <b>zero</b>,
+   *                     <code>nan</code>, <code>value</code>, <code>median</code>, <code>mean</code>,
+   *                         <code>min</code>, <code>max</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>The following list shows the parameters and their valid values for a <b>Related Time Series</b> featurization method (there are no
+   *             defaults):</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>middlefill</code>: <code>zero</code>, <code>value</code>,
+   *                         <code>median</code>, <code>mean</code>, <code>min</code>,
+   *                     <code>max</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>backfill</code>: <code>zero</code>, <code>value</code>,
+   *                         <code>median</code>, <code>mean</code>, <code>min</code>,
+   *                     <code>max</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>futurefill</code>: <code>zero</code>, <code>value</code>,
+   *                         <code>median</code>, <code>mean</code>, <code>min</code>,
+   *                     <code>max</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>To set a filling method to a specific value, set the fill parameter to
+   *                 <code>value</code> and define the value in a corresponding <code>_value</code>
+   *             parameter. For example, to set backfilling to a value of 2, include the following:
+   *                 <code>"backfill": "value"</code> and <code>"backfill_value":"2"</code>. </p>
+   */
+  Transformations: { [key: string]: string } | undefined;
+}
+
+export namespace AttributeConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AttributeConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The data configuration for your dataset group and any additional datasets.</p>
+ */
+export interface DataConfig {
+  /**
+   * <p>The ARN of the dataset group used to train the predictor.</p>
+   */
+  DatasetGroupArn: string | undefined;
+
+  /**
+   * <p>Aggregation and filling options for attributes in your dataset group.</p>
+   */
+  AttributeConfigs?: AttributeConfig[];
+
+  /**
+   * <p>Additional built-in datasets like Holidays and the Weather Index.</p>
+   */
+  AdditionalDatasets?: AdditionalDataset[];
+}
+
+export namespace DataConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataConfig): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -43,6 +409,303 @@ export namespace EncryptionConfig {
   export const filterSensitiveLog = (obj: EncryptionConfig): any => ({
     ...obj,
   });
+}
+
+export enum OptimizationMetric {
+  AverageWeightedQuantileLoss = "AverageWeightedQuantileLoss",
+  MAPE = "MAPE",
+  MASE = "MASE",
+  RMSE = "RMSE",
+  WAPE = "WAPE",
+}
+
+/**
+ * <p>The optional metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
+ *          <p>The following basic restrictions apply to tags:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Maximum number of tags per resource - 50.</p>
+ *             </li>
+ *             <li>
+ *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
+ *             </li>
+ *             <li>
+ *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
+ *             </li>
+ *             <li>
+ *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
+ *             </li>
+ *             <li>
+ *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
+ *             </li>
+ *             <li>
+ *                <p>Tag keys and values are case sensitive.</p>
+ *             </li>
+ *             <li>
+ *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface Tag {
+  /**
+   * <p>One part of a key-value pair that makes up a tag. A <code>key</code> is a general label that acts like a category for more specific tag values.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The optional part of a key-value pair that makes up a tag. A <code>value</code> acts as a descriptor within a tag category (key).</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace Tag {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+    ...(obj.Key && { Key: SENSITIVE_STRING }),
+    ...(obj.Value && { Value: SENSITIVE_STRING }),
+  });
+}
+
+export interface CreateAutoPredictorRequest {
+  /**
+   * <p>A unique name for the predictor</p>
+   */
+  PredictorName: string | undefined;
+
+  /**
+   * <p>The number of time-steps that the model predicts. The forecast horizon is also called
+   *             the prediction length.</p>
+   */
+  ForecastHorizon?: number;
+
+  /**
+   * <p>The forecast types used to train a predictor. You can specify up to five forecast
+   *             types. Forecast types can be quantiles from 0.01 to 0.99, by increments of 0.01 or
+   *             higher. You can also specify the mean forecast with <code>mean</code>.</p>
+   */
+  ForecastTypes?: string[];
+
+  /**
+   * <p>An array of dimension (field) names that specify how to group the generated
+   *             forecast.</p>
+   *         <p>For example, if you are generating forecasts for item sales across all your stores,
+   *             and your dataset contains a <code>store_id</code> field, you would specify
+   *                 <code>store_id</code> as a dimension to group sales forecasts for each store.</p>
+   */
+  ForecastDimensions?: string[];
+
+  /**
+   * <p>The frequency of predictions in a forecast.</p>
+   *         <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30
+   *             minutes), 15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute).
+   *             For example, "Y" indicates every year and "5min" indicates every five minutes.</p>
+   *         <p>The frequency must be greater than or equal to the TARGET_TIME_SERIES dataset
+   *             frequency.</p>
+   *         <p>When a RELATED_TIME_SERIES dataset is provided, the frequency must be equal to the
+   *             RELATED_TIME_SERIES dataset frequency.</p>
+   */
+  ForecastFrequency?: string;
+
+  /**
+   * <p>The data configuration for your dataset group and any additional datasets.</p>
+   */
+  DataConfig?: DataConfig;
+
+  /**
+   * <p>An AWS Key Management Service (KMS) key and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to
+   *       access the key. You can specify this optional object in the
+   *       <a>CreateDataset</a> and <a>CreatePredictor</a> requests.</p>
+   */
+  EncryptionConfig?: EncryptionConfig;
+
+  /**
+   * <p>The ARN of the predictor to retrain or upgrade. This parameter is only used when
+   *             retraining or upgrading a predictor. When creating a new predictor, do not specify a
+   *             value for this parameter.</p>
+   *         <p>When upgrading or retraining a predictor, only specify values for the
+   *                 <code>ReferencePredictorArn</code> and <code>PredictorName</code>. The value for
+   *                 <code>PredictorName</code> must be a unique predictor name.</p>
+   */
+  ReferencePredictorArn?: string;
+
+  /**
+   * <p>The accuracy metric used to optimize the predictor.</p>
+   */
+  OptimizationMetric?: OptimizationMetric | string;
+
+  ExplainPredictor?: boolean;
+  /**
+   * <p>Optional metadata to help you categorize and organize your predictors. Each tag
+   *             consists of a key and an optional value, both of which you define. Tag keys and values
+   *             are case sensitive.</p>
+   *         <p>The following restrictions apply to tags:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For each resource, each tag key must be unique and each tag key must have one
+   *                     value.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum number of tags per resource: 50.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
+   *                     and + - = . _ : / @. If your tagging schema is used across other services and
+   *                     resources, the character restrictions of those services also apply. </p>
+   *             </li>
+   *             <li>
+   *                 <p>Key prefixes cannot include any upper or lowercase combination of
+   *                         <code>aws:</code> or <code>AWS:</code>. Values can have this prefix. If a
+   *                     tag value has <code>aws</code> as its prefix but the key does not, Forecast
+   *                     considers it to be a user tag and will count against the limit of 50 tags. Tags
+   *                     with only the key prefix of <code>aws</code> do not count against your tags per
+   *                     resource limit. You cannot edit or delete tag keys with this prefix.</p>
+   *             </li>
+   *          </ul>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateAutoPredictorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateAutoPredictorRequest): any => ({
+    ...obj,
+    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface CreateAutoPredictorResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the predictor.</p>
+   */
+  PredictorArn?: string;
+}
+
+export namespace CreateAutoPredictorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateAutoPredictorResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ */
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
+  name: "InvalidInputException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidInputException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The limit on the number of resources per account has been exceeded.</p>
+ */
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace LimitExceededException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>There is already a resource with this name. Try again with a different name.</p>
+ */
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
+  name: "ResourceAlreadyExistsException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ResourceAlreadyExistsException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified resource is in use.</p>
+ */
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
+  name: "ResourceInUseException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ResourceInUseException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
+ *       again.</p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj,
+  });
+}
+
+export enum DatasetType {
+  ITEM_METADATA = "ITEM_METADATA",
+  RELATED_TIME_SERIES = "RELATED_TIME_SERIES",
+  TARGET_TIME_SERIES = "TARGET_TIME_SERIES",
+}
+
+export enum Domain {
+  CUSTOM = "CUSTOM",
+  EC2_CAPACITY = "EC2_CAPACITY",
+  INVENTORY_PLANNING = "INVENTORY_PLANNING",
+  METRICS = "METRICS",
+  RETAIL = "RETAIL",
+  WEB_TRAFFIC = "WEB_TRAFFIC",
+  WORK_FORCE = "WORK_FORCE",
 }
 
 export enum AttributeType {
@@ -95,56 +758,6 @@ export namespace Schema {
    */
   export const filterSensitiveLog = (obj: Schema): any => ({
     ...obj,
-  });
-}
-
-/**
- * <p>The optional metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
- *          <p>The following basic restrictions apply to tags:</p>
- *          <ul>
- *             <li>
- *                <p>Maximum number of tags per resource - 50.</p>
- *             </li>
- *             <li>
- *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
- *             </li>
- *             <li>
- *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
- *             </li>
- *             <li>
- *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
- *             </li>
- *             <li>
- *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
- *             </li>
- *             <li>
- *                <p>Tag keys and values are case sensitive.</p>
- *             </li>
- *             <li>
- *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p>
- *             </li>
- *          </ul>
- */
-export interface Tag {
-  /**
-   * <p>One part of a key-value pair that makes up a tag. A <code>key</code> is a general label that acts like a category for more specific tag values.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The optional part of a key-value pair that makes up a tag. A <code>value</code> acts as a descriptor within a tag category (key).</p>
-   */
-  Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-    ...(obj.Key && { Key: SENSITIVE_STRING }),
-    ...(obj.Value && { Value: SENSITIVE_STRING }),
   });
 }
 
@@ -249,61 +862,6 @@ export namespace CreateDatasetResponse {
   });
 }
 
-/**
- * <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
- */
-export interface InvalidInputException extends __SmithyException, $MetadataBearer {
-  name: "InvalidInputException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidInputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The limit on the number of resources per account has been exceeded.</p>
- */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>There is already a resource with this name. Try again with a different name.</p>
- */
-export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDatasetGroupRequest {
   /**
    * <p>A name for the dataset group.</p>
@@ -380,43 +938,6 @@ export namespace CreateDatasetGroupResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateDatasetGroupResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The specified resource is in use.</p>
- */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
- */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
 }
@@ -609,6 +1130,266 @@ export namespace CreateDatasetImportJobResponse {
   });
 }
 
+export enum TimePointGranularity {
+  ALL = "ALL",
+  SPECIFIC = "SPECIFIC",
+}
+
+export enum TimeSeriesGranularity {
+  ALL = "ALL",
+  SPECIFIC = "SPECIFIC",
+}
+
+/**
+ * <p>The ExplainabilityConfig data type defines the number of time series and time points
+ *             included in <a>CreateExplainability</a>.</p>
+ *         <p>If you provide a predictor ARN for <code>ResourceArn</code>, you must set both
+ *                 <code>TimePointGranularity</code> and <code>TimeSeriesGranularity</code> to “ALL”.
+ *             When creating Predictor Explainability, Amazon Forecast considers all time series and
+ *             time points.</p>
+ *         <p>If you provide a forecast ARN for <code>ResourceArn</code>, you can set <code>TimePointGranularity</code> and
+ *             <code>TimeSeriesGranularity</code> to either “ALL” or “Specific”.</p>
+ */
+export interface ExplainabilityConfig {
+  /**
+   * <p>To create an Explainability for all time series in your datasets, use
+   *             <code>ALL</code>. To create an Explainability for specific time series in your datasets,
+   *             use <code>SPECIFIC</code>.</p>
+   *         <p>Specify time series by uploading a CSV file to an Amazon S3 bucket and set the location
+   *             within the <a>DataDestination</a> data type.</p>
+   */
+  TimeSeriesGranularity: TimeSeriesGranularity | string | undefined;
+
+  /**
+   * <p>To create an Explainability for all time points in your forecast horizon, use
+   *                 <code>ALL</code>. To create an Explainability for specific time points in your
+   *             forecast horizon, use <code>SPECIFIC</code>.</p>
+   *         <p>Specify time points with the <code>StartDateTime</code> and <code>EndDateTime</code>
+   *             parameters within the <a>CreateExplainability</a> operation.</p>
+   */
+  TimePointGranularity: TimePointGranularity | string | undefined;
+}
+
+export namespace ExplainabilityConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExplainabilityConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateExplainabilityRequest {
+  /**
+   * <p>A unique name for the Explainability.</p>
+   */
+  ExplainabilityName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Predictor or Forecast used to create the
+   *             Explainability.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The configuration settings that define the granularity of time series and time points
+   *             for the Explainability.</p>
+   */
+  ExplainabilityConfig: ExplainabilityConfig | undefined;
+
+  /**
+   * <p>The source of your training data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
+   *       access the data and, optionally, an AWS Key Management Service (KMS) key. This object is submitted in the
+   *       <a>CreateDatasetImportJob</a> request.</p>
+   */
+  DataSource?: DataSource;
+
+  /**
+   * <p>Defines the fields of a dataset. You specify this object in the <a>CreateDataset</a> request.</p>
+   */
+  Schema?: Schema;
+
+  /**
+   * <p>Create an Expainability visualization that is viewable within the AWS console.</p>
+   */
+  EnableVisualization?: boolean;
+
+  /**
+   * <p>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, define the first
+   *             point for the Explainability.</p>
+   */
+  StartDateTime?: string;
+
+  /**
+   * <p>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, define the last
+   *             time point for the Explainability.</p>
+   */
+  EndDateTime?: string;
+
+  /**
+   * <p>Optional metadata to help you categorize and organize your resources. Each tag
+   *             consists of a key and an optional value, both of which you define. Tag keys and values
+   *             are case sensitive.</p>
+   *         <p>The following restrictions apply to tags:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For each resource, each tag key must be unique and each tag key must have one
+   *                     value.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum number of tags per resource: 50.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
+   *                     and + - = . _ : / @. If your tagging schema is used across other services and
+   *                     resources, the character restrictions of those services also apply. </p>
+   *             </li>
+   *             <li>
+   *                 <p>Key prefixes cannot include any upper or lowercase combination of
+   *                         <code>aws:</code> or <code>AWS:</code>. Values can have this prefix. If a
+   *                     tag value has <code>aws</code> as its prefix but the key does not, Forecast
+   *                     considers it to be a user tag and will count against the limit of 50 tags. Tags
+   *                     with only the key prefix of <code>aws</code> do not count against your tags per
+   *                     resource limit. You cannot edit or delete tag keys with this prefix.</p>
+   *             </li>
+   *          </ul>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateExplainabilityRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateExplainabilityRequest): any => ({
+    ...obj,
+    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface CreateExplainabilityResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Explainability.</p>
+   */
+  ExplainabilityArn?: string;
+}
+
+export namespace CreateExplainabilityResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateExplainabilityResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
+ *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+ */
+export interface DataDestination {
+  /**
+   * <p>The path to an Amazon Simple Storage Service (Amazon S3) bucket along with the credentials to access the
+   *       bucket.</p>
+   */
+  S3Config: S3Config | undefined;
+}
+
+export namespace DataDestination {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataDestination): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateExplainabilityExportRequest {
+  /**
+   * <p>A unique name for the Explainability export.</p>
+   */
+  ExplainabilityExportName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Explainability to export.</p>
+   */
+  ExplainabilityArn: string | undefined;
+
+  /**
+   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   */
+  Destination: DataDestination | undefined;
+
+  /**
+   * <p>Optional metadata to help you categorize and organize your resources. Each tag
+   *             consists of a key and an optional value, both of which you define. Tag keys and values
+   *             are case sensitive.</p>
+   *         <p>The following restrictions apply to tags:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For each resource, each tag key must be unique and each tag key must have one
+   *                     value.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum number of tags per resource: 50.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
+   *                     and + - = . _ : / @. If your tagging schema is used across other services and
+   *                     resources, the character restrictions of those services also apply. </p>
+   *             </li>
+   *             <li>
+   *                 <p>Key prefixes cannot include any upper or lowercase combination of
+   *                         <code>aws:</code> or <code>AWS:</code>. Values can have this prefix. If a
+   *                     tag value has <code>aws</code> as its prefix but the key does not, Forecast
+   *                     considers it to be a user tag and will count against the limit of 50 tags. Tags
+   *                     with only the key prefix of <code>aws</code> do not count against your tags per
+   *                     resource limit. You cannot edit or delete tag keys with this prefix.</p>
+   *             </li>
+   *          </ul>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateExplainabilityExportRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateExplainabilityExportRequest): any => ({
+    ...obj,
+    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface CreateExplainabilityExportResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the export.</p>
+   */
+  ExplainabilityExportArn?: string;
+}
+
+export namespace CreateExplainabilityExportResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateExplainabilityExportResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateForecastRequest {
   /**
    * <p>A name for the forecast.</p>
@@ -681,27 +1462,6 @@ export namespace CreateForecastResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateForecastResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
- *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
- */
-export interface DataDestination {
-  /**
-   * <p>The path to an Amazon Simple Storage Service (Amazon S3) bucket along with the credentials to access the
-   *       bucket.</p>
-   */
-  S3Config: S3Config | undefined;
-}
-
-export namespace DataDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataDestination): any => ({
     ...obj,
   });
 }
@@ -783,6 +1543,7 @@ export namespace CreateForecastExportJobResponse {
 }
 
 export enum AutoMLOverrideStrategy {
+  AccuracyOptimized = "AccuracyOptimized",
   LatencyOptimized = "LatencyOptimized",
 }
 
@@ -1243,7 +2004,8 @@ export namespace HyperParameterTuningJobConfig {
  *          <p>The Amazon Forecast Weather Index is a built-in featurization that incorporates historical and
  *       projected weather information into your model. The Weather Index supplements your datasets
  *       with over two years of historical weather data and up to 14 days of projected weather data.
- *       For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/weather.html">Amazon Forecast Weather Index</a>.</p>
+ *       For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/weather.html">Amazon Forecast Weather
+ *         Index</a>.</p>
  *          <p>
  *             <b>Holidays</b>
  *          </p>
@@ -1254,7 +2016,8 @@ export namespace HyperParameterTuningJobConfig {
  */
 export interface SupplementaryFeature {
   /**
-   * <p>The name of the feature. Valid values: <code>"holiday"</code> and <code>"weather"</code>.</p>
+   * <p>The name of the feature. Valid values: <code>"holiday"</code> and
+   *       <code>"weather"</code>.</p>
    */
   Name: string | undefined;
 
@@ -1509,14 +2272,6 @@ export namespace InputDataConfig {
   });
 }
 
-export enum OptimizationMetric {
-  AverageWeightedQuantileLoss = "AverageWeightedQuantileLoss",
-  MAPE = "MAPE",
-  MASE = "MASE",
-  RMSE = "RMSE",
-  WAPE = "WAPE",
-}
-
 export interface CreatePredictorRequest {
   /**
    * <p>A name for the predictor.</p>
@@ -1576,10 +2331,9 @@ export interface CreatePredictorRequest {
   ForecastHorizon: number | undefined;
 
   /**
-   * <p>Specifies the forecast types used to train a predictor. You can specify up to five forecast types.
-   *       Forecast types can be quantiles from 0.01 to 0.99, by increments of 0.01 or higher. You can also specify
-   *       the mean forecast with <code>mean</code>.
-   *     </p>
+   * <p>Specifies the forecast types used to train a predictor. You can specify up to five
+   *       forecast types. Forecast types can be quantiles from 0.01 to 0.99, by increments of 0.01 or
+   *       higher. You can also specify the mean forecast with <code>mean</code>. </p>
    *          <p>The default value is <code>["0.10", "0.50", "0.9"]</code>.</p>
    */
   ForecastTypes?: string[];
@@ -1860,6 +2614,38 @@ export namespace DeleteDatasetImportJobRequest {
   });
 }
 
+export interface DeleteExplainabilityRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Explainability resource to delete.</p>
+   */
+  ExplainabilityArn: string | undefined;
+}
+
+export namespace DeleteExplainabilityRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteExplainabilityRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteExplainabilityExportRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Explainability export to delete. </p>
+   */
+  ExplainabilityExportArn: string | undefined;
+}
+
+export namespace DeleteExplainabilityExportRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteExplainabilityExportRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteForecastRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast to delete.</p>
@@ -1937,6 +2723,212 @@ export namespace DeleteResourceTreeRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteResourceTreeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAutoPredictorRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the predictor.</p>
+   */
+  PredictorArn: string | undefined;
+}
+
+export namespace DescribeAutoPredictorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAutoPredictorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ExplainabilityInfo {
+  ExplainabilityArn?: string;
+  Status?: string;
+}
+
+export namespace ExplainabilityInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExplainabilityInfo): any => ({
+    ...obj,
+  });
+}
+
+export enum State {
+  Active = "Active",
+  Deleted = "Deleted",
+}
+
+/**
+ * <p>Provides a summary of the reference predictor used when retraining or upgrading a
+ *             predictor.</p>
+ */
+export interface ReferencePredictorSummary {
+  /**
+   * <p>The ARN of the reference predictor.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>Whether the reference predictor is <code>Active</code> or <code>Deleted</code>.</p>
+   */
+  State?: State | string;
+}
+
+export namespace ReferencePredictorSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReferencePredictorSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAutoPredictorResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the predictor</p>
+   */
+  PredictorArn?: string;
+
+  /**
+   * <p>The name of the predictor.</p>
+   */
+  PredictorName?: string;
+
+  /**
+   * <p>The number of time-steps that the model predicts. The forecast horizon is also called
+   *             the prediction length.</p>
+   */
+  ForecastHorizon?: number;
+
+  /**
+   * <p>The forecast types used during predictor training. Default value is
+   *             ["0.1","0.5","0.9"].</p>
+   */
+  ForecastTypes?: string[];
+
+  /**
+   * <p>The frequency of predictions in a forecast.</p>
+   *         <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30
+   *             minutes), 15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute).
+   *             For example, "Y" indicates every year and "5min" indicates every five minutes.</p>
+   */
+  ForecastFrequency?: string;
+
+  /**
+   * <p>An array of the ARNs of the dataset import jobs used to import training data for the
+   *             predictor.</p>
+   */
+  DatasetImportJobArns?: string[];
+
+  /**
+   * <p>The data configuration for your dataset group and any additional datasets.</p>
+   */
+  DataConfig?: DataConfig;
+
+  /**
+   * <p>An AWS Key Management Service (KMS) key and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to
+   *       access the key. You can specify this optional object in the
+   *       <a>CreateDataset</a> and <a>CreatePredictor</a> requests.</p>
+   */
+  EncryptionConfig?: EncryptionConfig;
+
+  /**
+   * <p>The ARN and state of the reference predictor. This parameter is only valid for
+   *             retrained or upgraded predictors.</p>
+   */
+  ReferencePredictorSummary?: ReferencePredictorSummary;
+
+  /**
+   * <p>The estimated time remaining in minutes for the predictor training job to
+   *             complete.</p>
+   */
+  EstimatedTimeRemainingInMinutes?: number;
+
+  /**
+   * <p>The status of the predictor. States include: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
+   *                         <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
+   *                         <code>DELETE_FAILED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: string;
+
+  /**
+   * <p>In the event of an error, a message detailing the cause of the error.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The timestamp of the CreateAutoPredictor request.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last time the resource was modified. The timestamp depends on the status of the
+   *             job:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *                     failed.</p>
+   *             </li>
+   *          </ul>
+   */
+  LastModificationTime?: Date;
+
+  /**
+   * <p>The accuracy metric used to optimize the predictor.</p>
+   */
+  OptimizationMetric?: OptimizationMetric | string;
+
+  ExplainabilityInfo?: ExplainabilityInfo;
+}
+
+export namespace DescribeAutoPredictorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAutoPredictorResponse): any => ({
     ...obj,
   });
 }
@@ -2406,6 +3398,274 @@ export namespace DescribeDatasetImportJobResponse {
   });
 }
 
+export interface DescribeExplainabilityRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Explaianability to describe.</p>
+   */
+  ExplainabilityArn: string | undefined;
+}
+
+export namespace DescribeExplainabilityRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeExplainabilityRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeExplainabilityResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Explainability.</p>
+   */
+  ExplainabilityArn?: string;
+
+  /**
+   * <p>The name of the Explainability.</p>
+   */
+  ExplainabilityName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Predictor or Forecast used to create the
+   *             Explainability resource.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The configuration settings that define the granularity of time series and time points
+   *             for the Explainability.</p>
+   */
+  ExplainabilityConfig?: ExplainabilityConfig;
+
+  /**
+   * <p>Whether the visualization was enabled for the Explainability resource.</p>
+   */
+  EnableVisualization?: boolean;
+
+  /**
+   * <p>The source of your training data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
+   *       access the data and, optionally, an AWS Key Management Service (KMS) key. This object is submitted in the
+   *       <a>CreateDatasetImportJob</a> request.</p>
+   */
+  DataSource?: DataSource;
+
+  /**
+   * <p>Defines the fields of a dataset. You specify this object in the <a>CreateDataset</a> request.</p>
+   */
+  Schema?: Schema;
+
+  /**
+   * <p>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, the first time
+   *             point in the Explainability.</p>
+   */
+  StartDateTime?: string;
+
+  /**
+   * <p>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, the last time
+   *             point in the Explainability.</p>
+   */
+  EndDateTime?: string;
+
+  /**
+   * <p>The estimated time remaining in minutes for the <a>CreateExplainability</a>
+   *             job to complete.</p>
+   */
+  EstimatedTimeRemainingInMinutes?: number;
+
+  /**
+   * <p>If an error occurred, a message about the error.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The status of the Explainability resource. States include: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
+   *                         <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
+   *                         <code>DELETE_FAILED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: string;
+
+  /**
+   * <p>When the Explainability resource was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last time the resource was modified. The timestamp depends on the status of the
+   *             job:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *                     failed.</p>
+   *             </li>
+   *          </ul>
+   */
+  LastModificationTime?: Date;
+}
+
+export namespace DescribeExplainabilityResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeExplainabilityResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeExplainabilityExportRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Explainability export.</p>
+   */
+  ExplainabilityExportArn: string | undefined;
+}
+
+export namespace DescribeExplainabilityExportRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeExplainabilityExportRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeExplainabilityExportResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Explainability export.</p>
+   */
+  ExplainabilityExportArn?: string;
+
+  /**
+   * <p>The name of the Explainability export.</p>
+   */
+  ExplainabilityExportName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Explainability.</p>
+   */
+  ExplainabilityArn?: string;
+
+  /**
+   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   */
+  Destination?: DataDestination;
+
+  /**
+   * <p>Information about any errors that occurred during the export.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The status of the Explainability export. States include: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
+   *                         <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
+   *                         <code>DELETE_FAILED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: string;
+
+  /**
+   * <p>When the Explainability export was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last time the resource was modified. The timestamp depends on the status of the
+   *             job:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *                     failed.</p>
+   *             </li>
+   *          </ul>
+   */
+  LastModificationTime?: Date;
+}
+
+export namespace DescribeExplainabilityExportResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeExplainabilityExportResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeForecastRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast.</p>
@@ -2786,13 +4046,19 @@ export interface DescribePredictorResponse {
   AlgorithmArn?: string;
 
   /**
+   * <p>When <code>PerformAutoML</code> is specified, the ARN of the chosen algorithm.</p>
+   */
+  AutoMLAlgorithmArns?: string[];
+
+  /**
    * <p>The number of time-steps of the forecast. The forecast horizon is also called the
    *       prediction length.</p>
    */
   ForecastHorizon?: number;
 
   /**
-   * <p>The forecast types used during predictor training. Default value is <code>["0.1","0.5","0.9"]</code>
+   * <p>The forecast types used during predictor training. Default value is
+   *         <code>["0.1","0.5","0.9"]</code>
    *          </p>
    */
   ForecastTypes?: string[];
@@ -2866,15 +4132,15 @@ export interface DescribePredictorResponse {
   EstimatedTimeRemainingInMinutes?: number;
 
   /**
+   * <p>Whether the predictor was created with <a>CreateAutoPredictor</a>.</p>
+   */
+  IsAutoPredictor?: boolean;
+
+  /**
    * <p>An array of the ARNs of the dataset import jobs used to import training data for the
    *       predictor.</p>
    */
   DatasetImportJobArns?: string[];
-
-  /**
-   * <p>When <code>PerformAutoML</code> is specified, the ARN of the chosen algorithm.</p>
-   */
-  AutoMLAlgorithmArns?: string[];
 
   /**
    * <p>The status of the predictor. States include:</p>
@@ -2887,13 +4153,13 @@ export interface DescribePredictorResponse {
    *             <li>
    *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
-   *           <code>CREATE_FAILED</code>
+   *             <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
-   *           <code>DELETE_FAILED</code>
+   *             <code>DELETE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
@@ -2920,7 +4186,8 @@ export interface DescribePredictorResponse {
   CreationTime?: Date;
 
   /**
-   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   * <p>The last time the resource was modified. The timestamp depends on the status of the
+   *       job:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3288,6 +4555,11 @@ export interface GetAccuracyMetricsResponse {
    * <p>An array of results from evaluating the predictor.</p>
    */
   PredictorEvaluationResults?: EvaluationResult[];
+
+  /**
+   * <p>Whether the predictor was created with <a>CreateAutoPredictor</a>.</p>
+   */
+  IsAutoPredictor?: boolean;
 
   /**
    * <note>
@@ -3731,6 +5003,360 @@ export namespace ListDatasetsResponse {
   });
 }
 
+export interface ListExplainabilitiesRequest {
+  /**
+   * <p>If the result of the previous request was truncated, the response includes a
+   *             NextToken. To retrieve the next set of results, use the token in the next request.
+   *             Tokens expire after 24 hours.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The number of items returned in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>An array of filters. For each filter, provide a condition and a match statement. The
+   *             condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to
+   *             include or exclude the resources that match the statement from the list. The match
+   *             statement consists of a key and a value.</p>
+   *         <p>
+   *             <b>Filter properties</b>
+   *         </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>Condition</code> - The condition to apply. Valid values are
+   *                         <code>IS</code> and <code>IS_NOT</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Key</code> - The name of the parameter to filter on. Valid values are
+   *                         <code>PredictorArn</code> and <code>Status</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Value</code> - The value to match.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+}
+
+export namespace ListExplainabilitiesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListExplainabilitiesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides a summary of the Explainability properties used in the <a>ListExplainabilities</a> operation. To get a complete set of properties,
+ *             call the <a>DescribeExplainability</a> operation, and provide the listed
+ *                 <code>ExplainabilityArn</code>.</p>
+ */
+export interface ExplainabilitySummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Explainability.</p>
+   */
+  ExplainabilityArn?: string;
+
+  /**
+   * <p>The name of the Explainability.</p>
+   */
+  ExplainabilityName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Predictor or Forecast used to create the
+   *             Explainability.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The configuration settings that define the granularity of time series and time points
+   *             for the Explainability.</p>
+   */
+  ExplainabilityConfig?: ExplainabilityConfig;
+
+  /**
+   * <p>The status of the Explainability. States include: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
+   *                         <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
+   *                         <code>DELETE_FAILED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: string;
+
+  /**
+   * <p>Information about any errors that may have occurred during the Explainability creation
+   *             process.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>When the Explainability was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last time the resource was modified. The timestamp depends on the status of the
+   *             job:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *                     failed.</p>
+   *             </li>
+   *          </ul>
+   */
+  LastModificationTime?: Date;
+}
+
+export namespace ExplainabilitySummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExplainabilitySummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListExplainabilitiesResponse {
+  /**
+   * <p>An array of objects that summarize the properties of each Explainability
+   *             resource.</p>
+   */
+  Explainabilities?: ExplainabilitySummary[];
+
+  /**
+   * <p>Returns this token if the response is truncated. To retrieve the next set of results,
+   *             use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListExplainabilitiesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListExplainabilitiesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListExplainabilityExportsRequest {
+  /**
+   * <p>If the result of the previous request was truncated, the response includes a
+   *             NextToken. To retrieve the next set of results, use the token in the next request.
+   *             Tokens expire after 24 hours.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>An array of filters. For each filter, provide a condition and a match statement. The
+   *             condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to
+   *             include or exclude resources that match the statement from the list. The match statement
+   *             consists of a key and a value.</p>
+   *         <p>
+   *             <b>Filter properties</b>
+   *         </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>Condition</code> - The condition to apply. Valid values are
+   *                         <code>IS</code> and <code>IS_NOT</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Key</code> - The name of the parameter to filter on. Valid values are
+   *                         <code>PredictorArn</code> and <code>Status</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Value</code> - The value to match.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+}
+
+export namespace ListExplainabilityExportsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListExplainabilityExportsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides a summary of the Explainability export properties used in the <a>ListExplainabilityExports</a> operation. To get a complete set of
+ *             properties, call the <a>DescribeExplainabilityExport</a> operation, and
+ *             provide the <code>ExplainabilityExportArn</code>.</p>
+ */
+export interface ExplainabilityExportSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Explainability export.</p>
+   */
+  ExplainabilityExportArn?: string;
+
+  /**
+   * <p>The name of the Explainability export</p>
+   */
+  ExplainabilityExportName?: string;
+
+  /**
+   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   */
+  Destination?: DataDestination;
+
+  /**
+   * <p>The status of the Explainability export. States include: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
+   *                         <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
+   *                         <code>DELETE_FAILED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: string;
+
+  /**
+   * <p>Information about any errors that may have occurred during the Explainability
+   *             export.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>When the Explainability was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last time the resource was modified. The timestamp depends on the status of the
+   *             job:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *                     failed.</p>
+   *             </li>
+   *          </ul>
+   */
+  LastModificationTime?: Date;
+}
+
+export namespace ExplainabilityExportSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExplainabilityExportSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListExplainabilityExportsResponse {
+  /**
+   * <p>An array of objects that summarize the properties of each Explainability
+   *             export.</p>
+   */
+  ExplainabilityExports?: ExplainabilityExportSummary[];
+
+  /**
+   * <p>Returns this token if the response is truncated. To retrieve the next set of results,
+   *             use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListExplainabilityExportsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListExplainabilityExportsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListForecastExportJobsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -3990,6 +5616,7 @@ export interface ForecastSummary {
    */
   PredictorArn?: string;
 
+  CreatedUsingAutoPredictor?: boolean;
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group that provided the data used to train
    *       the predictor.</p>
@@ -4351,6 +5978,17 @@ export interface PredictorSummary {
   DatasetGroupArn?: string;
 
   /**
+   * <p>Whether AutoPredictor was used to create the predictor.</p>
+   */
+  IsAutoPredictor?: boolean;
+
+  /**
+   * <p>A summary of the reference predictor used if the predictor was retrained or
+   *             upgraded.</p>
+   */
+  ReferencePredictorSummary?: ReferencePredictorSummary;
+
+  /**
    * <p>The status of the predictor. States include:</p>
    *          <ul>
    *             <li>
@@ -4361,13 +5999,13 @@ export interface PredictorSummary {
    *             <li>
    *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
-   *           <code>CREATE_FAILED</code>
+   *             <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
-   *           <code>DELETE_FAILED</code>
+   *             <code>DELETE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
@@ -4394,7 +6032,8 @@ export interface PredictorSummary {
   CreationTime?: Date;
 
   /**
-   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   * <p>The last time the resource was modified. The timestamp depends on the status of the
+   *       job:</p>
    *          <ul>
    *             <li>
    *                <p>

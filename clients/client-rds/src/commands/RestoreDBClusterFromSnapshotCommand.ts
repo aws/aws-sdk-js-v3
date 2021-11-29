@@ -24,8 +24,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot. This action
- *             only applies to Aurora DB clusters.</p>
+ * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
  *         <p>The target DB cluster is created from the source snapshot with a default
  *             configuration. If you don't specify a security group, the new DB cluster is
  *             associated with the default security group.</p>
@@ -37,12 +36,16 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *                 the <code>RestoreDBClusterFromSnapshot</code> action has completed and the DB
  *                 cluster is available.</p>
  *          </note>
- *          <p>For more information on Amazon Aurora, see
+ *          <p>For more information on Amazon Aurora DB clusters, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
- *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *          </p>
+ *          <p>For more information on Multi-AZ DB clusters, see
+ *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+ *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
  *          </p>
  *          <note>
- *             <p>This action only applies to Aurora DB clusters.</p>
+ *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -26,7 +26,7 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  *         Returns information about Aurora global database clusters. This API supports pagination.
  *       </p>
  *          <p>
- *         For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What Is Amazon Aurora?</a> in the
+ *         For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the
  *         <i>Amazon Aurora User Guide.</i>
  *          </p>
  *          <note>

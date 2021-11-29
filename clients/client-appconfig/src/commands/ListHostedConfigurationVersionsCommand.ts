@@ -22,7 +22,7 @@ export interface ListHostedConfigurationVersionsCommandInput extends ListHostedC
 export interface ListHostedConfigurationVersionsCommandOutput extends HostedConfigurationVersions, __MetadataBearer {}
 
 /**
- * <p>View a list of configurations stored in the AppConfig configuration store by
+ * <p>Lists configurations stored in the AppConfig hosted configuration store by
  *          version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -22,7 +22,7 @@ export interface DeleteConfigurationProfileCommandInput extends DeleteConfigurat
 export interface DeleteConfigurationProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete a configuration profile. Deleting a configuration profile does not delete a
+ * <p>Deletes a configuration profile. Deleting a configuration profile does not delete a
  *          configuration from a host.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

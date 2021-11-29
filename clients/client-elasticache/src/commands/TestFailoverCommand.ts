@@ -21,7 +21,8 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
 /**
  * <p>Represents the input of a <code>TestFailover</code> operation which test automatic failover on
  *             a specified node group (called shard in the console) in a replication group (called cluster in the console).</p>
- *
+ *          <p>This API is designed for testing the behavior of your application in case of ElastiCache failover. It is not designed to be an operational tool
+ *            for initiating a failover to overcome a problem you may have with the cluster. Moreover, in certain conditions such as large-scale operational events, Amazon may block this API. </p>
  *         <p class="title">
  *             <b>Note the following</b>
  *          </p>

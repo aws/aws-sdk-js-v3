@@ -138,6 +138,11 @@ import {
   UpdateConfigurationCommandOutput,
 } from "./commands/UpdateConfigurationCommand";
 import {
+  UpdateConnectivityCommand,
+  UpdateConnectivityCommandInput,
+  UpdateConnectivityCommandOutput,
+} from "./commands/UpdateConnectivityCommand";
+import {
   UpdateMonitoringCommand,
   UpdateMonitoringCommandInput,
   UpdateMonitoringCommandOutput,
@@ -663,7 +668,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
-   * <p>Returns a list of Kafka versions.</p>
+   * <p>Returns a list of Apache Kafka versions.</p>
    */
   public listKafkaVersions(
     args: ListKafkaVersionsCommandInput,
@@ -1053,6 +1058,38 @@ export class Kafka extends KafkaClient {
     cb?: (err: any, data?: UpdateConfigurationCommandOutput) => void
   ): Promise<UpdateConfigurationCommandOutput> | void {
     const command = new UpdateConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the cluster's connectivity configuration.</p>
+   */
+  public updateConnectivity(
+    args: UpdateConnectivityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConnectivityCommandOutput>;
+  public updateConnectivity(
+    args: UpdateConnectivityCommandInput,
+    cb: (err: any, data?: UpdateConnectivityCommandOutput) => void
+  ): void;
+  public updateConnectivity(
+    args: UpdateConnectivityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConnectivityCommandOutput) => void
+  ): void;
+  public updateConnectivity(
+    args: UpdateConnectivityCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConnectivityCommandOutput) => void),
+    cb?: (err: any, data?: UpdateConnectivityCommandOutput) => void
+  ): Promise<UpdateConnectivityCommandOutput> | void {
+    const command = new UpdateConnectivityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

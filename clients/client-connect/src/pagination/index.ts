@@ -4,6 +4,7 @@ export * from "./Interfaces";
 export * from "./ListAgentStatusesPaginator";
 export * from "./ListApprovedOriginsPaginator";
 export * from "./ListBotsPaginator";
+export * from "./ListContactFlowModulesPaginator";
 export * from "./ListContactFlowsPaginator";
 export * from "./ListContactReferencesPaginator";
 export * from "./ListHoursOfOperationsPaginator";

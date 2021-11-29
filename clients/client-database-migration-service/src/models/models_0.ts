@@ -3131,6 +3131,21 @@ export interface S3Settings {
    *          <code>y</code>, and <code>n</code>.</p>
    */
   Rfc4180?: boolean;
+
+  /**
+   * <p>When creating an S3 target endpoint, set <code>DatePartitionTimezone</code> to convert
+   *          the current UTC time into a specified time zone. The conversion occurs when a date
+   *          partition folder is created and a CDC filename is generated. The time zone format is Area/Location.
+   *          Use this parameter when <code>DatePartitionedEnabled</code> is set to <code>true</code>, as shown in the
+   *          following example.</p>
+   *          <p>
+   *             <code>s3-settings='{"DatePartitionEnabled": true, "DatePartitionSequence": "YYYYMMDDHH",
+   *             "DatePartitionDelimiter": "SLASH",
+   *                "DatePartitionTimezone":"<i>Asia/Seoul</i>", "BucketName":
+   *             "dms-nattarat-test"}'</code>
+   *          </p>
+   */
+  DatePartitionTimezone?: string;
 }
 
 export namespace S3Settings {

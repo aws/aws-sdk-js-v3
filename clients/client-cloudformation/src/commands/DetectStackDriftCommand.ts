@@ -31,15 +31,15 @@ export interface DetectStackDriftCommandOutput extends DetectStackDriftOutput, _
  *          of its resources differ from their expected template configurations. For more information,
  *          see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting
  *             Unregulated Configuration Changes to Stacks and Resources</a>.</p>
- *          <p>Use <code>DetectStackDrift</code> to detect drift on all supported resources for a
- *          given stack, or <a>DetectStackResourceDrift</a> to detect drift on individual
+ *          <p>Use <code>DetectStackDrift</code> to detect drift on all supported resources for a given
+ *          stack, or <a>DetectStackResourceDrift</a> to detect drift on individual
  *          resources.</p>
  *          <p>For a list of stack resources that currently support drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources that Support Drift Detection</a>.</p>
  *          <p>
- *             <code>DetectStackDrift</code> can take up to several minutes, depending on the number
- *          of resources contained within the stack. Use <a>DescribeStackDriftDetectionStatus</a> to monitor the progress of a detect stack
- *          drift operation. Once the drift detection operation has completed, use <a>DescribeStackResourceDrifts</a> to return drift information about the stack and
- *          its resources.</p>
+ *             <code>DetectStackDrift</code> can take up to several minutes, depending on the number of
+ *          resources contained within the stack. Use <a>DescribeStackDriftDetectionStatus</a> to monitor the progress of a detect stack drift operation. Once the drift detection
+ *          operation has completed, use <a>DescribeStackResourceDrifts</a> to return drift
+ *          information about the stack and its resources.</p>
  *          <p>When detecting drift on a stack, CloudFormation does not detect drift on any nested stacks
  *          belonging to that stack. Perform <code>DetectStackDrift</code> directly on the nested stack
  *          itself.</p>

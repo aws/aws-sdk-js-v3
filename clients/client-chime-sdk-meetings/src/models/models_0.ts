@@ -44,6 +44,30 @@ export namespace Attendee {
   });
 }
 
+export enum MeetingFeatureStatus {
+  AVAILABLE = "AVAILABLE",
+  UNAVAILABLE = "UNAVAILABLE",
+}
+
+/**
+ * <p>An optional category of meeting features that contains audio-specific configurations, such as operating parameters for Amazon Voice Focus.</p>
+ */
+export interface AudioFeatures {
+  /**
+   * <p>Makes echo reduction available to clients who connect to the meeting.</p>
+   */
+  EchoReduction?: MeetingFeatureStatus | string;
+}
+
+export namespace AudioFeatures {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AudioFeatures): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The input parameters don't match the service's restrictions.</p>
  */
@@ -347,6 +371,25 @@ export namespace UnprocessableEntityException {
 }
 
 /**
+ * <p>The configuration settings of the features available to a meeting.</p>
+ */
+export interface MeetingFeaturesConfiguration {
+  /**
+   * <p>The configuration settings for the audio features available to a meeting. </p>
+   */
+  Audio?: AudioFeatures;
+}
+
+export namespace MeetingFeaturesConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MeetingFeaturesConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The configuration for resource targets to receive notifications when meeting and attendee events occur.</p>
  */
 export interface NotificationsConfiguration {
@@ -443,6 +486,11 @@ export interface CreateMeetingRequest {
    * <p>The configuration for resource targets to receive notifications when meeting and attendee events occur.</p>
    */
   NotificationsConfiguration?: NotificationsConfiguration;
+
+  /**
+   * <p>Lists the audio and video features enabled for a meeting, such as echo reduction.</p>
+   */
+  MeetingFeatures?: MeetingFeaturesConfiguration;
 }
 
 export namespace CreateMeetingRequest {
@@ -547,6 +595,11 @@ export interface Meeting {
    * <p>The media placement for the meeting.</p>
    */
   MediaPlacement?: MediaPlacement;
+
+  /**
+   * <p>The features available to a meeting, such as Amazon Voice Focus.</p>
+   */
+  MeetingFeatures?: MeetingFeaturesConfiguration;
 }
 
 export namespace Meeting {
@@ -598,6 +651,11 @@ export interface CreateMeetingWithAttendeesRequest {
    * <p>The external meeting ID.</p>
    */
   ExternalMeetingId: string | undefined;
+
+  /**
+   * <p>Lists the audio and video features enabled for a meeting, such as echo reduction.</p>
+   */
+  MeetingFeatures?: MeetingFeaturesConfiguration;
 
   /**
    * <p>The configuration for resource targets to receive notifications when meeting and attendee events occur.</p>
@@ -814,6 +872,10 @@ export namespace ListAttendeesResponse {
   });
 }
 
+export enum TranscribeMedicalContentIdentificationType {
+  PHI = "PHI",
+}
+
 export enum TranscribeMedicalLanguageCode {
   EN_US = "en-US",
 }
@@ -870,6 +932,11 @@ export interface EngineTranscribeMedicalSettings {
    * <p>The AWS Region passed to Amazon Transcribe Medical. If you don't specify a Region, Amazon Chime uses the meeting's Region.</p>
    */
   Region?: TranscribeMedicalRegion | string;
+
+  /**
+   * <p>Set this field to <code>PHI</code> to identify personal health information in the transcription output.</p>
+   */
+  ContentIdentificationType?: TranscribeMedicalContentIdentificationType | string;
 }
 
 export namespace EngineTranscribeMedicalSettings {
@@ -879,6 +946,14 @@ export namespace EngineTranscribeMedicalSettings {
   export const filterSensitiveLog = (obj: EngineTranscribeMedicalSettings): any => ({
     ...obj,
   });
+}
+
+export enum TranscribeContentIdentificationType {
+  PII = "PII",
+}
+
+export enum TranscribeContentRedactionType {
+  PII = "PII",
 }
 
 export enum TranscribeLanguageCode {
@@ -894,6 +969,12 @@ export enum TranscribeLanguageCode {
   KO_KR = "ko-KR",
   PT_BR = "pt-BR",
   ZH_CN = "zh-CN",
+}
+
+export enum TranscribePartialResultsStability {
+  HIGH = "high",
+  LOW = "low",
+  MEDIUM = "medium",
 }
 
 export enum TranscribeRegion {
@@ -945,6 +1026,45 @@ export interface EngineTranscribeSettings {
    * <p>The AWS Region passed to Amazon Transcribe. If you don't specify a Region, Amazon Chime uses the meeting's Region.</p>
    */
   Region?: TranscribeRegion | string;
+
+  /**
+   * <p>Generates partial transcription results that are less likely to change as meeting attendees speak. It does so by only allowing the last few words from the partial results to change.</p>
+   */
+  EnablePartialResultsStabilization?: boolean;
+
+  /**
+   * <p>The stabity level of a partial results transcription. Determines how stable you want the transcription results to be. A higher level means the transcription results are less likely to change.</p>
+   */
+  PartialResultsStability?: TranscribePartialResultsStability | string;
+
+  /**
+   * <p>Set this field to <code>PII</code> to identify personally identifiable information in the transcription output.</p>
+   */
+  ContentIdentificationType?: TranscribeContentIdentificationType | string;
+
+  /**
+   * <p>Set this field to <code>PII</code> to redact personally identifiable information in the transcription output. Content redaction is performed only upon complete transcription of the audio segments.</p>
+   *
+   *             <p>You can’t set <code>ContentRedactionType</code> and <code>ContentIdentificationType</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>
+   */
+  ContentRedactionType?: TranscribeContentRedactionType | string;
+
+  /**
+   * <p>Lists the PII entity types you want to identify or redact. To specify entity types, you must enable <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</p>
+   *
+   *             <p>PIIEntityTypes must be comma-separated. The available values are:
+   *                 <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING, CREDIT_DEBIT_NUMBER</code>, <code>CREDIT_DEBIT_CVV</code>, <code>CREDIT_DEBIT_EXPIRY</code>, <code>PIN</code>, <code>EMAIL</code>,
+   *                 <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>, <code>SSN</code>, and <code>ALL</code>.</p>
+   *
+   *             <p>
+   *             <code>PiiEntityTypes</code> is an optional parameter with a default value of <code>ALL</code>.</p>
+   */
+  PiiEntityTypes?: string;
+
+  /**
+   * <p>The name of the language model used during transcription.</p>
+   */
+  LanguageModelName?: string;
 }
 
 export namespace EngineTranscribeSettings {

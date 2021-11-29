@@ -40,7 +40,6 @@ import {
   CancelStatementRequest,
   CancelStatementResponse,
   ColumnMetadata,
-  DatabaseConnectionException,
   DescribeStatementRequest,
   DescribeStatementResponse,
   DescribeTableRequest,
@@ -297,14 +296,6 @@ const deserializeAws_json1_1CancelStatementCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DatabaseConnectionException":
-    case "com.amazonaws.redshiftdata#DatabaseConnectionException":
-      response = {
-        ...(await deserializeAws_json1_1DatabaseConnectionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "InternalServerException":
     case "com.amazonaws.redshiftdata#InternalServerException":
       response = {
@@ -445,14 +436,6 @@ const deserializeAws_json1_1DescribeTableCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DatabaseConnectionException":
-    case "com.amazonaws.redshiftdata#DatabaseConnectionException":
-      response = {
-        ...(await deserializeAws_json1_1DatabaseConnectionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "InternalServerException":
     case "com.amazonaws.redshiftdata#InternalServerException":
       response = {
@@ -655,14 +638,6 @@ const deserializeAws_json1_1ListDatabasesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DatabaseConnectionException":
-    case "com.amazonaws.redshiftdata#DatabaseConnectionException":
-      response = {
-        ...(await deserializeAws_json1_1DatabaseConnectionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "InternalServerException":
     case "com.amazonaws.redshiftdata#InternalServerException":
       response = {
@@ -725,14 +700,6 @@ const deserializeAws_json1_1ListSchemasCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DatabaseConnectionException":
-    case "com.amazonaws.redshiftdata#DatabaseConnectionException":
-      response = {
-        ...(await deserializeAws_json1_1DatabaseConnectionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "InternalServerException":
     case "com.amazonaws.redshiftdata#InternalServerException":
       response = {
@@ -857,14 +824,6 @@ const deserializeAws_json1_1ListTablesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DatabaseConnectionException":
-    case "com.amazonaws.redshiftdata#DatabaseConnectionException":
-      response = {
-        ...(await deserializeAws_json1_1DatabaseConnectionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "InternalServerException":
     case "com.amazonaws.redshiftdata#InternalServerException":
       response = {
@@ -921,21 +880,6 @@ const deserializeAws_json1_1BatchExecuteStatementExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1BatchExecuteStatementException(body, context);
   const contents: BatchExecuteStatementException = {
     name: "BatchExecuteStatementException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  };
-  return contents;
-};
-
-const deserializeAws_json1_1DatabaseConnectionExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<DatabaseConnectionException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DatabaseConnectionException(body, context);
-  const contents: DatabaseConnectionException = {
-    name: "DatabaseConnectionException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1240,15 +1184,6 @@ const deserializeAws_json1_1ColumnMetadataList = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1ColumnMetadata(entry, context);
     });
-};
-
-const deserializeAws_json1_1DatabaseConnectionException = (
-  output: any,
-  context: __SerdeContext
-): DatabaseConnectionException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
 };
 
 const deserializeAws_json1_1DatabaseList = (output: any, context: __SerdeContext): string[] => {

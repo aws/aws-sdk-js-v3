@@ -633,7 +633,6 @@ import {
   OpsMetadataTooManyUpdatesException,
   OutputSource,
   ParameterInlinePolicy,
-  ParameterMetadata,
   ParameterNotFound,
   ParametersFilter,
   ParameterStringFilter,
@@ -647,6 +646,7 @@ import {
   PatchSource,
   PatchStatus,
   PlatformType,
+  RegistrationMetadataItem,
   RelatedOpsItem,
   ResolvedTargets,
   ResourceDataSyncAlreadyExistsException,
@@ -870,6 +870,7 @@ import {
   ParameterHistory,
   ParameterLimitExceeded,
   ParameterMaxVersionLimitExceeded,
+  ParameterMetadata,
   ParameterPatternMismatchException,
   ParameterVersionLabelLimitExceeded,
   ParameterVersionNotFound,
@@ -944,7 +945,6 @@ import {
   UpdateDocumentMetadataResponse,
   UpdateDocumentRequest,
   UpdateDocumentResult,
-  UpdateMaintenanceWindowRequest,
 } from "../models/models_1";
 import {
   GetInventoryRequest,
@@ -953,6 +953,7 @@ import {
   OpsAggregator,
   OpsMetadataKeyLimitExceededException,
   ResourceDataSyncConflictException,
+  UpdateMaintenanceWindowRequest,
   UpdateMaintenanceWindowResult,
   UpdateMaintenanceWindowTargetRequest,
   UpdateMaintenanceWindowTargetResult,
@@ -3072,6 +3073,14 @@ const deserializeAws_json1_1CreateActivationCommandError = async (
     case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameters":
+    case "com.amazonaws.ssm#InvalidParameters":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -15175,6 +15184,10 @@ const serializeAws_json1_1CreateActivationRequest = (input: CreateActivationRequ
     ...(input.IamRole !== undefined && input.IamRole !== null && { IamRole: input.IamRole }),
     ...(input.RegistrationLimit !== undefined &&
       input.RegistrationLimit !== null && { RegistrationLimit: input.RegistrationLimit }),
+    ...(input.RegistrationMetadata !== undefined &&
+      input.RegistrationMetadata !== null && {
+        RegistrationMetadata: serializeAws_json1_1RegistrationMetadataList(input.RegistrationMetadata, context),
+      }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
@@ -17765,6 +17778,30 @@ const serializeAws_json1_1RegisterTaskWithMaintenanceWindowRequest = (
     ...(input.TaskType !== undefined && input.TaskType !== null && { TaskType: input.TaskType }),
     ...(input.WindowId !== undefined && input.WindowId !== null && { WindowId: input.WindowId }),
   };
+};
+
+const serializeAws_json1_1RegistrationMetadataItem = (
+  input: RegistrationMetadataItem,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1RegistrationMetadataList = (
+  input: RegistrationMetadataItem[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1RegistrationMetadataItem(entry, context);
+    });
 };
 
 const serializeAws_json1_1RelatedOpsItem = (input: RelatedOpsItem, context: __SerdeContext): any => {

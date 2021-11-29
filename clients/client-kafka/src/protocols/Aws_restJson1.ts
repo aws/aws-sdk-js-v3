@@ -95,6 +95,7 @@ import {
   UpdateConfigurationCommandInput,
   UpdateConfigurationCommandOutput,
 } from "../commands/UpdateConfigurationCommand";
+import { UpdateConnectivityCommandInput, UpdateConnectivityCommandOutput } from "../commands/UpdateConnectivityCommand";
 import { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "../commands/UpdateMonitoringCommand";
 import { UpdateSecurityCommandInput, UpdateSecurityCommandOutput } from "../commands/UpdateSecurityCommand";
 import {
@@ -115,6 +116,7 @@ import {
   ConfigurationInfo,
   ConfigurationRevision,
   ConflictException,
+  ConnectivityInfo,
   EBSStorageInfo,
   EncryptionAtRest,
   EncryptionInfo,
@@ -137,6 +139,7 @@ import {
   OpenMonitoringInfo,
   Prometheus,
   PrometheusInfo,
+  PublicAccess,
   S3,
   Sasl,
   Scram,
@@ -1106,6 +1109,45 @@ export const serializeAws_restJson1UpdateConfigurationCommand = async (
     ...(input.Description !== undefined && input.Description !== null && { description: input.Description }),
     ...(input.ServerProperties !== undefined &&
       input.ServerProperties !== null && { serverProperties: context.base64Encoder(input.ServerProperties) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateConnectivityCommand = async (
+  input: UpdateConnectivityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/connectivity";
+  if (input.ClusterArn !== undefined) {
+    const labelValue: string = input.ClusterArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ClusterArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ClusterArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ClusterArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ConnectivityInfo !== undefined &&
+      input.ConnectivityInfo !== null && {
+        connectivityInfo: serializeAws_restJson1ConnectivityInfo(input.ConnectivityInfo, context),
+      }),
+    ...(input.CurrentVersion !== undefined &&
+      input.CurrentVersion !== null && { currentVersion: input.CurrentVersion }),
   });
   return new __HttpRequest({
     protocol,
@@ -2234,6 +2276,9 @@ export const deserializeAws_restJson1GetBootstrapBrokersCommand = async (
   const contents: GetBootstrapBrokersCommandOutput = {
     $metadata: deserializeMetadata(output),
     BootstrapBrokerString: undefined,
+    BootstrapBrokerStringPublicSaslIam: undefined,
+    BootstrapBrokerStringPublicSaslScram: undefined,
+    BootstrapBrokerStringPublicTls: undefined,
     BootstrapBrokerStringSaslIam: undefined,
     BootstrapBrokerStringSaslScram: undefined,
     BootstrapBrokerStringTls: undefined,
@@ -2241,6 +2286,15 @@ export const deserializeAws_restJson1GetBootstrapBrokersCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.bootstrapBrokerString !== undefined && data.bootstrapBrokerString !== null) {
     contents.BootstrapBrokerString = __expectString(data.bootstrapBrokerString);
+  }
+  if (data.bootstrapBrokerStringPublicSaslIam !== undefined && data.bootstrapBrokerStringPublicSaslIam !== null) {
+    contents.BootstrapBrokerStringPublicSaslIam = __expectString(data.bootstrapBrokerStringPublicSaslIam);
+  }
+  if (data.bootstrapBrokerStringPublicSaslScram !== undefined && data.bootstrapBrokerStringPublicSaslScram !== null) {
+    contents.BootstrapBrokerStringPublicSaslScram = __expectString(data.bootstrapBrokerStringPublicSaslScram);
+  }
+  if (data.bootstrapBrokerStringPublicTls !== undefined && data.bootstrapBrokerStringPublicTls !== null) {
+    contents.BootstrapBrokerStringPublicTls = __expectString(data.bootstrapBrokerStringPublicTls);
   }
   if (data.bootstrapBrokerStringSaslIam !== undefined && data.bootstrapBrokerStringSaslIam !== null) {
     contents.BootstrapBrokerStringSaslIam = __expectString(data.bootstrapBrokerStringSaslIam);
@@ -3967,6 +4021,105 @@ const deserializeAws_restJson1UpdateConfigurationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateConnectivityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectivityCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateConnectivityCommandError(output, context);
+  }
+  const contents: UpdateConnectivityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ClusterArn: undefined,
+    ClusterOperationArn: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.clusterArn !== undefined && data.clusterArn !== null) {
+    contents.ClusterArn = __expectString(data.clusterArn);
+  }
+  if (data.clusterOperationArn !== undefined && data.clusterOperationArn !== null) {
+    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateConnectivityCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectivityCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateMonitoringCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4398,6 +4551,10 @@ const serializeAws_restJson1BrokerNodeGroupInfo = (input: BrokerNodeGroupInfo, c
       input.ClientSubnets !== null && {
         clientSubnets: serializeAws_restJson1__listOf__string(input.ClientSubnets, context),
       }),
+    ...(input.ConnectivityInfo !== undefined &&
+      input.ConnectivityInfo !== null && {
+        connectivityInfo: serializeAws_restJson1ConnectivityInfo(input.ConnectivityInfo, context),
+      }),
     ...(input.InstanceType !== undefined && input.InstanceType !== null && { instanceType: input.InstanceType }),
     ...(input.SecurityGroups !== undefined &&
       input.SecurityGroups !== null && {
@@ -4430,6 +4587,13 @@ const serializeAws_restJson1ConfigurationInfo = (input: ConfigurationInfo, conte
   return {
     ...(input.Arn !== undefined && input.Arn !== null && { arn: input.Arn }),
     ...(input.Revision !== undefined && input.Revision !== null && { revision: input.Revision }),
+  };
+};
+
+const serializeAws_restJson1ConnectivityInfo = (input: ConnectivityInfo, context: __SerdeContext): any => {
+  return {
+    ...(input.PublicAccess !== undefined &&
+      input.PublicAccess !== null && { publicAccess: serializeAws_restJson1PublicAccess(input.PublicAccess, context) }),
   };
 };
 
@@ -4516,6 +4680,12 @@ const serializeAws_restJson1PrometheusInfo = (input: PrometheusInfo, context: __
       input.NodeExporter !== null && {
         nodeExporter: serializeAws_restJson1NodeExporterInfo(input.NodeExporter, context),
       }),
+  };
+};
+
+const serializeAws_restJson1PublicAccess = (input: PublicAccess, context: __SerdeContext): any => {
+  return {
+    ...(input.Type !== undefined && input.Type !== null && { type: input.Type }),
   };
 };
 
@@ -4745,6 +4915,10 @@ const deserializeAws_restJson1BrokerNodeGroupInfo = (output: any, context: __Ser
       output.clientSubnets !== undefined && output.clientSubnets !== null
         ? deserializeAws_restJson1__listOf__string(output.clientSubnets, context)
         : undefined,
+    ConnectivityInfo:
+      output.connectivityInfo !== undefined && output.connectivityInfo !== null
+        ? deserializeAws_restJson1ConnectivityInfo(output.connectivityInfo, context)
+        : undefined,
     InstanceType: __expectString(output.instanceType),
     SecurityGroups:
       output.securityGroups !== undefined && output.securityGroups !== null
@@ -4958,6 +5132,15 @@ const deserializeAws_restJson1ConfigurationRevision = (output: any, context: __S
   } as any;
 };
 
+const deserializeAws_restJson1ConnectivityInfo = (output: any, context: __SerdeContext): ConnectivityInfo => {
+  return {
+    PublicAccess:
+      output.publicAccess !== undefined && output.publicAccess !== null
+        ? deserializeAws_restJson1PublicAccess(output.publicAccess, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1EBSStorageInfo = (output: any, context: __SerdeContext): EBSStorageInfo => {
   return {
     VolumeSize: __expectInt32(output.volumeSize),
@@ -5046,6 +5229,10 @@ const deserializeAws_restJson1MutableClusterInfo = (output: any, context: __Serd
       output.configurationInfo !== undefined && output.configurationInfo !== null
         ? deserializeAws_restJson1ConfigurationInfo(output.configurationInfo, context)
         : undefined,
+    ConnectivityInfo:
+      output.connectivityInfo !== undefined && output.connectivityInfo !== null
+        ? deserializeAws_restJson1ConnectivityInfo(output.connectivityInfo, context)
+        : undefined,
     EncryptionInfo:
       output.encryptionInfo !== undefined && output.encryptionInfo !== null
         ? deserializeAws_restJson1EncryptionInfo(output.encryptionInfo, context)
@@ -5107,6 +5294,12 @@ const deserializeAws_restJson1Prometheus = (output: any, context: __SerdeContext
       output.nodeExporter !== undefined && output.nodeExporter !== null
         ? deserializeAws_restJson1NodeExporter(output.nodeExporter, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PublicAccess = (output: any, context: __SerdeContext): PublicAccess => {
+  return {
+    Type: __expectString(output.type),
   } as any;
 };
 

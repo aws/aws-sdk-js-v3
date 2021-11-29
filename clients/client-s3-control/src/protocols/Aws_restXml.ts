@@ -212,6 +212,7 @@ import {
   BucketAlreadyExists,
   BucketAlreadyOwnedByYou,
   BucketLevel,
+  CloudWatchMetrics,
   CreateBucketConfiguration,
   CreateMultiRegionAccessPointInput,
   DeleteMultiRegionAccessPointInput,
@@ -6170,6 +6171,15 @@ const serializeAws_restXmlBuckets = (input: string[], context: __SerdeContext): 
     });
 };
 
+const serializeAws_restXmlCloudWatchMetrics = (input: CloudWatchMetrics, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("CloudWatchMetrics");
+  if (input.IsEnabled !== undefined && input.IsEnabled !== null) {
+    const node = new __XmlNode("IsEnabled").addChildNode(new __XmlText(String(input.IsEnabled))).withName("IsEnabled");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
 const serializeAws_restXmlCreateBucketConfiguration = (
   input: CreateBucketConfiguration,
   context: __SerdeContext
@@ -7383,6 +7393,10 @@ const serializeAws_restXmlStorageLensDataExport = (input: StorageLensDataExport,
     );
     bodyNode.addChildNode(node);
   }
+  if (input.CloudWatchMetrics !== undefined && input.CloudWatchMetrics !== null) {
+    const node = serializeAws_restXmlCloudWatchMetrics(input.CloudWatchMetrics, context).withName("CloudWatchMetrics");
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
@@ -7696,6 +7710,16 @@ const deserializeAws_restXmlBuckets = (output: any, context: __SerdeContext): st
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_restXmlCloudWatchMetrics = (output: any, context: __SerdeContext): CloudWatchMetrics => {
+  const contents: any = {
+    IsEnabled: undefined,
+  };
+  if (output["IsEnabled"] !== undefined) {
+    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
+  }
+  return contents;
 };
 
 const deserializeAws_restXmlCreateMultiRegionAccessPointInput = (
@@ -9297,9 +9321,13 @@ const deserializeAws_restXmlStorageLensConfigurationList = (
 const deserializeAws_restXmlStorageLensDataExport = (output: any, context: __SerdeContext): StorageLensDataExport => {
   const contents: any = {
     S3BucketDestination: undefined,
+    CloudWatchMetrics: undefined,
   };
   if (output["S3BucketDestination"] !== undefined) {
     contents.S3BucketDestination = deserializeAws_restXmlS3BucketDestination(output["S3BucketDestination"], context);
+  }
+  if (output["CloudWatchMetrics"] !== undefined) {
+    contents.CloudWatchMetrics = deserializeAws_restXmlCloudWatchMetrics(output["CloudWatchMetrics"], context);
   }
   return contents;
 };

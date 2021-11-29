@@ -113,6 +113,7 @@ export * from "./ModifyOptionGroupCommand";
 export * from "./PromoteReadReplicaCommand";
 export * from "./PromoteReadReplicaDBClusterCommand";
 export * from "./PurchaseReservedDBInstancesOfferingCommand";
+export * from "./RebootDBClusterCommand";
 export * from "./RebootDBInstanceCommand";
 export * from "./RegisterDBProxyTargetsCommand";
 export * from "./RemoveFromGlobalClusterCommand";

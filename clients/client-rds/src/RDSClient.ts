@@ -425,6 +425,7 @@ import {
   PurchaseReservedDBInstancesOfferingCommandInput,
   PurchaseReservedDBInstancesOfferingCommandOutput,
 } from "./commands/PurchaseReservedDBInstancesOfferingCommand";
+import { RebootDBClusterCommandInput, RebootDBClusterCommandOutput } from "./commands/RebootDBClusterCommand";
 import { RebootDBInstanceCommandInput, RebootDBInstanceCommandOutput } from "./commands/RebootDBInstanceCommand";
 import {
   RegisterDBProxyTargetsCommandInput,
@@ -622,6 +623,7 @@ export type ServiceInputTypes =
   | PromoteReadReplicaCommandInput
   | PromoteReadReplicaDBClusterCommandInput
   | PurchaseReservedDBInstancesOfferingCommandInput
+  | RebootDBClusterCommandInput
   | RebootDBInstanceCommandInput
   | RegisterDBProxyTargetsCommandInput
   | RemoveFromGlobalClusterCommandInput
@@ -764,6 +766,7 @@ export type ServiceOutputTypes =
   | PromoteReadReplicaCommandOutput
   | PromoteReadReplicaDBClusterCommandOutput
   | PurchaseReservedDBInstancesOfferingCommandOutput
+  | RebootDBClusterCommandOutput
   | RebootDBInstanceCommandOutput
   | RegisterDBProxyTargetsCommandOutput
   | RemoveFromGlobalClusterCommandOutput

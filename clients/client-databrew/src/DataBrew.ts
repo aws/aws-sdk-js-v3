@@ -31,6 +31,11 @@ import {
   CreateRecipeJobCommandOutput,
 } from "./commands/CreateRecipeJobCommand";
 import {
+  CreateRulesetCommand,
+  CreateRulesetCommandInput,
+  CreateRulesetCommandOutput,
+} from "./commands/CreateRulesetCommand";
+import {
   CreateScheduleCommand,
   CreateScheduleCommandInput,
   CreateScheduleCommandOutput,
@@ -51,6 +56,11 @@ import {
   DeleteRecipeVersionCommandInput,
   DeleteRecipeVersionCommandOutput,
 } from "./commands/DeleteRecipeVersionCommand";
+import {
+  DeleteRulesetCommand,
+  DeleteRulesetCommandInput,
+  DeleteRulesetCommandOutput,
+} from "./commands/DeleteRulesetCommand";
 import {
   DeleteScheduleCommand,
   DeleteScheduleCommandInput,
@@ -78,6 +88,11 @@ import {
   DescribeRecipeCommandOutput,
 } from "./commands/DescribeRecipeCommand";
 import {
+  DescribeRulesetCommand,
+  DescribeRulesetCommandInput,
+  DescribeRulesetCommandOutput,
+} from "./commands/DescribeRulesetCommand";
+import {
   DescribeScheduleCommand,
   DescribeScheduleCommandInput,
   DescribeScheduleCommandOutput,
@@ -100,6 +115,11 @@ import {
   ListRecipeVersionsCommandInput,
   ListRecipeVersionsCommandOutput,
 } from "./commands/ListRecipeVersionsCommand";
+import {
+  ListRulesetsCommand,
+  ListRulesetsCommandInput,
+  ListRulesetsCommandOutput,
+} from "./commands/ListRulesetsCommand";
 import {
   ListSchedulesCommand,
   ListSchedulesCommandInput,
@@ -158,6 +178,11 @@ import {
   UpdateRecipeJobCommandInput,
   UpdateRecipeJobCommandOutput,
 } from "./commands/UpdateRecipeJobCommand";
+import {
+  UpdateRulesetCommand,
+  UpdateRulesetCommandInput,
+  UpdateRulesetCommandOutput,
+} from "./commands/UpdateRulesetCommand";
 import {
   UpdateScheduleCommand,
   UpdateScheduleCommandInput,
@@ -402,6 +427,39 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * <p>Creates a new ruleset that can be used in a profile job to validate
+   *             the data quality of a dataset.</p>
+   */
+  public createRuleset(
+    args: CreateRulesetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRulesetCommandOutput>;
+  public createRuleset(
+    args: CreateRulesetCommandInput,
+    cb: (err: any, data?: CreateRulesetCommandOutput) => void
+  ): void;
+  public createRuleset(
+    args: CreateRulesetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRulesetCommandOutput) => void
+  ): void;
+  public createRuleset(
+    args: CreateRulesetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRulesetCommandOutput) => void),
+    cb?: (err: any, data?: CreateRulesetCommandOutput) => void
+  ): Promise<CreateRulesetCommandOutput> | void {
+    const command = new CreateRulesetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a new schedule for one or more DataBrew jobs. Jobs can be run at a specific
    *             date and time, or at regular intervals.</p>
    */
@@ -546,6 +604,38 @@ export class DataBrew extends DataBrewClient {
     cb?: (err: any, data?: DeleteRecipeVersionCommandOutput) => void
   ): Promise<DeleteRecipeVersionCommandOutput> | void {
     const command = new DeleteRecipeVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a ruleset.</p>
+   */
+  public deleteRuleset(
+    args: DeleteRulesetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRulesetCommandOutput>;
+  public deleteRuleset(
+    args: DeleteRulesetCommandInput,
+    cb: (err: any, data?: DeleteRulesetCommandOutput) => void
+  ): void;
+  public deleteRuleset(
+    args: DeleteRulesetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRulesetCommandOutput) => void
+  ): void;
+  public deleteRuleset(
+    args: DeleteRulesetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRulesetCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRulesetCommandOutput) => void
+  ): Promise<DeleteRulesetCommandOutput> | void {
+    const command = new DeleteRulesetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -733,6 +823,38 @@ export class DataBrew extends DataBrewClient {
     cb?: (err: any, data?: DescribeRecipeCommandOutput) => void
   ): Promise<DescribeRecipeCommandOutput> | void {
     const command = new DescribeRecipeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves detailed information about the ruleset.</p>
+   */
+  public describeRuleset(
+    args: DescribeRulesetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRulesetCommandOutput>;
+  public describeRuleset(
+    args: DescribeRulesetCommandInput,
+    cb: (err: any, data?: DescribeRulesetCommandOutput) => void
+  ): void;
+  public describeRuleset(
+    args: DescribeRulesetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRulesetCommandOutput) => void
+  ): void;
+  public describeRuleset(
+    args: DescribeRulesetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRulesetCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRulesetCommandOutput) => void
+  ): Promise<DescribeRulesetCommandOutput> | void {
+    const command = new DescribeRulesetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -934,6 +1056,36 @@ export class DataBrew extends DataBrewClient {
     cb?: (err: any, data?: ListRecipeVersionsCommandOutput) => void
   ): Promise<ListRecipeVersionsCommandOutput> | void {
     const command = new ListRecipeVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List all rulesets available in the current account or rulesets associated
+   *             with a specific resource (dataset).</p>
+   */
+  public listRulesets(
+    args: ListRulesetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRulesetsCommandOutput>;
+  public listRulesets(args: ListRulesetsCommandInput, cb: (err: any, data?: ListRulesetsCommandOutput) => void): void;
+  public listRulesets(
+    args: ListRulesetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRulesetsCommandOutput) => void
+  ): void;
+  public listRulesets(
+    args: ListRulesetsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRulesetsCommandOutput) => void),
+    cb?: (err: any, data?: ListRulesetsCommandOutput) => void
+  ): Promise<ListRulesetsCommandOutput> | void {
+    const command = new ListRulesetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1365,6 +1517,38 @@ export class DataBrew extends DataBrewClient {
     cb?: (err: any, data?: UpdateRecipeJobCommandOutput) => void
   ): Promise<UpdateRecipeJobCommandOutput> | void {
     const command = new UpdateRecipeJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates specified ruleset.</p>
+   */
+  public updateRuleset(
+    args: UpdateRulesetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRulesetCommandOutput>;
+  public updateRuleset(
+    args: UpdateRulesetCommandInput,
+    cb: (err: any, data?: UpdateRulesetCommandOutput) => void
+  ): void;
+  public updateRuleset(
+    args: UpdateRulesetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRulesetCommandOutput) => void
+  ): void;
+  public updateRuleset(
+    args: UpdateRulesetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRulesetCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRulesetCommandOutput) => void
+  ): Promise<UpdateRulesetCommandOutput> | void {
+    const command = new UpdateRulesetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

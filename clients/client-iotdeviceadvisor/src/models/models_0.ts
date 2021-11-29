@@ -1,13 +1,13 @@
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
- * <p>Sends Conflict Exception.</p>
+ * <p>Sends a Conflict Exception.</p>
  */
 export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   /**
-   * <p>Sends Conflict Exception message.</p>
+   * <p>Sends a Conflict Exception message.</p>
    */
   message?: string;
 }
@@ -22,16 +22,16 @@ export namespace ConflictException {
 }
 
 /**
- * <p>Lists all the devices under test</p>
+ * <p>Information of a test device. A thing ARN or a certificate ARN is required.</p>
  */
 export interface DeviceUnderTest {
   /**
-   * <p>Lists devices thing arn</p>
+   * <p>Lists devices thing ARN.</p>
    */
   thingArn?: string;
 
   /**
-   * <p>Lists devices certificate arn</p>
+   * <p>Lists devices certificate ARN.</p>
    */
   certificateArn?: string;
 }
@@ -70,7 +70,7 @@ export interface SuiteDefinitionConfiguration {
   rootGroup?: string;
 
   /**
-   * <p>Gets device permission arn.</p>
+   * <p>Gets the device permission ARN.</p>
    */
   devicePermissionRoleArn?: string;
 }
@@ -112,7 +112,7 @@ export interface CreateSuiteDefinitionResponse {
   suiteDefinitionId?: string;
 
   /**
-   * <p>Creates a Device Advisor test suite with Amazon Resource name.</p>
+   * <p>Creates a Device Advisor test suite with Amazon Resource Name (ARN).</p>
    */
   suiteDefinitionArn?: string;
 
@@ -137,13 +137,13 @@ export namespace CreateSuiteDefinitionResponse {
 }
 
 /**
- * <p>Sends Internal Failure Exception.</p>
+ * <p>Sends an Internal Failure exception.</p>
  */
 export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   /**
-   * <p>Sends Internal Failure Exception message.</p>
+   * <p>Sends an Internal Failure Exception message.</p>
    */
   message?: string;
 }
@@ -158,13 +158,13 @@ export namespace InternalServerException {
 }
 
 /**
- * <p>Sends invalid request exception.</p>
+ * <p>Sends a validation exception.</p>
  */
 export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   /**
-   * <p>Sends invalid request exception message.</p>
+   * <p>Sends a Validation Exception message.</p>
    */
   message?: string;
 }
@@ -180,7 +180,7 @@ export namespace ValidationException {
 
 export interface DeleteSuiteDefinitionRequest {
   /**
-   * <p>Suite definition Id of the test suite to be deleted.</p>
+   * <p>Suite definition ID of the test suite to be deleted.</p>
    */
   suiteDefinitionId: string | undefined;
 }
@@ -205,9 +205,67 @@ export namespace DeleteSuiteDefinitionResponse {
   });
 }
 
+export interface GetEndpointRequest {
+  /**
+   * <p>The thing ARN of the device. This is an optional parameter.</p>
+   */
+  thingArn?: string;
+
+  /**
+   * <p>The certificate ARN of the device. This is an optional parameter.</p>
+   */
+  certificateArn?: string;
+}
+
+export namespace GetEndpointRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEndpointRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetEndpointResponse {
+  /**
+   * <p>The response of an Device Advisor endpoint.</p>
+   */
+  endpoint?: string;
+}
+
+export namespace GetEndpointResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEndpointResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Sends a Resource Not Found exception.</p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  /**
+   * <p>Sends a Resource Not Found Exception message.</p>
+   */
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj,
+  });
+}
+
 export interface GetSuiteDefinitionRequest {
   /**
-   * <p>Suite definition Id of the test suite to get.</p>
+   * <p>Suite definition ID of the test suite to get.</p>
    */
   suiteDefinitionId: string | undefined;
 
@@ -228,7 +286,7 @@ export namespace GetSuiteDefinitionRequest {
 
 export interface GetSuiteDefinitionResponse {
   /**
-   * <p>Suite definition Id of the suite definition.</p>
+   * <p>Suite definition ID of the suite definition.</p>
    */
   suiteDefinitionId?: string;
 
@@ -277,35 +335,14 @@ export namespace GetSuiteDefinitionResponse {
   });
 }
 
-/**
- * <p>Sends Resource Not Found Exception.</p>
- */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  /**
-   * <p>Sends Resource Not Found Exception message.</p>
-   */
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSuiteRunRequest {
   /**
-   * <p>Suite definition Id for the test suite run.</p>
+   * <p>Suite definition ID for the test suite run.</p>
    */
   suiteDefinitionId: string | undefined;
 
   /**
-   * <p>Suite run Id for the test suite run.</p>
+   * <p>Suite run ID for the test suite run.</p>
    */
   suiteRunId: string | undefined;
 }
@@ -344,6 +381,11 @@ export interface SuiteRunConfiguration {
    * <p>Gets test case list.</p>
    */
   selectedTestList?: string[];
+
+  /**
+   * <p>TRUE if multiple test suites run in parallel.</p>
+   */
+  parallelRun?: boolean;
 }
 
 export namespace SuiteRunConfiguration {
@@ -368,26 +410,60 @@ export enum Status {
 }
 
 /**
- * <p>Provides test case run.</p>
+ * <p>Provides the test case run.</p>
  */
 export interface TestCaseRun {
   /**
-   * <p>Provides test case run Id.</p>
+   * <p>Provides the test case run ID.</p>
    */
   testCaseRunId?: string;
 
   /**
-   * <p>Provides test case run definition Id.</p>
+   * <p>Provides the test case run definition ID.</p>
    */
   testCaseDefinitionId?: string;
 
   /**
-   * <p>Provides test case run definition Name.</p>
+   * <p>Provides the test case run definition name.</p>
    */
   testCaseDefinitionName?: string;
 
   /**
-   * <p>Provides test case run status.</p>
+   * <p>Provides the test case run status. Status is one of the following:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PASS</code>: Test passed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAIL</code>: Test failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code>: Test has not started running but is scheduled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RUNNING</code>: Test is running.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STOPPING</code>: Test is performing cleanup steps. You will see this status only if you stop a suite run.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STOPPED</code> Test is stopped. You will see this status only if you stop a suite run.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PASS_WITH_WARNINGS</code>: Test passed with warnings.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ERORR</code>: Test faced an error when running due to an internal issue.</p>
+   *             </li>
+   *          </ul>
    */
   status?: Status | string;
 
@@ -402,7 +478,7 @@ export interface TestCaseRun {
   endTime?: Date;
 
   /**
-   * <p>Provides test case run log Url.</p>
+   * <p>Provides test case run log URL.</p>
    */
   logUrl?: string;
 
@@ -431,7 +507,7 @@ export namespace TestCaseRun {
  */
 export interface GroupResult {
   /**
-   * <p>Group result Id.</p>
+   * <p>Group result ID.</p>
    */
   groupId?: string;
 
@@ -476,7 +552,7 @@ export namespace TestResult {
 
 export interface GetSuiteRunResponse {
   /**
-   * <p>Suite definition Id for the test suite run.</p>
+   * <p>Suite definition ID for the test suite run.</p>
    */
   suiteDefinitionId?: string;
 
@@ -486,7 +562,7 @@ export interface GetSuiteRunResponse {
   suiteDefinitionVersion?: string;
 
   /**
-   * <p>Suite run Id for the test suite run.</p>
+   * <p>Suite run ID for the test suite run.</p>
    */
   suiteRunId?: string;
 
@@ -506,7 +582,7 @@ export interface GetSuiteRunResponse {
   testResult?: TestResult;
 
   /**
-   * <p>Date (in Unix epoch time) when the test suite run was started.</p>
+   * <p>Date (in Unix epoch time) when the test suite run started.</p>
    */
   startTime?: Date;
 
@@ -542,12 +618,12 @@ export namespace GetSuiteRunResponse {
 
 export interface GetSuiteRunReportRequest {
   /**
-   * <p>Suite definition Id of the test suite.</p>
+   * <p>Suite definition ID of the test suite.</p>
    */
   suiteDefinitionId: string | undefined;
 
   /**
-   * <p>Suite run Id of the test suite run.</p>
+   * <p>Suite run ID of the test suite run.</p>
    */
   suiteRunId: string | undefined;
 }
@@ -603,7 +679,7 @@ export namespace ListSuiteDefinitionsRequest {
  */
 export interface SuiteDefinitionInformation {
   /**
-   * <p>Suite definition Id of the test suite.</p>
+   * <p>Suite definition ID of the test suite.</p>
    */
   suiteDefinitionId?: string;
 
@@ -613,7 +689,7 @@ export interface SuiteDefinitionInformation {
   suiteDefinitionName?: string;
 
   /**
-   * <p>Specifies the devices under test for the test suite.</p>
+   * <p>Specifies the devices that are under test for the test suite.</p>
    */
   defaultDevices?: DeviceUnderTest[];
 
@@ -660,12 +736,14 @@ export namespace ListSuiteDefinitionsResponse {
 
 export interface ListSuiteRunsRequest {
   /**
-   * <p>Lists the test suite runs of the specified test suite based on suite definition Id.</p>
+   * <p>Lists the test suite runs of the specified test suite based on suite definition
+   *             ID.</p>
    */
   suiteDefinitionId?: string;
 
   /**
-   * <p>Must be passed along with suiteDefinitionId. Lists the test suite runs of the specified test suite based on suite definition version.</p>
+   * <p>Must be passed along with <code>suiteDefinitionId</code>. Lists the test suite runs of
+   *             the specified test suite based on suite definition version.</p>
    */
   suiteDefinitionVersion?: string;
 
@@ -691,10 +769,11 @@ export namespace ListSuiteRunsRequest {
 
 /**
  * <p>Information about the suite run.</p>
+ *         <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SuiteRunInformation</a> action.</p>
  */
 export interface SuiteRunInformation {
   /**
-   * <p>Suite definition Id of the suite run.</p>
+   * <p>Suite definition ID of the suite run.</p>
    */
   suiteDefinitionId?: string;
 
@@ -709,7 +788,7 @@ export interface SuiteRunInformation {
   suiteDefinitionName?: string;
 
   /**
-   * <p>Suite run Id of the suite run.</p>
+   * <p>Suite run ID of the suite run.</p>
    */
   suiteRunId?: string;
 
@@ -808,7 +887,7 @@ export namespace ListTagsForResourceResponse {
 
 export interface StartSuiteRunRequest {
   /**
-   * <p>Suite definition Id of the test suite.</p>
+   * <p>Suite definition ID of the test suite.</p>
    */
   suiteDefinitionId: string | undefined;
 
@@ -839,17 +918,17 @@ export namespace StartSuiteRunRequest {
 
 export interface StartSuiteRunResponse {
   /**
-   * <p>Suite Run Id of the started suite run.</p>
+   * <p>Suite Run ID of the started suite run.</p>
    */
   suiteRunId?: string;
 
   /**
-   * <p>Amazon resource name of the started suite run.</p>
+   * <p>Amazon Resource Name (ARN) of the started suite run.</p>
    */
   suiteRunArn?: string;
 
   /**
-   * <p>Date (in Unix epoch time) when the suite run was created.</p>
+   * <p>Starts a Device Advisor test suite run based on suite create time.</p>
    */
   createdAt?: Date;
 }
@@ -865,12 +944,12 @@ export namespace StartSuiteRunResponse {
 
 export interface StopSuiteRunRequest {
   /**
-   * <p>Suite definition Id of the test suite run to be stopped.</p>
+   * <p>Suite definition ID of the test suite run to be stopped.</p>
    */
   suiteDefinitionId: string | undefined;
 
   /**
-   * <p>Suite run Id of the test suite run to be stopped.</p>
+   * <p>Suite run ID of the test suite run to be stopped.</p>
    */
   suiteRunId: string | undefined;
 }
@@ -961,7 +1040,7 @@ export namespace UntagResourceResponse {
 
 export interface UpdateSuiteDefinitionRequest {
   /**
-   * <p>Suite definition Id of the test suite to be updated.</p>
+   * <p>Suite definition ID of the test suite to be updated.</p>
    */
   suiteDefinitionId: string | undefined;
 
@@ -982,12 +1061,12 @@ export namespace UpdateSuiteDefinitionRequest {
 
 export interface UpdateSuiteDefinitionResponse {
   /**
-   * <p>Suite definition Id of the updated test suite.</p>
+   * <p>Suite definition ID of the updated test suite.</p>
    */
   suiteDefinitionId?: string;
 
   /**
-   * <p>Amazon Resource name of the updated test suite.</p>
+   * <p>Amazon Resource Name (ARN) of the updated test suite.</p>
    */
   suiteDefinitionArn?: string;
 

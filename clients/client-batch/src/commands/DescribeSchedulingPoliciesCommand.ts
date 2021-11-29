@@ -22,8 +22,7 @@ export interface DescribeSchedulingPoliciesCommandInput extends DescribeScheduli
 export interface DescribeSchedulingPoliciesCommandOutput extends DescribeSchedulingPoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your scheduling
- *    policies.</p>
+ * <p>Describes one or more of your scheduling policies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

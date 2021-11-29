@@ -22,8 +22,7 @@ export interface StartTaskContactCommandInput extends StartTaskContactRequest {}
 export interface StartTaskContactCommandOutput extends StartTaskContactResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates a contact flow to start a new task immediately or at a future date and
- *    time.</p>
+ * <p>Initiates a contact flow to start a new task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

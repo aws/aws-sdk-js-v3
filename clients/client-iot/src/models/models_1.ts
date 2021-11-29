@@ -2109,6 +2109,13 @@ export interface Job {
    * <p>The ARN of the job template used to create the job.</p>
    */
   jobTemplateArn?: string;
+
+  /**
+   * <p>A key-value map that pairs the patterns that need to be replaced in a managed
+   *             template job document schema. You can use the description of each key as a guidance
+   *             to specify the inputs during runtime when creating a job.</p>
+   */
+  documentParameters?: { [key: string]: string };
 }
 
 export namespace Job {
@@ -2367,6 +2374,140 @@ export namespace DescribeJobTemplateResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeJobTemplateResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeManagedJobTemplateRequest {
+  /**
+   * <p>The unique name of a managed job template, which is required.</p>
+   */
+  templateName: string | undefined;
+
+  /**
+   * <p>An optional parameter to specify version of a managed template. If not specified, the
+   *             pre-defined default version is returned.</p>
+   */
+  templateVersion?: string;
+}
+
+export namespace DescribeManagedJobTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeManagedJobTemplateRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A map of key-value pairs containing the patterns that need to be replaced in a managed
+ *             template job document schema. You can use the description of each key as a guidance to specify
+ *             the inputs during runtime when creating a job.</p>
+ */
+export interface DocumentParameter {
+  /**
+   * <p>Key of the map field containing the patterns that need to be replaced in a managed
+   *             template job document schema.</p>
+   */
+  key?: string;
+
+  /**
+   * <p>Description of the map field containing the patterns that need to be replaced in a
+   *             managed template job document schema.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>A regular expression of the patterns that need to be replaced in a managed template
+   *             job document schema.</p>
+   */
+  regex?: string;
+
+  /**
+   * <p>An example illustrating a pattern that need to be replaced in a managed template
+   *             job document schema.</p>
+   */
+  example?: string;
+
+  /**
+   * <p>Specifies whether a pattern that needs to be replaced in a managed template job document
+   *             schema is optional or required.</p>
+   */
+  optional?: boolean;
+}
+
+export namespace DocumentParameter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DocumentParameter): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeManagedJobTemplateResponse {
+  /**
+   * <p>The unique name of a managed template, such as <code>AWS-Reboot</code>.</p>
+   */
+  templateName?: string;
+
+  /**
+   * <p>The unique Amazon Resource Name (ARN) of the managed template.</p>
+   */
+  templateArn?: string;
+
+  /**
+   * <p>The unique description of a managed template.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The version for a managed template.</p>
+   */
+  templateVersion?: string;
+
+  /**
+   * <p>A list of environments that are supported with the managed job template.</p>
+   */
+  environments?: string[];
+
+  /**
+   * <p>A map of key-value pairs that you can use as guidance to specify the inputs for creating
+   *             a job from a managed template.</p>
+   */
+  documentParameters?: DocumentParameter[];
+
+  /**
+   * <p>The document schema for a managed job template.</p>
+   */
+  document?: string;
+}
+
+export namespace DescribeManagedJobTemplateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeManagedJobTemplateResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Internal error from the service that indicates an unexpected error or that the service
+ *             is unavailable.</p>
+ */
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
+  name: "InternalServerException";
+  $fault: "server";
+  message?: string;
+}
+
+export namespace InternalServerException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
 }
@@ -3693,8 +3834,7 @@ export namespace Bucket {
 
 export interface GetBucketsAggregationResponse {
   /**
-   * <p>The total number of documents that fit the query string criteria and contain a value for
-   *       the Aggregation field targeted in the request.</p>
+   * <p>The total number of things that fit the query string criteria.</p>
    */
   totalCount?: number;
 
@@ -4516,12 +4656,13 @@ export namespace GetStatisticsRequest {
 }
 
 /**
- * <p>A map of key-value pairs for all supported statistics. Currently, only count is
- *       supported.</p>
+ * <p>A map of key-value pairs for all supported statistics. For issues with missing or unexpected values for this API,
+ *       consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/fleet-indexing-troubleshooting.html">
+ *         Fleet indexing troubleshooting guide</a>.</p>
  */
 export interface Statistics {
   /**
-   * <p>The count of things that match the query.</p>
+   * <p>The count of things that match the query string criteria and contain a valid aggregation field value.</p>
    */
   count?: number;
 
@@ -6541,6 +6682,93 @@ export namespace ListJobTemplatesResponse {
   });
 }
 
+export interface ListManagedJobTemplatesRequest {
+  /**
+   * <p>An optional parameter for template name. If specified, only the versions of the
+   *             managed job templates that have the specified template name will be returned.</p>
+   */
+  templateName?: string;
+
+  /**
+   * <p>Maximum number of entries that can be returned.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListManagedJobTemplatesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListManagedJobTemplatesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that contains information about the managed template.</p>
+ */
+export interface ManagedJobTemplateSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) for a managed template.</p>
+   */
+  templateArn?: string;
+
+  /**
+   * <p>The unique Name for a managed template.</p>
+   */
+  templateName?: string;
+
+  /**
+   * <p>The description for a managed template.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>A list of environments that are supported with the managed job template.</p>
+   */
+  environments?: string[];
+
+  /**
+   * <p>The version for a managed template.</p>
+   */
+  templateVersion?: string;
+}
+
+export namespace ManagedJobTemplateSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ManagedJobTemplateSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListManagedJobTemplatesResponse {
+  /**
+   * <p>A list of managed job templates that are returned.</p>
+   */
+  managedJobTemplates?: ManagedJobTemplateSummary[];
+
+  /**
+   * <p>The token to retrieve the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListManagedJobTemplatesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListManagedJobTemplatesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListMitigationActionsRequest {
   /**
    * <p>Specify a value to limit the result to mitigation actions with a specific action type.</p>
@@ -8103,205 +8331,6 @@ export namespace ListThingsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListThingsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The properties of the thing, including thing name, thing type name, and a list of thing
- * 			attributes.</p>
- */
-export interface ThingAttribute {
-  /**
-   * <p>The name of the thing.</p>
-   */
-  thingName?: string;
-
-  /**
-   * <p>The name of the thing type, if the thing has been associated with a type.</p>
-   */
-  thingTypeName?: string;
-
-  /**
-   * <p>The thing ARN.</p>
-   */
-  thingArn?: string;
-
-  /**
-   * <p>A list of thing attributes which are name-value pairs.</p>
-   */
-  attributes?: { [key: string]: string };
-
-  /**
-   * <p>The version of the thing record in the registry.</p>
-   */
-  version?: number;
-}
-
-export namespace ThingAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThingAttribute): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output from the ListThings operation.</p>
- */
-export interface ListThingsResponse {
-  /**
-   * <p>The things.</p>
-   */
-  things?: ThingAttribute[];
-
-  /**
-   * <p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListThingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThingsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListThingsInBillingGroupRequest {
-  /**
-   * <p>The name of the billing group.</p>
-   */
-  billingGroupName: string | undefined;
-
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per request.</p>
-   */
-  maxResults?: number;
-}
-
-export namespace ListThingsInBillingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThingsInBillingGroupRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListThingsInBillingGroupResponse {
-  /**
-   * <p>A list of things in the billing group.</p>
-   */
-  things?: string[];
-
-  /**
-   * <p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListThingsInBillingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThingsInBillingGroupResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListThingsInThingGroupRequest {
-  /**
-   * <p>The thing group name.</p>
-   */
-  thingGroupName: string | undefined;
-
-  /**
-   * <p>When true, list things in this thing group and in all child groups as
-   * 			well.</p>
-   */
-  recursive?: boolean;
-
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-}
-
-export namespace ListThingsInThingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThingsInThingGroupRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListThingsInThingGroupResponse {
-  /**
-   * <p>The things in the specified thing group.</p>
-   */
-  things?: string[];
-
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListThingsInThingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThingsInThingGroupResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the ListThingTypes operation.</p>
- */
-export interface ListThingTypesRequest {
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The name of the thing type.</p>
-   */
-  thingTypeName?: string;
-}
-
-export namespace ListThingTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThingTypesRequest): any => ({
     ...obj,
   });
 }

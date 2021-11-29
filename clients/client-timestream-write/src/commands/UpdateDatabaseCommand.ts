@@ -28,6 +28,8 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  *     you must specify the database name and the identifier of the new KMS key to be used (<code>KmsKeyId</code>).
  *     If there are any concurrent <code>UpdateDatabase</code> requests, first writer wins.
  *    </p>
+ *          <p>See
+ *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.update-db.html">code sample</a> for details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

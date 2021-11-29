@@ -41,6 +41,8 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
  *          </ul>
  *         <p>To describe the target groups for an Auto Scaling group, call the <a>DescribeLoadBalancerTargetGroups</a> API. To detach the target group from
  *             the Auto Scaling group, call the <a>DetachLoadBalancerTargetGroups</a> API.</p>
+ *         <p>This operation is additive and does not detach existing target groups or Classic Load
+ *             Balancers from the Auto Scaling group.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Elastic Load Balancing and
  *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
  * @example

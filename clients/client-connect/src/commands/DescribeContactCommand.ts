@@ -25,7 +25,8 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Describes the specified contact. </p>
  *          <important>
- *             <p>Contact information is available in Amazon Connect for 24 months, and then it is deleted.</p>
+ *             <p>Contact information remains available in Amazon Connect for 24 months, and then it is
+ *     deleted.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

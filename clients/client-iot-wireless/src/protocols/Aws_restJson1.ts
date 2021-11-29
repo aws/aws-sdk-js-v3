@@ -153,6 +153,10 @@ import {
   GetMulticastGroupSessionCommandInput,
   GetMulticastGroupSessionCommandOutput,
 } from "../commands/GetMulticastGroupSessionCommand";
+import {
+  GetNetworkAnalyzerConfigurationCommandInput,
+  GetNetworkAnalyzerConfigurationCommandOutput,
+} from "../commands/GetNetworkAnalyzerConfigurationCommand";
 import { GetPartnerAccountCommandInput, GetPartnerAccountCommandOutput } from "../commands/GetPartnerAccountCommand";
 import {
   GetResourceEventConfigurationCommandInput,
@@ -272,6 +276,10 @@ import {
   UpdateMulticastGroupCommandOutput,
 } from "../commands/UpdateMulticastGroupCommand";
 import {
+  UpdateNetworkAnalyzerConfigurationCommandInput,
+  UpdateNetworkAnalyzerConfigurationCommandOutput,
+} from "../commands/UpdateNetworkAnalyzerConfigurationCommand";
+import {
   UpdatePartnerAccountCommandInput,
   UpdatePartnerAccountCommandOutput,
 } from "../commands/UpdatePartnerAccountCommand";
@@ -341,6 +349,7 @@ import {
   Tag,
   ThrottlingException,
   TooManyTagsException,
+  TraceContent,
   UpdateWirelessGatewayTaskCreate,
   UpdateWirelessGatewayTaskEntry,
   ValidationException,
@@ -1547,6 +1556,36 @@ export const serializeAws_restJson1GetMulticastGroupSessionCommand = async (
     resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetNetworkAnalyzerConfigurationCommand = async (
+  input: GetNetworkAnalyzerConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/network-analyzer-configurations/{ConfigurationName}";
+  if (input.ConfigurationName !== undefined) {
+    const labelValue: string = input.ConfigurationName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ConfigurationName.");
+    }
+    resolvedPath = resolvedPath.replace("{ConfigurationName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ConfigurationName.");
   }
   let body: any;
   return new __HttpRequest({
@@ -2768,6 +2807,58 @@ export const serializeAws_restJson1UpdateMulticastGroupCommand = async (
     ...(input.LoRaWAN !== undefined &&
       input.LoRaWAN !== null && { LoRaWAN: serializeAws_restJson1LoRaWANMulticast(input.LoRaWAN, context) }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateNetworkAnalyzerConfigurationCommand = async (
+  input: UpdateNetworkAnalyzerConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/network-analyzer-configurations/{ConfigurationName}";
+  if (input.ConfigurationName !== undefined) {
+    const labelValue: string = input.ConfigurationName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ConfigurationName.");
+    }
+    resolvedPath = resolvedPath.replace("{ConfigurationName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ConfigurationName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.TraceContent !== undefined &&
+      input.TraceContent !== null && { TraceContent: serializeAws_restJson1TraceContent(input.TraceContent, context) }),
+    ...(input.WirelessDevicesToAdd !== undefined &&
+      input.WirelessDevicesToAdd !== null && {
+        WirelessDevicesToAdd: serializeAws_restJson1WirelessDeviceList(input.WirelessDevicesToAdd, context),
+      }),
+    ...(input.WirelessDevicesToRemove !== undefined &&
+      input.WirelessDevicesToRemove !== null && {
+        WirelessDevicesToRemove: serializeAws_restJson1WirelessDeviceList(input.WirelessDevicesToRemove, context),
+      }),
+    ...(input.WirelessGatewaysToAdd !== undefined &&
+      input.WirelessGatewaysToAdd !== null && {
+        WirelessGatewaysToAdd: serializeAws_restJson1WirelessGatewayList(input.WirelessGatewaysToAdd, context),
+      }),
+    ...(input.WirelessGatewaysToRemove !== undefined &&
+      input.WirelessGatewaysToRemove !== null && {
+        WirelessGatewaysToRemove: serializeAws_restJson1WirelessGatewayList(input.WirelessGatewaysToRemove, context),
+      }),
   });
   return new __HttpRequest({
     protocol,
@@ -6553,6 +6644,101 @@ const deserializeAws_restJson1GetMulticastGroupSessionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetNetworkAnalyzerConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetNetworkAnalyzerConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetNetworkAnalyzerConfigurationCommandError(output, context);
+  }
+  const contents: GetNetworkAnalyzerConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    TraceContent: undefined,
+    WirelessDevices: undefined,
+    WirelessGateways: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.TraceContent !== undefined && data.TraceContent !== null) {
+    contents.TraceContent = deserializeAws_restJson1TraceContent(data.TraceContent, context);
+  }
+  if (data.WirelessDevices !== undefined && data.WirelessDevices !== null) {
+    contents.WirelessDevices = deserializeAws_restJson1WirelessDeviceList(data.WirelessDevices, context);
+  }
+  if (data.WirelessGateways !== undefined && data.WirelessGateways !== null) {
+    contents.WirelessGateways = deserializeAws_restJson1WirelessGatewayList(data.WirelessGateways, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetNetworkAnalyzerConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetNetworkAnalyzerConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetPartnerAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -10125,6 +10311,89 @@ const deserializeAws_restJson1UpdateMulticastGroupCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateNetworkAnalyzerConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateNetworkAnalyzerConfigurationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateNetworkAnalyzerConfigurationCommandError(output, context);
+  }
+  const contents: UpdateNetworkAnalyzerConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateNetworkAnalyzerConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateNetworkAnalyzerConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdatePartnerAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -10962,6 +11231,14 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
     });
 };
 
+const serializeAws_restJson1TraceContent = (input: TraceContent, context: __SerdeContext): any => {
+  return {
+    ...(input.LogLevel !== undefined && input.LogLevel !== null && { LogLevel: input.LogLevel }),
+    ...(input.WirelessDeviceFrameInfo !== undefined &&
+      input.WirelessDeviceFrameInfo !== null && { WirelessDeviceFrameInfo: input.WirelessDeviceFrameInfo }),
+  };
+};
+
 const serializeAws_restJson1UpdateWirelessGatewayTaskCreate = (
   input: UpdateWirelessGatewayTaskCreate,
   context: __SerdeContext
@@ -10999,6 +11276,17 @@ const serializeAws_restJson1WirelessDeviceEventLogOptionList = (
         return null as any;
       }
       return serializeAws_restJson1WirelessDeviceEventLogOption(entry, context);
+    });
+};
+
+const serializeAws_restJson1WirelessDeviceList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
     });
 };
 
@@ -11051,6 +11339,17 @@ const serializeAws_restJson1WirelessGatewayEventLogOptionList = (
         return null as any;
       }
       return serializeAws_restJson1WirelessGatewayEventLogOption(entry, context);
+    });
+};
+
+const serializeAws_restJson1WirelessGatewayList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
     });
 };
 
@@ -11701,6 +12000,13 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
     });
 };
 
+const deserializeAws_restJson1TraceContent = (output: any, context: __SerdeContext): TraceContent => {
+  return {
+    LogLevel: __expectString(output.LogLevel),
+    WirelessDeviceFrameInfo: __expectString(output.WirelessDeviceFrameInfo),
+  } as any;
+};
+
 const deserializeAws_restJson1UpdateWirelessGatewayTaskCreate = (
   output: any,
   context: __SerdeContext
@@ -11750,6 +12056,17 @@ const deserializeAws_restJson1WirelessDeviceEventLogOptionList = (
         return null as any;
       }
       return deserializeAws_restJson1WirelessDeviceEventLogOption(entry, context);
+    });
+};
+
+const deserializeAws_restJson1WirelessDeviceList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
 };
 
@@ -11841,6 +12158,17 @@ const deserializeAws_restJson1WirelessGatewayEventLogOptionList = (
         return null as any;
       }
       return deserializeAws_restJson1WirelessGatewayEventLogOption(entry, context);
+    });
+};
+
+const deserializeAws_restJson1WirelessGatewayList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
 };
 

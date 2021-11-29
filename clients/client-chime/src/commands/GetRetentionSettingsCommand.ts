@@ -12,7 +12,8 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { GetRetentionSettingsRequest, GetRetentionSettingsResponse } from "../models/models_0";
+import { GetRetentionSettingsRequest } from "../models/models_0";
+import { GetRetentionSettingsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetRetentionSettingsCommand,
   serializeAws_restJson1GetRetentionSettingsCommand,

@@ -34,7 +34,7 @@ export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedW
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>Only Windows 10 WorkSpace images can be programmatically updated at this time.</p>
+ *                   <p>Only Windows 10, Windows Sever 2016, and Windows Server 2019 WorkSpace images can be programmatically updated at this time.</p>
  *                </li>
  *                <li>
  *                   <p>Microsoft Windows updates and other application updates are not included

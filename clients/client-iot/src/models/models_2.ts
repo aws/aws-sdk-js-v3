@@ -54,6 +54,205 @@ import {
 } from "./models_1";
 
 /**
+ * <p>The properties of the thing, including thing name, thing type name, and a list of thing
+ * 			attributes.</p>
+ */
+export interface ThingAttribute {
+  /**
+   * <p>The name of the thing.</p>
+   */
+  thingName?: string;
+
+  /**
+   * <p>The name of the thing type, if the thing has been associated with a type.</p>
+   */
+  thingTypeName?: string;
+
+  /**
+   * <p>The thing ARN.</p>
+   */
+  thingArn?: string;
+
+  /**
+   * <p>A list of thing attributes which are name-value pairs.</p>
+   */
+  attributes?: { [key: string]: string };
+
+  /**
+   * <p>The version of the thing record in the registry.</p>
+   */
+  version?: number;
+}
+
+export namespace ThingAttribute {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ThingAttribute): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output from the ListThings operation.</p>
+ */
+export interface ListThingsResponse {
+  /**
+   * <p>The things.</p>
+   */
+  things?: ThingAttribute[];
+
+  /**
+   * <p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListThingsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThingsInBillingGroupRequest {
+  /**
+   * <p>The name of the billing group.</p>
+   */
+  billingGroupName: string | undefined;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per request.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListThingsInBillingGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingsInBillingGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThingsInBillingGroupResponse {
+  /**
+   * <p>A list of things in the billing group.</p>
+   */
+  things?: string[];
+
+  /**
+   * <p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListThingsInBillingGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingsInBillingGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThingsInThingGroupRequest {
+  /**
+   * <p>The thing group name.</p>
+   */
+  thingGroupName: string | undefined;
+
+  /**
+   * <p>When true, list things in this thing group and in all child groups as
+   * 			well.</p>
+   */
+  recursive?: boolean;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListThingsInThingGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingsInThingGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThingsInThingGroupResponse {
+  /**
+   * <p>The things in the specified thing group.</p>
+   */
+  things?: string[];
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListThingsInThingGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingsInThingGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input for the ListThingTypes operation.</p>
+ */
+export interface ListThingTypesRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The name of the thing type.</p>
+   */
+  thingTypeName?: string;
+}
+
+export namespace ListThingTypesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingTypesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The definition of the thing type, including thing type name and description.</p>
  */
 export interface ThingTypeDefinition {

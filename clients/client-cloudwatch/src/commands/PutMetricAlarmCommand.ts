@@ -53,7 +53,7 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  *
  *
  * 		       <p>The first time you create an alarm in the
- * 			Management Console, the CLI, or by using the PutMetricAlarm API, CloudWatch
+ * 			Amazon Web Services Management Console, the CLI, or by using the PutMetricAlarm API, CloudWatch
  * 			creates the necessary service-linked role for you. The service-linked roles
  * 			are called <code>AWSServiceRoleForCloudWatchEvents</code> and
  * 			<code>AWSServiceRoleForCloudWatchAlarms_ActionSSM</code>.

@@ -25,7 +25,7 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  * <p>Creates or updates a metric stream. Metric streams can automatically stream CloudWatch metrics
  * 			to Amazon Web Services destinations including
  * 			Amazon S3 and to many third-party solutions.</p>
- * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Metric-Streams.html">
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html">
  * 		Using Metric Streams</a>.</p>
  * 		       <p>To create a metric stream,
  * 			you must be logged on to an account that has the <code>iam:PassRole</code> permission

@@ -75,6 +75,7 @@ import {
 } from "./commands/GetRecordingConfigurationCommand";
 import { GetStreamCommandInput, GetStreamCommandOutput } from "./commands/GetStreamCommand";
 import { GetStreamKeyCommandInput, GetStreamKeyCommandOutput } from "./commands/GetStreamKeyCommand";
+import { GetStreamSessionCommandInput, GetStreamSessionCommandOutput } from "./commands/GetStreamSessionCommand";
 import {
   ImportPlaybackKeyPairCommandInput,
   ImportPlaybackKeyPairCommandOutput,
@@ -90,6 +91,7 @@ import {
 } from "./commands/ListRecordingConfigurationsCommand";
 import { ListStreamKeysCommandInput, ListStreamKeysCommandOutput } from "./commands/ListStreamKeysCommand";
 import { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
+import { ListStreamSessionsCommandInput, ListStreamSessionsCommandOutput } from "./commands/ListStreamSessionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -116,11 +118,13 @@ export type ServiceInputTypes =
   | GetRecordingConfigurationCommandInput
   | GetStreamCommandInput
   | GetStreamKeyCommandInput
+  | GetStreamSessionCommandInput
   | ImportPlaybackKeyPairCommandInput
   | ListChannelsCommandInput
   | ListPlaybackKeyPairsCommandInput
   | ListRecordingConfigurationsCommandInput
   | ListStreamKeysCommandInput
+  | ListStreamSessionsCommandInput
   | ListStreamsCommandInput
   | ListTagsForResourceCommandInput
   | PutMetadataCommandInput
@@ -144,11 +148,13 @@ export type ServiceOutputTypes =
   | GetRecordingConfigurationCommandOutput
   | GetStreamCommandOutput
   | GetStreamKeyCommandOutput
+  | GetStreamSessionCommandOutput
   | ImportPlaybackKeyPairCommandOutput
   | ListChannelsCommandOutput
   | ListPlaybackKeyPairsCommandOutput
   | ListRecordingConfigurationsCommandOutput
   | ListStreamKeysCommandOutput
+  | ListStreamSessionsCommandOutput
   | ListStreamsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutMetadataCommandOutput
@@ -323,7 +329,6 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *          </p>
  *          <p>For a summary of notable documentation changes in each release, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/doc-history.html"> Document
  *       History</a>.</p>
- *
  *          <p>
  *             <b>Allowed Header Values</b>
  *          </p>
@@ -513,8 +518,18 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *             </li>
  *             <li>
  *                <p>
+ *                   <a>GetStreamSession</a> — Gets metadata on a specified stream.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>ListStreams</a> — Gets summary information about live streams in
  *           your account, in the Amazon Web Services region where the API request is processed.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListStreamSessions</a> — Gets a summary of current and previous
+ *           streams for a specified channel in your account, in the AWS region where the API request
+ *           is processed.</p>
  *             </li>
  *             <li>
  *                <p>

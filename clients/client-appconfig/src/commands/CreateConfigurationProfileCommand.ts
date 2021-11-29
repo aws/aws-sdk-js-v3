@@ -22,24 +22,28 @@ export interface CreateConfigurationProfileCommandInput extends CreateConfigurat
 export interface CreateConfigurationProfileCommandOutput extends ConfigurationProfile, __MetadataBearer {}
 
 /**
- * <p>Information that enables AppConfig to access the configuration source. Valid
- *          configuration sources include Systems Manager (SSM) documents, SSM Parameter Store parameters, and
- *          Amazon S3 objects. A configuration profile includes the following information.</p>
+ * <p>Creates a configuration profile, which is information that enables AppConfig to access
+ *          the configuration source. Valid configuration sources include the AppConfig hosted
+ *          configuration store, Amazon Web Services Systems Manager (SSM) documents, SSM Parameter Store parameters, Amazon S3
+ *          objects, or any <a href="http://docs.aws.amazon.com/codepipeline/latest/userguide/integrations-action-type.html#integrations-source">integration source
+ *             action</a> supported by CodePipeline. A configuration profile includes the following
+ *          information:</p>
+ *
  *          <ul>
  *             <li>
- *                <p>The Uri location of the configuration data.</p>
+ *                <p>The URI location of the configuration data.</p>
  *             </li>
  *             <li>
- *                <p>The AWS Identity and Access Management (IAM) role that provides access to the configuration data.</p>
+ *                <p>The Identity and Access Management (IAM) role that provides access to the configuration data.</p>
  *             </li>
  *             <li>
  *                <p>A validator for the configuration data. Available validators include either a JSON
- *                Schema or an AWS Lambda function.</p>
+ *                Schema or an Lambda function.</p>
  *             </li>
  *          </ul>
- *          <p>For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig-creating-configuration-and-profile.html">Create a
- *             Configuration and a Configuration Profile</a> in the
- *             <i>AWS AppConfig User Guide</i>.</p>
+ *          <p>For more information, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html">Create a
+ *             Configuration and a Configuration Profile</a> in the <i>AppConfig User
+ *             Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

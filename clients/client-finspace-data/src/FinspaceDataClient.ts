@@ -50,22 +50,55 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateChangesetCommandInput, CreateChangesetCommandOutput } from "./commands/CreateChangesetCommand";
+import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
+import { CreateDataViewCommandInput, CreateDataViewCommandOutput } from "./commands/CreateDataViewCommand";
+import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
+import { GetChangesetCommandInput, GetChangesetCommandOutput } from "./commands/GetChangesetCommand";
+import { GetDatasetCommandInput, GetDatasetCommandOutput } from "./commands/GetDatasetCommand";
+import { GetDataViewCommandInput, GetDataViewCommandOutput } from "./commands/GetDataViewCommand";
 import {
   GetProgrammaticAccessCredentialsCommandInput,
   GetProgrammaticAccessCredentialsCommandOutput,
 } from "./commands/GetProgrammaticAccessCredentialsCommand";
 import { GetWorkingLocationCommandInput, GetWorkingLocationCommandOutput } from "./commands/GetWorkingLocationCommand";
+import { ListChangesetsCommandInput, ListChangesetsCommandOutput } from "./commands/ListChangesetsCommand";
+import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
+import { ListDataViewsCommandInput, ListDataViewsCommandOutput } from "./commands/ListDataViewsCommand";
+import { UpdateChangesetCommandInput, UpdateChangesetCommandOutput } from "./commands/UpdateChangesetCommand";
+import { UpdateDatasetCommandInput, UpdateDatasetCommandOutput } from "./commands/UpdateDatasetCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | CreateChangesetCommandInput
+  | CreateDataViewCommandInput
+  | CreateDatasetCommandInput
+  | DeleteDatasetCommandInput
+  | GetChangesetCommandInput
+  | GetDataViewCommandInput
+  | GetDatasetCommandInput
   | GetProgrammaticAccessCredentialsCommandInput
-  | GetWorkingLocationCommandInput;
+  | GetWorkingLocationCommandInput
+  | ListChangesetsCommandInput
+  | ListDataViewsCommandInput
+  | ListDatasetsCommandInput
+  | UpdateChangesetCommandInput
+  | UpdateDatasetCommandInput;
 
 export type ServiceOutputTypes =
   | CreateChangesetCommandOutput
+  | CreateDataViewCommandOutput
+  | CreateDatasetCommandOutput
+  | DeleteDatasetCommandOutput
+  | GetChangesetCommandOutput
+  | GetDataViewCommandOutput
+  | GetDatasetCommandOutput
   | GetProgrammaticAccessCredentialsCommandOutput
-  | GetWorkingLocationCommandOutput;
+  | GetWorkingLocationCommandOutput
+  | ListChangesetsCommandOutput
+  | ListDataViewsCommandOutput
+  | ListDatasetsCommandOutput
+  | UpdateChangesetCommandOutput
+  | UpdateDatasetCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -216,7 +249,7 @@ type FinspaceDataClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
 export interface FinspaceDataClientResolvedConfig extends FinspaceDataClientResolvedConfigType {}
 
 /**
- * <p> The FinSpace APIs let you take actions inside the FinSpace environment.  </p>
+ * <p> The FinSpace APIs let you take actions inside the FinSpace.</p>
  */
 export class FinspaceDataClient extends __Client<
   __HttpHandlerOptions,

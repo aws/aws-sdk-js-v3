@@ -46,7 +46,7 @@ export interface StopInstancesCommandOutput extends StopInstancesResult, __Metad
  *             in the <i>Amazon EC2 User Guide</i>.</p>
  *         <p>When you stop an instance, we attempt to shut it down forcibly after a short while. If
  *             your instance appears stuck in the stopping state after a period of time, there may be
- *             an issue with the underlying host computer. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshooting
+ *             an issue with the underlying host computer. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshoot
  *                 stopping your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

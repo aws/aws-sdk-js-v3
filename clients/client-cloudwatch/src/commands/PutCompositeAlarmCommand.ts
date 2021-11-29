@@ -56,6 +56,10 @@ export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
  * 		       <p>When you update an existing alarm, its state is left unchanged, but the update
  * 			completely overwrites the previous configuration of the alarm.</p>
  *
+ * 		       <p>To use this operation, you must be signed on with
+ * 			the <code>cloudwatch:PutCompositeAlarm</code> permission that is scoped to <code>*</code>. You can't create a
+ * 			composite alarms if your <code>cloudwatch:PutCompositeAlarm</code> permission has a narrower scope.</p>
+ *
  * 		       <p>If you are an IAM user, you must have <code>iam:CreateServiceLinkedRole</code> to create
  * 			a composite alarm that has Systems Manager OpsItem actions.</p>
  * @example

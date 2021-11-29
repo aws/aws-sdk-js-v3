@@ -1370,7 +1370,7 @@ export interface CreateLoadBalancerInput {
   /**
    * <p>The type of IP addresses used by the subnets for your load balancer. The possible values
    *       are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6
-   *       addresses). Internal load balancers must use <code>ipv4</code>.</p>
+   *       addresses). </p>
    */
   IpAddressType?: IpAddressType | string;
 
@@ -2644,7 +2644,7 @@ export interface TargetDescription {
    *       traffic from the load balancer nodes in the specified Availability Zone or from all enabled
    *       Availability Zones for the load balancer.</p>
    *          <p>This parameter is not supported if the target type of the target group is
-   *       <code>instance</code> or <code>alb</code>.</p>
+   *         <code>instance</code> or <code>alb</code>.</p>
    *          <p>If the target type is <code>ip</code> and the IP address is in a subnet of the VPC for the
    *       target group, the Availability Zone is automatically detected and this parameter is optional.
    *       If the IP address is outside the VPC, this parameter is required.</p>
@@ -3000,6 +3000,13 @@ export interface LoadBalancerAttribute {
    *                   <code>access_logs.s3.prefix</code> - The prefix for the location in the S3 bucket for the
    *           access logs.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ipv6.deny-all-igw-traffic</code> - Blocks internet gateway (IGW) access to the
+   *           load balancer. It is set to <code>false</code> for internet-facing load balancers and
+   *           <code>true</code> for internal load balancers, preventing unintended access to your
+   *           internal load balancer through an internet gateway.</p>
+   *             </li>
    *          </ul>
    *
    *          <p>The following attributes are supported by only Application Load Balancers:</p>
@@ -3262,9 +3269,7 @@ export interface SslPolicy {
   Name?: string;
 
   /**
-   * <p>
-   *       The supported load balancers.
-   *     </p>
+   * <p> The supported load balancers. </p>
    */
   SupportedLoadBalancerTypes?: string[];
 }
@@ -4230,9 +4235,9 @@ export interface SetIpAddressTypeInput {
 
   /**
    * <p>The IP address type. The possible values are <code>ipv4</code> (for IPv4 addresses) and
-   *         <code>dualstack</code> (for IPv4 and IPv6 addresses). Internal load balancers must use
-   *         <code>ipv4</code>. You can’t specify <code>dualstack</code> for a load balancer with a UDP
-   *       or TCP_UDP listener.</p>
+   *         <code>dualstack</code> (for IPv4 and IPv6 addresses).
+   *        You can’t specify
+   *         <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.</p>
    */
   IpAddressType: IpAddressType | string | undefined;
 }
@@ -4394,8 +4399,8 @@ export interface SetSubnetsInput {
    * <p>[Network Load Balancers] The type of IP addresses used by the subnets for your load
    *       balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and
    *         <code>dualstack</code> (for IPv4 and IPv6 addresses). You can’t specify
-   *         <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener. Internal load
-   *       balancers must use <code>ipv4</code>.</p>
+   *         <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.
+   *       .</p>
    */
   IpAddressType?: IpAddressType | string;
 }

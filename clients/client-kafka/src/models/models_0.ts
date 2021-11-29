@@ -29,7 +29,45 @@ export enum BrokerAZDistribution {
 }
 
 /**
- * <p>Contains information about the EBS storage volumes attached to Kafka broker nodes.</p>
+ * Public access control for brokers.
+ */
+export interface PublicAccess {
+  /**
+   * <p>The value DISABLED indicates that public access is turned off. SERVICE_PROVIDED_EIPS indicates that public access is turned on.</p>
+   */
+  Type?: string;
+}
+
+export namespace PublicAccess {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PublicAccess): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the broker access configuration.</p>
+ */
+export interface ConnectivityInfo {
+  /**
+   * <p>Public access control for brokers.</p>
+   */
+  PublicAccess?: PublicAccess;
+}
+
+export namespace ConnectivityInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectivityInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about the EBS storage volumes attached to Apache Kafka broker nodes.</p>
  */
 export interface EBSStorageInfo {
   /**
@@ -67,7 +105,7 @@ export namespace StorageInfo {
 }
 
 /**
- * <p>Describes the setup to be used for Kafka broker nodes in the cluster.</p>
+ * <p>Describes the setup to be used for Apache Kafka broker nodes in the cluster.</p>
  */
 export interface BrokerNodeGroupInfo {
   /**
@@ -82,7 +120,7 @@ export interface BrokerNodeGroupInfo {
   ClientSubnets: string[] | undefined;
 
   /**
-   * <p>The type of Amazon EC2 instances to use for Kafka brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge,
+   * <p>The type of Amazon EC2 instances to use for Apache Kafka brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge,
    * kafka.m5.4xlarge, kafka.m5.12xlarge, and kafka.m5.24xlarge.</p>
    */
   InstanceType: string | undefined;
@@ -96,6 +134,11 @@ export interface BrokerNodeGroupInfo {
    * <p>Contains information about storage volumes attached to MSK broker nodes.</p>
    */
   StorageInfo?: StorageInfo;
+
+  /**
+   * <p>Information about the broker access configuration.</p>
+   */
+  ConnectivityInfo?: ConnectivityInfo;
 }
 
 export namespace BrokerNodeGroupInfo {
@@ -179,7 +222,7 @@ export interface Tls {
   CertificateAuthorityArnList?: string[];
 
   /**
-   * <p>Specifies whether you want to enable or disable TLS authentication.</p>
+   * <p>Specifies whether you want to turn on or turn off TLS authentication.</p>
    */
   Enabled?: boolean;
 }
@@ -195,7 +238,7 @@ export namespace Tls {
 
 export interface Unauthenticated {
   /**
-   * <p>Specifies whether you want to enable or disable unauthenticated traffic to your cluster.</p>
+   * <p>Specifies whether you want to turn on or turn off unauthenticated traffic to your cluster.</p>
    */
   Enabled?: boolean;
 }
@@ -427,11 +470,11 @@ export namespace LoggingInfo {
 }
 
 /**
- * <p>Indicates whether you want to enable or disable the JMX Exporter.</p>
+ * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
  */
 export interface JmxExporter {
   /**
-   * <p>Indicates whether you want to enable or disable the JMX Exporter.</p>
+   * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
    */
   EnabledInBroker: boolean | undefined;
 }
@@ -446,11 +489,11 @@ export namespace JmxExporter {
 }
 
 /**
- * <p>Indicates whether you want to enable or disable the Node Exporter.</p>
+ * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
  */
 export interface NodeExporter {
   /**
-   * <p>Indicates whether you want to enable or disable the Node Exporter.</p>
+   * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
    */
   EnabledInBroker: boolean | undefined;
 }
@@ -469,12 +512,12 @@ export namespace NodeExporter {
  */
 export interface Prometheus {
   /**
-   * <p>Indicates whether you want to enable or disable the JMX Exporter.</p>
+   * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
    */
   JmxExporter?: JmxExporter;
 
   /**
-   * <p>Indicates whether you want to enable or disable the Node Exporter.</p>
+   * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
    */
   NodeExporter?: NodeExporter;
 }
@@ -567,7 +610,7 @@ export interface ClusterInfo {
   CreationTime?: Date;
 
   /**
-   * <p>Information about the version of software currently deployed on the Kafka brokers in the cluster.</p>
+   * <p>Information about the version of software currently deployed on the Apache Kafka brokers in the cluster.</p>
    */
   CurrentBrokerSoftwareInfo?: BrokerSoftwareInfo;
 
@@ -749,7 +792,7 @@ export interface MutableClusterInfo {
   OpenMonitoring?: OpenMonitoring;
 
   /**
-   * <p>The Kafka version.</p>
+   * <p>The Apache Kafka version.</p>
    */
   KafkaVersion?: string;
 
@@ -772,6 +815,11 @@ export interface MutableClusterInfo {
    * <p>Includes all encryption-related information.</p>
    */
   EncryptionInfo?: EncryptionInfo;
+
+  /**
+   * <p>Information about the broker access configuration.</p>
+   */
+  ConnectivityInfo?: ConnectivityInfo;
 }
 
 export namespace MutableClusterInfo {
@@ -853,16 +901,16 @@ export namespace ClusterOperationInfo {
 }
 
 /**
- * <p>Contains source Kafka versions and compatible target Kafka versions.</p>
+ * <p>Contains source Apache Kafka versions and compatible target Apache Kafka versions.</p>
  */
 export interface CompatibleKafkaVersion {
   /**
-   * <p>A Kafka version.</p>
+   * <p>An Apache Kafka version.</p>
    */
   SourceVersion?: string;
 
   /**
-   * <p>A list of Kafka versions.</p>
+   * <p>A list of Apache Kafka versions.</p>
    */
   TargetVersions?: string[];
 }
@@ -1004,7 +1052,7 @@ export interface BrokerNodeInfo {
   ClientVpcIpAddress?: string;
 
   /**
-   * <p>Information about the version of software currently deployed on the Kafka brokers in the cluster.</p>
+   * <p>Information about the version of software currently deployed on the Apache Kafka brokers in the cluster.</p>
    */
   CurrentBrokerSoftwareInfo?: BrokerSoftwareInfo;
 
@@ -1438,11 +1486,11 @@ export namespace ConflictException {
 }
 
 /**
- * <p>Indicates whether you want to enable or disable the JMX Exporter.</p>
+ * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
  */
 export interface JmxExporterInfo {
   /**
-   * <p>Indicates whether you want to enable or disable the JMX Exporter.</p>
+   * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
    */
   EnabledInBroker: boolean | undefined;
 }
@@ -1457,11 +1505,11 @@ export namespace JmxExporterInfo {
 }
 
 /**
- * <p>Indicates whether you want to enable or disable the Node Exporter.</p>
+ * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
  */
 export interface NodeExporterInfo {
   /**
-   * <p>Indicates whether you want to enable or disable the Node Exporter.</p>
+   * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
    */
   EnabledInBroker: boolean | undefined;
 }
@@ -1480,12 +1528,12 @@ export namespace NodeExporterInfo {
  */
 export interface PrometheusInfo {
   /**
-   * <p>Indicates whether you want to enable or disable the JMX Exporter.</p>
+   * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
    */
   JmxExporter?: JmxExporterInfo;
 
   /**
-   * <p>Indicates whether you want to enable or disable the Node Exporter.</p>
+   * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
    */
   NodeExporter?: NodeExporterInfo;
 }
@@ -1973,6 +2021,21 @@ export interface GetBootstrapBrokersResponse {
    * <p>A string that contains one or more DNS names (or IP addresses) and SASL IAM port pairs.</p>
    */
   BootstrapBrokerStringSaslIam?: string;
+
+  /**
+   * <p>A string containing one or more DNS names (or IP) and TLS port pairs.</p>
+   */
+  BootstrapBrokerStringPublicTls?: string;
+
+  /**
+   * <p>A string containing one or more DNS names (or IP) and Sasl Scram port pairs.</p>
+   */
+  BootstrapBrokerStringPublicSaslScram?: string;
+
+  /**
+   * <p>A string that contains one or more DNS names (or IP addresses) and SASL IAM port pairs.</p>
+   */
+  BootstrapBrokerStringPublicSaslIam?: string;
 }
 
 export namespace GetBootstrapBrokersResponse {
@@ -2758,6 +2821,56 @@ export namespace UpdateConfigurationResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Request body for UpdateConnectivity.
+ */
+export interface UpdateConnectivityRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the configuration.</p>
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>Information about the broker access configuration.</p>
+   */
+  ConnectivityInfo: ConnectivityInfo | undefined;
+
+  /**
+   * <p>The version of the MSK cluster to update. Cluster versions aren't simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version.</p>
+   */
+  CurrentVersion: string | undefined;
+}
+
+export namespace UpdateConnectivityRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateConnectivityRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateConnectivityResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   */
+  ClusterOperationArn?: string;
+}
+
+export namespace UpdateConnectivityResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateConnectivityResponse): any => ({
     ...obj,
   });
 }

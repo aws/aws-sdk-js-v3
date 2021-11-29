@@ -36,7 +36,7 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  *         </note>
  *         <p>For more information on Amazon Aurora, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
- *                 What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *                 What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
  *         </p>
  *         <note>
  *             <p>This action only applies to Aurora DB clusters. The source DB engine must be

@@ -95,6 +95,7 @@ import {
   TooManyRequestsException,
   TranslateTextRequest,
   TranslateTextResponse,
+  TranslationSettings,
   UnsupportedLanguagePairException,
   UpdateParallelDataRequest,
   UpdateParallelDataResponse,
@@ -1801,6 +1802,8 @@ const serializeAws_json1_1StartTextTranslationJobRequest = (
       input.ParallelDataNames !== null && {
         ParallelDataNames: serializeAws_json1_1ResourceNameList(input.ParallelDataNames, context),
       }),
+    ...(input.Settings !== undefined &&
+      input.Settings !== null && { Settings: serializeAws_json1_1TranslationSettings(input.Settings, context) }),
     ...(input.SourceLanguageCode !== undefined &&
       input.SourceLanguageCode !== null && { SourceLanguageCode: input.SourceLanguageCode }),
     ...(input.TargetLanguageCodes !== undefined &&
@@ -1863,6 +1866,8 @@ const serializeAws_json1_1TextTranslationJobFilter = (
 
 const serializeAws_json1_1TranslateTextRequest = (input: TranslateTextRequest, context: __SerdeContext): any => {
   return {
+    ...(input.Settings !== undefined &&
+      input.Settings !== null && { Settings: serializeAws_json1_1TranslationSettings(input.Settings, context) }),
     ...(input.SourceLanguageCode !== undefined &&
       input.SourceLanguageCode !== null && { SourceLanguageCode: input.SourceLanguageCode }),
     ...(input.TargetLanguageCode !== undefined &&
@@ -1872,6 +1877,12 @@ const serializeAws_json1_1TranslateTextRequest = (input: TranslateTextRequest, c
         TerminologyNames: serializeAws_json1_1ResourceNameList(input.TerminologyNames, context),
       }),
     ...(input.Text !== undefined && input.Text !== null && { Text: input.Text }),
+  };
+};
+
+const serializeAws_json1_1TranslationSettings = (input: TranslationSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.Profanity !== undefined && input.Profanity !== null && { Profanity: input.Profanity }),
   };
 };
 
@@ -2390,6 +2401,10 @@ const deserializeAws_json1_1TextTranslationJobProperties = (
       output.ParallelDataNames !== undefined && output.ParallelDataNames !== null
         ? deserializeAws_json1_1ResourceNameList(output.ParallelDataNames, context)
         : undefined,
+    Settings:
+      output.Settings !== undefined && output.Settings !== null
+        ? deserializeAws_json1_1TranslationSettings(output.Settings, context)
+        : undefined,
     SourceLanguageCode: __expectString(output.SourceLanguageCode),
     SubmittedTime:
       output.SubmittedTime !== undefined && output.SubmittedTime !== null
@@ -2431,6 +2446,10 @@ const deserializeAws_json1_1TooManyRequestsException = (
 
 const deserializeAws_json1_1TranslateTextResponse = (output: any, context: __SerdeContext): TranslateTextResponse => {
   return {
+    AppliedSettings:
+      output.AppliedSettings !== undefined && output.AppliedSettings !== null
+        ? deserializeAws_json1_1TranslationSettings(output.AppliedSettings, context)
+        : undefined,
     AppliedTerminologies:
       output.AppliedTerminologies !== undefined && output.AppliedTerminologies !== null
         ? deserializeAws_json1_1AppliedTerminologyList(output.AppliedTerminologies, context)
@@ -2438,6 +2457,12 @@ const deserializeAws_json1_1TranslateTextResponse = (output: any, context: __Ser
     SourceLanguageCode: __expectString(output.SourceLanguageCode),
     TargetLanguageCode: __expectString(output.TargetLanguageCode),
     TranslatedText: __expectString(output.TranslatedText),
+  } as any;
+};
+
+const deserializeAws_json1_1TranslationSettings = (output: any, context: __SerdeContext): TranslationSettings => {
+  return {
+    Profanity: __expectString(output.Profanity),
   } as any;
 };
 
