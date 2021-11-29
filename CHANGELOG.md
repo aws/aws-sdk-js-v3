@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.43.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.42.0...v3.43.0) (2021-11-29)
+
+
+### Bug Fixes
+
+* **codegen:** use specific smithy-cli version in protocol-test-codegen ([#3054](https://github.com/aws/aws-sdk-js-v3/issues/3054)) ([ba14b3c](https://github.com/aws/aws-sdk-js-v3/commit/ba14b3c0566c40a05c6d99ea169398cca588b32f))
+
+
+### Features
+
+* **clients:** update clients as of 11/28/2021 ([#3072](https://github.com/aws/aws-sdk-js-v3/issues/3072)) ([2ad1622](https://github.com/aws/aws-sdk-js-v3/commit/2ad1622ba8586b926fe508055211803bb29e3976))
+* **lib-dynamodb:** add pagination ([#3069](https://github.com/aws/aws-sdk-js-v3/issues/3069)) ([51480df](https://github.com/aws/aws-sdk-js-v3/commit/51480df99b38d0f4893f4c6cd7020b9a6135eee9))
+
+
+
+
+
 # [3.42.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.41.0...v3.42.0) (2021-11-19)
 
 
