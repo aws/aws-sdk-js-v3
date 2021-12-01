@@ -2577,7 +2577,7 @@
         "portalAuthMode": {
           "target": "com.amazonaws.iotsitewise#AuthMode",
           "traits": {
-            "smithy.api#documentation": "<p>The service to use to authenticate users to the portal. Choose from the following\n      options:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SSO</code> – The portal uses Amazon Web Services Single Sign On to authenticate users and manage\n          user permissions. Before you can create a portal that uses Amazon Web Services SSO, you must enable Amazon Web Services SSO.\n          For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso\">Enabling Amazon Web Services SSO</a> in the\n            <i>IoT SiteWise User Guide</i>. This option is only available in Amazon Web Services Regions other than\n          the China Regions.</p>\n            </li>\n            <li>\n               <p>\n                  <code>IAM</code> – The portal uses Identity and Access Management to authenticate users and manage\n          user permissions. This option is only available in the China Regions.</p>\n            </li>\n         </ul>\n         <p>You can't change this value after you create a portal.</p>\n         <p>Default: <code>SSO</code>\n         </p>"
+            "smithy.api#documentation": "<p>The service to use to authenticate users to the portal. Choose from the following\n      options:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SSO</code> – The portal uses Amazon Web Services Single Sign On to authenticate users and manage\n          user permissions. Before you can create a portal that uses Amazon Web Services SSO, you must enable Amazon Web Services SSO.\n          For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso\">Enabling Amazon Web Services SSO</a> in the\n            <i>IoT SiteWise User Guide</i>. This option is only available in Amazon Web Services Regions other than\n          the China Regions.</p>\n            </li>\n            <li>\n               <p>\n                  <code>IAM</code> – The portal uses Identity and Access Management to authenticate users and manage\n          user permissions.</p>\n            </li>\n         </ul>\n         <p>You can't change this value after you create a portal.</p>\n         <p>Default: <code>SSO</code>\n         </p>"
           }
         },
         "notificationSenderEmail": {
@@ -4560,7 +4560,7 @@
         "storageType": {
           "target": "com.amazonaws.iotsitewise#StorageType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of storage that you specified for your data. The storage type can be one of the following values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise replicates your data into a service managed database.</p>\n            </li>\n            <li>\n               <p>\n                  <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise replicates your data into a service managed database and saves a copy of your raw data and metadata in an Amazon S3 object that you specified.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The storage tier that you specified for your data. \n      The <code>storageType</code> parameter can be one of the following values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise saves your data into the hot tier. \n          The hot tier is a service-managed database.</p>\n            </li>\n            <li>\n               <p>\n                  <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the cold tier. \n          The cold tier is a customer-managed Amazon S3 bucket.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -4574,6 +4574,12 @@
           "target": "com.amazonaws.iotsitewise#DisassociatedDataStorageState",
           "traits": {
             "smithy.api#documentation": "<p>Contains the storage configuration for time series (data streams) that aren't associated with asset properties. \n      The <code>disassociatedDataStorage</code> can be one of the following values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ENABLED</code> – IoT SiteWise accepts time series that aren't associated with asset properties.</p>\n               <important>\n                  <p>After the <code>disassociatedDataStorage</code> is enabled, you can't disable it.</p>\n               </important>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLED</code> – IoT SiteWise doesn't accept time series (data streams) that aren't associated with asset properties.</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html\">Data streams</a> \n    in the <i>IoT SiteWise User Guide</i>.</p>"
+          }
+        },
+        "retentionPeriod": {
+          "target": "com.amazonaws.iotsitewise#RetentionPeriod",
+          "traits": {
+            "smithy.api#documentation": "<p>How many days your data is kept in the hot tier. By default, your data is kept indefinitely in the hot tier.</p>"
           }
         },
         "configurationStatus": {
@@ -7311,6 +7317,15 @@
         "smithy.api#pattern": "^[A-Za-z0-9+/=]+$"
       }
     },
+    "com.amazonaws.iotsitewise#NumberOfDays": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": {},
+        "smithy.api#range": {
+          "min": 30
+        }
+      }
+    },
     "com.amazonaws.iotsitewise#Offset": {
       "type": "string",
       "traits": {
@@ -7967,7 +7982,7 @@
         "storageType": {
           "target": "com.amazonaws.iotsitewise#StorageType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of storage that you specified for your data. The storage type can be one of the following values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise replicates your data into a service managed database.</p>\n            </li>\n            <li>\n               <p>\n                  <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise replicates your data into a service managed database and saves a copy of your raw data and metadata in an Amazon S3 object that you specified.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The storage tier that you specified for your data. \n      The <code>storageType</code> parameter can be one of the following values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise saves your data into the hot tier. \n          The hot tier is a service-managed database.</p>\n            </li>\n            <li>\n               <p>\n                  <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the cold tier. \n          The cold tier is a customer-managed Amazon S3 bucket.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -7982,6 +7997,9 @@
           "traits": {
             "smithy.api#documentation": "<p>Contains the storage configuration for time series (data streams) that aren't associated with asset properties. \n      The <code>disassociatedDataStorage</code> can be one of the following values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ENABLED</code> – IoT SiteWise accepts time series that aren't associated with asset properties.</p>\n               <important>\n                  <p>After the <code>disassociatedDataStorage</code> is enabled, you can't disable it.</p>\n               </important>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLED</code> – IoT SiteWise doesn't accept time series (data streams) that aren't associated with asset properties.</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html\">Data streams</a> \n    in the <i>IoT SiteWise User Guide</i>.</p>"
           }
+        },
+        "retentionPeriod": {
+          "target": "com.amazonaws.iotsitewise#RetentionPeriod"
         }
       }
     },
@@ -7991,7 +8009,7 @@
         "storageType": {
           "target": "com.amazonaws.iotsitewise#StorageType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of storage that you specified for your data. The storage type can be one of the following values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise replicates your data into a service managed database.</p>\n            </li>\n            <li>\n               <p>\n                  <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise replicates your data into a service managed database and saves a copy of your raw data and metadata in an Amazon S3 object that you specified.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The storage tier that you specified for your data. \n      The <code>storageType</code> parameter can be one of the following values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise saves your data into the hot tier. \n          The hot tier is a service-managed database.</p>\n            </li>\n            <li>\n               <p>\n                  <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the cold tier. \n          The cold tier is a customer-managed Amazon S3 bucket.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -8006,6 +8024,9 @@
           "traits": {
             "smithy.api#documentation": "<p>Contains the storage configuration for time series (data streams) that aren't associated with asset properties. \n      The <code>disassociatedDataStorage</code> can be one of the following values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ENABLED</code> – IoT SiteWise accepts time series that aren't associated with asset properties.</p>\n               <important>\n                  <p>After the <code>disassociatedDataStorage</code> is enabled, you can't disable it.</p>\n               </important>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLED</code> – IoT SiteWise doesn't accept time series (data streams) that aren't associated with asset properties.</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html\">Data streams</a> \n    in the <i>IoT SiteWise User Guide</i>.</p>"
           }
+        },
+        "retentionPeriod": {
+          "target": "com.amazonaws.iotsitewise#RetentionPeriod"
         },
         "configurationStatus": {
           "target": "com.amazonaws.iotsitewise#ConfigurationStatus",
@@ -8141,6 +8162,26 @@
             "name": "PROJECT"
           }
         ]
+      }
+    },
+    "com.amazonaws.iotsitewise#RetentionPeriod": {
+      "type": "structure",
+      "members": {
+        "numberOfDays": {
+          "target": "com.amazonaws.iotsitewise#NumberOfDays",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of days that your data is kept.</p>\n         <note>\n            <p>If you specified a value for this parameter, the <code>unlimited</code> parameter must\n        be <code>false</code>.</p>\n         </note>"
+          }
+        },
+        "unlimited": {
+          "target": "com.amazonaws.iotsitewise#Unlimited",
+          "traits": {
+            "smithy.api#documentation": "<p>If true, your data is kept indefinitely.</p>\n         <note>\n            <p>If configured to <code>true</code>, you must not specify a value for the\n          <code>numberOfDays</code> parameter.</p>\n         </note>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>How many days your data is kept in the hot tier. By default, your data is kept indefinitely in the hot tier.</p>"
       }
     },
     "com.amazonaws.iotsitewise#SSOApplicationId": {
@@ -8571,6 +8612,12 @@
         "smithy.api#documentation": "<p>You are not authorized.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 401
+      }
+    },
+    "com.amazonaws.iotsitewise#Unlimited": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.iotsitewise#UntagResource": {
