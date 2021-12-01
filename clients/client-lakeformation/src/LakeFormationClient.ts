@@ -61,10 +61,29 @@ import {
   BatchRevokePermissionsCommandInput,
   BatchRevokePermissionsCommandOutput,
 } from "./commands/BatchRevokePermissionsCommand";
+import { CancelTransactionCommandInput, CancelTransactionCommandOutput } from "./commands/CancelTransactionCommand";
+import { CommitTransactionCommandInput, CommitTransactionCommandOutput } from "./commands/CommitTransactionCommand";
+import {
+  CreateDataCellsFilterCommandInput,
+  CreateDataCellsFilterCommandOutput,
+} from "./commands/CreateDataCellsFilterCommand";
 import { CreateLFTagCommandInput, CreateLFTagCommandOutput } from "./commands/CreateLFTagCommand";
+import {
+  DeleteDataCellsFilterCommandInput,
+  DeleteDataCellsFilterCommandOutput,
+} from "./commands/DeleteDataCellsFilterCommand";
 import { DeleteLFTagCommandInput, DeleteLFTagCommandOutput } from "./commands/DeleteLFTagCommand";
+import {
+  DeleteObjectsOnCancelCommandInput,
+  DeleteObjectsOnCancelCommandOutput,
+} from "./commands/DeleteObjectsOnCancelCommand";
 import { DeregisterResourceCommandInput, DeregisterResourceCommandOutput } from "./commands/DeregisterResourceCommand";
 import { DescribeResourceCommandInput, DescribeResourceCommandOutput } from "./commands/DescribeResourceCommand";
+import {
+  DescribeTransactionCommandInput,
+  DescribeTransactionCommandOutput,
+} from "./commands/DescribeTransactionCommand";
+import { ExtendTransactionCommandInput, ExtendTransactionCommandOutput } from "./commands/ExtendTransactionCommand";
 import {
   GetDataLakeSettingsCommandInput,
   GetDataLakeSettingsCommandOutput,
@@ -74,11 +93,25 @@ import {
   GetEffectivePermissionsForPathCommandOutput,
 } from "./commands/GetEffectivePermissionsForPathCommand";
 import { GetLFTagCommandInput, GetLFTagCommandOutput } from "./commands/GetLFTagCommand";
+import { GetQueryStateCommandInput, GetQueryStateCommandOutput } from "./commands/GetQueryStateCommand";
+import { GetQueryStatisticsCommandInput, GetQueryStatisticsCommandOutput } from "./commands/GetQueryStatisticsCommand";
 import { GetResourceLFTagsCommandInput, GetResourceLFTagsCommandOutput } from "./commands/GetResourceLFTagsCommand";
+import { GetTableObjectsCommandInput, GetTableObjectsCommandOutput } from "./commands/GetTableObjectsCommand";
+import { GetWorkUnitResultsCommandInput, GetWorkUnitResultsCommandOutput } from "./commands/GetWorkUnitResultsCommand";
+import { GetWorkUnitsCommandInput, GetWorkUnitsCommandOutput } from "./commands/GetWorkUnitsCommand";
 import { GrantPermissionsCommandInput, GrantPermissionsCommandOutput } from "./commands/GrantPermissionsCommand";
+import {
+  ListDataCellsFilterCommandInput,
+  ListDataCellsFilterCommandOutput,
+} from "./commands/ListDataCellsFilterCommand";
 import { ListLFTagsCommandInput, ListLFTagsCommandOutput } from "./commands/ListLFTagsCommand";
 import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
 import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
+import {
+  ListTableStorageOptimizersCommandInput,
+  ListTableStorageOptimizersCommandOutput,
+} from "./commands/ListTableStorageOptimizersCommand";
+import { ListTransactionsCommandInput, ListTransactionsCommandOutput } from "./commands/ListTransactionsCommand";
 import {
   PutDataLakeSettingsCommandInput,
   PutDataLakeSettingsCommandOutput,
@@ -97,59 +130,104 @@ import {
   SearchTablesByLFTagsCommandInput,
   SearchTablesByLFTagsCommandOutput,
 } from "./commands/SearchTablesByLFTagsCommand";
+import { StartQueryPlanningCommandInput, StartQueryPlanningCommandOutput } from "./commands/StartQueryPlanningCommand";
+import { StartTransactionCommandInput, StartTransactionCommandOutput } from "./commands/StartTransactionCommand";
 import { UpdateLFTagCommandInput, UpdateLFTagCommandOutput } from "./commands/UpdateLFTagCommand";
 import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "./commands/UpdateResourceCommand";
+import { UpdateTableObjectsCommandInput, UpdateTableObjectsCommandOutput } from "./commands/UpdateTableObjectsCommand";
+import {
+  UpdateTableStorageOptimizerCommandInput,
+  UpdateTableStorageOptimizerCommandOutput,
+} from "./commands/UpdateTableStorageOptimizerCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | AddLFTagsToResourceCommandInput
   | BatchGrantPermissionsCommandInput
   | BatchRevokePermissionsCommandInput
+  | CancelTransactionCommandInput
+  | CommitTransactionCommandInput
+  | CreateDataCellsFilterCommandInput
   | CreateLFTagCommandInput
+  | DeleteDataCellsFilterCommandInput
   | DeleteLFTagCommandInput
+  | DeleteObjectsOnCancelCommandInput
   | DeregisterResourceCommandInput
   | DescribeResourceCommandInput
+  | DescribeTransactionCommandInput
+  | ExtendTransactionCommandInput
   | GetDataLakeSettingsCommandInput
   | GetEffectivePermissionsForPathCommandInput
   | GetLFTagCommandInput
+  | GetQueryStateCommandInput
+  | GetQueryStatisticsCommandInput
   | GetResourceLFTagsCommandInput
+  | GetTableObjectsCommandInput
+  | GetWorkUnitResultsCommandInput
+  | GetWorkUnitsCommandInput
   | GrantPermissionsCommandInput
+  | ListDataCellsFilterCommandInput
   | ListLFTagsCommandInput
   | ListPermissionsCommandInput
   | ListResourcesCommandInput
+  | ListTableStorageOptimizersCommandInput
+  | ListTransactionsCommandInput
   | PutDataLakeSettingsCommandInput
   | RegisterResourceCommandInput
   | RemoveLFTagsFromResourceCommandInput
   | RevokePermissionsCommandInput
   | SearchDatabasesByLFTagsCommandInput
   | SearchTablesByLFTagsCommandInput
+  | StartQueryPlanningCommandInput
+  | StartTransactionCommandInput
   | UpdateLFTagCommandInput
-  | UpdateResourceCommandInput;
+  | UpdateResourceCommandInput
+  | UpdateTableObjectsCommandInput
+  | UpdateTableStorageOptimizerCommandInput;
 
 export type ServiceOutputTypes =
   | AddLFTagsToResourceCommandOutput
   | BatchGrantPermissionsCommandOutput
   | BatchRevokePermissionsCommandOutput
+  | CancelTransactionCommandOutput
+  | CommitTransactionCommandOutput
+  | CreateDataCellsFilterCommandOutput
   | CreateLFTagCommandOutput
+  | DeleteDataCellsFilterCommandOutput
   | DeleteLFTagCommandOutput
+  | DeleteObjectsOnCancelCommandOutput
   | DeregisterResourceCommandOutput
   | DescribeResourceCommandOutput
+  | DescribeTransactionCommandOutput
+  | ExtendTransactionCommandOutput
   | GetDataLakeSettingsCommandOutput
   | GetEffectivePermissionsForPathCommandOutput
   | GetLFTagCommandOutput
+  | GetQueryStateCommandOutput
+  | GetQueryStatisticsCommandOutput
   | GetResourceLFTagsCommandOutput
+  | GetTableObjectsCommandOutput
+  | GetWorkUnitResultsCommandOutput
+  | GetWorkUnitsCommandOutput
   | GrantPermissionsCommandOutput
+  | ListDataCellsFilterCommandOutput
   | ListLFTagsCommandOutput
   | ListPermissionsCommandOutput
   | ListResourcesCommandOutput
+  | ListTableStorageOptimizersCommandOutput
+  | ListTransactionsCommandOutput
   | PutDataLakeSettingsCommandOutput
   | RegisterResourceCommandOutput
   | RemoveLFTagsFromResourceCommandOutput
   | RevokePermissionsCommandOutput
   | SearchDatabasesByLFTagsCommandOutput
   | SearchTablesByLFTagsCommandOutput
+  | StartQueryPlanningCommandOutput
+  | StartTransactionCommandOutput
   | UpdateLFTagCommandOutput
-  | UpdateResourceCommandOutput;
+  | UpdateResourceCommandOutput
+  | UpdateTableObjectsCommandOutput
+  | UpdateTableStorageOptimizerCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -300,8 +378,8 @@ type LakeFormationClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
 export interface LakeFormationClientResolvedConfig extends LakeFormationClientResolvedConfigType {}
 
 /**
- * <fullname>AWS Lake Formation</fullname>
- *          <p>Defines the public endpoint for the AWS Lake Formation service.</p>
+ * <fullname>Lake Formation</fullname>
+ *          <p>Defines the public endpoint for the Lake Formation service.</p>
  */
 export class LakeFormationClient extends __Client<
   __HttpHandlerOptions,

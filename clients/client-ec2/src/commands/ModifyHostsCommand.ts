@@ -12,7 +12,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyHostsRequest, ModifyHostsResult } from "../models/models_4";
+import { ModifyHostsRequest } from "../models/models_4";
+import { ModifyHostsResult } from "../models/models_5";
 import { deserializeAws_ec2ModifyHostsCommand, serializeAws_ec2ModifyHostsCommand } from "../protocols/Aws_ec2";
 
 export interface ModifyHostsCommandInput extends ModifyHostsRequest {}

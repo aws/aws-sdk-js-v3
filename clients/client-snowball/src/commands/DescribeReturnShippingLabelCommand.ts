@@ -22,7 +22,7 @@ export interface DescribeReturnShippingLabelCommandInput extends DescribeReturnS
 export interface DescribeReturnShippingLabelCommandOutput extends DescribeReturnShippingLabelResult, __MetadataBearer {}
 
 /**
- * <p>Information on the shipping label of a Snow device that is being returned to AWS.</p>
+ * <p>Information on the shipping label of a Snow device that is being returned to Amazon Web Services.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

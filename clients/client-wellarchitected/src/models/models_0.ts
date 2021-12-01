@@ -70,6 +70,30 @@ export namespace ChoiceAnswer {
 }
 
 /**
+ * <p>The choice content.</p>
+ */
+export interface ChoiceContent {
+  /**
+   * <p>The display text for the choice content.</p>
+   */
+  DisplayText?: string;
+
+  /**
+   * <p>The URL for the choice content.</p>
+   */
+  Url?: string;
+}
+
+export namespace ChoiceContent {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChoiceContent): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>A choice available to answer question.</p>
  */
 export interface Choice {
@@ -87,6 +111,16 @@ export interface Choice {
    * <p>The description of a choice.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The choice level helpful resource.</p>
+   */
+  HelpfulResource?: ChoiceContent;
+
+  /**
+   * <p>The choice level improvement plan.</p>
+   */
+  ImprovementPlan?: ChoiceContent;
 }
 
 export namespace Choice {
@@ -149,6 +183,11 @@ export interface Answer {
    * <p>The helpful resource URL for a question.</p>
    */
   HelpfulResourceUrl?: string;
+
+  /**
+   * <p>The helpful resource text to be displayed.</p>
+   */
+  HelpfulResourceDisplayText?: string;
 
   /**
    * <p>List of choices available for a question.</p>
@@ -291,12 +330,12 @@ export namespace AnswerSummary {
  */
 export interface AssociateLensesInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>List of lens aliases to associate or disassociate with a workload.</p>
+   * <p>List of lens aliases to associate or disassociate with a workload. Up to 10 lenses can be specified.</p>
    *         <p>Identify a lens using its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAliases: string[] | undefined;
@@ -343,7 +382,7 @@ export namespace ConflictException {
 }
 
 /**
- * <p>There is a problem with the AWS Well-Architected Tool API service.</p>
+ * <p>There is a problem with the Well-Architected Tool API service.</p>
  */
 export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
@@ -488,6 +527,36 @@ export namespace ValidationException {
 }
 
 /**
+ * <p>The choice level improvement plan.</p>
+ */
+export interface ChoiceImprovementPlan {
+  /**
+   * <p>The ID of a choice.</p>
+   */
+  ChoiceId?: string;
+
+  /**
+   * <p>The display text for the improvement plan.</p>
+   */
+  DisplayText?: string;
+
+  /**
+   * <p>The improvement plan URL for a question.</p>
+   *         <p>This value is only available if the question has been answered.</p>
+   */
+  ImprovementPlanUrl?: string;
+}
+
+export namespace ChoiceImprovementPlan {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChoiceImprovementPlan): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>A list of choices to be updated.</p>
  */
 export interface ChoiceUpdate {
@@ -516,20 +585,17 @@ export namespace ChoiceUpdate {
   });
 }
 
-/**
- * <p>Input for milestone creation.</p>
- */
-export interface CreateMilestoneInput {
+export interface CreateLensShareInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
-  WorkloadId: string | undefined;
+  LensAlias: string | undefined;
 
   /**
-   * <p>The name of the milestone in a workload.</p>
-   *         <p>Milestone names must be unique within a workload.</p>
+   * <p>The Amazon Web Services account ID or IAM role with which the workload is shared.</p>
    */
-  MilestoneName: string | undefined;
+  SharedWith: string | undefined;
 
   /**
    * <p>A unique case-sensitive string used to ensure that this request is idempotent
@@ -538,44 +604,35 @@ export interface CreateMilestoneInput {
    *             the same client request token and the same parameters after it has completed
    *             successfully, the result of the original request is returned. </p>
    *         <important>
-   *             <p>This token is listed as required, however, if you do not specify it, the AWS SDKs
-   *                 automatically generate one for you. If you are not using the AWS SDK or the AWS CLI,
+   *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
+   *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
    *                 you must provide this token or the request will fail.</p>
    *         </important>
    */
   ClientRequestToken?: string;
 }
 
-export namespace CreateMilestoneInput {
+export namespace CreateLensShareInput {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CreateMilestoneInput): any => ({
+  export const filterSensitiveLog = (obj: CreateLensShareInput): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>Output of a create milestone call.</p>
- */
-export interface CreateMilestoneOutput {
+export interface CreateLensShareOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID associated with the workload share.</p>
    */
-  WorkloadId?: string;
-
-  /**
-   * <p>The milestone number.</p>
-   *         <p>A workload can have a maximum of 100 milestones.</p>
-   */
-  MilestoneNumber?: number;
+  ShareId?: string;
 }
 
-export namespace CreateMilestoneOutput {
+export namespace CreateLensShareOutput {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CreateMilestoneOutput): any => ({
+  export const filterSensitiveLog = (obj: CreateLensShareOutput): any => ({
     ...obj,
   });
 }
@@ -621,6 +678,132 @@ export namespace ServiceQuotaExceededException {
   });
 }
 
+export interface CreateLensVersionInput {
+  /**
+   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   */
+  LensAlias: string | undefined;
+
+  /**
+   * <p>The version of the lens being created.</p>
+   */
+  LensVersion: string | undefined;
+
+  /**
+   * <p>Set to true if this new major lens version.</p>
+   */
+  IsMajorVersion?: boolean;
+
+  /**
+   * <p>A unique case-sensitive string used to ensure that this request is idempotent
+   *             (executes only once).</p>
+   *         <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after it has completed
+   *             successfully, the result of the original request is returned. </p>
+   *         <important>
+   *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
+   *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
+   *                 you must provide this token or the request will fail.</p>
+   *         </important>
+   */
+  ClientRequestToken?: string;
+}
+
+export namespace CreateLensVersionInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLensVersionInput): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateLensVersionOutput {
+  /**
+   * <p>The ARN for the lens.</p>
+   */
+  LensArn?: string;
+
+  /**
+   * <p>The version of the lens.</p>
+   */
+  LensVersion?: string;
+}
+
+export namespace CreateLensVersionOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLensVersionOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Input for milestone creation.</p>
+ */
+export interface CreateMilestoneInput {
+  /**
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   */
+  WorkloadId: string | undefined;
+
+  /**
+   * <p>The name of the milestone in a workload.</p>
+   *         <p>Milestone names must be unique within a workload.</p>
+   */
+  MilestoneName: string | undefined;
+
+  /**
+   * <p>A unique case-sensitive string used to ensure that this request is idempotent
+   *             (executes only once).</p>
+   *         <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after it has completed
+   *             successfully, the result of the original request is returned. </p>
+   *         <important>
+   *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
+   *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
+   *                 you must provide this token or the request will fail.</p>
+   *         </important>
+   */
+  ClientRequestToken?: string;
+}
+
+export namespace CreateMilestoneInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateMilestoneInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Output of a create milestone call.</p>
+ */
+export interface CreateMilestoneOutput {
+  /**
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   */
+  WorkloadId?: string;
+
+  /**
+   * <p>The milestone number.</p>
+   *         <p>A workload can have a maximum of 100 milestones.</p>
+   */
+  MilestoneNumber?: number;
+}
+
+export namespace CreateMilestoneOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateMilestoneOutput): any => ({
+    ...obj,
+  });
+}
+
 export enum WorkloadEnvironment {
   PREPRODUCTION = "PREPRODUCTION",
   PRODUCTION = "PRODUCTION",
@@ -632,7 +815,7 @@ export enum WorkloadEnvironment {
 export interface CreateWorkloadInput {
   /**
    * <p>The name of the workload.</p>
-   *         <p>The name must be unique within an account within a Region. Spaces and capitalization
+   *         <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
    *             are ignored when checking for uniqueness.</p>
    */
   WorkloadName: string | undefined;
@@ -648,18 +831,18 @@ export interface CreateWorkloadInput {
   Environment: WorkloadEnvironment | string | undefined;
 
   /**
-   * <p>The list of AWS account IDs associated with the workload.</p>
+   * <p>The list of Amazon Web Services account IDs associated with the workload.</p>
    */
   AccountIds?: string[];
 
   /**
-   * <p>The list of AWS Regions associated with the workload, for example,
+   * <p>The list of Amazon Web Services Regions associated with the workload, for example,
    *                 <code>us-east-2</code>, or <code>ca-central-1</code>.</p>
    */
   AwsRegions?: string[];
 
   /**
-   * <p> The list of non-AWS Regions associated with the workload.</p>
+   * <p> The list of non-Amazon Web Services Regions associated with the workload.</p>
    */
   NonAwsRegions?: string[];
 
@@ -845,8 +1028,8 @@ export interface CreateWorkloadInput {
    *             the same client request token and the same parameters after it has completed
    *             successfully, the result of the original request is returned. </p>
    *         <important>
-   *             <p>This token is listed as required, however, if you do not specify it, the AWS SDKs
-   *                 automatically generate one for you. If you are not using the AWS SDK or the AWS CLI,
+   *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
+   *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
    *                 you must provide this token or the request will fail.</p>
    *         </important>
    */
@@ -872,7 +1055,7 @@ export namespace CreateWorkloadInput {
  */
 export interface CreateWorkloadOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
 
@@ -901,12 +1084,12 @@ export enum PermissionType {
  */
 export interface CreateWorkloadShareInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The AWS account ID or IAM role with which the workload is shared.</p>
+   * <p>The Amazon Web Services account ID or IAM role with which the workload is shared.</p>
    */
   SharedWith: string | undefined;
 
@@ -922,8 +1105,8 @@ export interface CreateWorkloadShareInput {
    *             the same client request token and the same parameters after it has completed
    *             successfully, the result of the original request is returned. </p>
    *         <important>
-   *             <p>This token is listed as required, however, if you do not specify it, the AWS SDKs
-   *                 automatically generate one for you. If you are not using the AWS SDK or the AWS CLI,
+   *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
+   *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
    *                 you must provide this token or the request will fail.</p>
    *         </important>
    */
@@ -944,7 +1127,7 @@ export namespace CreateWorkloadShareInput {
  */
 export interface CreateWorkloadShareOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
 
@@ -963,12 +1146,90 @@ export namespace CreateWorkloadShareOutput {
   });
 }
 
+export enum LensStatusType {
+  ALL = "ALL",
+  DRAFT = "DRAFT",
+  PUBLISHED = "PUBLISHED",
+}
+
+export interface DeleteLensInput {
+  /**
+   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   */
+  LensAlias: string | undefined;
+
+  /**
+   * <p>A unique case-sensitive string used to ensure that this request is idempotent
+   *             (executes only once).</p>
+   *         <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after it has completed
+   *             successfully, the result of the original request is returned. </p>
+   *         <important>
+   *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
+   *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
+   *                 you must provide this token or the request will fail.</p>
+   *         </important>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The status of the lens to be deleted.</p>
+   */
+  LensStatus: LensStatusType | string | undefined;
+}
+
+export namespace DeleteLensInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteLensInput): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteLensShareInput {
+  /**
+   * <p>The ID associated with the workload share.</p>
+   */
+  ShareId: string | undefined;
+
+  /**
+   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   */
+  LensAlias: string | undefined;
+
+  /**
+   * <p>A unique case-sensitive string used to ensure that this request is idempotent
+   *             (executes only once).</p>
+   *         <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after it has completed
+   *             successfully, the result of the original request is returned. </p>
+   *         <important>
+   *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
+   *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
+   *                 you must provide this token or the request will fail.</p>
+   *         </important>
+   */
+  ClientRequestToken?: string;
+}
+
+export namespace DeleteLensShareInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteLensShareInput): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Input for workload deletion.</p>
  */
 export interface DeleteWorkloadInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 
@@ -979,8 +1240,8 @@ export interface DeleteWorkloadInput {
    *             the same client request token and the same parameters after it has completed
    *             successfully, the result of the original request is returned. </p>
    *         <important>
-   *             <p>This token is listed as required, however, if you do not specify it, the AWS SDKs
-   *                 automatically generate one for you. If you are not using the AWS SDK or the AWS CLI,
+   *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
+   *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
    *                 you must provide this token or the request will fail.</p>
    *         </important>
    */
@@ -1006,7 +1267,7 @@ export interface DeleteWorkloadShareInput {
   ShareId: string | undefined;
 
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 
@@ -1017,8 +1278,8 @@ export interface DeleteWorkloadShareInput {
    *             the same client request token and the same parameters after it has completed
    *             successfully, the result of the original request is returned. </p>
    *         <important>
-   *             <p>This token is listed as required, however, if you do not specify it, the AWS SDKs
-   *                 automatically generate one for you. If you are not using the AWS SDK or the AWS CLI,
+   *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
+   *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
    *                 you must provide this token or the request will fail.</p>
    *         </important>
    */
@@ -1045,12 +1306,12 @@ export enum DifferenceStatus {
  */
 export interface DisassociateLensesInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>List of lens aliases to associate or disassociate with a workload.</p>
+   * <p>List of lens aliases to associate or disassociate with a workload. Up to 10 lenses can be specified.</p>
    *         <p>Identify a lens using its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAliases: string[] | undefined;
@@ -1065,12 +1326,50 @@ export namespace DisassociateLensesInput {
   });
 }
 
+export interface ExportLensInput {
+  /**
+   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   */
+  LensAlias: string | undefined;
+
+  /**
+   * <p>The lens version to be exported.</p>
+   */
+  LensVersion?: string;
+}
+
+export namespace ExportLensInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExportLensInput): any => ({
+    ...obj,
+  });
+}
+
+export interface ExportLensOutput {
+  /**
+   * <p>The JSON for the lens.</p>
+   */
+  LensJSON?: string;
+}
+
+export namespace ExportLensOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExportLensOutput): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Input to get answer.</p>
  */
 export interface GetAnswerInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 
@@ -1106,7 +1405,7 @@ export namespace GetAnswerInput {
  */
 export interface GetAnswerOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
 
@@ -1123,6 +1422,11 @@ export interface GetAnswerOutput {
   LensAlias?: string;
 
   /**
+   * <p>The ARN for the lens.</p>
+   */
+  LensArn?: string;
+
+  /**
    * <p>An answer of the question.</p>
    */
   Answer?: Answer;
@@ -1137,12 +1441,94 @@ export namespace GetAnswerOutput {
   });
 }
 
+export interface GetLensInput {
+  /**
+   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   */
+  LensAlias: string | undefined;
+
+  /**
+   * <p>The lens version to be retrieved.</p>
+   */
+  LensVersion?: string;
+}
+
+export namespace GetLensInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetLensInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A lens return object.</p>
+ */
+export interface Lens {
+  /**
+   * <p>The ARN of a lens.</p>
+   */
+  LensArn?: string;
+
+  /**
+   * <p>The version of a lens.</p>
+   */
+  LensVersion?: string;
+
+  /**
+   * <p>The full name of the lens.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the lens.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the lens.</p>
+   */
+  Owner?: string;
+
+  /**
+   * <p>The ID assigned to the share invitation.</p>
+   */
+  ShareInvitationId?: string;
+}
+
+export namespace Lens {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Lens): any => ({
+    ...obj,
+  });
+}
+
+export interface GetLensOutput {
+  /**
+   * <p>A lens return object.</p>
+   */
+  Lens?: Lens;
+}
+
+export namespace GetLensOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetLensOutput): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Input to get lens review.</p>
  */
 export interface GetLensReviewInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 
@@ -1170,8 +1556,10 @@ export namespace GetLensReviewInput {
 
 export enum LensStatus {
   CURRENT = "CURRENT",
+  DELETED = "DELETED",
   DEPRECATED = "DEPRECATED",
   NOT_CURRENT = "NOT_CURRENT",
+  UNSHARED = "UNSHARED",
 }
 
 /**
@@ -1218,6 +1606,11 @@ export interface LensReview {
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
+
+  /**
+   * <p>The ARN for the lens.</p>
+   */
+  LensArn?: string;
 
   /**
    * <p>The version of the lens.</p>
@@ -1274,7 +1667,7 @@ export namespace LensReview {
  */
 export interface GetLensReviewOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
 
@@ -1304,7 +1697,7 @@ export namespace GetLensReviewOutput {
  */
 export interface GetLensReviewReportInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 
@@ -1341,6 +1734,11 @@ export interface LensReviewReport {
   LensAlias?: string;
 
   /**
+   * <p>The ARN for the lens.</p>
+   */
+  LensArn?: string;
+
+  /**
    * <p>The Base64-encoded string representation of a lens review report.</p>
    *         <p>This data can be used to create a PDF file.</p>
    */
@@ -1361,7 +1759,7 @@ export namespace LensReviewReport {
  */
 export interface GetLensReviewReportOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
 
@@ -1396,7 +1794,12 @@ export interface GetLensVersionDifferenceInput {
   /**
    * <p>The base version of the lens.</p>
    */
-  BaseLensVersion: string | undefined;
+  BaseLensVersion?: string;
+
+  /**
+   * <p>The lens version to target a difference for.</p>
+   */
+  TargetLensVersion?: string;
 }
 
 export namespace GetLensVersionDifferenceInput {
@@ -1448,6 +1851,11 @@ export interface PillarDifference {
   PillarId?: string;
 
   /**
+   * <p>The name of the pillar.</p>
+   */
+  PillarName?: string;
+
+  /**
    * <p>Indicates the type of change to the pillar.</p>
    */
   DifferenceStatus?: DifferenceStatus | string;
@@ -1494,9 +1902,19 @@ export interface GetLensVersionDifferenceOutput {
   LensAlias?: string;
 
   /**
+   * <p>The ARN for the lens.</p>
+   */
+  LensArn?: string;
+
+  /**
    * <p>The base version of the lens.</p>
    */
   BaseLensVersion?: string;
+
+  /**
+   * <p>The target lens version for the lens.</p>
+   */
+  TargetLensVersion?: string;
 
   /**
    * <p>The latest version of the lens.</p>
@@ -1523,7 +1941,7 @@ export namespace GetLensVersionDifferenceOutput {
  */
 export interface GetMilestoneInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 
@@ -1556,7 +1974,7 @@ export enum WorkloadImprovementStatus {
  */
 export interface Workload {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
 
@@ -1567,7 +1985,7 @@ export interface Workload {
 
   /**
    * <p>The name of the workload.</p>
-   *         <p>The name must be unique within an account within a Region. Spaces and capitalization
+   *         <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
    *             are ignored when checking for uniqueness.</p>
    */
   WorkloadName?: string;
@@ -1588,18 +2006,18 @@ export interface Workload {
   UpdatedAt?: Date;
 
   /**
-   * <p>The list of AWS account IDs associated with the workload.</p>
+   * <p>The list of Amazon Web Services account IDs associated with the workload.</p>
    */
   AccountIds?: string[];
 
   /**
-   * <p>The list of AWS Regions associated with the workload, for example,
+   * <p>The list of Amazon Web Services Regions associated with the workload, for example,
    *                 <code>us-east-2</code>, or <code>ca-central-1</code>.</p>
    */
   AwsRegions?: string[];
 
   /**
-   * <p> The list of non-AWS Regions associated with the workload.</p>
+   * <p> The list of non-Amazon Web Services Regions associated with the workload.</p>
    */
   NonAwsRegions?: string[];
 
@@ -1803,7 +2221,7 @@ export interface Workload {
   Lenses?: string[];
 
   /**
-   * <p>An AWS account ID.</p>
+   * <p>An Amazon Web Services account ID.</p>
    */
   Owner?: string;
 
@@ -1868,7 +2286,7 @@ export namespace Milestone {
  */
 export interface GetMilestoneOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
 
@@ -1892,7 +2310,7 @@ export namespace GetMilestoneOutput {
  */
 export interface GetWorkloadInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 }
@@ -1921,6 +2339,74 @@ export namespace GetWorkloadOutput {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetWorkloadOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface ImportLensInput {
+  /**
+   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   */
+  LensAlias?: string;
+
+  /**
+   * <p>The JSON representation of a lens.</p>
+   */
+  JSONString: string | undefined;
+
+  /**
+   * <p>A unique case-sensitive string used to ensure that this request is idempotent
+   *             (executes only once).</p>
+   *         <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after it has completed
+   *             successfully, the result of the original request is returned. </p>
+   *         <important>
+   *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
+   *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
+   *                 you must provide this token or the request will fail.</p>
+   *         </important>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>Tags to associate to a lens.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace ImportLensInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportLensInput): any => ({
+    ...obj,
+  });
+}
+
+export enum ImportLensStatus {
+  COMPLETE = "COMPLETE",
+  ERROR = "ERROR",
+  IN_PROGRESS = "IN_PROGRESS",
+}
+
+export interface ImportLensOutput {
+  /**
+   * <p>The ARN for the lens.</p>
+   */
+  LensArn?: string;
+
+  /**
+   * <p>The status of the imported lens.</p>
+   */
+  Status?: ImportLensStatus | string;
+}
+
+export namespace ImportLensOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportLensOutput): any => ({
     ...obj,
   });
 }
@@ -1955,6 +2441,11 @@ export interface ImprovementSummary {
    *         <p>This value is only available if the question has been answered.</p>
    */
   ImprovementPlanUrl?: string;
+
+  /**
+   * <p>The improvement plan details.</p>
+   */
+  ImprovementPlans?: ChoiceImprovementPlan[];
 }
 
 export namespace ImprovementSummary {
@@ -1975,6 +2466,11 @@ export interface LensReviewSummary {
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
+
+  /**
+   * <p>The ARN for the lens.</p>
+   */
+  LensArn?: string;
 
   /**
    * <p>The version of the lens.</p>
@@ -2011,10 +2507,58 @@ export namespace LensReviewSummary {
   });
 }
 
+export enum ShareStatus {
+  ACCEPTED = "ACCEPTED",
+  EXPIRED = "EXPIRED",
+  PENDING = "PENDING",
+  REJECTED = "REJECTED",
+  REVOKED = "REVOKED",
+}
+
+/**
+ * <p>A lens share summary return object.</p>
+ */
+export interface LensShareSummary {
+  /**
+   * <p>The ID associated with the workload share.</p>
+   */
+  ShareId?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID or IAM role with which the workload is shared.</p>
+   */
+  SharedWith?: string;
+
+  /**
+   * <p>The status of a workload share.</p>
+   */
+  Status?: ShareStatus | string;
+}
+
+export namespace LensShareSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LensShareSummary): any => ({
+    ...obj,
+  });
+}
+
+export enum LensType {
+  AWS_OFFICIAL = "AWS_OFFICIAL",
+  CUSTOM_SELF = "CUSTOM_SELF",
+  CUSTOM_SHARED = "CUSTOM_SHARED",
+}
+
 /**
  * <p>A lens summary of a lens.</p>
  */
 export interface LensSummary {
+  /**
+   * <p>The ARN of the lens.</p>
+   */
+  LensArn?: string;
+
   /**
    * <p>The alias of the lens, for example, <code>serverless</code>.</p>
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
@@ -2022,19 +2566,44 @@ export interface LensSummary {
   LensAlias?: string;
 
   /**
-   * <p>The version of the lens.</p>
-   */
-  LensVersion?: string;
-
-  /**
    * <p>The full name of the lens.</p>
    */
   LensName?: string;
 
   /**
+   * <p>The type of the lens.</p>
+   */
+  LensType?: LensType | string;
+
+  /**
    * <p>The description of the lens.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The date and time recorded.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The date and time recorded.</p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * <p>The version of the lens.</p>
+   */
+  LensVersion?: string;
+
+  /**
+   * <p>An Amazon Web Services account ID.</p>
+   */
+  Owner?: string;
+
+  /**
+   * <p>The status of the lens.</p>
+   */
+  LensStatus?: LensStatus | string;
 }
 
 export namespace LensSummary {
@@ -2051,13 +2620,13 @@ export namespace LensSummary {
  */
 export interface LensUpgradeSummary {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
 
   /**
    * <p>The name of the workload.</p>
-   *         <p>The name must be unique within an account within a Region. Spaces and capitalization
+   *         <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
    *             are ignored when checking for uniqueness.</p>
    */
   WorkloadName?: string;
@@ -2067,6 +2636,11 @@ export interface LensUpgradeSummary {
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
+
+  /**
+   * <p>The ARN for the lens.</p>
+   */
+  LensArn?: string;
 
   /**
    * <p>The current version of the lens.</p>
@@ -2093,7 +2667,7 @@ export namespace LensUpgradeSummary {
  */
 export interface ListAnswersInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 
@@ -2140,7 +2714,7 @@ export namespace ListAnswersInput {
  */
 export interface ListAnswersOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
 
@@ -2155,6 +2729,11 @@ export interface ListAnswersOutput {
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
+
+  /**
+   * <p>The ARN for the lens.</p>
+   */
+  LensArn?: string;
 
   /**
    * <p>List of answer summaries of lens review in a workload.</p>
@@ -2189,6 +2768,21 @@ export interface ListLensesInput {
    * <p>The maximum number of results to return for this request.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The type of lenses to be returned.</p>
+   */
+  LensType?: LensType | string;
+
+  /**
+   * <p>The status of lenses to be returned.</p>
+   */
+  LensStatus?: LensStatusType | string;
+
+  /**
+   * <p>The full name of the lens.</p>
+   */
+  LensName?: string;
 }
 
 export namespace ListLensesInput {
@@ -2229,7 +2823,7 @@ export namespace ListLensesOutput {
  */
 export interface ListLensReviewImprovementsInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 
@@ -2276,7 +2870,7 @@ export namespace ListLensReviewImprovementsInput {
  */
 export interface ListLensReviewImprovementsOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
 
@@ -2291,6 +2885,11 @@ export interface ListLensReviewImprovementsOutput {
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
+
+  /**
+   * <p>The ARN for the lens.</p>
+   */
+  LensArn?: string;
 
   /**
    * <p>List of improvement summaries of lens review in a workload.</p>
@@ -2317,7 +2916,7 @@ export namespace ListLensReviewImprovementsOutput {
  */
 export interface ListLensReviewsInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 
@@ -2352,7 +2951,7 @@ export namespace ListLensReviewsInput {
  */
 export interface ListLensReviewsOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
 
@@ -2382,12 +2981,65 @@ export namespace ListLensReviewsOutput {
   });
 }
 
+export interface ListLensSharesInput {
+  /**
+   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   */
+  LensAlias: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID or IAM role with which the lens is shared.</p>
+   */
+  SharedWithPrefix?: string;
+
+  /**
+   * <p>The token to use to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for this request.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListLensSharesInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLensSharesInput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListLensSharesOutput {
+  /**
+   * <p>A list of lens share summaries.</p>
+   */
+  LensShareSummaries?: LensShareSummary[];
+
+  /**
+   * <p>The token to use to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListLensSharesOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLensSharesOutput): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Input to list all milestones for a workload.</p>
  */
 export interface ListMilestonesInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 
@@ -2416,7 +3068,7 @@ export namespace ListMilestonesInput {
  */
 export interface WorkloadSummary {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
 
@@ -2427,13 +3079,13 @@ export interface WorkloadSummary {
 
   /**
    * <p>The name of the workload.</p>
-   *         <p>The name must be unique within an account within a Region. Spaces and capitalization
+   *         <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
    *             are ignored when checking for uniqueness.</p>
    */
   WorkloadName?: string;
 
   /**
-   * <p>An AWS account ID.</p>
+   * <p>An Amazon Web Services account ID.</p>
    */
   Owner?: string;
 
@@ -2508,7 +3160,7 @@ export namespace MilestoneSummary {
  */
 export interface ListMilestonesOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
 
@@ -2534,7 +3186,7 @@ export namespace ListMilestonesOutput {
 
 export interface ListNotificationsInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
 
@@ -2608,6 +3260,11 @@ export namespace ListNotificationsOutput {
   });
 }
 
+export enum ShareResourceType {
+  LENS = "LENS",
+  WORKLOAD = "WORKLOAD",
+}
+
 /**
  * <p>Input for List Share Invitations</p>
  */
@@ -2617,6 +3274,16 @@ export interface ListShareInvitationsInput {
    *             results.</p>
    */
   WorkloadNamePrefix?: string;
+
+  /**
+   * <p>An optional string added to the beginning of each lens name returned in the results.</p>
+   */
+  LensNamePrefix?: string;
+
+  /**
+   * <p>The type of share invitations to be returned.</p>
+   */
+  ShareResourceType?: ShareResourceType | string;
 
   /**
    * <p>The token to use to retrieve the next set of results.</p>
@@ -2648,12 +3315,12 @@ export interface ShareInvitationSummary {
   ShareInvitationId?: string;
 
   /**
-   * <p>An AWS account ID.</p>
+   * <p>An Amazon Web Services account ID.</p>
    */
   SharedBy?: string;
 
   /**
-   * <p>The AWS account ID or IAM role with which the workload is shared.</p>
+   * <p>The Amazon Web Services account ID or IAM role with which the workload is shared.</p>
    */
   SharedWith?: string;
 
@@ -2663,16 +3330,31 @@ export interface ShareInvitationSummary {
   PermissionType?: PermissionType | string;
 
   /**
+   * <p>The resource type of the share invitation.</p>
+   */
+  ShareResourceType?: ShareResourceType | string;
+
+  /**
    * <p>The name of the workload.</p>
-   *         <p>The name must be unique within an account within a Region. Spaces and capitalization
+   *         <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
    *             are ignored when checking for uniqueness.</p>
    */
   WorkloadName?: string;
 
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
+
+  /**
+   * <p>The full name of the lens.</p>
+   */
+  LensName?: string;
+
+  /**
+   * <p>The ARN for the lens.</p>
+   */
+  LensArn?: string;
 }
 
 export namespace ShareInvitationSummary {
@@ -2799,12 +3481,12 @@ export namespace ListWorkloadsOutput {
  */
 export interface ListWorkloadSharesInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The AWS account ID or IAM role with which the workload is shared.</p>
+   * <p>The Amazon Web Services account ID or IAM role with which the workload is shared.</p>
    */
   SharedWithPrefix?: string;
 
@@ -2828,14 +3510,6 @@ export namespace ListWorkloadSharesInput {
   });
 }
 
-export enum ShareStatus {
-  ACCEPTED = "ACCEPTED",
-  EXPIRED = "EXPIRED",
-  PENDING = "PENDING",
-  REJECTED = "REJECTED",
-  REVOKED = "REVOKED",
-}
-
 /**
  * <p>A workload share summary return object.</p>
  */
@@ -2846,7 +3520,7 @@ export interface WorkloadShareSummary {
   ShareId?: string;
 
   /**
-   * <p>The AWS account ID or IAM role with which the workload is shared.</p>
+   * <p>The Amazon Web Services account ID or IAM role with which the workload is shared.</p>
    */
   SharedWith?: string;
 
@@ -2875,7 +3549,7 @@ export namespace WorkloadShareSummary {
  */
 export interface ListWorkloadSharesOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
 
@@ -2909,9 +3583,25 @@ export interface ShareInvitation {
   ShareInvitationId?: string;
 
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The resource type of the share invitation.</p>
+   */
+  ShareResourceType?: ShareResourceType | string;
+
+  /**
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
+
+  /**
+   * <p>The alias of the lens, for example, <code>serverless</code>.</p>
+   *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   */
+  LensAlias?: string;
+
+  /**
+   * <p>The ARN for the lens.</p>
+   */
+  LensArn?: string;
 }
 
 export namespace ShareInvitation {
@@ -2998,7 +3688,7 @@ export namespace UntagResourceOutput {
  */
 export interface UpdateAnswerInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 
@@ -3055,7 +3745,7 @@ export namespace UpdateAnswerInput {
  */
 export interface UpdateAnswerOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
 
@@ -3064,6 +3754,11 @@ export interface UpdateAnswerOutput {
    *         <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias?: string;
+
+  /**
+   * <p>The ARN for the lens.</p>
+   */
+  LensArn?: string;
 
   /**
    * <p>An answer of the question.</p>
@@ -3085,7 +3780,7 @@ export namespace UpdateAnswerOutput {
  */
 export interface UpdateLensReviewInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 
@@ -3120,7 +3815,7 @@ export namespace UpdateLensReviewInput {
  */
 export interface UpdateLensReviewOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
 
@@ -3184,13 +3879,13 @@ export namespace UpdateShareInvitationOutput {
  */
 export interface UpdateWorkloadInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 
   /**
    * <p>The name of the workload.</p>
-   *         <p>The name must be unique within an account within a Region. Spaces and capitalization
+   *         <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
    *             are ignored when checking for uniqueness.</p>
    */
   WorkloadName?: string;
@@ -3206,18 +3901,18 @@ export interface UpdateWorkloadInput {
   Environment?: WorkloadEnvironment | string;
 
   /**
-   * <p>The list of AWS account IDs associated with the workload.</p>
+   * <p>The list of Amazon Web Services account IDs associated with the workload.</p>
    */
   AccountIds?: string[];
 
   /**
-   * <p>The list of AWS Regions associated with the workload, for example,
+   * <p>The list of Amazon Web Services Regions associated with the workload, for example,
    *                 <code>us-east-2</code>, or <code>ca-central-1</code>.</p>
    */
   AwsRegions?: string[];
 
   /**
-   * <p> The list of non-AWS Regions associated with the workload.</p>
+   * <p> The list of non-Amazon Web Services Regions associated with the workload.</p>
    */
   NonAwsRegions?: string[];
 
@@ -3444,7 +4139,7 @@ export interface UpdateWorkloadShareInput {
   ShareId: string | undefined;
 
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 
@@ -3473,12 +4168,12 @@ export interface WorkloadShare {
   ShareId?: string;
 
   /**
-   * <p>An AWS account ID.</p>
+   * <p>An Amazon Web Services account ID.</p>
    */
   SharedBy?: string;
 
   /**
-   * <p>The AWS account ID or IAM role with which the workload is shared.</p>
+   * <p>The Amazon Web Services account ID or IAM role with which the workload is shared.</p>
    */
   SharedWith?: string;
 
@@ -3494,13 +4189,13 @@ export interface WorkloadShare {
 
   /**
    * <p>The name of the workload.</p>
-   *         <p>The name must be unique within an account within a Region. Spaces and capitalization
+   *         <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
    *             are ignored when checking for uniqueness.</p>
    */
   WorkloadName?: string;
 
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
 }
@@ -3519,7 +4214,7 @@ export namespace WorkloadShare {
  */
 export interface UpdateWorkloadShareOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId?: string;
 
@@ -3540,7 +4235,7 @@ export namespace UpdateWorkloadShareOutput {
 
 export interface UpgradeLensReviewInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an AWS Region.</p>
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
    */
   WorkloadId: string | undefined;
 
@@ -3563,8 +4258,8 @@ export interface UpgradeLensReviewInput {
    *             the same client request token and the same parameters after it has completed
    *             successfully, the result of the original request is returned. </p>
    *         <important>
-   *             <p>This token is listed as required, however, if you do not specify it, the AWS SDKs
-   *                 automatically generate one for you. If you are not using the AWS SDK or the AWS CLI,
+   *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
+   *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
    *                 you must provide this token or the request will fail.</p>
    *         </important>
    */

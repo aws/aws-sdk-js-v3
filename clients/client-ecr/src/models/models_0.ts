@@ -404,6 +404,168 @@ export namespace BatchGetImageResponse {
   });
 }
 
+export interface BatchGetRepositoryScanningConfigurationRequest {
+  /**
+   * <p>One or more repository names to get the scanning configuration for.</p>
+   */
+  repositoryNames: string[] | undefined;
+}
+
+export namespace BatchGetRepositoryScanningConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetRepositoryScanningConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ScanningConfigurationFailureCode {
+  REPOSITORY_NOT_FOUND = "REPOSITORY_NOT_FOUND",
+}
+
+/**
+ * <p>The details about any failures associated with the scanning configuration of a
+ *             repository.</p>
+ */
+export interface RepositoryScanningConfigurationFailure {
+  /**
+   * <p>The name of the repository.</p>
+   */
+  repositoryName?: string;
+
+  /**
+   * <p>The failure code.</p>
+   */
+  failureCode?: ScanningConfigurationFailureCode | string;
+
+  /**
+   * <p>The reason for the failure.</p>
+   */
+  failureReason?: string;
+}
+
+export namespace RepositoryScanningConfigurationFailure {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RepositoryScanningConfigurationFailure): any => ({
+    ...obj,
+  });
+}
+
+export enum ScanningRepositoryFilterType {
+  WILDCARD = "WILDCARD",
+}
+
+/**
+ * <p>The details of a scanning repository filter.</p>
+ */
+export interface ScanningRepositoryFilter {
+  /**
+   * <p>The filter to use when scanning.</p>
+   */
+  filter: string | undefined;
+
+  /**
+   * <p>The type associated with the filter.</p>
+   */
+  filterType: ScanningRepositoryFilterType | string | undefined;
+}
+
+export namespace ScanningRepositoryFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ScanningRepositoryFilter): any => ({
+    ...obj,
+  });
+}
+
+export enum ScanFrequency {
+  CONTINUOUS_SCAN = "CONTINUOUS_SCAN",
+  MANUAL = "MANUAL",
+  SCAN_ON_PUSH = "SCAN_ON_PUSH",
+}
+
+/**
+ * <p>The details of the scanning configuration for a repository.</p>
+ */
+export interface RepositoryScanningConfiguration {
+  /**
+   * <p>The ARN of the repository.</p>
+   */
+  repositoryArn?: string;
+
+  /**
+   * <p>The name of the repository.</p>
+   */
+  repositoryName?: string;
+
+  /**
+   * <p>Whether or not scan on push is configured for the repository.</p>
+   */
+  scanOnPush?: boolean;
+
+  /**
+   * <p>The scan frequency for the repository.</p>
+   */
+  scanFrequency?: ScanFrequency | string;
+
+  /**
+   * <p>The scan filters applied to the repository.</p>
+   */
+  appliedScanFilters?: ScanningRepositoryFilter[];
+}
+
+export namespace RepositoryScanningConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RepositoryScanningConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchGetRepositoryScanningConfigurationResponse {
+  /**
+   * <p>The scanning configuration for the requested repositories.</p>
+   */
+  scanningConfigurations?: RepositoryScanningConfiguration[];
+
+  /**
+   * <p>Any failures associated with the call.</p>
+   */
+  failures?: RepositoryScanningConfigurationFailure[];
+}
+
+export namespace BatchGetRepositoryScanningConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetRepositoryScanningConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>There was an exception validating this request.</p>
+ */
+export interface ValidationException extends __SmithyException, $MetadataBearer {
+  name: "ValidationException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ValidationException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
+    ...obj,
+  });
+}
+
 export interface CompleteLayerUploadRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the registry to which to upload layers.
@@ -597,6 +759,126 @@ export namespace UploadNotFoundException {
   });
 }
 
+export interface CreatePullThroughCacheRuleRequest {
+  /**
+   * <p>The repository name prefix to use when caching images from the source registry.</p>
+   */
+  ecrRepositoryPrefix: string | undefined;
+
+  /**
+   * <p>The registry URL of the upstream public registry to use as the source for the pull
+   *             through cache rule.</p>
+   */
+  upstreamRegistryUrl: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID associated with the registry to create the pull through cache
+   *             rule for. If you do not specify a registry, the default registry is assumed.</p>
+   */
+  registryId?: string;
+}
+
+export namespace CreatePullThroughCacheRuleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreatePullThroughCacheRuleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreatePullThroughCacheRuleResponse {
+  /**
+   * <p>The Amazon ECR repository prefix associated with the pull through cache rule.</p>
+   */
+  ecrRepositoryPrefix?: string;
+
+  /**
+   * <p>The upstream registry URL associated with the pull through cache rule.</p>
+   */
+  upstreamRegistryUrl?: string;
+
+  /**
+   * <p>The date and time, in JavaScript date format, when the pull through cache rule was
+   *             created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The registry ID associated with the request.</p>
+   */
+  registryId?: string;
+}
+
+export namespace CreatePullThroughCacheRuleResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreatePullThroughCacheRuleResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The operation did not succeed because it would have exceeded a service limit for your
+ *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR service quotas</a> in
+ *             the Amazon Elastic Container Registry User Guide.</p>
+ */
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  /**
+   * <p>The error message associated with the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace LimitExceededException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A pull through cache rule with these settings already exists for the private
+ *             registry.</p>
+ */
+export interface PullThroughCacheRuleAlreadyExistsException extends __SmithyException, $MetadataBearer {
+  name: "PullThroughCacheRuleAlreadyExistsException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace PullThroughCacheRuleAlreadyExistsException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PullThroughCacheRuleAlreadyExistsException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified upstream registry isn't supported.</p>
+ */
+export interface UnsupportedUpstreamRegistryException extends __SmithyException, $MetadataBearer {
+  name: "UnsupportedUpstreamRegistryException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UnsupportedUpstreamRegistryException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnsupportedUpstreamRegistryException): any => ({
+    ...obj,
+  });
+}
+
 export enum EncryptionType {
   AES256 = "AES256",
   KMS = "KMS",
@@ -623,12 +905,12 @@ export interface EncryptionConfiguration {
    *             for Amazon ECR, or specify your own KMS key, which you already created. For more
    *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting data using server-side
    *                 encryption with an KMS key stored in Key Management Service (SSE-KMS)</a> in the
-   *                 <i>Amazon Simple Storage Service Console Developer Guide.</i>.</p>
+   *                 <i>Amazon Simple Storage Service Console Developer Guide</i>.</p>
    *         <p>If you use the <code>AES256</code> encryption type, Amazon ECR uses server-side encryption
    *             with Amazon S3-managed encryption keys which encrypts the images in the repository using an
    *             AES-256 encryption algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Protecting data using
    *                 server-side encryption with Amazon S3-managed encryption keys (SSE-S3)</a> in the
-   *                 <i>Amazon Simple Storage Service Console Developer Guide.</i>.</p>
+   *                 <i>Amazon Simple Storage Service Console Developer Guide</i>.</p>
    */
   encryptionType: EncryptionType | string | undefined;
 
@@ -708,7 +990,7 @@ export namespace Tag {
 
 export interface CreateRepositoryRequest {
   /**
-   * <p>The AWS account ID associated with the registry to create the repository.
+   * <p>The Amazon Web Services account ID associated with the registry to create the repository.
    *             If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
@@ -852,29 +1134,6 @@ export namespace InvalidTagParameterException {
 }
 
 /**
- * <p>The operation did not succeed because it would have exceeded a service limit for your
- *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR service quotas</a> in
- *             the Amazon Elastic Container Registry User Guide.</p>
- */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  /**
-   * <p>The error message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>The specified repository already exists in the specified registry.</p>
  */
 export interface RepositoryAlreadyExistsException extends __SmithyException, $MetadataBearer {
@@ -986,6 +1245,79 @@ export namespace LifecyclePolicyNotFoundException {
   });
 }
 
+export interface DeletePullThroughCacheRuleRequest {
+  /**
+   * <p>The Amazon ECR repository prefix associated with the pull through cache rule to
+   *             delete.</p>
+   */
+  ecrRepositoryPrefix: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID associated with the registry that contains the pull through cache
+   *             rule. If you do not specify a registry, the default registry is assumed.</p>
+   */
+  registryId?: string;
+}
+
+export namespace DeletePullThroughCacheRuleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeletePullThroughCacheRuleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeletePullThroughCacheRuleResponse {
+  /**
+   * <p>The Amazon ECR repository prefix associated with the request.</p>
+   */
+  ecrRepositoryPrefix?: string;
+
+  /**
+   * <p>The upstream registry URL associated with the pull through cache rule.</p>
+   */
+  upstreamRegistryUrl?: string;
+
+  /**
+   * <p>The timestamp associated with the pull through cache rule.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The registry ID associated with the request.</p>
+   */
+  registryId?: string;
+}
+
+export namespace DeletePullThroughCacheRuleResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeletePullThroughCacheRuleResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The pull through cache rule was not found. Specify a valid pull through cache rule and
+ *             try again.</p>
+ */
+export interface PullThroughCacheRuleNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "PullThroughCacheRuleNotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace PullThroughCacheRuleNotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PullThroughCacheRuleNotFoundException): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteRegistryPolicyRequest {}
 
 export namespace DeleteRegistryPolicyRequest {
@@ -1032,24 +1364,6 @@ export namespace RegistryPolicyNotFoundException {
    * @internal
    */
   export const filterSensitiveLog = (obj: RegistryPolicyNotFoundException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>There was an exception validating this request.</p>
- */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
 }
@@ -1232,7 +1546,7 @@ export interface ImageReplicationStatus {
   region?: string;
 
   /**
-   * <p>The AWS account ID associated with the registry to which the image belongs.</p>
+   * <p>The Amazon Web Services account ID associated with the registry to which the image belongs.</p>
    */
   registryId?: string;
 
@@ -1423,9 +1737,14 @@ export namespace ImageScanFindingsSummary {
 }
 
 export enum ScanStatus {
+  ACTIVE = "ACTIVE",
   COMPLETE = "COMPLETE",
   FAILED = "FAILED",
+  FINDINGS_UNAVAILABLE = "FINDINGS_UNAVAILABLE",
   IN_PROGRESS = "IN_PROGRESS",
+  PENDING = "PENDING",
+  SCAN_ELIGIBILITY_EXPIRED = "SCAN_ELIGIBILITY_EXPIRED",
+  UNSUPPORTED_IMAGE = "UNSUPPORTED_IMAGE",
 }
 
 /**
@@ -1602,6 +1921,483 @@ export namespace DescribeImageScanFindingsRequest {
 }
 
 /**
+ * <p>The CVSS score for a finding.</p>
+ */
+export interface CvssScore {
+  /**
+   * <p>The base CVSS score used for the finding.</p>
+   */
+  baseScore?: number;
+
+  /**
+   * <p>The vector string of the CVSS score.</p>
+   */
+  scoringVector?: string;
+
+  /**
+   * <p>The source of the CVSS score.</p>
+   */
+  source?: string;
+
+  /**
+   * <p>The version of CVSS used for the score.</p>
+   */
+  version?: string;
+}
+
+export namespace CvssScore {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CvssScore): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information on the vulnerable package identified by a finding.</p>
+ */
+export interface VulnerablePackage {
+  /**
+   * <p>The architecture of the vulnerable package.</p>
+   */
+  arch?: string;
+
+  /**
+   * <p>The epoch of the vulnerable package.</p>
+   */
+  epoch?: number;
+
+  /**
+   * <p>The file path of the vulnerable package.</p>
+   */
+  filePath?: string;
+
+  /**
+   * <p>The name of the vulnerable package.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The package manager of the vulnerable package.</p>
+   */
+  packageManager?: string;
+
+  /**
+   * <p>The release of the vulnerable package.</p>
+   */
+  release?: string;
+
+  /**
+   * <p>The source layer hash of the vulnerable package.</p>
+   */
+  sourceLayerHash?: string;
+
+  /**
+   * <p>The version of the vulnerable package.</p>
+   */
+  version?: string;
+}
+
+export namespace VulnerablePackage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VulnerablePackage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a package vulnerability finding.</p>
+ */
+export interface PackageVulnerabilityDetails {
+  /**
+   * <p>An object that contains details about the CVSS score of a finding.</p>
+   */
+  cvss?: CvssScore[];
+
+  /**
+   * <p>One or more URLs that contain details about this vulnerability type.</p>
+   */
+  referenceUrls?: string[];
+
+  /**
+   * <p>One or more vulnerabilities related to the one identified in this finding.</p>
+   */
+  relatedVulnerabilities?: string[];
+
+  /**
+   * <p>The source of the vulnerability information.</p>
+   */
+  source?: string;
+
+  /**
+   * <p>A URL to the source of the vulnerability information.</p>
+   */
+  sourceUrl?: string;
+
+  /**
+   * <p>The date and time that this vulnerability was first added to the vendor's
+   *             database.</p>
+   */
+  vendorCreatedAt?: Date;
+
+  /**
+   * <p>The severity the vendor has given to this vulnerability type.</p>
+   */
+  vendorSeverity?: string;
+
+  /**
+   * <p>The date and time the vendor last updated this vulnerability in their database.</p>
+   */
+  vendorUpdatedAt?: Date;
+
+  /**
+   * <p>The ID given to this vulnerability.</p>
+   */
+  vulnerabilityId?: string;
+
+  /**
+   * <p>The packages impacted by this vulnerability.</p>
+   */
+  vulnerablePackages?: VulnerablePackage[];
+}
+
+export namespace PackageVulnerabilityDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PackageVulnerabilityDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the recommended course of action to remediate the finding.</p>
+ */
+export interface Recommendation {
+  /**
+   * <p>The URL address to the CVE remediation recommendations.</p>
+   */
+  url?: string;
+
+  /**
+   * <p>The recommended course of action to remediate the finding.</p>
+   */
+  text?: string;
+}
+
+export namespace Recommendation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Recommendation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information on how to remediate a finding.</p>
+ */
+export interface Remediation {
+  /**
+   * <p>An object that contains information about the recommended course of action to
+   *             remediate the finding.</p>
+   */
+  recommendation?: Recommendation;
+}
+
+export namespace Remediation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Remediation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The image details of the Amazon ECR container image.</p>
+ */
+export interface AwsEcrContainerImageDetails {
+  /**
+   * <p>The architecture of the Amazon ECR container image.</p>
+   */
+  architecture?: string;
+
+  /**
+   * <p>The image author of the Amazon ECR container image.</p>
+   */
+  author?: string;
+
+  /**
+   * <p>The image hash of the Amazon ECR container image.</p>
+   */
+  imageHash?: string;
+
+  /**
+   * <p>The image tags attached to the Amazon ECR container image.</p>
+   */
+  imageTags?: string[];
+
+  /**
+   * <p>The platform of the Amazon ECR container image.</p>
+   */
+  platform?: string;
+
+  /**
+   * <p>The date and time the Amazon ECR container image was pushed.</p>
+   */
+  pushedAt?: Date;
+
+  /**
+   * <p>The registry the Amazon ECR container image belongs to.</p>
+   */
+  registry?: string;
+
+  /**
+   * <p>The name of the repository the Amazon ECR container image resides in.</p>
+   */
+  repositoryName?: string;
+}
+
+export namespace AwsEcrContainerImageDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcrContainerImageDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains details about the resource involved in the finding.</p>
+ */
+export interface ResourceDetails {
+  /**
+   * <p>An object that contains details about the Amazon ECR container image involved in the
+   *             finding.</p>
+   */
+  awsEcrContainerImage?: AwsEcrContainerImageDetails;
+}
+
+export namespace ResourceDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the resource involved in a finding.</p>
+ */
+export interface Resource {
+  /**
+   * <p>An object that contains details about the resource involved in a finding.</p>
+   */
+  details?: ResourceDetails;
+
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The tags attached to the resource.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The type of resource.</p>
+   */
+  type?: string;
+}
+
+export namespace Resource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Resource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details on adjustments Amazon Inspector made to the CVSS score for a finding.</p>
+ */
+export interface CvssScoreAdjustment {
+  /**
+   * <p>The metric used to adjust the CVSS score.</p>
+   */
+  metric?: string;
+
+  /**
+   * <p>The reason the CVSS score has been adjustment.</p>
+   */
+  reason?: string;
+}
+
+export namespace CvssScoreAdjustment {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CvssScoreAdjustment): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the CVSS score.</p>
+ */
+export interface CvssScoreDetails {
+  /**
+   * <p>An object that contains details about adjustment Amazon Inspector made to the CVSS score.</p>
+   */
+  adjustments?: CvssScoreAdjustment[];
+
+  /**
+   * <p>The CVSS score.</p>
+   */
+  score?: number;
+
+  /**
+   * <p>The source for the CVSS score.</p>
+   */
+  scoreSource?: string;
+
+  /**
+   * <p>The vector for the CVSS score.</p>
+   */
+  scoringVector?: string;
+
+  /**
+   * <p>The CVSS version used in scoring.</p>
+   */
+  version?: string;
+}
+
+export namespace CvssScoreDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CvssScoreDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the Amazon Inspector score given to a finding.</p>
+ */
+export interface ScoreDetails {
+  /**
+   * <p>An object that contains details about the CVSS score given to a finding.</p>
+   */
+  cvss?: CvssScoreDetails;
+}
+
+export namespace ScoreDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ScoreDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The details of an enhanced image scan. This is returned when enhanced scanning is
+ *             enabled for your private registry.</p>
+ */
+export interface EnhancedImageScanFinding {
+  /**
+   * <p>The Amazon Web Services account ID associated with the image.</p>
+   */
+  awsAccountId?: string;
+
+  /**
+   * <p>The description of the finding.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the finding.</p>
+   */
+  findingArn?: string;
+
+  /**
+   * <p>The date and time that the finding was first observed.</p>
+   */
+  firstObservedAt?: Date;
+
+  /**
+   * <p>The date and time that the finding was last observed.</p>
+   */
+  lastObservedAt?: Date;
+
+  /**
+   * <p>An object that contains the details of a package vulnerability finding.</p>
+   */
+  packageVulnerabilityDetails?: PackageVulnerabilityDetails;
+
+  /**
+   * <p>An object that contains the details about how to remediate a finding.</p>
+   */
+  remediation?: Remediation;
+
+  /**
+   * <p>Contains information on the resources involved in a finding.</p>
+   */
+  resources?: Resource[];
+
+  /**
+   * <p>The Amazon Inspector score given to the finding.</p>
+   */
+  score?: number;
+
+  /**
+   * <p>An object that contains details of the Amazon Inspector score.</p>
+   */
+  scoreDetails?: ScoreDetails;
+
+  /**
+   * <p>The severity of the finding.</p>
+   */
+  severity?: string;
+
+  /**
+   * <p>The status of the finding.</p>
+   */
+  status?: string;
+
+  /**
+   * <p>The title of the finding.</p>
+   */
+  title?: string;
+
+  /**
+   * <p>The type of the finding.</p>
+   */
+  type?: string;
+
+  /**
+   * <p>The date and time the finding was last updated at.</p>
+   */
+  updatedAt?: Date;
+}
+
+export namespace EnhancedImageScanFinding {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EnhancedImageScanFinding): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>This data type is used in the <a>ImageScanFinding</a> data type.</p>
  */
 export interface Attribute {
@@ -1679,14 +2475,19 @@ export interface ImageScanFindings {
   vulnerabilitySourceUpdatedAt?: Date;
 
   /**
+   * <p>The image vulnerability counts, sorted by severity.</p>
+   */
+  findingSeverityCounts?: { [key: string]: number };
+
+  /**
    * <p>The findings from the image scan.</p>
    */
   findings?: ImageScanFinding[];
 
   /**
-   * <p>The image vulnerability counts, sorted by severity.</p>
+   * <p>Details about the enhanced scan findings from Amazon Inspector.</p>
    */
-  findingSeverityCounts?: { [key: string]: number };
+  enhancedFindings?: EnhancedImageScanFinding[];
 }
 
 export namespace ImageScanFindings {
@@ -1758,6 +2559,113 @@ export namespace ScanNotFoundException {
    * @internal
    */
   export const filterSensitiveLog = (obj: ScanNotFoundException): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribePullThroughCacheRulesRequest {
+  /**
+   * <p>The Amazon Web Services account ID associated with the registry to return the pull through cache
+   *             rules for. If you do not specify a registry, the default registry is assumed.</p>
+   */
+  registryId?: string;
+
+  /**
+   * <p>The Amazon ECR repository prefixes associated with the pull through cache rules to return.
+   *             If no repository prefix value is specified, all pull through cache rules are
+   *             returned.</p>
+   */
+  ecrRepositoryPrefixes?: string[];
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *                 <code>DescribePullThroughCacheRulesRequest</code> request where
+   *                 <code>maxResults</code> was used and the results exceeded the value of that
+   *             parameter. Pagination continues from the end of the previous results that returned the
+   *                 <code>nextToken</code> value. This value is null when there are no more results to
+   *             return.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of pull through cache rules returned by
+   *                 <code>DescribePullThroughCacheRulesRequest</code> in paginated output. When this
+   *             parameter is used, <code>DescribePullThroughCacheRulesRequest</code> only returns
+   *                 <code>maxResults</code> results in a single page along with a <code>nextToken</code>
+   *             response element. The remaining results of the initial request can be seen by sending
+   *             another <code>DescribePullThroughCacheRulesRequest</code> request with the returned
+   *                 <code>nextToken</code> value. This value can be between 1 and 1000. If this
+   *             parameter is not used, then <code>DescribePullThroughCacheRulesRequest</code> returns up
+   *             to 100 results and a <code>nextToken</code> value, if applicable.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace DescribePullThroughCacheRulesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribePullThroughCacheRulesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The details of a pull through cache rule.</p>
+ */
+export interface PullThroughCacheRule {
+  /**
+   * <p>The Amazon ECR repository prefix associated with the pull through cache rule.</p>
+   */
+  ecrRepositoryPrefix?: string;
+
+  /**
+   * <p>The upstream registry URL associated with the pull through cache rule.</p>
+   */
+  upstreamRegistryUrl?: string;
+
+  /**
+   * <p>The date and time the pull through cache was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The Amazon Web Services account ID associated with the registry the pull through cache rule is
+   *             associated with.</p>
+   */
+  registryId?: string;
+}
+
+export namespace PullThroughCacheRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PullThroughCacheRule): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribePullThroughCacheRulesResponse {
+  /**
+   * <p>The details of the pull through cache rules.</p>
+   */
+  pullThroughCacheRules?: PullThroughCacheRule[];
+
+  /**
+   * <p>The <code>nextToken</code> value to include in a future
+   *                 <code>DescribePullThroughCacheRulesRequest</code> request. When the results of a
+   *                 <code>DescribePullThroughCacheRulesRequest</code> request exceed
+   *                 <code>maxResults</code>, this value can be used to retrieve the next page of
+   *             results. This value is null when there are no more results to return.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace DescribePullThroughCacheRulesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribePullThroughCacheRulesResponse): any => ({
     ...obj,
   });
 }
@@ -2460,6 +3368,92 @@ export namespace GetRegistryPolicyResponse {
   });
 }
 
+export interface GetRegistryScanningConfigurationRequest {}
+
+export namespace GetRegistryScanningConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetRegistryScanningConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The details of a scanning rule for a private registry.</p>
+ */
+export interface RegistryScanningRule {
+  /**
+   * <p>The frequency that scans are performed at for a private registry.</p>
+   */
+  scanFrequency: ScanFrequency | string | undefined;
+
+  /**
+   * <p>The repository filters associated with the scanning configuration for a private
+   *             registry.</p>
+   */
+  repositoryFilters: ScanningRepositoryFilter[] | undefined;
+}
+
+export namespace RegistryScanningRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegistryScanningRule): any => ({
+    ...obj,
+  });
+}
+
+export enum ScanType {
+  BASIC = "BASIC",
+  ENHANCED = "ENHANCED",
+}
+
+/**
+ * <p>The scanning configuration for a private registry.</p>
+ */
+export interface RegistryScanningConfiguration {
+  /**
+   * <p>The type of scanning configured for the registry.</p>
+   */
+  scanType?: ScanType | string;
+
+  /**
+   * <p>The scanning rules associated with the registry.</p>
+   */
+  rules?: RegistryScanningRule[];
+}
+
+export namespace RegistryScanningConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegistryScanningConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface GetRegistryScanningConfigurationResponse {
+  /**
+   * <p>The ID of the registry.</p>
+   */
+  registryId?: string;
+
+  /**
+   * <p>The scanning configuration for the registry.</p>
+   */
+  scanningConfiguration?: RegistryScanningConfiguration;
+}
+
+export namespace GetRegistryScanningConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetRegistryScanningConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetRepositoryPolicyRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the registry that contains the repository.
@@ -3025,6 +4019,50 @@ export namespace PutRegistryPolicyResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: PutRegistryPolicyResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutRegistryScanningConfigurationRequest {
+  /**
+   * <p>The scanning type to set for the registry.</p>
+   *         <p>By default, the <code>BASIC</code> scan type is used. When basic scanning is set, you
+   *             may specify filters to determine which individual repositories, or all repositories, are
+   *             scanned when new images are pushed. Alternatively, you can do manual scans of images
+   *             with basic scanning.</p>
+   *         <p>When the <code>ENHANCED</code> scan type is set, Amazon Inspector provides automated, continuous
+   *             scanning of all repositories in your registry.</p>
+   */
+  scanType?: ScanType | string;
+
+  /**
+   * <p>The scanning rules to use for the registry. A scanning rule is used to determine which
+   *             repository filters are used and at what frequency scanning will occur.</p>
+   */
+  rules?: RegistryScanningRule[];
+}
+
+export namespace PutRegistryScanningConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutRegistryScanningConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutRegistryScanningConfigurationResponse {
+  /**
+   * <p>The scanning configuration for your registry.</p>
+   */
+  registryScanningConfiguration?: RegistryScanningConfiguration;
+}
+
+export namespace PutRegistryScanningConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutRegistryScanningConfigurationResponse): any => ({
     ...obj,
   });
 }

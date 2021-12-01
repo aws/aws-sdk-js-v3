@@ -37,7 +37,7 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  *             </li>
  *             <li>
  *                <p>ExecutionTime. The time the patch, association, or custom compliance item was applied to
- *      the instance.</p>
+ *      the managed node.</p>
  *             </li>
  *             <li>
  *                <p>Id: The patch, association, or custom compliance ID.</p>

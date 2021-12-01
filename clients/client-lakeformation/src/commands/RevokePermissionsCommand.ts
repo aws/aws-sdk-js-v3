@@ -14,9 +14,9 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { RevokePermissionsRequest, RevokePermissionsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1RevokePermissionsCommand,
-  serializeAws_json1_1RevokePermissionsCommand,
-} from "../protocols/Aws_json1_1";
+  deserializeAws_restJson1RevokePermissionsCommand,
+  serializeAws_restJson1RevokePermissionsCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface RevokePermissionsCommandInput extends RevokePermissionsRequest {}
 export interface RevokePermissionsCommandOutput extends RevokePermissionsResponse, __MetadataBearer {}
@@ -83,11 +83,11 @@ export class RevokePermissionsCommand extends $Command<
   }
 
   private serialize(input: RevokePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RevokePermissionsCommand(input, context);
+    return serializeAws_restJson1RevokePermissionsCommand(input, context);
   }
 
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokePermissionsCommandOutput> {
-    return deserializeAws_json1_1RevokePermissionsCommand(output, context);
+    return deserializeAws_restJson1RevokePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

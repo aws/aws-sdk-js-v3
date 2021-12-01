@@ -22,7 +22,8 @@ export interface DescribeVolumesCommandInput extends DescribeVolumesRequest {}
 export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, __MetadataBearer {}
 
 /**
- * <p>Describes one or more Amazon FSx for NetApp ONTAP volumes.</p>
+ * <p>Describes one or more Amazon FSx for NetApp ONTAP or Amazon FSx for
+ *             OpenZFS volumes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

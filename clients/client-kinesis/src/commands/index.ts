@@ -26,3 +26,4 @@ export * from "./StartStreamEncryptionCommand";
 export * from "./StopStreamEncryptionCommand";
 export * from "./SubscribeToShardCommand";
 export * from "./UpdateShardCountCommand";
+export * from "./UpdateStreamModeCommand";

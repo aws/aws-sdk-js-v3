@@ -22,12 +22,12 @@ export interface CreateAssociationBatchCommandInput extends CreateAssociationBat
 export interface CreateAssociationBatchCommandOutput extends CreateAssociationBatchResult, __MetadataBearer {}
 
 /**
- * <p>Associates the specified Amazon Web Services Systems Manager document (SSM document) with the specified instances or
- *    targets.</p>
- *          <p>When you associate a document with one or more instances using instance IDs or tags,
- *    Amazon Web Services Systems Manager Agent (SSM Agent) running on the instance processes the document and configures the
- *    instance as specified.</p>
- *          <p>If you associate a document with an instance that already has an associated document, the
+ * <p>Associates the specified Amazon Web Services Systems Manager document (SSM document) with the specified managed nodes
+ *    or targets.</p>
+ *          <p>When you associate a document with one or more managed nodes using IDs or tags,
+ *    Amazon Web Services Systems Manager Agent (SSM Agent) running on the managed node processes the document and configures the
+ *    node as specified.</p>
+ *          <p>If you associate a document with a managed node that already has an associated document, the
  *    system returns the AssociationAlreadyExists exception.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

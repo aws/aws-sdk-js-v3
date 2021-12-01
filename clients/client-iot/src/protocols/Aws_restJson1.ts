@@ -32565,8 +32565,12 @@ const serializeAws_restJson1ThingIndexingConfiguration = (
   return {
     ...(input.customFields !== undefined &&
       input.customFields !== null && { customFields: serializeAws_restJson1Fields(input.customFields, context) }),
+    ...(input.deviceDefenderIndexingMode !== undefined &&
+      input.deviceDefenderIndexingMode !== null && { deviceDefenderIndexingMode: input.deviceDefenderIndexingMode }),
     ...(input.managedFields !== undefined &&
       input.managedFields !== null && { managedFields: serializeAws_restJson1Fields(input.managedFields, context) }),
+    ...(input.namedShadowIndexingMode !== undefined &&
+      input.namedShadowIndexingMode !== null && { namedShadowIndexingMode: input.namedShadowIndexingMode }),
     ...(input.thingConnectivityIndexingMode !== undefined &&
       input.thingConnectivityIndexingMode !== null && {
         thingConnectivityIndexingMode: input.thingConnectivityIndexingMode,
@@ -36011,6 +36015,7 @@ const deserializeAws_restJson1ThingDocument = (output: any, context: __SerdeCont
       output.connectivity !== undefined && output.connectivity !== null
         ? deserializeAws_restJson1ThingConnectivity(output.connectivity, context)
         : undefined,
+    deviceDefender: __expectString(output.deviceDefender),
     shadow: __expectString(output.shadow),
     thingGroupNames:
       output.thingGroupNames !== undefined && output.thingGroupNames !== null
@@ -36143,10 +36148,12 @@ const deserializeAws_restJson1ThingIndexingConfiguration = (
       output.customFields !== undefined && output.customFields !== null
         ? deserializeAws_restJson1Fields(output.customFields, context)
         : undefined,
+    deviceDefenderIndexingMode: __expectString(output.deviceDefenderIndexingMode),
     managedFields:
       output.managedFields !== undefined && output.managedFields !== null
         ? deserializeAws_restJson1Fields(output.managedFields, context)
         : undefined,
+    namedShadowIndexingMode: __expectString(output.namedShadowIndexingMode),
     thingConnectivityIndexingMode: __expectString(output.thingConnectivityIndexingMode),
     thingIndexingMode: __expectString(output.thingIndexingMode),
   } as any;

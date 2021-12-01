@@ -16,10 +16,20 @@ import {
   BatchGetImageCommandOutput,
 } from "./commands/BatchGetImageCommand";
 import {
+  BatchGetRepositoryScanningConfigurationCommand,
+  BatchGetRepositoryScanningConfigurationCommandInput,
+  BatchGetRepositoryScanningConfigurationCommandOutput,
+} from "./commands/BatchGetRepositoryScanningConfigurationCommand";
+import {
   CompleteLayerUploadCommand,
   CompleteLayerUploadCommandInput,
   CompleteLayerUploadCommandOutput,
 } from "./commands/CompleteLayerUploadCommand";
+import {
+  CreatePullThroughCacheRuleCommand,
+  CreatePullThroughCacheRuleCommandInput,
+  CreatePullThroughCacheRuleCommandOutput,
+} from "./commands/CreatePullThroughCacheRuleCommand";
 import {
   CreateRepositoryCommand,
   CreateRepositoryCommandInput,
@@ -30,6 +40,11 @@ import {
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
+import {
+  DeletePullThroughCacheRuleCommand,
+  DeletePullThroughCacheRuleCommandInput,
+  DeletePullThroughCacheRuleCommandOutput,
+} from "./commands/DeletePullThroughCacheRuleCommand";
 import {
   DeleteRegistryPolicyCommand,
   DeleteRegistryPolicyCommandInput,
@@ -60,6 +75,11 @@ import {
   DescribeImagesCommandInput,
   DescribeImagesCommandOutput,
 } from "./commands/DescribeImagesCommand";
+import {
+  DescribePullThroughCacheRulesCommand,
+  DescribePullThroughCacheRulesCommandInput,
+  DescribePullThroughCacheRulesCommandOutput,
+} from "./commands/DescribePullThroughCacheRulesCommand";
 import {
   DescribeRegistryCommand,
   DescribeRegistryCommandInput,
@@ -95,6 +115,11 @@ import {
   GetRegistryPolicyCommandInput,
   GetRegistryPolicyCommandOutput,
 } from "./commands/GetRegistryPolicyCommand";
+import {
+  GetRegistryScanningConfigurationCommand,
+  GetRegistryScanningConfigurationCommandInput,
+  GetRegistryScanningConfigurationCommandOutput,
+} from "./commands/GetRegistryScanningConfigurationCommand";
 import {
   GetRepositoryPolicyCommand,
   GetRepositoryPolicyCommandInput,
@@ -132,6 +157,11 @@ import {
   PutRegistryPolicyCommandInput,
   PutRegistryPolicyCommandOutput,
 } from "./commands/PutRegistryPolicyCommand";
+import {
+  PutRegistryScanningConfigurationCommand,
+  PutRegistryScanningConfigurationCommandInput,
+  PutRegistryScanningConfigurationCommandOutput,
+} from "./commands/PutRegistryScanningConfigurationCommand";
 import {
   PutReplicationConfigurationCommand,
   PutReplicationConfigurationCommandInput,
@@ -289,6 +319,40 @@ export class ECR extends ECRClient {
   }
 
   /**
+   * <p>Gets the scanning configuration for one or more repositories.</p>
+   */
+  public batchGetRepositoryScanningConfiguration(
+    args: BatchGetRepositoryScanningConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetRepositoryScanningConfigurationCommandOutput>;
+  public batchGetRepositoryScanningConfiguration(
+    args: BatchGetRepositoryScanningConfigurationCommandInput,
+    cb: (err: any, data?: BatchGetRepositoryScanningConfigurationCommandOutput) => void
+  ): void;
+  public batchGetRepositoryScanningConfiguration(
+    args: BatchGetRepositoryScanningConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetRepositoryScanningConfigurationCommandOutput) => void
+  ): void;
+  public batchGetRepositoryScanningConfiguration(
+    args: BatchGetRepositoryScanningConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchGetRepositoryScanningConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetRepositoryScanningConfigurationCommandOutput) => void
+  ): Promise<BatchGetRepositoryScanningConfigurationCommandOutput> | void {
+    const command = new BatchGetRepositoryScanningConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Informs Amazon ECR that the image layer upload has completed for a specified registry,
    *             repository name, and upload ID. You can optionally provide a <code>sha256</code> digest
    *             of the image layer for data validation purposes.</p>
@@ -318,6 +382,39 @@ export class ECR extends ECRClient {
     cb?: (err: any, data?: CompleteLayerUploadCommandOutput) => void
   ): Promise<CompleteLayerUploadCommandOutput> | void {
     const command = new CompleteLayerUploadCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a pull through cache rule. A pull through cache rule provides a way to cache
+   *             images from an external public registry in your Amazon ECR private registry.</p>
+   */
+  public createPullThroughCacheRule(
+    args: CreatePullThroughCacheRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePullThroughCacheRuleCommandOutput>;
+  public createPullThroughCacheRule(
+    args: CreatePullThroughCacheRuleCommandInput,
+    cb: (err: any, data?: CreatePullThroughCacheRuleCommandOutput) => void
+  ): void;
+  public createPullThroughCacheRule(
+    args: CreatePullThroughCacheRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePullThroughCacheRuleCommandOutput) => void
+  ): void;
+  public createPullThroughCacheRule(
+    args: CreatePullThroughCacheRuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePullThroughCacheRuleCommandOutput) => void),
+    cb?: (err: any, data?: CreatePullThroughCacheRuleCommandOutput) => void
+  ): Promise<CreatePullThroughCacheRuleCommandOutput> | void {
+    const command = new CreatePullThroughCacheRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -383,6 +480,38 @@ export class ECR extends ECRClient {
     cb?: (err: any, data?: DeleteLifecyclePolicyCommandOutput) => void
   ): Promise<DeleteLifecyclePolicyCommandOutput> | void {
     const command = new DeleteLifecyclePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a pull through cache rule.</p>
+   */
+  public deletePullThroughCacheRule(
+    args: DeletePullThroughCacheRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePullThroughCacheRuleCommandOutput>;
+  public deletePullThroughCacheRule(
+    args: DeletePullThroughCacheRuleCommandInput,
+    cb: (err: any, data?: DeletePullThroughCacheRuleCommandOutput) => void
+  ): void;
+  public deletePullThroughCacheRule(
+    args: DeletePullThroughCacheRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePullThroughCacheRuleCommandOutput) => void
+  ): void;
+  public deletePullThroughCacheRule(
+    args: DeletePullThroughCacheRuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePullThroughCacheRuleCommandOutput) => void),
+    cb?: (err: any, data?: DeletePullThroughCacheRuleCommandOutput) => void
+  ): Promise<DeletePullThroughCacheRuleCommandOutput> | void {
+    const command = new DeletePullThroughCacheRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -583,6 +712,38 @@ export class ECR extends ECRClient {
     cb?: (err: any, data?: DescribeImageScanFindingsCommandOutput) => void
   ): Promise<DescribeImageScanFindingsCommandOutput> | void {
     const command = new DescribeImageScanFindingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the pull through cache rules for a registry.</p>
+   */
+  public describePullThroughCacheRules(
+    args: DescribePullThroughCacheRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePullThroughCacheRulesCommandOutput>;
+  public describePullThroughCacheRules(
+    args: DescribePullThroughCacheRulesCommandInput,
+    cb: (err: any, data?: DescribePullThroughCacheRulesCommandOutput) => void
+  ): void;
+  public describePullThroughCacheRules(
+    args: DescribePullThroughCacheRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePullThroughCacheRulesCommandOutput) => void
+  ): void;
+  public describePullThroughCacheRules(
+    args: DescribePullThroughCacheRulesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePullThroughCacheRulesCommandOutput) => void),
+    cb?: (err: any, data?: DescribePullThroughCacheRulesCommandOutput) => void
+  ): Promise<DescribePullThroughCacheRulesCommandOutput> | void {
+    const command = new DescribePullThroughCacheRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -824,6 +985,38 @@ export class ECR extends ECRClient {
     cb?: (err: any, data?: GetRegistryPolicyCommandOutput) => void
   ): Promise<GetRegistryPolicyCommandOutput> | void {
     const command = new GetRegistryPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the scanning configuration for a registry.</p>
+   */
+  public getRegistryScanningConfiguration(
+    args: GetRegistryScanningConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRegistryScanningConfigurationCommandOutput>;
+  public getRegistryScanningConfiguration(
+    args: GetRegistryScanningConfigurationCommandInput,
+    cb: (err: any, data?: GetRegistryScanningConfigurationCommandOutput) => void
+  ): void;
+  public getRegistryScanningConfiguration(
+    args: GetRegistryScanningConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRegistryScanningConfigurationCommandOutput) => void
+  ): void;
+  public getRegistryScanningConfiguration(
+    args: GetRegistryScanningConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRegistryScanningConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetRegistryScanningConfigurationCommandOutput) => void
+  ): Promise<GetRegistryScanningConfigurationCommandOutput> | void {
+    const command = new GetRegistryScanningConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1127,6 +1320,38 @@ export class ECR extends ECRClient {
     cb?: (err: any, data?: PutRegistryPolicyCommandOutput) => void
   ): Promise<PutRegistryPolicyCommandOutput> | void {
     const command = new PutRegistryPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates or updates the scanning configuration for your private registry.</p>
+   */
+  public putRegistryScanningConfiguration(
+    args: PutRegistryScanningConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutRegistryScanningConfigurationCommandOutput>;
+  public putRegistryScanningConfiguration(
+    args: PutRegistryScanningConfigurationCommandInput,
+    cb: (err: any, data?: PutRegistryScanningConfigurationCommandOutput) => void
+  ): void;
+  public putRegistryScanningConfiguration(
+    args: PutRegistryScanningConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutRegistryScanningConfigurationCommandOutput) => void
+  ): void;
+  public putRegistryScanningConfiguration(
+    args: PutRegistryScanningConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRegistryScanningConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutRegistryScanningConfigurationCommandOutput) => void
+  ): Promise<PutRegistryScanningConfigurationCommandOutput> | void {
+    const command = new PutRegistryScanningConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

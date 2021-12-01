@@ -228,6 +228,7 @@ import {
   Resource,
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
+  RetentionPeriod,
   ServiceUnavailableException,
   ThrottlingException,
   TimeInNanos,
@@ -2242,6 +2243,10 @@ export const serializeAws_restJson1PutStorageConfigurationCommand = async (
     ...(input.multiLayerStorage !== undefined &&
       input.multiLayerStorage !== null && {
         multiLayerStorage: serializeAws_restJson1MultiLayerStorage(input.multiLayerStorage, context),
+      }),
+    ...(input.retentionPeriod !== undefined &&
+      input.retentionPeriod !== null && {
+        retentionPeriod: serializeAws_restJson1RetentionPeriod(input.retentionPeriod, context),
       }),
     ...(input.storageType !== undefined && input.storageType !== null && { storageType: input.storageType }),
   });
@@ -5692,6 +5697,7 @@ export const deserializeAws_restJson1DescribeStorageConfigurationCommand = async
     disassociatedDataStorage: undefined,
     lastUpdateDate: undefined,
     multiLayerStorage: undefined,
+    retentionPeriod: undefined,
     storageType: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
@@ -5706,6 +5712,9 @@ export const deserializeAws_restJson1DescribeStorageConfigurationCommand = async
   }
   if (data.multiLayerStorage !== undefined && data.multiLayerStorage !== null) {
     contents.multiLayerStorage = deserializeAws_restJson1MultiLayerStorage(data.multiLayerStorage, context);
+  }
+  if (data.retentionPeriod !== undefined && data.retentionPeriod !== null) {
+    contents.retentionPeriod = deserializeAws_restJson1RetentionPeriod(data.retentionPeriod, context);
   }
   if (data.storageType !== undefined && data.storageType !== null) {
     contents.storageType = __expectString(data.storageType);
@@ -7586,6 +7595,7 @@ export const deserializeAws_restJson1PutStorageConfigurationCommand = async (
     configurationStatus: undefined,
     disassociatedDataStorage: undefined,
     multiLayerStorage: undefined,
+    retentionPeriod: undefined,
     storageType: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
@@ -7597,6 +7607,9 @@ export const deserializeAws_restJson1PutStorageConfigurationCommand = async (
   }
   if (data.multiLayerStorage !== undefined && data.multiLayerStorage !== null) {
     contents.multiLayerStorage = deserializeAws_restJson1MultiLayerStorage(data.multiLayerStorage, context);
+  }
+  if (data.retentionPeriod !== undefined && data.retentionPeriod !== null) {
+    contents.retentionPeriod = deserializeAws_restJson1RetentionPeriod(data.retentionPeriod, context);
   }
   if (data.storageType !== undefined && data.storageType !== null) {
     contents.storageType = __expectString(data.storageType);
@@ -9294,6 +9307,13 @@ const serializeAws_restJson1Resource = (input: Resource, context: __SerdeContext
   };
 };
 
+const serializeAws_restJson1RetentionPeriod = (input: RetentionPeriod, context: __SerdeContext): any => {
+  return {
+    ...(input.numberOfDays !== undefined && input.numberOfDays !== null && { numberOfDays: input.numberOfDays }),
+    ...(input.unlimited !== undefined && input.unlimited !== null && { unlimited: input.unlimited }),
+  };
+};
+
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -10389,6 +10409,13 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
       output.project !== undefined && output.project !== null
         ? deserializeAws_restJson1ProjectResource(output.project, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RetentionPeriod = (output: any, context: __SerdeContext): RetentionPeriod => {
+  return {
+    numberOfDays: __expectInt32(output.numberOfDays),
+    unlimited: __expectBoolean(output.unlimited),
   } as any;
 };
 

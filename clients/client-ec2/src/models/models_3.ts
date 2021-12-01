@@ -28,7 +28,6 @@ import {
   TagSpecification,
   TargetCapacityUnitType,
   Tenancy,
-  UserIdGroupPair,
 } from "./models_0";
 import {
   BlockDeviceMapping,
@@ -60,9 +59,11 @@ import {
   ReplaceRootVolumeTask,
   RouteTable,
   Snapshot,
+  SnapshotState,
   SpotDatafeedSubscription,
   SpotInstanceStateFault,
   SpotInstanceType,
+  StorageTier,
 } from "./models_1";
 import {
   EventInformation,
@@ -73,6 +74,64 @@ import {
   PermissionGroup,
   ProductCode,
 } from "./models_2";
+
+export interface DescribeHostReservationsRequest {
+  /**
+   * <p>The filters.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>instance-family</code> - The instance family (for example,
+   *                     <code>m4</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
+   *                         <code>PartialUpfront</code> | <code>AllUpfront</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>state</code> - The state of the reservation (<code>payment-pending</code>
+   *                     | <code>payment-failed</code> | <code>active</code> |
+   *                     <code>retired</code>).</p>
+   *             </li>
+   *             <li>
+   *         		     <p>
+   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *         	   </li>
+   *             <li>
+   *         		     <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *         	   </li>
+   *          </ul>
+   */
+  Filter?: Filter[];
+
+  /**
+   * <p>The host reservation IDs.</p>
+   */
+  HostReservationIdSet?: string[];
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeHostReservationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeHostReservationsRequest): any => ({
+    ...obj,
+  });
+}
 
 export enum ReservationState {
   ACTIVE = "active",
@@ -10781,6 +10840,11 @@ export interface DescribeSnapshotsRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>storage-tier</code> - The storage tier of the snapshot (<code>archive</code> |
+   *           <code>standard</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
@@ -10876,6 +10940,166 @@ export namespace DescribeSnapshotsResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeSnapshotsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeSnapshotTierStatusRequest {
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>snapshot-id</code> - The snapshot ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-id</code> - The ID of the volume the snapshot is for.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>last-tiering-operation</code> - The state of the last archive or restore action. (<code>archiving</code> | <code>archival_error</code> |
+   *           <code>archival_complete</code> | <code>restoring</code> | <code>restore_error</code> | <code>restore_complete</code>)</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeSnapshotTierStatusRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeSnapshotTierStatusRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum TieringOperationStatus {
+  archival_completed = "archival-completed",
+  archival_failed = "archival-failed",
+  archival_in_progress = "archival-in-progress",
+  permanent_restore_completed = "permanent-restore-completed",
+  permanent_restore_failed = "permanent-restore-failed",
+  permanent_restore_in_progress = "permanent-restore-in-progress",
+  temporary_restore_completed = "temporary-restore-completed",
+  temporary_restore_failed = "temporary-restore-failed",
+  temporary_restore_in_progress = "temporary-restore-in-progress",
+}
+
+/**
+ * <p>Provides information about a snapshot's storage tier.</p>
+ */
+export interface SnapshotTierStatus {
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The ID of the volume from which the snapshot was created.</p>
+   */
+  VolumeId?: string;
+
+  /**
+   * <p>The state of the snapshot.</p>
+   */
+  Status?: SnapshotState | string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the snapshot.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The tags that are assigned to the snapshot.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The storage tier in which the snapshot is stored. <code>standard</code> indicates
+   *       that the snapshot is stored in the standard snapshot storage tier and that it is ready
+   *       for use. <code>archive</code> indicates that the snapshot is currently archived and that
+   *       it must be restored before it can be used.</p>
+   */
+  StorageTier?: StorageTier | string;
+
+  /**
+   * <p>The date and time when the last archive or restore process was started.</p>
+   */
+  LastTieringStartTime?: Date;
+
+  /**
+   * <p>The progress of the last archive or restore process, as a percentage.</p>
+   */
+  LastTieringProgress?: number;
+
+  /**
+   * <p>The status of the last archive or restore process.</p>
+   */
+  LastTieringOperationStatus?: TieringOperationStatus | string;
+
+  /**
+   * <p>A message describing the status of the last archive or restore process.</p>
+   */
+  LastTieringOperationStatusDetail?: string;
+
+  /**
+   * <p>The date and time when the last archive process was completed.</p>
+   */
+  ArchivalCompleteTime?: Date;
+
+  /**
+   * <p>Only for archived snapshots that are temporarily restored. Indicates the date and
+   *       time when a temporarily restored snapshot will be automatically re-archived.</p>
+   */
+  RestoreExpiryTime?: Date;
+}
+
+export namespace SnapshotTierStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SnapshotTierStatus): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeSnapshotTierStatusResult {
+  /**
+   * <p>Information about the snapshot's storage tier.</p>
+   */
+  SnapshotTierStatuses?: SnapshotTierStatus[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeSnapshotTierStatusResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeSnapshotTierStatusResult): any => ({
     ...obj,
   });
 }
@@ -12762,195 +12986,6 @@ export namespace DescribeSpotPriceHistoryRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeSpotPriceHistoryRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the maximum price per hour that you are willing to pay for a Spot
- *             Instance.</p>
- */
-export interface SpotPrice {
-  /**
-   * <p>The Availability Zone.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The instance type.</p>
-   */
-  InstanceType?: _InstanceType | string;
-
-  /**
-   * <p>A general description of the AMI.</p>
-   */
-  ProductDescription?: RIProductDescription | string;
-
-  /**
-   * <p>The maximum price per hour that you are willing to pay for a Spot Instance.</p>
-   */
-  SpotPrice?: string;
-
-  /**
-   * <p>The date and time the request was created, in UTC format (for example,
-   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   */
-  Timestamp?: Date;
-}
-
-export namespace SpotPrice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SpotPrice): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the output of DescribeSpotPriceHistory.</p>
- */
-export interface DescribeSpotPriceHistoryResult {
-  /**
-   * <p>The token required to retrieve the next set of results. This value is null or an empty
-   *             string when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The historical Spot prices.</p>
-   */
-  SpotPriceHistory?: SpotPrice[];
-}
-
-export namespace DescribeSpotPriceHistoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSpotPriceHistoryResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeStaleSecurityGroupsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId: string | undefined;
-}
-
-export namespace DescribeStaleSecurityGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStaleSecurityGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a stale rule in a security group.</p>
- */
-export interface StaleIpPermission {
-  /**
-   * <p>The start of the port range for the TCP and UDP protocols, or an ICMP type number. A value of
-   *         <code>-1</code> indicates all ICMP types. </p>
-   */
-  FromPort?: number;
-
-  /**
-   * <p>The IP protocol name (for <code>tcp</code>, <code>udp</code>, and <code>icmp</code>) or number  (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers)</a>.</p>
-   */
-  IpProtocol?: string;
-
-  /**
-   * <p>The IP ranges. Not applicable for stale security group rules.</p>
-   */
-  IpRanges?: string[];
-
-  /**
-   * <p>The prefix list IDs. Not applicable for stale security group rules.</p>
-   */
-  PrefixListIds?: string[];
-
-  /**
-   * <p>The end of the port range for the TCP and UDP protocols, or an ICMP type number. A value of
-   *         <code>-1</code> indicates all ICMP types. </p>
-   */
-  ToPort?: number;
-
-  /**
-   * <p>The security group pairs. Returns the ID of the referenced security group and VPC, and the ID and status of the VPC peering connection.</p>
-   */
-  UserIdGroupPairs?: UserIdGroupPair[];
-}
-
-export namespace StaleIpPermission {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StaleIpPermission): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a stale security group (a security group that contains stale rules).</p>
- */
-export interface StaleSecurityGroup {
-  /**
-   * <p>The description of the security group.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ID of the security group.</p>
-   */
-  GroupId?: string;
-
-  /**
-   * <p>The name of the security group.</p>
-   */
-  GroupName?: string;
-
-  /**
-   * <p>Information about the stale inbound rules in the security group.</p>
-   */
-  StaleIpPermissions?: StaleIpPermission[];
-
-  /**
-   * <p>Information about the stale outbound rules in the security group.</p>
-   */
-  StaleIpPermissionsEgress?: StaleIpPermission[];
-
-  /**
-   * <p>The ID of the VPC for the security group.</p>
-   */
-  VpcId?: string;
-}
-
-export namespace StaleSecurityGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StaleSecurityGroup): any => ({
     ...obj,
   });
 }

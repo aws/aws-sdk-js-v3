@@ -24,23 +24,23 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
 /**
  * <p>Returns the description of specific Amazon FSx file systems, if a
  *                 <code>FileSystemIds</code> value is provided for that file system. Otherwise, it
- *             returns descriptions of all file systems owned by your Amazon Web Services account in
- *             the Amazon Web Services Region of the endpoint that you're calling.</p>
+ *             returns descriptions of all file systems owned by your Amazon Web Services account in the
+ *                 Amazon Web Services Region of the endpoint that you're calling.</p>
  *
  *         <p>When retrieving all file system descriptions, you can optionally specify the
  *                 <code>MaxResults</code> parameter to limit the number of descriptions in a response.
- *             If more file system descriptions remain, Amazon FSx returns a <code>NextToken</code>
- *             value in the response. In this case, send a later request with the
- *                 <code>NextToken</code> request parameter set to the value of <code>NextToken</code>
- *             from the last response.</p>
+ *             If more file system descriptions remain, Amazon FSx returns a
+ *                 <code>NextToken</code> value in the response. In this case, send a later request
+ *             with the <code>NextToken</code> request parameter set to the value of
+ *                 <code>NextToken</code> from the last response.</p>
  *
- *         <p>This action is used in an iterative process to retrieve a list of your file system
+ *         <p>This operation is used in an iterative process to retrieve a list of your file system
  *             descriptions. <code>DescribeFileSystems</code> is called first without a
- *                 <code>NextToken</code>value. Then the action continues to be called with the
+ *                 <code>NextToken</code>value. Then the operation continues to be called with the
  *                 <code>NextToken</code> parameter set to the value of the last <code>NextToken</code>
  *             value until a response has no <code>NextToken</code>.</p>
  *
- *         <p>When using this action, keep the following in mind:</p>
+ *         <p>When using this operation, keep the following in mind:</p>
  *         <ul>
  *             <li>
  *                 <p>The implementation might return fewer than <code>MaxResults</code> file

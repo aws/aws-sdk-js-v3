@@ -43,9 +43,20 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *             bucket in a Region other than US East (N. Virginia), your application must be able to
  *             handle 307 redirect. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html">Virtual hosting of buckets</a>.</p>
  *          </note>
- *          <p>When creating a bucket using this operation, you can optionally specify the accounts or
- *          groups that should be granted specific permissions on the bucket. There are two ways to
- *          grant the appropriate permissions using the request headers.</p>
+ *          <p>
+ *             <b>Access control lists (ACLs)</b>
+ *          </p>
+ *          <p>When creating a bucket using this operation, you can optionally configure the bucket ACL to specify the accounts or
+ *          groups that should be granted specific permissions on the bucket.</p>
+ *          <important>
+ *             <p>If your CreateBucket request includes the <code>BucketOwnerEnforced</code> value for
+ *             the <code>x-amz-object-ownership</code> header, your request can either not specify
+ *             an ACL or specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code>
+ *             canned ACL or an equivalent ACL expressed in the XML format. For
+ *             more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling object
+ *                ownership</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          </important>
+ *          <p>There are two ways to grant the appropriate permissions using the request headers.</p>
  *          <ul>
  *             <li>
  *                <p>Specify a canned ACL using the <code>x-amz-acl</code> request header. Amazon S3
@@ -58,7 +69,7 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *                   <code>x-amz-grant-write</code>, <code>x-amz-grant-read-acp</code>,
  *                   <code>x-amz-grant-write-acp</code>, and <code>x-amz-grant-full-control</code>
  *                headers. These headers map to the set of permissions Amazon S3 supports in an ACL. For
- *                more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access control list
+ *                more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html">Access control list
  *                   (ACL) overview</a>.</p>
  *                <p>You specify each grantee as a type=value pair, where the type is one of the
  *                following:</p>
@@ -122,13 +133,30 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *          <p>
  *             <b>Permissions</b>
  *          </p>
- *          <p>If your <code>CreateBucket</code> request specifies ACL permissions and the ACL is public-read, public-read-write,
- *          authenticated-read, or if you specify access permissions explicitly through any other ACL, both
- *          <code>s3:CreateBucket</code> and <code>s3:PutBucketAcl</code> permissions are needed. If the ACL the
- *          <code>CreateBucket</code> request is private, only <code>s3:CreateBucket</code> permission is needed. </p>
- *          <p>If <code>ObjectLockEnabledForBucket</code> is set to true in your <code>CreateBucket</code> request,
- *          <code>s3:PutBucketObjectLockConfiguration</code> and <code>s3:PutBucketVersioning</code> permissions are required.</p>
- *
+ *          <p>In addition to <code>s3:CreateBucket</code>, the following permissions are required when your CreateBucket includes specific headers:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>ACLs</b> - If your <code>CreateBucket</code> request specifies ACL permissions and the ACL is public-read, public-read-write,
+ *                authenticated-read, or if you specify access permissions explicitly through any other ACL, both
+ *                <code>s3:CreateBucket</code> and <code>s3:PutBucketAcl</code> permissions are needed. If the ACL the
+ *                <code>CreateBucket</code> request is private or doesn't specify any ACLs, only <code>s3:CreateBucket</code> permission is needed. </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Object Lock</b> - If
+ *                   <code>ObjectLockEnabledForBucket</code> is set to true in your
+ *                   <code>CreateBucket</code> request,
+ *                   <code>s3:PutBucketObjectLockConfiguration</code> and
+ *                   <code>s3:PutBucketVersioning</code> permissions are required.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>S3 Object Ownership</b> - If your CreateBucket
+ *                request includes the the <code>x-amz-object-ownership</code> header,
+ *                   <code>s3:PutBucketOwnershipControls</code> permission is required.</p>
+ *             </li>
+ *          </ul>
  *          <p>The following operations are related to <code>CreateBucket</code>:</p>
  *          <ul>
  *             <li>

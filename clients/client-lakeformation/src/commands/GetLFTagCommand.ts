@@ -13,13 +13,16 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { GetLFTagRequest, GetLFTagResponse } from "../models/models_0";
-import { deserializeAws_json1_1GetLFTagCommand, serializeAws_json1_1GetLFTagCommand } from "../protocols/Aws_json1_1";
+import {
+  deserializeAws_restJson1GetLFTagCommand,
+  serializeAws_restJson1GetLFTagCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface GetLFTagCommandInput extends GetLFTagRequest {}
 export interface GetLFTagCommandOutput extends GetLFTagResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a tag definition.</p>
+ * <p>Returns an LF-tag definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,11 +83,11 @@ export class GetLFTagCommand extends $Command<
   }
 
   private serialize(input: GetLFTagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLFTagCommand(input, context);
+    return serializeAws_restJson1GetLFTagCommand(input, context);
   }
 
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLFTagCommandOutput> {
-    return deserializeAws_json1_1GetLFTagCommand(output, context);
+    return deserializeAws_restJson1GetLFTagCommand(output, context);
   }
 
   // Start section: command_body_extra

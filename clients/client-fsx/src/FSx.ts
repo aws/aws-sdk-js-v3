@@ -17,6 +17,11 @@ import {
   CreateBackupCommandOutput,
 } from "./commands/CreateBackupCommand";
 import {
+  CreateDataRepositoryAssociationCommand,
+  CreateDataRepositoryAssociationCommandInput,
+  CreateDataRepositoryAssociationCommandOutput,
+} from "./commands/CreateDataRepositoryAssociationCommand";
+import {
   CreateDataRepositoryTaskCommand,
   CreateDataRepositoryTaskCommandInput,
   CreateDataRepositoryTaskCommandOutput,
@@ -31,6 +36,11 @@ import {
   CreateFileSystemFromBackupCommandInput,
   CreateFileSystemFromBackupCommandOutput,
 } from "./commands/CreateFileSystemFromBackupCommand";
+import {
+  CreateSnapshotCommand,
+  CreateSnapshotCommandInput,
+  CreateSnapshotCommandOutput,
+} from "./commands/CreateSnapshotCommand";
 import {
   CreateStorageVirtualMachineCommand,
   CreateStorageVirtualMachineCommandInput,
@@ -52,10 +62,20 @@ import {
   DeleteBackupCommandOutput,
 } from "./commands/DeleteBackupCommand";
 import {
+  DeleteDataRepositoryAssociationCommand,
+  DeleteDataRepositoryAssociationCommandInput,
+  DeleteDataRepositoryAssociationCommandOutput,
+} from "./commands/DeleteDataRepositoryAssociationCommand";
+import {
   DeleteFileSystemCommand,
   DeleteFileSystemCommandInput,
   DeleteFileSystemCommandOutput,
 } from "./commands/DeleteFileSystemCommand";
+import {
+  DeleteSnapshotCommand,
+  DeleteSnapshotCommandInput,
+  DeleteSnapshotCommandOutput,
+} from "./commands/DeleteSnapshotCommand";
 import {
   DeleteStorageVirtualMachineCommand,
   DeleteStorageVirtualMachineCommandInput,
@@ -72,6 +92,11 @@ import {
   DescribeBackupsCommandOutput,
 } from "./commands/DescribeBackupsCommand";
 import {
+  DescribeDataRepositoryAssociationsCommand,
+  DescribeDataRepositoryAssociationsCommandInput,
+  DescribeDataRepositoryAssociationsCommandOutput,
+} from "./commands/DescribeDataRepositoryAssociationsCommand";
+import {
   DescribeDataRepositoryTasksCommand,
   DescribeDataRepositoryTasksCommandInput,
   DescribeDataRepositoryTasksCommandOutput,
@@ -86,6 +111,11 @@ import {
   DescribeFileSystemsCommandInput,
   DescribeFileSystemsCommandOutput,
 } from "./commands/DescribeFileSystemsCommand";
+import {
+  DescribeSnapshotsCommand,
+  DescribeSnapshotsCommandInput,
+  DescribeSnapshotsCommandOutput,
+} from "./commands/DescribeSnapshotsCommand";
 import {
   DescribeStorageVirtualMachinesCommand,
   DescribeStorageVirtualMachinesCommandInput,
@@ -106,6 +136,16 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ReleaseFileSystemNfsV3LocksCommand,
+  ReleaseFileSystemNfsV3LocksCommandInput,
+  ReleaseFileSystemNfsV3LocksCommandOutput,
+} from "./commands/ReleaseFileSystemNfsV3LocksCommand";
+import {
+  RestoreVolumeFromSnapshotCommand,
+  RestoreVolumeFromSnapshotCommandInput,
+  RestoreVolumeFromSnapshotCommandOutput,
+} from "./commands/RestoreVolumeFromSnapshotCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -113,10 +153,20 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateDataRepositoryAssociationCommand,
+  UpdateDataRepositoryAssociationCommandInput,
+  UpdateDataRepositoryAssociationCommandOutput,
+} from "./commands/UpdateDataRepositoryAssociationCommand";
+import {
   UpdateFileSystemCommand,
   UpdateFileSystemCommandInput,
   UpdateFileSystemCommandOutput,
 } from "./commands/UpdateFileSystemCommand";
+import {
+  UpdateSnapshotCommand,
+  UpdateSnapshotCommandInput,
+  UpdateSnapshotCommandOutput,
+} from "./commands/UpdateSnapshotCommand";
 import {
   UpdateStorageVirtualMachineCommand,
   UpdateStorageVirtualMachineCommandInput,
@@ -224,24 +274,24 @@ export class FSx extends FSxClient {
    * <p>Copies an existing backup within the same Amazon Web Services account to another Amazon Web Services Region
    *          (cross-Region copy) or within the same Amazon Web Services Region (in-Region copy). You can have up to five
    *          backup copy requests in progress to a single destination Region per account.</p>
-   *          <p>You can use cross-Region backup copies for cross-region disaster recovery.
-   *          You periodically take backups and copy them to another Region so that in the
-   *          event of a disaster in the primary Region, you can restore from backup and recover
-   *          availability quickly in the other Region. You can make cross-Region copies
-   *          only within your Amazon Web Services partition.</p>
-   *          <p> You can also use backup copies to clone your file data set to another Region
-   *          or within the same Region.</p>
+   *          <p>You can use cross-Region backup copies for cross-Region disaster recovery. You can
+   *          periodically take backups and copy them to another Region so that in the event of a
+   *          disaster in the primary Region, you can restore from backup and recover availability
+   *          quickly in the other Region. You can make cross-Region copies only within your Amazon Web Services partition. A partition is a grouping of Regions. Amazon Web Services currently
+   *          has three partitions: <code>aws</code> (Standard Regions), <code>aws-cn</code> (China
+   *          Regions), and <code>aws-us-gov</code> (Amazon Web Services GovCloud [US] Regions).</p>
+   *          <p>You can also use backup copies to clone your file dataset to another Region or within
+   *          the same Region.</p>
    *          <p>You can use the <code>SourceRegion</code> parameter to specify the Amazon Web Services Region
    *          from which the backup will be copied. For example, if you make the call from the
    *          <code>us-west-1</code> Region and want to copy a backup from the <code>us-east-2</code>
    *          Region, you specify <code>us-east-2</code> in the <code>SourceRegion</code> parameter
    *          to make a cross-Region copy. If you don't specify a Region, the backup copy is
    *          created in the same Region where the request is sent from (in-Region copy).</p>
-   *          <p>For more information on creating backup copies, see
-   *          <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html#copy-backups">
-   *             Copying backups</a> in the <i>Amazon FSx for Windows User Guide</i> and
-   *          <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html#copy-backups">Copying backups</a>
-   *          in the <i>Amazon FSx for Lustre User Guide</i>.</p>
+   *          <p>For more information about creating backup copies, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html#copy-backups"> Copying backups</a>
+   *          in the <i>Amazon FSx for Windows User Guide</i>, <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html#copy-backups">Copying backups</a> in the <i>Amazon FSx for Lustre User
+   *             Guide</i>, and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/using-backups.html#copy-backups">Copying backups</a> in the <i>Amazon FSx for OpenZFS User
+   *             Guide</i>.</p>
    */
   public copyBackup(args: CopyBackupCommandInput, options?: __HttpHandlerOptions): Promise<CopyBackupCommandOutput>;
   public copyBackup(args: CopyBackupCommandInput, cb: (err: any, data?: CopyBackupCommandOutput) => void): void;
@@ -267,42 +317,44 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Creates a backup of an existing Amazon FSx for Windows File Server
-   *             or Amazon FSx for Lustre file system, or of an Amazon FSx for NetApp ONTAP
-   *             volume. Creating regular backups is a best practice, enabling you to restore
-   *             a file system or volume from a backup if an issue arises with the original
-   *             file system or volume.</p>
-   *         <p>For Amazon FSx for Lustre file systems, you can create a backup only
-   *             for file systems with the following configuration:</p>
+   * <p>Creates a backup of an existing Amazon FSx for Windows File Server file
+   *             system, Amazon FSx for Lustre file system, Amazon FSx for NetApp ONTAP
+   *             volume, or Amazon FSx for OpenZFS file system. We recommend creating regular
+   *             backups so that you can restore a file system or volume from a backup if an issue arises
+   *             with the original file system or volume.</p>
+   *         <p>For Amazon FSx for Lustre file systems, you can create a backup only for file
+   *             systems that have the following configuration:</p>
    *         <ul>
    *             <li>
-   *                <p>a Persistent deployment type</p>
+   *                <p>A Persistent deployment type</p>
    *             </li>
    *             <li>
-   *                <p>is <i>not</i> linked to a data repository.</p>
+   *                <p>Are <i>not</i> linked to a data repository</p>
    *             </li>
    *          </ul>
    *             <p>For more information about backups, see the following:</p>
    *         <ul>
    *             <li>
-   *                <p>For Amazon FSx for Lustre,
-   *                 see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html">Working with FSx for Lustre backups</a>.</p>
+   *                 <p>For Amazon FSx for Lustre, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html">Working with FSx for
+   *                         Lustre backups</a>.</p>
    *             </li>
    *             <li>
-   *                <p>For Amazon FSx for Windows,
-   *                 see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html">Working with FSx for Windows backups</a>.</p>
+   *                 <p>For Amazon FSx for Windows, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html">Working with FSx for
+   *                         Windows backups</a>.</p>
    *             </li>
    *             <li>
-   *                <p>For Amazon FSx for NetApp ONTAP,
-   *                 see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/using-backups.html">Working with FSx for NetApp ONTAP backups</a>.</p>
+   *                 <p>For Amazon FSx for NetApp ONTAP, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/using-backups.html">Working with FSx for NetApp
+   *                         ONTAP backups</a>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For Amazon FSx for OpenZFS, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/using-backups.html">Working with FSx for OpenZFS backups</a>.</p>
    *             </li>
    *          </ul>
-   *         <p>If a backup with the specified client request token exists, and the parameters
-   *             match, this operation returns the description of the existing backup. If a backup
-   *             specified client request token exists, and the parameters don't match, this
-   *             operation returns <code>IncompatibleParameterError</code>. If a backup with the
-   *             specified client request token doesn't exist, <code>CreateBackup</code> does the
-   *             following: </p>
+   *         <p>If a backup with the specified client request token exists and the parameters match,
+   *             this operation returns the description of the existing backup. If a backup with the
+   *             specified client request token exists and the parameters don't match, this operation
+   *             returns <code>IncompatibleParameterError</code>. If a backup with the specified client
+   *             request token doesn't exist, <code>CreateBackup</code> does the following: </p>
    *         <ul>
    *             <li>
    *                 <p>Creates a new Amazon FSx backup with an assigned ID, and an initial
@@ -319,10 +371,10 @@ export class FSx extends FSxClient {
    *             you use the same client request token and the initial call created a backup, the
    *             operation returns a successful result because all the parameters are the same.</p>
    *
-   *         <p>The <code>CreateBackup</code> operation returns while the backup's
-   *             lifecycle state is still <code>CREATING</code>. You can check the backup creation
-   *             status by calling the <a>DescribeBackups</a> operation, which returns the
-   *             backup state along with other information.</p>
+   *         <p>The <code>CreateBackup</code> operation returns while the backup's lifecycle state is
+   *             still <code>CREATING</code>. You can check the backup creation status by calling the
+   *                 <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeBackups.html">DescribeBackups</a> operation, which returns the backup state along with other
+   *             information.</p>
    */
   public createBackup(
     args: CreateBackupCommandInput,
@@ -351,15 +403,58 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * <p>Creates an Amazon FSx for Lustre data repository association (DRA). A data
+   *             repository association is a link between a directory on the file system and
+   *             an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository
+   *             associations on a file system. Data repository associations are supported only
+   *             for file systems with the <code>Persistent_2</code> deployment type.</p>
+   *         <p>Each data repository association must have a unique Amazon FSx file
+   *             system directory and a unique S3 bucket or prefix associated with it. You
+   *             can configure a data repository association for automatic import only,
+   *             for automatic export only, or for both. To learn more about linking a
+   *             data repository to your file system, see
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html">Linking your file system to an S3 bucket</a>.</p>
+   */
+  public createDataRepositoryAssociation(
+    args: CreateDataRepositoryAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataRepositoryAssociationCommandOutput>;
+  public createDataRepositoryAssociation(
+    args: CreateDataRepositoryAssociationCommandInput,
+    cb: (err: any, data?: CreateDataRepositoryAssociationCommandOutput) => void
+  ): void;
+  public createDataRepositoryAssociation(
+    args: CreateDataRepositoryAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataRepositoryAssociationCommandOutput) => void
+  ): void;
+  public createDataRepositoryAssociation(
+    args: CreateDataRepositoryAssociationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataRepositoryAssociationCommandOutput) => void),
+    cb?: (err: any, data?: CreateDataRepositoryAssociationCommandOutput) => void
+  ): Promise<CreateDataRepositoryAssociationCommandOutput> | void {
+    const command = new CreateDataRepositoryAssociationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates an Amazon FSx for Lustre data repository task. You use data repository tasks
    *             to perform bulk operations between your Amazon FSx file system and its linked data
-   *             repository. An example of a data repository task is
-   *             exporting any data and metadata changes, including POSIX metadata, to files, directories, and symbolic links (symlinks) from your FSx file system to its linked data repository. A
-   *                 <code>CreateDataRepositoryTask</code> operation will fail if a data repository is not
-   *             linked to the FSx file system. To learn more about data repository tasks, see
+   *             repositories. An example of a data repository task is exporting any data and metadata
+   *             changes, including POSIX metadata, to files, directories, and symbolic links (symlinks)
+   *             from your FSx file system to a linked data repository. A <code>CreateDataRepositoryTask</code>
+   *             operation will fail if a data repository is not linked to the FSx file system. To learn
+   *             more about data repository tasks, see
    *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-repository-tasks.html">Data Repository Tasks</a>.
    *             To learn more about linking a data repository to your file system, see
-   *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-fs-linked-data-repo.html">Linking your file system to an S3 bucket</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html">Linking your file system to an S3 bucket</a>.</p>
    */
   public createDataRepositoryTask(
     args: CreateDataRepositoryTaskCommandInput,
@@ -391,24 +486,19 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Creates a new, empty Amazon FSx file system.</p>
-   *
-   *         <p>If a file system with the specified client request token exists and the parameters
-   *             match, <code>CreateFileSystem</code> returns the description of the existing file
-   *             system. If a file system specified client request token exists and the parameters
-   *             don't match, this call returns <code>IncompatibleParameterError</code>. If a file
-   *             system with the specified client request token doesn't exist,
-   *                 <code>CreateFileSystem</code> does the following: </p>
+   * <p>Creates a new, empty Amazon FSx file system. You can create the following supported
+   *         Amazon FSx file systems using the <code>CreateFileSystem</code> API operation:</p>
    *         <ul>
    *             <li>
-   *                 <p>Creates a new, empty Amazon FSx file system with an assigned ID, and an
-   *                     initial lifecycle state of <code>CREATING</code>.</p>
+   *                <p>Amazon FSx for Lustre</p>
    *             </li>
    *             <li>
-   *                 <p>Returns the description of the file system.</p>
+   *                <p>Amazon FSx for NetApp ONTAP</p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon FSx for Windows File Server</p>
    *             </li>
    *          </ul>
-   *
    *         <p>This operation requires a client request token in the request that Amazon FSx uses
    *             to ensure idempotent creation. This means that calling the operation multiple times with
    *             the same client request token has no effect. By using the idempotent operation, you can
@@ -418,11 +508,36 @@ export class FSx extends FSxClient {
    *             occurred, or your connection was reset. If you use the same client request token and the
    *             initial call created a file system, the client receives success as long as the
    *             parameters are the same.</p>
+   *         <p>If a file system with the specified client request token exists and the parameters
+   *             match, <code>CreateFileSystem</code> returns the description of the existing file
+   *             system. If a file system with the specified client request token exists and the
+   *             parameters don't match, this call returns <code>IncompatibleParameterError</code>. If a
+   *             file system with the specified client request token doesn't exist,
+   *                 <code>CreateFileSystem</code> does the following: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>Creates a new, empty Amazon FSx file system with an assigned ID, and
+   *                     an initial lifecycle state of <code>CREATING</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Returns the description of the file system.</p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>This operation requires a client request token in the request that Amazon FSx
+   *             uses to ensure idempotent creation. This means that calling the operation multiple times
+   *             with the same client request token has no effect. By using the idempotent operation, you
+   *             can retry a <code>CreateFileSystem</code> operation without the risk of creating an
+   *             extra file system. This approach can be useful when an initial call fails in a way that
+   *             makes it unclear whether a file system was created. Examples are if a transport-level
+   *             timeout occurred, or your connection was reset. If you use the same client request token
+   *             and the initial call created a file system, the client receives a success message as
+   *             long as the parameters are the same.</p>
    *         <note>
-   *             <p>The <code>CreateFileSystem</code> call returns while the file system's
-   *                 lifecycle state is still <code>CREATING</code>. You can check the file-system
-   *                 creation status by calling the <a>DescribeFileSystems</a> operation,
-   *                 which returns the file system state along with other information.</p>
+   *             <p>The <code>CreateFileSystem</code> call returns while the file system's lifecycle
+   *                 state is still <code>CREATING</code>. You can check the file-system creation status
+   *                 by calling the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html">DescribeFileSystems</a> operation, which returns the file system state
+   *                 along with other information.</p>
    *         </note>
    */
   public createFileSystem(
@@ -455,26 +570,26 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Creates a new Amazon FSx for Lustre or Amazon FSx for Windows File Server file system
-   *             from an existing Amazon FSx backup.</p>
+   * <p>Creates a new Amazon FSx for Lustre, Amazon FSx for Windows File
+   *             Server, or Amazon FSx for OpenZFS file system from an existing Amazon FSx backup.</p>
    *
    *         <p>If a file system with the specified client request token exists and the parameters
-   *             match, this operation returns the description of the file system. If a client
-   *             request token specified by the file system exists and the parameters don't match,
-   *             this call returns <code>IncompatibleParameterError</code>. If a file system with the
+   *             match, this operation returns the description of the file system. If a client request
+   *             token with the specified by the file system exists and the parameters don't match, this
+   *             call returns <code>IncompatibleParameterError</code>. If a file system with the
    *             specified client request token doesn't exist, this operation does the following:</p>
    *
    *         <ul>
    *             <li>
-   *                 <p>Creates a new Amazon FSx file system from backup with an assigned ID, and
-   *                     an initial lifecycle state of <code>CREATING</code>.</p>
+   *                 <p>Creates a new Amazon FSx file system from backup with an assigned ID,
+   *                     and an initial lifecycle state of <code>CREATING</code>.</p>
    *             </li>
    *             <li>
    *                 <p>Returns the description of the file system.</p>
    *             </li>
    *          </ul>
    *
-   *         <p>Parameters like Active Directory, default share name, automatic backup, and backup
+   *         <p>Parameters like the Active Directory, default share name, automatic backup, and backup
    *             settings default to the parameters of the file system that was backed up, unless
    *             overridden. You can explicitly supply other settings.</p>
    *
@@ -483,14 +598,14 @@ export class FSx extends FSxClient {
    *             file system. This approach can be useful when an initial call fails in a way that makes
    *             it unclear whether a file system was created. Examples are if a transport level timeout
    *             occurred, or your connection was reset. If you use the same client request token and the
-   *             initial call created a file system, the client receives success as long as the
+   *             initial call created a file system, the client receives a success message as long as the
    *             parameters are the same.</p>
    *         <note>
-   *             <p>The <code>CreateFileSystemFromBackup</code> call returns while the file
-   *                 system's lifecycle state is still <code>CREATING</code>. You can check the
-   *                 file-system creation status by calling the <a>DescribeFileSystems</a>
-   *                 operation, which returns the file system state along with other
-   *                 information.</p>
+   *             <p>The <code>CreateFileSystemFromBackup</code> call returns while the file system's
+   *                 lifecycle state is still <code>CREATING</code>. You can check the file-system
+   *                 creation status by calling the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html">
+   *                     DescribeFileSystems</a> operation, which returns the file system state along
+   *                 with other information.</p>
    *         </note>
    */
   public createFileSystemFromBackup(
@@ -512,6 +627,65 @@ export class FSx extends FSxClient {
     cb?: (err: any, data?: CreateFileSystemFromBackupCommandOutput) => void
   ): Promise<CreateFileSystemFromBackupCommandOutput> | void {
     const command = new CreateFileSystemFromBackupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a snapshot of an existing Amazon FSx for OpenZFS file system. With
+   *             snapshots, you can easily undo file changes and compare file versions by restoring the
+   *             volume to a previous version.</p>
+   *         <p>If a snapshot with the specified client request token exists, and the parameters
+   *             match, this operation returns the description of the existing snapshot. If a snapshot
+   *             with the specified client request token exists, and the parameters don't match, this
+   *             operation returns <code>IncompatibleParameterError</code>. If a snapshot with the
+   *             specified client request token doesn't exist, <code>CreateSnapshot</code> does the
+   *             following: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>Creates a new OpenZFS snapshot with an assigned ID, and an initial lifecycle
+   *                     state of <code>CREATING</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Returns the description of the snapshot.</p>
+   *             </li>
+   *          </ul>
+   *         <p>By using the idempotent operation, you can retry a <code>CreateSnapshot</code>
+   *             operation without the risk of creating an extra snapshot. This approach can be useful
+   *             when an initial call fails in a way that makes it unclear whether a snapshot was
+   *             created. If you use the same client request token and the initial call created a
+   *             snapshot, the operation returns a successful result because all the parameters are the
+   *             same.</p>
+   *         <p>The <code>CreateSnapshot</code> operation returns while the snapshot's lifecycle state
+   *             is still <code>CREATING</code>. You can check the snapshot creation status by calling
+   *             the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeSnapshots.html">DescribeSnapshots</a> operation, which returns the snapshot state along with
+   *             other information. </p>
+   */
+  public createSnapshot(
+    args: CreateSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSnapshotCommandOutput>;
+  public createSnapshot(
+    args: CreateSnapshotCommandInput,
+    cb: (err: any, data?: CreateSnapshotCommandOutput) => void
+  ): void;
+  public createSnapshot(
+    args: CreateSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSnapshotCommandOutput) => void
+  ): void;
+  public createSnapshot(
+    args: CreateSnapshotCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSnapshotCommandOutput) => void),
+    cb?: (err: any, data?: CreateSnapshotCommandOutput) => void
+  ): Promise<CreateSnapshotCommandOutput> | void {
+    const command = new CreateSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -555,7 +729,8 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Creates an Amazon FSx for NetApp ONTAP storage volume.</p>
+   * <p>Creates an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS storage
+   *             volume.</p>
    */
   public createVolume(
     args: CreateVolumeCommandInput,
@@ -617,10 +792,11 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Deletes an Amazon FSx backup, deleting its contents. After deletion, the backup no longer exists, and its data is gone.</p>
+   * <p>Deletes an Amazon FSx backup. After deletion, the backup no longer exists, and
+   *             its data is gone.</p>
    *
-   *         <p>The <code>DeleteBackup</code> call returns instantly. The backup will not show up
-   *             in later <code>DescribeBackups</code> calls.</p>
+   *         <p>The <code>DeleteBackup</code> call returns instantly. The backup won't show up in
+   *             later <code>DescribeBackups</code> calls.</p>
    *
    *         <important>
    *             <p>The data in a deleted backup is also deleted and can't be recovered by any
@@ -654,27 +830,64 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Deletes a file system, deleting its contents. After deletion, the file system no
-   *             longer exists, and its data is gone. Any existing automatic backups will also be
-   *             deleted.</p>
-   *         <p>To delete an Amazon FSx for NetApp ONTAP file system, first delete all the volumes
-   *             and SVMs on the file system. Then provide a <code>FileSystemId</code> value to the
-   *             <code>DeleFileSystem</code> operation.</p>
+   * <p>Deletes a data repository association on an Amazon FSx for Lustre
+   *             file system. Deleting the data repository association unlinks the
+   *             file system from the Amazon S3 bucket. When deleting a data repository
+   *             association, you have the option of deleting the data in the file system
+   *             that corresponds to the data repository association. Data repository
+   *             associations are supported only for file systems with the
+   *             <code>Persistent_2</code> deployment type.</p>
+   */
+  public deleteDataRepositoryAssociation(
+    args: DeleteDataRepositoryAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataRepositoryAssociationCommandOutput>;
+  public deleteDataRepositoryAssociation(
+    args: DeleteDataRepositoryAssociationCommandInput,
+    cb: (err: any, data?: DeleteDataRepositoryAssociationCommandOutput) => void
+  ): void;
+  public deleteDataRepositoryAssociation(
+    args: DeleteDataRepositoryAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataRepositoryAssociationCommandOutput) => void
+  ): void;
+  public deleteDataRepositoryAssociation(
+    args: DeleteDataRepositoryAssociationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDataRepositoryAssociationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDataRepositoryAssociationCommandOutput) => void
+  ): Promise<DeleteDataRepositoryAssociationCommandOutput> | void {
+    const command = new DeleteDataRepositoryAssociationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a file system. After deletion, the file system no longer exists, and its data
+   *             is gone. Any existing automatic backups and snapshots are also deleted.</p>
+   *         <p>To delete an Amazon FSx for NetApp ONTAP file system, first delete all the
+   *             volumes and storage virtual machines (SVMs) on the file system. Then provide a
+   *                 <code>FileSystemId</code> value to the <code>DeleFileSystem</code> operation.</p>
    *
-   *         <p>By default, when you delete an Amazon FSx for Windows File Server file system, a
-   *             final backup is created upon deletion. This final backup is not subject to the file
+   *         <p>By default, when you delete an Amazon FSx for Windows File Server file system,
+   *             a final backup is created upon deletion. This final backup isn't subject to the file
    *             system's retention policy, and must be manually deleted.</p>
    *
-   *         <p>The <code>DeleteFileSystem</code> action returns while the file system has the
+   *         <p>The <code>DeleteFileSystem</code> operation returns while the file system has the
    *                 <code>DELETING</code> status. You can check the file system deletion status by
-   *             calling the <a>DescribeFileSystems</a> action, which returns a list of file
-   *             systems in your account. If you pass the file system ID for a deleted file system, the
-   *                 <a>DescribeFileSystems</a> returns a <code>FileSystemNotFound</code>
+   *             calling the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html">DescribeFileSystems</a> operation, which returns a list of file systems in your
+   *             account. If you pass the file system ID for a deleted file system, the
+   *                 <code>DescribeFileSystems</code> operation returns a <code>FileSystemNotFound</code>
    *             error.</p>
    *         <note>
-   *             <p>Deleting an Amazon FSx for Lustre file system will fail with a 400 BadRequest if
-   *             a data repository task is in a <code>PENDING</code> or <code>EXECUTING</code>
-   *             state.</p>
+   *             <p>If a data repository task is in a <code>PENDING</code> or <code>EXECUTING</code> state,
+   *                 deleting an Amazon FSx for Lustre file system will fail with an HTTP status
+   *                 code 400 (Bad Request).</p>
    *          </note>
    *         <important>
    *             <p>The data in a deleted file system is also deleted and can't be recovered by
@@ -700,6 +913,42 @@ export class FSx extends FSxClient {
     cb?: (err: any, data?: DeleteFileSystemCommandOutput) => void
   ): Promise<DeleteFileSystemCommandOutput> | void {
     const command = new DeleteFileSystemCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the Amazon FSx snapshot. After deletion, the snapshot no longer
+   *             exists, and its data is gone. Deleting a snapshot doesn't affect snapshots stored in a
+   *             file system backup. </p>
+   *         <p>The <code>DeleteSnapshot</code> operation returns instantly. The snapshot appears with
+   *             the lifecycle status of <code>DELETING</code> until the deletion is complete.</p>
+   */
+  public deleteSnapshot(
+    args: DeleteSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSnapshotCommandOutput>;
+  public deleteSnapshot(
+    args: DeleteSnapshotCommandInput,
+    cb: (err: any, data?: DeleteSnapshotCommandOutput) => void
+  ): void;
+  public deleteSnapshot(
+    args: DeleteSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSnapshotCommandOutput) => void
+  ): void;
+  public deleteSnapshot(
+    args: DeleteSnapshotCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSnapshotCommandOutput) => void),
+    cb?: (err: any, data?: DeleteSnapshotCommandOutput) => void
+  ): Promise<DeleteSnapshotCommandOutput> | void {
+    const command = new DeleteSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -744,10 +993,8 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Deletes an Amazon FSx for NetApp ONTAP volume. When deleting a volume,
-   *         you have the option of creating a final backup. If you create a final backup, you have the option to
-   *         apply Tags to the backup. You need to have <code>fsx:TagResource</code>
-   *             permission in order to apply tags to the backup.</p>
+   * <p>Deletes an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS
+   *             volume.</p>
    */
   public deleteVolume(
     args: DeleteVolumeCommandInput,
@@ -776,34 +1023,33 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Returns the description of specific Amazon FSx backups, if
-   *             a <code>BackupIds</code> value is provided for that backup. Otherwise, it returns all
-   *             backups owned by your Amazon Web Services account  in the Amazon Web Services Region
-   *             of the endpoint that you're calling.</p>
+   * <p>Returns the description of a specific Amazon FSx backup, if a
+   *                 <code>BackupIds</code> value is provided for that backup. Otherwise, it returns all
+   *             backups owned by your Amazon Web Services account in the Amazon Web Services Region of the
+   *             endpoint that you're calling.</p>
    *
    *         <p>When retrieving all backups, you can optionally specify the <code>MaxResults</code>
-   *             parameter to limit the number of backups in a response. If more backups remain, Amazon
-   *             FSx returns a <code>NextToken</code> value in the response. In this case, send a later
-   *             request with the <code>NextToken</code> request parameter set to the value of
-   *                 <code>NextToken</code> from the last response.</p>
+   *             parameter to limit the number of backups in a response. If more backups remain, Amazon FSx returns a <code>NextToken</code> value in the response. In this case,
+   *             send a later request with the <code>NextToken</code> request parameter set to the value
+   *             of the <code>NextToken</code> value from the last response.</p>
    *
-   *         <p>This action is used in an iterative process to retrieve a list of your backups.
-   *                 <code>DescribeBackups</code> is called first without a <code>NextToken</code>value.
-   *             Then the action continues to be called with the <code>NextToken</code> parameter set to
-   *             the value of the last <code>NextToken</code> value until a response has no
-   *                 <code>NextToken</code>.</p>
+   *         <p>This operation is used in an iterative process to retrieve a list of your backups.
+   *                 <code>DescribeBackups</code> is called first without a <code>NextToken</code> value.
+   *             Then the operation continues to be called with the <code>NextToken</code> parameter set
+   *             to the value of the last <code>NextToken</code> value until a response has no
+   *                 <code>NextToken</code> value.</p>
    *
-   *         <p>When using this action, keep the following in mind:</p>
+   *         <p>When using this operation, keep the following in mind:</p>
    *         <ul>
    *             <li>
-   *                 <p>The implementation might return fewer than <code>MaxResults</code>
+   *                 <p>The operation might return fewer than the <code>MaxResults</code> value of
    *                     backup descriptions while still including a <code>NextToken</code>
    *                     value.</p>
    *             </li>
    *             <li>
-   *                 <p>The order of backups returned in the response of one
-   *                         <code>DescribeBackups</code> call and the order of backups returned across
-   *                     the responses of a multi-call iteration is unspecified.</p>
+   *                 <p>The order of the backups returned in the response of one
+   *                         <code>DescribeBackups</code> call and the order of the backups returned
+   *                     across the responses of a multi-call iteration is unspecified.</p>
    *             </li>
    *          </ul>
    */
@@ -826,6 +1072,56 @@ export class FSx extends FSxClient {
     cb?: (err: any, data?: DescribeBackupsCommandOutput) => void
   ): Promise<DescribeBackupsCommandOutput> | void {
     const command = new DescribeBackupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the description of specific Amazon FSx for Lustre data repository associations, if
+   *             one or more <code>AssociationIds</code> values are provided in the request, or if filters are
+   *             used in the request. Data repository associations are supported only
+   *             for file systems with the <code>Persistent_2</code> deployment type.</p>
+   *
+   *         <p>You can use filters to narrow the response to include just data repository
+   *             associations for specific file systems (use the <code>file-system-id</code> filter with
+   *             the ID of the file system) or data repository associations for a specific repository type
+   *             (use the <code>data-repository-type</code> filter with a value of <code>S3</code>).
+   *             If you don't use filters, the response returns all data repository associations
+   *             owned by your Amazon Web Services account in the Amazon Web Services Region of the endpoint
+   *             that you're calling.</p>
+   *
+   *         <p>When retrieving all data repository associations, you can paginate the response by using
+   *             the optional <code>MaxResults</code> parameter to limit the number of data repository associations
+   *             returned in a response. If more data repository associations remain, Amazon FSx returns a
+   *             <code>NextToken</code> value in the response. In this case, send a later
+   *             request with the <code>NextToken</code> request parameter set to the value of
+   *             <code>NextToken</code> from the last response.</p>
+   */
+  public describeDataRepositoryAssociations(
+    args: DescribeDataRepositoryAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDataRepositoryAssociationsCommandOutput>;
+  public describeDataRepositoryAssociations(
+    args: DescribeDataRepositoryAssociationsCommandInput,
+    cb: (err: any, data?: DescribeDataRepositoryAssociationsCommandOutput) => void
+  ): void;
+  public describeDataRepositoryAssociations(
+    args: DescribeDataRepositoryAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDataRepositoryAssociationsCommandOutput) => void
+  ): void;
+  public describeDataRepositoryAssociations(
+    args: DescribeDataRepositoryAssociationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDataRepositoryAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDataRepositoryAssociationsCommandOutput) => void
+  ): Promise<DescribeDataRepositoryAssociationsCommandOutput> | void {
+    const command = new DescribeDataRepositoryAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -915,23 +1211,23 @@ export class FSx extends FSxClient {
   /**
    * <p>Returns the description of specific Amazon FSx file systems, if a
    *                 <code>FileSystemIds</code> value is provided for that file system. Otherwise, it
-   *             returns descriptions of all file systems owned by your Amazon Web Services account in
-   *             the Amazon Web Services Region of the endpoint that you're calling.</p>
+   *             returns descriptions of all file systems owned by your Amazon Web Services account in the
+   *                 Amazon Web Services Region of the endpoint that you're calling.</p>
    *
    *         <p>When retrieving all file system descriptions, you can optionally specify the
    *                 <code>MaxResults</code> parameter to limit the number of descriptions in a response.
-   *             If more file system descriptions remain, Amazon FSx returns a <code>NextToken</code>
-   *             value in the response. In this case, send a later request with the
-   *                 <code>NextToken</code> request parameter set to the value of <code>NextToken</code>
-   *             from the last response.</p>
+   *             If more file system descriptions remain, Amazon FSx returns a
+   *                 <code>NextToken</code> value in the response. In this case, send a later request
+   *             with the <code>NextToken</code> request parameter set to the value of
+   *                 <code>NextToken</code> from the last response.</p>
    *
-   *         <p>This action is used in an iterative process to retrieve a list of your file system
+   *         <p>This operation is used in an iterative process to retrieve a list of your file system
    *             descriptions. <code>DescribeFileSystems</code> is called first without a
-   *                 <code>NextToken</code>value. Then the action continues to be called with the
+   *                 <code>NextToken</code>value. Then the operation continues to be called with the
    *                 <code>NextToken</code> parameter set to the value of the last <code>NextToken</code>
    *             value until a response has no <code>NextToken</code>.</p>
    *
-   *         <p>When using this action, keep the following in mind:</p>
+   *         <p>When using this operation, keep the following in mind:</p>
    *         <ul>
    *             <li>
    *                 <p>The implementation might return fewer than <code>MaxResults</code> file
@@ -976,6 +1272,64 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * <p>Returns the description of specific Amazon FSx snapshots, if a
+   *                 <code>SnapshotIds</code> value is provided. Otherwise, this operation returns all
+   *             snapshots owned by your Amazon Web Services account in the Amazon Web Services Region of
+   *             the endpoint that you're calling.</p>
+   *         <p>When retrieving all snapshots, you can optionally specify the <code>MaxResults</code>
+   *             parameter to limit the number of snapshots in a response. If more backups remain,
+   *                 Amazon FSx returns a <code>NextToken</code> value in the response. In this
+   *             case, send a later request with the <code>NextToken</code> request parameter set to the
+   *             value of <code>NextToken</code> from the last response. </p>
+   *         <p>Use this operation in an iterative process to retrieve a list of your snapshots.
+   *                 <code>DescribeSnapshots</code> is called first without a <code>NextToken</code>
+   *             value. Then the operation continues to be called with the <code>NextToken</code>
+   *             parameter set to the value of the last <code>NextToken</code> value until a response has
+   *             no <code>NextToken</code> value.</p>
+   *         <p>When using this operation, keep the following in mind:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>The operation might return fewer than the <code>MaxResults</code> value of
+   *                     snapshot descriptions while still including a <code>NextToken</code>
+   *                     value.</p>
+   *             </li>
+   *             <li>
+   *                 <p>The order of snapshots returned in the response of one
+   *                         <code>DescribeSnapshots</code> call and the order of backups returned across
+   *                     the responses of a multi-call iteration is unspecified. </p>
+   *             </li>
+   *          </ul>
+   */
+  public describeSnapshots(
+    args: DescribeSnapshotsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSnapshotsCommandOutput>;
+  public describeSnapshots(
+    args: DescribeSnapshotsCommandInput,
+    cb: (err: any, data?: DescribeSnapshotsCommandOutput) => void
+  ): void;
+  public describeSnapshots(
+    args: DescribeSnapshotsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSnapshotsCommandOutput) => void
+  ): void;
+  public describeSnapshots(
+    args: DescribeSnapshotsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSnapshotsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeSnapshotsCommandOutput) => void
+  ): Promise<DescribeSnapshotsCommandOutput> | void {
+    const command = new DescribeSnapshotsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes one or more Amazon FSx for NetApp ONTAP storage virtual machines (SVMs).</p>
    */
   public describeStorageVirtualMachines(
@@ -1008,7 +1362,8 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Describes one or more Amazon FSx for NetApp ONTAP volumes.</p>
+   * <p>Describes one or more Amazon FSx for NetApp ONTAP or Amazon FSx for
+   *             OpenZFS volumes.</p>
    */
   public describeVolumes(
     args: DescribeVolumesCommandInput,
@@ -1140,6 +1495,72 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * <p>Releases the file system lock from an Amazon FSx for OpenZFS file
+   *             system.</p>
+   */
+  public releaseFileSystemNfsV3Locks(
+    args: ReleaseFileSystemNfsV3LocksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReleaseFileSystemNfsV3LocksCommandOutput>;
+  public releaseFileSystemNfsV3Locks(
+    args: ReleaseFileSystemNfsV3LocksCommandInput,
+    cb: (err: any, data?: ReleaseFileSystemNfsV3LocksCommandOutput) => void
+  ): void;
+  public releaseFileSystemNfsV3Locks(
+    args: ReleaseFileSystemNfsV3LocksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ReleaseFileSystemNfsV3LocksCommandOutput) => void
+  ): void;
+  public releaseFileSystemNfsV3Locks(
+    args: ReleaseFileSystemNfsV3LocksCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReleaseFileSystemNfsV3LocksCommandOutput) => void),
+    cb?: (err: any, data?: ReleaseFileSystemNfsV3LocksCommandOutput) => void
+  ): Promise<ReleaseFileSystemNfsV3LocksCommandOutput> | void {
+    const command = new ReleaseFileSystemNfsV3LocksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns an Amazon FSx for OpenZFS volume to the state saved by the specified
+   *             snapshot. </p>
+   */
+  public restoreVolumeFromSnapshot(
+    args: RestoreVolumeFromSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreVolumeFromSnapshotCommandOutput>;
+  public restoreVolumeFromSnapshot(
+    args: RestoreVolumeFromSnapshotCommandInput,
+    cb: (err: any, data?: RestoreVolumeFromSnapshotCommandOutput) => void
+  ): void;
+  public restoreVolumeFromSnapshot(
+    args: RestoreVolumeFromSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestoreVolumeFromSnapshotCommandOutput) => void
+  ): void;
+  public restoreVolumeFromSnapshot(
+    args: RestoreVolumeFromSnapshotCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreVolumeFromSnapshotCommandOutput) => void),
+    cb?: (err: any, data?: RestoreVolumeFromSnapshotCommandOutput) => void
+  ): Promise<RestoreVolumeFromSnapshotCommandOutput> | void {
+    const command = new RestoreVolumeFromSnapshotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Tags an Amazon FSx resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1198,69 +1619,176 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Use this operation to update the configuration of an existing Amazon FSx file system.
-   *       You can update multiple properties in a single request.</p>
+   * <p>Updates the configuration of an existing data repository association
+   *             on an Amazon FSx for Lustre file system. Data repository associations are
+   *             supported only for file systems with the <code>Persistent_2</code> deployment type.</p>
+   */
+  public updateDataRepositoryAssociation(
+    args: UpdateDataRepositoryAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataRepositoryAssociationCommandOutput>;
+  public updateDataRepositoryAssociation(
+    args: UpdateDataRepositoryAssociationCommandInput,
+    cb: (err: any, data?: UpdateDataRepositoryAssociationCommandOutput) => void
+  ): void;
+  public updateDataRepositoryAssociation(
+    args: UpdateDataRepositoryAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataRepositoryAssociationCommandOutput) => void
+  ): void;
+  public updateDataRepositoryAssociation(
+    args: UpdateDataRepositoryAssociationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDataRepositoryAssociationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDataRepositoryAssociationCommandOutput) => void
+  ): Promise<UpdateDataRepositoryAssociationCommandOutput> | void {
+    const command = new UpdateDataRepositoryAssociationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Use this operation to update the configuration of an existing Amazon FSx file
+   *       system. You can update multiple properties in a single request.</p>
    *          <p>For Amazon FSx for Windows File Server file systems, you can update the following
-   *     properties:</p>
-   *          <ul>
-   *             <li>
-   *                <p>AuditLogConfiguration</p>
-   *             </li>
-   *             <li>
-   *                <p>AutomaticBackupRetentionDays</p>
-   *             </li>
-   *             <li>
-   *                <p>DailyAutomaticBackupStartTime</p>
-   *             </li>
-   *             <li>
-   *                <p>SelfManagedActiveDirectoryConfiguration</p>
-   *             </li>
-   *             <li>
-   *                <p>StorageCapacity</p>
-   *             </li>
-   *             <li>
-   *                <p>ThroughputCapacity</p>
-   *             </li>
-   *             <li>
-   *                <p>WeeklyMaintenanceStartTime</p>
-   *             </li>
-   *          </ul>
-   *          <p>For Amazon FSx for Lustre file systems, you can update the following
    *       properties:</p>
    *          <ul>
    *             <li>
-   *                <p>AutoImportPolicy</p>
+   *                <p>
+   *                   <code>AuditLogConfiguration</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>AutomaticBackupRetentionDays</p>
+   *                <p>
+   *                   <code>AutomaticBackupRetentionDays</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>DailyAutomaticBackupStartTime</p>
+   *                <p>
+   *                   <code>DailyAutomaticBackupStartTime</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>DataCompressionType</p>
+   *                <p>
+   *                   <code>SelfManagedActiveDirectoryConfiguration</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>StorageCapacity</p>
+   *                <p>
+   *                   <code>StorageCapacity</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>WeeklyMaintenanceStartTime</p>
+   *                <p>
+   *                   <code>ThroughputCapacity</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WeeklyMaintenanceStartTime</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *          <p>For Amazon FSx for NetApp ONTAP file systems, you can update the following
+   *          <p>For FSx for Lustre file systems, you can update the following
    *       properties:</p>
    *          <ul>
    *             <li>
-   *                <p>AutomaticBackupRetentionDays</p>
+   *                <p>
+   *                   <code>AutoImportPolicy</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>DailyAutomaticBackupStartTime</p>
+   *                <p>
+   *                   <code>AutomaticBackupRetentionDays</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>FsxAdminPassword</p>
+   *                <p>
+   *                   <code>DailyAutomaticBackupStartTime</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>WeeklyMaintenanceStartTime</p>
+   *                <p>
+   *                   <code>DataCompressionType</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StorageCapacity</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WeeklyMaintenanceStartTime</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For FSx for ONTAP file systems, you can update the following
+   *       properties:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AutomaticBackupRetentionDays</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DailyAutomaticBackupStartTime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FsxAdminPassword</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WeeklyMaintenanceStartTime</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For the Amazon FSx for OpenZFS file systems, you can update the following
+   *       properties:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AutomaticBackupRetentionDays</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CopyTagsToBackups</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CopyTagsToVolumes</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DailyAutomaticBackupStartTime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DiskIopsConfiguration</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ThroughputCapacity</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WeeklyMaintenanceStartTime</code>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -1283,6 +1811,38 @@ export class FSx extends FSxClient {
     cb?: (err: any, data?: UpdateFileSystemCommandOutput) => void
   ): Promise<UpdateFileSystemCommandOutput> | void {
     const command = new UpdateFileSystemCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the name of a snapshot. </p>
+   */
+  public updateSnapshot(
+    args: UpdateSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSnapshotCommandOutput>;
+  public updateSnapshot(
+    args: UpdateSnapshotCommandInput,
+    cb: (err: any, data?: UpdateSnapshotCommandOutput) => void
+  ): void;
+  public updateSnapshot(
+    args: UpdateSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSnapshotCommandOutput) => void
+  ): void;
+  public updateSnapshot(
+    args: UpdateSnapshotCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSnapshotCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSnapshotCommandOutput) => void
+  ): Promise<UpdateSnapshotCommandOutput> | void {
+    const command = new UpdateSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1326,7 +1886,7 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Updates an Amazon FSx for NetApp ONTAP volume's configuration.</p>
+   * <p>Updates the configuration of an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS volume.</p>
    */
   public updateVolume(
     args: UpdateVolumeCommandInput,

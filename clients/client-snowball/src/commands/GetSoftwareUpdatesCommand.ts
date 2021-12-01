@@ -23,7 +23,7 @@ export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResul
 
 /**
  * <p>Returns an Amazon S3 presigned URL for an update file associated with a specified
- *       <code>JobId</code>.</p>
+ *         <code>JobId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

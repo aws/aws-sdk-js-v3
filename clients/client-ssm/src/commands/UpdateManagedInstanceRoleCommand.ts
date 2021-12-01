@@ -23,8 +23,8 @@ export interface UpdateManagedInstanceRoleCommandOutput extends UpdateManagedIns
 
 /**
  * <p>Changes the Identity and Access Management (IAM) role that is assigned to the
- *    on-premises instance or virtual machines (VM). IAM roles are first assigned to
- *    these hybrid instances during the activation process. For more information, see <a>CreateActivation</a>.</p>
+ *    on-premises server, edge device, or virtual machines (VM). IAM roles are first
+ *    assigned to these hybrid nodes during the activation process. For more information, see <a>CreateActivation</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

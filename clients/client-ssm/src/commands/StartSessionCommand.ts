@@ -22,7 +22,7 @@ export interface StartSessionCommandInput extends StartSessionRequest {}
 export interface StartSessionCommandOutput extends StartSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates a connection to a target (for example, an instance) for a Session Manager session. Returns a
+ * <p>Initiates a connection to a target (for example, a managed node) for a Session Manager session. Returns a
  *    URL and token that can be used to open a WebSocket connection for sending input and receiving
  *    outputs.</p>
  *          <note>

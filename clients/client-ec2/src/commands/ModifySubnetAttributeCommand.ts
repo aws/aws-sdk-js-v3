@@ -23,6 +23,36 @@ export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Modifies a subnet attribute. You can only modify one attribute at a time.</p>
+ *
+ * 	        <p>Use this action to modify subnets on Amazon Web Services Outposts.</p>
+ *         <ul>
+ *             <li>
+ *                 <p>To modify a subnet on an Outpost rack, set both
+ *                         <code>MapCustomerOwnedIpOnLaunch</code> and
+ *                         <code>CustomerOwnedIpv4Pool</code>. These two parameters act as a single
+ *                     attribute.</p>
+ *             </li>
+ *             <li>
+ *                 <p>To modify a subnet on an Outpost server, set either
+ *                         <code>EnableLniAtDeviceIndex</code> or
+ *                     <code>DisableLniAtDeviceIndex</code>.</p>
+ *             </li>
+ *          </ul>
+ *
+ * 	        <p>For more information about Amazon Web Services Outposts, see the following:</p>
+ *
+ * 	        <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-servers-work.html">Outpost servers</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-racks-work.html">Outpost racks</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

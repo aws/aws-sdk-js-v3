@@ -27,7 +27,7 @@ export interface DescribeMaintenanceWindowsForTargetCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the maintenance window targets or tasks that an instance is
+ * <p>Retrieves information about the maintenance window targets or tasks that a managed node is
  *    associated with.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

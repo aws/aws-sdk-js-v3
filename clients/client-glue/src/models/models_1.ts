@@ -12,7 +12,7 @@ import {
   ConnectionsList,
   CrawlerTargets,
   CsvHeaderOption,
-  Database,
+  DatabaseIdentifier,
   DatabaseInput,
   DataFormat,
   DevEndpoint,
@@ -31,6 +31,7 @@ import {
   PartitionInput,
   PartitionValueList,
   Predicate,
+  PrincipalPermissions,
   PrincipalType,
   RecrawlPolicy,
   RegistryId,
@@ -53,6 +54,86 @@ import {
   Workflow,
   WorkflowRun,
 } from "./models_0";
+
+export interface GetDatabaseRequest {
+  /**
+   * <p>The ID of the Data Catalog in which the database resides. If none is provided, the Amazon Web Services
+   *       account ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the database to retrieve. For Hive compatibility, this
+   *       should be all lowercase.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace GetDatabaseRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDatabaseRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The <code>Database</code> object represents a logical grouping of tables that might reside
+ *       in a Hive metastore or an RDBMS.</p>
+ */
+export interface Database {
+  /**
+   * <p>The name of the database. For Hive compatibility, this is folded to lowercase when it is
+   *       stored.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the database.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The location of the database (for example, an HDFS path).</p>
+   */
+  LocationUri?: string;
+
+  /**
+   * <p>These key-value pairs define parameters and properties
+   *       of the database.</p>
+   */
+  Parameters?: { [key: string]: string };
+
+  /**
+   * <p>The time at which the metadata database was created in the catalog.</p>
+   */
+  CreateTime?: Date;
+
+  /**
+   * <p>Creates a set of default permissions on the table for principals. </p>
+   */
+  CreateTableDefaultPermissions?: PrincipalPermissions[];
+
+  /**
+   * <p>A <code>DatabaseIdentifier</code> structure that describes a target database for resource linking.</p>
+   */
+  TargetDatabase?: DatabaseIdentifier;
+
+  /**
+   * <p>The ID of the Data Catalog in which the database resides.</p>
+   */
+  CatalogId?: string;
+}
+
+export namespace Database {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Database): any => ({
+    ...obj,
+  });
+}
 
 export interface GetDatabaseResponse {
   /**
@@ -2238,6 +2319,16 @@ export interface GetPartitionsRequest {
    * <p>When true, specifies not returning the partition column schema. Useful when you are interested only in other partition attributes such as partition values or location. This approach avoids the problem of a large response by not returning duplicate data.</p>
    */
   ExcludeColumnSchema?: boolean;
+
+  /**
+   * <p>The transaction ID at which to read the partition contents.</p>
+   */
+  TransactionId?: string;
+
+  /**
+   * <p>The time as of when to read the partition contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>
+   */
+  QueryAsOfTime?: Date;
 }
 
 export namespace GetPartitionsRequest {
@@ -2978,6 +3069,16 @@ export interface GetTableRequest {
    *       compatibility, this name is entirely lowercase.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The transaction ID at which to read the table contents. </p>
+   */
+  TransactionId?: string;
+
+  /**
+   * <p>The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>
+   */
+  QueryAsOfTime?: Date;
 }
 
 export namespace GetTableRequest {
@@ -3153,6 +3254,16 @@ export interface GetTablesRequest {
    * <p>The maximum number of tables to return in a single response.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The transaction ID at which to read the table contents.</p>
+   */
+  TransactionId?: string;
+
+  /**
+   * <p>The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>
+   */
+  QueryAsOfTime?: Date;
 }
 
 export namespace GetTablesRequest {
@@ -7122,6 +7233,11 @@ export interface UpdateTableRequest {
    *         <code>UpdateTable</code> does not create the archived version.</p>
    */
   SkipArchive?: boolean;
+
+  /**
+   * <p>The transaction ID at which to update the table contents. </p>
+   */
+  TransactionId?: string;
 }
 
 export namespace UpdateTableRequest {

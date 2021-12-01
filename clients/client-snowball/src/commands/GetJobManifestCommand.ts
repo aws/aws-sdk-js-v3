@@ -29,7 +29,7 @@ export interface GetJobManifestCommandOutput extends GetJobManifestResult, __Met
  *
  *          <p>The manifest is an encrypted file that you can download after your job enters the
  *         <code>WithCustomer</code> status. The manifest is decrypted by using the
- *       <code>UnlockCode</code> code value, when you pass both values to the Snow device through the
+ *         <code>UnlockCode</code> code value, when you pass both values to the Snow device through the
  *       Snowball client when the client is started for the first time.</p>
  *
  *

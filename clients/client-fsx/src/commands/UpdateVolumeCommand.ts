@@ -22,7 +22,7 @@ export interface UpdateVolumeCommandInput extends UpdateVolumeRequest {}
 export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an Amazon FSx for NetApp ONTAP volume's configuration.</p>
+ * <p>Updates the configuration of an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS volume.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

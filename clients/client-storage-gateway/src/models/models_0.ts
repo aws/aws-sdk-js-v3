@@ -121,7 +121,7 @@ export interface ActivateGatewayInput {
    *          value is <code>CACHED</code>.</p>
    *
    *          <p>Valid Values: <code>STORED</code> | <code>CACHED</code> | <code>VTL</code> |
-   *             <code>FILE_S3</code> | <code>FILE_FSX_SMB|</code>
+   *             <code>VTL_SNOW</code> | <code>FILE_S3</code> | <code>FILE_FSX_SMB</code>
    *          </p>
    */
   GatewayType?: string;
@@ -3564,7 +3564,7 @@ export namespace NetworkInterface {
   });
 }
 
-export type HostEnvironment = "EC2" | "HYPER-V" | "KVM" | "OTHER" | "VMWARE";
+export type HostEnvironment = "EC2" | "HYPER-V" | "KVM" | "OTHER" | "SNOWBALL" | "VMWARE";
 
 /**
  * <p>A JSON object containing the following fields:</p>
@@ -3652,7 +3652,7 @@ export interface DescribeGatewayInformationOutput {
   CloudWatchLogGroupARN?: string;
 
   /**
-   * <p>The type of hypervisor environment used by the host.</p>
+   * <p>The type of hardware or software platform on which the gateway is running.</p>
    */
   HostEnvironment?: HostEnvironment | string;
 
@@ -3685,6 +3685,13 @@ export interface DescribeGatewayInformationOutput {
    *          hardware specifications.</p>
    */
   SupportedGatewayCapacities?: (GatewayCapacity | string)[];
+
+  /**
+   * <p>A unique identifier for the specific instance of the host platform running the gateway.
+   *          This value is only available for certain host environments, and its format depends on the
+   *          host environment type.</p>
+   */
+  HostEnvironmentId?: string;
 }
 
 export namespace DescribeGatewayInformationOutput {
@@ -5913,6 +5920,18 @@ export interface GatewayInfo {
    * <p>The Amazon Web Services Region where the Amazon EC2 instance is located.</p>
    */
   Ec2InstanceRegion?: string;
+
+  /**
+   * <p>The type of hardware or software platform on which the gateway is running.</p>
+   */
+  HostEnvironment?: HostEnvironment | string;
+
+  /**
+   * <p>A unique identifier for the specific instance of the host platform running the gateway.
+   *          This value is only available for certain host environments, and its format depends on the
+   *          host environment type.</p>
+   */
+  HostEnvironmentId?: string;
 }
 
 export namespace GatewayInfo {

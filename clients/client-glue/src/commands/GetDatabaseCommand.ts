@@ -12,8 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetDatabaseRequest } from "../models/models_0";
-import { GetDatabaseResponse } from "../models/models_1";
+import { GetDatabaseRequest, GetDatabaseResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetDatabaseCommand,
   serializeAws_json1_1GetDatabaseCommand,

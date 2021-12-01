@@ -28,6 +28,17 @@ import {
   ResultAttribute,
 } from "./models_1";
 
+export interface UpdateDocumentMetadataResponse {}
+
+export namespace UpdateDocumentMetadataResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDocumentMetadataResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateMaintenanceWindowRequest {
   /**
    * <p>The ID of the maintenance window to update.</p>
@@ -309,9 +320,9 @@ export interface UpdateMaintenanceWindowTaskRequest {
   WindowTaskId: string | undefined;
 
   /**
-   * <p>The targets (either instances or tags) to modify. Instances are specified using the format
-   *     <code>Key=instanceids,Values=instanceID_1,instanceID_2</code>. Tags are specified using the
-   *    format <code> Key=tag_name,Values=tag_value</code>. </p>
+   * <p>The targets (either managed nodes or tags) to modify. Managed nodes are specified using the
+   *    format <code>Key=instanceids,Values=instanceID_1,instanceID_2</code>. Tags are specified using
+   *    the format <code> Key=tag_name,Values=tag_value</code>. </p>
    *          <note>
    *             <p>One or more targets must be specified for maintenance window Run Command-type tasks.
    *     Depending on the task, targets are optional for other maintenance window task types (Automation,
@@ -593,7 +604,7 @@ export namespace UpdateMaintenanceWindowTaskResult {
 
 export interface UpdateManagedInstanceRoleRequest {
   /**
-   * <p>The ID of the managed instance where you want to update the role.</p>
+   * <p>The ID of the managed node where you want to update the role.</p>
    */
   InstanceId: string | undefined;
 
@@ -845,8 +856,8 @@ export interface UpdatePatchBaselineRequest {
 
   /**
    * <p>Indicates whether the list of approved patches includes non-security updates that should be
-   *    applied to the instances. The default value is <code>false</code>. Applies to Linux instances
-   *    only.</p>
+   *    applied to the managed nodes. The default value is <code>false</code>. Applies to Linux managed
+   *    nodes only.</p>
    */
   ApprovedPatchesEnableNonSecurity?: boolean;
 
@@ -891,8 +902,8 @@ export interface UpdatePatchBaselineRequest {
   Description?: string;
 
   /**
-   * <p>Information about the patches to use to update the instances, including target operating
-   *    systems and source repositories. Applies to Linux instances only.</p>
+   * <p>Information about the patches to use to update the managed nodes, including target operating
+   *    systems and source repositories. Applies to Linux managed nodes only.</p>
    */
   Sources?: PatchSource[];
 
@@ -953,8 +964,8 @@ export interface UpdatePatchBaselineResult {
 
   /**
    * <p>Indicates whether the list of approved patches includes non-security updates that should be
-   *    applied to the instances. The default value is <code>false</code>. Applies to Linux instances
-   *    only.</p>
+   *    applied to the managed nodes. The default value is <code>false</code>. Applies to Linux managed
+   *    nodes only.</p>
    */
   ApprovedPatchesEnableNonSecurity?: boolean;
 
@@ -986,8 +997,8 @@ export interface UpdatePatchBaselineResult {
   Description?: string;
 
   /**
-   * <p>Information about the patches to use to update the instances, including target operating
-   *    systems and source repositories. Applies to Linux instances only.</p>
+   * <p>Information about the patches to use to update the managed nodes, including target operating
+   *    systems and source repositories. Applies to Linux managed nodes only.</p>
    */
   Sources?: PatchSource[];
 }
@@ -1259,7 +1270,7 @@ export interface GetInventoryRequest {
   /**
    * <p>Returns counts of inventory types based on one or more expressions. For example, if you
    *    aggregate by using an expression that uses the <code>AWS:InstanceInformation.PlatformType</code>
-   *    type, you can see a count of how many Windows and Linux instances exist in your inventoried
+   *    type, you can see a count of how many Windows and Linux managed nodes exist in your inventoried
    *    fleet.</p>
    */
   Aggregators?: InventoryAggregator[];

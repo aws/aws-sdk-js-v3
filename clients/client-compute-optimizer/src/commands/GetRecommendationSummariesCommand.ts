@@ -23,9 +23,7 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
 
 /**
  * <p>Returns the optimization findings for an account.</p>
- *
  *         <p>It returns the number of:</p>
- *
  *         <ul>
  *             <li>
  *                 <p>Amazon EC2 instances in an account that are

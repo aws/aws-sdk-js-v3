@@ -68,6 +68,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  SendApiAssetCommand,
+  SendApiAssetCommandInput,
+  SendApiAssetCommandOutput,
+} from "./commands/SendApiAssetCommand";
 import { StartJobCommand, StartJobCommandInput, StartJobCommandOutput } from "./commands/StartJobCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
@@ -676,6 +681,35 @@ export class DataExchange extends DataExchangeClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation invokes an API Gateway API asset. The request is proxied to the provider’s API Gateway API.</p>
+   */
+  public sendApiAsset(
+    args: SendApiAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendApiAssetCommandOutput>;
+  public sendApiAsset(args: SendApiAssetCommandInput, cb: (err: any, data?: SendApiAssetCommandOutput) => void): void;
+  public sendApiAsset(
+    args: SendApiAssetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendApiAssetCommandOutput) => void
+  ): void;
+  public sendApiAsset(
+    args: SendApiAssetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendApiAssetCommandOutput) => void),
+    cb?: (err: any, data?: SendApiAssetCommandOutput) => void
+  ): Promise<SendApiAssetCommandOutput> | void {
+    const command = new SendApiAssetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

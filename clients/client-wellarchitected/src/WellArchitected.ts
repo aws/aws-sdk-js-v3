@@ -6,6 +6,16 @@ import {
   AssociateLensesCommandOutput,
 } from "./commands/AssociateLensesCommand";
 import {
+  CreateLensShareCommand,
+  CreateLensShareCommandInput,
+  CreateLensShareCommandOutput,
+} from "./commands/CreateLensShareCommand";
+import {
+  CreateLensVersionCommand,
+  CreateLensVersionCommandInput,
+  CreateLensVersionCommandOutput,
+} from "./commands/CreateLensVersionCommand";
+import {
   CreateMilestoneCommand,
   CreateMilestoneCommandInput,
   CreateMilestoneCommandOutput,
@@ -20,6 +30,12 @@ import {
   CreateWorkloadShareCommandInput,
   CreateWorkloadShareCommandOutput,
 } from "./commands/CreateWorkloadShareCommand";
+import { DeleteLensCommand, DeleteLensCommandInput, DeleteLensCommandOutput } from "./commands/DeleteLensCommand";
+import {
+  DeleteLensShareCommand,
+  DeleteLensShareCommandInput,
+  DeleteLensShareCommandOutput,
+} from "./commands/DeleteLensShareCommand";
 import {
   DeleteWorkloadCommand,
   DeleteWorkloadCommandInput,
@@ -35,7 +51,9 @@ import {
   DisassociateLensesCommandInput,
   DisassociateLensesCommandOutput,
 } from "./commands/DisassociateLensesCommand";
+import { ExportLensCommand, ExportLensCommandInput, ExportLensCommandOutput } from "./commands/ExportLensCommand";
 import { GetAnswerCommand, GetAnswerCommandInput, GetAnswerCommandOutput } from "./commands/GetAnswerCommand";
+import { GetLensCommand, GetLensCommandInput, GetLensCommandOutput } from "./commands/GetLensCommand";
 import {
   GetLensReviewCommand,
   GetLensReviewCommandInput,
@@ -57,6 +75,7 @@ import {
   GetMilestoneCommandOutput,
 } from "./commands/GetMilestoneCommand";
 import { GetWorkloadCommand, GetWorkloadCommandInput, GetWorkloadCommandOutput } from "./commands/GetWorkloadCommand";
+import { ImportLensCommand, ImportLensCommandInput, ImportLensCommandOutput } from "./commands/ImportLensCommand";
 import { ListAnswersCommand, ListAnswersCommandInput, ListAnswersCommandOutput } from "./commands/ListAnswersCommand";
 import { ListLensesCommand, ListLensesCommandInput, ListLensesCommandOutput } from "./commands/ListLensesCommand";
 import {
@@ -69,6 +88,11 @@ import {
   ListLensReviewsCommandInput,
   ListLensReviewsCommandOutput,
 } from "./commands/ListLensReviewsCommand";
+import {
+  ListLensSharesCommand,
+  ListLensSharesCommandInput,
+  ListLensSharesCommandOutput,
+} from "./commands/ListLensSharesCommand";
 import {
   ListMilestonesCommand,
   ListMilestonesCommandInput,
@@ -138,17 +162,27 @@ import {
 import { WellArchitectedClient } from "./WellArchitectedClient";
 
 /**
- * <fullname>AWS Well-Architected Tool</fullname>
+ * <fullname>Well-Architected Tool</fullname>
  *
- *          <p>This is the <i>AWS Well-Architected Tool API Reference</i>. The AWS Well-Architected Tool API provides programmatic access to the
- *             <a href="http://aws.amazon.com/well-architected-tool">AWS Well-Architected Tool</a> in the
- *             <a href="https://console.aws.amazon.com/wellarchitected">AWS Management Console</a>. For information
- *             about the AWS Well-Architected Tool, see the
- *             <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html">AWS Well-Architected Tool User Guide</a>.</p>
+ *          <p>This is the <i>Well-Architected Tool API Reference</i>. The WA Tool API provides programmatic access to the
+ *             <a href="http://aws.amazon.com/well-architected-tool">Well-Architected Tool</a> in the
+ *            <a href="https://console.aws.amazon.com/wellarchitected">Amazon Web Services Management Console</a>. For information
+ *             about the Well-Architected Tool, see the
+ *            <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html">Well-Architected Tool User Guide</a>.</p>
  */
 export class WellArchitected extends WellArchitectedClient {
   /**
    * <p>Associate a lens to a workload.</p>
+   *         <p>Up to 10 lenses can be associated with a workload in a single API operation. A
+   *         maximum of 20 lenses can be associated with a workload.</p>
+   *         <note>
+   *             <p>
+   *                <b>Disclaimer</b>
+   *             </p>
+   *             <p>By accessing and/or applying custom lenses created by another Amazon Web Services user or account,
+   *             you acknowledge that custom lenses created by other users and shared with you are
+   *             Third Party Content as defined in the Amazon Web Services Customer Agreement.    </p>
+   *          </note>
    */
   public associateLenses(
     args: AssociateLensesCommandInput,
@@ -169,6 +203,87 @@ export class WellArchitected extends WellArchitectedClient {
     cb?: (err: any, data?: AssociateLensesCommandOutput) => void
   ): Promise<AssociateLensesCommandOutput> | void {
     const command = new AssociateLensesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Create a lens share.</p>
+   *         <p>The owner of a lens can share it with other Amazon Web Services accounts and IAM users in the same Amazon Web Services Region.
+   *             Shared access to a lens is not removed until the lens invitation is deleted.</p>
+   *         <note>
+   *             <p>
+   *                <b>Disclaimer</b>
+   *             </p>
+   *             <p>By sharing your custom lenses with other Amazon Web Services accounts,
+   *                 you acknowledge that Amazon Web Services will make your custom lenses available to those
+   *                 other accounts. Those other accounts may continue to access and use your
+   *                 shared custom lenses even if you delete the custom lenses
+   *                 from your own Amazon Web Services account or terminate
+   *                 your Amazon Web Services account.</p>
+   *          </note>
+   */
+  public createLensShare(
+    args: CreateLensShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLensShareCommandOutput>;
+  public createLensShare(
+    args: CreateLensShareCommandInput,
+    cb: (err: any, data?: CreateLensShareCommandOutput) => void
+  ): void;
+  public createLensShare(
+    args: CreateLensShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLensShareCommandOutput) => void
+  ): void;
+  public createLensShare(
+    args: CreateLensShareCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLensShareCommandOutput) => void),
+    cb?: (err: any, data?: CreateLensShareCommandOutput) => void
+  ): Promise<CreateLensShareCommandOutput> | void {
+    const command = new CreateLensShareCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Create a new lens version.</p>
+   *         <p>A lens can have up to 100 versions.</p>
+   *         <p>After a lens has been imported, create a new lens version to publish it.  The owner of a lens can share the lens with other
+   *             Amazon Web Services accounts and IAM users in the same Amazon Web Services Region. Only the owner of a lens can delete it.
+   *         </p>
+   */
+  public createLensVersion(
+    args: CreateLensVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLensVersionCommandOutput>;
+  public createLensVersion(
+    args: CreateLensVersionCommandInput,
+    cb: (err: any, data?: CreateLensVersionCommandOutput) => void
+  ): void;
+  public createLensVersion(
+    args: CreateLensVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLensVersionCommandOutput) => void
+  ): void;
+  public createLensVersion(
+    args: CreateLensVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLensVersionCommandOutput) => void),
+    cb?: (err: any, data?: CreateLensVersionCommandOutput) => void
+  ): Promise<CreateLensVersionCommandOutput> | void {
+    const command = new CreateLensVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -213,10 +328,10 @@ export class WellArchitected extends WellArchitectedClient {
 
   /**
    * <p>Create a new workload.</p>
-   *         <p>The owner of a workload can share the workload with other AWS accounts and IAM users
-   *             in the same AWS Region. Only the owner of a workload can delete it.</p>
+   *         <p>The owner of a workload can share the workload with other Amazon Web Services accounts and IAM users
+   *             in the same Amazon Web Services Region. Only the owner of a workload can delete it.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html">Defining a Workload</a> in the
-   *                 <i>AWS Well-Architected Tool User Guide</i>.</p>
+   *                 <i>Well-Architected Tool User Guide</i>.</p>
    */
   public createWorkload(
     args: CreateWorkloadCommandInput,
@@ -249,11 +364,11 @@ export class WellArchitected extends WellArchitectedClient {
 
   /**
    * <p>Create a workload share.</p>
-   *         <p>The owner of a workload can share it with other AWS accounts and IAM users in the same
-   *             AWS Region. Shared access to a workload is not removed until the workload invitation is
+   *         <p>The owner of a workload can share it with other Amazon Web Services accounts and IAM users in the same
+   *             Amazon Web Services Region. Shared access to a workload is not removed until the workload invitation is
    *             deleted.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-sharing.html">Sharing a Workload</a> in the
-   *                 <i>AWS Well-Architected Tool User Guide</i>.</p>
+   *                 <i>Well-Architected Tool User Guide</i>.</p>
    */
   public createWorkloadShare(
     args: CreateWorkloadShareCommandInput,
@@ -274,6 +389,91 @@ export class WellArchitected extends WellArchitectedClient {
     cb?: (err: any, data?: CreateWorkloadShareCommandOutput) => void
   ): Promise<CreateWorkloadShareCommandOutput> | void {
     const command = new CreateWorkloadShareCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete an existing lens.</p>
+   *         <p>Only the owner of a lens can delete it.  After the lens is deleted,  Amazon Web Services accounts and IAM users
+   *               that you shared the lens with can continue to use it, but they will no longer be able to apply it to new workloads.
+   *         </p>
+   *         <note>
+   *             <p>
+   *                <b>Disclaimer</b>
+   *             </p>
+   *             <p>By sharing your custom lenses with other Amazon Web Services accounts,
+   *                 you acknowledge that Amazon Web Services will make your custom lenses available to those
+   *                 other accounts. Those other accounts may continue to access and use your
+   *                 shared custom lenses even if you delete the custom lenses
+   *                 from your own Amazon Web Services account or terminate
+   *                 your Amazon Web Services account.</p>
+   *          </note>
+   */
+  public deleteLens(args: DeleteLensCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLensCommandOutput>;
+  public deleteLens(args: DeleteLensCommandInput, cb: (err: any, data?: DeleteLensCommandOutput) => void): void;
+  public deleteLens(
+    args: DeleteLensCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLensCommandOutput) => void
+  ): void;
+  public deleteLens(
+    args: DeleteLensCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLensCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLensCommandOutput) => void
+  ): Promise<DeleteLensCommandOutput> | void {
+    const command = new DeleteLensCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete a lens share.</p>
+   *         <p>After the lens share is deleted,  Amazon Web Services accounts and IAM users
+   *             that you shared the lens with can continue to use it, but they will no longer be able to apply it to new workloads.</p>
+   *         <note>
+   *             <p>
+   *                <b>Disclaimer</b>
+   *             </p>
+   *             <p>By sharing your custom lenses with other Amazon Web Services accounts,
+   *                 you acknowledge that Amazon Web Services will make your custom lenses available to those
+   *                 other accounts. Those other accounts may continue to access and use your
+   *                 shared custom lenses even if you delete the custom lenses
+   *                 from your own Amazon Web Services account or terminate
+   *                 your Amazon Web Services account.</p>
+   *          </note>
+   */
+  public deleteLensShare(
+    args: DeleteLensShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLensShareCommandOutput>;
+  public deleteLensShare(
+    args: DeleteLensShareCommandInput,
+    cb: (err: any, data?: DeleteLensShareCommandOutput) => void
+  ): void;
+  public deleteLensShare(
+    args: DeleteLensShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLensShareCommandOutput) => void
+  ): void;
+  public deleteLensShare(
+    args: DeleteLensShareCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLensShareCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLensShareCommandOutput) => void
+  ): Promise<DeleteLensShareCommandOutput> | void {
+    const command = new DeleteLensShareCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -350,8 +550,9 @@ export class WellArchitected extends WellArchitectedClient {
 
   /**
    * <p>Disassociate a lens from a workload.</p>
+   *         <p>Up to 10 lenses can be disassociated from a workload in a single API operation.</p>
    *         <note>
-   *             <p>The AWS Well-Architected Framework lens (<code>wellarchitected</code>) cannot be
+   *             <p>The Amazon Web Services Well-Architected Framework lens (<code>wellarchitected</code>) cannot be
    *                 removed from a workload.</p>
    *         </note>
    */
@@ -385,6 +586,46 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * <p>Export an existing lens.</p>
+   *         <p>Lenses are defined in JSON. For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html">JSON format specification</a>
+   *             in the <i>Well-Architected Tool User Guide</i>. Only the owner of a lens can export it.
+   *         </p>
+   *         <note>
+   *             <p>
+   *                <b>Disclaimer</b>
+   *             </p>
+   *             <p>Do not include or gather personal identifiable information (PII) of end users or
+   *                 other identifiable individuals in or via your custom lenses. If your custom
+   *                 lens or those shared with you and used in your account do include or collect
+   *                 PII you are responsible for: ensuring that the included PII is processed in accordance
+   *                 with applicable law, providing adequate privacy notices, and obtaining necessary
+   *                 consents for processing such data.</p>
+   *          </note>
+   */
+  public exportLens(args: ExportLensCommandInput, options?: __HttpHandlerOptions): Promise<ExportLensCommandOutput>;
+  public exportLens(args: ExportLensCommandInput, cb: (err: any, data?: ExportLensCommandOutput) => void): void;
+  public exportLens(
+    args: ExportLensCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportLensCommandOutput) => void
+  ): void;
+  public exportLens(
+    args: ExportLensCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportLensCommandOutput) => void),
+    cb?: (err: any, data?: ExportLensCommandOutput) => void
+  ): Promise<ExportLensCommandOutput> | void {
+    const command = new ExportLensCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Get the answer to a specific question in a workload review.</p>
    */
   public getAnswer(args: GetAnswerCommandInput, options?: __HttpHandlerOptions): Promise<GetAnswerCommandOutput>;
@@ -400,6 +641,32 @@ export class WellArchitected extends WellArchitectedClient {
     cb?: (err: any, data?: GetAnswerCommandOutput) => void
   ): Promise<GetAnswerCommandOutput> | void {
     const command = new GetAnswerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get an existing lens.</p>
+   */
+  public getLens(args: GetLensCommandInput, options?: __HttpHandlerOptions): Promise<GetLensCommandOutput>;
+  public getLens(args: GetLensCommandInput, cb: (err: any, data?: GetLensCommandOutput) => void): void;
+  public getLens(
+    args: GetLensCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLensCommandOutput) => void
+  ): void;
+  public getLens(
+    args: GetLensCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLensCommandOutput) => void),
+    cb?: (err: any, data?: GetLensCommandOutput) => void
+  ): Promise<GetLensCommandOutput> | void {
+    const command = new GetLensCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -562,6 +829,50 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
+   * <p>Import a new lens.</p>
+   *         <p>The lens cannot be applied to workloads or shared with other Amazon Web Services accounts
+   *             until it's published with <a>CreateLensVersion</a>
+   *          </p>
+   *         <p>Lenses are defined in JSON. For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html">JSON format specification</a>
+   *             in the <i>Well-Architected Tool User Guide</i>.</p>
+   *         <p>A custom lens cannot exceed 500 KB in size.</p>
+   *
+   *         <note>
+   *             <p>
+   *                <b>Disclaimer</b>
+   *             </p>
+   *             <p>Do not include or gather personal identifiable information (PII) of end users or
+   *                 other identifiable individuals in or via your custom lenses. If your custom
+   *                 lens or those shared with you and used in your account do include or collect
+   *                 PII you are responsible for: ensuring that the included PII is processed in accordance
+   *                 with applicable law, providing adequate privacy notices, and obtaining necessary
+   *                 consents for processing such data.</p>
+   *          </note>
+   */
+  public importLens(args: ImportLensCommandInput, options?: __HttpHandlerOptions): Promise<ImportLensCommandOutput>;
+  public importLens(args: ImportLensCommandInput, cb: (err: any, data?: ImportLensCommandOutput) => void): void;
+  public importLens(
+    args: ImportLensCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportLensCommandOutput) => void
+  ): void;
+  public importLens(
+    args: ImportLensCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportLensCommandOutput) => void),
+    cb?: (err: any, data?: ImportLensCommandOutput) => void
+  ): Promise<ImportLensCommandOutput> | void {
+    const command = new ImportLensCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>List of answers.</p>
    */
   public listAnswers(args: ListAnswersCommandInput, options?: __HttpHandlerOptions): Promise<ListAnswersCommandOutput>;
@@ -667,6 +978,38 @@ export class WellArchitected extends WellArchitectedClient {
     cb?: (err: any, data?: ListLensReviewsCommandOutput) => void
   ): Promise<ListLensReviewsCommandOutput> | void {
     const command = new ListLensReviewsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List the lens shares associated with the lens.</p>
+   */
+  public listLensShares(
+    args: ListLensSharesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLensSharesCommandOutput>;
+  public listLensShares(
+    args: ListLensSharesCommandInput,
+    cb: (err: any, data?: ListLensSharesCommandOutput) => void
+  ): void;
+  public listLensShares(
+    args: ListLensSharesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLensSharesCommandOutput) => void
+  ): void;
+  public listLensShares(
+    args: ListLensSharesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLensSharesCommandOutput) => void),
+    cb?: (err: any, data?: ListLensSharesCommandOutput) => void
+  ): Promise<ListLensSharesCommandOutput> | void {
+    const command = new ListLensSharesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

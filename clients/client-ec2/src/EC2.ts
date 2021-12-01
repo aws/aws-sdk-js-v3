@@ -1260,6 +1260,11 @@ import {
   DescribeSnapshotsCommandOutput,
 } from "./commands/DescribeSnapshotsCommand";
 import {
+  DescribeSnapshotTierStatusCommand,
+  DescribeSnapshotTierStatusCommandInput,
+  DescribeSnapshotTierStatusCommandOutput,
+} from "./commands/DescribeSnapshotTierStatusCommand";
+import {
   DescribeSpotDatafeedSubscriptionCommand,
   DescribeSpotDatafeedSubscriptionCommandInput,
   DescribeSpotDatafeedSubscriptionCommandOutput,
@@ -1802,6 +1807,11 @@ import {
   ImportVolumeCommandOutput,
 } from "./commands/ImportVolumeCommand";
 import {
+  ListSnapshotsInRecycleBinCommand,
+  ListSnapshotsInRecycleBinCommandInput,
+  ListSnapshotsInRecycleBinCommandOutput,
+} from "./commands/ListSnapshotsInRecycleBinCommand";
+import {
   ModifyAddressAttributeCommand,
   ModifyAddressAttributeCommandInput,
   ModifyAddressAttributeCommandOutput,
@@ -1928,6 +1938,11 @@ import {
   ModifySnapshotAttributeCommandInput,
   ModifySnapshotAttributeCommandOutput,
 } from "./commands/ModifySnapshotAttributeCommand";
+import {
+  ModifySnapshotTierCommand,
+  ModifySnapshotTierCommandInput,
+  ModifySnapshotTierCommandOutput,
+} from "./commands/ModifySnapshotTierCommand";
 import {
   ModifySpotFleetRequestCommand,
   ModifySpotFleetRequestCommandInput,
@@ -2213,6 +2228,16 @@ import {
   RestoreManagedPrefixListVersionCommandInput,
   RestoreManagedPrefixListVersionCommandOutput,
 } from "./commands/RestoreManagedPrefixListVersionCommand";
+import {
+  RestoreSnapshotFromRecycleBinCommand,
+  RestoreSnapshotFromRecycleBinCommandInput,
+  RestoreSnapshotFromRecycleBinCommandOutput,
+} from "./commands/RestoreSnapshotFromRecycleBinCommand";
+import {
+  RestoreSnapshotTierCommand,
+  RestoreSnapshotTierCommandInput,
+  RestoreSnapshotTierCommandOutput,
+} from "./commands/RestoreSnapshotTierCommand";
 import {
   RevokeClientVpnIngressCommand,
   RevokeClientVpnIngressCommandInput,
@@ -11842,6 +11867,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Describes the storage tier status of one or more Amazon EBS snapshots.</p>
+   */
+  public describeSnapshotTierStatus(
+    args: DescribeSnapshotTierStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSnapshotTierStatusCommandOutput>;
+  public describeSnapshotTierStatus(
+    args: DescribeSnapshotTierStatusCommandInput,
+    cb: (err: any, data?: DescribeSnapshotTierStatusCommandOutput) => void
+  ): void;
+  public describeSnapshotTierStatus(
+    args: DescribeSnapshotTierStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSnapshotTierStatusCommandOutput) => void
+  ): void;
+  public describeSnapshotTierStatus(
+    args: DescribeSnapshotTierStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSnapshotTierStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeSnapshotTierStatusCommandOutput) => void
+  ): Promise<DescribeSnapshotTierStatusCommandOutput> | void {
+    const command = new DescribeSnapshotTierStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the data feed for Spot Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
    *                 Instance data feed</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
@@ -15722,6 +15779,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Lists one or more snapshots that are currently in the Recycle Bin.</p>
+   */
+  public listSnapshotsInRecycleBin(
+    args: ListSnapshotsInRecycleBinCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSnapshotsInRecycleBinCommandOutput>;
+  public listSnapshotsInRecycleBin(
+    args: ListSnapshotsInRecycleBinCommandInput,
+    cb: (err: any, data?: ListSnapshotsInRecycleBinCommandOutput) => void
+  ): void;
+  public listSnapshotsInRecycleBin(
+    args: ListSnapshotsInRecycleBinCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSnapshotsInRecycleBinCommandOutput) => void
+  ): void;
+  public listSnapshotsInRecycleBin(
+    args: ListSnapshotsInRecycleBinCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSnapshotsInRecycleBinCommandOutput) => void),
+    cb?: (err: any, data?: ListSnapshotsInRecycleBinCommandOutput) => void
+  ): Promise<ListSnapshotsInRecycleBinCommandOutput> | void {
+    const command = new ListSnapshotsInRecycleBinCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Modifies an attribute of the specified Elastic IP address. For requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS">Using reverse DNS for email applications</a>.</p>
    */
   public modifyAddressAttribute(
@@ -16756,6 +16845,42 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Archives an Amazon EBS snapshot. When you archive a snapshot, it is converted to a full
+   *       snapshot that includes all of the blocks of data that were written to the volume at the
+   *       time the snapshot was created, and moved from the standard tier to the archive
+   *       tier. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-archive.html">Archive Amazon EBS snapshots</a>
+   *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  public modifySnapshotTier(
+    args: ModifySnapshotTierCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifySnapshotTierCommandOutput>;
+  public modifySnapshotTier(
+    args: ModifySnapshotTierCommandInput,
+    cb: (err: any, data?: ModifySnapshotTierCommandOutput) => void
+  ): void;
+  public modifySnapshotTier(
+    args: ModifySnapshotTierCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifySnapshotTierCommandOutput) => void
+  ): void;
+  public modifySnapshotTier(
+    args: ModifySnapshotTierCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifySnapshotTierCommandOutput) => void),
+    cb?: (err: any, data?: ModifySnapshotTierCommandOutput) => void
+  ): Promise<ModifySnapshotTierCommandOutput> | void {
+    const command = new ModifySnapshotTierCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Modifies the specified Spot Fleet request.</p>
    *         <p>You can only modify a Spot Fleet request of type <code>maintain</code>.</p>
    *         <p>While the Spot Fleet request is being modified, it is in the <code>modifying</code>
@@ -16813,6 +16938,36 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Modifies a subnet attribute. You can only modify one attribute at a time.</p>
+   *
+   * 	        <p>Use this action to modify subnets on Amazon Web Services Outposts.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>To modify a subnet on an Outpost rack, set both
+   *                         <code>MapCustomerOwnedIpOnLaunch</code> and
+   *                         <code>CustomerOwnedIpv4Pool</code>. These two parameters act as a single
+   *                     attribute.</p>
+   *             </li>
+   *             <li>
+   *                 <p>To modify a subnet on an Outpost server, set either
+   *                         <code>EnableLniAtDeviceIndex</code> or
+   *                     <code>DisableLniAtDeviceIndex</code>.</p>
+   *             </li>
+   *          </ul>
+   *
+   * 	        <p>For more information about Amazon Web Services Outposts, see the following:</p>
+   *
+   * 	        <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-servers-work.html">Outpost servers</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-racks-work.html">Outpost racks</a>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public modifySubnetAttribute(
     args: ModifySubnetAttributeCommandInput,
@@ -18905,6 +19060,76 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: RestoreManagedPrefixListVersionCommandOutput) => void
   ): Promise<RestoreManagedPrefixListVersionCommandOutput> | void {
     const command = new RestoreManagedPrefixListVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Restores a snapshot from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-snaps.html#recycle-bin-restore-snaps">Restore
+   *       snapshots from the Recycle Bin</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  public restoreSnapshotFromRecycleBin(
+    args: RestoreSnapshotFromRecycleBinCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreSnapshotFromRecycleBinCommandOutput>;
+  public restoreSnapshotFromRecycleBin(
+    args: RestoreSnapshotFromRecycleBinCommandInput,
+    cb: (err: any, data?: RestoreSnapshotFromRecycleBinCommandOutput) => void
+  ): void;
+  public restoreSnapshotFromRecycleBin(
+    args: RestoreSnapshotFromRecycleBinCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestoreSnapshotFromRecycleBinCommandOutput) => void
+  ): void;
+  public restoreSnapshotFromRecycleBin(
+    args: RestoreSnapshotFromRecycleBinCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreSnapshotFromRecycleBinCommandOutput) => void),
+    cb?: (err: any, data?: RestoreSnapshotFromRecycleBinCommandOutput) => void
+  ): Promise<RestoreSnapshotFromRecycleBinCommandOutput> | void {
+    const command = new RestoreSnapshotFromRecycleBinCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Restores an archived Amazon EBS snapshot for use temporarily or permanently, or modifies the restore
+   *       period or restore type for a snapshot that was previously temporarily restored.</p>
+   *
+   *          <p>For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#restore-archived-snapshot">
+   *       Restore an archived snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#modify-temp-restore-period">
+   *         modify the restore period or restore type for a temporarily restored snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  public restoreSnapshotTier(
+    args: RestoreSnapshotTierCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreSnapshotTierCommandOutput>;
+  public restoreSnapshotTier(
+    args: RestoreSnapshotTierCommandInput,
+    cb: (err: any, data?: RestoreSnapshotTierCommandOutput) => void
+  ): void;
+  public restoreSnapshotTier(
+    args: RestoreSnapshotTierCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestoreSnapshotTierCommandOutput) => void
+  ): void;
+  public restoreSnapshotTier(
+    args: RestoreSnapshotTierCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreSnapshotTierCommandOutput) => void),
+    cb?: (err: any, data?: RestoreSnapshotTierCommandOutput) => void
+  ): Promise<RestoreSnapshotTierCommandOutput> | void {
+    const command = new RestoreSnapshotTierCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

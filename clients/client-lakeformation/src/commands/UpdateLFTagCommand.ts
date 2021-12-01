@@ -14,15 +14,15 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { UpdateLFTagRequest, UpdateLFTagResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateLFTagCommand,
-  serializeAws_json1_1UpdateLFTagCommand,
-} from "../protocols/Aws_json1_1";
+  deserializeAws_restJson1UpdateLFTagCommand,
+  serializeAws_restJson1UpdateLFTagCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface UpdateLFTagCommandInput extends UpdateLFTagRequest {}
 export interface UpdateLFTagCommandOutput extends UpdateLFTagResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the list of possible values for the specified tag key. If the tag does not exist, the operation throws an EntityNotFoundException. The values in the delete key values will be deleted from list of possible values. If any value in the delete key values is attached to a resource, then API errors out with a 400 Exception - "Update not allowed". Untag the attribute before deleting the tag key's value.  </p>
+ * <p>Updates the list of possible values for the specified LF-tag key. If the LF-tag does not exist, the operation throws an EntityNotFoundException. The values in the delete key values will be deleted from list of possible values. If any value in the delete key values is attached to a resource, then API errors out with a 400 Exception - "Update not allowed". Untag the attribute before deleting the LF-tag key's value. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,11 +83,11 @@ export class UpdateLFTagCommand extends $Command<
   }
 
   private serialize(input: UpdateLFTagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateLFTagCommand(input, context);
+    return serializeAws_restJson1UpdateLFTagCommand(input, context);
   }
 
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLFTagCommandOutput> {
-    return deserializeAws_json1_1UpdateLFTagCommand(output, context);
+    return deserializeAws_restJson1UpdateLFTagCommand(output, context);
   }
 
   // Start section: command_body_extra

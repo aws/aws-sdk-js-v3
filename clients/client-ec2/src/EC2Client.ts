@@ -897,6 +897,10 @@ import {
 } from "./commands/DescribeSnapshotAttributeCommand";
 import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "./commands/DescribeSnapshotsCommand";
 import {
+  DescribeSnapshotTierStatusCommandInput,
+  DescribeSnapshotTierStatusCommandOutput,
+} from "./commands/DescribeSnapshotTierStatusCommand";
+import {
   DescribeSpotDatafeedSubscriptionCommandInput,
   DescribeSpotDatafeedSubscriptionCommandOutput,
 } from "./commands/DescribeSpotDatafeedSubscriptionCommand";
@@ -1289,6 +1293,10 @@ import { ImportKeyPairCommandInput, ImportKeyPairCommandOutput } from "./command
 import { ImportSnapshotCommandInput, ImportSnapshotCommandOutput } from "./commands/ImportSnapshotCommand";
 import { ImportVolumeCommandInput, ImportVolumeCommandOutput } from "./commands/ImportVolumeCommand";
 import {
+  ListSnapshotsInRecycleBinCommandInput,
+  ListSnapshotsInRecycleBinCommandOutput,
+} from "./commands/ListSnapshotsInRecycleBinCommand";
+import {
   ModifyAddressAttributeCommandInput,
   ModifyAddressAttributeCommandOutput,
 } from "./commands/ModifyAddressAttributeCommand";
@@ -1387,6 +1395,7 @@ import {
   ModifySnapshotAttributeCommandInput,
   ModifySnapshotAttributeCommandOutput,
 } from "./commands/ModifySnapshotAttributeCommand";
+import { ModifySnapshotTierCommandInput, ModifySnapshotTierCommandOutput } from "./commands/ModifySnapshotTierCommand";
 import {
   ModifySpotFleetRequestCommandInput,
   ModifySpotFleetRequestCommandOutput,
@@ -1576,6 +1585,14 @@ import {
   RestoreManagedPrefixListVersionCommandInput,
   RestoreManagedPrefixListVersionCommandOutput,
 } from "./commands/RestoreManagedPrefixListVersionCommand";
+import {
+  RestoreSnapshotFromRecycleBinCommandInput,
+  RestoreSnapshotFromRecycleBinCommandOutput,
+} from "./commands/RestoreSnapshotFromRecycleBinCommand";
+import {
+  RestoreSnapshotTierCommandInput,
+  RestoreSnapshotTierCommandOutput,
+} from "./commands/RestoreSnapshotTierCommand";
 import {
   RevokeClientVpnIngressCommandInput,
   RevokeClientVpnIngressCommandOutput,
@@ -1903,6 +1920,7 @@ export type ServiceInputTypes =
   | DescribeSecurityGroupRulesCommandInput
   | DescribeSecurityGroupsCommandInput
   | DescribeSnapshotAttributeCommandInput
+  | DescribeSnapshotTierStatusCommandInput
   | DescribeSnapshotsCommandInput
   | DescribeSpotDatafeedSubscriptionCommandInput
   | DescribeSpotFleetInstancesCommandInput
@@ -2014,6 +2032,7 @@ export type ServiceInputTypes =
   | ImportKeyPairCommandInput
   | ImportSnapshotCommandInput
   | ImportVolumeCommandInput
+  | ListSnapshotsInRecycleBinCommandInput
   | ModifyAddressAttributeCommandInput
   | ModifyAvailabilityZoneGroupCommandInput
   | ModifyCapacityReservationCommandInput
@@ -2041,6 +2060,7 @@ export type ServiceInputTypes =
   | ModifyReservedInstancesCommandInput
   | ModifySecurityGroupRulesCommandInput
   | ModifySnapshotAttributeCommandInput
+  | ModifySnapshotTierCommandInput
   | ModifySpotFleetRequestCommandInput
   | ModifySubnetAttributeCommandInput
   | ModifyTrafficMirrorFilterNetworkServicesCommandInput
@@ -2098,6 +2118,8 @@ export type ServiceInputTypes =
   | ResetSnapshotAttributeCommandInput
   | RestoreAddressToClassicCommandInput
   | RestoreManagedPrefixListVersionCommandInput
+  | RestoreSnapshotFromRecycleBinCommandInput
+  | RestoreSnapshotTierCommandInput
   | RevokeClientVpnIngressCommandInput
   | RevokeSecurityGroupEgressCommandInput
   | RevokeSecurityGroupIngressCommandInput
@@ -2379,6 +2401,7 @@ export type ServiceOutputTypes =
   | DescribeSecurityGroupRulesCommandOutput
   | DescribeSecurityGroupsCommandOutput
   | DescribeSnapshotAttributeCommandOutput
+  | DescribeSnapshotTierStatusCommandOutput
   | DescribeSnapshotsCommandOutput
   | DescribeSpotDatafeedSubscriptionCommandOutput
   | DescribeSpotFleetInstancesCommandOutput
@@ -2490,6 +2513,7 @@ export type ServiceOutputTypes =
   | ImportKeyPairCommandOutput
   | ImportSnapshotCommandOutput
   | ImportVolumeCommandOutput
+  | ListSnapshotsInRecycleBinCommandOutput
   | ModifyAddressAttributeCommandOutput
   | ModifyAvailabilityZoneGroupCommandOutput
   | ModifyCapacityReservationCommandOutput
@@ -2517,6 +2541,7 @@ export type ServiceOutputTypes =
   | ModifyReservedInstancesCommandOutput
   | ModifySecurityGroupRulesCommandOutput
   | ModifySnapshotAttributeCommandOutput
+  | ModifySnapshotTierCommandOutput
   | ModifySpotFleetRequestCommandOutput
   | ModifySubnetAttributeCommandOutput
   | ModifyTrafficMirrorFilterNetworkServicesCommandOutput
@@ -2574,6 +2599,8 @@ export type ServiceOutputTypes =
   | ResetSnapshotAttributeCommandOutput
   | RestoreAddressToClassicCommandOutput
   | RestoreManagedPrefixListVersionCommandOutput
+  | RestoreSnapshotFromRecycleBinCommandOutput
+  | RestoreSnapshotTierCommandOutput
   | RevokeClientVpnIngressCommandOutput
   | RevokeSecurityGroupEgressCommandOutput
   | RevokeSecurityGroupIngressCommandOutput

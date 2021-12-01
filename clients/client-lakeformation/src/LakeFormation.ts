@@ -15,8 +15,33 @@ import {
   BatchRevokePermissionsCommandInput,
   BatchRevokePermissionsCommandOutput,
 } from "./commands/BatchRevokePermissionsCommand";
+import {
+  CancelTransactionCommand,
+  CancelTransactionCommandInput,
+  CancelTransactionCommandOutput,
+} from "./commands/CancelTransactionCommand";
+import {
+  CommitTransactionCommand,
+  CommitTransactionCommandInput,
+  CommitTransactionCommandOutput,
+} from "./commands/CommitTransactionCommand";
+import {
+  CreateDataCellsFilterCommand,
+  CreateDataCellsFilterCommandInput,
+  CreateDataCellsFilterCommandOutput,
+} from "./commands/CreateDataCellsFilterCommand";
 import { CreateLFTagCommand, CreateLFTagCommandInput, CreateLFTagCommandOutput } from "./commands/CreateLFTagCommand";
+import {
+  DeleteDataCellsFilterCommand,
+  DeleteDataCellsFilterCommandInput,
+  DeleteDataCellsFilterCommandOutput,
+} from "./commands/DeleteDataCellsFilterCommand";
 import { DeleteLFTagCommand, DeleteLFTagCommandInput, DeleteLFTagCommandOutput } from "./commands/DeleteLFTagCommand";
+import {
+  DeleteObjectsOnCancelCommand,
+  DeleteObjectsOnCancelCommandInput,
+  DeleteObjectsOnCancelCommandOutput,
+} from "./commands/DeleteObjectsOnCancelCommand";
 import {
   DeregisterResourceCommand,
   DeregisterResourceCommandInput,
@@ -27,6 +52,16 @@ import {
   DescribeResourceCommandInput,
   DescribeResourceCommandOutput,
 } from "./commands/DescribeResourceCommand";
+import {
+  DescribeTransactionCommand,
+  DescribeTransactionCommandInput,
+  DescribeTransactionCommandOutput,
+} from "./commands/DescribeTransactionCommand";
+import {
+  ExtendTransactionCommand,
+  ExtendTransactionCommandInput,
+  ExtendTransactionCommandOutput,
+} from "./commands/ExtendTransactionCommand";
 import {
   GetDataLakeSettingsCommand,
   GetDataLakeSettingsCommandInput,
@@ -39,15 +74,45 @@ import {
 } from "./commands/GetEffectivePermissionsForPathCommand";
 import { GetLFTagCommand, GetLFTagCommandInput, GetLFTagCommandOutput } from "./commands/GetLFTagCommand";
 import {
+  GetQueryStateCommand,
+  GetQueryStateCommandInput,
+  GetQueryStateCommandOutput,
+} from "./commands/GetQueryStateCommand";
+import {
+  GetQueryStatisticsCommand,
+  GetQueryStatisticsCommandInput,
+  GetQueryStatisticsCommandOutput,
+} from "./commands/GetQueryStatisticsCommand";
+import {
   GetResourceLFTagsCommand,
   GetResourceLFTagsCommandInput,
   GetResourceLFTagsCommandOutput,
 } from "./commands/GetResourceLFTagsCommand";
 import {
+  GetTableObjectsCommand,
+  GetTableObjectsCommandInput,
+  GetTableObjectsCommandOutput,
+} from "./commands/GetTableObjectsCommand";
+import {
+  GetWorkUnitResultsCommand,
+  GetWorkUnitResultsCommandInput,
+  GetWorkUnitResultsCommandOutput,
+} from "./commands/GetWorkUnitResultsCommand";
+import {
+  GetWorkUnitsCommand,
+  GetWorkUnitsCommandInput,
+  GetWorkUnitsCommandOutput,
+} from "./commands/GetWorkUnitsCommand";
+import {
   GrantPermissionsCommand,
   GrantPermissionsCommandInput,
   GrantPermissionsCommandOutput,
 } from "./commands/GrantPermissionsCommand";
+import {
+  ListDataCellsFilterCommand,
+  ListDataCellsFilterCommandInput,
+  ListDataCellsFilterCommandOutput,
+} from "./commands/ListDataCellsFilterCommand";
 import { ListLFTagsCommand, ListLFTagsCommandInput, ListLFTagsCommandOutput } from "./commands/ListLFTagsCommand";
 import {
   ListPermissionsCommand,
@@ -59,6 +124,16 @@ import {
   ListResourcesCommandInput,
   ListResourcesCommandOutput,
 } from "./commands/ListResourcesCommand";
+import {
+  ListTableStorageOptimizersCommand,
+  ListTableStorageOptimizersCommandInput,
+  ListTableStorageOptimizersCommandOutput,
+} from "./commands/ListTableStorageOptimizersCommand";
+import {
+  ListTransactionsCommand,
+  ListTransactionsCommandInput,
+  ListTransactionsCommandOutput,
+} from "./commands/ListTransactionsCommand";
 import {
   PutDataLakeSettingsCommand,
   PutDataLakeSettingsCommandInput,
@@ -89,21 +164,41 @@ import {
   SearchTablesByLFTagsCommandInput,
   SearchTablesByLFTagsCommandOutput,
 } from "./commands/SearchTablesByLFTagsCommand";
+import {
+  StartQueryPlanningCommand,
+  StartQueryPlanningCommandInput,
+  StartQueryPlanningCommandOutput,
+} from "./commands/StartQueryPlanningCommand";
+import {
+  StartTransactionCommand,
+  StartTransactionCommandInput,
+  StartTransactionCommandOutput,
+} from "./commands/StartTransactionCommand";
 import { UpdateLFTagCommand, UpdateLFTagCommandInput, UpdateLFTagCommandOutput } from "./commands/UpdateLFTagCommand";
 import {
   UpdateResourceCommand,
   UpdateResourceCommandInput,
   UpdateResourceCommandOutput,
 } from "./commands/UpdateResourceCommand";
+import {
+  UpdateTableObjectsCommand,
+  UpdateTableObjectsCommandInput,
+  UpdateTableObjectsCommandOutput,
+} from "./commands/UpdateTableObjectsCommand";
+import {
+  UpdateTableStorageOptimizerCommand,
+  UpdateTableStorageOptimizerCommandInput,
+  UpdateTableStorageOptimizerCommandOutput,
+} from "./commands/UpdateTableStorageOptimizerCommand";
 import { LakeFormationClient } from "./LakeFormationClient";
 
 /**
- * <fullname>AWS Lake Formation</fullname>
- *          <p>Defines the public endpoint for the AWS Lake Formation service.</p>
+ * <fullname>Lake Formation</fullname>
+ *          <p>Defines the public endpoint for the Lake Formation service.</p>
  */
 export class LakeFormation extends LakeFormationClient {
   /**
-   * <p>Attaches one or more tags to an existing resource.</p>
+   * <p>Attaches one or more LF-tags to an existing resource.</p>
    */
   public addLFTagsToResource(
     args: AddLFTagsToResourceCommandInput,
@@ -199,7 +294,103 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   * <p>Creates a tag with the specified name and values.</p>
+   * <p>Attempts to cancel the specified transaction. Returns an exception if the transaction was previously committed.</p>
+   */
+  public cancelTransaction(
+    args: CancelTransactionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelTransactionCommandOutput>;
+  public cancelTransaction(
+    args: CancelTransactionCommandInput,
+    cb: (err: any, data?: CancelTransactionCommandOutput) => void
+  ): void;
+  public cancelTransaction(
+    args: CancelTransactionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelTransactionCommandOutput) => void
+  ): void;
+  public cancelTransaction(
+    args: CancelTransactionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelTransactionCommandOutput) => void),
+    cb?: (err: any, data?: CancelTransactionCommandOutput) => void
+  ): Promise<CancelTransactionCommandOutput> | void {
+    const command = new CancelTransactionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Attempts to commit the specified transaction. Returns an exception if the transaction was previously aborted. This API action is idempotent if called multiple times for the same transaction.</p>
+   */
+  public commitTransaction(
+    args: CommitTransactionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CommitTransactionCommandOutput>;
+  public commitTransaction(
+    args: CommitTransactionCommandInput,
+    cb: (err: any, data?: CommitTransactionCommandOutput) => void
+  ): void;
+  public commitTransaction(
+    args: CommitTransactionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CommitTransactionCommandOutput) => void
+  ): void;
+  public commitTransaction(
+    args: CommitTransactionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CommitTransactionCommandOutput) => void),
+    cb?: (err: any, data?: CommitTransactionCommandOutput) => void
+  ): Promise<CommitTransactionCommandOutput> | void {
+    const command = new CommitTransactionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a data cell filter to allow one to grant access to certain columns on certain rows.</p>
+   */
+  public createDataCellsFilter(
+    args: CreateDataCellsFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataCellsFilterCommandOutput>;
+  public createDataCellsFilter(
+    args: CreateDataCellsFilterCommandInput,
+    cb: (err: any, data?: CreateDataCellsFilterCommandOutput) => void
+  ): void;
+  public createDataCellsFilter(
+    args: CreateDataCellsFilterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataCellsFilterCommandOutput) => void
+  ): void;
+  public createDataCellsFilter(
+    args: CreateDataCellsFilterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataCellsFilterCommandOutput) => void),
+    cb?: (err: any, data?: CreateDataCellsFilterCommandOutput) => void
+  ): Promise<CreateDataCellsFilterCommandOutput> | void {
+    const command = new CreateDataCellsFilterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an LF-tag with the specified name and values.</p>
    */
   public createLFTag(args: CreateLFTagCommandInput, options?: __HttpHandlerOptions): Promise<CreateLFTagCommandOutput>;
   public createLFTag(args: CreateLFTagCommandInput, cb: (err: any, data?: CreateLFTagCommandOutput) => void): void;
@@ -225,7 +416,39 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   * <p>Deletes the specified tag key name. If the attribute key does not exist or the tag does not exist, then the operation will not do anything. If the attribute key exists, then the operation checks if any resources are tagged with this attribute key, if yes, the API throws a 400 Exception with the message "Delete not allowed" as the tag key is still attached with resources. You can consider untagging resources with this tag key.</p>
+   * <p>Deletes a data cell filter.</p>
+   */
+  public deleteDataCellsFilter(
+    args: DeleteDataCellsFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataCellsFilterCommandOutput>;
+  public deleteDataCellsFilter(
+    args: DeleteDataCellsFilterCommandInput,
+    cb: (err: any, data?: DeleteDataCellsFilterCommandOutput) => void
+  ): void;
+  public deleteDataCellsFilter(
+    args: DeleteDataCellsFilterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataCellsFilterCommandOutput) => void
+  ): void;
+  public deleteDataCellsFilter(
+    args: DeleteDataCellsFilterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDataCellsFilterCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDataCellsFilterCommandOutput) => void
+  ): Promise<DeleteDataCellsFilterCommandOutput> | void {
+    const command = new DeleteDataCellsFilterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified LF-tag key name. If the attribute key does not exist or the LF-tag does not exist, then the operation will not do anything. If the attribute key exists, then the operation checks if any resources are tagged with this attribute key, if yes, the API throws a 400 Exception with the message "Delete not allowed" as the LF-tag key is still attached with resources. You can consider untagging resources with this LF-tag key.</p>
    */
   public deleteLFTag(args: DeleteLFTagCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLFTagCommandOutput>;
   public deleteLFTag(args: DeleteLFTagCommandInput, cb: (err: any, data?: DeleteLFTagCommandOutput) => void): void;
@@ -240,6 +463,45 @@ export class LakeFormation extends LakeFormationClient {
     cb?: (err: any, data?: DeleteLFTagCommandOutput) => void
   ): Promise<DeleteLFTagCommandOutput> | void {
     const command = new DeleteLFTagCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>For a specific governed table, provides a list of Amazon S3 objects that will be written during the current transaction and that can be automatically deleted
+   *       if the transaction is canceled. Without this call, no Amazon S3 objects are automatically deleted when a transaction cancels.
+   *     </p>
+   *          <p>
+   *       The Glue ETL library function <code>write_dynamic_frame.from_catalog()</code> includes an option to automatically
+   *       call <code>DeleteObjectsOnCancel</code> before writes. For more information, see
+   *       <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/transactions-data-operations.html#rolling-back-writes">Rolling Back Amazon S3 Writes</a>.
+   *     </p>
+   */
+  public deleteObjectsOnCancel(
+    args: DeleteObjectsOnCancelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteObjectsOnCancelCommandOutput>;
+  public deleteObjectsOnCancel(
+    args: DeleteObjectsOnCancelCommandInput,
+    cb: (err: any, data?: DeleteObjectsOnCancelCommandOutput) => void
+  ): void;
+  public deleteObjectsOnCancel(
+    args: DeleteObjectsOnCancelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteObjectsOnCancelCommandOutput) => void
+  ): void;
+  public deleteObjectsOnCancel(
+    args: DeleteObjectsOnCancelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteObjectsOnCancelCommandOutput) => void),
+    cb?: (err: any, data?: DeleteObjectsOnCancelCommandOutput) => void
+  ): Promise<DeleteObjectsOnCancelCommandOutput> | void {
+    const command = new DeleteObjectsOnCancelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -285,7 +547,7 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   * <p>Retrieves the current data access role for the given resource registered in AWS Lake Formation.</p>
+   * <p>Retrieves the current data access role for the given resource registered in Lake Formation.</p>
    */
   public describeResource(
     args: DescribeResourceCommandInput,
@@ -306,6 +568,72 @@ export class LakeFormation extends LakeFormationClient {
     cb?: (err: any, data?: DescribeResourceCommandOutput) => void
   ): Promise<DescribeResourceCommandOutput> | void {
     const command = new DescribeResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the details of a single transaction.</p>
+   */
+  public describeTransaction(
+    args: DescribeTransactionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTransactionCommandOutput>;
+  public describeTransaction(
+    args: DescribeTransactionCommandInput,
+    cb: (err: any, data?: DescribeTransactionCommandOutput) => void
+  ): void;
+  public describeTransaction(
+    args: DescribeTransactionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTransactionCommandOutput) => void
+  ): void;
+  public describeTransaction(
+    args: DescribeTransactionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTransactionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTransactionCommandOutput) => void
+  ): Promise<DescribeTransactionCommandOutput> | void {
+    const command = new DescribeTransactionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Indicates to the service that the specified transaction is still active and should not be treated as idle and aborted.</p>
+   *
+   * 	        <p>Write transactions that remain idle for a long period are automatically aborted unless explicitly extended.</p>
+   */
+  public extendTransaction(
+    args: ExtendTransactionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExtendTransactionCommandOutput>;
+  public extendTransaction(
+    args: ExtendTransactionCommandInput,
+    cb: (err: any, data?: ExtendTransactionCommandOutput) => void
+  ): void;
+  public extendTransaction(
+    args: ExtendTransactionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExtendTransactionCommandOutput) => void
+  ): void;
+  public extendTransaction(
+    args: ExtendTransactionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExtendTransactionCommandOutput) => void),
+    cb?: (err: any, data?: ExtendTransactionCommandOutput) => void
+  ): Promise<ExtendTransactionCommandOutput> | void {
+    const command = new ExtendTransactionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -382,7 +710,7 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   * <p>Returns a tag definition.</p>
+   * <p>Returns an LF-tag definition.</p>
    */
   public getLFTag(args: GetLFTagCommandInput, options?: __HttpHandlerOptions): Promise<GetLFTagCommandOutput>;
   public getLFTag(args: GetLFTagCommandInput, cb: (err: any, data?: GetLFTagCommandOutput) => void): void;
@@ -408,7 +736,71 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   * <p>Returns the tags applied to a resource.</p>
+   * <p>Returns the state of a query previously submitted. Clients are expected to poll <code>GetQueryState</code> to monitor the current state of the planning before retrieving the work units. A query state is only visible to the principal that made the initial call to <code>StartQueryPlanning</code>.</p>
+   */
+  public getQueryState(
+    args: GetQueryStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQueryStateCommandOutput>;
+  public getQueryState(
+    args: GetQueryStateCommandInput,
+    cb: (err: any, data?: GetQueryStateCommandOutput) => void
+  ): void;
+  public getQueryState(
+    args: GetQueryStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQueryStateCommandOutput) => void
+  ): void;
+  public getQueryState(
+    args: GetQueryStateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueryStateCommandOutput) => void),
+    cb?: (err: any, data?: GetQueryStateCommandOutput) => void
+  ): Promise<GetQueryStateCommandOutput> | void {
+    const command = new GetQueryStateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves statistics on the planning and execution of a query.</p>
+   */
+  public getQueryStatistics(
+    args: GetQueryStatisticsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQueryStatisticsCommandOutput>;
+  public getQueryStatistics(
+    args: GetQueryStatisticsCommandInput,
+    cb: (err: any, data?: GetQueryStatisticsCommandOutput) => void
+  ): void;
+  public getQueryStatistics(
+    args: GetQueryStatisticsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQueryStatisticsCommandOutput) => void
+  ): void;
+  public getQueryStatistics(
+    args: GetQueryStatisticsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueryStatisticsCommandOutput) => void),
+    cb?: (err: any, data?: GetQueryStatisticsCommandOutput) => void
+  ): Promise<GetQueryStatisticsCommandOutput> | void {
+    const command = new GetQueryStatisticsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the LF-tags applied to a resource.</p>
    */
   public getResourceLFTags(
     args: GetResourceLFTagsCommandInput,
@@ -429,6 +821,99 @@ export class LakeFormation extends LakeFormationClient {
     cb?: (err: any, data?: GetResourceLFTagsCommandOutput) => void
   ): Promise<GetResourceLFTagsCommandOutput> | void {
     const command = new GetResourceLFTagsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the set of Amazon S3 objects that make up the specified governed table. A transaction ID or timestamp can be specified for time-travel queries.</p>
+   */
+  public getTableObjects(
+    args: GetTableObjectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTableObjectsCommandOutput>;
+  public getTableObjects(
+    args: GetTableObjectsCommandInput,
+    cb: (err: any, data?: GetTableObjectsCommandOutput) => void
+  ): void;
+  public getTableObjects(
+    args: GetTableObjectsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTableObjectsCommandOutput) => void
+  ): void;
+  public getTableObjects(
+    args: GetTableObjectsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTableObjectsCommandOutput) => void),
+    cb?: (err: any, data?: GetTableObjectsCommandOutput) => void
+  ): Promise<GetTableObjectsCommandOutput> | void {
+    const command = new GetTableObjectsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the work units resulting from the query. Work units can be executed in any order and in parallel. </p>
+   */
+  public getWorkUnitResults(
+    args: GetWorkUnitResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorkUnitResultsCommandOutput>;
+  public getWorkUnitResults(
+    args: GetWorkUnitResultsCommandInput,
+    cb: (err: any, data?: GetWorkUnitResultsCommandOutput) => void
+  ): void;
+  public getWorkUnitResults(
+    args: GetWorkUnitResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWorkUnitResultsCommandOutput) => void
+  ): void;
+  public getWorkUnitResults(
+    args: GetWorkUnitResultsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkUnitResultsCommandOutput) => void),
+    cb?: (err: any, data?: GetWorkUnitResultsCommandOutput) => void
+  ): Promise<GetWorkUnitResultsCommandOutput> | void {
+    const command = new GetWorkUnitResultsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the work units generated by the <code>StartQueryPlanning</code> operation.</p>
+   */
+  public getWorkUnits(
+    args: GetWorkUnitsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorkUnitsCommandOutput>;
+  public getWorkUnits(args: GetWorkUnitsCommandInput, cb: (err: any, data?: GetWorkUnitsCommandOutput) => void): void;
+  public getWorkUnits(
+    args: GetWorkUnitsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWorkUnitsCommandOutput) => void
+  ): void;
+  public getWorkUnits(
+    args: GetWorkUnitsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkUnitsCommandOutput) => void),
+    cb?: (err: any, data?: GetWorkUnitsCommandOutput) => void
+  ): Promise<GetWorkUnitsCommandOutput> | void {
+    const command = new GetWorkUnitsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -473,7 +958,39 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   * <p>Lists tags that the requester has permission to view. </p>
+   * <p>Lists all the data cell filters on a table.</p>
+   */
+  public listDataCellsFilter(
+    args: ListDataCellsFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataCellsFilterCommandOutput>;
+  public listDataCellsFilter(
+    args: ListDataCellsFilterCommandInput,
+    cb: (err: any, data?: ListDataCellsFilterCommandOutput) => void
+  ): void;
+  public listDataCellsFilter(
+    args: ListDataCellsFilterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataCellsFilterCommandOutput) => void
+  ): void;
+  public listDataCellsFilter(
+    args: ListDataCellsFilterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDataCellsFilterCommandOutput) => void),
+    cb?: (err: any, data?: ListDataCellsFilterCommandOutput) => void
+  ): Promise<ListDataCellsFilterCommandOutput> | void {
+    const command = new ListDataCellsFilterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists LF-tags that the requester has permission to view. </p>
    */
   public listLFTags(args: ListLFTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListLFTagsCommandOutput>;
   public listLFTags(args: ListLFTagsCommandInput, cb: (err: any, data?: ListLFTagsCommandOutput) => void): void;
@@ -565,6 +1082,71 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
+   * <p>Returns the configuration of all storage optimizers associated with a specified table.</p>
+   */
+  public listTableStorageOptimizers(
+    args: ListTableStorageOptimizersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTableStorageOptimizersCommandOutput>;
+  public listTableStorageOptimizers(
+    args: ListTableStorageOptimizersCommandInput,
+    cb: (err: any, data?: ListTableStorageOptimizersCommandOutput) => void
+  ): void;
+  public listTableStorageOptimizers(
+    args: ListTableStorageOptimizersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTableStorageOptimizersCommandOutput) => void
+  ): void;
+  public listTableStorageOptimizers(
+    args: ListTableStorageOptimizersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTableStorageOptimizersCommandOutput) => void),
+    cb?: (err: any, data?: ListTableStorageOptimizersCommandOutput) => void
+  ): Promise<ListTableStorageOptimizersCommandOutput> | void {
+    const command = new ListTableStorageOptimizersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns metadata about transactions and their status. To prevent the response from growing indefinitely, only uncommitted transactions and those available for time-travel queries are returned.</p>
+   * 	        <p>This operation can help you identify uncommitted transactions or to get information about transactions.</p>
+   */
+  public listTransactions(
+    args: ListTransactionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTransactionsCommandOutput>;
+  public listTransactions(
+    args: ListTransactionsCommandInput,
+    cb: (err: any, data?: ListTransactionsCommandOutput) => void
+  ): void;
+  public listTransactions(
+    args: ListTransactionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTransactionsCommandOutput) => void
+  ): void;
+  public listTransactions(
+    args: ListTransactionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTransactionsCommandOutput) => void),
+    cb?: (err: any, data?: ListTransactionsCommandOutput) => void
+  ): Promise<ListTransactionsCommandOutput> | void {
+    const command = new ListTransactionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Sets the list of data lake administrators who have admin privileges on all resources managed by Lake Formation. For more information on admin privileges, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/lake-formation-permissions.html">Granting Lake Formation Permissions</a>.</p>
    *
    * 	        <p>This API replaces the current list of data lake admins with the new list being passed. To add an admin, fetch the current list and add the new admin to that list and pass that list in this API.</p>
@@ -601,9 +1183,9 @@ export class LakeFormation extends LakeFormationClient {
   /**
    * <p>Registers the resource as managed by the Data Catalog.</p>
    *
-   * 	        <p>To add or update data, Lake Formation needs read/write access to the chosen Amazon S3 path. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess service-linked role. When you register the first Amazon S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.</p>
+   *          <p>To add or update data, Lake Formation needs read/write access to the chosen Amazon S3 path. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess service-linked role. When you register the first Amazon S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.</p>
    *
-   *          <p>The following request registers a new location and gives AWS Lake Formation permission to use the service-linked role to access that location.</p>
+   *          <p>The following request registers a new location and gives Lake Formation permission to use the service-linked role to access that location.</p>
    *
    *          <p>
    *             <code>ResourceArn = arn:aws:s3:::my-bucket
@@ -646,7 +1228,7 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   * <p>Removes a tag from the resource. Only database, table, or tableWithColumns resource are allowed. To tag columns, use the column inclusion list in <code>tableWithColumns</code> to specify column input.</p>
+   * <p>Removes an LF-tag from the resource. Only database, table, or tableWithColumns resource are allowed. To tag columns, use the column inclusion list in <code>tableWithColumns</code> to specify column input.</p>
    */
   public removeLFTagsFromResource(
     args: RemoveLFTagsFromResourceCommandInput,
@@ -742,7 +1324,7 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   * <p>This operation allows a search on <code>TABLE</code> resources by <code>LFTag</code>s. This will be used by admins who want to grant user permissions on certain LFTags. Before making a grant, the admin can use <code>SearchTablesByLFTags</code> to find all resources where the given <code>LFTag</code>s are valid to verify whether the returned resources can be shared.</p>
+   * <p>This operation allows a search on <code>TABLE</code> resources by <code>LFTag</code>s. This will be used by admins who want to grant user permissions on certain LF-tags. Before making a grant, the admin can use <code>SearchTablesByLFTags</code> to find all resources where the given <code>LFTag</code>s are valid to verify whether the returned resources can be shared.</p>
    */
   public searchTablesByLFTags(
     args: SearchTablesByLFTagsCommandInput,
@@ -774,7 +1356,73 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   * <p>Updates the list of possible values for the specified tag key. If the tag does not exist, the operation throws an EntityNotFoundException. The values in the delete key values will be deleted from list of possible values. If any value in the delete key values is attached to a resource, then API errors out with a 400 Exception - "Update not allowed". Untag the attribute before deleting the tag key's value.  </p>
+   * <p>Submits a request to process a query statement.</p>
+   *
+   * 	        <p>This operation generates work units that can be retrieved with the <code>GetWorkUnits</code> operation as soon as the query state is WORKUNITS_AVAILABLE or FINISHED.</p>
+   */
+  public startQueryPlanning(
+    args: StartQueryPlanningCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartQueryPlanningCommandOutput>;
+  public startQueryPlanning(
+    args: StartQueryPlanningCommandInput,
+    cb: (err: any, data?: StartQueryPlanningCommandOutput) => void
+  ): void;
+  public startQueryPlanning(
+    args: StartQueryPlanningCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartQueryPlanningCommandOutput) => void
+  ): void;
+  public startQueryPlanning(
+    args: StartQueryPlanningCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartQueryPlanningCommandOutput) => void),
+    cb?: (err: any, data?: StartQueryPlanningCommandOutput) => void
+  ): Promise<StartQueryPlanningCommandOutput> | void {
+    const command = new StartQueryPlanningCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts a new transaction and returns its transaction ID. Transaction IDs are opaque objects that you can use to identify a transaction.</p>
+   */
+  public startTransaction(
+    args: StartTransactionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartTransactionCommandOutput>;
+  public startTransaction(
+    args: StartTransactionCommandInput,
+    cb: (err: any, data?: StartTransactionCommandOutput) => void
+  ): void;
+  public startTransaction(
+    args: StartTransactionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartTransactionCommandOutput) => void
+  ): void;
+  public startTransaction(
+    args: StartTransactionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartTransactionCommandOutput) => void),
+    cb?: (err: any, data?: StartTransactionCommandOutput) => void
+  ): Promise<StartTransactionCommandOutput> | void {
+    const command = new StartTransactionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the list of possible values for the specified LF-tag key. If the LF-tag does not exist, the operation throws an EntityNotFoundException. The values in the delete key values will be deleted from list of possible values. If any value in the delete key values is attached to a resource, then API errors out with a 400 Exception - "Update not allowed". Untag the attribute before deleting the LF-tag key's value. </p>
    */
   public updateLFTag(args: UpdateLFTagCommandInput, options?: __HttpHandlerOptions): Promise<UpdateLFTagCommandOutput>;
   public updateLFTag(args: UpdateLFTagCommandInput, cb: (err: any, data?: UpdateLFTagCommandOutput) => void): void;
@@ -800,7 +1448,7 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   * <p>Updates the data access role used for vending access to the given (registered) resource in AWS Lake Formation. </p>
+   * <p>Updates the data access role used for vending access to the given (registered) resource in Lake Formation. </p>
    */
   public updateResource(
     args: UpdateResourceCommandInput,
@@ -821,6 +1469,70 @@ export class LakeFormation extends LakeFormationClient {
     cb?: (err: any, data?: UpdateResourceCommandOutput) => void
   ): Promise<UpdateResourceCommandOutput> | void {
     const command = new UpdateResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the manifest of Amazon S3 objects that make up the specified governed table.</p>
+   */
+  public updateTableObjects(
+    args: UpdateTableObjectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTableObjectsCommandOutput>;
+  public updateTableObjects(
+    args: UpdateTableObjectsCommandInput,
+    cb: (err: any, data?: UpdateTableObjectsCommandOutput) => void
+  ): void;
+  public updateTableObjects(
+    args: UpdateTableObjectsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTableObjectsCommandOutput) => void
+  ): void;
+  public updateTableObjects(
+    args: UpdateTableObjectsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTableObjectsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateTableObjectsCommandOutput) => void
+  ): Promise<UpdateTableObjectsCommandOutput> | void {
+    const command = new UpdateTableObjectsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the configuration of the storage optimizers for a table.</p>
+   */
+  public updateTableStorageOptimizer(
+    args: UpdateTableStorageOptimizerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTableStorageOptimizerCommandOutput>;
+  public updateTableStorageOptimizer(
+    args: UpdateTableStorageOptimizerCommandInput,
+    cb: (err: any, data?: UpdateTableStorageOptimizerCommandOutput) => void
+  ): void;
+  public updateTableStorageOptimizer(
+    args: UpdateTableStorageOptimizerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTableStorageOptimizerCommandOutput) => void
+  ): void;
+  public updateTableStorageOptimizer(
+    args: UpdateTableStorageOptimizerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTableStorageOptimizerCommandOutput) => void),
+    cb?: (err: any, data?: UpdateTableStorageOptimizerCommandOutput) => void
+  ): Promise<UpdateTableStorageOptimizerCommandOutput> | void {
+    const command = new UpdateTableStorageOptimizerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

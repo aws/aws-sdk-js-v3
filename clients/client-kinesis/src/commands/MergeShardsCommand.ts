@@ -42,7 +42,7 @@ export interface MergeShardsCommandOutput extends __MetadataBearer {}
  *                 <code>UPDATING</code>, or <code>DELETING</code> state, <code>MergeShards</code>
  *             returns a <code>ResourceInUseException</code>. If the specified stream does not exist,
  *                 <code>MergeShards</code> returns a <code>ResourceNotFoundException</code>. </p>
- *         <p>You can use <a>DescribeStream</a> to check the state of the stream,
+ *         <p>You can use <a>DescribeStreamSummary</a> to check the state of the stream,
  *             which is returned in <code>StreamStatus</code>.</p>
  *         <p>
  *             <code>MergeShards</code> is an asynchronous operation. Upon receiving a
@@ -51,13 +51,13 @@ export interface MergeShardsCommandOutput extends __MetadataBearer {}
  *             operation is completed, Kinesis Data Streams sets the <code>StreamStatus</code> to
  *                 <code>ACTIVE</code>. Read and write operations continue to work while the stream is
  *             in the <code>UPDATING</code> state. </p>
- *         <p>You use <a>DescribeStream</a> to determine the shard IDs that are
- *             specified in the <code>MergeShards</code> request. </p>
+ *         <p>You use <a>DescribeStreamSummary</a> and the <a>ListShards</a>
+ *             APIs to determine the shard IDs that are specified in the <code>MergeShards</code>
+ *             request. </p>
  *         <p>If you try to operate on too many streams in parallel using <a>CreateStream</a>, <a>DeleteStream</a>, <code>MergeShards</code>,
  *             or <a>SplitShard</a>, you receive a <code>LimitExceededException</code>. </p>
  *         <p>
- *             <code>MergeShards</code> has a limit of five transactions per second per
- *             account.</p>
+ *             <code>MergeShards</code> has a limit of five transactions per second per account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -56,14 +56,26 @@ import {
 import { BatchDeleteImageCommandInput, BatchDeleteImageCommandOutput } from "./commands/BatchDeleteImageCommand";
 import { BatchGetImageCommandInput, BatchGetImageCommandOutput } from "./commands/BatchGetImageCommand";
 import {
+  BatchGetRepositoryScanningConfigurationCommandInput,
+  BatchGetRepositoryScanningConfigurationCommandOutput,
+} from "./commands/BatchGetRepositoryScanningConfigurationCommand";
+import {
   CompleteLayerUploadCommandInput,
   CompleteLayerUploadCommandOutput,
 } from "./commands/CompleteLayerUploadCommand";
+import {
+  CreatePullThroughCacheRuleCommandInput,
+  CreatePullThroughCacheRuleCommandOutput,
+} from "./commands/CreatePullThroughCacheRuleCommand";
 import { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "./commands/CreateRepositoryCommand";
 import {
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
+import {
+  DeletePullThroughCacheRuleCommandInput,
+  DeletePullThroughCacheRuleCommandOutput,
+} from "./commands/DeletePullThroughCacheRuleCommand";
 import {
   DeleteRegistryPolicyCommandInput,
   DeleteRegistryPolicyCommandOutput,
@@ -82,6 +94,10 @@ import {
   DescribeImageScanFindingsCommandOutput,
 } from "./commands/DescribeImageScanFindingsCommand";
 import { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "./commands/DescribeImagesCommand";
+import {
+  DescribePullThroughCacheRulesCommandInput,
+  DescribePullThroughCacheRulesCommandOutput,
+} from "./commands/DescribePullThroughCacheRulesCommand";
 import { DescribeRegistryCommandInput, DescribeRegistryCommandOutput } from "./commands/DescribeRegistryCommand";
 import {
   DescribeRepositoriesCommandInput,
@@ -101,6 +117,10 @@ import {
   GetLifecyclePolicyPreviewCommandOutput,
 } from "./commands/GetLifecyclePolicyPreviewCommand";
 import { GetRegistryPolicyCommandInput, GetRegistryPolicyCommandOutput } from "./commands/GetRegistryPolicyCommand";
+import {
+  GetRegistryScanningConfigurationCommandInput,
+  GetRegistryScanningConfigurationCommandOutput,
+} from "./commands/GetRegistryScanningConfigurationCommand";
 import {
   GetRepositoryPolicyCommandInput,
   GetRepositoryPolicyCommandOutput,
@@ -126,6 +146,10 @@ import {
 import { PutLifecyclePolicyCommandInput, PutLifecyclePolicyCommandOutput } from "./commands/PutLifecyclePolicyCommand";
 import { PutRegistryPolicyCommandInput, PutRegistryPolicyCommandOutput } from "./commands/PutRegistryPolicyCommand";
 import {
+  PutRegistryScanningConfigurationCommandInput,
+  PutRegistryScanningConfigurationCommandOutput,
+} from "./commands/PutRegistryScanningConfigurationCommand";
+import {
   PutReplicationConfigurationCommandInput,
   PutReplicationConfigurationCommandOutput,
 } from "./commands/PutReplicationConfigurationCommand";
@@ -147,15 +171,19 @@ export type ServiceInputTypes =
   | BatchCheckLayerAvailabilityCommandInput
   | BatchDeleteImageCommandInput
   | BatchGetImageCommandInput
+  | BatchGetRepositoryScanningConfigurationCommandInput
   | CompleteLayerUploadCommandInput
+  | CreatePullThroughCacheRuleCommandInput
   | CreateRepositoryCommandInput
   | DeleteLifecyclePolicyCommandInput
+  | DeletePullThroughCacheRuleCommandInput
   | DeleteRegistryPolicyCommandInput
   | DeleteRepositoryCommandInput
   | DeleteRepositoryPolicyCommandInput
   | DescribeImageReplicationStatusCommandInput
   | DescribeImageScanFindingsCommandInput
   | DescribeImagesCommandInput
+  | DescribePullThroughCacheRulesCommandInput
   | DescribeRegistryCommandInput
   | DescribeRepositoriesCommandInput
   | GetAuthorizationTokenCommandInput
@@ -163,6 +191,7 @@ export type ServiceInputTypes =
   | GetLifecyclePolicyCommandInput
   | GetLifecyclePolicyPreviewCommandInput
   | GetRegistryPolicyCommandInput
+  | GetRegistryScanningConfigurationCommandInput
   | GetRepositoryPolicyCommandInput
   | InitiateLayerUploadCommandInput
   | ListImagesCommandInput
@@ -172,6 +201,7 @@ export type ServiceInputTypes =
   | PutImageTagMutabilityCommandInput
   | PutLifecyclePolicyCommandInput
   | PutRegistryPolicyCommandInput
+  | PutRegistryScanningConfigurationCommandInput
   | PutReplicationConfigurationCommandInput
   | SetRepositoryPolicyCommandInput
   | StartImageScanCommandInput
@@ -184,15 +214,19 @@ export type ServiceOutputTypes =
   | BatchCheckLayerAvailabilityCommandOutput
   | BatchDeleteImageCommandOutput
   | BatchGetImageCommandOutput
+  | BatchGetRepositoryScanningConfigurationCommandOutput
   | CompleteLayerUploadCommandOutput
+  | CreatePullThroughCacheRuleCommandOutput
   | CreateRepositoryCommandOutput
   | DeleteLifecyclePolicyCommandOutput
+  | DeletePullThroughCacheRuleCommandOutput
   | DeleteRegistryPolicyCommandOutput
   | DeleteRepositoryCommandOutput
   | DeleteRepositoryPolicyCommandOutput
   | DescribeImageReplicationStatusCommandOutput
   | DescribeImageScanFindingsCommandOutput
   | DescribeImagesCommandOutput
+  | DescribePullThroughCacheRulesCommandOutput
   | DescribeRegistryCommandOutput
   | DescribeRepositoriesCommandOutput
   | GetAuthorizationTokenCommandOutput
@@ -200,6 +234,7 @@ export type ServiceOutputTypes =
   | GetLifecyclePolicyCommandOutput
   | GetLifecyclePolicyPreviewCommandOutput
   | GetRegistryPolicyCommandOutput
+  | GetRegistryScanningConfigurationCommandOutput
   | GetRepositoryPolicyCommandOutput
   | InitiateLayerUploadCommandOutput
   | ListImagesCommandOutput
@@ -209,6 +244,7 @@ export type ServiceOutputTypes =
   | PutImageTagMutabilityCommandOutput
   | PutLifecyclePolicyCommandOutput
   | PutRegistryPolicyCommandOutput
+  | PutRegistryScanningConfigurationCommandOutput
   | PutReplicationConfigurationCommandOutput
   | SetRepositoryPolicyCommandOutput
   | StartImageScanCommandOutput

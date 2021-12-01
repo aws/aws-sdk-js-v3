@@ -28,6 +28,13 @@ export interface GetBucketAclCommandOutput extends GetBucketAclOutput, __Metadat
  *          return the ACL of the bucket, you must have <code>READ_ACP</code> access to the bucket. If
  *             <code>READ_ACP</code> permission is granted to the anonymous user, you can return the
  *          ACL of the bucket without using an authorization header.</p>
+ *          <note>
+ *             <p>If your bucket uses the bucket owner enforced setting for S3 Object Ownership,
+ *             requests to read ACLs are still supported and return the <code>bucket-owner-full-control</code>
+ *             ACL with the owner being the account that created the bucket. For more information, see
+ *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">
+ *                Controlling object ownership and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          </note>
  *
  *          <p class="title">
  *             <b>Related Resources</b>

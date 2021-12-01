@@ -34,19 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ComputeOptimizerClient` and
-the commands you need, for example `DescribeRecommendationExportJobsCommand`:
+the commands you need, for example `DeleteRecommendationPreferencesCommand`:
 
 ```js
 // ES5 example
-const {
-  ComputeOptimizerClient,
-  DescribeRecommendationExportJobsCommand,
-} = require("@aws-sdk/client-compute-optimizer");
+const { ComputeOptimizerClient, DeleteRecommendationPreferencesCommand } = require("@aws-sdk/client-compute-optimizer");
 ```
 
 ```ts
 // ES6+ example
-import { ComputeOptimizerClient, DescribeRecommendationExportJobsCommand } from "@aws-sdk/client-compute-optimizer";
+import { ComputeOptimizerClient, DeleteRecommendationPreferencesCommand } from "@aws-sdk/client-compute-optimizer";
 ```
 
 ### Usage
@@ -65,7 +62,7 @@ const client = new ComputeOptimizerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DescribeRecommendationExportJobsCommand(params);
+const command = new DeleteRecommendationPreferencesCommand(params);
 ```
 
 #### Async/await
@@ -144,7 +141,7 @@ const client = new AWS.ComputeOptimizer({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.describeRecommendationExportJobs(params);
+  const data = await client.deleteRecommendationPreferences(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -152,7 +149,7 @@ try {
 
 // Promises.
 client
-  .describeRecommendationExportJobs(params)
+  .deleteRecommendationPreferences(params)
   .then((data) => {
     // process data.
   })
@@ -161,7 +158,7 @@ client
   });
 
 // callbacks.
-client.describeRecommendationExportJobs(params, (err, data) => {
+client.deleteRecommendationPreferences(params, (err, data) => {
   // proccess err and data.
 });
 ```

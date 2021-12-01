@@ -1897,6 +1897,10 @@ export interface DescribeIndexResponse {
    *                <p>REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index contains registry
    *           data, shadow data, and thing connectivity status data.</p>
    *             </li>
+   *             <li>
+   *                <p>MULTI_INDEXING_MODE - Your thing index contains multiple data sources. For more information, see
+   *           <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_GetIndexingConfiguration.html">GetIndexingConfiguration</a>.</p>
+   *             </li>
    *          </ul>
    */
   schema?: string;
@@ -4053,6 +4057,16 @@ export namespace ThingGroupIndexingConfiguration {
   });
 }
 
+export enum DeviceDefenderIndexingMode {
+  OFF = "OFF",
+  VIOLATIONS = "VIOLATIONS",
+}
+
+export enum NamedShadowIndexingMode {
+  OFF = "OFF",
+  ON = "ON",
+}
+
 export enum ThingConnectivityIndexingMode {
   OFF = "OFF",
   STATUS = "STATUS",
@@ -4099,6 +4113,40 @@ export interface ThingIndexingConfiguration {
    *          </ul>
    */
   thingConnectivityIndexingMode?: ThingConnectivityIndexingMode | string;
+
+  /**
+   * <p>Device Defender indexing mode. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>VIOLATIONS – Your thing index contains Device Defender violations. To enable Device
+   *           Defender indexing, <i>deviceDefenderIndexingMode</i> must not be set to
+   *           OFF.</p>
+   *             </li>
+   *             <li>
+   *                <p>OFF - Device Defender indexing is disabled.</p>
+   *             </li>
+   *          </ul>
+   *         <p>For more information about Device Defender violations, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-detect.html">Device Defender Detect.</a>
+   *          </p>
+   */
+  deviceDefenderIndexingMode?: DeviceDefenderIndexingMode | string;
+
+  /**
+   * <p>Named shadow indexing mode. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>ON – Your thing index contains named shadow. To enable thing
+   *           named shadow indexing, <i>namedShadowIndexingMode</i> must not be set to
+   *           OFF.</p>
+   *             </li>
+   *             <li>
+   *                <p>OFF - Named shadow indexing is disabled.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about Shadows, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html">IoT Device Shadow service.</a>
+   *          </p>
+   */
+  namedShadowIndexingMode?: NamedShadowIndexingMode | string;
 
   /**
    * <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing
@@ -8260,77 +8308,6 @@ export namespace ListThingRegistrationTasksRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListThingRegistrationTasksRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListThingRegistrationTasksResponse {
-  /**
-   * <p>A list of bulk thing provisioning task IDs.</p>
-   */
-  taskIds?: string[];
-
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListThingRegistrationTasksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThingRegistrationTasksResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the ListThings operation.</p>
- */
-export interface ListThingsRequest {
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The attribute name used to search for things.</p>
-   */
-  attributeName?: string;
-
-  /**
-   * <p>The attribute value used to search for things.</p>
-   */
-  attributeValue?: string;
-
-  /**
-   * <p>The name of the thing type used to search for things.</p>
-   */
-  thingTypeName?: string;
-
-  /**
-   * <p>When <code>true</code>, the action returns the thing resources with attribute values
-   *                      that start with the <code>attributeValue</code> provided.</p>
-   *             <p>When <code>false</code>, or not present, the action returns only the thing
-   * 			resources with attribute values that match the entire <code>attributeValue</code>
-   * 			provided. </p>
-   */
-  usePrefixAttributeValue?: boolean;
-}
-
-export namespace ListThingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThingsRequest): any => ({
     ...obj,
   });
 }

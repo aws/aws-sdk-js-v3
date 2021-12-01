@@ -65,7 +65,6 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *                </li>
  *             </ul>
  *          </note>
- *
  *          <p>
  *             <b>Server-side Encryption</b>
  *          </p>
@@ -87,7 +86,20 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *          permissions are then added to the ACL on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List
  *             (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing ACLs Using the REST
  *             API</a>. </p>
- *
+ *          <p>If the bucket that you're uploading objects to uses the bucket owner enforced setting
+ *          for S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets that
+ *          use this setting only accept PUT requests that don't specify an ACL or PUT requests that
+ *          specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code> canned
+ *          ACL or an equivalent form of this ACL expressed in the XML format. PUT requests that contain other
+ *          ACLs (for example, custom grants to certain Amazon Web Services accounts) fail and return a
+ *             <code>400</code> error with the error code
+ *          <code>AccessControlListNotSupported</code>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html"> Controlling ownership of
+ *          objects and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <note>
+ *             <p>If your bucket uses the bucket owner enforced setting for Object Ownership,
+ *             all objects written to the bucket by any account will be owned by the bucket owner.</p>
+ *          </note>
  *          <p>
  *             <b>Storage Class Options</b>
  *          </p>

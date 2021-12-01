@@ -31,18 +31,18 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  *             Kinesis Data Streams segregates the data records that belong to a stream into multiple
  *             shards, using the partition key associated with each data record to determine the shard
  *             to which a given data record belongs.</p>
- *         <p>Partition keys are Unicode strings, with a maximum length limit of 256 characters
- *             for each key. An MD5 hash function is used to map partition keys to 128-bit integer
- *             values and to map associated data records to shards using the hash key ranges of the
- *             shards. You can override hashing the partition key to determine the shard by explicitly
+ *         <p>Partition keys are Unicode strings, with a maximum length limit of 256 characters for
+ *             each key. An MD5 hash function is used to map partition keys to 128-bit integer values
+ *             and to map associated data records to shards using the hash key ranges of the shards.
+ *             You can override hashing the partition key to determine the shard by explicitly
  *             specifying a hash value using the <code>ExplicitHashKey</code> parameter. For more
  *             information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-add-data-to-stream">Adding Data to a Stream</a> in the <i>Amazon Kinesis Data Streams
  *                 Developer Guide</i>.</p>
  *         <p>
  *             <code>PutRecord</code> returns the shard ID of where the data record was placed and the
  *             sequence number that was assigned to the data record.</p>
- *         <p>Sequence numbers increase over time and are specific to a shard within a stream,
- *             not across all shards within a stream. To guarantee strictly increasing ordering, write
+ *         <p>Sequence numbers increase over time and are specific to a shard within a stream, not
+ *             across all shards within a stream. To guarantee strictly increasing ordering, write
  *             serially to a shard and use the <code>SequenceNumberForOrdering</code> parameter. For
  *             more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-add-data-to-stream">Adding Data to a Stream</a> in the <i>Amazon Kinesis Data Streams
  *                 Developer Guide</i>.</p>
@@ -53,8 +53,8 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  *         <p>If a <code>PutRecord</code> request cannot be processed because of insufficient
  *             provisioned throughput on the shard involved in the request, <code>PutRecord</code>
  *             throws <code>ProvisionedThroughputExceededException</code>. </p>
- *         <p>By default, data records are accessible for 24 hours from the time that they are
- *             added to a stream. You can use <a>IncreaseStreamRetentionPeriod</a> or <a>DecreaseStreamRetentionPeriod</a> to modify this retention period.</p>
+ *         <p>By default, data records are accessible for 24 hours from the time that they are added
+ *             to a stream. You can use <a>IncreaseStreamRetentionPeriod</a> or <a>DecreaseStreamRetentionPeriod</a> to modify this retention period.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

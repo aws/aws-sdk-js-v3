@@ -22,69 +22,142 @@ export interface UpdateFileSystemCommandInput extends UpdateFileSystemRequest {}
 export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse, __MetadataBearer {}
 
 /**
- * <p>Use this operation to update the configuration of an existing Amazon FSx file system.
- *       You can update multiple properties in a single request.</p>
+ * <p>Use this operation to update the configuration of an existing Amazon FSx file
+ *       system. You can update multiple properties in a single request.</p>
  *          <p>For Amazon FSx for Windows File Server file systems, you can update the following
- *     properties:</p>
- *          <ul>
- *             <li>
- *                <p>AuditLogConfiguration</p>
- *             </li>
- *             <li>
- *                <p>AutomaticBackupRetentionDays</p>
- *             </li>
- *             <li>
- *                <p>DailyAutomaticBackupStartTime</p>
- *             </li>
- *             <li>
- *                <p>SelfManagedActiveDirectoryConfiguration</p>
- *             </li>
- *             <li>
- *                <p>StorageCapacity</p>
- *             </li>
- *             <li>
- *                <p>ThroughputCapacity</p>
- *             </li>
- *             <li>
- *                <p>WeeklyMaintenanceStartTime</p>
- *             </li>
- *          </ul>
- *          <p>For Amazon FSx for Lustre file systems, you can update the following
  *       properties:</p>
  *          <ul>
  *             <li>
- *                <p>AutoImportPolicy</p>
+ *                <p>
+ *                   <code>AuditLogConfiguration</code>
+ *                </p>
  *             </li>
  *             <li>
- *                <p>AutomaticBackupRetentionDays</p>
+ *                <p>
+ *                   <code>AutomaticBackupRetentionDays</code>
+ *                </p>
  *             </li>
  *             <li>
- *                <p>DailyAutomaticBackupStartTime</p>
+ *                <p>
+ *                   <code>DailyAutomaticBackupStartTime</code>
+ *                </p>
  *             </li>
  *             <li>
- *                <p>DataCompressionType</p>
+ *                <p>
+ *                   <code>SelfManagedActiveDirectoryConfiguration</code>
+ *                </p>
  *             </li>
  *             <li>
- *                <p>StorageCapacity</p>
+ *                <p>
+ *                   <code>StorageCapacity</code>
+ *                </p>
  *             </li>
  *             <li>
- *                <p>WeeklyMaintenanceStartTime</p>
+ *                <p>
+ *                   <code>ThroughputCapacity</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>WeeklyMaintenanceStartTime</code>
+ *                </p>
  *             </li>
  *          </ul>
- *          <p>For Amazon FSx for NetApp ONTAP file systems, you can update the following
+ *          <p>For FSx for Lustre file systems, you can update the following
  *       properties:</p>
  *          <ul>
  *             <li>
- *                <p>AutomaticBackupRetentionDays</p>
+ *                <p>
+ *                   <code>AutoImportPolicy</code>
+ *                </p>
  *             </li>
  *             <li>
- *                <p>DailyAutomaticBackupStartTime</p>
+ *                <p>
+ *                   <code>AutomaticBackupRetentionDays</code>
+ *                </p>
  *             </li>
  *             <li>
- *                <p>FsxAdminPassword</p>
+ *                <p>
+ *                   <code>DailyAutomaticBackupStartTime</code>
+ *                </p>
  *             </li>
  *             <li>
- *                <p>WeeklyMaintenanceStartTime</p>
+ *                <p>
+ *                   <code>DataCompressionType</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>StorageCapacity</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>WeeklyMaintenanceStartTime</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>For FSx for ONTAP file systems, you can update the following
+ *       properties:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>AutomaticBackupRetentionDays</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DailyAutomaticBackupStartTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>FsxAdminPassword</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>WeeklyMaintenanceStartTime</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>For the Amazon FSx for OpenZFS file systems, you can update the following
+ *       properties:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>AutomaticBackupRetentionDays</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>CopyTagsToBackups</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>CopyTagsToVolumes</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DailyAutomaticBackupStartTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DiskIopsConfiguration</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ThroughputCapacity</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>WeeklyMaintenanceStartTime</code>
+ *                </p>
  *             </li>
  *          </ul>
  * @example

@@ -29,7 +29,7 @@ export namespace AccountSharingInfo {
 /**
  * <p>Metadata that you assign to your Amazon Web Services resources. Tags enable you to categorize your
  *    resources in different ways, for example, by purpose, owner, or environment. In Amazon Web Services Systems Manager, you
- *    can apply tags to Systems Manager documents (SSM documents), managed instances, maintenance windows,
+ *    can apply tags to Systems Manager documents (SSM documents), managed nodes, maintenance windows,
  *    parameters, patch baselines, OpsItems, and OpsMetadata.</p>
  */
 export interface Tag {
@@ -56,7 +56,7 @@ export namespace Tag {
 /**
  * <p>An activation registers one or more on-premises servers or virtual machines (VMs) with Amazon Web Services
  *    so that you can configure those servers or VMs using Run Command. A server or VM that has been
- *    registered with Amazon Web Services Systems Manager is called a managed instance.</p>
+ *    registered with Amazon Web Services Systems Manager is called a managed node.</p>
  */
 export interface Activation {
   /**
@@ -70,28 +70,28 @@ export interface Activation {
   Description?: string;
 
   /**
-   * <p>A name for the managed instance when it is created.</p>
+   * <p>A name for the managed node when it is created.</p>
    */
   DefaultInstanceName?: string;
 
   /**
    * <p>The Identity and Access Management (IAM) role to assign to the managed
-   *    instance.</p>
+   *    node.</p>
    */
   IamRole?: string;
 
   /**
-   * <p>The maximum number of managed instances that can be registered using this activation.</p>
+   * <p>The maximum number of managed nodes that can be registered using this activation.</p>
    */
   RegistrationLimit?: number;
 
   /**
-   * <p>The number of managed instances already registered with this activation.</p>
+   * <p>The number of managed nodes already registered with this activation.</p>
    */
   RegistrationsCount?: number;
 
   /**
-   * <p>The date when this activation can no longer be used to register managed instances.</p>
+   * <p>The date when this activation can no longer be used to register managed nodes.</p>
    */
   ExpirationDate?: Date;
 
@@ -135,7 +135,7 @@ export interface AddTagsToResourceRequest {
    * <p>Specifies the type of resource you are tagging.</p>
    *          <note>
    *             <p>The <code>ManagedInstance</code> type for this API operation is for on-premises managed
-   *     instances. You must specify the name of the managed instance in the following format:
+   *     nodes. You must specify the name of the managed node in the following format:
    *       <code>mi-<i>ID_number</i>
    *                </code>. For example,
    *     <code>mi-1a2b3c4d5e6f</code>.</p>
@@ -167,7 +167,7 @@ export interface AddTagsToResourceRequest {
    *          </p>
    *          <note>
    *             <p>The <code>ManagedInstance</code> type for this API operation is only for on-premises
-   *     managed instances. You must specify the name of the managed instance in the following format:
+   *     managed nodes. You must specify the name of the managed node in the following format:
    *       <code>mi-<i>ID_number</i>
    *                </code>. For example,
    *     <code>mi-1a2b3c4d5e6f</code>.</p>
@@ -240,8 +240,8 @@ export namespace InvalidResourceId {
 }
 
 /**
- * <p>The resource type isn't valid. For example, if you are attempting to tag an instance, the
- *    instance must be a registered, managed instance.</p>
+ * <p>The resource type isn't valid. For example, if you are attempting to tag an EC2 instance, the
+ *    instance must be a registered managed node.</p>
  */
 export interface InvalidResourceType extends __SmithyException, $MetadataBearer {
   name: "InvalidResourceType";
@@ -456,8 +456,8 @@ export interface CancelCommandRequest {
   CommandId: string | undefined;
 
   /**
-   * <p>(Optional) A list of instance IDs on which you want to cancel the command. If not provided,
-   *    the command is canceled on every instance on which it was requested.</p>
+   * <p>(Optional) A list of managed node IDs on which you want to cancel the command. If not provided,
+   *    the command is canceled on every node on which it was requested.</p>
    */
   InstanceIds?: string[];
 }
@@ -487,7 +487,7 @@ export namespace CancelCommandResult {
 }
 
 /**
- * <p>You can't specify an instance ID in more than one association.</p>
+ * <p>You can't specify a managed node ID in more than one association.</p>
  */
 export interface DuplicateInstanceId extends __SmithyException, $MetadataBearer {
   name: "DuplicateInstanceId";
@@ -524,7 +524,7 @@ export namespace InvalidCommandId {
  * <p>The following problems can cause this exception:</p>
  *          <ul>
  *             <li>
- *                <p>You don't have permission to access the instance.</p>
+ *                <p>You don't have permission to access the managed node.</p>
  *             </li>
  *             <li>
  *                <p>Amazon Web Services Systems Manager Agent(SSM Agent) isn't running. Verify that SSM Agent is
@@ -534,7 +534,7 @@ export namespace InvalidCommandId {
  *                <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p>
  *             </li>
  *             <li>
- *                <p>The instance isn't in valid state. Valid states are: <code>Running</code>,
+ *                <p>The managed node isn't in valid state. Valid states are: <code>Running</code>,
  *       <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are:
  *       <code>Shutting-down</code> and <code>Terminated</code>.</p>
  *             </li>
@@ -642,8 +642,8 @@ export interface CreateActivationRequest {
   Description?: string;
 
   /**
-   * <p>The name of the registered, managed instance as it will appear in the Amazon Web Services Systems Manager console or
-   *    when you use the Amazon Web Services command line tools to list Systems Manager resources.</p>
+   * <p>The name of the registered, managed node as it will appear in the Amazon Web Services Systems Manager console or when
+   *    you use the Amazon Web Services command line tools to list Systems Manager resources.</p>
    *          <important>
    *             <p>Don't enter personally identifiable information in this field.</p>
    *          </important>
@@ -652,7 +652,7 @@ export interface CreateActivationRequest {
 
   /**
    * <p>The name of the Identity and Access Management (IAM) role that you want to assign to
-   *    the managed instance. This IAM role must provide AssumeRole permissions for the
+   *    the managed node. This IAM role must provide AssumeRole permissions for the
    *    Amazon Web Services Systems Manager service principal <code>ssm.amazonaws.com</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create an
    *      IAM service role for a hybrid environment</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
@@ -660,7 +660,7 @@ export interface CreateActivationRequest {
   IamRole: string | undefined;
 
   /**
-   * <p>Specify the maximum number of managed instances you want to register. The default value is
+   * <p>Specify the maximum number of managed nodes you want to register. The default value is
    *     <code>1</code>.</p>
    */
   RegistrationLimit?: number;
@@ -695,10 +695,10 @@ export interface CreateActivationRequest {
    *     automatically applied to the on-premises servers or VMs.</p>
    *          </important>
    *          <p>You can't add tags to or delete tags from an existing activation. You can tag your
-   *    on-premises servers and VMs after they connect to Systems Manager for the first time and are assigned a
-   *    managed instance ID. This means they are listed in the Amazon Web Services Systems Manager console with an ID that is
-   *    prefixed with "mi-". For information about how to add tags to your managed instances, see <a>AddTagsToResource</a>. For information about how to remove tags from your managed
-   *    instances, see <a>RemoveTagsFromResource</a>.</p>
+   *    on-premises servers, edge devices, and VMs after they connect to Systems Manager for the first time and are assigned a
+   *    managed node ID. This means they are listed in the Amazon Web Services Systems Manager console with an ID that is
+   *    prefixed with "mi-". For information about how to add tags to your managed nodes, see <a>AddTagsToResource</a>. For information about how to remove tags from your managed nodes,
+   *    see <a>RemoveTagsFromResource</a>.</p>
    */
   Tags?: Tag[];
 
@@ -900,7 +900,7 @@ export namespace TargetLocation {
 }
 
 /**
- * <p>An array of search criteria that targets instances using a key-value pair that you
+ * <p>An array of search criteria that targets managed nodes using a key-value pair that you
  *    specify.</p>
  *          <note>
  *             <p> One or more targets must be specified for maintenance window Run Command-type tasks.
@@ -914,41 +914,35 @@ export namespace TargetLocation {
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>Key=InstanceIds,Values=<i>instance-id-1</i>,<i>instance-id-2</i>,<i>instance-id-3</i>
- *                   </code>
+ *                   <code>Key=InstanceIds,Values=<instance-id-1>,<instance-id-2>,<instance-id-3></code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>Key=tag:<i>my-tag-key</i>,Values=<i>my-tag-value-1</i>,<i>my-tag-value-2</i>
- *                   </code>
+ *                   <code>Key=tag:<my-tag-key>,Values=<my-tag-value-1>,<my-tag-value-2></code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>Key=tag-key,Values=<i>my-tag-key-1</i>,<i>my-tag-key-2</i>
- *                   </code>
+ *                   <code>Key=tag-key,Values=<my-tag-key-1>,<my-tag-key-2></code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>Run Command and Maintenance window targets only</b>:
- *        <code>Key=resource-groups:Name,Values=<i>resource-group-name</i>
- *                   </code>
+ *       <code>Key=resource-groups:Name,Values=<resource-group-name></code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>Maintenance window targets only</b>:
- *        <code>Key=resource-groups:ResourceTypeFilters,Values=<i>resource-type-1</i>,<i>resource-type-2</i>
- *                   </code>
+ *       <code>Key=resource-groups:ResourceTypeFilters,Values=<resource-type-1>,<resource-type-2></code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>Automation targets only</b>:
- *        <code>Key=ResourceGroup;Values=<i>resource-group-name</i>
- *                   </code>
+ *       <code>Key=ResourceGroup;Values=<resource-group-name></code>
  *                </p>
  *             </li>
  *          </ul>
@@ -979,8 +973,7 @@ export namespace TargetLocation {
  *             <li>
  *                <p>
  *                   <b>Maintenance window targets only</b>:
- *        <code>Key=resource-groups:ResourceTypeFilters,Values=<i>AWS::EC2::INSTANCE</i>,<i>AWS::EC2::VPC</i>
- *                   </code>
+ *       <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code>
  *                </p>
  *                <p>This example demonstrates how to target only Amazon Elastic Compute Cloud (Amazon EC2)
  *      instances and VPCs in your maintenance window.</p>
@@ -994,19 +987,18 @@ export namespace TargetLocation {
  *             <li>
  *                <p>
  *                   <b>State Manager association targets only</b>:
- *        <code>Key=InstanceIds,Values=<i>*</i>
- *                   </code>
+ *       <code>Key=InstanceIds,Values=*</code>
  *                </p>
  *                <p>This example demonstrates how to target all managed instances in the Amazon Web Services Region where
  *      the association was created.</p>
  *             </li>
  *          </ul>
- *          <p>For more information about how to send commands that target instances using
+ *          <p>For more information about how to send commands that target managed nodes using
  *     <code>Key,Value</code> parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting">Targeting multiple instances</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  */
 export interface Target {
   /**
-   * <p>User-defined criteria for sending commands that target instances that meet the
+   * <p>User-defined criteria for sending commands that target managed nodes that meet the
    *    criteria.</p>
    */
   Key?: string;
@@ -1033,7 +1025,7 @@ export namespace Target {
 export interface CreateAssociationRequest {
   /**
    * <p>The name of the SSM Command document or Automation runbook that contains the configuration
-   *    information for the instance.</p>
+   *    information for the managed node.</p>
    *          <p>You can specify Amazon Web Services-predefined documents, documents you created, or a document that is
    *    shared with you from another account.</p>
    *          <p>For Systems Manager documents (SSM documents) that are shared with you from other Amazon Web Services accounts, you
@@ -1059,10 +1051,10 @@ export interface CreateAssociationRequest {
   DocumentVersion?: string;
 
   /**
-   * <p>The instance ID.</p>
+   * <p>The managed node ID.</p>
    *          <note>
    *             <p>
-   *                <code>InstanceId</code> has been deprecated. To specify an instance ID for an association,
+   *                <code>InstanceId</code> has been deprecated. To specify a managed node ID for an association,
    *     use the <code>Targets</code> parameter. Requests that include the
    *     parameter <code>InstanceID</code> with Systems Manager documents (SSM documents) that use schema version
    *     2.0 or later will fail. In addition, if you use the parameter
@@ -1080,9 +1072,9 @@ export interface CreateAssociationRequest {
   Parameters?: { [key: string]: string[] };
 
   /**
-   * <p>The targets for the association. You can target instances by using tags, Amazon Web Services resource
-   *    groups, all instances in an Amazon Web Services account, or individual instance IDs. You can target all
-   *    instances in an Amazon Web Services account by specifying the <code>InstanceIds</code> key with a value of
+   * <p>The targets for the association. You can target managed nodes by using tags, Amazon Web Services resource
+   *    groups, all managed nodes in an Amazon Web Services account, or individual managed node IDs. You can target all
+   *    managed nodes in an Amazon Web Services account by specifying the <code>InstanceIds</code> key with a value of
    *     <code>*</code>. For more information about choosing targets for an association, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html">Using targets and rate controls with State Manager associations</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
@@ -1117,8 +1109,8 @@ export interface CreateAssociationRequest {
    *    example 10, or a percentage of the target set, for example 10%. If you specify 3, for example,
    *    the system stops sending requests when the fourth error is received. If you specify 0, then the
    *    system stops sending requests after the first error is returned. If you run an association on 50
-   *    instances and set <code>MaxError</code> to 10%, then the system stops sending the request when
-   *    the sixth error is received.</p>
+   *    managed nodes and set <code>MaxError</code> to 10%, then the system stops sending the request
+   *    when the sixth error is received.</p>
    *          <p>Executions that are already running an association when <code>MaxErrors</code> is reached
    *    are allowed to complete, but some of these executions may fail as well. If you need to ensure
    *    that there won't be more than max-errors failed executions, set <code>MaxConcurrency</code> to 1
@@ -1130,9 +1122,9 @@ export interface CreateAssociationRequest {
    * <p>The maximum number of targets allowed to run the association at the same time. You can
    *    specify a number, for example 10, or a percentage of the target set, for example 10%. The default
    *    value is 100%, which means all targets run the association at the same time.</p>
-   *          <p>If a new instance starts and attempts to run an association while Systems Manager is running
+   *          <p>If a new managed node starts and attempts to run an association while Systems Manager is running
    *     <code>MaxConcurrency</code> associations, the association is allowed to run. During the next
-   *    association interval, the new instance will process its association within the limit specified
+   *    association interval, the new managed node will process its association within the limit specified
    *    for <code>MaxConcurrency</code>.</p>
    */
   MaxConcurrency?: string;
@@ -1205,8 +1197,8 @@ export interface AssociationOverview {
 
   /**
    * <p>Returns the number of targets for the association status. For example, if you created an
-   *    association with two instances, and one of them was successful, this would return the count of
-   *    instances by status.</p>
+   *    association with two managed nodes, and one of them was successful, this would return the count
+   *    of managed nodes by status.</p>
    */
   AssociationStatusAggregatedCount?: { [key: string]: number };
 }
@@ -1270,7 +1262,7 @@ export interface AssociationDescription {
   Name?: string;
 
   /**
-   * <p>The instance ID.</p>
+   * <p>The managed node ID.</p>
    */
   InstanceId?: string;
 
@@ -1322,7 +1314,7 @@ export interface AssociationDescription {
   AssociationId?: string;
 
   /**
-   * <p>The instances targeted by the request. </p>
+   * <p>The managed nodes targeted by the request. </p>
    */
   Targets?: Target[];
 
@@ -1357,8 +1349,8 @@ export interface AssociationDescription {
    *    example 10, or a percentage of the target set, for example 10%. If you specify 3, for example,
    *    the system stops sending requests when the fourth error is received. If you specify 0, then the
    *    system stops sending requests after the first error is returned. If you run an association on 50
-   *    instances and set <code>MaxError</code> to 10%, then the system stops sending the request when
-   *    the sixth error is received.</p>
+   *    managed nodes and set <code>MaxError</code> to 10%, then the system stops sending the request
+   *    when the sixth error is received.</p>
    *          <p>Executions that are already running an association when <code>MaxErrors</code> is reached
    *    are allowed to complete, but some of these executions may fail as well. If you need to ensure
    *    that there won't be more than max-errors failed executions, set <code>MaxConcurrency</code> to 1
@@ -1370,9 +1362,9 @@ export interface AssociationDescription {
    * <p>The maximum number of targets allowed to run the association at the same time. You can
    *    specify a number, for example 10, or a percentage of the target set, for example 10%. The default
    *    value is 100%, which means all targets run the association at the same time.</p>
-   *          <p>If a new instance starts and attempts to run an association while Systems Manager is running
+   *          <p>If a new managed node starts and attempts to run an association while Systems Manager is running
    *     <code>MaxConcurrency</code> associations, the association is allowed to run. During the next
-   *    association interval, the new instance will process its association within the limit specified
+   *    association interval, the new managed node will process its association within the limit specified
    *    for <code>MaxConcurrency</code>.</p>
    */
   MaxConcurrency?: string;
@@ -1543,8 +1535,8 @@ export namespace InvalidTarget {
 }
 
 /**
- * <p>The document doesn't support the platform type of the given instance ID(s). For example, you
- *    sent an document for a Windows instance to a Linux instance.</p>
+ * <p>The document doesn't support the platform type of the given managed node ID(s). For example, you
+ *    sent an document for a Windows managed node to a Linux node.</p>
  */
 export interface UnsupportedPlatformType extends __SmithyException, $MetadataBearer {
   name: "UnsupportedPlatformType";
@@ -1562,11 +1554,11 @@ export namespace UnsupportedPlatformType {
 }
 
 /**
- * <p>Describes the association of a Amazon Web Services Systems Manager document (SSM document) and an instance.</p>
+ * <p>Describes the association of a Amazon Web Services Systems Manager document (SSM document) and a managed node.</p>
  */
 export interface CreateAssociationBatchRequestEntry {
   /**
-   * <p>The name of the SSM document that contains the configuration information for the instance.
+   * <p>The name of the SSM document that contains the configuration information for the managed node.
    *    You can specify Command or Automation runbooks.</p>
    *          <p>You can specify Amazon Web Services-predefined documents, documents you created, or a document that is
    *    shared with you from another account.</p>
@@ -1587,10 +1579,10 @@ export interface CreateAssociationBatchRequestEntry {
   Name: string | undefined;
 
   /**
-   * <p>The instance ID.</p>
+   * <p>The managed node ID.</p>
    *          <note>
    *             <p>
-   *                <code>InstanceId</code> has been deprecated. To specify an instance ID for an association,
+   *                <code>InstanceId</code> has been deprecated. To specify a managed node ID for an association,
    *     use the <code>Targets</code> parameter. Requests that include the
    *     parameter <code>InstanceID</code> with Systems Manager documents (SSM documents) that use schema version
    *     2.0 or later will fail. In addition, if you use the parameter
@@ -1620,7 +1612,7 @@ export interface CreateAssociationBatchRequestEntry {
   DocumentVersion?: string;
 
   /**
-   * <p>The instances targeted by the request.</p>
+   * <p>The managed nodes targeted by the request.</p>
    */
   Targets?: Target[];
 
@@ -1645,8 +1637,8 @@ export interface CreateAssociationBatchRequestEntry {
    *    example 10, or a percentage of the target set, for example 10%. If you specify 3, for example,
    *    the system stops sending requests when the fourth error is received. If you specify 0, then the
    *    system stops sending requests after the first error is returned. If you run an association on 50
-   *    instances and set <code>MaxError</code> to 10%, then the system stops sending the request when
-   *    the sixth error is received.</p>
+   *    managed nodes and set <code>MaxError</code> to 10%, then the system stops sending the request
+   *    when the sixth error is received.</p>
    *          <p>Executions that are already running an association when <code>MaxErrors</code> is reached
    *    are allowed to complete, but some of these executions may fail as well. If you need to ensure
    *    that there won't be more than max-errors failed executions, set <code>MaxConcurrency</code> to 1
@@ -1658,9 +1650,9 @@ export interface CreateAssociationBatchRequestEntry {
    * <p>The maximum number of targets allowed to run the association at the same time. You can
    *    specify a number, for example 10, or a percentage of the target set, for example 10%. The default
    *    value is 100%, which means all targets run the association at the same time.</p>
-   *          <p>If a new instance starts and attempts to run an association while Systems Manager is running
+   *          <p>If a new managed node starts and attempts to run an association while Systems Manager is running
    *     <code>MaxConcurrency</code> associations, the association is allowed to run. During the next
-   *    association interval, the new instance will process its association within the limit specified
+   *    association interval, the new managed node will process its association within the limit specified
    *    for <code>MaxConcurrency</code>.</p>
    */
   MaxConcurrency?: string;
@@ -2109,6 +2101,7 @@ export namespace DocumentParameter {
 
 export enum PlatformType {
   LINUX = "Linux",
+  MACOS = "MacOS",
   WINDOWS = "Windows",
 }
 
@@ -2497,9 +2490,9 @@ export interface CreateMaintenanceWindowRequest {
   Cutoff: number | undefined;
 
   /**
-   * <p>Enables a maintenance window task to run on managed instances, even if you haven't
-   *    registered those instances as targets. If enabled, then you must specify the unregistered
-   *    instances (by instance ID) when you register a task with the maintenance window.</p>
+   * <p>Enables a maintenance window task to run on managed nodes, even if you haven't registered
+   *    those nodes as targets. If enabled, then you must specify the unregistered managed nodes (by
+   *    node ID) when you register a task with the maintenance window.</p>
    *          <p>If you don't enable this option, then you must specify previously-registered targets when
    *    you register a task with the maintenance window.</p>
    */
@@ -3110,9 +3103,9 @@ export interface PatchRule {
   ApproveUntilDate?: string;
 
   /**
-   * <p>For instances identified by the approval rule filters, enables a patch baseline to apply
+   * <p>For managed nodes identified by the approval rule filters, enables a patch baseline to apply
    *    non-security updates available in the specified repository. The default value is
-   *     <code>false</code>. Applies to Linux instances only.</p>
+   *     <code>false</code>. Applies to Linux managed nodes only.</p>
    */
   EnableNonSecurity?: boolean;
 }
@@ -3165,8 +3158,8 @@ export enum PatchAction {
 }
 
 /**
- * <p>Information about the patches to use to update the instances, including target operating
- *    systems and source repository. Applies to Linux instances only.</p>
+ * <p>Information about the patches to use to update the managed nodes, including target operating
+ *    systems and source repository. Applies to Linux managed nodes only.</p>
  */
 export interface PatchSource {
   /**
@@ -3252,8 +3245,8 @@ export interface CreatePatchBaselineRequest {
 
   /**
    * <p>Indicates whether the list of approved patches includes non-security updates that should be
-   *    applied to the instances. The default value is <code>false</code>. Applies to Linux instances
-   *    only.</p>
+   *    applied to the managed nodes. The default value is <code>false</code>. Applies to Linux managed
+   *    nodes only.</p>
    */
   ApprovedPatchesEnableNonSecurity?: boolean;
 
@@ -3298,8 +3291,8 @@ export interface CreatePatchBaselineRequest {
   Description?: string;
 
   /**
-   * <p>Information about the patches to use to update the instances, including target operating
-   *    systems and source repositories. Applies to Linux instances only.</p>
+   * <p>Information about the patches to use to update the managed nodes, including target operating
+   *    systems and source repositories. Applies to Linux managed nodes only.</p>
    */
   Sources?: PatchSource[];
 
@@ -3716,10 +3709,10 @@ export interface DeleteAssociationRequest {
   Name?: string;
 
   /**
-   * <p>The instance ID.</p>
+   * <p>The managed node ID.</p>
    *          <note>
    *             <p>
-   *                <code>InstanceId</code> has been deprecated. To specify an instance ID for an association,
+   *                <code>InstanceId</code> has been deprecated. To specify a managed node ID for an association,
    *     use the <code>Targets</code> parameter. Requests that include the
    *     parameter <code>InstanceID</code> with Systems Manager documents (SSM documents) that use schema version
    *     2.0 or later will fail. In addition, if you use the parameter
@@ -3758,7 +3751,7 @@ export namespace DeleteAssociationResult {
 }
 
 /**
- * <p>You must disassociate a document from all instances before you can delete it.</p>
+ * <p>You must disassociate a document from all managed nodes before you can delete it.</p>
  */
 export interface AssociatedInstances extends __SmithyException, $MetadataBearer {
   name: "AssociatedInstances";
@@ -4312,7 +4305,7 @@ export namespace ResourceDataSyncNotFoundException {
 
 export interface DeregisterManagedInstanceRequest {
   /**
-   * <p>The ID assigned to the managed instance when you registered it using the activation process.
+   * <p>The ID assigned to the managed node when you registered it using the activation process.
    *   </p>
    */
   InstanceId: string | undefined;
@@ -4612,7 +4605,7 @@ export interface DescribeAssociationRequest {
   Name?: string;
 
   /**
-   * <p>The instance ID.</p>
+   * <p>The managed node ID.</p>
    */
   InstanceId?: string;
 
@@ -4624,7 +4617,7 @@ export interface DescribeAssociationRequest {
   /**
    * <p>Specify the association version to retrieve. To view the latest version, either specify
    *     <code>$LATEST</code> for this parameter, or omit this parameter. To view a list of all
-   *    associations for an instance, use <a>ListAssociations</a>. To get a list of versions
+   *    associations for a managed node, use <a>ListAssociations</a>. To get a list of versions
    *    for a specific association, use <a>ListAssociationVersions</a>. </p>
    */
   AssociationVersion?: string;
@@ -4962,12 +4955,12 @@ export interface AssociationExecutionTarget {
   ExecutionId?: string;
 
   /**
-   * <p>The resource ID, for example, the instance ID where the association ran.</p>
+   * <p>The resource ID, for example, the managed node ID where the association ran.</p>
    */
   ResourceId?: string;
 
   /**
-   * <p>The resource type, for example, instance.</p>
+   * <p>The resource type, for example, EC2.</p>
    */
   ResourceType?: string;
 
@@ -5772,7 +5765,7 @@ export interface DescribeAvailablePatchesRequest {
    *          <p>
    *             <b>Windows Server</b>
    *          </p>
-   *          <p>Supported keys for Windows Server instance patches include the following:</p>
+   *          <p>Supported keys for Windows Server managed node patches include the following:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -5848,7 +5841,7 @@ export interface DescribeAvailablePatchesRequest {
    *      Key=CVE_ID,Values=CVE-2018-3615</code>
    *             </p>
    *          </important>
-   *          <p>Supported keys for Linux instance patches include the following:</p>
+   *          <p>Supported keys for Linux managed node patches include the following:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -6054,52 +6047,52 @@ export interface Patch {
 
   /**
    * <p>The Advisory ID of the patch. For example, <code>RHSA-2020:3779</code>. Applies to
-   *    Linux-based instances only.</p>
+   *    Linux-based managed nodes only.</p>
    */
   AdvisoryIds?: string[];
 
   /**
    * <p>The Bugzilla ID of the patch. For example, <code>1600646</code>. Applies to Linux-based
-   *    instances only.</p>
+   *    managed nodes only.</p>
    */
   BugzillaIds?: string[];
 
   /**
    * <p>The Common Vulnerabilities and Exposures (CVE) ID of the patch. For example,
-   *     <code>CVE-2011-3192</code>. Applies to Linux-based instances only.</p>
+   *     <code>CVE-2011-3192</code>. Applies to Linux-based managed nodes only.</p>
    */
   CVEIds?: string[];
 
   /**
-   * <p>The name of the patch. Applies to Linux-based instances only.</p>
+   * <p>The name of the patch. Applies to Linux-based managed nodes only.</p>
    */
   Name?: string;
 
   /**
    * <p>The epoch of the patch. For example in
    *    <code>pkg-example-EE-20180914-2.2.amzn1.noarch</code>, the epoch value is
-   *    <code>20180914-2</code>. Applies to Linux-based instances only.</p>
+   *    <code>20180914-2</code>. Applies to Linux-based managed nodes only.</p>
    */
   Epoch?: number;
 
   /**
    * <p>The version number of the patch. For example, in
    *     <code>example-pkg-1.710.10-2.7.abcd.x86_64</code>, the version number is indicated by
-   *     <code>-1</code>. Applies to Linux-based instances only.</p>
+   *     <code>-1</code>. Applies to Linux-based managed nodes only.</p>
    */
   Version?: string;
 
   /**
    * <p>The particular release of a patch. For example, in
    *     <code>pkg-example-EE-20180914-2.2.amzn1.noarch</code>, the release is <code>2.amaz1</code>.
-   *    Applies to Linux-based instances only.</p>
+   *    Applies to Linux-based managed nodes only.</p>
    */
   Release?: string;
 
   /**
    * <p>The architecture of the patch. For example, in
    *     <code>example-pkg-0.710.10-2.7.abcd.x86_64</code>, the architecture is indicated by
-   *     <code>x86_64</code>. Applies to Linux-based instances only.</p>
+   *     <code>x86_64</code>. Applies to Linux-based managed nodes only.</p>
    */
   Arch?: string;
 
@@ -6112,7 +6105,7 @@ export interface Patch {
   /**
    * <p>The source patch repository for the operating system and version, such as
    *     <code>trusty-security</code> for Ubuntu Server 14.04 LTE and <code>focal-security</code> for
-   *    Ubuntu Server 20.04 LTE. Applies to Linux-based instances only.</p>
+   *    Ubuntu Server 20.04 LTE. Applies to Linux-based managed nodes only.</p>
    */
   Repository?: string;
 }
@@ -6281,7 +6274,7 @@ export namespace InvalidPermissionType {
 
 export interface DescribeEffectiveInstanceAssociationsRequest {
   /**
-   * <p>The instance ID for which you want to view all associations.</p>
+   * <p>The managed node ID for which you want to view all associations.</p>
    */
   InstanceId: string | undefined;
 
@@ -6308,7 +6301,7 @@ export namespace DescribeEffectiveInstanceAssociationsRequest {
 }
 
 /**
- * <p>One or more association documents on the instance. </p>
+ * <p>One or more association documents on the managed node. </p>
  */
 export interface InstanceAssociation {
   /**
@@ -6317,17 +6310,17 @@ export interface InstanceAssociation {
   AssociationId?: string;
 
   /**
-   * <p>The instance ID.</p>
+   * <p>The managed node ID.</p>
    */
   InstanceId?: string;
 
   /**
-   * <p>The content of the association document for the instance(s).</p>
+   * <p>The content of the association document for the managed node(s).</p>
    */
   Content?: string;
 
   /**
-   * <p>Version information for the association on the instance.</p>
+   * <p>Version information for the association on the managed node.</p>
    */
   AssociationVersion?: string;
 }
@@ -6343,7 +6336,7 @@ export namespace InstanceAssociation {
 
 export interface DescribeEffectiveInstanceAssociationsResult {
   /**
-   * <p>The associations for the requested instance.</p>
+   * <p>The associations for the requested managed node.</p>
    */
   Associations?: InstanceAssociation[];
 
@@ -6501,7 +6494,7 @@ export namespace UnsupportedOperatingSystem {
 
 export interface DescribeInstanceAssociationsStatusRequest {
   /**
-   * <p>The instance IDs for which you want association status information.</p>
+   * <p>The managed node IDs for which you want association status information.</p>
    */
   InstanceId: string | undefined;
 
@@ -6567,7 +6560,7 @@ export namespace InstanceAssociationOutputUrl {
 }
 
 /**
- * <p>Status information about the instance association.</p>
+ * <p>Status information about the association.</p>
  */
 export interface InstanceAssociationStatusInfo {
   /**
@@ -6586,27 +6579,27 @@ export interface InstanceAssociationStatusInfo {
   DocumentVersion?: string;
 
   /**
-   * <p>The version of the association applied to the instance.</p>
+   * <p>The version of the association applied to the managed node.</p>
    */
   AssociationVersion?: string;
 
   /**
-   * <p>The instance ID where the association was created.</p>
+   * <p>The managed node ID where the association was created.</p>
    */
   InstanceId?: string;
 
   /**
-   * <p>The date the instance association ran. </p>
+   * <p>The date the association ran. </p>
    */
   ExecutionDate?: Date;
 
   /**
-   * <p>Status information about the instance association.</p>
+   * <p>Status information about the association.</p>
    */
   Status?: string;
 
   /**
-   * <p>Detailed status information about the instance association.</p>
+   * <p>Detailed status information about the association.</p>
    */
   DetailedStatus?: string;
 
@@ -6626,7 +6619,7 @@ export interface InstanceAssociationStatusInfo {
   OutputUrl?: InstanceAssociationOutputUrl;
 
   /**
-   * <p>The name of the association applied to the instance.</p>
+   * <p>The name of the association applied to the managed node.</p>
    */
   AssociationName?: string;
 }
@@ -6663,11 +6656,11 @@ export namespace DescribeInstanceAssociationsStatusResult {
 }
 
 /**
- * <p>The filters to describe or get information about your managed instances.</p>
+ * <p>The filters to describe or get information about your managed nodes.</p>
  */
 export interface InstanceInformationStringFilter {
   /**
-   * <p>The filter key name to describe your instances. For example:</p>
+   * <p>The filter key name to describe your managed nodes. For example:</p>
    *          <p>"InstanceIds"|"AgentVersion"|"PingStatus"|"PlatformTypes"|"ActivationIds"|"IamRole"|"ResourceType"|"AssociationStatus"|"Tag
    *    Key"</p>
    *          <important>
@@ -6707,7 +6700,7 @@ export enum InstanceInformationFilterKey {
 }
 
 /**
- * <p>Describes a filter for a specific list of instances. You can filter instances information by
+ * <p>Describes a filter for a specific list of managed nodes. You can filter node information by
  *    using tags. You specify tags by using a key-value mapping.</p>
  *          <p>Use this operation instead of the <a>DescribeInstanceInformationRequest$InstanceInformationFilterList</a> method. The
  *     <code>InstanceInformationFilterList</code> method is a legacy method and doesn't support tags.
@@ -6737,8 +6730,8 @@ export namespace InstanceInformationFilter {
 export interface DescribeInstanceInformationRequest {
   /**
    * <p>This is a legacy method. We recommend that you don't use this method. Instead, use the
-   *     <code>Filters</code> data type. <code>Filters</code> enables you to return instance information
-   *    by filtering based on tags applied to managed instances.</p>
+   *     <code>Filters</code> data type. <code>Filters</code> enables you to return node information
+   *    by filtering based on tags applied to managed nodes.</p>
    *          <note>
    *             <p>Attempting to use <code>InstanceInformationFilterList</code> and <code>Filters</code> leads
    *     to an exception error. </p>
@@ -6747,7 +6740,7 @@ export interface DescribeInstanceInformationRequest {
   InstanceInformationFilterList?: InstanceInformationFilter[];
 
   /**
-   * <p>One or more filters. Use a filter to return a more specific list of instances. You can
+   * <p>One or more filters. Use a filter to return a more specific list of managed nodes. You can
    *    filter based on tags applied to EC2 instances. Use this <code>Filters</code> data type instead of
    *     <code>InstanceInformationFilterList</code>, which is deprecated.</p>
    */
@@ -6785,7 +6778,7 @@ export interface InstanceAggregatedAssociationOverview {
   DetailedStatus?: string;
 
   /**
-   * <p>The number of associations for the instance(s).</p>
+   * <p>The number of associations for the managed node(s).</p>
    */
   InstanceAssociationStatusAggregatedCount?: { [key: string]: number };
 }
@@ -6811,12 +6804,18 @@ export enum ResourceType {
   MANAGED_INSTANCE = "ManagedInstance",
 }
 
+export enum SourceType {
+  AWS_EC2_INSTANCE = "AWS::EC2::Instance",
+  AWS_IOT_THING = "AWS::IoT::Thing",
+  AWS_SSM_MANAGEDINSTANCE = "AWS::SSM::ManagedInstance",
+}
+
 /**
- * <p>Describes a filter for a specific list of instances. </p>
+ * <p>Describes a filter for a specific list of managed nodes. </p>
  */
 export interface InstanceInformation {
   /**
-   * <p>The instance ID. </p>
+   * <p>The managed node ID. </p>
    */
   InstanceId?: string;
 
@@ -6834,15 +6833,15 @@ export interface InstanceInformation {
   LastPingDateTime?: Date;
 
   /**
-   * <p>The version of SSM Agent running on your Linux instance. </p>
+   * <p>The version of SSM Agent running on your Linux managed node. </p>
    */
   AgentVersion?: string;
 
   /**
-   * <p>Indicates whether the latest version of SSM Agent is running on your Linux Managed Instance.
-   *    This field doesn't indicate whether or not the latest version is installed on Windows managed
-   *    instances, because some older versions of Windows Server use the EC2Config service to process
-   *    Systems Manager requests.</p>
+   * <p>Indicates whether the latest version of SSM Agent is running on your Linux managed node. This
+   *    field doesn't indicate whether or not the latest version is installed on Windows managed nodes,
+   *    because some older versions of Windows Server use the EC2Config service to process Systems Manager
+   *    requests.</p>
    */
   IsLatestVersion?: boolean;
 
@@ -6852,12 +6851,12 @@ export interface InstanceInformation {
   PlatformType?: PlatformType | string;
 
   /**
-   * <p>The name of the operating system platform running on your instance. </p>
+   * <p>The name of the operating system platform running on your managed node. </p>
    */
   PlatformName?: string;
 
   /**
-   * <p>The version of the OS platform running on your instance. </p>
+   * <p>The version of the OS platform running on your managed node. </p>
    */
   PlatformVersion?: string;
 
@@ -6869,7 +6868,7 @@ export interface InstanceInformation {
 
   /**
    * <p>The Identity and Access Management (IAM) role assigned to the on-premises Systems Manager
-   *    managed instance. This call doesn't return the IAM role for Amazon Elastic Compute Cloud
+   *    managed node. This call doesn't return the IAM role for Amazon Elastic Compute Cloud
    *     (Amazon EC2) instances. To retrieve the IAM role for an EC2 instance, use
    *    the Amazon EC2 <code>DescribeInstances</code> operation. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> in the <i>Amazon EC2 API Reference</i> or <a href="https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html">describe-instances</a> in
    *    the <i>Amazon Web Services CLI Command Reference</i>.</p>
@@ -6877,7 +6876,7 @@ export interface InstanceInformation {
   IamRole?: string;
 
   /**
-   * <p>The date the server or VM was registered with Amazon Web Services as a managed instance.</p>
+   * <p>The date the server or VM was registered with Amazon Web Services as a managed node.</p>
    */
   RegistrationDate?: Date;
 
@@ -6887,26 +6886,25 @@ export interface InstanceInformation {
   ResourceType?: ResourceType | string;
 
   /**
-   * <p>The name assigned to an on-premises server or virtual machine (VM) when it is activated as a
-   *    Systems Manager managed instance. The name is specified as the <code>DefaultInstanceName</code> property
-   *    using the <a>CreateActivation</a> command. It is applied to the managed instance by
-   *    specifying the Activation Code and Activation ID when you install SSM Agent on the instance, as
+   * <p>The name assigned to an on-premises server, edge device, or virtual machine (VM) when it is
+   *    activated as a Systems Manager managed node. The name is specified as the <code>DefaultInstanceName</code>
+   *    property using the <a>CreateActivation</a> command. It is applied to the managed node
+   *    by specifying the Activation Code and Activation ID when you install SSM Agent on the node, as
    *    explained in <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html">Install SSM Agent for a
    *     hybrid environment (Linux)</a> and <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html">Install SSM Agent for a
-   *     hybrid environment (Windows)</a>. To retrieve the Name tag of an EC2 instance, use the Amazon EC2
-   *     <code>DescribeInstances</code> operation. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> in the
-   *     <i>Amazon EC2 API Reference</i> or <a href="https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html">describe-instances</a> in the
-   *     <i>Amazon Web Services CLI Command Reference</i>.</p>
+   *     hybrid environment (Windows)</a>. To retrieve the <code>Name</code> tag of an EC2 instance,
+   *    use the Amazon EC2 <code>DescribeInstances</code> operation. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> in the <i>Amazon EC2 API Reference</i> or <a href="https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html">describe-instances</a> in
+   *    the <i>Amazon Web Services CLI Command Reference</i>.</p>
    */
   Name?: string;
 
   /**
-   * <p>The IP address of the managed instance.</p>
+   * <p>The IP address of the managed node.</p>
    */
   IPAddress?: string;
 
   /**
-   * <p>The fully qualified host name of the managed instance.</p>
+   * <p>The fully qualified host name of the managed node.</p>
    */
   ComputerName?: string;
 
@@ -6929,6 +6927,18 @@ export interface InstanceInformation {
    * <p>Information about the association.</p>
    */
   AssociationOverview?: InstanceAggregatedAssociationOverview;
+
+  /**
+   * <p>The ID of the source resource. For IoT Greengrass devices, <code>SourceId</code> is
+   *    the Thing name. </p>
+   */
+  SourceId?: string;
+
+  /**
+   * <p>The type of the source resource. For IoT Greengrass devices, <code>SourceType</code>
+   *    is <code>AWS::IoT::Thing</code>. </p>
+   */
+  SourceType?: SourceType | string;
 }
 
 export namespace InstanceInformation {
@@ -6942,7 +6952,7 @@ export namespace InstanceInformation {
 
 export interface DescribeInstanceInformationResult {
   /**
-   * <p>The instance information list.</p>
+   * <p>The managed node information list.</p>
    */
   InstanceInformationList?: InstanceInformation[];
 
@@ -6982,7 +6992,7 @@ export namespace InvalidInstanceInformationFilterValue {
 
 export interface DescribeInstancePatchesRequest {
   /**
-   * <p>The ID of the instance whose patch state information should be retrieved.</p>
+   * <p>The ID of the managed node whose patch state information should be retrieved.</p>
    */
   InstanceId: string | undefined;
 
@@ -7063,8 +7073,8 @@ export enum PatchComplianceDataState {
 }
 
 /**
- * <p>Information about the state of a patch on a particular instance as it relates to the patch
- *    baseline used to patch the instance.</p>
+ * <p>Information about the state of a patch on a particular managed node as it relates to the patch
+ *    baseline used to patch the node.</p>
  */
 export interface PatchComplianceData {
   /**
@@ -7090,13 +7100,13 @@ export interface PatchComplianceData {
   Severity: string | undefined;
 
   /**
-   * <p>The state of the patch on the instance, such as INSTALLED or FAILED.</p>
+   * <p>The state of the patch on the managed node, such as INSTALLED or FAILED.</p>
    *          <p>For descriptions of each patch state, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-monitor-patch">About patch compliance</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   State: PatchComplianceDataState | string | undefined;
 
   /**
-   * <p>The date/time the patch was installed on the instance. Not all operating systems provide
+   * <p>The date/time the patch was installed on the managed node. Not all operating systems provide
    *    this level of information.</p>
    */
   InstalledTime: Date | undefined;
@@ -7164,7 +7174,7 @@ export namespace DescribeInstancePatchesResult {
 
 export interface DescribeInstancePatchStatesRequest {
   /**
-   * <p>The ID of the instance for which patch state information should be retrieved.</p>
+   * <p>The ID of the managed node for which patch state information should be retrieved.</p>
    */
   InstanceIds: string[] | undefined;
 
@@ -7175,7 +7185,7 @@ export interface DescribeInstancePatchStatesRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of instances to return (per page).</p>
+   * <p>The maximum number of managed nodes to return (per page).</p>
    */
   MaxResults?: number;
 }
@@ -7200,24 +7210,24 @@ export enum RebootOption {
 }
 
 /**
- * <p>Defines the high-level patch compliance state for a managed instance, providing information
+ * <p>Defines the high-level patch compliance state for a managed node, providing information
  *    about the number of installed, missing, not applicable, and failed patches along with metadata
- *    about the operation when this information was gathered for the instance.</p>
+ *    about the operation when this information was gathered for the managed node.</p>
  */
 export interface InstancePatchState {
   /**
-   * <p>The ID of the managed instance the high-level patch compliance information was collected
+   * <p>The ID of the managed node the high-level patch compliance information was collected
    *    for.</p>
    */
   InstanceId: string | undefined;
 
   /**
-   * <p>The name of the patch group the managed instance belongs to.</p>
+   * <p>The name of the patch group the managed node belongs to.</p>
    */
   PatchGroup: string | undefined;
 
   /**
-   * <p>The ID of the patch baseline used to patch the instance.</p>
+   * <p>The ID of the patch baseline used to patch the managed node.</p>
    */
   BaselineId: string | undefined;
 
@@ -7246,24 +7256,24 @@ export interface InstancePatchState {
   OwnerInformation?: string;
 
   /**
-   * <p>The number of patches from the patch baseline that are installed on the instance.</p>
+   * <p>The number of patches from the patch baseline that are installed on the managed node.</p>
    */
   InstalledCount?: number;
 
   /**
    * <p>The number of patches not specified in the patch baseline that are installed on the
-   *    instance.</p>
+   *    managed node.</p>
    */
   InstalledOtherCount?: number;
 
   /**
-   * <p>The number of patches installed by Patch Manager since the last time the instance was
+   * <p>The number of patches installed by Patch Manager since the last time the managed node was
    *    rebooted.</p>
    */
   InstalledPendingRebootCount?: number;
 
   /**
-   * <p>The number of patches installed on an instance that are specified in a
+   * <p>The number of patches installed on a managed node that are specified in a
    *     <code>RejectedPatches</code> list. Patches with a status of <code>InstalledRejected</code> were
    *    typically installed before they were added to a <code>RejectedPatches</code> list.</p>
    *          <note>
@@ -7275,7 +7285,7 @@ export interface InstancePatchState {
   InstalledRejectedCount?: number;
 
   /**
-   * <p>The number of patches from the patch baseline that are applicable for the instance but
+   * <p>The number of patches from the patch baseline that are applicable for the managed node but
    *    aren't currently installed.</p>
    */
   MissingCount?: number;
@@ -7293,20 +7303,20 @@ export interface InstancePatchState {
   UnreportedNotApplicableCount?: number;
 
   /**
-   * <p>The number of patches from the patch baseline that aren't applicable for the instance and
-   *    therefore aren't installed on the instance. This number may be truncated if the list of patch
+   * <p>The number of patches from the patch baseline that aren't applicable for the managed node and
+   *    therefore aren't installed on the node. This number may be truncated if the list of patch
    *    names is very large. The number of patches beyond this limit are reported in
    *     <code>UnreportedNotApplicableCount</code>.</p>
    */
   NotApplicableCount?: number;
 
   /**
-   * <p>The time the most recent patching operation was started on the instance.</p>
+   * <p>The time the most recent patching operation was started on the managed node.</p>
    */
   OperationStartTime: Date | undefined;
 
   /**
-   * <p>The time the most recent patching operation completed on the instance.</p>
+   * <p>The time the most recent patching operation completed on the managed node.</p>
    */
   OperationEndTime: Date | undefined;
 
@@ -7326,7 +7336,7 @@ export interface InstancePatchState {
   Operation: PatchOperationType | string | undefined;
 
   /**
-   * <p>The time of the last attempt to patch the instance with <code>NoReboot</code> specified as
+   * <p>The time of the last attempt to patch the managed node with <code>NoReboot</code> specified as
    *    the reboot option.</p>
    */
   LastNoRebootInstallOperationTime?: Date;
@@ -7340,7 +7350,7 @@ export interface InstancePatchState {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>RebootIfNeeded</code>: Patch Manager tries to reboot the instance if it installed
+   *                   <code>RebootIfNeeded</code>: Patch Manager tries to reboot the managed node if it installed
    *      any patches, or if any patches are detected with a status of
    *       <code>InstalledPendingReboot</code>.</p>
    *             </li>
@@ -7356,25 +7366,25 @@ export interface InstancePatchState {
   RebootOption?: RebootOption | string;
 
   /**
-   * <p>The number of instances where patches that are specified as <code>Critical</code> for
+   * <p>The number of managed nodes where patches that are specified as <code>Critical</code> for
    *    compliance reporting in the patch baseline aren't installed. These patches might be missing, have
-   *    failed installation, were rejected, or were installed but awaiting a required instance reboot.
-   *    The status of these instances is <code>NON_COMPLIANT</code>.</p>
+   *    failed installation, were rejected, or were installed but awaiting a required managed node reboot.
+   *    The status of these managed nodes is <code>NON_COMPLIANT</code>.</p>
    */
   CriticalNonCompliantCount?: number;
 
   /**
-   * <p>The number of instances where patches that are specified as <code>Security</code> in a patch
-   *    advisory aren't installed. These patches might be missing, have failed installation, were
-   *    rejected, or were installed but awaiting a required instance reboot. The status of these
-   *    instances is <code>NON_COMPLIANT</code>.</p>
+   * <p>The number of managed nodes where patches that are specified as <code>Security</code> in a
+   *    patch advisory aren't installed. These patches might be missing, have failed installation, were
+   *    rejected, or were installed but awaiting a required managed node reboot. The status of these managed
+   *    nodes is <code>NON_COMPLIANT</code>.</p>
    */
   SecurityNonCompliantCount?: number;
 
   /**
-   * <p>The number of instances with patches installed that are specified as other than
+   * <p>The number of managed nodes with patches installed that are specified as other than
    *     <code>Critical</code> or <code>Security</code> but aren't compliant with the patch baseline. The
-   *    status of these instances is <code>NON_COMPLIANT</code>.</p>
+   *    status of these managed nodes is <code>NON_COMPLIANT</code>.</p>
    */
   OtherNonCompliantCount?: number;
 }
@@ -7391,7 +7401,7 @@ export namespace InstancePatchState {
 
 export interface DescribeInstancePatchStatesResult {
   /**
-   * <p>The high-level patch state for the requested instances.</p>
+   * <p>The high-level patch state for the requested managed nodes.</p>
    */
   InstancePatchStates?: InstancePatchState[];
 
@@ -7425,7 +7435,7 @@ export enum InstancePatchStateOperatorType {
  * <p>Defines a filter used in <a>DescribeInstancePatchStatesForPatchGroup</a> to scope
  *    down the information returned by the API.</p>
  *          <p>
- *             <b>Example</b>: To filter for all instances in a patch group
+ *             <b>Example</b>: To filter for all managed nodes in a patch group
  *    having more than three patches with a <code>FailedCount</code> status, use the following for the
  *    filter:</p>
  *          <ul>
@@ -7557,7 +7567,7 @@ export namespace DescribeInstancePatchStatesForPatchGroupRequest {
 
 export interface DescribeInstancePatchStatesForPatchGroupResult {
   /**
-   * <p>The high-level patch state for the requested instances. </p>
+   * <p>The high-level patch state for the requested managed nodes. </p>
    */
   InstancePatchStates?: InstancePatchState[];
 
@@ -8302,7 +8312,7 @@ export interface DescribeMaintenanceWindowScheduleRequest {
   WindowId?: string;
 
   /**
-   * <p>The instance ID or key-value pair to retrieve information about.</p>
+   * <p>The managed node ID or key-value pair to retrieve information about.</p>
    */
   Targets?: Target[];
 
@@ -8394,7 +8404,7 @@ export namespace DescribeMaintenanceWindowScheduleResult {
 
 export interface DescribeMaintenanceWindowsForTargetRequest {
   /**
-   * <p>The instance ID or key-value pair to retrieve information about.</p>
+   * <p>The managed node ID or key-value pair to retrieve information about.</p>
    */
   Targets: Target[] | undefined;
 
@@ -8452,7 +8462,7 @@ export namespace MaintenanceWindowIdentityForTarget {
 
 export interface DescribeMaintenanceWindowsForTargetResult {
   /**
-   * <p>Information about the maintenance window targets and tasks an instance is associated
+   * <p>Information about the maintenance window targets and tasks a managed node is associated
    *    with.</p>
    */
   WindowIdentities?: MaintenanceWindowIdentityForTarget[];
@@ -8527,8 +8537,8 @@ export interface MaintenanceWindowTarget {
   ResourceType?: MaintenanceWindowResourceType | string;
 
   /**
-   * <p>The targets, either instances or tags.</p>
-   *          <p>Specify instances using the following format:</p>
+   * <p>The targets, either managed nodes or tags.</p>
+   *          <p>Specify managed nodes using the following format:</p>
    *          <p>
    *             <code>Key=instanceids,Values=<instanceid1>,<instanceid2></code>
    *          </p>
@@ -8631,7 +8641,7 @@ export enum MaintenanceWindowTaskCutoffBehavior {
 
 /**
  * <p>Information about an Amazon Simple Storage Service (Amazon S3) bucket to write
- *    instance-level logs to.</p>
+ *    managed node-level logs to.</p>
  *          <note>
  *             <p>
  *                <code>LoggingInfo</code> has been deprecated. To specify an Amazon Simple Storage Service (Amazon S3) bucket to contain logs, instead use the
@@ -8715,7 +8725,7 @@ export interface MaintenanceWindowTask {
   Type?: MaintenanceWindowTaskType | string;
 
   /**
-   * <p>The targets (either instances or tags). Instances are specified using
+   * <p>The targets (either managed nodes or tags). Managed nodes are specified using
    *     <code>Key=instanceids,Values=<instanceid1>,<instanceid2></code>. Tags are specified
    *    using <code>Key=<tag name>,Values=<tag value></code>.</p>
    */
@@ -9267,10 +9277,4 @@ export enum ParameterTier {
   ADVANCED = "Advanced",
   INTELLIGENT_TIERING = "Intelligent-Tiering",
   STANDARD = "Standard",
-}
-
-export enum ParameterType {
-  SECURE_STRING = "SecureString",
-  STRING = "String",
-  STRING_LIST = "StringList",
 }

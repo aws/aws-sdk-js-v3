@@ -29,6 +29,10 @@ import {
 import { CopyBackupCommandInput, CopyBackupCommandOutput } from "../commands/CopyBackupCommand";
 import { CreateBackupCommandInput, CreateBackupCommandOutput } from "../commands/CreateBackupCommand";
 import {
+  CreateDataRepositoryAssociationCommandInput,
+  CreateDataRepositoryAssociationCommandOutput,
+} from "../commands/CreateDataRepositoryAssociationCommand";
+import {
   CreateDataRepositoryTaskCommandInput,
   CreateDataRepositoryTaskCommandOutput,
 } from "../commands/CreateDataRepositoryTaskCommand";
@@ -37,6 +41,7 @@ import {
   CreateFileSystemFromBackupCommandInput,
   CreateFileSystemFromBackupCommandOutput,
 } from "../commands/CreateFileSystemFromBackupCommand";
+import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "../commands/CreateSnapshotCommand";
 import {
   CreateStorageVirtualMachineCommandInput,
   CreateStorageVirtualMachineCommandOutput,
@@ -47,13 +52,22 @@ import {
   CreateVolumeFromBackupCommandOutput,
 } from "../commands/CreateVolumeFromBackupCommand";
 import { DeleteBackupCommandInput, DeleteBackupCommandOutput } from "../commands/DeleteBackupCommand";
+import {
+  DeleteDataRepositoryAssociationCommandInput,
+  DeleteDataRepositoryAssociationCommandOutput,
+} from "../commands/DeleteDataRepositoryAssociationCommand";
 import { DeleteFileSystemCommandInput, DeleteFileSystemCommandOutput } from "../commands/DeleteFileSystemCommand";
+import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "../commands/DeleteSnapshotCommand";
 import {
   DeleteStorageVirtualMachineCommandInput,
   DeleteStorageVirtualMachineCommandOutput,
 } from "../commands/DeleteStorageVirtualMachineCommand";
 import { DeleteVolumeCommandInput, DeleteVolumeCommandOutput } from "../commands/DeleteVolumeCommand";
 import { DescribeBackupsCommandInput, DescribeBackupsCommandOutput } from "../commands/DescribeBackupsCommand";
+import {
+  DescribeDataRepositoryAssociationsCommandInput,
+  DescribeDataRepositoryAssociationsCommandOutput,
+} from "../commands/DescribeDataRepositoryAssociationsCommand";
 import {
   DescribeDataRepositoryTasksCommandInput,
   DescribeDataRepositoryTasksCommandOutput,
@@ -66,6 +80,7 @@ import {
   DescribeFileSystemsCommandInput,
   DescribeFileSystemsCommandOutput,
 } from "../commands/DescribeFileSystemsCommand";
+import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "../commands/DescribeSnapshotsCommand";
 import {
   DescribeStorageVirtualMachinesCommandInput,
   DescribeStorageVirtualMachinesCommandOutput,
@@ -79,9 +94,22 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  ReleaseFileSystemNfsV3LocksCommandInput,
+  ReleaseFileSystemNfsV3LocksCommandOutput,
+} from "../commands/ReleaseFileSystemNfsV3LocksCommand";
+import {
+  RestoreVolumeFromSnapshotCommandInput,
+  RestoreVolumeFromSnapshotCommandOutput,
+} from "../commands/RestoreVolumeFromSnapshotCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateDataRepositoryAssociationCommandInput,
+  UpdateDataRepositoryAssociationCommandOutput,
+} from "../commands/UpdateDataRepositoryAssociationCommand";
 import { UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput } from "../commands/UpdateFileSystemCommand";
+import { UpdateSnapshotCommandInput, UpdateSnapshotCommandOutput } from "../commands/UpdateSnapshotCommand";
 import {
   UpdateStorageVirtualMachineCommandInput,
   UpdateStorageVirtualMachineCommandOutput,
@@ -95,6 +123,8 @@ import {
   Alias,
   AssociateFileSystemAliasesRequest,
   AssociateFileSystemAliasesResponse,
+  AutoExportPolicy,
+  AutoImportPolicy,
   Backup,
   BackupBeingCopied,
   BackupFailureDetails,
@@ -109,16 +139,23 @@ import {
   CopyBackupResponse,
   CreateBackupRequest,
   CreateBackupResponse,
+  CreateDataRepositoryAssociationRequest,
+  CreateDataRepositoryAssociationResponse,
   CreateDataRepositoryTaskRequest,
   CreateDataRepositoryTaskResponse,
   CreateFileSystemFromBackupRequest,
   CreateFileSystemFromBackupResponse,
   CreateFileSystemLustreConfiguration,
   CreateFileSystemOntapConfiguration,
+  CreateFileSystemOpenZFSConfiguration,
   CreateFileSystemRequest,
   CreateFileSystemResponse,
   CreateFileSystemWindowsConfiguration,
   CreateOntapVolumeConfiguration,
+  CreateOpenZFSOriginSnapshotConfiguration,
+  CreateOpenZFSVolumeConfiguration,
+  CreateSnapshotRequest,
+  CreateSnapshotResponse,
   CreateStorageVirtualMachineRequest,
   CreateStorageVirtualMachineResponse,
   CreateSvmActiveDirectoryConfiguration,
@@ -126,6 +163,8 @@ import {
   CreateVolumeFromBackupResponse,
   CreateVolumeRequest,
   CreateVolumeResponse,
+  DataRepositoryAssociation,
+  DataRepositoryAssociationNotFound,
   DataRepositoryConfiguration,
   DataRepositoryFailureDetails,
   DataRepositoryTask,
@@ -137,26 +176,38 @@ import {
   DataRepositoryTaskStatus,
   DeleteBackupRequest,
   DeleteBackupResponse,
+  DeleteDataRepositoryAssociationRequest,
+  DeleteDataRepositoryAssociationResponse,
   DeleteFileSystemLustreConfiguration,
   DeleteFileSystemLustreResponse,
+  DeleteFileSystemOpenZFSConfiguration,
+  DeleteFileSystemOpenZFSResponse,
   DeleteFileSystemRequest,
   DeleteFileSystemResponse,
   DeleteFileSystemWindowsConfiguration,
   DeleteFileSystemWindowsResponse,
+  DeleteOpenZFSVolumeOption,
+  DeleteSnapshotRequest,
+  DeleteSnapshotResponse,
   DeleteStorageVirtualMachineRequest,
   DeleteStorageVirtualMachineResponse,
   DeleteVolumeOntapConfiguration,
   DeleteVolumeOntapResponse,
+  DeleteVolumeOpenZFSConfiguration,
   DeleteVolumeRequest,
   DeleteVolumeResponse,
   DescribeBackupsRequest,
   DescribeBackupsResponse,
+  DescribeDataRepositoryAssociationsRequest,
+  DescribeDataRepositoryAssociationsResponse,
   DescribeDataRepositoryTasksRequest,
   DescribeDataRepositoryTasksResponse,
   DescribeFileSystemAliasesRequest,
   DescribeFileSystemAliasesResponse,
   DescribeFileSystemsRequest,
   DescribeFileSystemsResponse,
+  DescribeSnapshotsRequest,
+  DescribeSnapshotsResponse,
   DescribeStorageVirtualMachinesRequest,
   DescribeStorageVirtualMachinesResponse,
   DescribeVolumesRequest,
@@ -164,6 +215,7 @@ import {
   DisassociateFileSystemAliasesRequest,
   DisassociateFileSystemAliasesResponse,
   DiskIopsConfiguration,
+  EventType,
   FileSystem,
   FileSystemEndpoint,
   FileSystemEndpoints,
@@ -174,6 +226,7 @@ import {
   IncompatibleParameterError,
   IncompatibleRegionForMultiAZ,
   InternalServerError,
+  InvalidDataRepositoryType,
   InvalidDestinationKmsKey,
   InvalidExportPath,
   InvalidImportPath,
@@ -185,17 +238,35 @@ import {
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
   LustreFileSystemConfiguration,
+  LustreLogConfiguration,
+  LustreLogCreateConfiguration,
   MissingFileSystemConfiguration,
   MissingVolumeConfiguration,
   NotServiceResourceError,
   OntapFileSystemConfiguration,
   OntapVolumeConfiguration,
+  OpenZFSClientConfiguration,
+  OpenZFSCreateRootVolumeConfiguration,
+  OpenZFSFileSystemConfiguration,
+  OpenZFSNfsExport,
+  OpenZFSOriginSnapshotConfiguration,
+  OpenZFSUserOrGroupQuota,
+  OpenZFSVolumeConfiguration,
+  ReleaseFileSystemNfsV3LocksRequest,
+  ReleaseFileSystemNfsV3LocksResponse,
   ResourceDoesNotSupportTagging,
   ResourceNotFound,
+  RestoreOpenZFSVolumeOption,
+  RestoreVolumeFromSnapshotRequest,
+  RestoreVolumeFromSnapshotResponse,
+  S3DataRepositoryConfiguration,
   SelfManagedActiveDirectoryAttributes,
   SelfManagedActiveDirectoryConfiguration,
   SelfManagedActiveDirectoryConfigurationUpdates,
   ServiceLimitExceeded,
+  Snapshot,
+  SnapshotFilter,
+  SnapshotNotFound,
   SourceBackupUnavailable,
   StorageVirtualMachine,
   StorageVirtualMachineFilter,
@@ -210,12 +281,18 @@ import {
   UnsupportedOperation,
   UntagResourceRequest,
   UntagResourceResponse,
+  UpdateDataRepositoryAssociationRequest,
+  UpdateDataRepositoryAssociationResponse,
   UpdateFileSystemLustreConfiguration,
   UpdateFileSystemOntapConfiguration,
+  UpdateFileSystemOpenZFSConfiguration,
   UpdateFileSystemRequest,
   UpdateFileSystemResponse,
   UpdateFileSystemWindowsConfiguration,
   UpdateOntapVolumeConfiguration,
+  UpdateOpenZFSVolumeConfiguration,
+  UpdateSnapshotRequest,
+  UpdateSnapshotResponse,
   UpdateStorageVirtualMachineRequest,
   UpdateStorageVirtualMachineResponse,
   UpdateSvmActiveDirectoryConfiguration,
@@ -281,6 +358,19 @@ export const serializeAws_json1_1CreateBackupCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateDataRepositoryAssociationCommand = async (
+  input: CreateDataRepositoryAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSSimbaAPIService_v20180301.CreateDataRepositoryAssociation",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateDataRepositoryAssociationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateDataRepositoryTaskCommand = async (
   input: CreateDataRepositoryTaskCommandInput,
   context: __SerdeContext
@@ -317,6 +407,19 @@ export const serializeAws_json1_1CreateFileSystemFromBackupCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateFileSystemFromBackupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateSnapshotCommand = async (
+  input: CreateSnapshotCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSSimbaAPIService_v20180301.CreateSnapshot",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -372,6 +475,19 @@ export const serializeAws_json1_1DeleteBackupCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteDataRepositoryAssociationCommand = async (
+  input: DeleteDataRepositoryAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSSimbaAPIService_v20180301.DeleteDataRepositoryAssociation",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteDataRepositoryAssociationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteFileSystemCommand = async (
   input: DeleteFileSystemCommandInput,
   context: __SerdeContext
@@ -382,6 +498,19 @@ export const serializeAws_json1_1DeleteFileSystemCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteFileSystemRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteSnapshotCommand = async (
+  input: DeleteSnapshotCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSSimbaAPIService_v20180301.DeleteSnapshot",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -424,6 +553,19 @@ export const serializeAws_json1_1DescribeBackupsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeDataRepositoryAssociationsCommand = async (
+  input: DescribeDataRepositoryAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSSimbaAPIService_v20180301.DescribeDataRepositoryAssociations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeDataRepositoryAssociationsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeDataRepositoryTasksCommand = async (
   input: DescribeDataRepositoryTasksCommandInput,
   context: __SerdeContext
@@ -460,6 +602,19 @@ export const serializeAws_json1_1DescribeFileSystemsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeFileSystemsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeSnapshotsCommand = async (
+  input: DescribeSnapshotsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSSimbaAPIService_v20180301.DescribeSnapshots",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeSnapshotsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -515,6 +670,32 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ReleaseFileSystemNfsV3LocksCommand = async (
+  input: ReleaseFileSystemNfsV3LocksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSSimbaAPIService_v20180301.ReleaseFileSystemNfsV3Locks",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ReleaseFileSystemNfsV3LocksRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1RestoreVolumeFromSnapshotCommand = async (
+  input: RestoreVolumeFromSnapshotCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSSimbaAPIService_v20180301.RestoreVolumeFromSnapshot",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RestoreVolumeFromSnapshotRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
@@ -541,6 +722,19 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateDataRepositoryAssociationCommand = async (
+  input: UpdateDataRepositoryAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSSimbaAPIService_v20180301.UpdateDataRepositoryAssociation",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateDataRepositoryAssociationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateFileSystemCommand = async (
   input: UpdateFileSystemCommandInput,
   context: __SerdeContext
@@ -551,6 +745,19 @@ export const serializeAws_json1_1UpdateFileSystemCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateFileSystemRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateSnapshotCommand = async (
+  input: UpdateSnapshotCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSSimbaAPIService_v20180301.UpdateSnapshot",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -980,6 +1187,100 @@ const deserializeAws_json1_1CreateBackupCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1CreateDataRepositoryAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataRepositoryAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateDataRepositoryAssociationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateDataRepositoryAssociationResponse(data, context);
+  const response: CreateDataRepositoryAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateDataRepositoryAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataRepositoryAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "FileSystemNotFound":
+    case "com.amazonaws.fsx#FileSystemNotFound":
+      response = {
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IncompatibleParameterError":
+    case "com.amazonaws.fsx#IncompatibleParameterError":
+      response = {
+        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceLimitExceeded":
+    case "com.amazonaws.fsx#ServiceLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperation":
+    case "com.amazonaws.fsx#UnsupportedOperation":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CreateDataRepositoryTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1305,6 +1606,84 @@ const deserializeAws_json1_1CreateFileSystemFromBackupCommandError = async (
     case "com.amazonaws.fsx#ServiceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateSnapshotCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateSnapshotResponse(data, context);
+  const response: CreateSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateSnapshotCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSnapshotCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceLimitExceeded":
+    case "com.amazonaws.fsx#ServiceLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "VolumeNotFound":
+    case "com.amazonaws.fsx#VolumeNotFound":
+      response = {
+        ...(await deserializeAws_json1_1VolumeNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1750,6 +2129,92 @@ const deserializeAws_json1_1DeleteBackupCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteDataRepositoryAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataRepositoryAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteDataRepositoryAssociationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteDataRepositoryAssociationResponse(data, context);
+  const response: DeleteDataRepositoryAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteDataRepositoryAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataRepositoryAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DataRepositoryAssociationNotFound":
+    case "com.amazonaws.fsx#DataRepositoryAssociationNotFound":
+      response = {
+        ...(await deserializeAws_json1_1DataRepositoryAssociationNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IncompatibleParameterError":
+    case "com.amazonaws.fsx#IncompatibleParameterError":
+      response = {
+        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceLimitExceeded":
+    case "com.amazonaws.fsx#ServiceLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeleteFileSystemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1815,6 +2280,76 @@ const deserializeAws_json1_1DeleteFileSystemCommandError = async (
     case "com.amazonaws.fsx#ServiceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteSnapshotCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteSnapshotResponse(data, context);
+  const response: DeleteSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteSnapshotCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSnapshotCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SnapshotNotFound":
+    case "com.amazonaws.fsx#SnapshotNotFound":
+      response = {
+        ...(await deserializeAws_json1_1SnapshotNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2078,6 +2613,92 @@ const deserializeAws_json1_1DescribeBackupsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeDataRepositoryAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataRepositoryAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeDataRepositoryAssociationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeDataRepositoryAssociationsResponse(data, context);
+  const response: DescribeDataRepositoryAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeDataRepositoryAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataRepositoryAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DataRepositoryAssociationNotFound":
+    case "com.amazonaws.fsx#DataRepositoryAssociationNotFound":
+      response = {
+        ...(await deserializeAws_json1_1DataRepositoryAssociationNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "FileSystemNotFound":
+    case "com.amazonaws.fsx#FileSystemNotFound":
+      response = {
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDataRepositoryType":
+    case "com.amazonaws.fsx#InvalidDataRepositoryType":
+      response = {
+        ...(await deserializeAws_json1_1InvalidDataRepositoryTypeResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeDataRepositoryTasksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2275,6 +2896,76 @@ const deserializeAws_json1_1DescribeFileSystemsCommandError = async (
     case "com.amazonaws.fsx#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeSnapshotsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSnapshotsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeSnapshotsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeSnapshotsResponse(data, context);
+  const response: DescribeSnapshotsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeSnapshotsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSnapshotsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SnapshotNotFound":
+    case "com.amazonaws.fsx#SnapshotNotFound":
+      response = {
+        ...(await deserializeAws_json1_1SnapshotNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2592,6 +3283,162 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ReleaseFileSystemNfsV3LocksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReleaseFileSystemNfsV3LocksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ReleaseFileSystemNfsV3LocksCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ReleaseFileSystemNfsV3LocksResponse(data, context);
+  const response: ReleaseFileSystemNfsV3LocksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ReleaseFileSystemNfsV3LocksCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReleaseFileSystemNfsV3LocksCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "FileSystemNotFound":
+    case "com.amazonaws.fsx#FileSystemNotFound":
+      response = {
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IncompatibleParameterError":
+    case "com.amazonaws.fsx#IncompatibleParameterError":
+      response = {
+        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceLimitExceeded":
+    case "com.amazonaws.fsx#ServiceLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1RestoreVolumeFromSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreVolumeFromSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RestoreVolumeFromSnapshotCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RestoreVolumeFromSnapshotResponse(data, context);
+  const response: RestoreVolumeFromSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RestoreVolumeFromSnapshotCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreVolumeFromSnapshotCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "VolumeNotFound":
+    case "com.amazonaws.fsx#VolumeNotFound":
+      response = {
+        ...(await deserializeAws_json1_1VolumeNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2764,6 +3611,92 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateDataRepositoryAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDataRepositoryAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateDataRepositoryAssociationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateDataRepositoryAssociationResponse(data, context);
+  const response: UpdateDataRepositoryAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateDataRepositoryAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDataRepositoryAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DataRepositoryAssociationNotFound":
+    case "com.amazonaws.fsx#DataRepositoryAssociationNotFound":
+      response = {
+        ...(await deserializeAws_json1_1DataRepositoryAssociationNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IncompatibleParameterError":
+    case "com.amazonaws.fsx#IncompatibleParameterError":
+      response = {
+        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceLimitExceeded":
+    case "com.amazonaws.fsx#ServiceLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateFileSystemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2845,6 +3778,76 @@ const deserializeAws_json1_1UpdateFileSystemCommandError = async (
     case "com.amazonaws.fsx#UnsupportedOperation":
       response = {
         ...(await deserializeAws_json1_1UnsupportedOperationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateSnapshotCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateSnapshotResponse(data, context);
+  const response: UpdateSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateSnapshotCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSnapshotCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SnapshotNotFound":
+    case "com.amazonaws.fsx#SnapshotNotFound":
+      response = {
+        ...(await deserializeAws_json1_1SnapshotNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3128,6 +4131,21 @@ const deserializeAws_json1_1BadRequestResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1DataRepositoryAssociationNotFoundResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DataRepositoryAssociationNotFound> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1DataRepositoryAssociationNotFound(body, context);
+  const contents: DataRepositoryAssociationNotFound = {
+    name: "DataRepositoryAssociationNotFound",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1DataRepositoryTaskEndedResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3227,6 +4245,21 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   const contents: InternalServerError = {
     name: "InternalServerError",
     $fault: "server",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidDataRepositoryTypeResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidDataRepositoryType> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidDataRepositoryType(body, context);
+  const contents: InvalidDataRepositoryType = {
+    name: "InvalidDataRepositoryType",
+    $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   };
@@ -3428,6 +4461,21 @@ const deserializeAws_json1_1ServiceLimitExceededResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1SnapshotNotFoundResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SnapshotNotFound> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1SnapshotNotFound(body, context);
+  const contents: SnapshotNotFound = {
+    name: "SnapshotNotFound",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1SourceBackupUnavailableResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3511,6 +4559,20 @@ const serializeAws_json1_1AssociateFileSystemAliasesRequest = (
   };
 };
 
+const serializeAws_json1_1AutoExportPolicy = (input: AutoExportPolicy, context: __SerdeContext): any => {
+  return {
+    ...(input.Events !== undefined &&
+      input.Events !== null && { Events: serializeAws_json1_1EventTypes(input.Events, context) }),
+  };
+};
+
+const serializeAws_json1_1AutoImportPolicy = (input: AutoImportPolicy, context: __SerdeContext): any => {
+  return {
+    ...(input.Events !== undefined &&
+      input.Events !== null && { Events: serializeAws_json1_1EventTypes(input.Events, context) }),
+  };
+};
+
 const serializeAws_json1_1BackupIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -3561,6 +4623,27 @@ const serializeAws_json1_1CreateBackupRequest = (input: CreateBackupRequest, con
   };
 };
 
+const serializeAws_json1_1CreateDataRepositoryAssociationRequest = (
+  input: CreateDataRepositoryAssociationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BatchImportMetaDataOnCreate !== undefined &&
+      input.BatchImportMetaDataOnCreate !== null && { BatchImportMetaDataOnCreate: input.BatchImportMetaDataOnCreate }),
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.DataRepositoryPath !== undefined &&
+      input.DataRepositoryPath !== null && { DataRepositoryPath: input.DataRepositoryPath }),
+    ...(input.FileSystemId !== undefined && input.FileSystemId !== null && { FileSystemId: input.FileSystemId }),
+    ...(input.FileSystemPath !== undefined &&
+      input.FileSystemPath !== null && { FileSystemPath: input.FileSystemPath }),
+    ...(input.ImportedFileChunkSize !== undefined &&
+      input.ImportedFileChunkSize !== null && { ImportedFileChunkSize: input.ImportedFileChunkSize }),
+    ...(input.S3 !== undefined &&
+      input.S3 !== null && { S3: serializeAws_json1_1S3DataRepositoryConfiguration(input.S3, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateDataRepositoryTaskRequest = (
   input: CreateDataRepositoryTaskRequest,
   context: __SerdeContext
@@ -3591,6 +4674,13 @@ const serializeAws_json1_1CreateFileSystemFromBackupRequest = (
       input.LustreConfiguration !== null && {
         LustreConfiguration: serializeAws_json1_1CreateFileSystemLustreConfiguration(
           input.LustreConfiguration,
+          context
+        ),
+      }),
+    ...(input.OpenZFSConfiguration !== undefined &&
+      input.OpenZFSConfiguration !== null && {
+        OpenZFSConfiguration: serializeAws_json1_1CreateFileSystemOpenZFSConfiguration(
+          input.OpenZFSConfiguration,
           context
         ),
       }),
@@ -3639,6 +4729,10 @@ const serializeAws_json1_1CreateFileSystemLustreConfiguration = (
     ...(input.ImportPath !== undefined && input.ImportPath !== null && { ImportPath: input.ImportPath }),
     ...(input.ImportedFileChunkSize !== undefined &&
       input.ImportedFileChunkSize !== null && { ImportedFileChunkSize: input.ImportedFileChunkSize }),
+    ...(input.LogConfiguration !== undefined &&
+      input.LogConfiguration !== null && {
+        LogConfiguration: serializeAws_json1_1LustreLogCreateConfiguration(input.LogConfiguration, context),
+      }),
     ...(input.PerUnitStorageThroughput !== undefined &&
       input.PerUnitStorageThroughput !== null && { PerUnitStorageThroughput: input.PerUnitStorageThroughput }),
     ...(input.WeeklyMaintenanceStartTime !== undefined &&
@@ -3682,6 +4776,43 @@ const serializeAws_json1_1CreateFileSystemOntapConfiguration = (
   };
 };
 
+const serializeAws_json1_1CreateFileSystemOpenZFSConfiguration = (
+  input: CreateFileSystemOpenZFSConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AutomaticBackupRetentionDays !== undefined &&
+      input.AutomaticBackupRetentionDays !== null && {
+        AutomaticBackupRetentionDays: input.AutomaticBackupRetentionDays,
+      }),
+    ...(input.CopyTagsToBackups !== undefined &&
+      input.CopyTagsToBackups !== null && { CopyTagsToBackups: input.CopyTagsToBackups }),
+    ...(input.CopyTagsToVolumes !== undefined &&
+      input.CopyTagsToVolumes !== null && { CopyTagsToVolumes: input.CopyTagsToVolumes }),
+    ...(input.DailyAutomaticBackupStartTime !== undefined &&
+      input.DailyAutomaticBackupStartTime !== null && {
+        DailyAutomaticBackupStartTime: input.DailyAutomaticBackupStartTime,
+      }),
+    ...(input.DeploymentType !== undefined &&
+      input.DeploymentType !== null && { DeploymentType: input.DeploymentType }),
+    ...(input.DiskIopsConfiguration !== undefined &&
+      input.DiskIopsConfiguration !== null && {
+        DiskIopsConfiguration: serializeAws_json1_1DiskIopsConfiguration(input.DiskIopsConfiguration, context),
+      }),
+    ...(input.RootVolumeConfiguration !== undefined &&
+      input.RootVolumeConfiguration !== null && {
+        RootVolumeConfiguration: serializeAws_json1_1OpenZFSCreateRootVolumeConfiguration(
+          input.RootVolumeConfiguration,
+          context
+        ),
+      }),
+    ...(input.ThroughputCapacity !== undefined &&
+      input.ThroughputCapacity !== null && { ThroughputCapacity: input.ThroughputCapacity }),
+    ...(input.WeeklyMaintenanceStartTime !== undefined &&
+      input.WeeklyMaintenanceStartTime !== null && { WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime }),
+  };
+};
+
 const serializeAws_json1_1CreateFileSystemRequest = (input: CreateFileSystemRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
@@ -3700,6 +4831,13 @@ const serializeAws_json1_1CreateFileSystemRequest = (input: CreateFileSystemRequ
     ...(input.OntapConfiguration !== undefined &&
       input.OntapConfiguration !== null && {
         OntapConfiguration: serializeAws_json1_1CreateFileSystemOntapConfiguration(input.OntapConfiguration, context),
+      }),
+    ...(input.OpenZFSConfiguration !== undefined &&
+      input.OpenZFSConfiguration !== null && {
+        OpenZFSConfiguration: serializeAws_json1_1CreateFileSystemOpenZFSConfiguration(
+          input.OpenZFSConfiguration,
+          context
+        ),
       }),
     ...(input.SecurityGroupIds !== undefined &&
       input.SecurityGroupIds !== null && {
@@ -3785,6 +4923,56 @@ const serializeAws_json1_1CreateOntapVolumeConfiguration = (
   };
 };
 
+const serializeAws_json1_1CreateOpenZFSOriginSnapshotConfiguration = (
+  input: CreateOpenZFSOriginSnapshotConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CopyStrategy !== undefined && input.CopyStrategy !== null && { CopyStrategy: input.CopyStrategy }),
+    ...(input.SnapshotARN !== undefined && input.SnapshotARN !== null && { SnapshotARN: input.SnapshotARN }),
+  };
+};
+
+const serializeAws_json1_1CreateOpenZFSVolumeConfiguration = (
+  input: CreateOpenZFSVolumeConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CopyTagsToSnapshots !== undefined &&
+      input.CopyTagsToSnapshots !== null && { CopyTagsToSnapshots: input.CopyTagsToSnapshots }),
+    ...(input.DataCompressionType !== undefined &&
+      input.DataCompressionType !== null && { DataCompressionType: input.DataCompressionType }),
+    ...(input.NfsExports !== undefined &&
+      input.NfsExports !== null && { NfsExports: serializeAws_json1_1OpenZFSNfsExports(input.NfsExports, context) }),
+    ...(input.OriginSnapshot !== undefined &&
+      input.OriginSnapshot !== null && {
+        OriginSnapshot: serializeAws_json1_1CreateOpenZFSOriginSnapshotConfiguration(input.OriginSnapshot, context),
+      }),
+    ...(input.ParentVolumeId !== undefined &&
+      input.ParentVolumeId !== null && { ParentVolumeId: input.ParentVolumeId }),
+    ...(input.ReadOnly !== undefined && input.ReadOnly !== null && { ReadOnly: input.ReadOnly }),
+    ...(input.StorageCapacityQuotaGiB !== undefined &&
+      input.StorageCapacityQuotaGiB !== null && { StorageCapacityQuotaGiB: input.StorageCapacityQuotaGiB }),
+    ...(input.StorageCapacityReservationGiB !== undefined &&
+      input.StorageCapacityReservationGiB !== null && {
+        StorageCapacityReservationGiB: input.StorageCapacityReservationGiB,
+      }),
+    ...(input.UserAndGroupQuotas !== undefined &&
+      input.UserAndGroupQuotas !== null && {
+        UserAndGroupQuotas: serializeAws_json1_1OpenZFSUserAndGroupQuotas(input.UserAndGroupQuotas, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1CreateSnapshotRequest = (input: CreateSnapshotRequest, context: __SerdeContext): any => {
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.VolumeId !== undefined && input.VolumeId !== null && { VolumeId: input.VolumeId }),
+  };
+};
+
 const serializeAws_json1_1CreateStorageVirtualMachineRequest = (
   input: CreateStorageVirtualMachineRequest,
   context: __SerdeContext
@@ -3848,9 +5036,24 @@ const serializeAws_json1_1CreateVolumeRequest = (input: CreateVolumeRequest, con
       input.OntapConfiguration !== null && {
         OntapConfiguration: serializeAws_json1_1CreateOntapVolumeConfiguration(input.OntapConfiguration, context),
       }),
+    ...(input.OpenZFSConfiguration !== undefined &&
+      input.OpenZFSConfiguration !== null && {
+        OpenZFSConfiguration: serializeAws_json1_1CreateOpenZFSVolumeConfiguration(input.OpenZFSConfiguration, context),
+      }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.VolumeType !== undefined && input.VolumeType !== null && { VolumeType: input.VolumeType }),
   };
+};
+
+const serializeAws_json1_1DataRepositoryAssociationIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DataRepositoryTaskFilter = (
@@ -3907,8 +5110,32 @@ const serializeAws_json1_1DeleteBackupRequest = (input: DeleteBackupRequest, con
   };
 };
 
+const serializeAws_json1_1DeleteDataRepositoryAssociationRequest = (
+  input: DeleteDataRepositoryAssociationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AssociationId !== undefined && input.AssociationId !== null && { AssociationId: input.AssociationId }),
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.DeleteDataInFileSystem !== undefined &&
+      input.DeleteDataInFileSystem !== null && { DeleteDataInFileSystem: input.DeleteDataInFileSystem }),
+  };
+};
+
 const serializeAws_json1_1DeleteFileSystemLustreConfiguration = (
   input: DeleteFileSystemLustreConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FinalBackupTags !== undefined &&
+      input.FinalBackupTags !== null && { FinalBackupTags: serializeAws_json1_1Tags(input.FinalBackupTags, context) }),
+    ...(input.SkipFinalBackup !== undefined &&
+      input.SkipFinalBackup !== null && { SkipFinalBackup: input.SkipFinalBackup }),
+  };
+};
+
+const serializeAws_json1_1DeleteFileSystemOpenZFSConfiguration = (
+  input: DeleteFileSystemOpenZFSConfiguration,
   context: __SerdeContext
 ): any => {
   return {
@@ -3927,6 +5154,13 @@ const serializeAws_json1_1DeleteFileSystemRequest = (input: DeleteFileSystemRequ
       input.LustreConfiguration !== null && {
         LustreConfiguration: serializeAws_json1_1DeleteFileSystemLustreConfiguration(
           input.LustreConfiguration,
+          context
+        ),
+      }),
+    ...(input.OpenZFSConfiguration !== undefined &&
+      input.OpenZFSConfiguration !== null && {
+        OpenZFSConfiguration: serializeAws_json1_1DeleteFileSystemOpenZFSConfiguration(
+          input.OpenZFSConfiguration,
           context
         ),
       }),
@@ -3949,6 +5183,27 @@ const serializeAws_json1_1DeleteFileSystemWindowsConfiguration = (
       input.FinalBackupTags !== null && { FinalBackupTags: serializeAws_json1_1Tags(input.FinalBackupTags, context) }),
     ...(input.SkipFinalBackup !== undefined &&
       input.SkipFinalBackup !== null && { SkipFinalBackup: input.SkipFinalBackup }),
+  };
+};
+
+const serializeAws_json1_1DeleteOpenZFSVolumeOptions = (
+  input: (DeleteOpenZFSVolumeOption | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1DeleteSnapshotRequest = (input: DeleteSnapshotRequest, context: __SerdeContext): any => {
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.SnapshotId !== undefined && input.SnapshotId !== null && { SnapshotId: input.SnapshotId }),
   };
 };
 
@@ -3975,12 +5230,26 @@ const serializeAws_json1_1DeleteVolumeOntapConfiguration = (
   };
 };
 
+const serializeAws_json1_1DeleteVolumeOpenZFSConfiguration = (
+  input: DeleteVolumeOpenZFSConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Options !== undefined &&
+      input.Options !== null && { Options: serializeAws_json1_1DeleteOpenZFSVolumeOptions(input.Options, context) }),
+  };
+};
+
 const serializeAws_json1_1DeleteVolumeRequest = (input: DeleteVolumeRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.OntapConfiguration !== undefined &&
       input.OntapConfiguration !== null && {
         OntapConfiguration: serializeAws_json1_1DeleteVolumeOntapConfiguration(input.OntapConfiguration, context),
+      }),
+    ...(input.OpenZFSConfiguration !== undefined &&
+      input.OpenZFSConfiguration !== null && {
+        OpenZFSConfiguration: serializeAws_json1_1DeleteVolumeOpenZFSConfiguration(input.OpenZFSConfiguration, context),
       }),
     ...(input.VolumeId !== undefined && input.VolumeId !== null && { VolumeId: input.VolumeId }),
   };
@@ -3990,6 +5259,22 @@ const serializeAws_json1_1DescribeBackupsRequest = (input: DescribeBackupsReques
   return {
     ...(input.BackupIds !== undefined &&
       input.BackupIds !== null && { BackupIds: serializeAws_json1_1BackupIds(input.BackupIds, context) }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1DescribeDataRepositoryAssociationsRequest = (
+  input: DescribeDataRepositoryAssociationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AssociationIds !== undefined &&
+      input.AssociationIds !== null && {
+        AssociationIds: serializeAws_json1_1DataRepositoryAssociationIds(input.AssociationIds, context),
+      }),
     ...(input.Filters !== undefined &&
       input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -4034,6 +5319,20 @@ const serializeAws_json1_1DescribeFileSystemsRequest = (
       }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1DescribeSnapshotsRequest = (
+  input: DescribeSnapshotsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1SnapshotFilters(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.SnapshotIds !== undefined &&
+      input.SnapshotIds !== null && { SnapshotIds: serializeAws_json1_1SnapshotIds(input.SnapshotIds, context) }),
   };
 };
 
@@ -4084,6 +5383,17 @@ const serializeAws_json1_1DiskIopsConfiguration = (input: DiskIopsConfiguration,
 };
 
 const serializeAws_json1_1DnsIps = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1EventTypes = (input: (EventType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4146,6 +5456,151 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   };
 };
 
+const serializeAws_json1_1LustreLogCreateConfiguration = (
+  input: LustreLogCreateConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Destination !== undefined && input.Destination !== null && { Destination: input.Destination }),
+    ...(input.Level !== undefined && input.Level !== null && { Level: input.Level }),
+  };
+};
+
+const serializeAws_json1_1OpenZFSClientConfiguration = (
+  input: OpenZFSClientConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Clients !== undefined && input.Clients !== null && { Clients: input.Clients }),
+    ...(input.Options !== undefined &&
+      input.Options !== null && { Options: serializeAws_json1_1OpenZFSNfsExportOptions(input.Options, context) }),
+  };
+};
+
+const serializeAws_json1_1OpenZFSClientConfigurations = (
+  input: OpenZFSClientConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1OpenZFSClientConfiguration(entry, context);
+    });
+};
+
+const serializeAws_json1_1OpenZFSCreateRootVolumeConfiguration = (
+  input: OpenZFSCreateRootVolumeConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CopyTagsToSnapshots !== undefined &&
+      input.CopyTagsToSnapshots !== null && { CopyTagsToSnapshots: input.CopyTagsToSnapshots }),
+    ...(input.DataCompressionType !== undefined &&
+      input.DataCompressionType !== null && { DataCompressionType: input.DataCompressionType }),
+    ...(input.NfsExports !== undefined &&
+      input.NfsExports !== null && { NfsExports: serializeAws_json1_1OpenZFSNfsExports(input.NfsExports, context) }),
+    ...(input.ReadOnly !== undefined && input.ReadOnly !== null && { ReadOnly: input.ReadOnly }),
+    ...(input.UserAndGroupQuotas !== undefined &&
+      input.UserAndGroupQuotas !== null && {
+        UserAndGroupQuotas: serializeAws_json1_1OpenZFSUserAndGroupQuotas(input.UserAndGroupQuotas, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1OpenZFSNfsExport = (input: OpenZFSNfsExport, context: __SerdeContext): any => {
+  return {
+    ...(input.ClientConfigurations !== undefined &&
+      input.ClientConfigurations !== null && {
+        ClientConfigurations: serializeAws_json1_1OpenZFSClientConfigurations(input.ClientConfigurations, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1OpenZFSNfsExportOptions = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1OpenZFSNfsExports = (input: OpenZFSNfsExport[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1OpenZFSNfsExport(entry, context);
+    });
+};
+
+const serializeAws_json1_1OpenZFSUserAndGroupQuotas = (
+  input: OpenZFSUserOrGroupQuota[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1OpenZFSUserOrGroupQuota(entry, context);
+    });
+};
+
+const serializeAws_json1_1OpenZFSUserOrGroupQuota = (input: OpenZFSUserOrGroupQuota, context: __SerdeContext): any => {
+  return {
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.StorageCapacityQuotaGiB !== undefined &&
+      input.StorageCapacityQuotaGiB !== null && { StorageCapacityQuotaGiB: input.StorageCapacityQuotaGiB }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_json1_1ReleaseFileSystemNfsV3LocksRequest = (
+  input: ReleaseFileSystemNfsV3LocksRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.FileSystemId !== undefined && input.FileSystemId !== null && { FileSystemId: input.FileSystemId }),
+  };
+};
+
+const serializeAws_json1_1RestoreOpenZFSVolumeOptions = (
+  input: (RestoreOpenZFSVolumeOption | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1RestoreVolumeFromSnapshotRequest = (
+  input: RestoreVolumeFromSnapshotRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.Options !== undefined &&
+      input.Options !== null && { Options: serializeAws_json1_1RestoreOpenZFSVolumeOptions(input.Options, context) }),
+    ...(input.SnapshotId !== undefined && input.SnapshotId !== null && { SnapshotId: input.SnapshotId }),
+    ...(input.VolumeId !== undefined && input.VolumeId !== null && { VolumeId: input.VolumeId }),
+  };
+};
+
 const serializeAws_json1_1RouteTableIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -4155,6 +5610,22 @@ const serializeAws_json1_1RouteTableIds = (input: string[], context: __SerdeCont
       }
       return entry;
     });
+};
+
+const serializeAws_json1_1S3DataRepositoryConfiguration = (
+  input: S3DataRepositoryConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AutoExportPolicy !== undefined &&
+      input.AutoExportPolicy !== null && {
+        AutoExportPolicy: serializeAws_json1_1AutoExportPolicy(input.AutoExportPolicy, context),
+      }),
+    ...(input.AutoImportPolicy !== undefined &&
+      input.AutoImportPolicy !== null && {
+        AutoImportPolicy: serializeAws_json1_1AutoImportPolicy(input.AutoImportPolicy, context),
+      }),
+  };
 };
 
 const serializeAws_json1_1SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
@@ -4199,6 +5670,47 @@ const serializeAws_json1_1SelfManagedActiveDirectoryConfigurationUpdates = (
     ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
     ...(input.UserName !== undefined && input.UserName !== null && { UserName: input.UserName }),
   };
+};
+
+const serializeAws_json1_1SnapshotFilter = (input: SnapshotFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Values !== undefined &&
+      input.Values !== null && { Values: serializeAws_json1_1SnapshotFilterValues(input.Values, context) }),
+  };
+};
+
+const serializeAws_json1_1SnapshotFilters = (input: SnapshotFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1SnapshotFilter(entry, context);
+    });
+};
+
+const serializeAws_json1_1SnapshotFilterValues = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1SnapshotIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1StorageVirtualMachineFilter = (
@@ -4323,6 +5835,20 @@ const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, c
   };
 };
 
+const serializeAws_json1_1UpdateDataRepositoryAssociationRequest = (
+  input: UpdateDataRepositoryAssociationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AssociationId !== undefined && input.AssociationId !== null && { AssociationId: input.AssociationId }),
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.ImportedFileChunkSize !== undefined &&
+      input.ImportedFileChunkSize !== null && { ImportedFileChunkSize: input.ImportedFileChunkSize }),
+    ...(input.S3 !== undefined &&
+      input.S3 !== null && { S3: serializeAws_json1_1S3DataRepositoryConfiguration(input.S3, context) }),
+  };
+};
+
 const serializeAws_json1_1UpdateFileSystemLustreConfiguration = (
   input: UpdateFileSystemLustreConfiguration,
   context: __SerdeContext
@@ -4340,6 +5866,10 @@ const serializeAws_json1_1UpdateFileSystemLustreConfiguration = (
       }),
     ...(input.DataCompressionType !== undefined &&
       input.DataCompressionType !== null && { DataCompressionType: input.DataCompressionType }),
+    ...(input.LogConfiguration !== undefined &&
+      input.LogConfiguration !== null && {
+        LogConfiguration: serializeAws_json1_1LustreLogCreateConfiguration(input.LogConfiguration, context),
+      }),
     ...(input.WeeklyMaintenanceStartTime !== undefined &&
       input.WeeklyMaintenanceStartTime !== null && { WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime }),
   };
@@ -4365,6 +5895,34 @@ const serializeAws_json1_1UpdateFileSystemOntapConfiguration = (
   };
 };
 
+const serializeAws_json1_1UpdateFileSystemOpenZFSConfiguration = (
+  input: UpdateFileSystemOpenZFSConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AutomaticBackupRetentionDays !== undefined &&
+      input.AutomaticBackupRetentionDays !== null && {
+        AutomaticBackupRetentionDays: input.AutomaticBackupRetentionDays,
+      }),
+    ...(input.CopyTagsToBackups !== undefined &&
+      input.CopyTagsToBackups !== null && { CopyTagsToBackups: input.CopyTagsToBackups }),
+    ...(input.CopyTagsToVolumes !== undefined &&
+      input.CopyTagsToVolumes !== null && { CopyTagsToVolumes: input.CopyTagsToVolumes }),
+    ...(input.DailyAutomaticBackupStartTime !== undefined &&
+      input.DailyAutomaticBackupStartTime !== null && {
+        DailyAutomaticBackupStartTime: input.DailyAutomaticBackupStartTime,
+      }),
+    ...(input.DiskIopsConfiguration !== undefined &&
+      input.DiskIopsConfiguration !== null && {
+        DiskIopsConfiguration: serializeAws_json1_1DiskIopsConfiguration(input.DiskIopsConfiguration, context),
+      }),
+    ...(input.ThroughputCapacity !== undefined &&
+      input.ThroughputCapacity !== null && { ThroughputCapacity: input.ThroughputCapacity }),
+    ...(input.WeeklyMaintenanceStartTime !== undefined &&
+      input.WeeklyMaintenanceStartTime !== null && { WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime }),
+  };
+};
+
 const serializeAws_json1_1UpdateFileSystemRequest = (input: UpdateFileSystemRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
@@ -4379,6 +5937,13 @@ const serializeAws_json1_1UpdateFileSystemRequest = (input: UpdateFileSystemRequ
     ...(input.OntapConfiguration !== undefined &&
       input.OntapConfiguration !== null && {
         OntapConfiguration: serializeAws_json1_1UpdateFileSystemOntapConfiguration(input.OntapConfiguration, context),
+      }),
+    ...(input.OpenZFSConfiguration !== undefined &&
+      input.OpenZFSConfiguration !== null && {
+        OpenZFSConfiguration: serializeAws_json1_1UpdateFileSystemOpenZFSConfiguration(
+          input.OpenZFSConfiguration,
+          context
+        ),
       }),
     ...(input.StorageCapacity !== undefined &&
       input.StorageCapacity !== null && { StorageCapacity: input.StorageCapacity }),
@@ -4444,6 +6009,37 @@ const serializeAws_json1_1UpdateOntapVolumeConfiguration = (
   };
 };
 
+const serializeAws_json1_1UpdateOpenZFSVolumeConfiguration = (
+  input: UpdateOpenZFSVolumeConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataCompressionType !== undefined &&
+      input.DataCompressionType !== null && { DataCompressionType: input.DataCompressionType }),
+    ...(input.NfsExports !== undefined &&
+      input.NfsExports !== null && { NfsExports: serializeAws_json1_1OpenZFSNfsExports(input.NfsExports, context) }),
+    ...(input.ReadOnly !== undefined && input.ReadOnly !== null && { ReadOnly: input.ReadOnly }),
+    ...(input.StorageCapacityQuotaGiB !== undefined &&
+      input.StorageCapacityQuotaGiB !== null && { StorageCapacityQuotaGiB: input.StorageCapacityQuotaGiB }),
+    ...(input.StorageCapacityReservationGiB !== undefined &&
+      input.StorageCapacityReservationGiB !== null && {
+        StorageCapacityReservationGiB: input.StorageCapacityReservationGiB,
+      }),
+    ...(input.UserAndGroupQuotas !== undefined &&
+      input.UserAndGroupQuotas !== null && {
+        UserAndGroupQuotas: serializeAws_json1_1OpenZFSUserAndGroupQuotas(input.UserAndGroupQuotas, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1UpdateSnapshotRequest = (input: UpdateSnapshotRequest, context: __SerdeContext): any => {
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.SnapshotId !== undefined && input.SnapshotId !== null && { SnapshotId: input.SnapshotId }),
+  };
+};
+
 const serializeAws_json1_1UpdateStorageVirtualMachineRequest = (
   input: UpdateStorageVirtualMachineRequest,
   context: __SerdeContext
@@ -4482,9 +6078,14 @@ const serializeAws_json1_1UpdateSvmActiveDirectoryConfiguration = (
 const serializeAws_json1_1UpdateVolumeRequest = (input: UpdateVolumeRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.OntapConfiguration !== undefined &&
       input.OntapConfiguration !== null && {
         OntapConfiguration: serializeAws_json1_1UpdateOntapVolumeConfiguration(input.OntapConfiguration, context),
+      }),
+    ...(input.OpenZFSConfiguration !== undefined &&
+      input.OpenZFSConfiguration !== null && {
+        OpenZFSConfiguration: serializeAws_json1_1UpdateOpenZFSVolumeConfiguration(input.OpenZFSConfiguration, context),
       }),
     ...(input.VolumeId !== undefined && input.VolumeId !== null && { VolumeId: input.VolumeId }),
   };
@@ -4583,6 +6184,10 @@ const deserializeAws_json1_1AdministrativeAction = (output: any, context: __Serd
       output.TargetFileSystemValues !== undefined && output.TargetFileSystemValues !== null
         ? deserializeAws_json1_1FileSystem(output.TargetFileSystemValues, context)
         : undefined,
+    TargetSnapshotValues:
+      output.TargetSnapshotValues !== undefined && output.TargetSnapshotValues !== null
+        ? deserializeAws_json1_1Snapshot(output.TargetSnapshotValues, context)
+        : undefined,
     TargetVolumeValues:
       output.TargetVolumeValues !== undefined && output.TargetVolumeValues !== null
         ? deserializeAws_json1_1Volume(output.TargetVolumeValues, context)
@@ -4636,6 +6241,24 @@ const deserializeAws_json1_1AssociateFileSystemAliasesResponse = (
     Aliases:
       output.Aliases !== undefined && output.Aliases !== null
         ? deserializeAws_json1_1Aliases(output.Aliases, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AutoExportPolicy = (output: any, context: __SerdeContext): AutoExportPolicy => {
+  return {
+    Events:
+      output.Events !== undefined && output.Events !== null
+        ? deserializeAws_json1_1EventTypes(output.Events, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AutoImportPolicy = (output: any, context: __SerdeContext): AutoImportPolicy => {
+  return {
+    Events:
+      output.Events !== undefined && output.Events !== null
+        ? deserializeAws_json1_1EventTypes(output.Events, context)
         : undefined,
   } as any;
 };
@@ -4763,6 +6386,18 @@ const deserializeAws_json1_1CreateBackupResponse = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1CreateDataRepositoryAssociationResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateDataRepositoryAssociationResponse => {
+  return {
+    Association:
+      output.Association !== undefined && output.Association !== null
+        ? deserializeAws_json1_1DataRepositoryAssociation(output.Association, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateDataRepositoryTaskResponse = (
   output: any,
   context: __SerdeContext
@@ -4799,6 +6434,15 @@ const deserializeAws_json1_1CreateFileSystemResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateSnapshotResponse = (output: any, context: __SerdeContext): CreateSnapshotResponse => {
+  return {
+    Snapshot:
+      output.Snapshot !== undefined && output.Snapshot !== null
+        ? deserializeAws_json1_1Snapshot(output.Snapshot, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateStorageVirtualMachineResponse = (
   output: any,
   context: __SerdeContext
@@ -4830,6 +6474,59 @@ const deserializeAws_json1_1CreateVolumeResponse = (output: any, context: __Serd
         ? deserializeAws_json1_1Volume(output.Volume, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1DataRepositoryAssociation = (
+  output: any,
+  context: __SerdeContext
+): DataRepositoryAssociation => {
+  return {
+    AssociationId: __expectString(output.AssociationId),
+    BatchImportMetaDataOnCreate: __expectBoolean(output.BatchImportMetaDataOnCreate),
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DataRepositoryPath: __expectString(output.DataRepositoryPath),
+    FailureDetails:
+      output.FailureDetails !== undefined && output.FailureDetails !== null
+        ? deserializeAws_json1_1DataRepositoryFailureDetails(output.FailureDetails, context)
+        : undefined,
+    FileSystemId: __expectString(output.FileSystemId),
+    FileSystemPath: __expectString(output.FileSystemPath),
+    ImportedFileChunkSize: __expectInt32(output.ImportedFileChunkSize),
+    Lifecycle: __expectString(output.Lifecycle),
+    ResourceARN: __expectString(output.ResourceARN),
+    S3:
+      output.S3 !== undefined && output.S3 !== null
+        ? deserializeAws_json1_1S3DataRepositoryConfiguration(output.S3, context)
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DataRepositoryAssociationNotFound = (
+  output: any,
+  context: __SerdeContext
+): DataRepositoryAssociationNotFound => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1DataRepositoryAssociations = (
+  output: any,
+  context: __SerdeContext
+): DataRepositoryAssociation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DataRepositoryAssociation(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DataRepositoryConfiguration = (
@@ -4978,10 +6675,34 @@ const deserializeAws_json1_1DeleteBackupResponse = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1DeleteDataRepositoryAssociationResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteDataRepositoryAssociationResponse => {
+  return {
+    AssociationId: __expectString(output.AssociationId),
+    DeleteDataInFileSystem: __expectBoolean(output.DeleteDataInFileSystem),
+    Lifecycle: __expectString(output.Lifecycle),
+  } as any;
+};
+
 const deserializeAws_json1_1DeleteFileSystemLustreResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteFileSystemLustreResponse => {
+  return {
+    FinalBackupId: __expectString(output.FinalBackupId),
+    FinalBackupTags:
+      output.FinalBackupTags !== undefined && output.FinalBackupTags !== null
+        ? deserializeAws_json1_1Tags(output.FinalBackupTags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteFileSystemOpenZFSResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteFileSystemOpenZFSResponse => {
   return {
     FinalBackupId: __expectString(output.FinalBackupId),
     FinalBackupTags:
@@ -5002,6 +6723,10 @@ const deserializeAws_json1_1DeleteFileSystemResponse = (
       output.LustreResponse !== undefined && output.LustreResponse !== null
         ? deserializeAws_json1_1DeleteFileSystemLustreResponse(output.LustreResponse, context)
         : undefined,
+    OpenZFSResponse:
+      output.OpenZFSResponse !== undefined && output.OpenZFSResponse !== null
+        ? deserializeAws_json1_1DeleteFileSystemOpenZFSResponse(output.OpenZFSResponse, context)
+        : undefined,
     WindowsResponse:
       output.WindowsResponse !== undefined && output.WindowsResponse !== null
         ? deserializeAws_json1_1DeleteFileSystemWindowsResponse(output.WindowsResponse, context)
@@ -5019,6 +6744,13 @@ const deserializeAws_json1_1DeleteFileSystemWindowsResponse = (
       output.FinalBackupTags !== undefined && output.FinalBackupTags !== null
         ? deserializeAws_json1_1Tags(output.FinalBackupTags, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteSnapshotResponse = (output: any, context: __SerdeContext): DeleteSnapshotResponse => {
+  return {
+    Lifecycle: __expectString(output.Lifecycle),
+    SnapshotId: __expectString(output.SnapshotId),
   } as any;
 };
 
@@ -5069,6 +6801,19 @@ const deserializeAws_json1_1DescribeBackupsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeDataRepositoryAssociationsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeDataRepositoryAssociationsResponse => {
+  return {
+    Associations:
+      output.Associations !== undefined && output.Associations !== null
+        ? deserializeAws_json1_1DataRepositoryAssociations(output.Associations, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeDataRepositoryTasksResponse = (
   output: any,
   context: __SerdeContext
@@ -5105,6 +6850,19 @@ const deserializeAws_json1_1DescribeFileSystemsResponse = (
         ? deserializeAws_json1_1FileSystems(output.FileSystems, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeSnapshotsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeSnapshotsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    Snapshots:
+      output.Snapshots !== undefined && output.Snapshots !== null
+        ? deserializeAws_json1_1Snapshots(output.Snapshots, context)
+        : undefined,
   } as any;
 };
 
@@ -5164,6 +6922,17 @@ const deserializeAws_json1_1DnsIps = (output: any, context: __SerdeContext): str
     });
 };
 
+const deserializeAws_json1_1EventTypes = (output: any, context: __SerdeContext): (EventType | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_json1_1FileSystem = (output: any, context: __SerdeContext): FileSystem => {
   return {
     AdministrativeActions:
@@ -5195,6 +6964,10 @@ const deserializeAws_json1_1FileSystem = (output: any, context: __SerdeContext):
     OntapConfiguration:
       output.OntapConfiguration !== undefined && output.OntapConfiguration !== null
         ? deserializeAws_json1_1OntapFileSystemConfiguration(output.OntapConfiguration, context)
+        : undefined,
+    OpenZFSConfiguration:
+      output.OpenZFSConfiguration !== undefined && output.OpenZFSConfiguration !== null
+        ? deserializeAws_json1_1OpenZFSFileSystemConfiguration(output.OpenZFSConfiguration, context)
         : undefined,
     OwnerId: __expectString(output.OwnerId),
     ResourceARN: __expectString(output.ResourceARN),
@@ -5302,6 +7075,15 @@ const deserializeAws_json1_1InternalServerError = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1InvalidDataRepositoryType = (
+  output: any,
+  context: __SerdeContext
+): InvalidDataRepositoryType => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
 const deserializeAws_json1_1InvalidDestinationKmsKey = (
   output: any,
   context: __SerdeContext
@@ -5388,9 +7170,20 @@ const deserializeAws_json1_1LustreFileSystemConfiguration = (
         : undefined,
     DeploymentType: __expectString(output.DeploymentType),
     DriveCacheType: __expectString(output.DriveCacheType),
+    LogConfiguration:
+      output.LogConfiguration !== undefined && output.LogConfiguration !== null
+        ? deserializeAws_json1_1LustreLogConfiguration(output.LogConfiguration, context)
+        : undefined,
     MountName: __expectString(output.MountName),
     PerUnitStorageThroughput: __expectInt32(output.PerUnitStorageThroughput),
     WeeklyMaintenanceStartTime: __expectString(output.WeeklyMaintenanceStartTime),
+  } as any;
+};
+
+const deserializeAws_json1_1LustreLogConfiguration = (output: any, context: __SerdeContext): LustreLogConfiguration => {
+  return {
+    Destination: __expectString(output.Destination),
+    Level: __expectString(output.Level),
   } as any;
 };
 
@@ -5492,6 +7285,158 @@ const deserializeAws_json1_1OntapVolumeConfiguration = (
   } as any;
 };
 
+const deserializeAws_json1_1OpenZFSClientConfiguration = (
+  output: any,
+  context: __SerdeContext
+): OpenZFSClientConfiguration => {
+  return {
+    Clients: __expectString(output.Clients),
+    Options:
+      output.Options !== undefined && output.Options !== null
+        ? deserializeAws_json1_1OpenZFSNfsExportOptions(output.Options, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1OpenZFSClientConfigurations = (
+  output: any,
+  context: __SerdeContext
+): OpenZFSClientConfiguration[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1OpenZFSClientConfiguration(entry, context);
+    });
+};
+
+const deserializeAws_json1_1OpenZFSFileSystemConfiguration = (
+  output: any,
+  context: __SerdeContext
+): OpenZFSFileSystemConfiguration => {
+  return {
+    AutomaticBackupRetentionDays: __expectInt32(output.AutomaticBackupRetentionDays),
+    CopyTagsToBackups: __expectBoolean(output.CopyTagsToBackups),
+    CopyTagsToVolumes: __expectBoolean(output.CopyTagsToVolumes),
+    DailyAutomaticBackupStartTime: __expectString(output.DailyAutomaticBackupStartTime),
+    DeploymentType: __expectString(output.DeploymentType),
+    DiskIopsConfiguration:
+      output.DiskIopsConfiguration !== undefined && output.DiskIopsConfiguration !== null
+        ? deserializeAws_json1_1DiskIopsConfiguration(output.DiskIopsConfiguration, context)
+        : undefined,
+    RootVolumeId: __expectString(output.RootVolumeId),
+    ThroughputCapacity: __expectInt32(output.ThroughputCapacity),
+    WeeklyMaintenanceStartTime: __expectString(output.WeeklyMaintenanceStartTime),
+  } as any;
+};
+
+const deserializeAws_json1_1OpenZFSNfsExport = (output: any, context: __SerdeContext): OpenZFSNfsExport => {
+  return {
+    ClientConfigurations:
+      output.ClientConfigurations !== undefined && output.ClientConfigurations !== null
+        ? deserializeAws_json1_1OpenZFSClientConfigurations(output.ClientConfigurations, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1OpenZFSNfsExportOptions = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_json1_1OpenZFSNfsExports = (output: any, context: __SerdeContext): OpenZFSNfsExport[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1OpenZFSNfsExport(entry, context);
+    });
+};
+
+const deserializeAws_json1_1OpenZFSOriginSnapshotConfiguration = (
+  output: any,
+  context: __SerdeContext
+): OpenZFSOriginSnapshotConfiguration => {
+  return {
+    CopyStrategy: __expectString(output.CopyStrategy),
+    SnapshotARN: __expectString(output.SnapshotARN),
+  } as any;
+};
+
+const deserializeAws_json1_1OpenZFSUserAndGroupQuotas = (
+  output: any,
+  context: __SerdeContext
+): OpenZFSUserOrGroupQuota[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1OpenZFSUserOrGroupQuota(entry, context);
+    });
+};
+
+const deserializeAws_json1_1OpenZFSUserOrGroupQuota = (
+  output: any,
+  context: __SerdeContext
+): OpenZFSUserOrGroupQuota => {
+  return {
+    Id: __expectInt32(output.Id),
+    StorageCapacityQuotaGiB: __expectInt32(output.StorageCapacityQuotaGiB),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_json1_1OpenZFSVolumeConfiguration = (
+  output: any,
+  context: __SerdeContext
+): OpenZFSVolumeConfiguration => {
+  return {
+    CopyTagsToSnapshots: __expectBoolean(output.CopyTagsToSnapshots),
+    DataCompressionType: __expectString(output.DataCompressionType),
+    NfsExports:
+      output.NfsExports !== undefined && output.NfsExports !== null
+        ? deserializeAws_json1_1OpenZFSNfsExports(output.NfsExports, context)
+        : undefined,
+    OriginSnapshot:
+      output.OriginSnapshot !== undefined && output.OriginSnapshot !== null
+        ? deserializeAws_json1_1OpenZFSOriginSnapshotConfiguration(output.OriginSnapshot, context)
+        : undefined,
+    ParentVolumeId: __expectString(output.ParentVolumeId),
+    ReadOnly: __expectBoolean(output.ReadOnly),
+    StorageCapacityQuotaGiB: __expectInt32(output.StorageCapacityQuotaGiB),
+    StorageCapacityReservationGiB: __expectInt32(output.StorageCapacityReservationGiB),
+    UserAndGroupQuotas:
+      output.UserAndGroupQuotas !== undefined && output.UserAndGroupQuotas !== null
+        ? deserializeAws_json1_1OpenZFSUserAndGroupQuotas(output.UserAndGroupQuotas, context)
+        : undefined,
+    VolumePath: __expectString(output.VolumePath),
+  } as any;
+};
+
+const deserializeAws_json1_1ReleaseFileSystemNfsV3LocksResponse = (
+  output: any,
+  context: __SerdeContext
+): ReleaseFileSystemNfsV3LocksResponse => {
+  return {
+    FileSystem:
+      output.FileSystem !== undefined && output.FileSystem !== null
+        ? deserializeAws_json1_1FileSystem(output.FileSystem, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ResourceDoesNotSupportTagging = (
   output: any,
   context: __SerdeContext
@@ -5509,6 +7454,16 @@ const deserializeAws_json1_1ResourceNotFound = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_json1_1RestoreVolumeFromSnapshotResponse = (
+  output: any,
+  context: __SerdeContext
+): RestoreVolumeFromSnapshotResponse => {
+  return {
+    Lifecycle: __expectString(output.Lifecycle),
+    VolumeId: __expectString(output.VolumeId),
+  } as any;
+};
+
 const deserializeAws_json1_1RouteTableIds = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -5518,6 +7473,22 @@ const deserializeAws_json1_1RouteTableIds = (output: any, context: __SerdeContex
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_json1_1S3DataRepositoryConfiguration = (
+  output: any,
+  context: __SerdeContext
+): S3DataRepositoryConfiguration => {
+  return {
+    AutoExportPolicy:
+      output.AutoExportPolicy !== undefined && output.AutoExportPolicy !== null
+        ? deserializeAws_json1_1AutoExportPolicy(output.AutoExportPolicy, context)
+        : undefined,
+    AutoImportPolicy:
+      output.AutoImportPolicy !== undefined && output.AutoImportPolicy !== null
+        ? deserializeAws_json1_1AutoImportPolicy(output.AutoImportPolicy, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1SelfManagedActiveDirectoryAttributes = (
@@ -5541,6 +7512,43 @@ const deserializeAws_json1_1ServiceLimitExceeded = (output: any, context: __Serd
     Limit: __expectString(output.Limit),
     Message: __expectString(output.Message),
   } as any;
+};
+
+const deserializeAws_json1_1Snapshot = (output: any, context: __SerdeContext): Snapshot => {
+  return {
+    AdministrativeActions:
+      output.AdministrativeActions !== undefined && output.AdministrativeActions !== null
+        ? deserializeAws_json1_1AdministrativeActions(output.AdministrativeActions, context)
+        : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    Lifecycle: __expectString(output.Lifecycle),
+    Name: __expectString(output.Name),
+    ResourceARN: __expectString(output.ResourceARN),
+    SnapshotId: __expectString(output.SnapshotId),
+    Tags:
+      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    VolumeId: __expectString(output.VolumeId),
+  } as any;
+};
+
+const deserializeAws_json1_1SnapshotNotFound = (output: any, context: __SerdeContext): SnapshotNotFound => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1Snapshots = (output: any, context: __SerdeContext): Snapshot[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Snapshot(entry, context);
+    });
 };
 
 const deserializeAws_json1_1SourceBackupUnavailable = (
@@ -5705,6 +7713,18 @@ const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __Ser
   return {} as any;
 };
 
+const deserializeAws_json1_1UpdateDataRepositoryAssociationResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateDataRepositoryAssociationResponse => {
+  return {
+    Association:
+      output.Association !== undefined && output.Association !== null
+        ? deserializeAws_json1_1DataRepositoryAssociation(output.Association, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1UpdateFileSystemResponse = (
   output: any,
   context: __SerdeContext
@@ -5713,6 +7733,15 @@ const deserializeAws_json1_1UpdateFileSystemResponse = (
     FileSystem:
       output.FileSystem !== undefined && output.FileSystem !== null
         ? deserializeAws_json1_1FileSystem(output.FileSystem, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateSnapshotResponse = (output: any, context: __SerdeContext): UpdateSnapshotResponse => {
+  return {
+    Snapshot:
+      output.Snapshot !== undefined && output.Snapshot !== null
+        ? deserializeAws_json1_1Snapshot(output.Snapshot, context)
         : undefined,
   } as any;
 };
@@ -5740,6 +7769,10 @@ const deserializeAws_json1_1UpdateVolumeResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1Volume = (output: any, context: __SerdeContext): Volume => {
   return {
+    AdministrativeActions:
+      output.AdministrativeActions !== undefined && output.AdministrativeActions !== null
+        ? deserializeAws_json1_1AdministrativeActions(output.AdministrativeActions, context)
+        : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
@@ -5754,6 +7787,10 @@ const deserializeAws_json1_1Volume = (output: any, context: __SerdeContext): Vol
     OntapConfiguration:
       output.OntapConfiguration !== undefined && output.OntapConfiguration !== null
         ? deserializeAws_json1_1OntapVolumeConfiguration(output.OntapConfiguration, context)
+        : undefined,
+    OpenZFSConfiguration:
+      output.OpenZFSConfiguration !== undefined && output.OpenZFSConfiguration !== null
+        ? deserializeAws_json1_1OpenZFSVolumeConfiguration(output.OpenZFSConfiguration, context)
         : undefined,
     ResourceARN: __expectString(output.ResourceARN),
     Tags:

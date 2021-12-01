@@ -22,9 +22,9 @@ export interface DeleteDocumentCommandInput extends DeleteDocumentRequest {}
 export interface DeleteDocumentCommandOutput extends DeleteDocumentResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the Amazon Web Services Systems Manager document (SSM document) and all instance associations to the
+ * <p>Deletes the Amazon Web Services Systems Manager document (SSM document) and all managed node associations to the
  *    document.</p>
- *          <p>Before you delete the document, we recommend that you use <a>DeleteAssociation</a> to disassociate all instances that are associated with the document.</p>
+ *          <p>Before you delete the document, we recommend that you use <a>DeleteAssociation</a> to disassociate all managed nodes that are associated with the document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

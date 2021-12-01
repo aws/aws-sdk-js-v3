@@ -25,8 +25,8 @@ export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, _
  * <p>Returns information about the Snow Family service limit for your account, and also the
  *       number of Snow devices your account has in use.</p>
  *
- *          <p>The default service limit for the number of Snow devices that you can have at one time is
- *       1. If you want to increase your service limit, contact AWS Support.</p>
+ *          <p>The default service limit for the number of Snow devices that you can have at one time
+ *       is 1. If you want to increase your service limit, contact Amazon Web Services Support.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

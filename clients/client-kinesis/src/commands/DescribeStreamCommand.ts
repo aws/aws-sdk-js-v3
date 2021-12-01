@@ -23,7 +23,11 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
 
 /**
  * <p>Describes the specified Kinesis data stream.</p>
- *
+ *         <note>
+ *             <p>This API has been revised. It's highly recommended that you use the <a>DescribeStreamSummary</a> API to get a summarized description of the
+ *                 specified Kinesis data stream and the <a>ListShards</a> API to list the
+ *                 shards in a specified data stream and obtain information about each shard. </p>
+ *         </note>
  *         <p>The information returned includes the stream name, Amazon Resource Name (ARN),
  *             creation time, enhanced metric configuration, and shard map. The shard map is an array
  *             of shard objects. For each shard object, there is the hash key and sequence number

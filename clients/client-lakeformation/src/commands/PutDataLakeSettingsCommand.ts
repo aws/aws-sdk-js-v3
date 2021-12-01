@@ -14,9 +14,9 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { PutDataLakeSettingsRequest, PutDataLakeSettingsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1PutDataLakeSettingsCommand,
-  serializeAws_json1_1PutDataLakeSettingsCommand,
-} from "../protocols/Aws_json1_1";
+  deserializeAws_restJson1PutDataLakeSettingsCommand,
+  serializeAws_restJson1PutDataLakeSettingsCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface PutDataLakeSettingsCommandInput extends PutDataLakeSettingsRequest {}
 export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsResponse, __MetadataBearer {}
@@ -85,11 +85,11 @@ export class PutDataLakeSettingsCommand extends $Command<
   }
 
   private serialize(input: PutDataLakeSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutDataLakeSettingsCommand(input, context);
+    return serializeAws_restJson1PutDataLakeSettingsCommand(input, context);
   }
 
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDataLakeSettingsCommandOutput> {
-    return deserializeAws_json1_1PutDataLakeSettingsCommand(output, context);
+    return deserializeAws_restJson1PutDataLakeSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

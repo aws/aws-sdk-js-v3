@@ -778,7 +778,17 @@ export class S3 extends S3Client {
    *          defined by Amazon S3. These permissions are then added to the ACL on the object. For more
    *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing ACLs Using the REST
    *             API</a>. </p>
-   *
+   *          <p>If the bucket that you're copying objects to uses the bucket owner enforced setting for
+   *          S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets that
+   *          use this setting only accept PUT requests that don't specify an ACL or PUT requests that
+   *          specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code> canned
+   *          ACL or an equivalent form of this ACL expressed in the XML format.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html"> Controlling ownership of
+   *          objects and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <note>
+   *             <p>If your bucket uses the bucket owner enforced setting for Object Ownership,
+   *             all objects written to the bucket by any account will be owned by the bucket owner.</p>
+   *          </note>
    *          <p>
    *             <b>Storage Class Options</b>
    *          </p>
@@ -861,9 +871,20 @@ export class S3 extends S3Client {
    *             bucket in a Region other than US East (N. Virginia), your application must be able to
    *             handle 307 redirect. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html">Virtual hosting of buckets</a>.</p>
    *          </note>
-   *          <p>When creating a bucket using this operation, you can optionally specify the accounts or
-   *          groups that should be granted specific permissions on the bucket. There are two ways to
-   *          grant the appropriate permissions using the request headers.</p>
+   *          <p>
+   *             <b>Access control lists (ACLs)</b>
+   *          </p>
+   *          <p>When creating a bucket using this operation, you can optionally configure the bucket ACL to specify the accounts or
+   *          groups that should be granted specific permissions on the bucket.</p>
+   *          <important>
+   *             <p>If your CreateBucket request includes the <code>BucketOwnerEnforced</code> value for
+   *             the <code>x-amz-object-ownership</code> header, your request can either not specify
+   *             an ACL or specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code>
+   *             canned ACL or an equivalent ACL expressed in the XML format. For
+   *             more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling object
+   *                ownership</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          </important>
+   *          <p>There are two ways to grant the appropriate permissions using the request headers.</p>
    *          <ul>
    *             <li>
    *                <p>Specify a canned ACL using the <code>x-amz-acl</code> request header. Amazon S3
@@ -876,7 +897,7 @@ export class S3 extends S3Client {
    *                   <code>x-amz-grant-write</code>, <code>x-amz-grant-read-acp</code>,
    *                   <code>x-amz-grant-write-acp</code>, and <code>x-amz-grant-full-control</code>
    *                headers. These headers map to the set of permissions Amazon S3 supports in an ACL. For
-   *                more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access control list
+   *                more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html">Access control list
    *                   (ACL) overview</a>.</p>
    *                <p>You specify each grantee as a type=value pair, where the type is one of the
    *                following:</p>
@@ -940,13 +961,30 @@ export class S3 extends S3Client {
    *          <p>
    *             <b>Permissions</b>
    *          </p>
-   *          <p>If your <code>CreateBucket</code> request specifies ACL permissions and the ACL is public-read, public-read-write,
-   *          authenticated-read, or if you specify access permissions explicitly through any other ACL, both
-   *          <code>s3:CreateBucket</code> and <code>s3:PutBucketAcl</code> permissions are needed. If the ACL the
-   *          <code>CreateBucket</code> request is private, only <code>s3:CreateBucket</code> permission is needed. </p>
-   *          <p>If <code>ObjectLockEnabledForBucket</code> is set to true in your <code>CreateBucket</code> request,
-   *          <code>s3:PutBucketObjectLockConfiguration</code> and <code>s3:PutBucketVersioning</code> permissions are required.</p>
-   *
+   *          <p>In addition to <code>s3:CreateBucket</code>, the following permissions are required when your CreateBucket includes specific headers:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>ACLs</b> - If your <code>CreateBucket</code> request specifies ACL permissions and the ACL is public-read, public-read-write,
+   *                authenticated-read, or if you specify access permissions explicitly through any other ACL, both
+   *                <code>s3:CreateBucket</code> and <code>s3:PutBucketAcl</code> permissions are needed. If the ACL the
+   *                <code>CreateBucket</code> request is private or doesn't specify any ACLs, only <code>s3:CreateBucket</code> permission is needed. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Object Lock</b> - If
+   *                   <code>ObjectLockEnabledForBucket</code> is set to true in your
+   *                   <code>CreateBucket</code> request,
+   *                   <code>s3:PutBucketObjectLockConfiguration</code> and
+   *                   <code>s3:PutBucketVersioning</code> permissions are required.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>S3 Object Ownership</b> - If your CreateBucket
+   *                request includes the the <code>x-amz-object-ownership</code> header,
+   *                   <code>s3:PutBucketOwnershipControls</code> permission is required.</p>
+   *             </li>
+   *          </ul>
    *          <p>The following operations are related to <code>CreateBucket</code>:</p>
    *          <ul>
    *             <li>
@@ -1493,8 +1531,8 @@ export class S3 extends S3Client {
 
   /**
    * <p>Deletes the S3 Intelligent-Tiering configuration from the specified bucket.</p>
-   *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in two low latency and high throughput access tiers. For data that can be accessed asynchronously, you can choose to activate automatic archiving capabilities within the S3 Intelligent-Tiering storage class.</p>
-   *          <p>The S3 Intelligent-Tiering storage class is  the ideal storage class for data with unknown, changing, or unpredictable access patterns, independent of object size or retention period. If the size of an object is less than 128 KB, it is not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.</p>
+   *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in three low latency and high throughput access tiers. To get the lowest storage cost on data that can be accessed in minutes to hours, you can choose to activate additional archiving capabilities.</p>
+   *          <p>The S3 Intelligent-Tiering storage class is  the ideal storage class for data with unknown, changing, or unpredictable access patterns, independent of object size or retention period. If the size of an object is less than 128 KB, it is not monitored and not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access">Storage class for automatically optimizing frequently and infrequently accessed objects</a>.</p>
    *          <p>Operations related to
    *             <code>DeleteBucketIntelligentTieringConfiguration</code> include: </p>
@@ -2333,6 +2371,13 @@ export class S3 extends S3Client {
    *          return the ACL of the bucket, you must have <code>READ_ACP</code> access to the bucket. If
    *             <code>READ_ACP</code> permission is granted to the anonymous user, you can return the
    *          ACL of the bucket without using an authorization header.</p>
+   *          <note>
+   *             <p>If your bucket uses the bucket owner enforced setting for S3 Object Ownership,
+   *             requests to read ACLs are still supported and return the <code>bucket-owner-full-control</code>
+   *             ACL with the owner being the account that created the bucket. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">
+   *                Controlling object ownership and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          </note>
    *
    *          <p class="title">
    *             <b>Related Resources</b>
@@ -2539,8 +2584,8 @@ export class S3 extends S3Client {
 
   /**
    * <p>Gets the S3 Intelligent-Tiering configuration from the specified bucket.</p>
-   *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in two low latency and high throughput access tiers. For data that can be accessed asynchronously, you can choose to activate automatic archiving capabilities within the S3 Intelligent-Tiering storage class.</p>
-   *          <p>The S3 Intelligent-Tiering storage class is  the ideal storage class for data with unknown, changing, or unpredictable access patterns, independent of object size or retention period. If the size of an object is less than 128 KB, it is not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.</p>
+   *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in three low latency and high throughput access tiers. To get the lowest storage cost on data that can be accessed in minutes to hours, you can choose to activate additional archiving capabilities.</p>
+   *          <p>The S3 Intelligent-Tiering storage class is  the ideal storage class for data with unknown, changing, or unpredictable access patterns, independent of object size or retention period. If the size of an object is less than 128 KB, it is not monitored and not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access">Storage class for automatically optimizing frequently and infrequently accessed objects</a>.</p>
    *          <p>Operations related to
    *             <code>GetBucketIntelligentTieringConfiguration</code> include: </p>
@@ -2963,9 +3008,9 @@ export class S3 extends S3Client {
   /**
    * <p>Retrieves <code>OwnershipControls</code> for an Amazon S3 bucket. To use this operation, you
    *          must have the <code>s3:GetBucketOwnershipControls</code> permission. For more information
-   *          about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
-   *             Permissions in a Policy</a>. </p>
-   *          <p>For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html">Using Object Ownership</a>. </p>
+   *          about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html">Specifying
+   *             permissions in a policy</a>. </p>
+   *          <p>For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Using Object Ownership</a>. </p>
    *          <p>The following operations are related to <code>GetBucketOwnershipControls</code>:</p>
    *          <ul>
    *             <li>
@@ -3626,7 +3671,13 @@ export class S3 extends S3Client {
    *          </p>
    *          <p>By default, GET returns ACL information about the current version of an object. To
    *          return ACL information about a different version, use the versionId subresource.</p>
-   *
+   *          <note>
+   *             <p>If your bucket uses the bucket owner enforced setting for S3 Object Ownership,
+   *             requests to read ACLs are still supported and return the <code>bucket-owner-full-control</code>
+   *             ACL with the owner being the account that created the bucket. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">
+   *                Controlling object ownership and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          </note>
    *          <p>The following operations are related to <code>GetObjectAcl</code>:</p>
    *          <ul>
    *             <li>
@@ -4202,8 +4253,8 @@ export class S3 extends S3Client {
 
   /**
    * <p>Lists the S3 Intelligent-Tiering configuration from the specified bucket.</p>
-   *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in two low latency and high throughput access tiers. For data that can be accessed asynchronously, you can choose to activate automatic archiving capabilities within the S3 Intelligent-Tiering storage class.</p>
-   *          <p>The S3 Intelligent-Tiering storage class is  the ideal storage class for data with unknown, changing, or unpredictable access patterns, independent of object size or retention period. If the size of an object is less than 128 KB, it is not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.</p>
+   *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in three low latency and high throughput access tiers. To get the lowest storage cost on data that can be accessed in minutes to hours, you can choose to activate additional archiving capabilities.</p>
+   *          <p>The S3 Intelligent-Tiering storage class is  the ideal storage class for data with unknown, changing, or unpredictable access patterns, independent of object size or retention period. If the size of an object is less than 128 KB, it is not monitored and not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access">Storage class for automatically optimizing frequently and infrequently accessed objects</a>.</p>
    *          <p>Operations related to
    *             <code>ListBucketIntelligentTieringConfigurations</code> include: </p>
@@ -4884,7 +4935,13 @@ export class S3 extends S3Client {
    *          that updates a bucket ACL using the request body, then you can continue to use that
    *          approach.</p>
    *
-   *
+   *          <important>
+   *             <p>If your bucket uses the bucket owner enforced setting for S3 Object Ownership, ACLs are disabled and no longer affect permissions.
+   *             You must use policies to grant access to your bucket and the objects in it. Requests to set ACLs or update ACLs fail and
+   *             return the <code>AccessControlListNotSupported</code> error code. Requests to read ACLs are still supported.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling object ownership</a>
+   *             in the <i>Amazon S3 User Guide</i>.</p>
+   *          </important>
    *          <p>
    *             <b>Access Permissions</b>
    *          </p>
@@ -5379,8 +5436,8 @@ export class S3 extends S3Client {
   /**
    * <p>Puts a S3 Intelligent-Tiering configuration to the specified bucket.
    *       You can have up to 1,000 S3 Intelligent-Tiering configurations per bucket.</p>
-   *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in two low latency and high throughput access tiers. For data that can be accessed asynchronously, you can choose to activate automatic archiving capabilities within the S3 Intelligent-Tiering storage class.</p>
-   *          <p>The S3 Intelligent-Tiering storage class is  the ideal storage class for data with unknown, changing, or unpredictable access patterns, independent of object size or retention period. If the size of an object is less than 128 KB, it is not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.</p>
+   *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in three low latency and high throughput access tiers. To get the lowest storage cost on data that can be accessed in minutes to hours, you can choose to activate additional archiving capabilities.</p>
+   *          <p>The S3 Intelligent-Tiering storage class is  the ideal storage class for data with unknown, changing, or unpredictable access patterns, independent of object size or retention period. If the size of an object is less than 128 KB, it is not monitored and not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access">Storage class for automatically optimizing frequently and infrequently accessed objects</a>.</p>
    *          <p>Operations related to
    *             <code>PutBucketIntelligentTieringConfiguration</code> include: </p>
@@ -5754,10 +5811,15 @@ export class S3 extends S3Client {
    *          modify the logging parameters. All logs are saved to buckets in the same Amazon Web Services Region as the
    *          source bucket. To set the logging status of a bucket, you must be the bucket owner.</p>
    *
-   *          <p>The bucket owner is automatically granted FULL_CONTROL to all logs. You use the
-   *             <code>Grantee</code> request element to grant access to other people. The
+   *          <p>The bucket owner is automatically granted FULL_CONTROL to all logs. You use the <code>Grantee</code> request element to grant access to other people. The
    *             <code>Permissions</code> request element specifies the kind of access the grantee has to
    *          the logs.</p>
+   *          <important>
+   *             <p>If the target bucket for log delivery uses the bucket owner enforced
+   *             setting for S3 Object Ownership, you can't use the <code>Grantee</code> request element
+   *             to grant access to others. Permissions can only be granted using policies. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions for server access log delivery</a> in the
+   *                <i>Amazon S3 User Guide</i>.</p>
+   *          </important>
    *
    *          <p>
    *             <b>Grantee Values</b>
@@ -5802,7 +5864,7 @@ export class S3 extends S3Client {
    *             /></code>
    *          </p>
    *
-   *          <p>For more information about server access logging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html">Server Access Logging</a>. </p>
+   *          <p>For more information about server access logging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html">Server Access Logging</a> in the <i>Amazon S3 User Guide</i>. </p>
    *
    *          <p>For more information about creating a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>. For more
    *          information about returning the logging status of a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html">GetBucketLogging</a>.</p>
@@ -6038,8 +6100,8 @@ export class S3 extends S3Client {
   /**
    * <p>Creates or modifies <code>OwnershipControls</code> for an Amazon S3 bucket. To use this
    *          operation, you must have the <code>s3:PutBucketOwnershipControls</code> permission. For
-   *          more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a Policy</a>. </p>
-   *          <p>For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html">Using Object Ownership</a>. </p>
+   *          more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-with-s3-actions.html">Specifying permissions in a policy</a>. </p>
+   *          <p>For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/about-object-ownership.html">Using object ownership</a>. </p>
    *          <p>The following operations are related to <code>PutBucketOwnershipControls</code>:</p>
    *          <ul>
    *             <li>
@@ -6678,7 +6740,6 @@ export class S3 extends S3Client {
    *                </li>
    *             </ul>
    *          </note>
-   *
    *          <p>
    *             <b>Server-side Encryption</b>
    *          </p>
@@ -6700,7 +6761,20 @@ export class S3 extends S3Client {
    *          permissions are then added to the ACL on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List
    *             (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing ACLs Using the REST
    *             API</a>. </p>
-   *
+   *          <p>If the bucket that you're uploading objects to uses the bucket owner enforced setting
+   *          for S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets that
+   *          use this setting only accept PUT requests that don't specify an ACL or PUT requests that
+   *          specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code> canned
+   *          ACL or an equivalent form of this ACL expressed in the XML format. PUT requests that contain other
+   *          ACLs (for example, custom grants to certain Amazon Web Services accounts) fail and return a
+   *             <code>400</code> error with the error code
+   *          <code>AccessControlListNotSupported</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html"> Controlling ownership of
+   *          objects and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <note>
+   *             <p>If your bucket uses the bucket owner enforced setting for Object Ownership,
+   *             all objects written to the bucket by any account will be owned by the bucket owner.</p>
+   *          </note>
    *          <p>
    *             <b>Storage Class Options</b>
    *          </p>
@@ -6772,8 +6846,13 @@ export class S3 extends S3Client {
    *          the ACL on an object using either the request body or the headers. For example, if you have
    *          an existing application that updates a bucket ACL using the request body, you can continue
    *          to use that approach. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *
-   *
+   *          <important>
+   *             <p>If your bucket uses the bucket owner enforced setting for S3 Object Ownership, ACLs are disabled and no longer affect permissions.
+   *             You must use policies to grant access to your bucket and the objects in it. Requests to set ACLs or update ACLs fail and
+   *             return the <code>AccessControlListNotSupported</code> error code. Requests to read ACLs are still supported.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling object ownership</a>
+   *             in the <i>Amazon S3 User Guide</i>.</p>
+   *          </important>
    *
    *          <p>
    *             <b>Access Permissions</b>

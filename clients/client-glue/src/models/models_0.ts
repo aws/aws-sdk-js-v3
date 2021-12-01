@@ -779,6 +779,11 @@ export interface BatchDeleteTableRequest {
    * <p>A list of the table to delete.</p>
    */
   TablesToDelete: string[] | undefined;
+
+  /**
+   * <p>The transaction ID at which to delete the table contents.</p>
+   */
+  TransactionId?: string;
 }
 
 export namespace BatchDeleteTableRequest {
@@ -826,6 +831,27 @@ export namespace BatchDeleteTableResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: BatchDeleteTableResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A resource was not ready for a transaction.</p>
+ */
+export interface ResourceNotReadyException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotReadyException";
+  $fault: "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+}
+
+export namespace ResourceNotReadyException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceNotReadyException): any => ({
     ...obj,
   });
 }
@@ -2258,6 +2284,27 @@ export namespace BatchGetPartitionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: BatchGetPartitionResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An error that indicates your data is in an invalid state.</p>
+ */
+export interface InvalidStateException extends __SmithyException, $MetadataBearer {
+  name: "InvalidStateException";
+  $fault: "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+}
+
+export namespace InvalidStateException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidStateException): any => ({
     ...obj,
   });
 }
@@ -5824,6 +5871,11 @@ export interface CreateTableRequest {
    * <p>A list of partition indexes, <code>PartitionIndex</code> structures, to create in the table.</p>
    */
   PartitionIndexes?: PartitionIndex[];
+
+  /**
+   * <p>The ID of the transaction.</p>
+   */
+  TransactionId?: string;
 }
 
 export namespace CreateTableRequest {
@@ -6861,6 +6913,11 @@ export interface DeleteTableRequest {
    *       compatibility, this name is entirely lowercase.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The transaction ID at which to delete the table contents.</p>
+   */
+  TransactionId?: string;
 }
 
 export namespace DeleteTableRequest {
@@ -8612,86 +8669,6 @@ export namespace GetCrawlersResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetCrawlersResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetDatabaseRequest {
-  /**
-   * <p>The ID of the Data Catalog in which the database resides. If none is provided, the Amazon Web Services
-   *       account ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The name of the database to retrieve. For Hive compatibility, this
-   *       should be all lowercase.</p>
-   */
-  Name: string | undefined;
-}
-
-export namespace GetDatabaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDatabaseRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The <code>Database</code> object represents a logical grouping of tables that might reside
- *       in a Hive metastore or an RDBMS.</p>
- */
-export interface Database {
-  /**
-   * <p>The name of the database. For Hive compatibility, this is folded to lowercase when it is
-   *       stored.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A description of the database.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The location of the database (for example, an HDFS path).</p>
-   */
-  LocationUri?: string;
-
-  /**
-   * <p>These key-value pairs define parameters and properties
-   *       of the database.</p>
-   */
-  Parameters?: { [key: string]: string };
-
-  /**
-   * <p>The time at which the metadata database was created in the catalog.</p>
-   */
-  CreateTime?: Date;
-
-  /**
-   * <p>Creates a set of default permissions on the table for principals. </p>
-   */
-  CreateTableDefaultPermissions?: PrincipalPermissions[];
-
-  /**
-   * <p>A <code>DatabaseIdentifier</code> structure that describes a target database for resource linking.</p>
-   */
-  TargetDatabase?: DatabaseIdentifier;
-
-  /**
-   * <p>The ID of the Data Catalog in which the database resides.</p>
-   */
-  CatalogId?: string;
-}
-
-export namespace Database {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Database): any => ({
     ...obj,
   });
 }

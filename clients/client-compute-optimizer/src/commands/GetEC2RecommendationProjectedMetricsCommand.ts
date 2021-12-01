@@ -29,7 +29,6 @@ export interface GetEC2RecommendationProjectedMetricsCommandOutput
 /**
  * <p>Returns the projected utilization metrics of Amazon EC2 instance
  *             recommendations.</p>
- *
  *         <note>
  *             <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected
  *                 utilization metrics returned when you run this action. Additionally, the

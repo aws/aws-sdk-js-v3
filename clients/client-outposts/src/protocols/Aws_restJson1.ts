@@ -147,6 +147,8 @@ export const serializeAws_restJson1CreateOutpostCommand = async (
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.SiteId !== undefined && input.SiteId !== null && { SiteId: input.SiteId }),
+    ...(input.SupportedHardwareType !== undefined &&
+      input.SupportedHardwareType !== null && { SupportedHardwareType: input.SupportedHardwareType }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
@@ -2909,6 +2911,7 @@ const deserializeAws_restJson1Outpost = (output: any, context: __SerdeContext): 
     OwnerId: __expectString(output.OwnerId),
     SiteArn: __expectString(output.SiteArn),
     SiteId: __expectString(output.SiteId),
+    SupportedHardwareType: __expectString(output.SupportedHardwareType),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1TagMap(output.Tags, context)

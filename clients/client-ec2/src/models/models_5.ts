@@ -45,6 +45,7 @@ import {
   PortRange,
   RuleAction,
   ShutdownBehavior,
+  SnapshotState,
   SpotInstanceType,
   TrafficDirection,
   TrafficMirrorFilter,
@@ -86,6 +87,7 @@ import {
   InstanceNetworkInterfaceSpecification,
   InstanceState,
   InstanceStatusEvent,
+  LaunchPermission,
   LaunchTemplateConfig,
   Monitoring,
   NetworkInsightsAnalysis,
@@ -97,13 +99,279 @@ import {
   SpotInstanceRequest,
   SpotPlacement,
 } from "./models_3";
-import {
-  BlobAttributeValue,
-  InstanceBlockDeviceMappingSpecification,
-  OperationType,
-  Purchase,
-  VolumeModification,
-} from "./models_4";
+import { OperationType, Purchase, VolumeModification } from "./models_4";
+
+export interface ModifyHostsResult {
+  /**
+   * <p>The IDs of the Dedicated Hosts that were successfully modified.</p>
+   */
+  Successful?: string[];
+
+  /**
+   * <p>The IDs of the Dedicated Hosts that could not be modified. Check whether the
+   *             setting you requested can be used.</p>
+   */
+  Unsuccessful?: UnsuccessfulItem[];
+}
+
+export namespace ModifyHostsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyHostsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyIdentityIdFormatRequest {
+  /**
+   * <p>The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify
+   *        <code>all</code> to modify the ID format for all IAM users, IAM roles, and the root user of
+   *        the account.</p>
+   */
+  PrincipalArn: string | undefined;
+
+  /**
+   * <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
+   *           <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
+   *           <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
+   *           <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code>
+   *           | <code>network-acl-association</code> | <code>network-interface</code> |
+   *           <code>network-interface-attachment</code> | <code>prefix-list</code> |
+   *           <code>route-table</code> | <code>route-table-association</code> |
+   *           <code>security-group</code> | <code>subnet</code> |
+   *           <code>subnet-cidr-block-association</code> | <code>vpc</code> |
+   *           <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
+   *          <p>Alternatively, use the <code>all-current</code> option to include all resource types that are
+   *           currently within their opt-in period for longer IDs.</p>
+   */
+  Resource: string | undefined;
+
+  /**
+   * <p>Indicates whether the resource should use longer IDs (17-character IDs)</p>
+   */
+  UseLongIds: boolean | undefined;
+}
+
+export namespace ModifyIdentityIdFormatRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyIdentityIdFormatRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyIdFormatRequest {
+  /**
+   * <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
+   *            <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
+   *            <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
+   *            <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code>
+   *            | <code>network-acl-association</code> | <code>network-interface</code> |
+   *            <code>network-interface-attachment</code> | <code>prefix-list</code> |
+   *            <code>route-table</code> | <code>route-table-association</code> |
+   *            <code>security-group</code> | <code>subnet</code> |
+   *            <code>subnet-cidr-block-association</code> | <code>vpc</code> |
+   *            <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
+   *          <p>Alternatively, use the <code>all-current</code> option to include all resource types that are
+   *        currently within their opt-in period for longer IDs.</p>
+   */
+  Resource: string | undefined;
+
+  /**
+   * <p>Indicate whether the resource should use longer IDs (17-character IDs).</p>
+   */
+  UseLongIds: boolean | undefined;
+}
+
+export namespace ModifyIdFormatRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyIdFormatRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a launch permission modification.</p>
+ */
+export interface LaunchPermissionModifications {
+  /**
+   * <p>The Amazon Web Services account ID to add to the list of launch permissions for the AMI.</p>
+   */
+  Add?: LaunchPermission[];
+
+  /**
+   * <p>The Amazon Web Services account ID to remove from the list of launch permissions for the AMI.</p>
+   */
+  Remove?: LaunchPermission[];
+}
+
+export namespace LaunchPermissionModifications {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchPermissionModifications): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for ModifyImageAttribute.</p>
+ */
+export interface ModifyImageAttributeRequest {
+  /**
+   * <p>The name of the attribute to modify.</p>
+   *          <p>Valid values: <code>description</code> | <code>launchPermission</code>
+   *          </p>
+   */
+  Attribute?: string;
+
+  /**
+   * <p>A new description for the AMI.</p>
+   */
+  Description?: AttributeValue;
+
+  /**
+   * <p>The ID of the AMI.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>A new launch permission for the AMI.</p>
+   */
+  LaunchPermission?: LaunchPermissionModifications;
+
+  /**
+   * <p>The operation type.
+   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   */
+  OperationType?: OperationType | string;
+
+  /**
+   * <p>Not supported.</p>
+   */
+  ProductCodes?: string[];
+
+  /**
+   * <p>The user groups.
+   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   */
+  UserGroups?: string[];
+
+  /**
+   * <p>The Amazon Web Services account IDs.
+   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   */
+  UserIds?: string[];
+
+  /**
+   * <p>The value of the attribute being modified.
+   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>description</code>.</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an organization. This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   */
+  OrganizationArns?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an organizational unit (OU). This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   */
+  OrganizationalUnitArns?: string[];
+}
+
+export namespace ModifyImageAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyImageAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes information used to set up an EBS volume specified in a block device
+ *             mapping.</p>
+ */
+export interface EbsInstanceBlockDeviceSpecification {
+  /**
+   * <p>Indicates whether the volume is deleted on instance termination.</p>
+   */
+  DeleteOnTermination?: boolean;
+
+  /**
+   * <p>The ID of the EBS volume.</p>
+   */
+  VolumeId?: string;
+}
+
+export namespace EbsInstanceBlockDeviceSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EbsInstanceBlockDeviceSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a block device mapping entry.</p>
+ */
+export interface InstanceBlockDeviceMappingSpecification {
+  /**
+   * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>Parameters used to automatically set up EBS volumes when the instance is
+   *             launched.</p>
+   */
+  Ebs?: EbsInstanceBlockDeviceSpecification;
+
+  /**
+   * <p>suppress the specified device included in the block device mapping.</p>
+   */
+  NoDevice?: string;
+
+  /**
+   * <p>The virtual device name.</p>
+   */
+  VirtualName?: string;
+}
+
+export namespace InstanceBlockDeviceMappingSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceBlockDeviceMappingSpecification): any => ({
+    ...obj,
+  });
+}
+
+export interface BlobAttributeValue {
+  Value?: Uint8Array;
+}
+
+export namespace BlobAttributeValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BlobAttributeValue): any => ({
+    ...obj,
+  });
+}
 
 export interface ModifyInstanceAttributeRequest {
   /**
@@ -1306,6 +1574,59 @@ export namespace ModifySnapshotAttributeRequest {
   });
 }
 
+export enum TargetStorageTier {
+  archive = "archive",
+}
+
+export interface ModifySnapshotTierRequest {
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>The name of the storage tier. You must specify <code>archive</code>.</p>
+   */
+  StorageTier?: TargetStorageTier | string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ModifySnapshotTierRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifySnapshotTierRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifySnapshotTierResult {
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The date and time when the archive process was started.</p>
+   */
+  TieringStartTime?: Date;
+}
+
+export namespace ModifySnapshotTierResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifySnapshotTierResult): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Contains the parameters for ModifySpotFleetRequest.</p>
  */
@@ -1432,6 +1753,24 @@ export interface ModifySubnetAttributeRequest {
    * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p>
    */
   EnableResourceNameDnsAAAARecordOnLaunch?: AttributeBooleanValue;
+
+  /**
+   * <p>
+   *             Indicates the device position for local network interfaces in this subnet. For example,
+   *             <code>1</code> indicates local network interfaces in this subnet are the secondary
+   *             network interface (eth1). A local network interface cannot be the primary network
+   *             interface (eth0).
+   *         </p>
+   */
+  EnableLniAtDeviceIndex?: number;
+
+  /**
+   * <p>
+   *             Specify <code>true</code> to indicate that local network interfaces at the current
+   *             position should be disabled.
+   *         </p>
+   */
+  DisableLniAtDeviceIndex?: AttributeBooleanValue;
 }
 
 export namespace ModifySubnetAttributeRequest {
@@ -5144,6 +5483,164 @@ export namespace RestoreManagedPrefixListVersionResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: RestoreManagedPrefixListVersionResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreSnapshotFromRecycleBinRequest {
+  /**
+   * <p>The ID of the snapshot to restore.</p>
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace RestoreSnapshotFromRecycleBinRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreSnapshotFromRecycleBinRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreSnapshotFromRecycleBinResult {
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the
+   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>The description for the snapshot.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Indicates whether the snapshot is encrypted.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the EBS snapshot.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The progress of the snapshot, as a percentage.</p>
+   */
+  Progress?: string;
+
+  /**
+   * <p>The time stamp when the snapshot was initiated.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The state of the snapshot.</p>
+   */
+  State?: SnapshotState | string;
+
+  /**
+   * <p>The ID of the volume that was used to create the snapshot.</p>
+   */
+  VolumeId?: string;
+
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   */
+  VolumeSize?: number;
+}
+
+export namespace RestoreSnapshotFromRecycleBinResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreSnapshotFromRecycleBinResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreSnapshotTierRequest {
+  /**
+   * <p>The ID of the snapshot to restore.</p>
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>Specifies the number of days for which to temporarily restore an archived snapshot.
+   *       Required for temporary restores only. The snapshot will be automatically re-archived
+   *       after this period.</p>
+   *          <p>To temporarily restore an archived snapshot, specify the number of days and omit
+   *       the <b>PermanentRestore</b> parameter or set it to
+   *       <code>false</code>.</p>
+   */
+  TemporaryRestoreDays?: number;
+
+  /**
+   * <p>Indicates whether to permanently restore an archived snapshot. To permanently restore
+   *       an archived snapshot, specify <code>true</code> and omit the
+   *       <b>RestoreSnapshotTierRequest$TemporaryRestoreDays</b> parameter.</p>
+   */
+  PermanentRestore?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace RestoreSnapshotTierRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreSnapshotTierRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreSnapshotTierResult {
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The date and time when the snapshot restore process started.</p>
+   */
+  RestoreStartTime?: Date;
+
+  /**
+   * <p>For temporary restores only. The number of days for which the archived snapshot
+   *       is temporarily restored.</p>
+   */
+  RestoreDuration?: number;
+
+  /**
+   * <p>Indicates whether the snapshot is permanently restored. <code>true</code> indicates a permanent
+   *       restore. <code>false</code> indicates a temporary restore.</p>
+   */
+  IsPermanentRestore?: boolean;
+}
+
+export namespace RestoreSnapshotTierResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreSnapshotTierResult): any => ({
     ...obj,
   });
 }

@@ -2,7 +2,6 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { Readable } from "stream";
 
 import {
-  GlacierJobParameters,
   Grant,
   ObjectCannedACL,
   ObjectLockLegalHoldStatus,
@@ -15,6 +14,25 @@ import {
   Tagging,
   Tier,
 } from "./models_0";
+
+/**
+ * <p>Container for S3 Glacier job parameters.</p>
+ */
+export interface GlacierJobParameters {
+  /**
+   * <p>Retrieval tier at which the restore will be processed.</p>
+   */
+  Tier: Tier | string | undefined;
+}
+
+export namespace GlacierJobParameters {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GlacierJobParameters): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Contains the type of server-side encryption used.</p>

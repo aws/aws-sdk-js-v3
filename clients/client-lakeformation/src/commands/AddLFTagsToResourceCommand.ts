@@ -14,15 +14,15 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { AddLFTagsToResourceRequest, AddLFTagsToResourceResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1AddLFTagsToResourceCommand,
-  serializeAws_json1_1AddLFTagsToResourceCommand,
-} from "../protocols/Aws_json1_1";
+  deserializeAws_restJson1AddLFTagsToResourceCommand,
+  serializeAws_restJson1AddLFTagsToResourceCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface AddLFTagsToResourceCommandInput extends AddLFTagsToResourceRequest {}
 export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Attaches one or more tags to an existing resource.</p>
+ * <p>Attaches one or more LF-tags to an existing resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,11 +83,11 @@ export class AddLFTagsToResourceCommand extends $Command<
   }
 
   private serialize(input: AddLFTagsToResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddLFTagsToResourceCommand(input, context);
+    return serializeAws_restJson1AddLFTagsToResourceCommand(input, context);
   }
 
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddLFTagsToResourceCommandOutput> {
-    return deserializeAws_json1_1AddLFTagsToResourceCommand(output, context);
+    return deserializeAws_restJson1AddLFTagsToResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

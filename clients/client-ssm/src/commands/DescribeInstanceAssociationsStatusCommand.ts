@@ -27,7 +27,7 @@ export interface DescribeInstanceAssociationsStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>The status of the associations for the instance(s).</p>
+ * <p>The status of the associations for the managed node(s).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -29,7 +29,6 @@ export interface GetEnrollmentStatusesForOrganizationCommandOutput
 /**
  * <p>Returns the Compute Optimizer enrollment (opt-in) status of organization member
  *             accounts, if your account is an organization management account.</p>
- *
  *         <p>To get the enrollment status of standalone accounts, use the <a>GetEnrollmentStatus</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

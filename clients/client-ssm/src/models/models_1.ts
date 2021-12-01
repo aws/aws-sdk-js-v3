@@ -33,7 +33,6 @@ import {
   ParameterInlinePolicy,
   ParameterStringFilter,
   ParameterTier,
-  ParameterType,
   PatchAction,
   PatchComplianceLevel,
   PatchFilterGroup,
@@ -53,6 +52,12 @@ import {
   Target,
   TargetLocation,
 } from "./models_0";
+
+export enum ParameterType {
+  SECURE_STRING = "SecureString",
+  STRING = "String",
+  STRING_LIST = "StringList",
+}
 
 /**
  * <p>Metadata includes information like the ARN of the last user and the date/time the parameter
@@ -415,29 +420,30 @@ export namespace DescribePatchGroupStateRequest {
 
 export interface DescribePatchGroupStateResult {
   /**
-   * <p>The number of instances in the patch group.</p>
+   * <p>The number of managed nodes in the patch group.</p>
    */
   Instances?: number;
 
   /**
-   * <p>The number of instances with installed patches.</p>
+   * <p>The number of managed nodes with installed patches.</p>
    */
   InstancesWithInstalledPatches?: number;
 
   /**
-   * <p>The number of instances with patches installed that aren't defined in the patch
+   * <p>The number of managed nodes with patches installed that aren't defined in the patch
    *    baseline.</p>
    */
   InstancesWithInstalledOtherPatches?: number;
 
   /**
-   * <p>The number of instances with patches installed by Patch Manager that haven't been rebooted
-   *    after the patch installation. The status of these instances is <code>NON_COMPLIANT</code>.</p>
+   * <p>The number of managed nodes with patches installed by Patch Manager that haven't been
+   *    rebooted after the patch installation. The status of these managed nodes is
+   *     <code>NON_COMPLIANT</code>.</p>
    */
   InstancesWithInstalledPendingRebootPatches?: number;
 
   /**
-   * <p>The number of instances with patches installed that are specified in a
+   * <p>The number of managed nodes with patches installed that are specified in a
    *     <code>RejectedPatches</code> list. Patches with a status of <code>INSTALLED_REJECTED</code> were
    *    typically installed before they were added to a <code>RejectedPatches</code> list.</p>
    *          <note>
@@ -449,46 +455,47 @@ export interface DescribePatchGroupStateResult {
   InstancesWithInstalledRejectedPatches?: number;
 
   /**
-   * <p>The number of instances with missing patches from the patch baseline.</p>
+   * <p>The number of managed nodes with missing patches from the patch baseline.</p>
    */
   InstancesWithMissingPatches?: number;
 
   /**
-   * <p>The number of instances with patches from the patch baseline that failed to install.</p>
+   * <p>The number of managed nodes with patches from the patch baseline that failed to
+   *    install.</p>
    */
   InstancesWithFailedPatches?: number;
 
   /**
-   * <p>The number of instances with patches that aren't applicable.</p>
+   * <p>The number of managed nodes with patches that aren't applicable.</p>
    */
   InstancesWithNotApplicablePatches?: number;
 
   /**
-   * <p>The number of instances with <code>NotApplicable</code> patches beyond the supported limit,
-   *    which aren't reported by name to Inventory. Inventory is a capability of Amazon Web Services Systems Manager.</p>
+   * <p>The number of managed nodes with <code>NotApplicable</code> patches beyond the supported
+   *    limit, which aren't reported by name to Inventory. Inventory is a capability of Amazon Web Services Systems Manager.</p>
    */
   InstancesWithUnreportedNotApplicablePatches?: number;
 
   /**
-   * <p>The number of instances where patches that are specified as <code>Critical</code> for
+   * <p>The number of managed nodes where patches that are specified as <code>Critical</code> for
    *    compliance reporting in the patch baseline aren't installed. These patches might be missing, have
-   *    failed installation, were rejected, or were installed but awaiting a required instance reboot.
-   *    The status of these instances is <code>NON_COMPLIANT</code>.</p>
+   *    failed installation, were rejected, or were installed but awaiting a required managed node reboot.
+   *    The status of these managed nodes is <code>NON_COMPLIANT</code>.</p>
    */
   InstancesWithCriticalNonCompliantPatches?: number;
 
   /**
-   * <p>The number of instances where patches that are specified as <code>Security</code> in a patch
-   *    advisory aren't installed. These patches might be missing, have failed installation, were
-   *    rejected, or were installed but awaiting a required instance reboot. The status of these
-   *    instances is <code>NON_COMPLIANT</code>.</p>
+   * <p>The number of managed nodes where patches that are specified as <code>Security</code> in a
+   *    patch advisory aren't installed. These patches might be missing, have failed installation, were
+   *    rejected, or were installed but awaiting a required managed node reboot. The status of these managed
+   *    nodes is <code>NON_COMPLIANT</code>.</p>
    */
   InstancesWithSecurityNonCompliantPatches?: number;
 
   /**
-   * <p>The number of instances with patches installed that are specified as other than
+   * <p>The number of managed nodes with patches installed that are specified as other than
    *     <code>Critical</code> or <code>Security</code> but aren't compliant with the patch baseline. The
-   *    status of these instances is <code>NON_COMPLIANT</code>.</p>
+   *    status of these managed nodes is <code>NON_COMPLIANT</code>.</p>
    */
   InstancesWithOtherNonCompliantPatches?: number;
 }
@@ -606,7 +613,7 @@ export interface SessionFilter {
    *      2018-08-29T00:00:00Z to see sessions that started before August 29, 2018.</p>
    *             </li>
    *             <li>
-   *                <p>Target: Specify an instance to which session connections have been made.</p>
+   *                <p>Target: Specify a managed node to which session connections have been made.</p>
    *             </li>
    *             <li>
    *                <p>Owner: Specify an Amazon Web Services user account to see a list of sessions started by that
@@ -725,7 +732,7 @@ export enum SessionStatus {
 }
 
 /**
- * <p>Information about a Session Manager connection to an instance.</p>
+ * <p>Information about a Session Manager connection to a managed node.</p>
  */
 export interface Session {
   /**
@@ -734,7 +741,7 @@ export interface Session {
   SessionId?: string;
 
   /**
-   * <p>The instance that the Session Manager session connected to.</p>
+   * <p>The managed node that the Session Manager session connected to.</p>
    */
   Target?: string;
 
@@ -1233,9 +1240,8 @@ export interface GetCommandInvocationRequest {
   CommandId: string | undefined;
 
   /**
-   * <p>(Required) The ID of the managed instance targeted by the command. A managed instance can be
-   *    an Amazon Elastic Compute Cloud (Amazon EC2) instance or an instance in your hybrid environment that is configured for
-   *    Amazon Web Services Systems Manager.</p>
+   * <p>(Required) The ID of the managed node targeted by the command. A <i>managed node</i> can be an
+   *    Amazon Elastic Compute Cloud (Amazon EC2) instance, edge device, and on-premises server or VM in your hybrid environment that is configured for Amazon Web Services Systems Manager.</p>
    */
   InstanceId: string | undefined;
 
@@ -1311,8 +1317,8 @@ export interface GetCommandInvocationResult {
   CommandId?: string;
 
   /**
-   * <p>The ID of the managed instance targeted by the command. A managed instance can be an EC2
-   *    instance or an instance in your hybrid environment that is configured for Systems Manager.</p>
+   * <p>The ID of the managed node targeted by the command. A <i>managed node</i> can be an
+   *    Amazon Elastic Compute Cloud (Amazon EC2) instance, edge device, or on-premises server or VM in your hybrid environment that is configured for Amazon Web Services Systems Manager.</p>
    */
   InstanceId?: string;
 
@@ -1339,8 +1345,8 @@ export interface GetCommandInvocationResult {
 
   /**
    * <p>The error level response code for the plugin script. If the response code is
-   *    <code>-1</code>, then the command hasn't started running on the instance, or it wasn't received
-   *    by the instance.</p>
+   *    <code>-1</code>, then the command hasn't started running on the managed node, or it wasn't received
+   *    by the node.</p>
    */
   ResponseCode?: number;
 
@@ -1386,33 +1392,33 @@ export interface GetCommandInvocationResult {
    *     <code>StatusDetails</code> can be one of the following values:</p>
    *          <ul>
    *             <li>
-   *                <p>Pending: The command hasn't been sent to the instance.</p>
+   *                <p>Pending: The command hasn't been sent to the managed node.</p>
    *             </li>
    *             <li>
-   *                <p>In Progress: The command has been sent to the instance but hasn't reached a terminal
+   *                <p>In Progress: The command has been sent to the managed node but hasn't reached a terminal
    *      state.</p>
    *             </li>
    *             <li>
    *                <p>Delayed: The system attempted to send the command to the target, but the target wasn't
-   *      available. The instance might not be available because of network issues, because the instance
+   *      available. The managed node might not be available because of network issues, because the node
    *      was stopped, or for similar reasons. The system will try to send the command again.</p>
    *             </li>
    *             <li>
    *                <p>Success: The command or plugin ran successfully. This is a terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Delivery Timed Out: The command wasn't delivered to the instance before the delivery
+   *                <p>Delivery Timed Out: The command wasn't delivered to the managed node before the delivery
    *      timeout expired. Delivery timeouts don't count against the parent command's
    *       <code>MaxErrors</code> limit, but they do contribute to whether the parent command status is
    *      Success or Incomplete. This is a terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Execution Timed Out: The command started to run on the instance, but the execution wasn't
+   *                <p>Execution Timed Out: The command started to run on the managed node, but the execution wasn't
    *      complete before the timeout expired. Execution timeouts count against the
    *       <code>MaxErrors</code> limit of the parent command. This is a terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Failed: The command wasn't run successfully on the instance. For a plugin, this indicates
+   *                <p>Failed: The command wasn't run successfully on the managed node. For a plugin, this indicates
    *      that the result code wasn't zero. For a command invocation, this indicates that the result code
    *      for one or more plugins wasn't zero. Invocation failures count against the
    *       <code>MaxErrors</code> limit of the parent command. This is a terminal state.</p>
@@ -1422,7 +1428,7 @@ export interface GetCommandInvocationResult {
    *      state.</p>
    *             </li>
    *             <li>
-   *                <p>Undeliverable: The command can't be delivered to the instance. The instance might not
+   *                <p>Undeliverable: The command can't be delivered to the managed node. The node might not
    *      exist or might not be responding. Undeliverable invocations don't count against the parent
    *      command's <code>MaxErrors</code> limit and don't contribute to whether the parent command
    *      status is Success or Incomplete. This is a terminal state.</p>
@@ -1493,8 +1499,8 @@ export namespace InvalidPluginName {
 }
 
 /**
- * <p>The command ID and instance ID you specified didn't match any invocations. Verify the
- *    command ID and the instance ID and try again. </p>
+ * <p>The command ID and managed node ID you specified didn't match any invocations. Verify the
+ *    command ID and the managed node ID and try again. </p>
  */
 export interface InvocationDoesNotExist extends __SmithyException, $MetadataBearer {
   name: "InvocationDoesNotExist";
@@ -1512,7 +1518,7 @@ export namespace InvocationDoesNotExist {
 
 export interface GetConnectionStatusRequest {
   /**
-   * <p>The instance ID.</p>
+   * <p>The managed node ID.</p>
    */
   Target: string | undefined;
 }
@@ -1533,12 +1539,12 @@ export enum ConnectionStatus {
 
 export interface GetConnectionStatusResponse {
   /**
-   * <p>The ID of the instance to check connection status. </p>
+   * <p>The ID of the managed node to check connection status. </p>
    */
   Target?: string;
 
   /**
-   * <p>The status of the connection to the instance. For example, 'Connected' or 'Not
+   * <p>The status of the connection to the managed node. For example, 'Connected' or 'Not
    *    Connected'.</p>
    */
   Status?: ConnectionStatus | string;
@@ -1640,14 +1646,14 @@ export interface BaselineOverride {
 
   /**
    * <p>Indicates whether the list of approved patches includes non-security updates that should be
-   *    applied to the instances. The default value is <code>false</code>. Applies to Linux instances
-   *    only.</p>
+   *    applied to the managed nodes. The default value is <code>false</code>. Applies to Linux managed
+   *    nodes only.</p>
    */
   ApprovedPatchesEnableNonSecurity?: boolean;
 
   /**
-   * <p>Information about the patches to use to update the instances, including target operating
-   *    systems and source repositories. Applies to Linux instances only.</p>
+   * <p>Information about the patches to use to update the managed nodes, including target operating
+   *    systems and source repositories. Applies to Linux managed nodes only.</p>
    */
   Sources?: PatchSource[];
 }
@@ -1664,7 +1670,7 @@ export namespace BaselineOverride {
 
 export interface GetDeployablePatchSnapshotForInstanceRequest {
   /**
-   * <p>The ID of the instance for which the appropriate patch snapshot should be retrieved.</p>
+   * <p>The ID of the managed node for which the appropriate patch snapshot should be retrieved.</p>
    */
   InstanceId: string | undefined;
 
@@ -1690,7 +1696,7 @@ export namespace GetDeployablePatchSnapshotForInstanceRequest {
 
 export interface GetDeployablePatchSnapshotForInstanceResult {
   /**
-   * <p>The instance ID.</p>
+   * <p>The managed node ID.</p>
    */
   InstanceId?: string;
 
@@ -1707,7 +1713,7 @@ export interface GetDeployablePatchSnapshotForInstanceResult {
 
   /**
    * <p>Returns the specific operating system (for example Windows Server 2012 or Amazon Linux
-   *    2015.09) on the instance for the specified patch snapshot.</p>
+   *    2015.09) on the managed node for the specified patch snapshot.</p>
    */
   Product?: string;
 }
@@ -1926,7 +1932,7 @@ export interface InventoryFilter {
   Key: string | undefined;
 
   /**
-   * <p>Inventory filter values. Example: inventory filter where instance IDs are specified as
+   * <p>Inventory filter values. Example: inventory filter where managed node IDs are specified as
    *    values <code>Key=AWS:InstanceInformation.InstanceId,Values= i-a12b3c4d5e6g,
    *     i-1a2b3c4d5e6,Type=Equal</code>. </p>
    */
@@ -2046,8 +2052,8 @@ export namespace InventoryResultItem {
  */
 export interface InventoryResultEntity {
   /**
-   * <p>ID of the inventory result entity. For example, for managed instance inventory the result
-   *    will be the managed instance ID. For EC2 instance inventory, the result will be the instance ID.
+   * <p>ID of the inventory result entity. For example, for managed node inventory the result
+   *    will be the managed node ID. For EC2 instance inventory, the result will be the instance ID.
    *   </p>
    */
   Id?: string;
@@ -2069,7 +2075,7 @@ export namespace InventoryResultEntity {
 
 export interface GetInventoryResult {
   /**
-   * <p>Collection of inventory entities such as a collection of instance inventory. </p>
+   * <p>Collection of inventory entities such as a collection of managed node inventory. </p>
    */
   Entities?: InventoryResultEntity[];
 
@@ -2819,8 +2825,8 @@ export interface NotificationConfig {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Invocation</code>: For commands sent to multiple instances, receive notification on
-   *      a per-instance basis when the status of a command changes. </p>
+   *                   <code>Invocation</code>: For commands sent to multiple managed nodes, receive notification
+   *      on a per-node basis when the status of a command changes. </p>
    *             </li>
    *          </ul>
    */
@@ -2896,7 +2902,7 @@ export interface MaintenanceWindowRunCommandParameters {
   DocumentVersion?: string;
 
   /**
-   * <p>Configurations for sending notifications about command status changes on a per-instance
+   * <p>Configurations for sending notifications about command status changes on a per-managed node
    *    basis.</p>
    */
   NotificationConfig?: NotificationConfig;
@@ -4002,8 +4008,8 @@ export interface GetPatchBaselineResult {
 
   /**
    * <p>Indicates whether the list of approved patches includes non-security updates that should be
-   *    applied to the instances. The default value is <code>false</code>. Applies to Linux instances
-   *    only.</p>
+   *    applied to the managed nodes. The default value is <code>false</code>. Applies to Linux managed
+   *    nodes only.</p>
    */
   ApprovedPatchesEnableNonSecurity?: boolean;
 
@@ -4040,8 +4046,8 @@ export interface GetPatchBaselineResult {
   Description?: string;
 
   /**
-   * <p>Information about the patches to use to update the instances, including target operating
-   *    systems and source repositories. Applies to Linux instances only.</p>
+   * <p>Information about the patches to use to update the managed nodes, including target operating
+   *    systems and source repositories. Applies to Linux managed nodes only.</p>
    */
   Sources?: PatchSource[];
 }
@@ -4377,7 +4383,7 @@ export interface ListAssociationsRequest {
    *          <note>
    *             <p>Filtering associations using the <code>InstanceID</code> attribute only returns legacy
    *     associations created using the <code>InstanceID</code> attribute. Associations targeting the
-   *     instance that are part of the Target Attributes <code>ResourceGroup</code> or <code>Tags</code>
+   *     managed node that are part of the Target Attributes <code>ResourceGroup</code> or <code>Tags</code>
    *     aren't returned.</p>
    *          </note>
    */
@@ -4406,7 +4412,7 @@ export namespace ListAssociationsRequest {
 }
 
 /**
- * <p>Describes an association of a Amazon Web Services Systems Manager document (SSM document) and an instance.</p>
+ * <p>Describes an association of a Amazon Web Services Systems Manager document (SSM document) and a managed node.</p>
  */
 export interface Association {
   /**
@@ -4415,7 +4421,7 @@ export interface Association {
   Name?: string;
 
   /**
-   * <p>The instance ID.</p>
+   * <p>The managed node ID.</p>
    */
   InstanceId?: string;
 
@@ -4436,9 +4442,9 @@ export interface Association {
   DocumentVersion?: string;
 
   /**
-   * <p>The instances targeted by the request to create an association. You can target all instances
-   *    in an Amazon Web Services account by specifying the <code>InstanceIds</code> key with a value of
-   *    <code>*</code>.</p>
+   * <p>The managed nodes targeted by the request to create an association. You can target all
+   *    managed nodes in an Amazon Web Services account by specifying the <code>InstanceIds</code> key with a value of
+   *     <code>*</code>.</p>
    */
   Targets?: Target[];
 
@@ -4586,8 +4592,8 @@ export interface AssociationVersionInfo {
    *    example 10, or a percentage of the target set, for example 10%. If you specify 3, for example,
    *    the system stops sending requests when the fourth error is received. If you specify 0, then the
    *    system stops sending requests after the first error is returned. If you run an association on 50
-   *    instances and set <code>MaxError</code> to 10%, then the system stops sending the request when
-   *    the sixth error is received.</p>
+   *    managed nodes and set <code>MaxError</code> to 10%, then the system stops sending the request
+   *    when the sixth error is received.</p>
    *          <p>Executions that are already running an association when <code>MaxErrors</code> is reached
    *    are allowed to complete, but some of these executions may fail as well. If you need to ensure
    *    that there won't be more than max-errors failed executions, set <code>MaxConcurrency</code> to 1
@@ -4599,9 +4605,9 @@ export interface AssociationVersionInfo {
    * <p>The maximum number of targets allowed to run the association at the same time. You can
    *    specify a number, for example 10, or a percentage of the target set, for example 10%. The default
    *    value is 100%, which means all targets run the association at the same time.</p>
-   *          <p>If a new instance starts and attempts to run an association while Systems Manager is running
+   *          <p>If a new managed node starts and attempts to run an association while Systems Manager is running
    *     <code>MaxConcurrency</code> associations, the association is allowed to run. During the next
-   *    association interval, the new instance will process its association within the limit specified
+   *    association interval, the new managed node will process its association within the limit specified
    *    for <code>MaxConcurrency</code>.</p>
    */
   MaxConcurrency?: string;
@@ -4694,8 +4700,8 @@ export enum CommandFilterKey {
 /**
  * <p>Describes a command filter.</p>
  *          <note>
- *             <p>An instance ID can't be specified when a command status is <code>Pending</code> because the
- *     command hasn't run on the instance yet.</p>
+ *             <p>A managed node ID can't be specified when a command status is <code>Pending</code> because the
+ *     command hasn't run on the node yet.</p>
  *          </note>
  */
 export interface CommandFilter {
@@ -4862,7 +4868,7 @@ export interface CommandFilter {
    *                   <b>DocumentName</b>: Specify name of the Amazon Web Services Systems Manager document (SSM
    *      document) for which you want to see command execution results. For example, specify
    *       <code>AWS-RunPatchBaseline</code> to see command executions that used this SSM document to
-   *      perform security patching operations on instances. </p>
+   *      perform security patching operations on managed nodes. </p>
    *             </li>
    *             <li>
    *                <p>
@@ -4902,7 +4908,7 @@ export interface ListCommandInvocationsRequest {
   CommandId?: string;
 
   /**
-   * <p>(Optional) The command execution details for a specific instance ID.</p>
+   * <p>(Optional) The command execution details for a specific managed node ID.</p>
    */
   InstanceId?: string;
 
@@ -4975,10 +4981,10 @@ export interface CommandPlugin {
    *    following values:</p>
    *          <ul>
    *             <li>
-   *                <p>Pending: The command hasn't been sent to the instance.</p>
+   *                <p>Pending: The command hasn't been sent to the managed node.</p>
    *             </li>
    *             <li>
-   *                <p>In Progress: The command has been sent to the instance but hasn't reached a terminal
+   *                <p>In Progress: The command has been sent to the managed node but hasn't reached a terminal
    *      state.</p>
    *             </li>
    *             <li>
@@ -4986,18 +4992,18 @@ export interface CommandPlugin {
    *      terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Delivery Timed Out: The command wasn't delivered to the instance before the delivery
+   *                <p>Delivery Timed Out: The command wasn't delivered to the managed node before the delivery
    *      timeout expired. Delivery timeouts don't count against the parent command's
    *       <code>MaxErrors</code> limit, but they do contribute to whether the parent command status is
    *      Success or Incomplete. This is a terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Execution Timed Out: Command execution started on the instance, but the execution wasn't
+   *                <p>Execution Timed Out: Command execution started on the managed node, but the execution wasn't
    *      complete before the execution timeout expired. Execution timeouts count against the
    *       <code>MaxErrors</code> limit of the parent command. This is a terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Failed: The command wasn't successful on the instance. For a plugin, this indicates that
+   *                <p>Failed: The command wasn't successful on the managed node. For a plugin, this indicates that
    *      the result code wasn't zero. For a command invocation, this indicates that the result code for
    *      one or more plugins wasn't zero. Invocation failures count against the MaxErrors limit of the
    *      parent command. This is a terminal state.</p>
@@ -5007,7 +5013,7 @@ export interface CommandPlugin {
    *      state.</p>
    *             </li>
    *             <li>
-   *                <p>Undeliverable: The command can't be delivered to the instance. The instance might not
+   *                <p>Undeliverable: The command can't be delivered to the managed node. The managed node might not
    *      exist, or it might not be responding. Undeliverable invocations don't count against the parent
    *      command's MaxErrors limit, and they don't contribute to whether the parent command status is
    *      Success or Incomplete. This is a terminal state.</p>
@@ -5070,7 +5076,7 @@ export interface CommandPlugin {
    *          <p>
    *             <code>ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix</code> is the name of the S3 prefix;</p>
    *          <p>
-   *             <code>i-02573cafcfEXAMPLE</code> is the instance ID;</p>
+   *             <code>i-02573cafcfEXAMPLE</code> is the managed node ID;</p>
    *          <p>
    *             <code>awsrunShellScript</code> is the name of the plugin.</p>
    */
@@ -5088,7 +5094,7 @@ export interface CommandPlugin {
    *          <p>
    *             <code>ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix</code> is the name of the S3 prefix;</p>
    *          <p>
-   *             <code>i-02573cafcfEXAMPLE</code> is the instance ID;</p>
+   *             <code>i-02573cafcfEXAMPLE</code> is the managed node ID;</p>
    *          <p>
    *             <code>awsrunShellScript</code> is the name of the plugin.</p>
    */
@@ -5105,11 +5111,11 @@ export namespace CommandPlugin {
 }
 
 /**
- * <p>An invocation is copy of a command sent to a specific instance. A command can apply to one
- *    or more instances. A command invocation applies to one instance. For example, if a user runs
- *    SendCommand against three instances, then a command invocation is created for each requested
- *    instance ID. A command invocation returns status and detail information about a command you ran.
- *   </p>
+ * <p>An invocation is a copy of a command sent to a specific managed node. A command can apply to one
+ *    or more managed nodes. A command invocation applies to one managed node. For example, if a user runs
+ *     <code>SendCommand</code> against three managed nodes, then a command invocation is created for
+ *    each requested managed node ID. A command invocation returns status and detail information about a
+ *    command you ran. </p>
  */
 export interface CommandInvocation {
   /**
@@ -5118,12 +5124,12 @@ export interface CommandInvocation {
   CommandId?: string;
 
   /**
-   * <p>The instance ID in which this invocation was requested.</p>
+   * <p>The managed node ID in which this invocation was requested.</p>
    */
   InstanceId?: string;
 
   /**
-   * <p>The fully qualified host name of the managed instance.</p>
+   * <p>The fully qualified host name of the managed node.</p>
    */
   InstanceName?: string;
 
@@ -5144,7 +5150,7 @@ export interface CommandInvocation {
   DocumentVersion?: string;
 
   /**
-   * <p>The time and date the request was sent to this instance.</p>
+   * <p>The time and date the request was sent to this managed node.</p>
    */
   RequestedDateTime?: Date;
 
@@ -5154,7 +5160,7 @@ export interface CommandInvocation {
   Status?: CommandInvocationStatus | string;
 
   /**
-   * <p>A detailed status of the command execution for each invocation (each instance targeted by
+   * <p>A detailed status of the command execution for each invocation (each managed node targeted by
    *    the command). StatusDetails includes more information than Status because it includes states
    *    resulting from error and concurrency control parameters. StatusDetails can show different results
    *    than Status. For more information about these statuses, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Understanding command
@@ -5162,10 +5168,10 @@ export interface CommandInvocation {
    *    following values:</p>
    *          <ul>
    *             <li>
-   *                <p>Pending: The command hasn't been sent to the instance.</p>
+   *                <p>Pending: The command hasn't been sent to the managed node.</p>
    *             </li>
    *             <li>
-   *                <p>In Progress: The command has been sent to the instance but hasn't reached a terminal
+   *                <p>In Progress: The command has been sent to the managed node but hasn't reached a terminal
    *      state.</p>
    *             </li>
    *             <li>
@@ -5173,18 +5179,18 @@ export interface CommandInvocation {
    *      terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Delivery Timed Out: The command wasn't delivered to the instance before the delivery
+   *                <p>Delivery Timed Out: The command wasn't delivered to the managed node before the delivery
    *      timeout expired. Delivery timeouts don't count against the parent command's
    *       <code>MaxErrors</code> limit, but they do contribute to whether the parent command status is
    *      Success or Incomplete. This is a terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Execution Timed Out: Command execution started on the instance, but the execution wasn't
+   *                <p>Execution Timed Out: Command execution started on the managed node, but the execution wasn't
    *      complete before the execution timeout expired. Execution timeouts count against the
    *       <code>MaxErrors</code> limit of the parent command. This is a terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Failed: The command wasn't successful on the instance. For a plugin, this indicates that
+   *                <p>Failed: The command wasn't successful on the managed node. For a plugin, this indicates that
    *      the result code wasn't zero. For a command invocation, this indicates that the result code for
    *      one or more plugins wasn't zero. Invocation failures count against the <code>MaxErrors</code>
    *      limit of the parent command. This is a terminal state.</p>
@@ -5194,7 +5200,7 @@ export interface CommandInvocation {
    *      state.</p>
    *             </li>
    *             <li>
-   *                <p>Undeliverable: The command can't be delivered to the instance. The instance might not
+   *                <p>Undeliverable: The command can't be delivered to the managed node. The managed node might not
    *      exist or might not be responding. Undeliverable invocations don't count against the parent
    *      command's MaxErrors limit and don't contribute to whether the parent command status is Success
    *      or Incomplete. This is a terminal state.</p>
@@ -5236,12 +5242,12 @@ export interface CommandInvocation {
   /**
    * <p>The Identity and Access Management (IAM) service role that Run Command, a capability
    *    of Amazon Web Services Systems Manager, uses to act on your behalf when sending notifications about command status changes
-   *    on a per instance basis.</p>
+   *    on a per managed node basis.</p>
    */
   ServiceRole?: string;
 
   /**
-   * <p>Configurations for sending notifications about command status changes on a per instance
+   * <p>Configurations for sending notifications about command status changes on a per managed node
    *    basis.</p>
    */
   NotificationConfig?: NotificationConfig;
@@ -5291,10 +5297,10 @@ export interface ListCommandsRequest {
   CommandId?: string;
 
   /**
-   * <p>(Optional) Lists commands issued against this instance ID.</p>
+   * <p>(Optional) Lists commands issued against this managed node ID.</p>
    *          <note>
-   *             <p>You can't specify an instance ID in the same command that you specify <code>Status</code> =
-   *      <code>Pending</code>. This is because the command hasn't reached the instance yet.</p>
+   *             <p>You can't specify a managed node ID in the same command that you specify <code>Status</code> =
+   *      <code>Pending</code>. This is because the command hasn't reached the managed node yet.</p>
    *          </note>
    */
   InstanceId?: string;
@@ -5375,13 +5381,14 @@ export interface Command {
   Parameters?: { [key: string]: string[] };
 
   /**
-   * <p>The instance IDs against which this command was requested.</p>
+   * <p>The managed node IDs against which this command was requested.</p>
    */
   InstanceIds?: string[];
 
   /**
-   * <p>An array of search criteria that targets instances using a Key,Value combination that you
-   *    specify. Targets is required if you don't provide one or more instance IDs in the call.</p>
+   * <p>An array of search criteria that targets managed nodes using a Key,Value combination that
+   *    you specify. Targets is required if you don't provide one or more managed node IDs in the
+   *    call.</p>
    */
   Targets?: Target[];
 
@@ -5404,11 +5411,11 @@ export interface Command {
    *    following values:</p>
    *          <ul>
    *             <li>
-   *                <p>Pending: The command hasn't been sent to any instances.</p>
+   *                <p>Pending: The command hasn't been sent to any managed nodes.</p>
    *             </li>
    *             <li>
-   *                <p>In Progress: The command has been sent to at least one instance but hasn't reached a final
-   *      state on all instances.</p>
+   *                <p>In Progress: The command has been sent to at least one managed node but hasn't reached a final
+   *      state on all managed nodes.</p>
    *             </li>
    *             <li>
    *                <p>Success: The command successfully ran on all invocations. This is a terminal state.</p>
@@ -5426,18 +5433,18 @@ export interface Command {
    *      is a terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Incomplete: The command was attempted on all instances and one or more invocations doesn't
-   *      have a value of Success but not enough invocations failed for the status to be Failed. This is
-   *      a terminal state.</p>
+   *                <p>Incomplete: The command was attempted on all managed nodes and one or more invocations
+   *      doesn't have a value of Success but not enough invocations failed for the status to be Failed.
+   *      This is a terminal state.</p>
    *             </li>
    *             <li>
    *                <p>Canceled: The command was terminated before it was completed. This is a terminal
    *      state.</p>
    *             </li>
    *             <li>
-   *                <p>Rate Exceeded: The number of instances targeted by the command exceeded the account limit
-   *      for pending invocations. The system has canceled the command before running it on any instance.
-   *      This is a terminal state.</p>
+   *                <p>Rate Exceeded: The number of managed nodes targeted by the command exceeded the account
+   *      limit for pending invocations. The system has canceled the command before running it on any
+   *      managed node. This is a terminal state.</p>
    *             </li>
    *          </ul>
    */
@@ -5462,8 +5469,8 @@ export interface Command {
   OutputS3KeyPrefix?: string;
 
   /**
-   * <p>The maximum number of instances that are allowed to run the command at the same time. You
-   *    can specify a number of instances, such as 10, or a percentage of instances, such as 10%. The
+   * <p>The maximum number of managed nodes that are allowed to run the command at the same time.
+   *    You can specify a number of managed nodes, such as 10, or a percentage of nodes, such as 10%. The
    *    default value is 50. For more information about how to use <code>MaxConcurrency</code>, see
    *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html">Running
    *     commands using Systems Manager Run Command</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
@@ -5702,7 +5709,7 @@ export interface ComplianceItem {
   ResourceType?: string;
 
   /**
-   * <p>An ID for the resource. For a managed instance, this is the instance ID.</p>
+   * <p>An ID for the resource. For a managed node, this is the node ID.</p>
    */
   ResourceId?: string;
 
@@ -5804,7 +5811,7 @@ export namespace ListComplianceSummariesRequest {
 }
 
 /**
- * <p>The number of managed instances found for each patch severity level defined in the request
+ * <p>The number of managed nodes found for each patch severity level defined in the request
  *    filter.</p>
  */
 export interface SeveritySummary {
@@ -6594,7 +6601,7 @@ export namespace ListDocumentVersionsResult {
 
 export interface ListInventoryEntriesRequest {
   /**
-   * <p>The instance ID for which you want inventory information.</p>
+   * <p>The managed node ID for which you want inventory information.</p>
    */
   InstanceId: string | undefined;
 
@@ -6637,22 +6644,22 @@ export interface ListInventoryEntriesResult {
   TypeName?: string;
 
   /**
-   * <p>The instance ID targeted by the request to query inventory information.</p>
+   * <p>The managed node ID targeted by the request to query inventory information.</p>
    */
   InstanceId?: string;
 
   /**
-   * <p>The inventory schema version used by the instance(s).</p>
+   * <p>The inventory schema version used by the managed node(s).</p>
    */
   SchemaVersion?: string;
 
   /**
-   * <p>The time that inventory information was collected for the instance(s).</p>
+   * <p>The time that inventory information was collected for the managed node(s).</p>
    */
   CaptureTime?: string;
 
   /**
-   * <p>A list of inventory items on the instance(s).</p>
+   * <p>A list of inventory items on the managed node(s).</p>
    */
   Entries?: { [key: string]: string }[];
 
@@ -7182,9 +7189,9 @@ export namespace ResourceComplianceSummaryItem {
 
 export interface ListResourceComplianceSummariesResult {
   /**
-   * <p>A summary count for specified or targeted managed instances. Summary count includes
-   *    information about compliant and non-compliant State Manager associations, patch status, or custom
-   *    items according to the filter criteria that you specify. </p>
+   * <p>A summary count for specified or targeted managed nodes. Summary count includes information
+   *    about compliant and non-compliant State Manager associations, patch status, or custom items
+   *    according to the filter criteria that you specify. </p>
    */
   ResourceComplianceSummaryItems?: ResourceComplianceSummaryItem[];
 
@@ -7621,7 +7628,7 @@ export enum ComplianceUploadType {
 
 export interface PutComplianceItemsRequest {
   /**
-   * <p>Specify an ID for this resource. For a managed instance, this is the instance ID.</p>
+   * <p>Specify an ID for this resource. For a managed node, this is the node ID.</p>
    */
   ResourceId: string | undefined;
 
@@ -7769,7 +7776,7 @@ export namespace ItemContentMismatchException {
 }
 
 /**
- * <p>Information collected from managed instances based on your inventory policy document</p>
+ * <p>Information collected from managed nodes based on your inventory policy document</p>
  */
 export interface InventoryItem {
   /**
@@ -7822,12 +7829,12 @@ export namespace InventoryItem {
 
 export interface PutInventoryRequest {
   /**
-   * <p>An instance ID where you want to add or update inventory items.</p>
+   * <p>An managed node ID where you want to add or update inventory items.</p>
    */
   InstanceId: string | undefined;
 
   /**
-   * <p>The inventory items that you want to add or update on instances.</p>
+   * <p>The inventory items that you want to add or update on managed nodes.</p>
    */
   Items: InventoryItem[] | undefined;
 }
@@ -8541,53 +8548,48 @@ export interface RegisterTargetWithMaintenanceWindowRequest {
   ResourceType: MaintenanceWindowResourceType | string | undefined;
 
   /**
-   * <p>The targets to register with the maintenance window. In other words, the instances to run
-   *    commands on when the maintenance window runs.</p>
+   * <p>The targets to register with the maintenance window. In other words, the managed nodes to
+   *    run commands on when the maintenance window runs.</p>
    *          <note>
    *             <p>If a single maintenance window task is registered with multiple targets, its task
    *     invocations occur sequentially and not in parallel. If your task must run on multiple targets at
    *     the same time, register a task for each target individually and assign each task the same
    *     priority level.</p>
    *          </note>
-   *          <p>You can specify targets using instance IDs, resource group names, or tags that have been
-   *    applied to instances.</p>
+   *          <p>You can specify targets using managed node IDs, resource group names, or tags that have been
+   *    applied to managed nodes.</p>
    *          <p>
-   *             <b>Example 1</b>: Specify instance IDs</p>
+   *             <b>Example 1</b>: Specify managed node IDs</p>
    *          <p>
-   *             <code>Key=InstanceIds,Values=<i>instance-id-1</i>,<i>instance-id-2</i>,<i>instance-id-3</i>
-   *             </code>
+   *             <code>Key=InstanceIds,Values=<instance-id-1>,<instance-id-2>,<instance-id-3></code>
    *          </p>
    *          <p>
-   *             <b>Example 2</b>: Use tag key-pairs applied to instances</p>
+   *             <b>Example 2</b>: Use tag key-pairs applied to managed
+   *    nodes</p>
    *          <p>
-   *             <code>Key=tag:<i>my-tag-key</i>,Values=<i>my-tag-value-1</i>,<i>my-tag-value-2</i>
-   *             </code>
+   *             <code>Key=tag:<my-tag-key>,Values=<my-tag-value-1>,<my-tag-value-2></code>
    *          </p>
    *          <p>
-   *             <b>Example 3</b>: Use tag-keys applied to instances</p>
+   *             <b>Example 3</b>: Use tag-keys applied to managed nodes</p>
    *          <p>
-   *             <code>Key=tag-key,Values=<i>my-tag-key-1</i>,<i>my-tag-key-2</i>
-   *             </code>
+   *             <code>Key=tag-key,Values=<my-tag-key-1>,<my-tag-key-2></code>
    *          </p>
    *
    *          <p>
    *             <b>Example 4</b>: Use resource group names</p>
    *          <p>
-   *             <code>Key=resource-groups:Name,Values=<i>resource-group-name</i>
-   *             </code>
+   *             <code>Key=resource-groups:Name,Values=<resource-group-name></code>
    *          </p>
    *          <p>
    *             <b>Example 5</b>: Use filters for resource group types</p>
    *          <p>
-   *             <code>Key=resource-groups:ResourceTypeFilters,Values=<i>resource-type-1</i>,<i>resource-type-2</i>
-   *             </code>
+   *             <code>Key=resource-groups:ResourceTypeFilters,Values=<resource-type-1>,<resource-type-2></code>
    *          </p>
    *          <note>
    *             <p>For <code>Key=resource-groups:ResourceTypeFilters</code>, specify resource types in the
    *     following format</p>
    *             <p>
-   *                <code>Key=resource-groups:ResourceTypeFilters,Values=<i>AWS::EC2::INSTANCE</i>,<i>AWS::EC2::VPC</i>
-   *                </code>
+   *                <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code>
    *             </p>
    *          </note>
    *
@@ -8672,7 +8674,7 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
   WindowId: string | undefined;
 
   /**
-   * <p>The targets (either instances or maintenance window targets).</p>
+   * <p>The targets (either managed nodes or maintenance window targets).</p>
    *          <note>
    *             <p>One or more targets must be specified for maintenance window Run Command-type tasks.
    *     Depending on the task, targets are optional for other maintenance window task types (Automation,
@@ -8681,7 +8683,7 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
    *      maintenance window tasks without targets</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          </note>
-   *          <p>Specify instances using the following format: </p>
+   *          <p>Specify managed nodes using the following format: </p>
    *          <p>
    *             <code>Key=InstanceIds,Values=<instance-id-1>,<instance-id-2></code>
    *          </p>
@@ -8772,7 +8774,7 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
 
   /**
    * <p>A structure containing information about an Amazon Simple Storage Service (Amazon S3) bucket
-   *    to write instance-level logs to. </p>
+   *    to write managed node-level logs to. </p>
    *          <note>
    *             <p>
    *                <code>LoggingInfo</code> has been deprecated. To specify an Amazon Simple Storage Service (Amazon S3) bucket to contain logs, instead use the
@@ -8866,7 +8868,7 @@ export interface RemoveTagsFromResourceRequest {
    * <p>The type of resource from which you want to remove a tag.</p>
    *          <note>
    *             <p>The <code>ManagedInstance</code> type for this API operation is only for on-premises
-   *     managed instances. Specify the name of the managed instance in the following format:
+   *     managed nodes. Specify the name of the managed node in the following format:
    *       <code>mi-<i>ID_number</i>
    *                </code>. For example,
    *     <code>mi-1a2b3c4d5e6f</code>.</p>
@@ -8887,9 +8889,9 @@ export interface RemoveTagsFromResourceRequest {
    *     <code>/aws/ssm/MyGroup/appmanager</code>.</p>
    *          <p>For the Document and Parameter values, use the name of the resource.</p>
    *          <note>
-   *             <p>The ManagedInstance type for this API operation is only for on-premises managed instances.
-   *     Specify the name of the managed instance in the following format: mi-ID_number. For example,
-   *     mi-1a2b3c4d5e6f.</p>
+   *             <p>The <code>ManagedInstance</code> type for this API operation is only for on-premises
+   *     managed nodes. Specify the name of the managed node in the following format: mi-ID_number. For
+   *     example, mi-1a2b3c4d5e6f.</p>
    *          </note>
    */
   ResourceId: string | undefined;
@@ -9016,13 +9018,13 @@ export interface ResumeSessionResponse {
 
   /**
    * <p>An encrypted token value containing session and caller information. Used to authenticate the
-   *    connection to the instance.</p>
+   *    connection to the managed node.</p>
    */
   TokenValue?: string;
 
   /**
-   * <p>A URL back to SSM Agent on the instance that the Session Manager client uses to send commands and
-   *    receive output from the instance. Format: <code>wss://ssmmessages.<b>region</b>.amazonaws.com/v1/data-channel/<b>session-id</b>?stream=(input|output)</code>.</p>
+   * <p>A URL back to SSM Agent on the managed node that the Session Manager client uses to send commands and
+   *    receive output from the managed node. Format: <code>wss://ssmmessages.<b>region</b>.amazonaws.com/v1/data-channel/<b>session-id</b>?stream=(input|output)</code>.</p>
    *          <p>
    *             <b>region</b> represents the Region identifier for an
    * 						Amazon Web Services Region supported by Amazon Web Services Systems Manager, such as <code>us-east-2</code> for the US East (Ohio) Region.
@@ -9201,13 +9203,13 @@ export namespace InvalidRole {
 
 export interface SendCommandRequest {
   /**
-   * <p>The IDs of the instances where the command should run. Specifying instance IDs is most
-   *    useful when you are targeting a limited number of instances, though you can specify up to 50
+   * <p>The IDs of the managed nodes where the command should run. Specifying managed node IDs is most
+   *    useful when you are targeting a limited number of managed nodes, though you can specify up to 50
    *    IDs.</p>
-   *          <p>To target a larger number of instances, or if you prefer not to list individual instance
+   *          <p>To target a larger number of managed nodes, or if you prefer not to list individual node
    *    IDs, we recommend using the <code>Targets</code> option instead. Using <code>Targets</code>,
-   *    which accepts tag key-value pairs to identify the instances to send commands to, you can a send
-   *    command to tens, hundreds, or thousands of instances at once.</p>
+   *    which accepts tag key-value pairs to identify the managed nodes to send commands to, you can a
+   *    send command to tens, hundreds, or thousands of nodes at once.</p>
    *          <p>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Using targets and rate
    *     controls to send commands to a fleet</a> in the
    *    <i>Amazon Web Services Systems Manager User Guide</i>.</p>
@@ -9215,13 +9217,13 @@ export interface SendCommandRequest {
   InstanceIds?: string[];
 
   /**
-   * <p>An array of search criteria that targets instances using a <code>Key,Value</code>
+   * <p>An array of search criteria that targets managed nodes using a <code>Key,Value</code>
    *    combination that you specify. Specifying targets is most useful when you want to send a command
-   *    to a large number of instances at once. Using <code>Targets</code>, which accepts tag key-value
-   *    pairs to identify instances, you can send a command to tens, hundreds, or thousands of instances
-   *    at once.</p>
-   *          <p>To send a command to a smaller number of instances, you can use the <code>InstanceIds</code>
-   *    option instead.</p>
+   *    to a large number of managed nodes at once. Using <code>Targets</code>, which accepts tag
+   *    key-value pairs to identify managed nodes, you can send a command to tens, hundreds, or thousands
+   *    of nodes at once.</p>
+   *          <p>To send a command to a smaller number of managed nodes, you can use the
+   *     <code>InstanceIds</code> option instead.</p>
    *          <p>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending commands to a
    *     fleet</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
@@ -9299,8 +9301,8 @@ export interface SendCommandRequest {
   OutputS3KeyPrefix?: string;
 
   /**
-   * <p>(Optional) The maximum number of instances that are allowed to run the command at the same
-   *    time. You can specify a number such as 10 or a percentage such as 10%. The default value is
+   * <p>(Optional) The maximum number of managed nodes that are allowed to run the command at the
+   *    same time. You can specify a number such as 10 or a percentage such as 10%. The default value is
    *     <code>50</code>. For more information about how to use <code>MaxConcurrency</code>, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity">Using
    *     concurrency controls</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
@@ -9753,14 +9755,14 @@ export namespace StartChangeRequestExecutionResult {
 
 export interface StartSessionRequest {
   /**
-   * <p>The instance to connect to for the session.</p>
+   * <p>The managed node to connect to for the session.</p>
    */
   Target: string | undefined;
 
   /**
    * <p>The name of the SSM document to define the parameters and plugin settings for the session.
    *    For example, <code>SSM-SessionManagerRunShell</code>. You can call the <a>GetDocument</a> API to verify the document exists before attempting to start a session.
-   *    If no document name is provided, a shell to the instance is launched by default.</p>
+   *    If no document name is provided, a shell to the managed node is launched by default.</p>
    */
   DocumentName?: string;
 
@@ -9793,13 +9795,13 @@ export interface StartSessionResponse {
 
   /**
    * <p>An encrypted token value containing session and caller information. Used to authenticate the
-   *    connection to the instance.</p>
+   *    connection to the managed node.</p>
    */
   TokenValue?: string;
 
   /**
-   * <p>A URL back to SSM Agent on the instance that the Session Manager client uses to send commands and
-   *    receive output from the instance. Format: <code>wss://ssmmessages.<b>region</b>.amazonaws.com/v1/data-channel/<b>session-id</b>?stream=(input|output)</code>
+   * <p>A URL back to SSM Agent on the managed node that the Session Manager client uses to send commands and
+   *    receive output from the node. Format: <code>wss://ssmmessages.<b>region</b>.amazonaws.com/v1/data-channel/<b>session-id</b>?stream=(input|output)</code>
    *          </p>
    *          <p>
    *             <b>region</b> represents the Region identifier for an
@@ -9823,10 +9825,10 @@ export namespace StartSessionResponse {
 }
 
 /**
- * <p>The specified target instance for the session isn't fully configured for use with Session Manager. For
+ * <p>The specified target managed node for the session isn't fully configured for use with Session Manager. For
  *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html">Getting started with
  *     Session Manager</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. This error is also returned if you
- *    attempt to start a session on an instance that is located in a different account or Region</p>
+ *    attempt to start a session on a managed node that is located in a different account or Region</p>
  */
 export interface TargetNotConnected extends __SmithyException, $MetadataBearer {
   name: "TargetNotConnected";
@@ -10046,7 +10048,7 @@ export interface UpdateAssociationRequest {
 
   /**
    * <p>The name of the SSM Command document or Automation runbook that contains the configuration
-   *    information for the instance.</p>
+   *    information for the managed node.</p>
    *          <p>You can specify Amazon Web Services-predefined documents, documents you created, or a document that is
    *    shared with you from another account.</p>
    *          <p>For Systems Manager document (SSM document) that are shared with you from other Amazon Web Services accounts, you
@@ -10095,8 +10097,8 @@ export interface UpdateAssociationRequest {
    *    example 10, or a percentage of the target set, for example 10%. If you specify 3, for example,
    *    the system stops sending requests when the fourth error is received. If you specify 0, then the
    *    system stops sending requests after the first error is returned. If you run an association on 50
-   *    instances and set <code>MaxError</code> to 10%, then the system stops sending the request when
-   *    the sixth error is received.</p>
+   *    managed nodes and set <code>MaxError</code> to 10%, then the system stops sending the request
+   *    when the sixth error is received.</p>
    *          <p>Executions that are already running an association when <code>MaxErrors</code> is reached
    *    are allowed to complete, but some of these executions may fail as well. If you need to ensure
    *    that there won't be more than max-errors failed executions, set <code>MaxConcurrency</code> to 1
@@ -10108,9 +10110,9 @@ export interface UpdateAssociationRequest {
    * <p>The maximum number of targets allowed to run the association at the same time. You can
    *    specify a number, for example 10, or a percentage of the target set, for example 10%. The default
    *    value is 100%, which means all targets run the association at the same time.</p>
-   *          <p>If a new instance starts and attempts to run an association while Systems Manager is running
+   *          <p>If a new managed node starts and attempts to run an association while Systems Manager is running
    *     <code>MaxConcurrency</code> associations, the association is allowed to run. During the next
-   *    association interval, the new instance will process its association within the limit specified
+   *    association interval, the new managed node will process its association within the limit specified
    *    for <code>MaxConcurrency</code>.</p>
    */
   MaxConcurrency?: string;
@@ -10215,7 +10217,7 @@ export interface UpdateAssociationStatusRequest {
   Name: string | undefined;
 
   /**
-   * <p>The instance ID.</p>
+   * <p>The managed node ID.</p>
    */
   InstanceId: string | undefined;
 
@@ -10503,17 +10505,6 @@ export namespace UpdateDocumentMetadataRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateDocumentMetadataRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateDocumentMetadataResponse {}
-
-export namespace UpdateDocumentMetadataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDocumentMetadataResponse): any => ({
     ...obj,
   });
 }

@@ -14,9 +14,9 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { GetEffectivePermissionsForPathRequest, GetEffectivePermissionsForPathResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetEffectivePermissionsForPathCommand,
-  serializeAws_json1_1GetEffectivePermissionsForPathCommand,
-} from "../protocols/Aws_json1_1";
+  deserializeAws_restJson1GetEffectivePermissionsForPathCommand,
+  serializeAws_restJson1GetEffectivePermissionsForPathCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface GetEffectivePermissionsForPathCommandInput extends GetEffectivePermissionsForPathRequest {}
 export interface GetEffectivePermissionsForPathCommandOutput
@@ -89,14 +89,14 @@ export class GetEffectivePermissionsForPathCommand extends $Command<
     input: GetEffectivePermissionsForPathCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetEffectivePermissionsForPathCommand(input, context);
+    return serializeAws_restJson1GetEffectivePermissionsForPathCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEffectivePermissionsForPathCommandOutput> {
-    return deserializeAws_json1_1GetEffectivePermissionsForPathCommand(output, context);
+    return deserializeAws_restJson1GetEffectivePermissionsForPathCommand(output, context);
   }
 
   // Start section: command_body_extra

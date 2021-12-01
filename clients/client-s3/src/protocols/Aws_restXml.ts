@@ -309,9 +309,9 @@ import {
   EncryptionConfiguration,
   ErrorDocument,
   Event,
+  EventBridgeConfiguration,
   ExistingObjectReplication,
   FilterRule,
-  GlacierJobParameters,
   Grant,
   Grantee,
   IndexDocument,
@@ -398,6 +398,7 @@ import {
   CSVOutput,
   Encryption,
   EndEvent,
+  GlacierJobParameters,
   InputSerialization,
   JSONInput,
   JSONOutput,
@@ -685,6 +686,7 @@ export const serializeAws_restXmlCreateBucketCommand = async (
     ...(isSerializableHeaderValue(input.ObjectLockEnabledForBucket) && {
       "x-amz-bucket-object-lock-enabled": input.ObjectLockEnabledForBucket!.toString(),
     }),
+    ...(isSerializableHeaderValue(input.ObjectOwnership) && { "x-amz-object-ownership": input.ObjectOwnership! }),
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
@@ -3617,6 +3619,9 @@ export const serializeAws_restXmlPutBucketNotificationConfigurationCommand = asy
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    }),
+    ...(isSerializableHeaderValue(input.SkipDestinationValidation) && {
+      "x-amz-skip-destination-validation": input.SkipDestinationValidation!.toString(),
     }),
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
@@ -6614,11 +6619,18 @@ export const deserializeAws_restXmlGetBucketNotificationConfigurationCommand = a
   }
   const contents: GetBucketNotificationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
+    EventBridgeConfiguration: undefined,
     LambdaFunctionConfigurations: undefined,
     QueueConfigurations: undefined,
     TopicConfigurations: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["EventBridgeConfiguration"] !== undefined) {
+    contents.EventBridgeConfiguration = deserializeAws_restXmlEventBridgeConfiguration(
+      data["EventBridgeConfiguration"],
+      context
+    );
+  }
   if (data.CloudFunctionConfiguration === "") {
     contents.LambdaFunctionConfigurations = [];
   }
@@ -10863,6 +10875,14 @@ const serializeAws_restXmlErrorDocument = (input: ErrorDocument, context: __Serd
   return bodyNode;
 };
 
+const serializeAws_restXmlEventBridgeConfiguration = (
+  input: EventBridgeConfiguration,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("EventBridgeConfiguration");
+  return bodyNode;
+};
+
 const serializeAws_restXmlEventList = (input: (Event | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -11621,6 +11641,12 @@ const serializeAws_restXmlNotificationConfiguration = (
       node = node.withName("CloudFunctionConfiguration");
       bodyNode.addChildNode(node);
     });
+  }
+  if (input.EventBridgeConfiguration !== undefined && input.EventBridgeConfiguration !== null) {
+    const node = serializeAws_restXmlEventBridgeConfiguration(input.EventBridgeConfiguration, context).withName(
+      "EventBridgeConfiguration"
+    );
+    bodyNode.addChildNode(node);
   }
   return bodyNode;
 };
@@ -13116,6 +13142,14 @@ const deserializeAws_restXmlErrors = (output: any, context: __SerdeContext): _Er
       }
       return deserializeAws_restXml_Error(entry, context);
     });
+};
+
+const deserializeAws_restXmlEventBridgeConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EventBridgeConfiguration => {
+  const contents: any = {};
+  return contents;
 };
 
 const deserializeAws_restXmlEventList = (output: any, context: __SerdeContext): (Event | string)[] => {

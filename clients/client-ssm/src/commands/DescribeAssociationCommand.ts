@@ -22,7 +22,7 @@ export interface DescribeAssociationCommandInput extends DescribeAssociationRequ
 export interface DescribeAssociationCommandOutput extends DescribeAssociationResult, __MetadataBearer {}
 
 /**
- * <p>Describes the association for the specified target or instance. If you created the
+ * <p>Describes the association for the specified target or managed node. If you created the
  *    association by using the <code>Targets</code> parameter, then you must retrieve the association
  *    by using the association ID.</p>
  * @example

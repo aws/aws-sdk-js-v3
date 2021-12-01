@@ -1321,14 +1321,14 @@ export namespace S3BucketConfiguration {
  *          specify the policy, the access preview assumes a secret without a policy. To propose
  *          deletion of an existing policy, you can specify an empty string. If the proposed
  *          configuration is for a new secret and you do not specify the KMS key ID, the access
- *          preview uses the default CMK of the Amazon Web Services account. If you specify an empty string for the
- *          KMS key ID, the access preview uses the default CMK of the Amazon Web Services account. For more
- *          information about secret policy limits, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_limits.html">Quotas for
+ *          preview uses the Amazon Web Services managed key <code>aws/secretsmanager</code>. If you specify an empty
+ *          string for the KMS key ID, the access preview uses the Amazon Web Services managed key of the Amazon Web Services
+ *          account. For more information about secret policy limits, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_limits.html">Quotas for
  *             Secrets Manager.</a>.</p>
  */
 export interface SecretsManagerSecretConfiguration {
   /**
-   * <p>The proposed ARN, key ID, or alias of the KMS customer master key (CMK).</p>
+   * <p>The proposed ARN, key ID, or alias of the KMS key.</p>
    */
   kmsKeyId?: string;
 
@@ -3273,6 +3273,13 @@ export enum PolicyType {
   SERVICE_CONTROL_POLICY = "SERVICE_CONTROL_POLICY",
 }
 
+export enum ValidatePolicyResourceType {
+  S3_ACCESS_POINT = "AWS::S3::AccessPoint",
+  S3_BUCKET = "AWS::S3::Bucket",
+  S3_MULTI_REGION_ACCESS_POINT = "AWS::S3::MultiRegionAccessPoint",
+  S3_OBJECT_LAMBDA_ACCESS_POINT = "AWS::S3ObjectLambda::AccessPoint",
+}
+
 export interface ValidatePolicyRequest {
   /**
    * <p>The locale to use for localizing the findings.</p>
@@ -3305,6 +3312,18 @@ export interface ValidatePolicyRequest {
    *          or Amazon S3 bucket policy. </p>
    */
   policyType: PolicyType | string | undefined;
+
+  /**
+   * <p>The type of resource to attach to your resource policy. Specify a value for the policy
+   *          validation resource type only if the policy type is <code>RESOURCE_POLICY</code>. For
+   *          example, to validate a resource policy to attach to an Amazon S3 bucket, you can choose
+   *             <code>AWS::S3::Bucket</code> for the policy validation resource type.</p>
+   *          <p>For resource types not supported as valid values, IAM Access Analyzer runs policy checks that
+   *          apply to all resource policies. For example, to validate a resource policy to attach to a
+   *          KMS key, do not specify a value for the policy validation resource type and IAM Access Analyzer
+   *          will run policy checks that apply to all resource policies.</p>
+   */
+  validatePolicyResourceType?: ValidatePolicyResourceType | string;
 }
 
 export namespace ValidatePolicyRequest {

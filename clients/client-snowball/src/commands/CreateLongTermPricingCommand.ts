@@ -23,8 +23,7 @@ export interface CreateLongTermPricingCommandOutput extends CreateLongTermPricin
 
 /**
  * <p>Creates a job with the long-term usage option for a device. The long-term usage is a
- *       1-year or 3-year long-term pricing type for the device. You are billed upfront, and AWS
- *       provides discounts for long-term pricing.
+ *       1-year or 3-year long-term pricing type for the device. You are billed upfront, and Amazon Web Services provides discounts for long-term pricing.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -58,6 +58,7 @@ import {
   BatchDisassociateScramSecretCommandOutput,
 } from "./commands/BatchDisassociateScramSecretCommand";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
+import { CreateClusterV2CommandInput, CreateClusterV2CommandOutput } from "./commands/CreateClusterV2Command";
 import {
   CreateConfigurationCommandInput,
   CreateConfigurationCommandOutput,
@@ -72,6 +73,7 @@ import {
   DescribeClusterOperationCommandInput,
   DescribeClusterOperationCommandOutput,
 } from "./commands/DescribeClusterOperationCommand";
+import { DescribeClusterV2CommandInput, DescribeClusterV2CommandOutput } from "./commands/DescribeClusterV2Command";
 import {
   DescribeConfigurationCommandInput,
   DescribeConfigurationCommandOutput,
@@ -93,6 +95,7 @@ import {
   ListClusterOperationsCommandOutput,
 } from "./commands/ListClusterOperationsCommand";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
+import { ListClustersV2CommandInput, ListClustersV2CommandOutput } from "./commands/ListClustersV2Command";
 import {
   ListConfigurationRevisionsCommandInput,
   ListConfigurationRevisionsCommandOutput,
@@ -135,17 +138,20 @@ export type ServiceInputTypes =
   | BatchAssociateScramSecretCommandInput
   | BatchDisassociateScramSecretCommandInput
   | CreateClusterCommandInput
+  | CreateClusterV2CommandInput
   | CreateConfigurationCommandInput
   | DeleteClusterCommandInput
   | DeleteConfigurationCommandInput
   | DescribeClusterCommandInput
   | DescribeClusterOperationCommandInput
+  | DescribeClusterV2CommandInput
   | DescribeConfigurationCommandInput
   | DescribeConfigurationRevisionCommandInput
   | GetBootstrapBrokersCommandInput
   | GetCompatibleKafkaVersionsCommandInput
   | ListClusterOperationsCommandInput
   | ListClustersCommandInput
+  | ListClustersV2CommandInput
   | ListConfigurationRevisionsCommandInput
   | ListConfigurationsCommandInput
   | ListKafkaVersionsCommandInput
@@ -169,17 +175,20 @@ export type ServiceOutputTypes =
   | BatchAssociateScramSecretCommandOutput
   | BatchDisassociateScramSecretCommandOutput
   | CreateClusterCommandOutput
+  | CreateClusterV2CommandOutput
   | CreateConfigurationCommandOutput
   | DeleteClusterCommandOutput
   | DeleteConfigurationCommandOutput
   | DescribeClusterCommandOutput
   | DescribeClusterOperationCommandOutput
+  | DescribeClusterV2CommandOutput
   | DescribeConfigurationCommandOutput
   | DescribeConfigurationRevisionCommandOutput
   | GetBootstrapBrokersCommandOutput
   | GetCompatibleKafkaVersionsCommandOutput
   | ListClusterOperationsCommandOutput
   | ListClustersCommandOutput
+  | ListClustersV2CommandOutput
   | ListConfigurationRevisionsCommandOutput
   | ListConfigurationsCommandOutput
   | ListKafkaVersionsCommandOutput

@@ -14,9 +14,9 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { GetDataLakeSettingsRequest, GetDataLakeSettingsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetDataLakeSettingsCommand,
-  serializeAws_json1_1GetDataLakeSettingsCommand,
-} from "../protocols/Aws_json1_1";
+  deserializeAws_restJson1GetDataLakeSettingsCommand,
+  serializeAws_restJson1GetDataLakeSettingsCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface GetDataLakeSettingsCommandInput extends GetDataLakeSettingsRequest {}
 export interface GetDataLakeSettingsCommandOutput extends GetDataLakeSettingsResponse, __MetadataBearer {}
@@ -83,11 +83,11 @@ export class GetDataLakeSettingsCommand extends $Command<
   }
 
   private serialize(input: GetDataLakeSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDataLakeSettingsCommand(input, context);
+    return serializeAws_restJson1GetDataLakeSettingsCommand(input, context);
   }
 
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataLakeSettingsCommandOutput> {
-    return deserializeAws_json1_1GetDataLakeSettingsCommand(output, context);
+    return deserializeAws_restJson1GetDataLakeSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

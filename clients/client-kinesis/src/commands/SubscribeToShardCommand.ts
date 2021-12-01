@@ -41,8 +41,9 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  *         <p>If you call <code>SubscribeToShard</code> again with the same <code>ConsumerARN</code>
  *             and <code>ShardId</code> within 5 seconds of a successful call, you'll get a
  *                 <code>ResourceInUseException</code>. If you call <code>SubscribeToShard</code> 5
- *             seconds or more after a successful call, the first connection will expire and the second
- *             call will take over the subscription.</p>
+ *             seconds or more after a successful call, the second call takes over the subscription and
+ *             the previous connection expires or fails with a
+ *             <code>ResourceInUseException</code>.</p>
  *         <p>For an example of how to use this operations, see <a href="/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
  *                 Using the Kinesis Data Streams API</a>.</p>
  * @example

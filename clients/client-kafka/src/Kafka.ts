@@ -16,6 +16,11 @@ import {
   CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
+  CreateClusterV2Command,
+  CreateClusterV2CommandInput,
+  CreateClusterV2CommandOutput,
+} from "./commands/CreateClusterV2Command";
+import {
   CreateConfigurationCommand,
   CreateConfigurationCommandInput,
   CreateConfigurationCommandOutput,
@@ -40,6 +45,11 @@ import {
   DescribeClusterOperationCommandInput,
   DescribeClusterOperationCommandOutput,
 } from "./commands/DescribeClusterOperationCommand";
+import {
+  DescribeClusterV2Command,
+  DescribeClusterV2CommandInput,
+  DescribeClusterV2CommandOutput,
+} from "./commands/DescribeClusterV2Command";
 import {
   DescribeConfigurationCommand,
   DescribeConfigurationCommandInput,
@@ -70,6 +80,11 @@ import {
   ListClustersCommandInput,
   ListClustersCommandOutput,
 } from "./commands/ListClustersCommand";
+import {
+  ListClustersV2Command,
+  ListClustersV2CommandInput,
+  ListClustersV2CommandOutput,
+} from "./commands/ListClustersV2Command";
 import {
   ListConfigurationRevisionsCommand,
   ListConfigurationRevisionsCommandInput,
@@ -255,6 +270,38 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * <p>Creates a new MSK cluster.</p>
+   */
+  public createClusterV2(
+    args: CreateClusterV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateClusterV2CommandOutput>;
+  public createClusterV2(
+    args: CreateClusterV2CommandInput,
+    cb: (err: any, data?: CreateClusterV2CommandOutput) => void
+  ): void;
+  public createClusterV2(
+    args: CreateClusterV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateClusterV2CommandOutput) => void
+  ): void;
+  public createClusterV2(
+    args: CreateClusterV2CommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClusterV2CommandOutput) => void),
+    cb?: (err: any, data?: CreateClusterV2CommandOutput) => void
+  ): Promise<CreateClusterV2CommandOutput> | void {
+    const command = new CreateClusterV2Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a new MSK configuration.</p>
    */
   public createConfiguration(
@@ -404,6 +451,38 @@ export class Kafka extends KafkaClient {
     cb?: (err: any, data?: DescribeClusterOperationCommandOutput) => void
   ): Promise<DescribeClusterOperationCommandOutput> | void {
     const command = new DescribeClusterOperationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is specified in the request.</p>
+   */
+  public describeClusterV2(
+    args: DescribeClusterV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeClusterV2CommandOutput>;
+  public describeClusterV2(
+    args: DescribeClusterV2CommandInput,
+    cb: (err: any, data?: DescribeClusterV2CommandOutput) => void
+  ): void;
+  public describeClusterV2(
+    args: DescribeClusterV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeClusterV2CommandOutput) => void
+  ): void;
+  public describeClusterV2(
+    args: DescribeClusterV2CommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClusterV2CommandOutput) => void),
+    cb?: (err: any, data?: DescribeClusterV2CommandOutput) => void
+  ): Promise<DescribeClusterV2CommandOutput> | void {
+    const command = new DescribeClusterV2Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -593,6 +672,38 @@ export class Kafka extends KafkaClient {
     cb?: (err: any, data?: ListClustersCommandOutput) => void
   ): Promise<ListClustersCommandOutput> | void {
     const command = new ListClustersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of all the MSK clusters in the current Region.</p>
+   */
+  public listClustersV2(
+    args: ListClustersV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListClustersV2CommandOutput>;
+  public listClustersV2(
+    args: ListClustersV2CommandInput,
+    cb: (err: any, data?: ListClustersV2CommandOutput) => void
+  ): void;
+  public listClustersV2(
+    args: ListClustersV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListClustersV2CommandOutput) => void
+  ): void;
+  public listClustersV2(
+    args: ListClustersV2CommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListClustersV2CommandOutput) => void),
+    cb?: (err: any, data?: ListClustersV2CommandOutput) => void
+  ): Promise<ListClustersV2CommandOutput> | void {
+    const command = new ListClustersV2Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

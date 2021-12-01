@@ -23,7 +23,7 @@ export interface UpdateAssociationStatusCommandOutput extends UpdateAssociationS
 
 /**
  * <p>Updates the status of the Amazon Web Services Systems Manager document (SSM document) associated with the specified
- *    instance.</p>
+ *    managed node.</p>
  *          <p>
  *             <code>UpdateAssociationStatus</code> is primarily used by the Amazon Web Services Systems Manager Agent (SSM Agent) to
  *    report status updates about your associations and is only used for associations created with the
