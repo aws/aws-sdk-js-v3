@@ -22,7 +22,7 @@ export interface ResumeSessionCommandInput extends ResumeSessionRequest {}
 export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Reconnects a session to an instance after it has been disconnected. Connections can be
+ * <p>Reconnects a session to a managed node after it has been disconnected. Connections can be
  *    resumed for disconnected sessions, but not terminated sessions.</p>
  *          <note>
  *             <p>This command is primarily for use by client machines to automatically reconnect during

@@ -50,19 +50,25 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateLensesCommandInput, AssociateLensesCommandOutput } from "./commands/AssociateLensesCommand";
+import { CreateLensShareCommandInput, CreateLensShareCommandOutput } from "./commands/CreateLensShareCommand";
+import { CreateLensVersionCommandInput, CreateLensVersionCommandOutput } from "./commands/CreateLensVersionCommand";
 import { CreateMilestoneCommandInput, CreateMilestoneCommandOutput } from "./commands/CreateMilestoneCommand";
 import { CreateWorkloadCommandInput, CreateWorkloadCommandOutput } from "./commands/CreateWorkloadCommand";
 import {
   CreateWorkloadShareCommandInput,
   CreateWorkloadShareCommandOutput,
 } from "./commands/CreateWorkloadShareCommand";
+import { DeleteLensCommandInput, DeleteLensCommandOutput } from "./commands/DeleteLensCommand";
+import { DeleteLensShareCommandInput, DeleteLensShareCommandOutput } from "./commands/DeleteLensShareCommand";
 import { DeleteWorkloadCommandInput, DeleteWorkloadCommandOutput } from "./commands/DeleteWorkloadCommand";
 import {
   DeleteWorkloadShareCommandInput,
   DeleteWorkloadShareCommandOutput,
 } from "./commands/DeleteWorkloadShareCommand";
 import { DisassociateLensesCommandInput, DisassociateLensesCommandOutput } from "./commands/DisassociateLensesCommand";
+import { ExportLensCommandInput, ExportLensCommandOutput } from "./commands/ExportLensCommand";
 import { GetAnswerCommandInput, GetAnswerCommandOutput } from "./commands/GetAnswerCommand";
+import { GetLensCommandInput, GetLensCommandOutput } from "./commands/GetLensCommand";
 import { GetLensReviewCommandInput, GetLensReviewCommandOutput } from "./commands/GetLensReviewCommand";
 import {
   GetLensReviewReportCommandInput,
@@ -74,6 +80,7 @@ import {
 } from "./commands/GetLensVersionDifferenceCommand";
 import { GetMilestoneCommandInput, GetMilestoneCommandOutput } from "./commands/GetMilestoneCommand";
 import { GetWorkloadCommandInput, GetWorkloadCommandOutput } from "./commands/GetWorkloadCommand";
+import { ImportLensCommandInput, ImportLensCommandOutput } from "./commands/ImportLensCommand";
 import { ListAnswersCommandInput, ListAnswersCommandOutput } from "./commands/ListAnswersCommand";
 import { ListLensesCommandInput, ListLensesCommandOutput } from "./commands/ListLensesCommand";
 import {
@@ -81,6 +88,7 @@ import {
   ListLensReviewImprovementsCommandOutput,
 } from "./commands/ListLensReviewImprovementsCommand";
 import { ListLensReviewsCommandInput, ListLensReviewsCommandOutput } from "./commands/ListLensReviewsCommand";
+import { ListLensSharesCommandInput, ListLensSharesCommandOutput } from "./commands/ListLensSharesCommand";
 import { ListMilestonesCommandInput, ListMilestonesCommandOutput } from "./commands/ListMilestonesCommand";
 import { ListNotificationsCommandInput, ListNotificationsCommandOutput } from "./commands/ListNotificationsCommand";
 import {
@@ -111,21 +119,29 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | AssociateLensesCommandInput
+  | CreateLensShareCommandInput
+  | CreateLensVersionCommandInput
   | CreateMilestoneCommandInput
   | CreateWorkloadCommandInput
   | CreateWorkloadShareCommandInput
+  | DeleteLensCommandInput
+  | DeleteLensShareCommandInput
   | DeleteWorkloadCommandInput
   | DeleteWorkloadShareCommandInput
   | DisassociateLensesCommandInput
+  | ExportLensCommandInput
   | GetAnswerCommandInput
+  | GetLensCommandInput
   | GetLensReviewCommandInput
   | GetLensReviewReportCommandInput
   | GetLensVersionDifferenceCommandInput
   | GetMilestoneCommandInput
   | GetWorkloadCommandInput
+  | ImportLensCommandInput
   | ListAnswersCommandInput
   | ListLensReviewImprovementsCommandInput
   | ListLensReviewsCommandInput
+  | ListLensSharesCommandInput
   | ListLensesCommandInput
   | ListMilestonesCommandInput
   | ListNotificationsCommandInput
@@ -144,21 +160,29 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AssociateLensesCommandOutput
+  | CreateLensShareCommandOutput
+  | CreateLensVersionCommandOutput
   | CreateMilestoneCommandOutput
   | CreateWorkloadCommandOutput
   | CreateWorkloadShareCommandOutput
+  | DeleteLensCommandOutput
+  | DeleteLensShareCommandOutput
   | DeleteWorkloadCommandOutput
   | DeleteWorkloadShareCommandOutput
   | DisassociateLensesCommandOutput
+  | ExportLensCommandOutput
   | GetAnswerCommandOutput
+  | GetLensCommandOutput
   | GetLensReviewCommandOutput
   | GetLensReviewReportCommandOutput
   | GetLensVersionDifferenceCommandOutput
   | GetMilestoneCommandOutput
   | GetWorkloadCommandOutput
+  | ImportLensCommandOutput
   | ListAnswersCommandOutput
   | ListLensReviewImprovementsCommandOutput
   | ListLensReviewsCommandOutput
+  | ListLensSharesCommandOutput
   | ListLensesCommandOutput
   | ListMilestonesCommandOutput
   | ListNotificationsCommandOutput
@@ -324,13 +348,13 @@ type WellArchitectedClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface WellArchitectedClientResolvedConfig extends WellArchitectedClientResolvedConfigType {}
 
 /**
- * <fullname>AWS Well-Architected Tool</fullname>
+ * <fullname>Well-Architected Tool</fullname>
  *
- *          <p>This is the <i>AWS Well-Architected Tool API Reference</i>. The AWS Well-Architected Tool API provides programmatic access to the
- *             <a href="http://aws.amazon.com/well-architected-tool">AWS Well-Architected Tool</a> in the
- *             <a href="https://console.aws.amazon.com/wellarchitected">AWS Management Console</a>. For information
- *             about the AWS Well-Architected Tool, see the
- *             <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html">AWS Well-Architected Tool User Guide</a>.</p>
+ *          <p>This is the <i>Well-Architected Tool API Reference</i>. The WA Tool API provides programmatic access to the
+ *             <a href="http://aws.amazon.com/well-architected-tool">Well-Architected Tool</a> in the
+ *            <a href="https://console.aws.amazon.com/wellarchitected">Amazon Web Services Management Console</a>. For information
+ *             about the Well-Architected Tool, see the
+ *            <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html">Well-Architected Tool User Guide</a>.</p>
  */
 export class WellArchitectedClient extends __Client<
   __HttpHandlerOptions,

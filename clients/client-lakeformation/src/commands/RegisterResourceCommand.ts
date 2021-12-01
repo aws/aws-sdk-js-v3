@@ -14,9 +14,9 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { RegisterResourceRequest, RegisterResourceResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1RegisterResourceCommand,
-  serializeAws_json1_1RegisterResourceCommand,
-} from "../protocols/Aws_json1_1";
+  deserializeAws_restJson1RegisterResourceCommand,
+  serializeAws_restJson1RegisterResourceCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface RegisterResourceCommandInput extends RegisterResourceRequest {}
 export interface RegisterResourceCommandOutput extends RegisterResourceResponse, __MetadataBearer {}
@@ -24,9 +24,9 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
 /**
  * <p>Registers the resource as managed by the Data Catalog.</p>
  *
- * 	        <p>To add or update data, Lake Formation needs read/write access to the chosen Amazon S3 path. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess service-linked role. When you register the first Amazon S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.</p>
+ *          <p>To add or update data, Lake Formation needs read/write access to the chosen Amazon S3 path. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess service-linked role. When you register the first Amazon S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.</p>
  *
- *          <p>The following request registers a new location and gives AWS Lake Formation permission to use the service-linked role to access that location.</p>
+ *          <p>The following request registers a new location and gives Lake Formation permission to use the service-linked role to access that location.</p>
  *
  *          <p>
  *             <code>ResourceArn = arn:aws:s3:::my-bucket
@@ -98,11 +98,11 @@ export class RegisterResourceCommand extends $Command<
   }
 
   private serialize(input: RegisterResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterResourceCommand(input, context);
+    return serializeAws_restJson1RegisterResourceCommand(input, context);
   }
 
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterResourceCommandOutput> {
-    return deserializeAws_json1_1RegisterResourceCommand(output, context);
+    return deserializeAws_restJson1RegisterResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

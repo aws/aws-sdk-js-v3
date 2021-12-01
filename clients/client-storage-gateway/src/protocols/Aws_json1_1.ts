@@ -9122,6 +9122,7 @@ const deserializeAws_json1_1DescribeGatewayInformationOutput = (
     GatewayTimezone: __expectString(output.GatewayTimezone),
     GatewayType: __expectString(output.GatewayType),
     HostEnvironment: __expectString(output.HostEnvironment),
+    HostEnvironmentId: __expectString(output.HostEnvironmentId),
     LastSoftwareUpdate: __expectString(output.LastSoftwareUpdate),
     NextUpdateAvailabilityDate: __expectString(output.NextUpdateAvailabilityDate),
     SoftwareUpdatesEndDate: __expectString(output.SoftwareUpdatesEndDate),
@@ -9533,6 +9534,8 @@ const deserializeAws_json1_1GatewayInfo = (output: any, context: __SerdeContext)
     GatewayName: __expectString(output.GatewayName),
     GatewayOperationalState: __expectString(output.GatewayOperationalState),
     GatewayType: __expectString(output.GatewayType),
+    HostEnvironment: __expectString(output.HostEnvironment),
+    HostEnvironmentId: __expectString(output.HostEnvironmentId),
   } as any;
 };
 

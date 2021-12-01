@@ -14,15 +14,15 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { UpdateResourceRequest, UpdateResourceResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateResourceCommand,
-  serializeAws_json1_1UpdateResourceCommand,
-} from "../protocols/Aws_json1_1";
+  deserializeAws_restJson1UpdateResourceCommand,
+  serializeAws_restJson1UpdateResourceCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface UpdateResourceCommandInput extends UpdateResourceRequest {}
 export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the data access role used for vending access to the given (registered) resource in AWS Lake Formation. </p>
+ * <p>Updates the data access role used for vending access to the given (registered) resource in Lake Formation. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,11 +83,11 @@ export class UpdateResourceCommand extends $Command<
   }
 
   private serialize(input: UpdateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateResourceCommand(input, context);
+    return serializeAws_restJson1UpdateResourceCommand(input, context);
   }
 
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceCommandOutput> {
-    return deserializeAws_json1_1UpdateResourceCommand(output, context);
+    return deserializeAws_restJson1UpdateResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

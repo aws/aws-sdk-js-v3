@@ -22,7 +22,7 @@ export interface SendCommandCommandInput extends SendCommandRequest {}
 export interface SendCommandCommandOutput extends SendCommandResult, __MetadataBearer {}
 
 /**
- * <p>Runs commands on one or more managed instances.</p>
+ * <p>Runs commands on one or more managed nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

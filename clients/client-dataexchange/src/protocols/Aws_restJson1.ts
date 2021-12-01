@@ -1,4 +1,8 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse,
+  isValidHostname as __isValidHostname,
+} from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
@@ -42,6 +46,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { SendApiAssetCommandInput, SendApiAssetCommandOutput } from "../commands/SendApiAssetCommand";
 import { StartJobCommandInput, StartJobCommandOutput } from "../commands/StartJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -52,6 +57,7 @@ import { UpdateRevisionCommandInput, UpdateRevisionCommandOutput } from "../comm
 import {
   AccessDeniedException,
   Action,
+  ApiGatewayApiAsset,
   AssetDestinationEntry,
   AssetDetails,
   AssetEntry,
@@ -70,6 +76,8 @@ import {
   ExportRevisionsToS3RequestDetails,
   ExportRevisionsToS3ResponseDetails,
   ExportServerSideEncryption,
+  ImportAssetFromApiGatewayApiRequestDetails,
+  ImportAssetFromApiGatewayApiResponseDetails,
   ImportAssetFromSignedUrlJobErrorDetails,
   ImportAssetFromSignedUrlRequestDetails,
   ImportAssetFromSignedUrlResponseDetails,
@@ -736,6 +744,54 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1SendApiAssetCommand = async (
+  input: SendApiAssetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "text/plain",
+    ...(isSerializableHeaderValue(input.AssetId) && { "x-amzn-dataexchange-asset-id": input.AssetId! }),
+    ...(isSerializableHeaderValue(input.DataSetId) && { "x-amzn-dataexchange-data-set-id": input.DataSetId! }),
+    ...(isSerializableHeaderValue(input.Method) && { "x-amzn-dataexchange-http-method": input.Method! }),
+    ...(isSerializableHeaderValue(input.Path) && { "x-amzn-dataexchange-path": input.Path! }),
+    ...(isSerializableHeaderValue(input.RevisionId) && { "x-amzn-dataexchange-revision-id": input.RevisionId! }),
+    ...(input.RequestHeaders !== undefined &&
+      Object.keys(input.RequestHeaders).reduce(
+        (acc: any, suffix: string) => ({
+          ...acc,
+          [`x-amzn-dataexchange-header-${suffix.toLowerCase()}`]: input.RequestHeaders![suffix],
+        }),
+        {}
+      )),
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1";
+  const query: any = {
+    ...(input.QueryStringParameters !== undefined && input.QueryStringParameters),
+  };
+  let body: any;
+  if (input.Body !== undefined) {
+    body = input.Body;
+  }
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api-fulfill." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -2914,6 +2970,100 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1SendApiAssetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendApiAssetCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SendApiAssetCommandError(output, context);
+  }
+  const contents: SendApiAssetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Body: undefined,
+    ResponseHeaders: undefined,
+  };
+  Object.keys(output.headers).forEach((header) => {
+    if (contents.ResponseHeaders === undefined) {
+      contents.ResponseHeaders = {};
+    }
+    if (header.startsWith("")) {
+      contents.ResponseHeaders[header.substring(0)] = output.headers[header];
+    }
+  });
+  const data: any = await collectBodyString(output.body, context);
+  contents.Body = __expectString(data);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1SendApiAssetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendApiAssetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.dataexchange#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.dataexchange#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.dataexchange#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.dataexchange#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.dataexchange#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1StartJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3843,6 +3993,25 @@ const serializeAws_restJson1ExportServerSideEncryption = (
   };
 };
 
+const serializeAws_restJson1ImportAssetFromApiGatewayApiRequestDetails = (
+  input: ImportAssetFromApiGatewayApiRequestDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ApiDescription !== undefined &&
+      input.ApiDescription !== null && { ApiDescription: input.ApiDescription }),
+    ...(input.ApiId !== undefined && input.ApiId !== null && { ApiId: input.ApiId }),
+    ...(input.ApiKey !== undefined && input.ApiKey !== null && { ApiKey: input.ApiKey }),
+    ...(input.ApiName !== undefined && input.ApiName !== null && { ApiName: input.ApiName }),
+    ...(input.ApiSpecificationMd5Hash !== undefined &&
+      input.ApiSpecificationMd5Hash !== null && { ApiSpecificationMd5Hash: input.ApiSpecificationMd5Hash }),
+    ...(input.DataSetId !== undefined && input.DataSetId !== null && { DataSetId: input.DataSetId }),
+    ...(input.ProtocolType !== undefined && input.ProtocolType !== null && { ProtocolType: input.ProtocolType }),
+    ...(input.RevisionId !== undefined && input.RevisionId !== null && { RevisionId: input.RevisionId }),
+    ...(input.Stage !== undefined && input.Stage !== null && { Stage: input.Stage }),
+  };
+};
+
 const serializeAws_restJson1ImportAssetFromSignedUrlRequestDetails = (
   input: ImportAssetFromSignedUrlRequestDetails,
   context: __SerdeContext
@@ -3977,6 +4146,13 @@ const serializeAws_restJson1RequestDetails = (input: RequestDetails, context: __
           context
         ),
       }),
+    ...(input.ImportAssetFromApiGatewayApi !== undefined &&
+      input.ImportAssetFromApiGatewayApi !== null && {
+        ImportAssetFromApiGatewayApi: serializeAws_restJson1ImportAssetFromApiGatewayApiRequestDetails(
+          input.ImportAssetFromApiGatewayApi,
+          context
+        ),
+      }),
     ...(input.ImportAssetFromSignedUrl !== undefined &&
       input.ImportAssetFromSignedUrl !== null && {
         ImportAssetFromSignedUrl: serializeAws_restJson1ImportAssetFromSignedUrlRequestDetails(
@@ -4024,6 +4200,23 @@ const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): A
   } as any;
 };
 
+const deserializeAws_restJson1ApiGatewayApiAsset = (output: any, context: __SerdeContext): ApiGatewayApiAsset => {
+  return {
+    ApiDescription: __expectString(output.ApiDescription),
+    ApiEndpoint: __expectString(output.ApiEndpoint),
+    ApiId: __expectString(output.ApiId),
+    ApiKey: __expectString(output.ApiKey),
+    ApiName: __expectString(output.ApiName),
+    ApiSpecificationDownloadUrl: __expectString(output.ApiSpecificationDownloadUrl),
+    ApiSpecificationDownloadUrlExpiresAt:
+      output.ApiSpecificationDownloadUrlExpiresAt !== undefined && output.ApiSpecificationDownloadUrlExpiresAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.ApiSpecificationDownloadUrlExpiresAt))
+        : undefined,
+    ProtocolType: __expectString(output.ProtocolType),
+    Stage: __expectString(output.Stage),
+  } as any;
+};
+
 const deserializeAws_restJson1AssetDestinationEntry = (output: any, context: __SerdeContext): AssetDestinationEntry => {
   return {
     AssetId: __expectString(output.AssetId),
@@ -4034,6 +4227,10 @@ const deserializeAws_restJson1AssetDestinationEntry = (output: any, context: __S
 
 const deserializeAws_restJson1AssetDetails = (output: any, context: __SerdeContext): AssetDetails => {
   return {
+    ApiGatewayApiAsset:
+      output.ApiGatewayApiAsset !== undefined && output.ApiGatewayApiAsset !== null
+        ? deserializeAws_restJson1ApiGatewayApiAsset(output.ApiGatewayApiAsset, context)
+        : undefined,
     RedshiftDataShareAsset:
       output.RedshiftDataShareAsset !== undefined && output.RedshiftDataShareAsset !== null
         ? deserializeAws_restJson1RedshiftDataShareAsset(output.RedshiftDataShareAsset, context)
@@ -4234,6 +4431,28 @@ const deserializeAws_restJson1ExportServerSideEncryption = (
   return {
     KmsKeyArn: __expectString(output.KmsKeyArn),
     Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1ImportAssetFromApiGatewayApiResponseDetails = (
+  output: any,
+  context: __SerdeContext
+): ImportAssetFromApiGatewayApiResponseDetails => {
+  return {
+    ApiDescription: __expectString(output.ApiDescription),
+    ApiId: __expectString(output.ApiId),
+    ApiKey: __expectString(output.ApiKey),
+    ApiName: __expectString(output.ApiName),
+    ApiSpecificationMd5Hash: __expectString(output.ApiSpecificationMd5Hash),
+    ApiSpecificationUploadUrl: __expectString(output.ApiSpecificationUploadUrl),
+    ApiSpecificationUploadUrlExpiresAt:
+      output.ApiSpecificationUploadUrlExpiresAt !== undefined && output.ApiSpecificationUploadUrlExpiresAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.ApiSpecificationUploadUrlExpiresAt))
+        : undefined,
+    DataSetId: __expectString(output.DataSetId),
+    ProtocolType: __expectString(output.ProtocolType),
+    RevisionId: __expectString(output.RevisionId),
+    Stage: __expectString(output.Stage),
   } as any;
 };
 
@@ -4499,6 +4718,13 @@ const deserializeAws_restJson1ResponseDetails = (output: any, context: __SerdeCo
     ExportRevisionsToS3:
       output.ExportRevisionsToS3 !== undefined && output.ExportRevisionsToS3 !== null
         ? deserializeAws_restJson1ExportRevisionsToS3ResponseDetails(output.ExportRevisionsToS3, context)
+        : undefined,
+    ImportAssetFromApiGatewayApi:
+      output.ImportAssetFromApiGatewayApi !== undefined && output.ImportAssetFromApiGatewayApi !== null
+        ? deserializeAws_restJson1ImportAssetFromApiGatewayApiResponseDetails(
+            output.ImportAssetFromApiGatewayApi,
+            context
+          )
         : undefined,
     ImportAssetFromSignedUrl:
       output.ImportAssetFromSignedUrl !== undefined && output.ImportAssetFromSignedUrl !== null

@@ -14,9 +14,9 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { BatchGrantPermissionsRequest, BatchGrantPermissionsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1BatchGrantPermissionsCommand,
-  serializeAws_json1_1BatchGrantPermissionsCommand,
-} from "../protocols/Aws_json1_1";
+  deserializeAws_restJson1BatchGrantPermissionsCommand,
+  serializeAws_restJson1BatchGrantPermissionsCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface BatchGrantPermissionsCommandInput extends BatchGrantPermissionsRequest {}
 export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermissionsResponse, __MetadataBearer {}
@@ -83,11 +83,11 @@ export class BatchGrantPermissionsCommand extends $Command<
   }
 
   private serialize(input: BatchGrantPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGrantPermissionsCommand(input, context);
+    return serializeAws_restJson1BatchGrantPermissionsCommand(input, context);
   }
 
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGrantPermissionsCommandOutput> {
-    return deserializeAws_json1_1BatchGrantPermissionsCommand(output, context);
+    return deserializeAws_restJson1BatchGrantPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

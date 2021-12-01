@@ -2,6 +2,7 @@ export * from "./Interfaces";
 export * from "./ListAnswersPaginator";
 export * from "./ListLensReviewImprovementsPaginator";
 export * from "./ListLensReviewsPaginator";
+export * from "./ListLensSharesPaginator";
 export * from "./ListLensesPaginator";
 export * from "./ListMilestonesPaginator";
 export * from "./ListNotificationsPaginator";

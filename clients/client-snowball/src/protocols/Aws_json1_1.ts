@@ -142,6 +142,7 @@ import {
   SnowconeDeviceConfiguration,
   TargetOnDeviceService,
   TaxDocuments,
+  TGWOnDeviceServiceConfiguration,
   UnsupportedAddressException,
   UpdateClusterRequest,
   UpdateClusterResult,
@@ -2644,6 +2645,10 @@ const serializeAws_json1_1OnDeviceServiceConfiguration = (
       input.NFSOnDeviceService !== null && {
         NFSOnDeviceService: serializeAws_json1_1NFSOnDeviceServiceConfiguration(input.NFSOnDeviceService, context),
       }),
+    ...(input.TGWOnDeviceService !== undefined &&
+      input.TGWOnDeviceService !== null && {
+        TGWOnDeviceService: serializeAws_json1_1TGWOnDeviceServiceConfiguration(input.TGWOnDeviceService, context),
+      }),
   };
 };
 
@@ -2708,6 +2713,16 @@ const serializeAws_json1_1TaxDocuments = (input: TaxDocuments, context: __SerdeC
   return {
     ...(input.IND !== undefined &&
       input.IND !== null && { IND: serializeAws_json1_1INDTaxDocuments(input.IND, context) }),
+  };
+};
+
+const serializeAws_json1_1TGWOnDeviceServiceConfiguration = (
+  input: TGWOnDeviceServiceConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.StorageLimit !== undefined && input.StorageLimit !== null && { StorageLimit: input.StorageLimit }),
+    ...(input.StorageUnit !== undefined && input.StorageUnit !== null && { StorageUnit: input.StorageUnit }),
   };
 };
 
@@ -3019,6 +3034,7 @@ const deserializeAws_json1_1DescribeReturnShippingLabelResult = (
       output.ExpirationDate !== undefined && output.ExpirationDate !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationDate)))
         : undefined,
+    ReturnShippingLabelURI: __expectString(output.ReturnShippingLabelURI),
     Status: __expectString(output.Status),
   } as any;
 };
@@ -3461,6 +3477,10 @@ const deserializeAws_json1_1OnDeviceServiceConfiguration = (
       output.NFSOnDeviceService !== undefined && output.NFSOnDeviceService !== null
         ? deserializeAws_json1_1NFSOnDeviceServiceConfiguration(output.NFSOnDeviceService, context)
         : undefined,
+    TGWOnDeviceService:
+      output.TGWOnDeviceService !== undefined && output.TGWOnDeviceService !== null
+        ? deserializeAws_json1_1TGWOnDeviceServiceConfiguration(output.TGWOnDeviceService, context)
+        : undefined,
   } as any;
 };
 
@@ -3558,6 +3578,16 @@ const deserializeAws_json1_1TaxDocuments = (output: any, context: __SerdeContext
       output.IND !== undefined && output.IND !== null
         ? deserializeAws_json1_1INDTaxDocuments(output.IND, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TGWOnDeviceServiceConfiguration = (
+  output: any,
+  context: __SerdeContext
+): TGWOnDeviceServiceConfiguration => {
+  return {
+    StorageLimit: __expectInt32(output.StorageLimit),
+    StorageUnit: __expectString(output.StorageUnit),
   } as any;
 };
 

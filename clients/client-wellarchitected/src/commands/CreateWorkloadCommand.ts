@@ -23,10 +23,10 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
 
 /**
  * <p>Create a new workload.</p>
- *         <p>The owner of a workload can share the workload with other AWS accounts and IAM users
- *             in the same AWS Region. Only the owner of a workload can delete it.</p>
+ *         <p>The owner of a workload can share the workload with other Amazon Web Services accounts and IAM users
+ *             in the same Amazon Web Services Region. Only the owner of a workload can delete it.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html">Defining a Workload</a> in the
- *                 <i>AWS Well-Architected Tool User Guide</i>.</p>
+ *                 <i>Well-Architected Tool User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

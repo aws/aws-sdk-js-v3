@@ -14,15 +14,15 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { SearchTablesByLFTagsRequest, SearchTablesByLFTagsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1SearchTablesByLFTagsCommand,
-  serializeAws_json1_1SearchTablesByLFTagsCommand,
-} from "../protocols/Aws_json1_1";
+  deserializeAws_restJson1SearchTablesByLFTagsCommand,
+  serializeAws_restJson1SearchTablesByLFTagsCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface SearchTablesByLFTagsCommandInput extends SearchTablesByLFTagsRequest {}
 export interface SearchTablesByLFTagsCommandOutput extends SearchTablesByLFTagsResponse, __MetadataBearer {}
 
 /**
- * <p>This operation allows a search on <code>TABLE</code> resources by <code>LFTag</code>s. This will be used by admins who want to grant user permissions on certain LFTags. Before making a grant, the admin can use <code>SearchTablesByLFTags</code> to find all resources where the given <code>LFTag</code>s are valid to verify whether the returned resources can be shared.</p>
+ * <p>This operation allows a search on <code>TABLE</code> resources by <code>LFTag</code>s. This will be used by admins who want to grant user permissions on certain LF-tags. Before making a grant, the admin can use <code>SearchTablesByLFTags</code> to find all resources where the given <code>LFTag</code>s are valid to verify whether the returned resources can be shared.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,11 +83,11 @@ export class SearchTablesByLFTagsCommand extends $Command<
   }
 
   private serialize(input: SearchTablesByLFTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchTablesByLFTagsCommand(input, context);
+    return serializeAws_restJson1SearchTablesByLFTagsCommand(input, context);
   }
 
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchTablesByLFTagsCommandOutput> {
-    return deserializeAws_json1_1SearchTablesByLFTagsCommand(output, context);
+    return deserializeAws_restJson1SearchTablesByLFTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

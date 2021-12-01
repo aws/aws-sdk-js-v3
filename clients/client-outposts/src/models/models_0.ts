@@ -559,6 +559,11 @@ export namespace ServiceQuotaExceededException {
   });
 }
 
+export enum SupportedHardwareType {
+  RACK = "RACK",
+  SERVER = "SERVER",
+}
+
 export interface CreateOutpostInput {
   /**
    * <p>The name of the Outpost.</p>
@@ -589,6 +594,13 @@ export interface CreateOutpostInput {
    * <p>The tags to apply to the Outpost.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>
+   *       The type of hardware for this Outpost.
+   *     </p>
+   */
+  SupportedHardwareType?: SupportedHardwareType | string;
 }
 
 export namespace CreateOutpostInput {
@@ -658,6 +670,13 @@ export interface Outpost {
    * <p>The Amazon Resource Name (ARN) of the site.</p>
    */
   SiteArn?: string;
+
+  /**
+   * <p>
+   *       The hardware type.
+   *     </p>
+   */
+  SupportedHardwareType?: SupportedHardwareType | string;
 }
 
 export namespace Outpost {

@@ -437,7 +437,6 @@ import {
   CreateWorkflowResponse,
   CreateXMLClassifierRequest,
   CsvClassifier,
-  Database,
   DatabaseIdentifier,
   DatabaseInput,
   DataLakePrincipal,
@@ -526,13 +525,13 @@ import {
   GetCrawlerResponse,
   GetCrawlersRequest,
   GetCrawlersResponse,
-  GetDatabaseRequest,
   GlueEncryptionException,
   GlueTable,
   GrokClassifier,
   IdempotentParameterMismatchException,
   InternalServiceException,
   InvalidInputException,
+  InvalidStateException,
   JdbcTarget,
   Job,
   JobBookmarksEncryption,
@@ -562,6 +561,7 @@ import {
   PrincipalPermissions,
   RecrawlPolicy,
   RegistryId,
+  ResourceNotReadyException,
   ResourceNumberLimitExceededException,
   ResourceUri,
   S3Encryption,
@@ -603,6 +603,7 @@ import {
   ConnectionPasswordEncryption,
   CrawlerNotRunningException,
   CrawlerStoppingException,
+  Database,
   DataCatalogEncryptionSettings,
   DevEndpointCustomLibraries,
   EncryptionAtRest,
@@ -610,6 +611,7 @@ import {
   ExportLabelsTaskRunProperties,
   FindMatchesMetrics,
   FindMatchesTaskRunProperties,
+  GetDatabaseRequest,
   GetDatabaseResponse,
   GetDatabasesRequest,
   GetDatabasesResponse,
@@ -3285,6 +3287,14 @@ const deserializeAws_json1_1BatchDeleteTableCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "GlueEncryptionException":
+    case "com.amazonaws.glue#GlueEncryptionException":
+      response = {
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServiceException":
     case "com.amazonaws.glue#InternalServiceException":
       response = {
@@ -3305,6 +3315,14 @@ const deserializeAws_json1_1BatchDeleteTableCommandError = async (
     case "com.amazonaws.glue#OperationTimeoutException":
       response = {
         ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotReadyException":
+    case "com.amazonaws.glue#ResourceNotReadyException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotReadyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3741,6 +3759,14 @@ const deserializeAws_json1_1BatchGetPartitionCommandError = async (
     case "com.amazonaws.glue#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidStateException":
+    case "com.amazonaws.glue#InvalidStateException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5575,6 +5601,14 @@ const deserializeAws_json1_1CreateTableCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ResourceNotReadyException":
+    case "com.amazonaws.glue#ResourceNotReadyException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotReadyExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNumberLimitExceededException":
     case "com.amazonaws.glue#ResourceNumberLimitExceededException":
       response = {
@@ -7297,6 +7331,14 @@ const deserializeAws_json1_1DeleteTableCommandError = async (
     case "com.amazonaws.glue#OperationTimeoutException":
       response = {
         ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotReadyException":
+    case "com.amazonaws.glue#ResourceNotReadyException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotReadyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10013,10 +10055,26 @@ const deserializeAws_json1_1GetPartitionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidStateException":
+    case "com.amazonaws.glue#InvalidStateException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "OperationTimeoutException":
     case "com.amazonaws.glue#OperationTimeoutException":
       response = {
         ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotReadyException":
+    case "com.amazonaws.glue#ResourceNotReadyException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotReadyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10875,6 +10933,14 @@ const deserializeAws_json1_1GetTableCommandError = async (
     case "com.amazonaws.glue#OperationTimeoutException":
       response = {
         ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotReadyException":
+    case "com.amazonaws.glue#ResourceNotReadyException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotReadyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -16127,6 +16193,14 @@ const deserializeAws_json1_1UpdateTableCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ResourceNotReadyException":
+    case "com.amazonaws.glue#ResourceNotReadyException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotReadyExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNumberLimitExceededException":
     case "com.amazonaws.glue#ResourceNumberLimitExceededException":
       response = {
@@ -16650,6 +16724,21 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1InvalidStateExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidStateException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidStateException(body, context);
+  const contents: InvalidStateException = {
+    name: "InvalidStateException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1MLTransformNotReadyExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -16688,6 +16777,21 @@ const deserializeAws_json1_1OperationTimeoutExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1OperationTimeoutException(body, context);
   const contents: OperationTimeoutException = {
     name: "OperationTimeoutException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ResourceNotReadyExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceNotReadyException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ResourceNotReadyException(body, context);
+  const contents: ResourceNotReadyException = {
+    name: "ResourceNotReadyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -16903,6 +17007,7 @@ const serializeAws_json1_1BatchDeleteTableRequest = (input: BatchDeleteTableRequ
       input.TablesToDelete !== null && {
         TablesToDelete: serializeAws_json1_1BatchDeleteTableNameList(input.TablesToDelete, context),
       }),
+    ...(input.TransactionId !== undefined && input.TransactionId !== null && { TransactionId: input.TransactionId }),
   };
 };
 
@@ -17780,6 +17885,7 @@ const serializeAws_json1_1CreateTableRequest = (input: CreateTableRequest, conte
       }),
     ...(input.TableInput !== undefined &&
       input.TableInput !== null && { TableInput: serializeAws_json1_1TableInput(input.TableInput, context) }),
+    ...(input.TransactionId !== undefined && input.TransactionId !== null && { TransactionId: input.TransactionId }),
   };
 };
 
@@ -18139,6 +18245,7 @@ const serializeAws_json1_1DeleteTableRequest = (input: DeleteTableRequest, conte
     ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
     ...(input.DatabaseName !== undefined && input.DatabaseName !== null && { DatabaseName: input.DatabaseName }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.TransactionId !== undefined && input.TransactionId !== null && { TransactionId: input.TransactionId }),
   };
 };
 
@@ -18612,9 +18719,12 @@ const serializeAws_json1_1GetPartitionsRequest = (input: GetPartitionsRequest, c
     ...(input.Expression !== undefined && input.Expression !== null && { Expression: input.Expression }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.QueryAsOfTime !== undefined &&
+      input.QueryAsOfTime !== null && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000) }),
     ...(input.Segment !== undefined &&
       input.Segment !== null && { Segment: serializeAws_json1_1Segment(input.Segment, context) }),
     ...(input.TableName !== undefined && input.TableName !== null && { TableName: input.TableName }),
+    ...(input.TransactionId !== undefined && input.TransactionId !== null && { TransactionId: input.TransactionId }),
   };
 };
 
@@ -18738,6 +18848,9 @@ const serializeAws_json1_1GetTableRequest = (input: GetTableRequest, context: __
     ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
     ...(input.DatabaseName !== undefined && input.DatabaseName !== null && { DatabaseName: input.DatabaseName }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.QueryAsOfTime !== undefined &&
+      input.QueryAsOfTime !== null && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000) }),
+    ...(input.TransactionId !== undefined && input.TransactionId !== null && { TransactionId: input.TransactionId }),
   };
 };
 
@@ -18748,6 +18861,9 @@ const serializeAws_json1_1GetTablesRequest = (input: GetTablesRequest, context: 
     ...(input.Expression !== undefined && input.Expression !== null && { Expression: input.Expression }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.QueryAsOfTime !== undefined &&
+      input.QueryAsOfTime !== null && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000) }),
+    ...(input.TransactionId !== undefined && input.TransactionId !== null && { TransactionId: input.TransactionId }),
   };
 };
 
@@ -20404,6 +20520,7 @@ const serializeAws_json1_1UpdateTableRequest = (input: UpdateTableRequest, conte
     ...(input.SkipArchive !== undefined && input.SkipArchive !== null && { SkipArchive: input.SkipArchive }),
     ...(input.TableInput !== undefined &&
       input.TableInput !== null && { TableInput: serializeAws_json1_1TableInput(input.TableInput, context) }),
+    ...(input.TransactionId !== undefined && input.TransactionId !== null && { TransactionId: input.TransactionId }),
   };
 };
 
@@ -23206,6 +23323,12 @@ const deserializeAws_json1_1InvalidInputException = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1InvalidStateException = (output: any, context: __SerdeContext): InvalidStateException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
 const deserializeAws_json1_1JdbcTarget = (output: any, context: __SerdeContext): JdbcTarget => {
   return {
     ConnectionName: __expectString(output.ConnectionName),
@@ -24217,6 +24340,15 @@ const deserializeAws_json1_1ResetJobBookmarkResponse = (
       output.JobBookmarkEntry !== undefined && output.JobBookmarkEntry !== null
         ? deserializeAws_json1_1JobBookmarkEntry(output.JobBookmarkEntry, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceNotReadyException = (
+  output: any,
+  context: __SerdeContext
+): ResourceNotReadyException => {
+  return {
+    Message: __expectString(output.Message),
   } as any;
 };
 

@@ -25,8 +25,8 @@ export interface GetCommandInvocationCommandOutput extends GetCommandInvocationR
  * <p>Returns detailed information about command execution for an invocation or plugin.</p>
  *          <p>
  *             <code>GetCommandInvocation</code> only gives the execution status of a plugin in a document.
- *    To get the command execution status on a specific instance, use <a>ListCommandInvocations</a>. To get the command execution status across instances, use
- *     <a>ListCommands</a>.</p>
+ *    To get the command execution status on a specific managed node, use <a>ListCommandInvocations</a>. To get the command execution status across managed nodes,
+ *    use <a>ListCommands</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

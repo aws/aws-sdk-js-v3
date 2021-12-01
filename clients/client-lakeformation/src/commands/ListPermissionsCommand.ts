@@ -14,9 +14,9 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { ListPermissionsRequest, ListPermissionsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListPermissionsCommand,
-  serializeAws_json1_1ListPermissionsCommand,
-} from "../protocols/Aws_json1_1";
+  deserializeAws_restJson1ListPermissionsCommand,
+  serializeAws_restJson1ListPermissionsCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface ListPermissionsCommandInput extends ListPermissionsRequest {}
 export interface ListPermissionsCommandOutput extends ListPermissionsResponse, __MetadataBearer {}
@@ -85,11 +85,11 @@ export class ListPermissionsCommand extends $Command<
   }
 
   private serialize(input: ListPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPermissionsCommand(input, context);
+    return serializeAws_restJson1ListPermissionsCommand(input, context);
   }
 
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPermissionsCommandOutput> {
-    return deserializeAws_json1_1ListPermissionsCommand(output, context);
+    return deserializeAws_restJson1ListPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

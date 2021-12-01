@@ -53,6 +53,77 @@ import {
   ViolationEventOccurrenceRange,
 } from "./models_1";
 
+export interface ListThingRegistrationTasksResponse {
+  /**
+   * <p>A list of bulk thing provisioning task IDs.</p>
+   */
+  taskIds?: string[];
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListThingRegistrationTasksResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingRegistrationTasksResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input for the ListThings operation.</p>
+ */
+export interface ListThingsRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The attribute name used to search for things.</p>
+   */
+  attributeName?: string;
+
+  /**
+   * <p>The attribute value used to search for things.</p>
+   */
+  attributeValue?: string;
+
+  /**
+   * <p>The name of the thing type used to search for things.</p>
+   */
+  thingTypeName?: string;
+
+  /**
+   * <p>When <code>true</code>, the action returns the thing resources with attribute values
+   *                      that start with the <code>attributeValue</code> provided.</p>
+   *             <p>When <code>false</code>, or not present, the action returns only the thing
+   * 			resources with attribute values that match the entire <code>attributeValue</code>
+   * 			provided. </p>
+   */
+  usePrefixAttributeValue?: boolean;
+}
+
+export namespace ListThingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingsRequest): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The properties of the thing, including thing name, thing type name, and a list of thing
  * 			attributes.</p>
@@ -1435,9 +1506,17 @@ export interface ThingDocument {
   attributes?: { [key: string]: string };
 
   /**
-   * <p>The shadow.</p>
+   * <p>The unnamed shadow and named shadow.</p>
+   *          <p>For more information about shadows, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html">IoT Device Shadow service.</a>
+   *          </p>
    */
   shadow?: string;
+
+  /**
+   * <p>Contains Device Defender data.</p>
+   *          <p>For more information about Device Defender, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender.html">Device Defender</a>. </p>
+   */
+  deviceDefender?: string;
 
   /**
    * <p>Indicates whether the thing is connected to the Amazon Web Services IoT Core service.</p>
@@ -2878,7 +2957,7 @@ export interface UpdateFleetMetricRequest {
 
   /**
    * <p>Used to support unit transformation such as milliseconds to seconds. The unit must be
-   *       supported by <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>.</p>
+   *       supported by <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>.</p>
    */
   unit?: FleetMetricUnit | string;
 

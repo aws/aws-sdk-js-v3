@@ -50,6 +50,10 @@ import {
 } from "@aws-sdk/types";
 
 import {
+  DeleteRecommendationPreferencesCommandInput,
+  DeleteRecommendationPreferencesCommandOutput,
+} from "./commands/DeleteRecommendationPreferencesCommand";
+import {
   DescribeRecommendationExportJobsCommandInput,
   DescribeRecommendationExportJobsCommandOutput,
 } from "./commands/DescribeRecommendationExportJobsCommand";
@@ -86,6 +90,10 @@ import {
   GetEC2RecommendationProjectedMetricsCommandOutput,
 } from "./commands/GetEC2RecommendationProjectedMetricsCommand";
 import {
+  GetEffectiveRecommendationPreferencesCommandInput,
+  GetEffectiveRecommendationPreferencesCommandOutput,
+} from "./commands/GetEffectiveRecommendationPreferencesCommand";
+import {
   GetEnrollmentStatusCommandInput,
   GetEnrollmentStatusCommandOutput,
 } from "./commands/GetEnrollmentStatusCommand";
@@ -98,9 +106,17 @@ import {
   GetLambdaFunctionRecommendationsCommandOutput,
 } from "./commands/GetLambdaFunctionRecommendationsCommand";
 import {
+  GetRecommendationPreferencesCommandInput,
+  GetRecommendationPreferencesCommandOutput,
+} from "./commands/GetRecommendationPreferencesCommand";
+import {
   GetRecommendationSummariesCommandInput,
   GetRecommendationSummariesCommandOutput,
 } from "./commands/GetRecommendationSummariesCommand";
+import {
+  PutRecommendationPreferencesCommandInput,
+  PutRecommendationPreferencesCommandOutput,
+} from "./commands/PutRecommendationPreferencesCommand";
 import {
   UpdateEnrollmentStatusCommandInput,
   UpdateEnrollmentStatusCommandOutput,
@@ -108,6 +124,7 @@ import {
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | DeleteRecommendationPreferencesCommandInput
   | DescribeRecommendationExportJobsCommandInput
   | ExportAutoScalingGroupRecommendationsCommandInput
   | ExportEBSVolumeRecommendationsCommandInput
@@ -117,13 +134,17 @@ export type ServiceInputTypes =
   | GetEBSVolumeRecommendationsCommandInput
   | GetEC2InstanceRecommendationsCommandInput
   | GetEC2RecommendationProjectedMetricsCommandInput
+  | GetEffectiveRecommendationPreferencesCommandInput
   | GetEnrollmentStatusCommandInput
   | GetEnrollmentStatusesForOrganizationCommandInput
   | GetLambdaFunctionRecommendationsCommandInput
+  | GetRecommendationPreferencesCommandInput
   | GetRecommendationSummariesCommandInput
+  | PutRecommendationPreferencesCommandInput
   | UpdateEnrollmentStatusCommandInput;
 
 export type ServiceOutputTypes =
+  | DeleteRecommendationPreferencesCommandOutput
   | DescribeRecommendationExportJobsCommandOutput
   | ExportAutoScalingGroupRecommendationsCommandOutput
   | ExportEBSVolumeRecommendationsCommandOutput
@@ -133,10 +154,13 @@ export type ServiceOutputTypes =
   | GetEBSVolumeRecommendationsCommandOutput
   | GetEC2InstanceRecommendationsCommandOutput
   | GetEC2RecommendationProjectedMetricsCommandOutput
+  | GetEffectiveRecommendationPreferencesCommandOutput
   | GetEnrollmentStatusCommandOutput
   | GetEnrollmentStatusesForOrganizationCommandOutput
   | GetLambdaFunctionRecommendationsCommandOutput
+  | GetRecommendationPreferencesCommandOutput
   | GetRecommendationSummariesCommandOutput
+  | PutRecommendationPreferencesCommandOutput
   | UpdateEnrollmentStatusCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

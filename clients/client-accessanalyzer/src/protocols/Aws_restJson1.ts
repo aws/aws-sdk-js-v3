@@ -1002,6 +1002,8 @@ export const serializeAws_restJson1ValidatePolicyCommand = async (
     ...(input.policyDocument !== undefined &&
       input.policyDocument !== null && { policyDocument: input.policyDocument }),
     ...(input.policyType !== undefined && input.policyType !== null && { policyType: input.policyType }),
+    ...(input.validatePolicyResourceType !== undefined &&
+      input.validatePolicyResourceType !== null && { validatePolicyResourceType: input.validatePolicyResourceType }),
   });
   return new __HttpRequest({
     protocol,

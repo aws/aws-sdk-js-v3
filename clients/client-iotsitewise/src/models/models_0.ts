@@ -2612,7 +2612,7 @@ export interface CreatePortalRequest {
    *             <li>
    *                <p>
    *                   <code>IAM</code> – The portal uses Identity and Access Management to authenticate users and manage
-   *           user permissions. This option is only available in the China Regions.</p>
+   *           user permissions.</p>
    *             </li>
    *          </ul>
    *          <p>You can't change this value after you create a portal.</p>
@@ -4118,6 +4118,38 @@ export namespace MultiLayerStorage {
   });
 }
 
+/**
+ * <p>How many days your data is kept in the hot tier. By default, your data is kept indefinitely in the hot tier.</p>
+ */
+export interface RetentionPeriod {
+  /**
+   * <p>The number of days that your data is kept.</p>
+   *          <note>
+   *             <p>If you specified a value for this parameter, the <code>unlimited</code> parameter must
+   *         be <code>false</code>.</p>
+   *          </note>
+   */
+  numberOfDays?: number;
+
+  /**
+   * <p>If true, your data is kept indefinitely.</p>
+   *          <note>
+   *             <p>If configured to <code>true</code>, you must not specify a value for the
+   *           <code>numberOfDays</code> parameter.</p>
+   *          </note>
+   */
+  unlimited?: boolean;
+}
+
+export namespace RetentionPeriod {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RetentionPeriod): any => ({
+    ...obj,
+  });
+}
+
 export enum StorageType {
   MULTI_LAYER_STORAGE = "MULTI_LAYER_STORAGE",
   SITEWISE_DEFAULT_STORAGE = "SITEWISE_DEFAULT_STORAGE",
@@ -4125,15 +4157,18 @@ export enum StorageType {
 
 export interface DescribeStorageConfigurationResponse {
   /**
-   * <p>The type of storage that you specified for your data. The storage type can be one of the following values:</p>
+   * <p>The storage tier that you specified for your data.
+   *       The <code>storageType</code> parameter can be one of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise replicates your data into a service managed database.</p>
+   *                   <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise saves your data into the hot tier.
+   *           The hot tier is a service-managed database.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise replicates your data into a service managed database and saves a copy of your raw data and metadata in an Amazon S3 object that you specified.</p>
+   *                   <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the cold tier.
+   *           The cold tier is a customer-managed Amazon S3 bucket.</p>
    *             </li>
    *          </ul>
    */
@@ -4164,6 +4199,11 @@ export interface DescribeStorageConfigurationResponse {
    *     in the <i>IoT SiteWise User Guide</i>.</p>
    */
   disassociatedDataStorage?: DisassociatedDataStorageState | string;
+
+  /**
+   * <p>How many days your data is kept in the hot tier. By default, your data is kept indefinitely in the hot tier.</p>
+   */
+  retentionPeriod?: RetentionPeriod;
 
   /**
    * <p>Contains current status information for the configuration.</p>
@@ -5761,15 +5801,18 @@ export namespace PutLoggingOptionsResponse {
 
 export interface PutStorageConfigurationRequest {
   /**
-   * <p>The type of storage that you specified for your data. The storage type can be one of the following values:</p>
+   * <p>The storage tier that you specified for your data.
+   *       The <code>storageType</code> parameter can be one of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise replicates your data into a service managed database.</p>
+   *                   <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise saves your data into the hot tier.
+   *           The hot tier is a service-managed database.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise replicates your data into a service managed database and saves a copy of your raw data and metadata in an Amazon S3 object that you specified.</p>
+   *                   <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the cold tier.
+   *           The cold tier is a customer-managed Amazon S3 bucket.</p>
    *             </li>
    *          </ul>
    */
@@ -5801,6 +5844,11 @@ export interface PutStorageConfigurationRequest {
    *     in the <i>IoT SiteWise User Guide</i>.</p>
    */
   disassociatedDataStorage?: DisassociatedDataStorageState | string;
+
+  /**
+   * <p>How many days your data is kept in the hot tier. By default, your data is kept indefinitely in the hot tier.</p>
+   */
+  retentionPeriod?: RetentionPeriod;
 }
 
 export namespace PutStorageConfigurationRequest {
@@ -5814,15 +5862,18 @@ export namespace PutStorageConfigurationRequest {
 
 export interface PutStorageConfigurationResponse {
   /**
-   * <p>The type of storage that you specified for your data. The storage type can be one of the following values:</p>
+   * <p>The storage tier that you specified for your data.
+   *       The <code>storageType</code> parameter can be one of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise replicates your data into a service managed database.</p>
+   *                   <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise saves your data into the hot tier.
+   *           The hot tier is a service-managed database.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise replicates your data into a service managed database and saves a copy of your raw data and metadata in an Amazon S3 object that you specified.</p>
+   *                   <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the cold tier.
+   *           The cold tier is a customer-managed Amazon S3 bucket.</p>
    *             </li>
    *          </ul>
    */
@@ -5853,6 +5904,11 @@ export interface PutStorageConfigurationResponse {
    *     in the <i>IoT SiteWise User Guide</i>.</p>
    */
   disassociatedDataStorage?: DisassociatedDataStorageState | string;
+
+  /**
+   * <p>How many days your data is kept in the hot tier. By default, your data is kept indefinitely in the hot tier.</p>
+   */
+  retentionPeriod?: RetentionPeriod;
 
   /**
    * <p>Contains current status information for the configuration.</p>

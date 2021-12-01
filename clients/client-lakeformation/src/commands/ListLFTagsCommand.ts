@@ -14,15 +14,15 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { ListLFTagsRequest, ListLFTagsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListLFTagsCommand,
-  serializeAws_json1_1ListLFTagsCommand,
-} from "../protocols/Aws_json1_1";
+  deserializeAws_restJson1ListLFTagsCommand,
+  serializeAws_restJson1ListLFTagsCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface ListLFTagsCommandInput extends ListLFTagsRequest {}
 export interface ListLFTagsCommandOutput extends ListLFTagsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists tags that the requester has permission to view. </p>
+ * <p>Lists LF-tags that the requester has permission to view. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,11 +83,11 @@ export class ListLFTagsCommand extends $Command<
   }
 
   private serialize(input: ListLFTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLFTagsCommand(input, context);
+    return serializeAws_restJson1ListLFTagsCommand(input, context);
   }
 
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLFTagsCommandOutput> {
-    return deserializeAws_json1_1ListLFTagsCommand(output, context);
+    return deserializeAws_restJson1ListLFTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

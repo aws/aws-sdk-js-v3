@@ -872,6 +872,10 @@ import {
 } from "../commands/DescribeSnapshotAttributeCommand";
 import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "../commands/DescribeSnapshotsCommand";
 import {
+  DescribeSnapshotTierStatusCommandInput,
+  DescribeSnapshotTierStatusCommandOutput,
+} from "../commands/DescribeSnapshotTierStatusCommand";
+import {
   DescribeSpotDatafeedSubscriptionCommandInput,
   DescribeSpotDatafeedSubscriptionCommandOutput,
 } from "../commands/DescribeSpotDatafeedSubscriptionCommand";
@@ -1264,6 +1268,10 @@ import { ImportKeyPairCommandInput, ImportKeyPairCommandOutput } from "../comman
 import { ImportSnapshotCommandInput, ImportSnapshotCommandOutput } from "../commands/ImportSnapshotCommand";
 import { ImportVolumeCommandInput, ImportVolumeCommandOutput } from "../commands/ImportVolumeCommand";
 import {
+  ListSnapshotsInRecycleBinCommandInput,
+  ListSnapshotsInRecycleBinCommandOutput,
+} from "../commands/ListSnapshotsInRecycleBinCommand";
+import {
   ModifyAddressAttributeCommandInput,
   ModifyAddressAttributeCommandOutput,
 } from "../commands/ModifyAddressAttributeCommand";
@@ -1362,6 +1370,7 @@ import {
   ModifySnapshotAttributeCommandInput,
   ModifySnapshotAttributeCommandOutput,
 } from "../commands/ModifySnapshotAttributeCommand";
+import { ModifySnapshotTierCommandInput, ModifySnapshotTierCommandOutput } from "../commands/ModifySnapshotTierCommand";
 import {
   ModifySpotFleetRequestCommandInput,
   ModifySpotFleetRequestCommandOutput,
@@ -1551,6 +1560,14 @@ import {
   RestoreManagedPrefixListVersionCommandInput,
   RestoreManagedPrefixListVersionCommandOutput,
 } from "../commands/RestoreManagedPrefixListVersionCommand";
+import {
+  RestoreSnapshotFromRecycleBinCommandInput,
+  RestoreSnapshotFromRecycleBinCommandOutput,
+} from "../commands/RestoreSnapshotFromRecycleBinCommand";
+import {
+  RestoreSnapshotTierCommandInput,
+  RestoreSnapshotTierCommandOutput,
+} from "../commands/RestoreSnapshotTierCommand";
 import {
   RevokeClientVpnIngressCommandInput,
   RevokeClientVpnIngressCommandOutput,
@@ -1947,7 +1964,6 @@ import {
   CreateTransitGatewayVpcAttachmentRequestOptions,
   CreateTransitGatewayVpcAttachmentResult,
   CreateVolumeRequest,
-  CreateVpcEndpointConnectionNotificationRequest,
   CreateVpcEndpointRequest,
   CreateVpcEndpointResult,
   CreateVpcRequest,
@@ -2106,6 +2122,7 @@ import {
   ConnectionLogResponseOptions,
   ConnectionNotification,
   ConversionTask,
+  CreateVpcEndpointConnectionNotificationRequest,
   CreateVpcEndpointConnectionNotificationResult,
   CreateVpcEndpointServiceConfigurationRequest,
   CreateVpcEndpointServiceConfigurationResult,
@@ -2291,7 +2308,6 @@ import {
   DescribeFpgaImagesResult,
   DescribeHostReservationOfferingsRequest,
   DescribeHostReservationOfferingsResult,
-  DescribeHostReservationsRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -2374,6 +2390,7 @@ import {
   ClassicLoadBalancersConfig,
   CpuOptions,
   CreateVolumePermission,
+  DescribeHostReservationsRequest,
   DescribeHostReservationsResult,
   DescribeHostsRequest,
   DescribeHostsResult,
@@ -2481,6 +2498,8 @@ import {
   DescribeSnapshotAttributeResult,
   DescribeSnapshotsRequest,
   DescribeSnapshotsResult,
+  DescribeSnapshotTierStatusRequest,
+  DescribeSnapshotTierStatusResult,
   DescribeSpotDatafeedSubscriptionRequest,
   DescribeSpotDatafeedSubscriptionResult,
   DescribeSpotFleetInstancesRequest,
@@ -2492,8 +2511,6 @@ import {
   DescribeSpotInstanceRequestsRequest,
   DescribeSpotInstanceRequestsResult,
   DescribeSpotPriceHistoryRequest,
-  DescribeSpotPriceHistoryResult,
-  DescribeStaleSecurityGroupsRequest,
   DiskInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
@@ -2594,6 +2611,7 @@ import {
   SlotStartTimeRangeRequest,
   SnapshotDetail,
   SnapshotTaskDetail,
+  SnapshotTierStatus,
   SpotCapacityRebalance,
   SpotFleetLaunchSpecification,
   SpotFleetMonitoring,
@@ -2604,9 +2622,6 @@ import {
   SpotInstanceStatus,
   SpotMaintenanceStrategies,
   SpotPlacement,
-  SpotPrice,
-  StaleIpPermission,
-  StaleSecurityGroup,
   StateReason,
   TargetGroup,
   TargetGroupsConfig,
@@ -2618,12 +2633,13 @@ import {
 import {
   AssociatedRole,
   AthenaIntegration,
-  BlobAttributeValue,
   CapacityReservationGroup,
   ClassicLinkDnsSupport,
   ClientCertificateRevocationListStatus,
   ClientData,
   CoipAddressUsage,
+  DescribeSpotPriceHistoryResult,
+  DescribeStaleSecurityGroupsRequest,
   DescribeStaleSecurityGroupsResult,
   DescribeStoreImageTasksRequest,
   DescribeStoreImageTasksResult,
@@ -2737,7 +2753,6 @@ import {
   DiskImage,
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
-  EbsInstanceBlockDeviceSpecification,
   EnableEbsEncryptionByDefaultRequest,
   EnableEbsEncryptionByDefaultResult,
   EnableFastSnapshotRestoreErrorItem,
@@ -2838,7 +2853,6 @@ import {
   ImportSnapshotResult,
   ImportVolumeRequest,
   ImportVolumeResult,
-  InstanceBlockDeviceMappingSpecification,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceRequirementsWithMetadataRequest,
@@ -2846,7 +2860,8 @@ import {
   InstanceUsage,
   IntegrateServices,
   Ipv6CidrAssociation,
-  LaunchPermissionModifications,
+  ListSnapshotsInRecycleBinRequest,
+  ListSnapshotsInRecycleBinResult,
   LoadPermissionModifications,
   LoadPermissionRequest,
   ModifyAddressAttributeRequest,
@@ -2868,10 +2883,6 @@ import {
   ModifyFpgaImageAttributeRequest,
   ModifyFpgaImageAttributeResult,
   ModifyHostsRequest,
-  ModifyHostsResult,
-  ModifyIdentityIdFormatRequest,
-  ModifyIdFormatRequest,
-  ModifyImageAttributeRequest,
   PrefixListAssociation,
   PrefixListEntry,
   PrivateDnsDetails,
@@ -2880,7 +2891,11 @@ import {
   ReservedInstanceReservationValue,
   ServiceDetail,
   SnapshotDiskContainer,
+  SnapshotRecycleBinInfo,
   SpotPlacementScore,
+  SpotPrice,
+  StaleIpPermission,
+  StaleSecurityGroup,
   StoreImageTaskResult,
   TagDescription,
   TargetConfiguration,
@@ -2907,20 +2922,28 @@ import {
   VpnConnectionDeviceType,
 } from "../models/models_4";
 import {
+  BlobAttributeValue,
   CapacityReservationSpecification,
   CidrAuthorizationContext,
   CpuOptionsRequest,
   CreateVolumePermissionModifications,
+  EbsInstanceBlockDeviceSpecification,
   ElasticInferenceAccelerator,
   EnclaveOptionsRequest,
   HibernationOptionsRequest,
+  InstanceBlockDeviceMappingSpecification,
   InstanceCreditSpecificationRequest,
   InstanceMarketOptionsRequest,
   InstanceMetadataOptionsRequest,
   InstanceMonitoring,
   InstanceStateChange,
+  LaunchPermissionModifications,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyHostsResult,
+  ModifyIdentityIdFormatRequest,
+  ModifyIdFormatRequest,
+  ModifyImageAttributeRequest,
   ModifyInstanceAttributeRequest,
   ModifyInstanceCapacityReservationAttributesRequest,
   ModifyInstanceCapacityReservationAttributesResult,
@@ -2946,6 +2969,8 @@ import {
   ModifySecurityGroupRulesRequest,
   ModifySecurityGroupRulesResult,
   ModifySnapshotAttributeRequest,
+  ModifySnapshotTierRequest,
+  ModifySnapshotTierResult,
   ModifySpotFleetRequestRequest,
   ModifySpotFleetRequestResponse,
   ModifySubnetAttributeRequest,
@@ -3061,6 +3086,10 @@ import {
   RestoreAddressToClassicResult,
   RestoreManagedPrefixListVersionRequest,
   RestoreManagedPrefixListVersionResult,
+  RestoreSnapshotFromRecycleBinRequest,
+  RestoreSnapshotFromRecycleBinResult,
+  RestoreSnapshotTierRequest,
+  RestoreSnapshotTierResult,
   RevokeClientVpnIngressRequest,
   RevokeClientVpnIngressResult,
   RevokeSecurityGroupEgressRequest,
@@ -7268,6 +7297,22 @@ export const serializeAws_ec2DescribeSnapshotsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DescribeSnapshotTierStatusCommand = async (
+  input: DescribeSnapshotTierStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeSnapshotTierStatusRequest(input, context),
+    Action: "DescribeSnapshotTierStatus",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DescribeSpotDatafeedSubscriptionCommand = async (
   input: DescribeSpotDatafeedSubscriptionCommandInput,
   context: __SerdeContext
@@ -9028,6 +9073,22 @@ export const serializeAws_ec2ImportVolumeCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2ListSnapshotsInRecycleBinCommand = async (
+  input: ListSnapshotsInRecycleBinCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ListSnapshotsInRecycleBinRequest(input, context),
+    Action: "ListSnapshotsInRecycleBin",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2ModifyAddressAttributeCommand = async (
   input: ModifyAddressAttributeCommandInput,
   context: __SerdeContext
@@ -9455,6 +9516,22 @@ export const serializeAws_ec2ModifySnapshotAttributeCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2ModifySnapshotAttributeRequest(input, context),
     Action: "ModifySnapshotAttribute",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ModifySnapshotTierCommand = async (
+  input: ModifySnapshotTierCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifySnapshotTierRequest(input, context),
+    Action: "ModifySnapshotTier",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -10367,6 +10444,38 @@ export const serializeAws_ec2RestoreManagedPrefixListVersionCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2RestoreManagedPrefixListVersionRequest(input, context),
     Action: "RestoreManagedPrefixListVersion",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2RestoreSnapshotFromRecycleBinCommand = async (
+  input: RestoreSnapshotFromRecycleBinCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2RestoreSnapshotFromRecycleBinRequest(input, context),
+    Action: "RestoreSnapshotFromRecycleBin",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2RestoreSnapshotTierCommand = async (
+  input: RestoreSnapshotTierCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2RestoreSnapshotTierRequest(input, context),
+    Action: "RestoreSnapshotTier",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -22541,6 +22650,52 @@ const deserializeAws_ec2DescribeSnapshotsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2DescribeSnapshotTierStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSnapshotTierStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeSnapshotTierStatusCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeSnapshotTierStatusResult(data, context);
+  const response: DescribeSnapshotTierStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeSnapshotTierStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSnapshotTierStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2DescribeSpotDatafeedSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -27577,6 +27732,52 @@ const deserializeAws_ec2ImportVolumeCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2ListSnapshotsInRecycleBinCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSnapshotsInRecycleBinCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ListSnapshotsInRecycleBinCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ListSnapshotsInRecycleBinResult(data, context);
+  const response: ListSnapshotsInRecycleBinCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ListSnapshotsInRecycleBinCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSnapshotsInRecycleBinCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2ModifyAddressAttributeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -28776,6 +28977,52 @@ const deserializeAws_ec2ModifySnapshotAttributeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifySnapshotAttributeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2ModifySnapshotTierCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifySnapshotTierCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifySnapshotTierCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifySnapshotTierResult(data, context);
+  const response: ModifySnapshotTierCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifySnapshotTierCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifySnapshotTierCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -31362,6 +31609,98 @@ const deserializeAws_ec2RestoreManagedPrefixListVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreManagedPrefixListVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2RestoreSnapshotFromRecycleBinCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreSnapshotFromRecycleBinCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2RestoreSnapshotFromRecycleBinCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2RestoreSnapshotFromRecycleBinResult(data, context);
+  const response: RestoreSnapshotFromRecycleBinCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2RestoreSnapshotFromRecycleBinCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreSnapshotFromRecycleBinCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2RestoreSnapshotTierCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreSnapshotTierCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2RestoreSnapshotTierCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2RestoreSnapshotTierResult(data, context);
+  const response: RestoreSnapshotTierCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2RestoreSnapshotTierCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreSnapshotTierCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -39807,6 +40146,30 @@ const serializeAws_ec2DescribeSnapshotsRequest = (input: DescribeSnapshotsReques
   return entries;
 };
 
+const serializeAws_ec2DescribeSnapshotTierStatusRequest = (
+  input: DescribeSnapshotTierStatusRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  return entries;
+};
+
 const serializeAws_ec2DescribeSpotDatafeedSubscriptionRequest = (
   input: DescribeSpotDatafeedSubscriptionRequest,
   context: __SerdeContext
@@ -45001,6 +45364,30 @@ const serializeAws_ec2LicenseSpecificationListRequest = (
   return entries;
 };
 
+const serializeAws_ec2ListSnapshotsInRecycleBinRequest = (
+  input: ListSnapshotsInRecycleBinRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.SnapshotIds !== undefined && input.SnapshotIds !== null) {
+    const memberEntries = serializeAws_ec2SnapshotIdStringList(input.SnapshotIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SnapshotId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2LoadBalancersConfig = (input: LoadBalancersConfig, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ClassicLoadBalancersConfig !== undefined && input.ClassicLoadBalancersConfig !== null) {
@@ -46065,6 +46452,20 @@ const serializeAws_ec2ModifySnapshotAttributeRequest = (
   return entries;
 };
 
+const serializeAws_ec2ModifySnapshotTierRequest = (input: ModifySnapshotTierRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.SnapshotId !== undefined && input.SnapshotId !== null) {
+    entries["SnapshotId"] = input.SnapshotId;
+  }
+  if (input.StorageTier !== undefined && input.StorageTier !== null) {
+    entries["StorageTier"] = input.StorageTier;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2ModifySpotFleetRequestRequest = (
   input: ModifySpotFleetRequestRequest,
   context: __SerdeContext
@@ -46151,6 +46552,16 @@ const serializeAws_ec2ModifySubnetAttributeRequest = (
     const memberEntries = serializeAws_ec2AttributeBooleanValue(input.EnableResourceNameDnsAAAARecordOnLaunch, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnableResourceNameDnsAAAARecordOnLaunch.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.EnableLniAtDeviceIndex !== undefined && input.EnableLniAtDeviceIndex !== null) {
+    entries["EnableLniAtDeviceIndex"] = input.EnableLniAtDeviceIndex;
+  }
+  if (input.DisableLniAtDeviceIndex !== undefined && input.DisableLniAtDeviceIndex !== null) {
+    const memberEntries = serializeAws_ec2AttributeBooleanValue(input.DisableLniAtDeviceIndex, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DisableLniAtDeviceIndex.${key}`;
       entries[loc] = value;
     });
   }
@@ -49105,6 +49516,40 @@ const serializeAws_ec2RestoreManagedPrefixListVersionRequest = (
   }
   if (input.CurrentVersion !== undefined && input.CurrentVersion !== null) {
     entries["CurrentVersion"] = input.CurrentVersion;
+  }
+  return entries;
+};
+
+const serializeAws_ec2RestoreSnapshotFromRecycleBinRequest = (
+  input: RestoreSnapshotFromRecycleBinRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.SnapshotId !== undefined && input.SnapshotId !== null) {
+    entries["SnapshotId"] = input.SnapshotId;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2RestoreSnapshotTierRequest = (
+  input: RestoreSnapshotTierRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.SnapshotId !== undefined && input.SnapshotId !== null) {
+    entries["SnapshotId"] = input.SnapshotId;
+  }
+  if (input.TemporaryRestoreDays !== undefined && input.TemporaryRestoreDays !== null) {
+    entries["TemporaryRestoreDays"] = input.TemporaryRestoreDays;
+  }
+  if (input.PermanentRestore !== undefined && input.PermanentRestore !== null) {
+    entries["PermanentRestore"] = input.PermanentRestore;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
   }
   return entries;
 };
@@ -58693,6 +59138,29 @@ const deserializeAws_ec2DescribeSnapshotsResult = (output: any, context: __Serde
   return contents;
 };
 
+const deserializeAws_ec2DescribeSnapshotTierStatusResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeSnapshotTierStatusResult => {
+  const contents: any = {
+    SnapshotTierStatuses: undefined,
+    NextToken: undefined,
+  };
+  if (output.snapshotTierStatusSet === "") {
+    contents.SnapshotTierStatuses = [];
+  }
+  if (output["snapshotTierStatusSet"] !== undefined && output["snapshotTierStatusSet"]["item"] !== undefined) {
+    contents.SnapshotTierStatuses = deserializeAws_ec2snapshotTierStatusSet(
+      __getArrayIfSingleItem(output["snapshotTierStatusSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2DescribeSpotDatafeedSubscriptionResult = (
   output: any,
   context: __SerdeContext
@@ -67193,6 +67661,29 @@ const deserializeAws_ec2LicenseList = (output: any, context: __SerdeContext): Li
     });
 };
 
+const deserializeAws_ec2ListSnapshotsInRecycleBinResult = (
+  output: any,
+  context: __SerdeContext
+): ListSnapshotsInRecycleBinResult => {
+  const contents: any = {
+    Snapshots: undefined,
+    NextToken: undefined,
+  };
+  if (output.snapshotSet === "") {
+    contents.Snapshots = [];
+  }
+  if (output["snapshotSet"] !== undefined && output["snapshotSet"]["item"] !== undefined) {
+    contents.Snapshots = deserializeAws_ec2SnapshotRecycleBinInfoList(
+      __getArrayIfSingleItem(output["snapshotSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2LoadBalancersConfig = (output: any, context: __SerdeContext): LoadBalancersConfig => {
   const contents: any = {
     ClassicLoadBalancersConfig: undefined,
@@ -68037,6 +68528,20 @@ const deserializeAws_ec2ModifySecurityGroupRulesResult = (
   };
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ModifySnapshotTierResult = (output: any, context: __SerdeContext): ModifySnapshotTierResult => {
+  const contents: any = {
+    SnapshotId: undefined,
+    TieringStartTime: undefined,
+  };
+  if (output["snapshotId"] !== undefined) {
+    contents.SnapshotId = __expectString(output["snapshotId"]);
+  }
+  if (output["tieringStartTime"] !== undefined) {
+    contents.TieringStartTime = __expectNonNull(__parseRfc3339DateTime(output["tieringStartTime"]));
   }
   return contents;
 };
@@ -71596,6 +72101,80 @@ const deserializeAws_ec2RestoreManagedPrefixListVersionResult = (
   return contents;
 };
 
+const deserializeAws_ec2RestoreSnapshotFromRecycleBinResult = (
+  output: any,
+  context: __SerdeContext
+): RestoreSnapshotFromRecycleBinResult => {
+  const contents: any = {
+    SnapshotId: undefined,
+    OutpostArn: undefined,
+    Description: undefined,
+    Encrypted: undefined,
+    OwnerId: undefined,
+    Progress: undefined,
+    StartTime: undefined,
+    State: undefined,
+    VolumeId: undefined,
+    VolumeSize: undefined,
+  };
+  if (output["snapshotId"] !== undefined) {
+    contents.SnapshotId = __expectString(output["snapshotId"]);
+  }
+  if (output["outpostArn"] !== undefined) {
+    contents.OutpostArn = __expectString(output["outpostArn"]);
+  }
+  if (output["description"] !== undefined) {
+    contents.Description = __expectString(output["description"]);
+  }
+  if (output["encrypted"] !== undefined) {
+    contents.Encrypted = __parseBoolean(output["encrypted"]);
+  }
+  if (output["ownerId"] !== undefined) {
+    contents.OwnerId = __expectString(output["ownerId"]);
+  }
+  if (output["progress"] !== undefined) {
+    contents.Progress = __expectString(output["progress"]);
+  }
+  if (output["startTime"] !== undefined) {
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["startTime"]));
+  }
+  if (output["status"] !== undefined) {
+    contents.State = __expectString(output["status"]);
+  }
+  if (output["volumeId"] !== undefined) {
+    contents.VolumeId = __expectString(output["volumeId"]);
+  }
+  if (output["volumeSize"] !== undefined) {
+    contents.VolumeSize = __strictParseInt32(output["volumeSize"]) as number;
+  }
+  return contents;
+};
+
+const deserializeAws_ec2RestoreSnapshotTierResult = (
+  output: any,
+  context: __SerdeContext
+): RestoreSnapshotTierResult => {
+  const contents: any = {
+    SnapshotId: undefined,
+    RestoreStartTime: undefined,
+    RestoreDuration: undefined,
+    IsPermanentRestore: undefined,
+  };
+  if (output["snapshotId"] !== undefined) {
+    contents.SnapshotId = __expectString(output["snapshotId"]);
+  }
+  if (output["restoreStartTime"] !== undefined) {
+    contents.RestoreStartTime = __expectNonNull(__parseRfc3339DateTime(output["restoreStartTime"]));
+  }
+  if (output["restoreDuration"] !== undefined) {
+    contents.RestoreDuration = __strictParseInt32(output["restoreDuration"]) as number;
+  }
+  if (output["isPermanentRestore"] !== undefined) {
+    contents.IsPermanentRestore = __parseBoolean(output["isPermanentRestore"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2RevokeClientVpnIngressResult = (
   output: any,
   context: __SerdeContext
@@ -72611,6 +73190,8 @@ const deserializeAws_ec2Snapshot = (output: any, context: __SerdeContext): Snaps
     OwnerAlias: undefined,
     OutpostArn: undefined,
     Tags: undefined,
+    StorageTier: undefined,
+    RestoreExpiryTime: undefined,
   };
   if (output["dataEncryptionKeyId"] !== undefined) {
     contents.DataEncryptionKeyId = __expectString(output["dataEncryptionKeyId"]);
@@ -72659,6 +73240,12 @@ const deserializeAws_ec2Snapshot = (output: any, context: __SerdeContext): Snaps
   }
   if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
     contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  if (output["storageTier"] !== undefined) {
+    contents.StorageTier = __expectString(output["storageTier"]);
+  }
+  if (output["restoreExpiryTime"] !== undefined) {
+    contents.RestoreExpiryTime = __expectNonNull(__parseRfc3339DateTime(output["restoreExpiryTime"]));
   }
   return contents;
 };
@@ -72784,6 +73371,46 @@ const deserializeAws_ec2SnapshotList = (output: any, context: __SerdeContext): S
     });
 };
 
+const deserializeAws_ec2SnapshotRecycleBinInfo = (output: any, context: __SerdeContext): SnapshotRecycleBinInfo => {
+  const contents: any = {
+    SnapshotId: undefined,
+    RecycleBinEnterTime: undefined,
+    RecycleBinExitTime: undefined,
+    Description: undefined,
+    VolumeId: undefined,
+  };
+  if (output["snapshotId"] !== undefined) {
+    contents.SnapshotId = __expectString(output["snapshotId"]);
+  }
+  if (output["recycleBinEnterTime"] !== undefined) {
+    contents.RecycleBinEnterTime = __expectNonNull(__parseRfc3339DateTime(output["recycleBinEnterTime"]));
+  }
+  if (output["recycleBinExitTime"] !== undefined) {
+    contents.RecycleBinExitTime = __expectNonNull(__parseRfc3339DateTime(output["recycleBinExitTime"]));
+  }
+  if (output["description"] !== undefined) {
+    contents.Description = __expectString(output["description"]);
+  }
+  if (output["volumeId"] !== undefined) {
+    contents.VolumeId = __expectString(output["volumeId"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2SnapshotRecycleBinInfoList = (
+  output: any,
+  context: __SerdeContext
+): SnapshotRecycleBinInfo[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2SnapshotRecycleBinInfo(entry, context);
+    });
+};
+
 const deserializeAws_ec2SnapshotSet = (output: any, context: __SerdeContext): SnapshotInfo[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -72843,6 +73470,74 @@ const deserializeAws_ec2SnapshotTaskDetail = (output: any, context: __SerdeConte
     contents.UserBucket = deserializeAws_ec2UserBucketDetails(output["userBucket"], context);
   }
   return contents;
+};
+
+const deserializeAws_ec2SnapshotTierStatus = (output: any, context: __SerdeContext): SnapshotTierStatus => {
+  const contents: any = {
+    SnapshotId: undefined,
+    VolumeId: undefined,
+    Status: undefined,
+    OwnerId: undefined,
+    Tags: undefined,
+    StorageTier: undefined,
+    LastTieringStartTime: undefined,
+    LastTieringProgress: undefined,
+    LastTieringOperationStatus: undefined,
+    LastTieringOperationStatusDetail: undefined,
+    ArchivalCompleteTime: undefined,
+    RestoreExpiryTime: undefined,
+  };
+  if (output["snapshotId"] !== undefined) {
+    contents.SnapshotId = __expectString(output["snapshotId"]);
+  }
+  if (output["volumeId"] !== undefined) {
+    contents.VolumeId = __expectString(output["volumeId"]);
+  }
+  if (output["status"] !== undefined) {
+    contents.Status = __expectString(output["status"]);
+  }
+  if (output["ownerId"] !== undefined) {
+    contents.OwnerId = __expectString(output["ownerId"]);
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  }
+  if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  if (output["storageTier"] !== undefined) {
+    contents.StorageTier = __expectString(output["storageTier"]);
+  }
+  if (output["lastTieringStartTime"] !== undefined) {
+    contents.LastTieringStartTime = __expectNonNull(__parseRfc3339DateTime(output["lastTieringStartTime"]));
+  }
+  if (output["lastTieringProgress"] !== undefined) {
+    contents.LastTieringProgress = __strictParseInt32(output["lastTieringProgress"]) as number;
+  }
+  if (output["lastTieringOperationStatus"] !== undefined) {
+    contents.LastTieringOperationStatus = __expectString(output["lastTieringOperationStatus"]);
+  }
+  if (output["lastTieringOperationStatusDetail"] !== undefined) {
+    contents.LastTieringOperationStatusDetail = __expectString(output["lastTieringOperationStatusDetail"]);
+  }
+  if (output["archivalCompleteTime"] !== undefined) {
+    contents.ArchivalCompleteTime = __expectNonNull(__parseRfc3339DateTime(output["archivalCompleteTime"]));
+  }
+  if (output["restoreExpiryTime"] !== undefined) {
+    contents.RestoreExpiryTime = __expectNonNull(__parseRfc3339DateTime(output["restoreExpiryTime"]));
+  }
+  return contents;
+};
+
+const deserializeAws_ec2snapshotTierStatusSet = (output: any, context: __SerdeContext): SnapshotTierStatus[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2SnapshotTierStatus(entry, context);
+    });
 };
 
 const deserializeAws_ec2SpotCapacityRebalance = (output: any, context: __SerdeContext): SpotCapacityRebalance => {
@@ -73748,6 +74443,7 @@ const deserializeAws_ec2Subnet = (output: any, context: __SerdeContext): Subnet 
     AvailableIpAddressCount: undefined,
     CidrBlock: undefined,
     DefaultForAz: undefined,
+    EnableLniAtDeviceIndex: undefined,
     MapPublicIpOnLaunch: undefined,
     MapCustomerOwnedIpOnLaunch: undefined,
     CustomerOwnedIpv4Pool: undefined,
@@ -73778,6 +74474,9 @@ const deserializeAws_ec2Subnet = (output: any, context: __SerdeContext): Subnet 
   }
   if (output["defaultForAz"] !== undefined) {
     contents.DefaultForAz = __parseBoolean(output["defaultForAz"]);
+  }
+  if (output["enableLniAtDeviceIndex"] !== undefined) {
+    contents.EnableLniAtDeviceIndex = __strictParseInt32(output["enableLniAtDeviceIndex"]) as number;
   }
   if (output["mapPublicIpOnLaunch"] !== undefined) {
     contents.MapPublicIpOnLaunch = __parseBoolean(output["mapPublicIpOnLaunch"]);

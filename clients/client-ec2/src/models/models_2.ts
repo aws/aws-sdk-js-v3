@@ -69,6 +69,53 @@ import {
   TransitGatewayRouteTable,
 } from "./models_1";
 
+export interface CreateVpcEndpointConnectionNotificationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the endpoint service.</p>
+   */
+  ServiceId?: string;
+
+  /**
+   * <p>The ID of the endpoint.</p>
+   */
+  VpcEndpointId?: string;
+
+  /**
+   * <p>The ARN of the SNS topic for the notifications.</p>
+   */
+  ConnectionNotificationArn: string | undefined;
+
+  /**
+   * <p>One or more endpoint events for which to receive notifications. Valid values are
+   *                 <code>Accept</code>, <code>Connect</code>, <code>Delete</code>, and
+   *                 <code>Reject</code>.</p>
+   */
+  ConnectionEvents: string[] | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure
+   *                 idempotency</a>.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace CreateVpcEndpointConnectionNotificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateVpcEndpointConnectionNotificationRequest): any => ({
+    ...obj,
+  });
+}
+
 export enum ConnectionNotificationState {
   Disabled = "Disabled",
   Enabled = "Enabled",
@@ -9331,64 +9378,6 @@ export namespace DescribeHostReservationOfferingsResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeHostReservationOfferingsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeHostReservationsRequest {
-  /**
-   * <p>The filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <code>instance-family</code> - The instance family (for example,
-   *                     <code>m4</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
-   *                         <code>PartialUpfront</code> | <code>AllUpfront</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>state</code> - The state of the reservation (<code>payment-pending</code>
-   *                     | <code>payment-failed</code> | <code>active</code> |
-   *                     <code>retired</code>).</p>
-   *             </li>
-   *             <li>
-   *         		     <p>
-   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *         	   </li>
-   *             <li>
-   *         		     <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *         	   </li>
-   *          </ul>
-   */
-  Filter?: Filter[];
-
-  /**
-   * <p>The host reservation IDs.</p>
-   */
-  HostReservationIdSet?: string[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeHostReservationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHostReservationsRequest): any => ({
     ...obj,
   });
 }

@@ -942,7 +942,6 @@ import {
   UpdateDocumentDefaultVersionRequest,
   UpdateDocumentDefaultVersionResult,
   UpdateDocumentMetadataRequest,
-  UpdateDocumentMetadataResponse,
   UpdateDocumentRequest,
   UpdateDocumentResult,
 } from "../models/models_1";
@@ -953,6 +952,7 @@ import {
   OpsAggregator,
   OpsMetadataKeyLimitExceededException,
   ResourceDataSyncConflictException,
+  UpdateDocumentMetadataResponse,
   UpdateMaintenanceWindowRequest,
   UpdateMaintenanceWindowResult,
   UpdateMaintenanceWindowTargetRequest,
@@ -21321,6 +21321,8 @@ const deserializeAws_json1_1InstanceInformation = (output: any, context: __Serde
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RegistrationDate)))
         : undefined,
     ResourceType: __expectString(output.ResourceType),
+    SourceId: __expectString(output.SourceId),
+    SourceType: __expectString(output.SourceType),
   } as any;
 };
 

@@ -22,7 +22,7 @@ export interface DescribeInstancePatchStatesCommandInput extends DescribeInstanc
 export interface DescribeInstancePatchStatesCommandOutput extends DescribeInstancePatchStatesResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the high-level patch state of one or more instances.</p>
+ * <p>Retrieves the high-level patch state of one or more managed nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

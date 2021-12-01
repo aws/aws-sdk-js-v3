@@ -25,8 +25,8 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  * <p>Writes multiple data records into a Kinesis data stream in a single call (also
  *             referred to as a <code>PutRecords</code> request). Use this operation to send data into
  *             the stream for data ingestion and processing. </p>
- *         <p>Each <code>PutRecords</code> request can support up to 500 records. Each record in
- *             the request can be as large as 1 MiB, up to a limit of 5 MiB for the entire request,
+ *         <p>Each <code>PutRecords</code> request can support up to 500 records. Each record in the
+ *             request can be as large as 1 MiB, up to a limit of 5 MiB for the entire request,
  *             including partition keys. Each shard can support writes up to 1,000 records per second,
  *             up to a maximum data write total of 1 MiB per second.</p>
  *         <p>You must specify the name of the stream that captures, stores, and transports the
@@ -51,9 +51,9 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  *             record in the request array using natural ordering, from the top to the bottom of the
  *             request and response. The response <code>Records</code> array always includes the same
  *             number of records as the request array.</p>
- *         <p>The response <code>Records</code> array includes both successfully and
- *             unsuccessfully processed records. Kinesis Data Streams attempts to process all records
- *             in each <code>PutRecords</code> request. A single record failure does not stop the
+ *         <p>The response <code>Records</code> array includes both successfully and unsuccessfully
+ *             processed records. Kinesis Data Streams attempts to process all records in each
+ *                 <code>PutRecords</code> request. A single record failure does not stop the
  *             processing of subsequent records. As a result, PutRecords doesn't guarantee the ordering
  *             of records. If you need to read records in the same order they are written to the
  *             stream, use <a>PutRecord</a> instead of <code>PutRecords</code>, and write to
@@ -76,8 +76,8 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  *             <p>After you write a record to a stream, you cannot modify that record or its order
  *                 within the stream.</p>
  *         </important>
- *         <p>By default, data records are accessible for 24 hours from the time that they are
- *             added to a stream. You can use <a>IncreaseStreamRetentionPeriod</a> or <a>DecreaseStreamRetentionPeriod</a> to modify this retention period.</p>
+ *         <p>By default, data records are accessible for 24 hours from the time that they are added
+ *             to a stream. You can use <a>IncreaseStreamRetentionPeriod</a> or <a>DecreaseStreamRetentionPeriod</a> to modify this retention period.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

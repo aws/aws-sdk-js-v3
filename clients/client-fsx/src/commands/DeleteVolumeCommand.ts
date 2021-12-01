@@ -22,10 +22,8 @@ export interface DeleteVolumeCommandInput extends DeleteVolumeRequest {}
 export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon FSx for NetApp ONTAP volume. When deleting a volume,
- *         you have the option of creating a final backup. If you create a final backup, you have the option to
- *         apply Tags to the backup. You need to have <code>fsx:TagResource</code>
- *             permission in order to apply tags to the backup.</p>
+ * <p>Deletes an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS
+ *             volume.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

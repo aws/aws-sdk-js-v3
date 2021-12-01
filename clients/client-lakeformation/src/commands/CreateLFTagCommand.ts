@@ -14,15 +14,15 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { CreateLFTagRequest, CreateLFTagResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateLFTagCommand,
-  serializeAws_json1_1CreateLFTagCommand,
-} from "../protocols/Aws_json1_1";
+  deserializeAws_restJson1CreateLFTagCommand,
+  serializeAws_restJson1CreateLFTagCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface CreateLFTagCommandInput extends CreateLFTagRequest {}
 export interface CreateLFTagCommandOutput extends CreateLFTagResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a tag with the specified name and values.</p>
+ * <p>Creates an LF-tag with the specified name and values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,11 +83,11 @@ export class CreateLFTagCommand extends $Command<
   }
 
   private serialize(input: CreateLFTagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLFTagCommand(input, context);
+    return serializeAws_restJson1CreateLFTagCommand(input, context);
   }
 
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLFTagCommandOutput> {
-    return deserializeAws_json1_1CreateLFTagCommand(output, context);
+    return deserializeAws_restJson1CreateLFTagCommand(output, context);
   }
 
   // Start section: command_body_extra

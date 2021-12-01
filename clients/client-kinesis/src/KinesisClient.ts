@@ -119,6 +119,7 @@ import {
 } from "./commands/StopStreamEncryptionCommand";
 import { SubscribeToShardCommandInput, SubscribeToShardCommandOutput } from "./commands/SubscribeToShardCommand";
 import { UpdateShardCountCommandInput, UpdateShardCountCommandOutput } from "./commands/UpdateShardCountCommand";
+import { UpdateStreamModeCommandInput, UpdateStreamModeCommandOutput } from "./commands/UpdateStreamModeCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -149,7 +150,8 @@ export type ServiceInputTypes =
   | StartStreamEncryptionCommandInput
   | StopStreamEncryptionCommandInput
   | SubscribeToShardCommandInput
-  | UpdateShardCountCommandInput;
+  | UpdateShardCountCommandInput
+  | UpdateStreamModeCommandInput;
 
 export type ServiceOutputTypes =
   | AddTagsToStreamCommandOutput
@@ -179,7 +181,8 @@ export type ServiceOutputTypes =
   | StartStreamEncryptionCommandOutput
   | StopStreamEncryptionCommandOutput
   | SubscribeToShardCommandOutput
-  | UpdateShardCountCommandOutput;
+  | UpdateShardCountCommandOutput
+  | UpdateStreamModeCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -338,8 +341,8 @@ export interface KinesisClientResolvedConfig extends KinesisClientResolvedConfig
 
 /**
  * <fullname>Amazon Kinesis Data Streams Service API Reference</fullname>
- *         <p>Amazon Kinesis Data Streams is a managed service that scales elastically for
- *             real-time processing of streaming big data.</p>
+ *         <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time
+ *             processing of streaming big data.</p>
  */
 export class KinesisClient extends __Client<
   __HttpHandlerOptions,

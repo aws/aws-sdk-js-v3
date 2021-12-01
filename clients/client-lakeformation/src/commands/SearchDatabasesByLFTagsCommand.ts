@@ -14,9 +14,9 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { SearchDatabasesByLFTagsRequest, SearchDatabasesByLFTagsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1SearchDatabasesByLFTagsCommand,
-  serializeAws_json1_1SearchDatabasesByLFTagsCommand,
-} from "../protocols/Aws_json1_1";
+  deserializeAws_restJson1SearchDatabasesByLFTagsCommand,
+  serializeAws_restJson1SearchDatabasesByLFTagsCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface SearchDatabasesByLFTagsCommandInput extends SearchDatabasesByLFTagsRequest {}
 export interface SearchDatabasesByLFTagsCommandOutput extends SearchDatabasesByLFTagsResponse, __MetadataBearer {}
@@ -83,11 +83,11 @@ export class SearchDatabasesByLFTagsCommand extends $Command<
   }
 
   private serialize(input: SearchDatabasesByLFTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchDatabasesByLFTagsCommand(input, context);
+    return serializeAws_restJson1SearchDatabasesByLFTagsCommand(input, context);
   }
 
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchDatabasesByLFTagsCommandOutput> {
-    return deserializeAws_json1_1SearchDatabasesByLFTagsCommand(output, context);
+    return deserializeAws_restJson1SearchDatabasesByLFTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

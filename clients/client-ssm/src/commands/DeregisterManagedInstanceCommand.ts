@@ -23,7 +23,7 @@ export interface DeregisterManagedInstanceCommandOutput extends DeregisterManage
 
 /**
  * <p>Removes the server or virtual machine from the list of registered servers. You can
- *    reregister the instance again at any time. If you don't plan to use Run Command on the server, we
+ *    reregister the node again at any time. If you don't plan to use Run Command on the server, we
  *    suggest uninstalling SSM Agent first.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -26,8 +26,8 @@ export interface PutBucketOwnershipControlsCommandOutput extends __MetadataBeare
 /**
  * <p>Creates or modifies <code>OwnershipControls</code> for an Amazon S3 bucket. To use this
  *          operation, you must have the <code>s3:PutBucketOwnershipControls</code> permission. For
- *          more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a Policy</a>. </p>
- *          <p>For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html">Using Object Ownership</a>. </p>
+ *          more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-with-s3-actions.html">Specifying permissions in a policy</a>. </p>
+ *          <p>For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/about-object-ownership.html">Using object ownership</a>. </p>
  *          <p>The following operations are related to <code>PutBucketOwnershipControls</code>:</p>
  *          <ul>
  *             <li>

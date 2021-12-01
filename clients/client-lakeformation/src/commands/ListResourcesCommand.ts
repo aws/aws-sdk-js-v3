@@ -14,9 +14,9 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { ListResourcesRequest, ListResourcesResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListResourcesCommand,
-  serializeAws_json1_1ListResourcesCommand,
-} from "../protocols/Aws_json1_1";
+  deserializeAws_restJson1ListResourcesCommand,
+  serializeAws_restJson1ListResourcesCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface ListResourcesCommandInput extends ListResourcesRequest {}
 export interface ListResourcesCommandOutput extends ListResourcesResponse, __MetadataBearer {}
@@ -83,11 +83,11 @@ export class ListResourcesCommand extends $Command<
   }
 
   private serialize(input: ListResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourcesCommand(input, context);
+    return serializeAws_restJson1ListResourcesCommand(input, context);
   }
 
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourcesCommandOutput> {
-    return deserializeAws_json1_1ListResourcesCommand(output, context);
+    return deserializeAws_restJson1ListResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

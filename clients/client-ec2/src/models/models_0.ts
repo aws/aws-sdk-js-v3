@@ -5834,6 +5834,12 @@ export type _InstanceType =
   | "g5.4xlarge"
   | "g5.8xlarge"
   | "g5.xlarge"
+  | "g5g.16xlarge"
+  | "g5g.2xlarge"
+  | "g5g.4xlarge"
+  | "g5g.8xlarge"
+  | "g5g.metal"
+  | "g5g.xlarge"
   | "h1.16xlarge"
   | "h1.2xlarge"
   | "h1.4xlarge"
@@ -5859,10 +5865,22 @@ export type _InstanceType =
   | "i3en.large"
   | "i3en.metal"
   | "i3en.xlarge"
+  | "im4gn.16xlarge"
+  | "im4gn.2xlarge"
+  | "im4gn.4xlarge"
+  | "im4gn.8xlarge"
+  | "im4gn.large"
+  | "im4gn.xlarge"
   | "inf1.24xlarge"
   | "inf1.2xlarge"
   | "inf1.6xlarge"
   | "inf1.xlarge"
+  | "is4gen.2xlarge"
+  | "is4gen.4xlarge"
+  | "is4gen.8xlarge"
+  | "is4gen.large"
+  | "is4gen.medium"
+  | "is4gen.xlarge"
   | "m1.large"
   | "m1.medium"
   | "m1.small"
@@ -5939,6 +5957,16 @@ export type _InstanceType =
   | "m5zn.large"
   | "m5zn.metal"
   | "m5zn.xlarge"
+  | "m6a.12xlarge"
+  | "m6a.16xlarge"
+  | "m6a.24xlarge"
+  | "m6a.2xlarge"
+  | "m6a.32xlarge"
+  | "m6a.48xlarge"
+  | "m6a.4xlarge"
+  | "m6a.8xlarge"
+  | "m6a.large"
+  | "m6a.xlarge"
   | "m6g.12xlarge"
   | "m6g.16xlarge"
   | "m6g.2xlarge"
@@ -7208,6 +7236,15 @@ export interface Subnet {
    * <p>Indicates whether this is the default subnet for the Availability Zone.</p>
    */
   DefaultForAz?: boolean;
+
+  /**
+   * <p>
+   *             Indicates the device position for local network interfaces in this subnet. For example,
+   *             <code>1</code> indicates local network interfaces in this subnet are the secondary
+   *             network interface (eth1).
+   *         </p>
+   */
+  EnableLniAtDeviceIndex?: number;
 
   /**
    * <p>Indicates whether instances launched in this subnet receive a public IPv4 address.</p>

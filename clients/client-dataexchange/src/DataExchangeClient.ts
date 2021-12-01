@@ -75,6 +75,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { SendApiAssetCommandInput, SendApiAssetCommandOutput } from "./commands/SendApiAssetCommand";
 import { StartJobCommandInput, StartJobCommandOutput } from "./commands/StartJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -105,6 +106,7 @@ export type ServiceInputTypes =
   | ListJobsCommandInput
   | ListRevisionAssetsCommandInput
   | ListTagsForResourceCommandInput
+  | SendApiAssetCommandInput
   | StartJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -134,6 +136,7 @@ export type ServiceOutputTypes =
   | ListJobsCommandOutput
   | ListRevisionAssetsCommandOutput
   | ListTagsForResourceCommandOutput
+  | SendApiAssetCommandOutput
   | StartJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

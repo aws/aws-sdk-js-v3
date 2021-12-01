@@ -12,8 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeHostReservationsRequest } from "../models/models_2";
-import { DescribeHostReservationsResult } from "../models/models_3";
+import { DescribeHostReservationsRequest, DescribeHostReservationsResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeHostReservationsCommand,
   serializeAws_ec2DescribeHostReservationsCommand,

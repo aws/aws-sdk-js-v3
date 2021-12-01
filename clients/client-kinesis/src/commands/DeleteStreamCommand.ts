@@ -34,10 +34,11 @@ export interface DeleteStreamCommandOutput extends __MetadataBearer {}
  *             <b>Note:</b> Kinesis Data Streams might continue to accept
  *             data read and write operations, such as <a>PutRecord</a>, <a>PutRecords</a>, and <a>GetRecords</a>, on a stream in the
  *                 <code>DELETING</code> state until the stream deletion is complete.</p>
- *         <p>When you delete a stream, any shards in that stream are also deleted, and any tags
- *             are dissociated from the stream.</p>
- *         <p>You can use the <a>DescribeStream</a> operation to check the state of
- *             the stream, which is returned in <code>StreamStatus</code>.</p>
+ *         <p>When you delete a stream, any shards in that stream are also deleted, and any tags are
+ *             dissociated from the stream.</p>
+ *         <p>You can use the <a>DescribeStreamSummary</a> operation to check the state
+ *             of the stream, which is returned in <code>StreamStatus</code>.</p>
+ *
  *         <p>
  *             <a>DeleteStream</a> has a limit of five transactions per second per
  *             account.</p>

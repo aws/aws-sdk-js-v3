@@ -6642,7 +6642,12 @@ export namespace CreateSnapshotRequest {
   });
 }
 
-export type SnapshotState = "completed" | "error" | "pending";
+export type SnapshotState = "completed" | "error" | "pending" | "recoverable" | "recovering";
+
+export enum StorageTier {
+  archive = "archive",
+  standard = "standard",
+}
 
 /**
  * <p>Describes a snapshot.</p>
@@ -6734,6 +6739,20 @@ export interface Snapshot {
    * <p>Any tags assigned to the snapshot.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The storage tier in which the snapshot is stored. <code>standard</code> indicates
+   *       that the snapshot is stored in the standard snapshot storage tier and that it is ready
+   *       for use. <code>archive</code> indicates that the snapshot is currently archived and that
+   *       it must be restored before it can be used.</p>
+   */
+  StorageTier?: StorageTier | string;
+
+  /**
+   * <p>Only for archived snapshots that are temporarily restored. Indicates the date and
+   *       time when a temporarily restored snapshot will be automatically re-archived.</p>
+   */
+  RestoreExpiryTime?: Date;
 }
 
 export namespace Snapshot {
@@ -9886,53 +9905,6 @@ export namespace CreateVpcEndpointResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateVpcEndpointResult): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateVpcEndpointConnectionNotificationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the endpoint service.</p>
-   */
-  ServiceId?: string;
-
-  /**
-   * <p>The ID of the endpoint.</p>
-   */
-  VpcEndpointId?: string;
-
-  /**
-   * <p>The ARN of the SNS topic for the notifications.</p>
-   */
-  ConnectionNotificationArn: string | undefined;
-
-  /**
-   * <p>One or more endpoint events for which to receive notifications. Valid values are
-   *                 <code>Accept</code>, <code>Connect</code>, <code>Delete</code>, and
-   *                 <code>Reject</code>.</p>
-   */
-  ConnectionEvents: string[] | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure
-   *                 idempotency</a>.</p>
-   */
-  ClientToken?: string;
-}
-
-export namespace CreateVpcEndpointConnectionNotificationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpcEndpointConnectionNotificationRequest): any => ({
     ...obj,
   });
 }

@@ -82,6 +82,7 @@ import {
 } from "../commands/StopStreamEncryptionCommand";
 import { SubscribeToShardCommandInput, SubscribeToShardCommandOutput } from "../commands/SubscribeToShardCommand";
 import { UpdateShardCountCommandInput, UpdateShardCountCommandOutput } from "../commands/UpdateShardCountCommand";
+import { UpdateStreamModeCommandInput, UpdateStreamModeCommandOutput } from "../commands/UpdateStreamModeCommand";
 import {
   _Record,
   AddTagsToStreamInput,
@@ -152,6 +153,7 @@ import {
   StopStreamEncryptionInput,
   StreamDescription,
   StreamDescriptionSummary,
+  StreamModeDetails,
   SubscribeToShardEvent,
   SubscribeToShardEventStream,
   SubscribeToShardInput,
@@ -159,6 +161,8 @@ import {
   Tag,
   UpdateShardCountInput,
   UpdateShardCountOutput,
+  UpdateStreamModeInput,
+  ValidationException,
 } from "../models/models_0";
 
 export const serializeAws_json1_1AddTagsToStreamCommand = async (
@@ -522,6 +526,19 @@ export const serializeAws_json1_1UpdateShardCountCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateShardCountInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateStreamModeCommand = async (
+  input: UpdateStreamModeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Kinesis_20131202.UpdateStreamMode",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateStreamModeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1905,6 +1922,14 @@ const deserializeAws_json1_1MergeShardsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ValidationException":
+    case "com.amazonaws.kinesis#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -2369,6 +2394,14 @@ const deserializeAws_json1_1SplitShardCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ValidationException":
+    case "com.amazonaws.kinesis#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -2723,6 +2756,89 @@ const deserializeAws_json1_1UpdateShardCountCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ValidationException":
+    case "com.amazonaws.kinesis#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateStreamModeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStreamModeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateStreamModeCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UpdateStreamModeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateStreamModeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStreamModeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesis#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -2935,6 +3051,21 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1ValidationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ValidationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
+  const contents: ValidationException = {
+    name: "ValidationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const serializeAws_json1_1AddTagsToStreamInput = (input: AddTagsToStreamInput, context: __SerdeContext): any => {
   return {
     ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
@@ -2945,6 +3076,10 @@ const serializeAws_json1_1AddTagsToStreamInput = (input: AddTagsToStreamInput, c
 const serializeAws_json1_1CreateStreamInput = (input: CreateStreamInput, context: __SerdeContext): any => {
   return {
     ...(input.ShardCount !== undefined && input.ShardCount !== null && { ShardCount: input.ShardCount }),
+    ...(input.StreamModeDetails !== undefined &&
+      input.StreamModeDetails !== null && {
+        StreamModeDetails: serializeAws_json1_1StreamModeDetails(input.StreamModeDetails, context),
+      }),
     ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   };
 };
@@ -3253,6 +3388,12 @@ const serializeAws_json1_1StopStreamEncryptionInput = (
   };
 };
 
+const serializeAws_json1_1StreamModeDetails = (input: StreamModeDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.StreamMode !== undefined && input.StreamMode !== null && { StreamMode: input.StreamMode }),
+  };
+};
+
 const serializeAws_json1_1SubscribeToShardInput = (input: SubscribeToShardInput, context: __SerdeContext): any => {
   return {
     ...(input.ConsumerARN !== undefined && input.ConsumerARN !== null && { ConsumerARN: input.ConsumerARN }),
@@ -3293,6 +3434,16 @@ const serializeAws_json1_1UpdateShardCountInput = (input: UpdateShardCountInput,
     ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
     ...(input.TargetShardCount !== undefined &&
       input.TargetShardCount !== null && { TargetShardCount: input.TargetShardCount }),
+  };
+};
+
+const serializeAws_json1_1UpdateStreamModeInput = (input: UpdateStreamModeInput, context: __SerdeContext): any => {
+  return {
+    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
+    ...(input.StreamModeDetails !== undefined &&
+      input.StreamModeDetails !== null && {
+        StreamModeDetails: serializeAws_json1_1StreamModeDetails(input.StreamModeDetails, context),
+      }),
   };
 };
 
@@ -3359,6 +3510,8 @@ const deserializeAws_json1_1ConsumerList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1DescribeLimitsOutput = (output: any, context: __SerdeContext): DescribeLimitsOutput => {
   return {
+    OnDemandStreamCount: __expectInt32(output.OnDemandStreamCount),
+    OnDemandStreamCountLimit: __expectInt32(output.OnDemandStreamCountLimit),
     OpenShardCount: __expectInt32(output.OpenShardCount),
     ShardLimit: __expectInt32(output.ShardLimit),
   } as any;
@@ -3769,6 +3922,10 @@ const deserializeAws_json1_1StreamDescription = (output: any, context: __SerdeCo
       output.StreamCreationTimestamp !== undefined && output.StreamCreationTimestamp !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StreamCreationTimestamp)))
         : undefined,
+    StreamModeDetails:
+      output.StreamModeDetails !== undefined && output.StreamModeDetails !== null
+        ? deserializeAws_json1_1StreamModeDetails(output.StreamModeDetails, context)
+        : undefined,
     StreamName: __expectString(output.StreamName),
     StreamStatus: __expectString(output.StreamStatus),
   } as any;
@@ -3793,8 +3950,18 @@ const deserializeAws_json1_1StreamDescriptionSummary = (
       output.StreamCreationTimestamp !== undefined && output.StreamCreationTimestamp !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StreamCreationTimestamp)))
         : undefined,
+    StreamModeDetails:
+      output.StreamModeDetails !== undefined && output.StreamModeDetails !== null
+        ? deserializeAws_json1_1StreamModeDetails(output.StreamModeDetails, context)
+        : undefined,
     StreamName: __expectString(output.StreamName),
     StreamStatus: __expectString(output.StreamStatus),
+  } as any;
+};
+
+const deserializeAws_json1_1StreamModeDetails = (output: any, context: __SerdeContext): StreamModeDetails => {
+  return {
+    StreamMode: __expectString(output.StreamMode),
   } as any;
 };
 
@@ -3925,6 +4092,12 @@ const deserializeAws_json1_1UpdateShardCountOutput = (output: any, context: __Se
     CurrentShardCount: __expectInt32(output.CurrentShardCount),
     StreamName: __expectString(output.StreamName),
     TargetShardCount: __expectInt32(output.TargetShardCount),
+  } as any;
+};
+
+const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
+  return {
+    message: __expectString(output.message),
   } as any;
 };
 

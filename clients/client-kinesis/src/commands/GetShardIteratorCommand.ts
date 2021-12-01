@@ -22,13 +22,13 @@ export interface GetShardIteratorCommandInput extends GetShardIteratorInput {}
 export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, __MetadataBearer {}
 
 /**
- * <p>Gets an Amazon Kinesis shard iterator. A shard iterator expires 5 minutes after it
- *             is returned to the requester.</p>
- *         <p>A shard iterator specifies the shard position from which to start reading data
- *             records sequentially. The position is specified using the sequence number of a data
- *             record in a shard. A sequence number is the identifier associated with every record
- *             ingested in the stream, and is assigned when a record is put into the stream. Each
- *             stream has one or more shards.</p>
+ * <p>Gets an Amazon Kinesis shard iterator. A shard iterator expires 5 minutes after it is
+ *             returned to the requester.</p>
+ *         <p>A shard iterator specifies the shard position from which to start reading data records
+ *             sequentially. The position is specified using the sequence number of a data record in a
+ *             shard. A sequence number is the identifier associated with every record ingested in the
+ *             stream, and is assigned when a record is put into the stream. Each stream has one or
+ *             more shards.</p>
  *         <p>You must specify the shard iterator type. For example, you can set the
  *                 <code>ShardIteratorType</code> parameter to read exactly from the position denoted
  *             by a specific sequence number by using the <code>AT_SEQUENCE_NUMBER</code> shard

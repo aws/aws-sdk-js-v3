@@ -23,9 +23,8 @@ export interface DeleteActivationCommandOutput extends DeleteActivationResult, _
 
 /**
  * <p>Deletes an activation. You aren't required to delete an activation. If you delete an
- *    activation, you can no longer use it to register additional managed instances. Deleting an
- *    activation doesn't de-register managed instances. You must manually de-register managed
- *    instances.</p>
+ *    activation, you can no longer use it to register additional managed nodes. Deleting an activation
+ *    doesn't de-register managed nodes. You must manually de-register managed nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

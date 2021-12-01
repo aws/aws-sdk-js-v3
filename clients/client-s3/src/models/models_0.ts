@@ -585,6 +585,7 @@ export type ObjectLockMode = "COMPLIANCE" | "GOVERNANCE";
 export type StorageClass =
   | "DEEP_ARCHIVE"
   | "GLACIER"
+  | "GLACIER_IR"
   | "INTELLIGENT_TIERING"
   | "ONEZONE_IA"
   | "OUTPOSTS"
@@ -1001,6 +1002,8 @@ export namespace CreateBucketConfiguration {
   });
 }
 
+export type ObjectOwnership = "BucketOwnerEnforced" | "BucketOwnerPreferred" | "ObjectWriter";
+
 export interface CreateBucketRequest {
   /**
    * <p>The canned ACL to apply to the bucket.</p>
@@ -1048,6 +1051,21 @@ export interface CreateBucketRequest {
    * <p>Specifies whether you want S3 Object Lock to be enabled for the new bucket.</p>
    */
   ObjectLockEnabledForBucket?: boolean;
+
+  /**
+   * <p>The container element for object ownership for a bucket's ownership controls.</p>
+   *          <p>BucketOwnerPreferred - Objects uploaded to the bucket change ownership to the bucket
+   *          owner if the objects are uploaded with the <code>bucket-owner-full-control</code> canned
+   *          ACL.</p>
+   *          <p>ObjectWriter - The uploading account will own the object if the object is uploaded with
+   *          the <code>bucket-owner-full-control</code> canned ACL.</p>
+   *          <p>BucketOwnerEnforced - Access control lists (ACLs) are disabled and no longer affect permissions.
+   *          The bucket owner automatically owns and has full control over every object in the bucket. The bucket only
+   *          accepts PUT requests that don't specify an ACL or bucket owner full control
+   *          ACLs, such as the <code>bucket-owner-full-control</code> canned
+   *          ACL or an equivalent form of this ACL expressed in the XML format.</p>
+   */
+  ObjectOwnership?: ObjectOwnership | string;
 }
 
 export namespace CreateBucketRequest {
@@ -5229,15 +5247,21 @@ export namespace NoncurrentVersionExpiration {
   });
 }
 
-export type TransitionStorageClass = "DEEP_ARCHIVE" | "GLACIER" | "INTELLIGENT_TIERING" | "ONEZONE_IA" | "STANDARD_IA";
+export type TransitionStorageClass =
+  | "DEEP_ARCHIVE"
+  | "GLACIER"
+  | "GLACIER_IR"
+  | "INTELLIGENT_TIERING"
+  | "ONEZONE_IA"
+  | "STANDARD_IA";
 
 /**
  * <p>Container for the transition rule that describes when noncurrent objects transition to
  *          the <code>STANDARD_IA</code>, <code>ONEZONE_IA</code>, <code>INTELLIGENT_TIERING</code>,
- *             <code>GLACIER</code>, or <code>DEEP_ARCHIVE</code> storage class. If your bucket is
+ *           <code>GLACIER_IR</code>, <code>GLACIER</code>, or <code>DEEP_ARCHIVE</code> storage class. If your bucket is
  *          versioning-enabled (or versioning is suspended), you can set this action to request that
  *          Amazon S3 transition noncurrent object versions to the <code>STANDARD_IA</code>,
- *             <code>ONEZONE_IA</code>, <code>INTELLIGENT_TIERING</code>, <code>GLACIER</code>, or
+ *             <code>ONEZONE_IA</code>, <code>INTELLIGENT_TIERING</code>, <code>GLACIER_IR</code>, <code>GLACIER</code>, or
  *             <code>DEEP_ARCHIVE</code> storage class at a specific period in the object's
  *          lifetime.</p>
  */
@@ -5477,6 +5501,9 @@ export type BucketLogsPermission = "FULL_CONTROL" | "READ" | "WRITE";
 
 /**
  * <p>Container for granting information.</p>
+ *          <p>Buckets that use the bucket owner enforced setting for Object
+ *          Ownership don't support target grants. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions server access log delivery</a> in the
+ *          <i>Amazon S3 User Guide</i>.</p>
  */
 export interface TargetGrant {
   /**
@@ -5516,6 +5543,9 @@ export interface LoggingEnabled {
 
   /**
    * <p>Container for granting information.</p>
+   *          <p>Buckets that use the bucket owner enforced setting for Object
+   *             Ownership don't support target grants. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions for server access log delivery</a> in the
+   *             <i>Amazon S3 User Guide</i>.</p>
    */
   TargetGrants?: TargetGrant[];
 
@@ -5804,7 +5834,27 @@ export namespace GetBucketNotificationConfigurationRequest {
   });
 }
 
+/**
+ * <p>A container for specifying the configuration for Amazon EventBridge.</p>
+ */
+export interface EventBridgeConfiguration {}
+
+export namespace EventBridgeConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EventBridgeConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export type Event =
+  | "s3:IntelligentTiering"
+  | "s3:LifecycleExpiration:*"
+  | "s3:LifecycleExpiration:Delete"
+  | "s3:LifecycleExpiration:DeleteMarkerCreated"
+  | "s3:LifecycleTransition"
+  | "s3:ObjectAcl:Put"
   | "s3:ObjectCreated:*"
   | "s3:ObjectCreated:CompleteMultipartUpload"
   | "s3:ObjectCreated:Copy"
@@ -5815,7 +5865,11 @@ export type Event =
   | "s3:ObjectRemoved:DeleteMarkerCreated"
   | "s3:ObjectRestore:*"
   | "s3:ObjectRestore:Completed"
+  | "s3:ObjectRestore:Delete"
   | "s3:ObjectRestore:Post"
+  | "s3:ObjectTagging:*"
+  | "s3:ObjectTagging:Delete"
+  | "s3:ObjectTagging:Put"
   | "s3:ReducedRedundancyLostObject"
   | "s3:Replication:*"
   | "s3:Replication:OperationFailedReplication"
@@ -6036,6 +6090,11 @@ export interface NotificationConfiguration {
    *          them.</p>
    */
   LambdaFunctionConfigurations?: LambdaFunctionConfiguration[];
+
+  /**
+   * <p>Enables delivery of events to Amazon EventBridge.</p>
+   */
+  EventBridgeConfiguration?: EventBridgeConfiguration;
 }
 
 export namespace NotificationConfiguration {
@@ -6046,8 +6105,6 @@ export namespace NotificationConfiguration {
     ...obj,
   });
 }
-
-export type ObjectOwnership = "BucketOwnerPreferred" | "ObjectWriter";
 
 /**
  * <p>The container element for an ownership control rule.</p>
@@ -6060,6 +6117,11 @@ export interface OwnershipControlsRule {
    *          ACL.</p>
    *          <p>ObjectWriter - The uploading account will own the object if the object is uploaded with
    *          the <code>bucket-owner-full-control</code> canned ACL.</p>
+   *          <p>BucketOwnerEnforced - Access control lists (ACLs) are disabled and no longer affect permissions.
+   *          The bucket owner automatically owns and has full control over every object in the bucket. The bucket only
+   *          accepts PUT requests that don't specify an ACL or bucket owner full control
+   *          ACLs, such as the <code>bucket-owner-full-control</code> canned
+   *          ACL or an equivalent form of this ACL expressed in the XML format.</p>
    */
   ObjectOwnership: ObjectOwnership | string | undefined;
 }
@@ -6094,7 +6156,7 @@ export namespace OwnershipControls {
 
 export interface GetBucketOwnershipControlsOutput {
   /**
-   * <p>The <code>OwnershipControls</code> (BucketOwnerPreferred or ObjectWriter) currently in
+   * <p>The <code>OwnershipControls</code> (BucketOwnerEnforced, BucketOwnerPreferred, or ObjectWriter) currently in
    *          effect for this Amazon S3 bucket.</p>
    */
   OwnershipControls?: OwnershipControls;
@@ -9184,6 +9246,7 @@ export namespace ListMultipartUploadsRequest {
 export type ObjectStorageClass =
   | "DEEP_ARCHIVE"
   | "GLACIER"
+  | "GLACIER_IR"
   | "INTELLIGENT_TIERING"
   | "ONEZONE_IA"
   | "OUTPOSTS"
@@ -10521,6 +10584,11 @@ export interface PutBucketNotificationConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
   ExpectedBucketOwner?: string;
+
+  /**
+   * <p>Skips validation of Amazon SQS, Amazon SNS, and Lambda destinations. True or false value.</p>
+   */
+  SkipDestinationValidation?: boolean;
 }
 
 export namespace PutBucketNotificationConfigurationRequest {
@@ -10552,7 +10620,7 @@ export interface PutBucketOwnershipControlsRequest {
   ExpectedBucketOwner?: string;
 
   /**
-   * <p>The <code>OwnershipControls</code> (BucketOwnerPreferred or ObjectWriter) that you want
+   * <p>The <code>OwnershipControls</code> (BucketOwnerEnforced, BucketOwnerPreferred, or ObjectWriter) that you want
    *          to apply to this Amazon S3 bucket.</p>
    */
   OwnershipControls: OwnershipControls | undefined;
@@ -11704,22 +11772,3 @@ export namespace RestoreObjectOutput {
 }
 
 export type Tier = "Bulk" | "Expedited" | "Standard";
-
-/**
- * <p>Container for S3 Glacier job parameters.</p>
- */
-export interface GlacierJobParameters {
-  /**
-   * <p>Retrieval tier at which the restore will be processed.</p>
-   */
-  Tier: Tier | string | undefined;
-}
-
-export namespace GlacierJobParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlacierJobParameters): any => ({
-    ...obj,
-  });
-}

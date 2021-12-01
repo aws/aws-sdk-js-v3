@@ -5,7 +5,6 @@ import {
   AddressAttribute,
   AllowedPrincipal,
   AssociationStatus,
-  AttributeValue,
   AutoPlacement,
   CapacityReservationState,
   ClientConnectOptions,
@@ -37,7 +36,7 @@ import {
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   TrunkInterfaceAssociation,
-  UnsuccessfulItem,
+  UserIdGroupPair,
   Vpc,
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
@@ -87,12 +86,200 @@ import {
   AttributeBooleanValue,
   BootModeValues,
   ImportImageLicenseConfigurationResponse,
-  LaunchPermission,
+  RIProductDescription,
   SnapshotDetail,
   SnapshotTaskDetail,
-  StaleSecurityGroup,
   VirtualizationType,
 } from "./models_3";
+
+/**
+ * <p>Describes the maximum price per hour that you are willing to pay for a Spot
+ *             Instance.</p>
+ */
+export interface SpotPrice {
+  /**
+   * <p>The Availability Zone.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The instance type.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>A general description of the AMI.</p>
+   */
+  ProductDescription?: RIProductDescription | string;
+
+  /**
+   * <p>The maximum price per hour that you are willing to pay for a Spot Instance.</p>
+   */
+  SpotPrice?: string;
+
+  /**
+   * <p>The date and time the request was created, in UTC format (for example,
+   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   */
+  Timestamp?: Date;
+}
+
+export namespace SpotPrice {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SpotPrice): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the output of DescribeSpotPriceHistory.</p>
+ */
+export interface DescribeSpotPriceHistoryResult {
+  /**
+   * <p>The token required to retrieve the next set of results. This value is null or an empty
+   *             string when there are no more results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The historical Spot prices.</p>
+   */
+  SpotPriceHistory?: SpotPrice[];
+}
+
+export namespace DescribeSpotPriceHistoryResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeSpotPriceHistoryResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeStaleSecurityGroupsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId: string | undefined;
+}
+
+export namespace DescribeStaleSecurityGroupsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeStaleSecurityGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a stale rule in a security group.</p>
+ */
+export interface StaleIpPermission {
+  /**
+   * <p>The start of the port range for the TCP and UDP protocols, or an ICMP type number. A value of
+   *         <code>-1</code> indicates all ICMP types. </p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The IP protocol name (for <code>tcp</code>, <code>udp</code>, and <code>icmp</code>) or number  (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers)</a>.</p>
+   */
+  IpProtocol?: string;
+
+  /**
+   * <p>The IP ranges. Not applicable for stale security group rules.</p>
+   */
+  IpRanges?: string[];
+
+  /**
+   * <p>The prefix list IDs. Not applicable for stale security group rules.</p>
+   */
+  PrefixListIds?: string[];
+
+  /**
+   * <p>The end of the port range for the TCP and UDP protocols, or an ICMP type number. A value of
+   *         <code>-1</code> indicates all ICMP types. </p>
+   */
+  ToPort?: number;
+
+  /**
+   * <p>The security group pairs. Returns the ID of the referenced security group and VPC, and the ID and status of the VPC peering connection.</p>
+   */
+  UserIdGroupPairs?: UserIdGroupPair[];
+}
+
+export namespace StaleIpPermission {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StaleIpPermission): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a stale security group (a security group that contains stale rules).</p>
+ */
+export interface StaleSecurityGroup {
+  /**
+   * <p>The description of the security group.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the security group.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * <p>The name of the security group.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>Information about the stale inbound rules in the security group.</p>
+   */
+  StaleIpPermissions?: StaleIpPermission[];
+
+  /**
+   * <p>Information about the stale outbound rules in the security group.</p>
+   */
+  StaleIpPermissionsEgress?: StaleIpPermission[];
+
+  /**
+   * <p>The ID of the VPC for the security group.</p>
+   */
+  VpcId?: string;
+}
+
+export namespace StaleSecurityGroup {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StaleSecurityGroup): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeStaleSecurityGroupsResult {
   /**
@@ -9062,6 +9249,101 @@ export namespace ImportVolumeResult {
   });
 }
 
+export interface ListSnapshotsInRecycleBinRequest {
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The IDs of the snapshots to list. Omit this parameter to list all of the
+   *       snapshots that are in the Recycle Bin.</p>
+   */
+  SnapshotIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ListSnapshotsInRecycleBinRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSnapshotsInRecycleBinRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a snapshot that is currently in the Recycle Bin.</p>
+ */
+export interface SnapshotRecycleBinInfo {
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The date and time when the snaphsot entered the Recycle Bin.</p>
+   */
+  RecycleBinEnterTime?: Date;
+
+  /**
+   * <p>The date and time when the snapshot is to be permanently deleted from the Recycle Bin.</p>
+   */
+  RecycleBinExitTime?: Date;
+
+  /**
+   * <p>The description for the snapshot.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the volume from which the snapshot was created.</p>
+   */
+  VolumeId?: string;
+}
+
+export namespace SnapshotRecycleBinInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SnapshotRecycleBinInfo): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSnapshotsInRecycleBinResult {
+  /**
+   * <p>Information about the snapshots.</p>
+   */
+  Snapshots?: SnapshotRecycleBinInfo[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSnapshotsInRecycleBinResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSnapshotsInRecycleBinResult): any => ({
+    ...obj,
+  });
+}
+
 export interface ModifyAddressAttributeRequest {
   /**
    * <p>[EC2-VPC] The allocation ID.</p>
@@ -9786,278 +10068,6 @@ export namespace ModifyHostsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: ModifyHostsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyHostsResult {
-  /**
-   * <p>The IDs of the Dedicated Hosts that were successfully modified.</p>
-   */
-  Successful?: string[];
-
-  /**
-   * <p>The IDs of the Dedicated Hosts that could not be modified. Check whether the
-   *             setting you requested can be used.</p>
-   */
-  Unsuccessful?: UnsuccessfulItem[];
-}
-
-export namespace ModifyHostsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyHostsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyIdentityIdFormatRequest {
-  /**
-   * <p>The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify
-   *        <code>all</code> to modify the ID format for all IAM users, IAM roles, and the root user of
-   *        the account.</p>
-   */
-  PrincipalArn: string | undefined;
-
-  /**
-   * <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
-   *           <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
-   *           <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
-   *           <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code>
-   *           | <code>network-acl-association</code> | <code>network-interface</code> |
-   *           <code>network-interface-attachment</code> | <code>prefix-list</code> |
-   *           <code>route-table</code> | <code>route-table-association</code> |
-   *           <code>security-group</code> | <code>subnet</code> |
-   *           <code>subnet-cidr-block-association</code> | <code>vpc</code> |
-   *           <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
-   *          <p>Alternatively, use the <code>all-current</code> option to include all resource types that are
-   *           currently within their opt-in period for longer IDs.</p>
-   */
-  Resource: string | undefined;
-
-  /**
-   * <p>Indicates whether the resource should use longer IDs (17-character IDs)</p>
-   */
-  UseLongIds: boolean | undefined;
-}
-
-export namespace ModifyIdentityIdFormatRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyIdentityIdFormatRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyIdFormatRequest {
-  /**
-   * <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
-   *            <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
-   *            <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
-   *            <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code>
-   *            | <code>network-acl-association</code> | <code>network-interface</code> |
-   *            <code>network-interface-attachment</code> | <code>prefix-list</code> |
-   *            <code>route-table</code> | <code>route-table-association</code> |
-   *            <code>security-group</code> | <code>subnet</code> |
-   *            <code>subnet-cidr-block-association</code> | <code>vpc</code> |
-   *            <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
-   *          <p>Alternatively, use the <code>all-current</code> option to include all resource types that are
-   *        currently within their opt-in period for longer IDs.</p>
-   */
-  Resource: string | undefined;
-
-  /**
-   * <p>Indicate whether the resource should use longer IDs (17-character IDs).</p>
-   */
-  UseLongIds: boolean | undefined;
-}
-
-export namespace ModifyIdFormatRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyIdFormatRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a launch permission modification.</p>
- */
-export interface LaunchPermissionModifications {
-  /**
-   * <p>The Amazon Web Services account ID to add to the list of launch permissions for the AMI.</p>
-   */
-  Add?: LaunchPermission[];
-
-  /**
-   * <p>The Amazon Web Services account ID to remove from the list of launch permissions for the AMI.</p>
-   */
-  Remove?: LaunchPermission[];
-}
-
-export namespace LaunchPermissionModifications {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchPermissionModifications): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for ModifyImageAttribute.</p>
- */
-export interface ModifyImageAttributeRequest {
-  /**
-   * <p>The name of the attribute to modify.</p>
-   *          <p>Valid values: <code>description</code> | <code>launchPermission</code>
-   *          </p>
-   */
-  Attribute?: string;
-
-  /**
-   * <p>A new description for the AMI.</p>
-   */
-  Description?: AttributeValue;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>A new launch permission for the AMI.</p>
-   */
-  LaunchPermission?: LaunchPermissionModifications;
-
-  /**
-   * <p>The operation type.
-   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
-   */
-  OperationType?: OperationType | string;
-
-  /**
-   * <p>Not supported.</p>
-   */
-  ProductCodes?: string[];
-
-  /**
-   * <p>The user groups.
-   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
-   */
-  UserGroups?: string[];
-
-  /**
-   * <p>The Amazon Web Services account IDs.
-   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
-   */
-  UserIds?: string[];
-
-  /**
-   * <p>The value of the attribute being modified.
-   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>description</code>.</p>
-   */
-  Value?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an organization. This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
-   */
-  OrganizationArns?: string[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an organizational unit (OU). This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
-   */
-  OrganizationalUnitArns?: string[];
-}
-
-export namespace ModifyImageAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyImageAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes information used to set up an EBS volume specified in a block device
- *             mapping.</p>
- */
-export interface EbsInstanceBlockDeviceSpecification {
-  /**
-   * <p>Indicates whether the volume is deleted on instance termination.</p>
-   */
-  DeleteOnTermination?: boolean;
-
-  /**
-   * <p>The ID of the EBS volume.</p>
-   */
-  VolumeId?: string;
-}
-
-export namespace EbsInstanceBlockDeviceSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EbsInstanceBlockDeviceSpecification): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a block device mapping entry.</p>
- */
-export interface InstanceBlockDeviceMappingSpecification {
-  /**
-   * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
-   */
-  DeviceName?: string;
-
-  /**
-   * <p>Parameters used to automatically set up EBS volumes when the instance is
-   *             launched.</p>
-   */
-  Ebs?: EbsInstanceBlockDeviceSpecification;
-
-  /**
-   * <p>suppress the specified device included in the block device mapping.</p>
-   */
-  NoDevice?: string;
-
-  /**
-   * <p>The virtual device name.</p>
-   */
-  VirtualName?: string;
-}
-
-export namespace InstanceBlockDeviceMappingSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceBlockDeviceMappingSpecification): any => ({
-    ...obj,
-  });
-}
-
-export interface BlobAttributeValue {
-  Value?: Uint8Array;
-}
-
-export namespace BlobAttributeValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BlobAttributeValue): any => ({
     ...obj,
   });
 }

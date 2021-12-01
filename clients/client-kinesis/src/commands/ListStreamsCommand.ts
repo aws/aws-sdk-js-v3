@@ -27,7 +27,7 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  *                 <code>ListStreams</code>. You can limit the number of returned streams using the
  *                 <code>Limit</code> parameter. If you do not specify a value for the
  *                 <code>Limit</code> parameter, Kinesis Data Streams uses the default limit, which is
- *             currently 10.</p>
+ *             currently 100.</p>
  *         <p>You can detect if there are more streams available to list by using the
  *                 <code>HasMoreStreams</code> flag from the returned output. If there are more streams
  *             available, you can request more streams by using the name of the last stream returned by

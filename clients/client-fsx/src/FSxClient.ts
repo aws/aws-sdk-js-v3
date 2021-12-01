@@ -60,6 +60,10 @@ import {
 import { CopyBackupCommandInput, CopyBackupCommandOutput } from "./commands/CopyBackupCommand";
 import { CreateBackupCommandInput, CreateBackupCommandOutput } from "./commands/CreateBackupCommand";
 import {
+  CreateDataRepositoryAssociationCommandInput,
+  CreateDataRepositoryAssociationCommandOutput,
+} from "./commands/CreateDataRepositoryAssociationCommand";
+import {
   CreateDataRepositoryTaskCommandInput,
   CreateDataRepositoryTaskCommandOutput,
 } from "./commands/CreateDataRepositoryTaskCommand";
@@ -68,6 +72,7 @@ import {
   CreateFileSystemFromBackupCommandInput,
   CreateFileSystemFromBackupCommandOutput,
 } from "./commands/CreateFileSystemFromBackupCommand";
+import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
 import {
   CreateStorageVirtualMachineCommandInput,
   CreateStorageVirtualMachineCommandOutput,
@@ -78,13 +83,22 @@ import {
   CreateVolumeFromBackupCommandOutput,
 } from "./commands/CreateVolumeFromBackupCommand";
 import { DeleteBackupCommandInput, DeleteBackupCommandOutput } from "./commands/DeleteBackupCommand";
+import {
+  DeleteDataRepositoryAssociationCommandInput,
+  DeleteDataRepositoryAssociationCommandOutput,
+} from "./commands/DeleteDataRepositoryAssociationCommand";
 import { DeleteFileSystemCommandInput, DeleteFileSystemCommandOutput } from "./commands/DeleteFileSystemCommand";
+import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
 import {
   DeleteStorageVirtualMachineCommandInput,
   DeleteStorageVirtualMachineCommandOutput,
 } from "./commands/DeleteStorageVirtualMachineCommand";
 import { DeleteVolumeCommandInput, DeleteVolumeCommandOutput } from "./commands/DeleteVolumeCommand";
 import { DescribeBackupsCommandInput, DescribeBackupsCommandOutput } from "./commands/DescribeBackupsCommand";
+import {
+  DescribeDataRepositoryAssociationsCommandInput,
+  DescribeDataRepositoryAssociationsCommandOutput,
+} from "./commands/DescribeDataRepositoryAssociationsCommand";
 import {
   DescribeDataRepositoryTasksCommandInput,
   DescribeDataRepositoryTasksCommandOutput,
@@ -97,6 +111,7 @@ import {
   DescribeFileSystemsCommandInput,
   DescribeFileSystemsCommandOutput,
 } from "./commands/DescribeFileSystemsCommand";
+import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "./commands/DescribeSnapshotsCommand";
 import {
   DescribeStorageVirtualMachinesCommandInput,
   DescribeStorageVirtualMachinesCommandOutput,
@@ -110,9 +125,22 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ReleaseFileSystemNfsV3LocksCommandInput,
+  ReleaseFileSystemNfsV3LocksCommandOutput,
+} from "./commands/ReleaseFileSystemNfsV3LocksCommand";
+import {
+  RestoreVolumeFromSnapshotCommandInput,
+  RestoreVolumeFromSnapshotCommandOutput,
+} from "./commands/RestoreVolumeFromSnapshotCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateDataRepositoryAssociationCommandInput,
+  UpdateDataRepositoryAssociationCommandOutput,
+} from "./commands/UpdateDataRepositoryAssociationCommand";
 import { UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput } from "./commands/UpdateFileSystemCommand";
+import { UpdateSnapshotCommandInput, UpdateSnapshotCommandOutput } from "./commands/UpdateSnapshotCommand";
 import {
   UpdateStorageVirtualMachineCommandInput,
   UpdateStorageVirtualMachineCommandOutput,
@@ -125,27 +153,37 @@ export type ServiceInputTypes =
   | CancelDataRepositoryTaskCommandInput
   | CopyBackupCommandInput
   | CreateBackupCommandInput
+  | CreateDataRepositoryAssociationCommandInput
   | CreateDataRepositoryTaskCommandInput
   | CreateFileSystemCommandInput
   | CreateFileSystemFromBackupCommandInput
+  | CreateSnapshotCommandInput
   | CreateStorageVirtualMachineCommandInput
   | CreateVolumeCommandInput
   | CreateVolumeFromBackupCommandInput
   | DeleteBackupCommandInput
+  | DeleteDataRepositoryAssociationCommandInput
   | DeleteFileSystemCommandInput
+  | DeleteSnapshotCommandInput
   | DeleteStorageVirtualMachineCommandInput
   | DeleteVolumeCommandInput
   | DescribeBackupsCommandInput
+  | DescribeDataRepositoryAssociationsCommandInput
   | DescribeDataRepositoryTasksCommandInput
   | DescribeFileSystemAliasesCommandInput
   | DescribeFileSystemsCommandInput
+  | DescribeSnapshotsCommandInput
   | DescribeStorageVirtualMachinesCommandInput
   | DescribeVolumesCommandInput
   | DisassociateFileSystemAliasesCommandInput
   | ListTagsForResourceCommandInput
+  | ReleaseFileSystemNfsV3LocksCommandInput
+  | RestoreVolumeFromSnapshotCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateDataRepositoryAssociationCommandInput
   | UpdateFileSystemCommandInput
+  | UpdateSnapshotCommandInput
   | UpdateStorageVirtualMachineCommandInput
   | UpdateVolumeCommandInput;
 
@@ -154,27 +192,37 @@ export type ServiceOutputTypes =
   | CancelDataRepositoryTaskCommandOutput
   | CopyBackupCommandOutput
   | CreateBackupCommandOutput
+  | CreateDataRepositoryAssociationCommandOutput
   | CreateDataRepositoryTaskCommandOutput
   | CreateFileSystemCommandOutput
   | CreateFileSystemFromBackupCommandOutput
+  | CreateSnapshotCommandOutput
   | CreateStorageVirtualMachineCommandOutput
   | CreateVolumeCommandOutput
   | CreateVolumeFromBackupCommandOutput
   | DeleteBackupCommandOutput
+  | DeleteDataRepositoryAssociationCommandOutput
   | DeleteFileSystemCommandOutput
+  | DeleteSnapshotCommandOutput
   | DeleteStorageVirtualMachineCommandOutput
   | DeleteVolumeCommandOutput
   | DescribeBackupsCommandOutput
+  | DescribeDataRepositoryAssociationsCommandOutput
   | DescribeDataRepositoryTasksCommandOutput
   | DescribeFileSystemAliasesCommandOutput
   | DescribeFileSystemsCommandOutput
+  | DescribeSnapshotsCommandOutput
   | DescribeStorageVirtualMachinesCommandOutput
   | DescribeVolumesCommandOutput
   | DisassociateFileSystemAliasesCommandOutput
   | ListTagsForResourceCommandOutput
+  | ReleaseFileSystemNfsV3LocksCommandOutput
+  | RestoreVolumeFromSnapshotCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateDataRepositoryAssociationCommandOutput
   | UpdateFileSystemCommandOutput
+  | UpdateSnapshotCommandOutput
   | UpdateStorageVirtualMachineCommandOutput
   | UpdateVolumeCommandOutput;
 

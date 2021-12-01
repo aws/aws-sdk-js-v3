@@ -14,15 +14,15 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { RemoveLFTagsFromResourceRequest, RemoveLFTagsFromResourceResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1RemoveLFTagsFromResourceCommand,
-  serializeAws_json1_1RemoveLFTagsFromResourceCommand,
-} from "../protocols/Aws_json1_1";
+  deserializeAws_restJson1RemoveLFTagsFromResourceCommand,
+  serializeAws_restJson1RemoveLFTagsFromResourceCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface RemoveLFTagsFromResourceCommandInput extends RemoveLFTagsFromResourceRequest {}
 export interface RemoveLFTagsFromResourceCommandOutput extends RemoveLFTagsFromResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a tag from the resource. Only database, table, or tableWithColumns resource are allowed. To tag columns, use the column inclusion list in <code>tableWithColumns</code> to specify column input.</p>
+ * <p>Removes an LF-tag from the resource. Only database, table, or tableWithColumns resource are allowed. To tag columns, use the column inclusion list in <code>tableWithColumns</code> to specify column input.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,11 +83,11 @@ export class RemoveLFTagsFromResourceCommand extends $Command<
   }
 
   private serialize(input: RemoveLFTagsFromResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveLFTagsFromResourceCommand(input, context);
+    return serializeAws_restJson1RemoveLFTagsFromResourceCommand(input, context);
   }
 
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveLFTagsFromResourceCommandOutput> {
-    return deserializeAws_json1_1RemoveLFTagsFromResourceCommand(output, context);
+    return deserializeAws_restJson1RemoveLFTagsFromResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

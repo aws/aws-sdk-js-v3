@@ -22,22 +22,22 @@ export interface StartStreamEncryptionCommandInput extends StartStreamEncryption
 export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Enables or updates server-side encryption using an AWS KMS key for a specified
- *             stream. </p>
- *         <p>Starting encryption is an asynchronous operation. Upon receiving the request,
- *             Kinesis Data Streams returns immediately and sets the status of the stream to
+ * <p>Enables or updates server-side encryption using an Amazon Web Services KMS key for a
+ *             specified stream. </p>
+ *         <p>Starting encryption is an asynchronous operation. Upon receiving the request, Kinesis
+ *             Data Streams returns immediately and sets the status of the stream to
  *                 <code>UPDATING</code>. After the update is complete, Kinesis Data Streams sets the
  *             status of the stream back to <code>ACTIVE</code>. Updating or applying encryption
  *             normally takes a few seconds to complete, but it can take minutes. You can continue to
  *             read and write data to your stream while its status is <code>UPDATING</code>. Once the
  *             status of the stream is <code>ACTIVE</code>, encryption begins for records written to
  *             the stream. </p>
- *         <p>API Limits: You can successfully apply a new AWS KMS key for server-side encryption
- *             25 times in a rolling 24-hour period.</p>
- *         <p>Note: It can take up to 5 seconds after the stream is in an <code>ACTIVE</code>
- *             status before all records written to the stream are encrypted. After you enable
- *             encryption, you can verify that encryption is applied by inspecting the API response
- *             from <code>PutRecord</code> or <code>PutRecords</code>.</p>
+ *         <p>API Limits: You can successfully apply a new Amazon Web Services KMS key for
+ *             server-side encryption 25 times in a rolling 24-hour period.</p>
+ *         <p>Note: It can take up to 5 seconds after the stream is in an <code>ACTIVE</code> status
+ *             before all records written to the stream are encrypted. After you enable encryption, you
+ *             can verify that encryption is applied by inspecting the API response from
+ *                 <code>PutRecord</code> or <code>PutRecords</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

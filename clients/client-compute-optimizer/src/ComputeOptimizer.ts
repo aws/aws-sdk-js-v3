@@ -1,6 +1,11 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  DeleteRecommendationPreferencesCommand,
+  DeleteRecommendationPreferencesCommandInput,
+  DeleteRecommendationPreferencesCommandOutput,
+} from "./commands/DeleteRecommendationPreferencesCommand";
+import {
   DescribeRecommendationExportJobsCommand,
   DescribeRecommendationExportJobsCommandInput,
   DescribeRecommendationExportJobsCommandOutput,
@@ -46,6 +51,11 @@ import {
   GetEC2RecommendationProjectedMetricsCommandOutput,
 } from "./commands/GetEC2RecommendationProjectedMetricsCommand";
 import {
+  GetEffectiveRecommendationPreferencesCommand,
+  GetEffectiveRecommendationPreferencesCommandInput,
+  GetEffectiveRecommendationPreferencesCommandOutput,
+} from "./commands/GetEffectiveRecommendationPreferencesCommand";
+import {
   GetEnrollmentStatusCommand,
   GetEnrollmentStatusCommandInput,
   GetEnrollmentStatusCommandOutput,
@@ -61,10 +71,20 @@ import {
   GetLambdaFunctionRecommendationsCommandOutput,
 } from "./commands/GetLambdaFunctionRecommendationsCommand";
 import {
+  GetRecommendationPreferencesCommand,
+  GetRecommendationPreferencesCommandInput,
+  GetRecommendationPreferencesCommandOutput,
+} from "./commands/GetRecommendationPreferencesCommand";
+import {
   GetRecommendationSummariesCommand,
   GetRecommendationSummariesCommandInput,
   GetRecommendationSummariesCommandOutput,
 } from "./commands/GetRecommendationSummariesCommand";
+import {
+  PutRecommendationPreferencesCommand,
+  PutRecommendationPreferencesCommandInput,
+  PutRecommendationPreferencesCommandOutput,
+} from "./commands/PutRecommendationPreferencesCommand";
 import {
   UpdateEnrollmentStatusCommand,
   UpdateEnrollmentStatusCommandInput,
@@ -87,8 +107,42 @@ import { ComputeOptimizerClient } from "./ComputeOptimizerClient";
  */
 export class ComputeOptimizer extends ComputeOptimizerClient {
   /**
+   * <p>Deletes a recommendation preference, such as enhanced infrastructure metrics.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
+   *                 enhanced infrastructure metrics</a> in the <i>Compute Optimizer User
+   *                 Guide</i>.</p>
+   */
+  public deleteRecommendationPreferences(
+    args: DeleteRecommendationPreferencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRecommendationPreferencesCommandOutput>;
+  public deleteRecommendationPreferences(
+    args: DeleteRecommendationPreferencesCommandInput,
+    cb: (err: any, data?: DeleteRecommendationPreferencesCommandOutput) => void
+  ): void;
+  public deleteRecommendationPreferences(
+    args: DeleteRecommendationPreferencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRecommendationPreferencesCommandOutput) => void
+  ): void;
+  public deleteRecommendationPreferences(
+    args: DeleteRecommendationPreferencesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRecommendationPreferencesCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRecommendationPreferencesCommandOutput) => void
+  ): Promise<DeleteRecommendationPreferencesCommandOutput> | void {
+    const command = new DeleteRecommendationPreferencesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes recommendation export jobs created in the last seven days.</p>
-   *
    *         <p>Use the <a>ExportAutoScalingGroupRecommendations</a> or <a>ExportEC2InstanceRecommendations</a> actions to request an export of your
    *             recommendations. Then use the <a>DescribeRecommendationExportJobs</a> action
    *             to view your export jobs.</p>
@@ -124,12 +178,10 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
 
   /**
    * <p>Exports optimization recommendations for Auto Scaling groups.</p>
-   *
    *         <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata
    *             in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
    *                 Recommendations</a> in the <i>Compute Optimizer User
    *             Guide</i>.</p>
-   *
    *         <p>You can have only one Auto Scaling group export job in progress per Amazon Web Services Region.</p>
    */
   public exportAutoScalingGroupRecommendations(
@@ -165,13 +217,10 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
 
   /**
    * <p>Exports optimization recommendations for Amazon EBS volumes.</p>
-   *
    *         <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata
-   *             in a JavaScript Object Notation (JSON)   (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
+   *             in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
    *                 Recommendations</a> in the <i>Compute Optimizer User
    *             Guide</i>.</p>
-   *
    *         <p>You can have only one Amazon EBS volume export job in progress per Amazon Web Services Region.</p>
    */
   public exportEBSVolumeRecommendations(
@@ -205,13 +254,10 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
 
   /**
    * <p>Exports optimization recommendations for Amazon EC2 instances.</p>
-   *
    *         <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata
-   *             in a JavaScript Object Notation (JSON)   (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
+   *             in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
    *                 Recommendations</a> in the <i>Compute Optimizer User
    *             Guide</i>.</p>
-   *
    *         <p>You can have only one Amazon EC2 instance export job in progress per Amazon Web Services Region.</p>
    */
   public exportEC2InstanceRecommendations(
@@ -245,13 +291,10 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
 
   /**
    * <p>Exports optimization recommendations for Lambda functions.</p>
-   *
    *         <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata
-   *             in a JavaScript Object Notation (JSON)   (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
+   *             in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
    *                 Recommendations</a> in the <i>Compute Optimizer User
    *             Guide</i>.</p>
-   *
    *         <p>You can have only one Lambda function export job in progress per Amazon Web Services Region.</p>
    */
   public exportLambdaFunctionRecommendations(
@@ -285,7 +328,6 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
 
   /**
    * <p>Returns Auto Scaling group recommendations.</p>
-   *
    *         <p>Compute Optimizer generates recommendations for Amazon EC2 Auto Scaling groups that
    *             meet a specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
    *                 resources and requirements</a> in the <i>Compute Optimizer User
@@ -322,7 +364,6 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
 
   /**
    * <p>Returns Amazon Elastic Block Store (Amazon EBS) volume recommendations.</p>
-   *
    *         <p>Compute Optimizer generates recommendations for Amazon EBS volumes that
    *             meet a specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
    *                 resources and requirements</a> in the <i>Compute Optimizer User
@@ -359,7 +400,6 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
 
   /**
    * <p>Returns Amazon EC2 instance recommendations.</p>
-   *
    *         <p>Compute Optimizer generates recommendations for Amazon Elastic Compute Cloud (Amazon EC2) instances that meet a specific set of requirements. For more
    *             information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
    *                 requirements</a> in the <i>Compute Optimizer User
@@ -397,7 +437,6 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
   /**
    * <p>Returns the projected utilization metrics of Amazon EC2 instance
    *             recommendations.</p>
-   *
    *         <note>
    *             <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected
    *                 utilization metrics returned when you run this action. Additionally, the
@@ -435,9 +474,47 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
   }
 
   /**
+   * <p>Returns the recommendation preferences that are in effect for a given resource, such
+   *             as enhanced infrastructure metrics. Considers all applicable preferences that you might
+   *             have set at the resource, account, and organization level.</p>
+   *         <p>When you create a recommendation preference, you can set its status to
+   *                 <code>Active</code> or <code>Inactive</code>. Use this action to view the
+   *             recommendation preferences that are in effect, or <code>Active</code>.</p>
+   */
+  public getEffectiveRecommendationPreferences(
+    args: GetEffectiveRecommendationPreferencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEffectiveRecommendationPreferencesCommandOutput>;
+  public getEffectiveRecommendationPreferences(
+    args: GetEffectiveRecommendationPreferencesCommandInput,
+    cb: (err: any, data?: GetEffectiveRecommendationPreferencesCommandOutput) => void
+  ): void;
+  public getEffectiveRecommendationPreferences(
+    args: GetEffectiveRecommendationPreferencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEffectiveRecommendationPreferencesCommandOutput) => void
+  ): void;
+  public getEffectiveRecommendationPreferences(
+    args: GetEffectiveRecommendationPreferencesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetEffectiveRecommendationPreferencesCommandOutput) => void),
+    cb?: (err: any, data?: GetEffectiveRecommendationPreferencesCommandOutput) => void
+  ): Promise<GetEffectiveRecommendationPreferencesCommandOutput> | void {
+    const command = new GetEffectiveRecommendationPreferencesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the enrollment (opt in) status of an account to the Compute Optimizer
    *             service.</p>
-   *
    *         <p>If the account is the management account of an organization, this action also confirms
    *             the enrollment status of member accounts of the organization. Use the <a>GetEnrollmentStatusesForOrganization</a> action to get detailed information
    *             about the enrollment status of member accounts of an organization.</p>
@@ -474,7 +551,6 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
   /**
    * <p>Returns the Compute Optimizer enrollment (opt-in) status of organization member
    *             accounts, if your account is an organization management account.</p>
-   *
    *         <p>To get the enrollment status of standalone accounts, use the <a>GetEnrollmentStatus</a> action.</p>
    */
   public getEnrollmentStatusesForOrganization(
@@ -508,7 +584,6 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
 
   /**
    * <p>Returns Lambda function recommendations.</p>
-   *
    *         <p>Compute Optimizer generates recommendations for functions that meet a specific set
    *             of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
    *                 requirements</a> in the <i>Compute Optimizer User
@@ -544,10 +619,47 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
   }
 
   /**
+   * <p>Returns existing recommendation preferences, such as enhanced infrastructure
+   *             metrics.</p>
+   *         <p>Use the <code>scope</code> parameter to specify which preferences to return. You can
+   *             specify to return preferences for an organization, a specific account ID, or a specific
+   *             EC2 instance or Auto Scaling group Amazon Resource Name (ARN).</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
+   *                 enhanced infrastructure metrics</a> in the <i>Compute Optimizer User
+   *                 Guide</i>.</p>
+   */
+  public getRecommendationPreferences(
+    args: GetRecommendationPreferencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRecommendationPreferencesCommandOutput>;
+  public getRecommendationPreferences(
+    args: GetRecommendationPreferencesCommandInput,
+    cb: (err: any, data?: GetRecommendationPreferencesCommandOutput) => void
+  ): void;
+  public getRecommendationPreferences(
+    args: GetRecommendationPreferencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRecommendationPreferencesCommandOutput) => void
+  ): void;
+  public getRecommendationPreferences(
+    args: GetRecommendationPreferencesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRecommendationPreferencesCommandOutput) => void),
+    cb?: (err: any, data?: GetRecommendationPreferencesCommandOutput) => void
+  ): Promise<GetRecommendationPreferencesCommandOutput> | void {
+    const command = new GetRecommendationPreferencesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the optimization findings for an account.</p>
-   *
    *         <p>It returns the number of:</p>
-   *
    *         <ul>
    *             <li>
    *                 <p>Amazon EC2 instances in an account that are
@@ -598,14 +710,47 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
   }
 
   /**
+   * <p>Creates a new recommendation preference or updates an existing recommendation
+   *             preference, such as enhanced infrastructure metrics.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
+   *                 enhanced infrastructure metrics</a> in the <i>Compute Optimizer User
+   *                 Guide</i>.</p>
+   */
+  public putRecommendationPreferences(
+    args: PutRecommendationPreferencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutRecommendationPreferencesCommandOutput>;
+  public putRecommendationPreferences(
+    args: PutRecommendationPreferencesCommandInput,
+    cb: (err: any, data?: PutRecommendationPreferencesCommandOutput) => void
+  ): void;
+  public putRecommendationPreferences(
+    args: PutRecommendationPreferencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutRecommendationPreferencesCommandOutput) => void
+  ): void;
+  public putRecommendationPreferences(
+    args: PutRecommendationPreferencesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRecommendationPreferencesCommandOutput) => void),
+    cb?: (err: any, data?: PutRecommendationPreferencesCommandOutput) => void
+  ): Promise<PutRecommendationPreferencesCommandOutput> | void {
+    const command = new PutRecommendationPreferencesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the enrollment (opt in and opt out) status of an account to the Compute Optimizer service.</p>
-   *
    *         <p>If the account is a management account of an organization, this action can also be
    *             used to enroll member accounts of the organization.</p>
-   *
    *         <p>You must have the appropriate permissions to opt in to Compute Optimizer, to view its
    *             recommendations, and to opt out. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html">Controlling access with Amazon Web Services Identity and Access Management</a> in the <i>Compute Optimizer User Guide</i>.</p>
-   *
    *         <p>When you opt in, Compute Optimizer automatically creates a service-linked role in your
    *             account to access its data. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/using-service-linked-roles.html">Using
    *                 Service-Linked Roles for Compute Optimizer</a> in the <i>Compute Optimizer User Guide</i>.</p>

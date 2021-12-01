@@ -24,12 +24,12 @@ export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummar
 /**
  * <p>Provides a summarized description of the specified Kinesis data stream without the
  *             shard list.</p>
- *         <p>The information returned includes the stream name, Amazon Resource Name (ARN),
- *             status, record retention period, approximate creation time, monitoring, encryption
- *             details, and open shard count. </p>
+ *         <p>The information returned includes the stream name, Amazon Resource Name (ARN), status,
+ *             record retention period, approximate creation time, monitoring, encryption details, and
+ *             open shard count. </p>
  *         <p>
- *             <a>DescribeStreamSummary</a> has a limit of 20 transactions per second
- *             per account.</p>
+ *             <a>DescribeStreamSummary</a> has a limit of 20 transactions per second per
+ *             account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

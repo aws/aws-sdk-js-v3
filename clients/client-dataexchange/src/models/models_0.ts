@@ -117,6 +117,69 @@ export namespace Action {
   });
 }
 
+export enum ProtocolType {
+  REST = "REST",
+}
+
+/**
+ * <p>The API Gateway API that is the asset.</p>
+ */
+export interface ApiGatewayApiAsset {
+  /**
+   * <p>The API description of the API asset.</p>
+   */
+  ApiDescription?: string;
+
+  /**
+   * <p>The API endpoint of the API asset.</p>
+   */
+  ApiEndpoint?: string;
+
+  /**
+   * <p>The unique identifier of the API asset.</p>
+   */
+  ApiId?: string;
+
+  /**
+   * <p>The API key of the API asset.</p>
+   */
+  ApiKey?: string;
+
+  /**
+   * <p>The API name of the API asset.</p>
+   */
+  ApiName?: string;
+
+  /**
+   * <p>The download URL of the API specification of the API asset.</p>
+   */
+  ApiSpecificationDownloadUrl?: string;
+
+  /**
+   * <p>The date and time that the upload URL expires, in ISO 8601 format.</p>
+   */
+  ApiSpecificationDownloadUrlExpiresAt?: Date;
+
+  /**
+   * <p>The protocol type of the API asset.</p>
+   */
+  ProtocolType?: ProtocolType | string;
+
+  /**
+   * <p>The stage of the API asset.</p>
+   */
+  Stage?: string;
+}
+
+export namespace ApiGatewayApiAsset {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ApiGatewayApiAsset): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The destination for the asset.</p>
  */
@@ -197,6 +260,11 @@ export interface AssetDetails {
    * <p>The Amazon Redshift datashare that is the asset.</p>
    */
   RedshiftDataShareAsset?: RedshiftDataShareAsset;
+
+  /**
+   * <p>Information about the API Gateway API asset.</p>
+   */
+  ApiGatewayApiAsset?: ApiGatewayApiAsset;
 }
 
 export namespace AssetDetails {
@@ -209,12 +277,13 @@ export namespace AssetDetails {
 }
 
 export enum AssetType {
+  API_GATEWAY_API = "API_GATEWAY_API",
   REDSHIFT_DATA_SHARE = "REDSHIFT_DATA_SHARE",
   S3_SNAPSHOT = "S3_SNAPSHOT",
 }
 
 /**
- * <p>An asset in AWS Data Exchange is a piece of data. The asset can be a structured data file, an image file, or some other data file that can be stored as an S3 object, or an Amazon Redshift datashare (Preview). When you create an import job for your files, you create an asset in AWS Data Exchange for each of those files.</p>
+ * <p>An asset in AWS Data Exchange is a piece of data (S3 object) or a means of fulfilling data (Amazon Redshift datashare or Amazon API Gateway API). The asset can be a structured data file, an image file, or some other data file that can be stored as an S3 object, an Amazon API Gateway API, or an Amazon Redshift datashare (Preview). When you create an import job for your files, API Gateway APIs, or Amazon Redshift datashares, you create an asset in AWS Data Exchange.</p>
  */
 export interface AssetEntry {
   /**
@@ -248,7 +317,7 @@ export interface AssetEntry {
   Id: string | undefined;
 
   /**
-   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
+   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name.</p>
    */
   Name: string | undefined;
 
@@ -595,6 +664,7 @@ export namespace CreateDataSetResponse {
 }
 
 export enum LimitName {
+  Amazon_API_Gateway_API_assets_per_revision = "Amazon API Gateway API assets per revision",
   Amazon_Redshift_datashare_assets_per_import_job_from_Redshift = "Amazon Redshift datashare assets per import job from Redshift",
   Amazon_Redshift_datashare_assets_per_revision = "Amazon Redshift datashare assets per revision",
   Asset_per_export_job_from_Amazon_S3 = "Asset per export job from Amazon S3",
@@ -608,10 +678,12 @@ export enum LimitName {
   Concurrent_in_progress_jobs_to_import_assets_from_Amazon_Redshift_datashares = "Concurrent in progress jobs to import assets from Amazon Redshift datashares",
   Concurrent_in_progress_jobs_to_import_assets_from_Amazon_S3 = "Concurrent in progress jobs to import assets from Amazon S3",
   Concurrent_in_progress_jobs_to_import_assets_from_a_signed_URL = "Concurrent in progress jobs to import assets from a signed URL",
+  Concurrent_in_progress_jobs_to_import_assets_from_an_API_Gateway_API = "Concurrent in progress jobs to import assets from an API Gateway API",
   Data_sets_per_account = "Data sets per account",
   Data_sets_per_product = "Data sets per product",
   Event_actions_per_account = "Event actions per account",
   Products_per_account = "Products per account",
+  Revisions_per_Amazon_API_Gateway_API_data_set = "Revisions per Amazon API Gateway API data set",
   Revisions_per_Amazon_Redshift_datashare_data_set = "Revisions per Amazon Redshift datashare data set",
   Revisions_per_data_set = "Revisions per data set",
 }
@@ -872,6 +944,65 @@ export namespace ExportRevisionsToS3RequestDetails {
 }
 
 /**
+ * <p>The request details.</p>
+ */
+export interface ImportAssetFromApiGatewayApiRequestDetails {
+  /**
+   * <p>The API description. Markdown supported.</p>
+   */
+  ApiDescription?: string;
+
+  /**
+   * <p>The API Gateway API ID.</p>
+   */
+  ApiId: string | undefined;
+
+  /**
+   * <p>The API Gateway API key.</p>
+   */
+  ApiKey?: string;
+
+  /**
+   * <p>The API name.</p>
+   */
+  ApiName: string | undefined;
+
+  /**
+   * <p>The Base64-encoded MD5 hash of the OpenAPI 3.0 JSON API specification file. It is used to ensure the integrity of the file.</p>
+   */
+  ApiSpecificationMd5Hash: string | undefined;
+
+  /**
+   * <p>The data set ID.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The protocol type.</p>
+   */
+  ProtocolType: ProtocolType | string | undefined;
+
+  /**
+   * <p>The revision ID.</p>
+   */
+  RevisionId: string | undefined;
+
+  /**
+   * <p>The API stage.</p>
+   */
+  Stage: string | undefined;
+}
+
+export namespace ImportAssetFromApiGatewayApiRequestDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportAssetFromApiGatewayApiRequestDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface ImportAssetFromSignedUrlRequestDetails {
@@ -1015,6 +1146,11 @@ export interface RequestDetails {
    * <p>Details from an import from Amazon Redshift datashare request.</p>
    */
   ImportAssetsFromRedshiftDataShares?: ImportAssetsFromRedshiftDataSharesRequestDetails;
+
+  /**
+   * <p>Information about the import asset from API Gateway API request.</p>
+   */
+  ImportAssetFromApiGatewayApi?: ImportAssetFromApiGatewayApiRequestDetails;
 }
 
 export namespace RequestDetails {
@@ -1032,6 +1168,7 @@ export enum Type {
   EXPORT_REVISIONS_TO_S3 = "EXPORT_REVISIONS_TO_S3",
   IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES = "IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES",
   IMPORT_ASSETS_FROM_S3 = "IMPORT_ASSETS_FROM_S3",
+  IMPORT_ASSET_FROM_API_GATEWAY_API = "IMPORT_ASSET_FROM_API_GATEWAY_API",
   IMPORT_ASSET_FROM_SIGNED_URL = "IMPORT_ASSET_FROM_SIGNED_URL",
 }
 
@@ -1162,6 +1299,75 @@ export namespace ExportRevisionsToS3ResponseDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: ExportRevisionsToS3ResponseDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The response details.</p>
+ */
+export interface ImportAssetFromApiGatewayApiResponseDetails {
+  /**
+   * <p>The API description.</p>
+   */
+  ApiDescription?: string;
+
+  /**
+   * <p>The API ID.</p>
+   */
+  ApiId: string | undefined;
+
+  /**
+   * <p>The API key.</p>
+   */
+  ApiKey?: string;
+
+  /**
+   * <p>The API name.</p>
+   */
+  ApiName: string | undefined;
+
+  /**
+   * <p>The Base64-encoded Md5 hash for the API asset, used to ensure the integrity of the API at that location.</p>
+   */
+  ApiSpecificationMd5Hash: string | undefined;
+
+  /**
+   * <p>The upload URL of the API specification.</p>
+   */
+  ApiSpecificationUploadUrl: string | undefined;
+
+  /**
+   * <p>The date and time that the upload URL expires, in ISO 8601 format.</p>
+   */
+  ApiSpecificationUploadUrlExpiresAt: Date | undefined;
+
+  /**
+   * <p>The data set ID.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The protocol type.</p>
+   */
+  ProtocolType: ProtocolType | string | undefined;
+
+  /**
+   * <p>The revision ID.</p>
+   */
+  RevisionId: string | undefined;
+
+  /**
+   * <p>The API stage.</p>
+   */
+  Stage: string | undefined;
+}
+
+export namespace ImportAssetFromApiGatewayApiResponseDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportAssetFromApiGatewayApiResponseDetails): any => ({
     ...obj,
   });
 }
@@ -1301,6 +1507,11 @@ export interface ResponseDetails {
    * <p>Details from an import from Amazon Redshift datashare response.</p>
    */
   ImportAssetsFromRedshiftDataShares?: ImportAssetsFromRedshiftDataSharesResponseDetails;
+
+  /**
+   * <p>The response details.</p>
+   */
+  ImportAssetFromApiGatewayApi?: ImportAssetFromApiGatewayApiResponseDetails;
 }
 
 export namespace ResponseDetails {
@@ -1698,7 +1909,7 @@ export interface GetAssetResponse {
   Id?: string;
 
   /**
-   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
+   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name.</p>
    */
   Name?: string;
 
@@ -2503,6 +2714,81 @@ export namespace ListTagsForResourceResponse {
   });
 }
 
+/**
+ * <p>The request body for SendApiAsset.</p>
+ */
+export interface SendApiAssetRequest {
+  /**
+   * <p>The request body.</p>
+   */
+  Body?: string;
+
+  /**
+   * <p>Attach query string parameters to the end of the URI (for example, /v1/examplePath?exampleParam=exampleValue).</p>
+   */
+  QueryStringParameters?: { [key: string]: string };
+
+  /**
+   * <p>Asset ID value for the API request.</p>
+   */
+  AssetId: string | undefined;
+
+  /**
+   * <p>Data set ID value for the API request.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>Any header value prefixed with x-amzn-dataexchange-header- will have that stripped before sending the Asset API request. Use this when you want to override a header that AWS Data Exchange uses. Alternatively, you can use the header without a prefix to the HTTP request.</p>
+   */
+  RequestHeaders?: { [key: string]: string };
+
+  /**
+   * <p>HTTP method value for the API request. Alternatively, you can use the appropriate verb in your request.</p>
+   */
+  Method?: string;
+
+  /**
+   * <p>URI path value for the API request. Alternatively, you can set the URI path directly by invoking /v1/{pathValue}</p>
+   */
+  Path?: string;
+
+  /**
+   * <p>Revision ID value for the API request.</p>
+   */
+  RevisionId: string | undefined;
+}
+
+export namespace SendApiAssetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendApiAssetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SendApiAssetResponse {
+  /**
+   * <p>The response body from the underlying API tracked by the API asset.</p>
+   */
+  Body?: string;
+
+  /**
+   * <p>The response headers from the underlying API tracked by the API asset.</p>
+   */
+  ResponseHeaders?: { [key: string]: string };
+}
+
+export namespace SendApiAssetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendApiAssetResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface StartJobRequest {
   /**
    * <p>The unique identifier for a job.</p>
@@ -2590,7 +2876,7 @@ export interface UpdateAssetRequest {
   DataSetId: string | undefined;
 
   /**
-   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
+   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name.</p>
    */
   Name: string | undefined;
 
@@ -2641,7 +2927,7 @@ export interface UpdateAssetResponse {
   Id?: string;
 
   /**
-   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
+   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name.</p>
    */
   Name?: string;
 
