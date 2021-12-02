@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeDhcpOptionsRequest, DescribeDhcpOptionsResult } from "../models/models_2";
+import { DescribeDhcpOptionsRequest, DescribeDhcpOptionsResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeDhcpOptionsCommand,
   serializeAws_ec2DescribeDhcpOptionsCommand,

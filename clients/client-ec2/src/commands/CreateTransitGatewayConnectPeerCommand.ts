@@ -12,7 +12,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateTransitGatewayConnectPeerRequest, CreateTransitGatewayConnectPeerResult } from "../models/models_1";
+import { CreateTransitGatewayConnectPeerRequest } from "../models/models_1";
+import { CreateTransitGatewayConnectPeerResult } from "../models/models_2";
 import {
   deserializeAws_ec2CreateTransitGatewayConnectPeerCommand,
   serializeAws_ec2CreateTransitGatewayConnectPeerCommand,

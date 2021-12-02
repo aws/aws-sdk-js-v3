@@ -30,6 +30,9 @@ export interface DescribeQuerySuggestionsBlockListCommandOutput
  * <p>Describes a block list used for query suggestions for an index.</p>
  *         <p>This is used to check the current settings that are applied to a
  *             block list.</p>
+ *         <p>
+ *             <code>DescribeQuerySuggestionsBlockList</code> is currently not supported in the
+ *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1759,6 +1759,36 @@ export type ReplicaStatus =
   | "REGION_DISABLED"
   | "UPDATING";
 
+export enum TableClass {
+  STANDARD = "STANDARD",
+  STANDARD_INFREQUENT_ACCESS = "STANDARD_INFREQUENT_ACCESS",
+}
+
+/**
+ * <p>Contains details of the table class.</p>
+ */
+export interface TableClassSummary {
+  /**
+   * <p>The table class of the specified table. Valid values are <code>STANDARD</code> and
+   *                 <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
+   */
+  TableClass?: TableClass | string;
+
+  /**
+   * <p>The date and time at which the table class was last updated.</p>
+   */
+  LastUpdateDateTime?: Date;
+}
+
+export namespace TableClassSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TableClassSummary): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Contains the details of the replica.</p>
  */
@@ -1845,6 +1875,11 @@ export interface ReplicaDescription {
    *             of inaccessibility check the <code>ReplicaStatus</code> property.</p>
    */
   ReplicaInaccessibleDateTime?: Date;
+
+  /**
+   * <p>Contains details of the table class.</p>
+   */
+  ReplicaTableClassSummary?: TableClassSummary;
 }
 
 export namespace ReplicaDescription {
@@ -2019,6 +2054,12 @@ export interface CreateReplicationGroupMemberAction {
    * <p>Replica-specific global secondary index settings.</p>
    */
   GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndex[];
+
+  /**
+   * <p>Replica-specific table class. If not specified, uses the source table's
+   *             table class.</p>
+   */
+  TableClassOverride?: TableClass | string;
 }
 
 export namespace CreateReplicationGroupMemberAction {
@@ -2491,6 +2532,12 @@ export interface CreateTableInput {
    *                 for DynamoDB</a>.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The table class of the new table. Valid values are <code>STANDARD</code> and
+   *                 <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
+   */
+  TableClass?: TableClass | string;
 }
 
 export namespace CreateTableInput {
@@ -3179,6 +3226,11 @@ export interface TableDescription {
    * <p>Contains information about the table archive.</p>
    */
   ArchivalSummary?: ArchivalSummary;
+
+  /**
+   * <p>Contains details of the table class.</p>
+   */
+  TableClassSummary?: TableClassSummary;
 }
 
 export namespace TableDescription {
@@ -3993,6 +4045,11 @@ export interface ReplicaSettingsDescription {
    * <p>Replica global secondary index settings for the global table.</p>
    */
   ReplicaGlobalSecondaryIndexSettings?: ReplicaGlobalSecondaryIndexSettingsDescription[];
+
+  /**
+   * <p>Contains details of the table class.</p>
+   */
+  ReplicaTableClassSummary?: TableClassSummary;
 }
 
 export namespace ReplicaSettingsDescription {
@@ -5626,6 +5683,12 @@ export interface ReplicaSettingsUpdate {
    *             modified.</p>
    */
   ReplicaGlobalSecondaryIndexSettingsUpdate?: ReplicaGlobalSecondaryIndexSettingsUpdate[];
+
+  /**
+   * <p>Replica-specific table class. If not specified, uses the source table's
+   *             table class.</p>
+   */
+  ReplicaTableClass?: TableClass | string;
 }
 
 export namespace ReplicaSettingsUpdate {
@@ -5846,6 +5909,12 @@ export interface UpdateReplicationGroupMemberAction {
    * <p>Replica-specific global secondary index settings.</p>
    */
   GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndex[];
+
+  /**
+   * <p>Replica-specific table class. If not specified, uses the source table's
+   *             table class.</p>
+   */
+  TableClassOverride?: TableClass | string;
 }
 
 export namespace UpdateReplicationGroupMemberAction {
@@ -5994,6 +6063,12 @@ export interface UpdateTableInput {
    *         </note>
    */
   ReplicaUpdates?: ReplicationGroupUpdate[];
+
+  /**
+   * <p>The table class of the table to be updated. Valid values are <code>STANDARD</code> and
+   *                 <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
+   */
+  TableClass?: TableClass | string;
 }
 
 export namespace UpdateTableInput {

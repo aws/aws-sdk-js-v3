@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyClientVpnEndpointRequest, ModifyClientVpnEndpointResult } from "../models/models_4";
+import { ModifyClientVpnEndpointRequest, ModifyClientVpnEndpointResult } from "../models/models_5";
 import {
   deserializeAws_ec2ModifyClientVpnEndpointCommand,
   serializeAws_ec2ModifyClientVpnEndpointCommand,

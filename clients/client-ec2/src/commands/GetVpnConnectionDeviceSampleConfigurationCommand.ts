@@ -15,7 +15,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   GetVpnConnectionDeviceSampleConfigurationRequest,
   GetVpnConnectionDeviceSampleConfigurationResult,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommand,
   serializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommand,

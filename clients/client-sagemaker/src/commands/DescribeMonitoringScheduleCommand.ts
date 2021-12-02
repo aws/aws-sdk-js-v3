@@ -11,7 +11,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeMonitoringScheduleRequest, DescribeMonitoringScheduleResponse } from "../models/models_1";
+import { DescribeMonitoringScheduleRequest, DescribeMonitoringScheduleResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeMonitoringScheduleCommand,
   serializeAws_json1_1DescribeMonitoringScheduleCommand,

@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeSecurityGroupRulesRequest, DescribeSecurityGroupRulesResult } from "../models/models_3";
+import { DescribeSecurityGroupRulesRequest, DescribeSecurityGroupRulesResult } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeSecurityGroupRulesCommand,
   serializeAws_ec2DescribeSecurityGroupRulesCommand,

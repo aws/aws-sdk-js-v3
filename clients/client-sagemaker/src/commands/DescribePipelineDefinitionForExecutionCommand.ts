@@ -14,7 +14,7 @@ import {
 import {
   DescribePipelineDefinitionForExecutionRequest,
   DescribePipelineDefinitionForExecutionResponse,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1DescribePipelineDefinitionForExecutionCommand,
   serializeAws_json1_1DescribePipelineDefinitionForExecutionCommand,

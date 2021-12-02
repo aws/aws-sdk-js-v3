@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { WithdrawByoipCidrRequest, WithdrawByoipCidrResult } from "../models/models_5";
+import { WithdrawByoipCidrRequest, WithdrawByoipCidrResult } from "../models/models_6";
 import {
   deserializeAws_ec2WithdrawByoipCidrCommand,
   serializeAws_ec2WithdrawByoipCidrCommand,

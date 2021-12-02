@@ -306,6 +306,7 @@ import {
   StreamSpecification,
   TableAlreadyExistsException,
   TableAutoScalingDescription,
+  TableClassSummary,
   TableDescription,
   TableInUseException,
   TableNotFoundException,
@@ -5848,6 +5849,8 @@ const serializeAws_json1_0CreateReplicationGroupMemberAction = (
         ),
       }),
     ...(input.RegionName !== undefined && input.RegionName !== null && { RegionName: input.RegionName }),
+    ...(input.TableClassOverride !== undefined &&
+      input.TableClassOverride !== null && { TableClassOverride: input.TableClassOverride }),
   };
 };
 
@@ -5880,6 +5883,7 @@ const serializeAws_json1_0CreateTableInput = (input: CreateTableInput, context: 
       input.StreamSpecification !== null && {
         StreamSpecification: serializeAws_json1_0StreamSpecification(input.StreamSpecification, context),
       }),
+    ...(input.TableClass !== undefined && input.TableClass !== null && { TableClass: input.TableClass }),
     ...(input.TableName !== undefined && input.TableName !== null && { TableName: input.TableName }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
@@ -6956,6 +6960,8 @@ const serializeAws_json1_0ReplicaSettingsUpdate = (input: ReplicaSettingsUpdate,
       input.ReplicaProvisionedReadCapacityUnits !== null && {
         ReplicaProvisionedReadCapacityUnits: input.ReplicaProvisionedReadCapacityUnits,
       }),
+    ...(input.ReplicaTableClass !== undefined &&
+      input.ReplicaTableClass !== null && { ReplicaTableClass: input.ReplicaTableClass }),
   };
 };
 
@@ -7474,6 +7480,8 @@ const serializeAws_json1_0UpdateReplicationGroupMemberAction = (
         ),
       }),
     ...(input.RegionName !== undefined && input.RegionName !== null && { RegionName: input.RegionName }),
+    ...(input.TableClassOverride !== undefined &&
+      input.TableClassOverride !== null && { TableClassOverride: input.TableClassOverride }),
   };
 };
 
@@ -7507,6 +7515,7 @@ const serializeAws_json1_0UpdateTableInput = (input: UpdateTableInput, context: 
       input.StreamSpecification !== null && {
         StreamSpecification: serializeAws_json1_0StreamSpecification(input.StreamSpecification, context),
       }),
+    ...(input.TableClass !== undefined && input.TableClass !== null && { TableClass: input.TableClass }),
     ...(input.TableName !== undefined && input.TableName !== null && { TableName: input.TableName }),
   };
 };
@@ -9269,6 +9278,10 @@ const deserializeAws_json1_0ReplicaDescription = (output: any, context: __SerdeC
     ReplicaStatus: __expectString(output.ReplicaStatus),
     ReplicaStatusDescription: __expectString(output.ReplicaStatusDescription),
     ReplicaStatusPercentProgress: __expectString(output.ReplicaStatusPercentProgress),
+    ReplicaTableClassSummary:
+      output.ReplicaTableClassSummary !== undefined && output.ReplicaTableClassSummary !== null
+        ? deserializeAws_json1_0TableClassSummary(output.ReplicaTableClassSummary, context)
+        : undefined,
   } as any;
 };
 
@@ -9448,6 +9461,10 @@ const deserializeAws_json1_0ReplicaSettingsDescription = (
         : undefined,
     ReplicaProvisionedWriteCapacityUnits: __expectLong(output.ReplicaProvisionedWriteCapacityUnits),
     ReplicaStatus: __expectString(output.ReplicaStatus),
+    ReplicaTableClassSummary:
+      output.ReplicaTableClassSummary !== undefined && output.ReplicaTableClassSummary !== null
+        ? deserializeAws_json1_0TableClassSummary(output.ReplicaTableClassSummary, context)
+        : undefined,
   } as any;
 };
 
@@ -9660,6 +9677,16 @@ const deserializeAws_json1_0TableAutoScalingDescription = (
   } as any;
 };
 
+const deserializeAws_json1_0TableClassSummary = (output: any, context: __SerdeContext): TableClassSummary => {
+  return {
+    LastUpdateDateTime:
+      output.LastUpdateDateTime !== undefined && output.LastUpdateDateTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateDateTime)))
+        : undefined,
+    TableClass: __expectString(output.TableClass),
+  } as any;
+};
+
 const deserializeAws_json1_0TableDescription = (output: any, context: __SerdeContext): TableDescription => {
   return {
     ArchivalSummary:
@@ -9715,6 +9742,10 @@ const deserializeAws_json1_0TableDescription = (output: any, context: __SerdeCon
         ? deserializeAws_json1_0StreamSpecification(output.StreamSpecification, context)
         : undefined,
     TableArn: __expectString(output.TableArn),
+    TableClassSummary:
+      output.TableClassSummary !== undefined && output.TableClassSummary !== null
+        ? deserializeAws_json1_0TableClassSummary(output.TableClassSummary, context)
+        : undefined,
     TableId: __expectString(output.TableId),
     TableName: __expectString(output.TableName),
     TableSizeBytes: __expectLong(output.TableSizeBytes),

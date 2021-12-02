@@ -36,6 +36,101 @@ export namespace AccessDeniedForDependencyException {
   });
 }
 
+/**
+ * <p>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Block</code> action. </p>
+ *             <p>This is only used in the context of the <code>ResponseAction</code> setting. </p>
+ *          <p>JSON specification: <code>"Block": {}</code>
+ *          </p>
+ */
+export interface BlockAction {}
+
+export namespace BlockAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BlockAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Count</code> action. </p>
+ *             <p>This is only used in the context of the <code>ResponseAction</code> setting. </p>
+ *          <p>JSON specification: <code>"Count": {}</code>
+ *          </p>
+ */
+export interface CountAction {}
+
+export namespace CountAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CountAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the action setting that Shield Advanced should use in the WAF rules that it creates on behalf of the
+ *    protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature,
+ *    when you enable or update automatic mitigation. Shield Advanced creates the WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource. </p>
+ */
+export interface ResponseAction {
+  /**
+   * <p>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Block</code> action. </p>
+   *          <p>You must specify exactly one action, either <code>Block</code> or <code>Count</code>.</p>
+   */
+  Block?: BlockAction;
+
+  /**
+   * <p>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Count</code> action. </p>
+   *          <p>You must specify exactly one action, either <code>Block</code> or <code>Count</code>.</p>
+   */
+  Count?: CountAction;
+}
+
+export namespace ResponseAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseAction): any => ({
+    ...obj,
+  });
+}
+
+export enum ApplicationLayerAutomaticResponseStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>The automatic application layer DDoS mitigation settings for a <a>Protection</a>.
+ *        This configuration determines whether Shield Advanced automatically
+ *        manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks. </p>
+ */
+export interface ApplicationLayerAutomaticResponseConfiguration {
+  /**
+   * <p>Indicates whether automatic application layer DDoS mitigation is enabled for the protection. </p>
+   */
+  Status: ApplicationLayerAutomaticResponseStatus | string | undefined;
+
+  /**
+   * <p>Specifies the action setting that Shield Advanced should use in the WAF rules that it creates on behalf of the
+   *    protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature,
+   *    when you enable or update automatic mitigation. Shield Advanced creates the WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource. </p>
+   */
+  Action: ResponseAction | undefined;
+}
+
+export namespace ApplicationLayerAutomaticResponseConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ApplicationLayerAutomaticResponseConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export interface AssociateDRTLogBucketRequest {
   /**
    * <p>The Amazon S3 bucket that contains the logs that you want to share.</p>
@@ -64,8 +159,7 @@ export namespace AssociateDRTLogBucketResponse {
 }
 
 /**
- * <p>Exception that indicates that a problem occurred with the service infrastructure. You
- *          can retry the request.</p>
+ * <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
  */
 export interface InternalErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalErrorException";
@@ -303,6 +397,24 @@ export namespace AssociateHealthCheckResponse {
 }
 
 /**
+ * <p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>
+ */
+export interface InvalidResourceException extends __SmithyException, $MetadataBearer {
+  name: "InvalidResourceException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidResourceException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidResourceException): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Contact information that the SRT can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>
  */
 export interface EmergencyContact {
@@ -423,11 +535,11 @@ export enum AttackPropertyIdentifier {
 }
 
 /**
- * <p>A contributor to the attack and their contribution.</p>
+ * <p>A contributor to the attack and their contribution. </p>
  */
 export interface Contributor {
   /**
-   * <p>The name of the contributor. This is dependent on the <code>AttackPropertyIdentifier</code>. For example, if the <code>AttackPropertyIdentifier</code> is <code>SOURCE_COUNTRY</code>, the <code>Name</code> could be <code>United States</code>.</p>
+   * <p>The name of the contributor. The type of name that you'll find here depends on the <code>AttackPropertyIdentifier</code> setting in the <code>AttackProperty</code> where this contributor is defined. For example, if the <code>AttackPropertyIdentifier</code> is <code>SOURCE_COUNTRY</code>, the <code>Name</code> could be <code>United States</code>.</p>
    */
   Name?: string;
 
@@ -461,7 +573,7 @@ export interface AttackProperty {
    * <p>The type of Shield event that was observed. <code>NETWORK</code> indicates layer 3 and layer 4 events and <code>APPLICATION</code>
    *          indicates layer 7 events.</p>
    *          <p>For infrastructure
-   *   layer events (L3 and L4 events) after January 25, 2021, you can view metrics for top contributors in Amazon CloudWatch metrics.
+   *   layer events (L3 and L4 events), you can view metrics for top contributors in Amazon CloudWatch metrics.
    *            For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms">Shield metrics and alarms</a>
    *                in the <i>WAF Developer Guide</i>. </p>
    */
@@ -475,7 +587,7 @@ export interface AttackProperty {
   AttackPropertyIdentifier?: AttackPropertyIdentifier | string;
 
   /**
-   * <p>Contributor objects for the top five contributors to a Shield event. </p>
+   * <p>Contributor objects for the top five contributors to a Shield event. A contributor is a source of traffic that Shield Advanced identifies as responsible for some or all of an event.</p>
    */
   TopContributors?: Contributor[];
 
@@ -602,12 +714,12 @@ export interface AttackDetail {
   SubResources?: SubResourceSummary[];
 
   /**
-   * <p>The time the attack started, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   * <p>The time the attack started, in Unix time in seconds. </p>
    */
   StartTime?: Date;
 
   /**
-   * <p>The time the attack ended, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   * <p>The time the attack ended, in Unix time in seconds. </p>
    */
   EndTime?: Date;
 
@@ -619,7 +731,7 @@ export interface AttackDetail {
   /**
    * <p>The array of objects that provide details of the Shield event. </p>
    *          <p>For infrastructure
-   *   layer events (L3 and L4 events) after January 25, 2021, you can view metrics for top contributors in Amazon CloudWatch metrics.
+   *   layer events (L3 and L4 events), you can view metrics for top contributors in Amazon CloudWatch metrics.
    *            For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms">Shield metrics and alarms</a>
    *                in the <i>WAF Developer Guide</i>. </p>
    */
@@ -802,12 +914,12 @@ export interface AttackSummary {
   ResourceArn?: string;
 
   /**
-   * <p>The start time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   * <p>The start time of the attack, in Unix time in seconds. </p>
    */
   StartTime?: Date;
 
   /**
-   * <p>The end time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   * <p>The end time of the attack, in Unix time in seconds. </p>
    */
   EndTime?: Date;
 
@@ -886,7 +998,7 @@ export interface CreateProtectionRequest {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For Amazon Route 53: <code>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i>
+   *                <p>For Amazon Route 53: <code>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i>
    *                   </code>
    *                </p>
    *             </li>
@@ -926,24 +1038,6 @@ export namespace CreateProtectionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateProtectionResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>
- */
-export interface InvalidResourceException extends __SmithyException, $MetadataBearer {
-  name: "InvalidResourceException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidResourceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidResourceException): any => ({
     ...obj,
   });
 }
@@ -1174,7 +1268,7 @@ export namespace LockedSubscriptionException {
 
 export interface DescribeAttackRequest {
   /**
-   * <p>The unique identifier (ID) for the attack that to be described.</p>
+   * <p>The unique identifier (ID) for the attack.</p>
    */
   AttackId: string | undefined;
 }
@@ -1220,12 +1314,12 @@ export namespace DescribeAttackStatisticsRequest {
  */
 export interface TimeRange {
   /**
-   * <p>The start time, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   * <p>The start time, in Unix time in seconds. </p>
    */
   FromInclusive?: Date;
 
   /**
-   * <p>The end time, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   * <p>The end time, in Unix time in seconds. </p>
    */
   ToExclusive?: Date;
 }
@@ -1362,7 +1456,7 @@ export interface Protection {
   ResourceArn?: string;
 
   /**
-   * <p>The unique identifier (ID) for the Route 53 health check that's associated with the protection. </p>
+   * <p>The unique identifier (ID) for the Route 53 health check that's associated with the protection. </p>
    */
   HealthCheckIds?: string[];
 
@@ -1370,6 +1464,13 @@ export interface Protection {
    * <p>The ARN (Amazon Resource Name) of the protection.</p>
    */
   ProtectionArn?: string;
+
+  /**
+   * <p>The automatic application layer DDoS mitigation settings for the protection.
+   *        This configuration determines whether Shield Advanced automatically
+   *        manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks. </p>
+   */
+  ApplicationLayerAutomaticResponseConfiguration?: ApplicationLayerAutomaticResponseConfiguration;
 }
 
 export namespace Protection {
@@ -1636,7 +1737,7 @@ export namespace SubscriptionLimits {
  */
 export interface Subscription {
   /**
-   * <p>The start time of the subscription, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   * <p>The start time of the subscription, in Unix time in seconds. </p>
    */
   StartTime?: Date;
 
@@ -1700,6 +1801,33 @@ export namespace DescribeSubscriptionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeSubscriptionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableApplicationLayerAutomaticResponseRequest {
+  /**
+   * <p>The ARN (Amazon Resource Name) of the resource.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace DisableApplicationLayerAutomaticResponseRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisableApplicationLayerAutomaticResponseRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableApplicationLayerAutomaticResponseResponse {}
+
+export namespace DisableApplicationLayerAutomaticResponseResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisableApplicationLayerAutomaticResponseResponse): any => ({
     ...obj,
   });
 }
@@ -1807,6 +1935,40 @@ export namespace DisassociateHealthCheckResponse {
   });
 }
 
+export interface EnableApplicationLayerAutomaticResponseRequest {
+  /**
+   * <p>The ARN (Amazon Resource Name) of the resource.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>Specifies the action setting that Shield Advanced should use in the WAF rules that it creates on behalf of the
+   *    protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature,
+   *    when you enable or update automatic mitigation. Shield Advanced creates the WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource. </p>
+   */
+  Action: ResponseAction | undefined;
+}
+
+export namespace EnableApplicationLayerAutomaticResponseRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EnableApplicationLayerAutomaticResponseRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableApplicationLayerAutomaticResponseResponse {}
+
+export namespace EnableApplicationLayerAutomaticResponseResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EnableApplicationLayerAutomaticResponseResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface EnableProactiveEngagementRequest {}
 
 export namespace EnableProactiveEngagementRequest {
@@ -1863,30 +2025,39 @@ export namespace GetSubscriptionStateResponse {
 
 export interface ListAttacksRequest {
   /**
-   * <p>The ARN (Amazon Resource Name) of the resource that was attacked. If this is left
+   * <p>The ARNs (Amazon Resource Names) of the resources that were attacked. If you leave this
    *          blank, all applicable resources for this account will be included.</p>
    */
   ResourceArns?: string[];
 
   /**
-   * <p>The start of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp format</a>  is allowed.  </p>
+   * <p>The start of the time period for the attacks. This is a <code>timestamp</code> type. The request syntax listing for this call indicates a <code>number</code> type,
+   *            but you can provide the time in any valid <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">timestamp format</a> setting.  </p>
    */
   StartTime?: TimeRange;
 
   /**
-   * <p>The end of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp format</a>  is allowed.  </p>
+   * <p>The end of the time period for the attacks. This is a <code>timestamp</code> type. The request syntax listing for this call indicates a <code>number</code> type,
+   *            but you can provide the time in any valid <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">timestamp format</a> setting.  </p>
    */
   EndTime?: TimeRange;
 
   /**
-   * <p>The <code>ListAttacksRequest.NextMarker</code> value from a previous call to <code>ListAttacksRequest</code>. Pass null if this is the first call.</p>
+   * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
+   *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
+   *            providing the token that was returned by the prior call in your request. </p>
+   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
+   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>On your first call to a list operation, leave this setting empty.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of <a>AttackSummary</a> objects to return. If you leave this blank,
-   *          Shield Advanced returns the first 20 results.</p>
-   *          <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>
+   * <p>The greatest number of objects that you want Shield Advanced to return to the list request. Shield Advanced might return fewer objects
+   *          than you indicate in this setting, even if more objects are available. If there are more objects remaining, Shield Advanced will always also return a <code>NextToken</code> value
+   *          in the response.</p>
+   *          <p>The default setting is 20.</p>
    */
   MaxResults?: number;
 }
@@ -1907,11 +2078,12 @@ export interface ListAttacksResponse {
   AttackSummaries?: AttackSummary[];
 
   /**
-   * <p>The token returned by a previous call to indicate that there is more data available.
-   *          If not null, more results are available. Pass this value for the <code>NextMarker</code>
-   *          parameter in a subsequent call to <code>ListAttacks</code> to retrieve the next set of
-   *          items.</p>
-   *          <p>Shield Advanced might return the list of <a>AttackSummary</a> objects in batches smaller than the number specified by MaxResults. If there are more attack summary objects to return, Shield Advanced will always also return a <code>NextToken</code>.</p>
+   * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
+   *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
+   *            providing the token that was returned by the prior call in your request. </p>
+   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
+   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    */
   NextToken?: string;
 }
@@ -1926,7 +2098,7 @@ export namespace ListAttacksResponse {
 }
 
 /**
- * <p>Exception that indicates that the NextToken specified in the request is invalid. Submit the request using the NextToken value that was returned in the response.</p>
+ * <p>Exception that indicates that the <code>NextToken</code> specified in the request is invalid. Submit the request using the <code>NextToken</code> value that was returned in the prior response.</p>
  */
 export interface InvalidPaginationTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidPaginationTokenException";
@@ -1945,14 +2117,21 @@ export namespace InvalidPaginationTokenException {
 
 export interface ListProtectionGroupsRequest {
   /**
-   * <p>The next token value from a previous call to <code>ListProtectionGroups</code>. Pass null if this is the first call.</p>
+   * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
+   *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
+   *            providing the token that was returned by the prior call in your request. </p>
+   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
+   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>On your first call to a list operation, leave this setting empty.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of <a>ProtectionGroup</a> objects to return. If you leave this blank,
-   *          Shield Advanced returns the first 20 results.</p>
-   *          <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>
+   * <p>The greatest number of objects that you want Shield Advanced to return to the list request. Shield Advanced might return fewer objects
+   *          than you indicate in this setting, even if more objects are available. If there are more objects remaining, Shield Advanced will always also return a <code>NextToken</code> value
+   *          in the response.</p>
+   *          <p>The default setting is 20.</p>
    */
   MaxResults?: number;
 }
@@ -1973,7 +2152,12 @@ export interface ListProtectionGroupsResponse {
   ProtectionGroups: ProtectionGroup[] | undefined;
 
   /**
-   * <p>If you specify a value for <code>MaxResults</code> and you have more protection groups than the value of MaxResults, Shield Advanced returns this token that you can use in your next request, to get the next batch of objects. </p>
+   * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
+   *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
+   *            providing the token that was returned by the prior call in your request. </p>
+   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
+   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    */
   NextToken?: string;
 }
@@ -1989,14 +2173,21 @@ export namespace ListProtectionGroupsResponse {
 
 export interface ListProtectionsRequest {
   /**
-   * <p>The <code>ListProtectionsRequest.NextToken</code> value from a previous call to <code>ListProtections</code>. Pass null if this is the first call.</p>
+   * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
+   *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
+   *            providing the token that was returned by the prior call in your request. </p>
+   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
+   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>On your first call to a list operation, leave this setting empty.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of <a>Protection</a> objects to return. If you leave this blank,
-   *          Shield Advanced returns the first 20 results.</p>
-   *          <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>
+   * <p>The greatest number of objects that you want Shield Advanced to return to the list request. Shield Advanced might return fewer objects
+   *          than you indicate in this setting, even if more objects are available. If there are more objects remaining, Shield Advanced will always also return a <code>NextToken</code> value
+   *          in the response.</p>
+   *          <p>The default setting is 20.</p>
    */
   MaxResults?: number;
 }
@@ -2017,8 +2208,12 @@ export interface ListProtectionsResponse {
   Protections?: Protection[];
 
   /**
-   * <p>If you specify a value for <code>MaxResults</code> and you have more Protections than the value of MaxResults, Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections.</p>
-   *          <p>Shield Advanced might return the list of <a>Protection</a> objects in batches smaller than the number specified by MaxResults. If there are more <a>Protection</a> objects to return, Shield Advanced will always also return a <code>NextToken</code>.</p>
+   * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
+   *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
+   *            providing the token that was returned by the prior call in your request. </p>
+   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
+   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    */
   NextToken?: string;
 }
@@ -2039,14 +2234,21 @@ export interface ListResourcesInProtectionGroupRequest {
   ProtectionGroupId: string | undefined;
 
   /**
-   * <p>The next token value from a previous call to <code>ListResourcesInProtectionGroup</code>. Pass null if this is the first call.</p>
+   * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
+   *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
+   *            providing the token that was returned by the prior call in your request. </p>
+   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
+   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>On your first call to a list operation, leave this setting empty.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of resource ARN objects to return. If you leave this blank,
-   *          Shield Advanced returns the first 20 results.</p>
-   *          <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>
+   * <p>The greatest number of objects that you want Shield Advanced to return to the list request. Shield Advanced might return fewer objects
+   *          than you indicate in this setting, even if more objects are available. If there are more objects remaining, Shield Advanced will always also return a <code>NextToken</code> value
+   *          in the response.</p>
+   *          <p>The default setting is 20.</p>
    */
   MaxResults?: number;
 }
@@ -2067,7 +2269,12 @@ export interface ListResourcesInProtectionGroupResponse {
   ResourceArns: string[] | undefined;
 
   /**
-   * <p>If you specify a value for <code>MaxResults</code> and you have more resources in the protection group than the value of MaxResults, Shield Advanced returns this token that you can use in your next request, to get the next batch of objects. </p>
+   * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
+   *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
+   *            providing the token that was returned by the prior call in your request. </p>
+   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
+   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    */
   NextToken?: string;
 }
@@ -2173,6 +2380,40 @@ export namespace UntagResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateApplicationLayerAutomaticResponseRequest {
+  /**
+   * <p>The ARN (Amazon Resource Name) of the resource.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>Specifies the action setting that Shield Advanced should use in the WAF rules that it creates on behalf of the
+   *    protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature,
+   *    when you enable or update automatic mitigation. Shield Advanced creates the WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource. </p>
+   */
+  Action: ResponseAction | undefined;
+}
+
+export namespace UpdateApplicationLayerAutomaticResponseRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateApplicationLayerAutomaticResponseRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateApplicationLayerAutomaticResponseResponse {}
+
+export namespace UpdateApplicationLayerAutomaticResponseResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateApplicationLayerAutomaticResponseResponse): any => ({
     ...obj,
   });
 }

@@ -38,6 +38,9 @@ export interface PutPrincipalMappingCommandOutput extends __MetadataBearer {}
  *                 on user context</a>.</p>
  *         <p>If more than five <code>PUT</code> actions for a group are currently
  *             processing, a validation exception is thrown.</p>
+ *         <p>
+ *             <code>PutPrincipalMapping</code> is currently not supported in the
+ *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

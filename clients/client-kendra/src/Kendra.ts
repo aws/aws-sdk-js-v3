@@ -1,6 +1,16 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  AssociateEntitiesToExperienceCommand,
+  AssociateEntitiesToExperienceCommandInput,
+  AssociateEntitiesToExperienceCommandOutput,
+} from "./commands/AssociateEntitiesToExperienceCommand";
+import {
+  AssociatePersonasToEntitiesCommand,
+  AssociatePersonasToEntitiesCommandInput,
+  AssociatePersonasToEntitiesCommandOutput,
+} from "./commands/AssociatePersonasToEntitiesCommand";
+import {
   BatchDeleteDocumentCommand,
   BatchDeleteDocumentCommandInput,
   BatchDeleteDocumentCommandOutput,
@@ -25,6 +35,11 @@ import {
   CreateDataSourceCommandInput,
   CreateDataSourceCommandOutput,
 } from "./commands/CreateDataSourceCommand";
+import {
+  CreateExperienceCommand,
+  CreateExperienceCommandInput,
+  CreateExperienceCommandOutput,
+} from "./commands/CreateExperienceCommand";
 import { CreateFaqCommand, CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
 import { CreateIndexCommand, CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import {
@@ -42,6 +57,11 @@ import {
   DeleteDataSourceCommandInput,
   DeleteDataSourceCommandOutput,
 } from "./commands/DeleteDataSourceCommand";
+import {
+  DeleteExperienceCommand,
+  DeleteExperienceCommandInput,
+  DeleteExperienceCommandOutput,
+} from "./commands/DeleteExperienceCommand";
 import { DeleteFaqCommand, DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand";
 import { DeleteIndexCommand, DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
 import {
@@ -64,6 +84,11 @@ import {
   DescribeDataSourceCommandInput,
   DescribeDataSourceCommandOutput,
 } from "./commands/DescribeDataSourceCommand";
+import {
+  DescribeExperienceCommand,
+  DescribeExperienceCommandInput,
+  DescribeExperienceCommandOutput,
+} from "./commands/DescribeExperienceCommand";
 import { DescribeFaqCommand, DescribeFaqCommandInput, DescribeFaqCommandOutput } from "./commands/DescribeFaqCommand";
 import {
   DescribeIndexCommand,
@@ -91,10 +116,25 @@ import {
   DescribeThesaurusCommandOutput,
 } from "./commands/DescribeThesaurusCommand";
 import {
+  DisassociateEntitiesFromExperienceCommand,
+  DisassociateEntitiesFromExperienceCommandInput,
+  DisassociateEntitiesFromExperienceCommandOutput,
+} from "./commands/DisassociateEntitiesFromExperienceCommand";
+import {
+  DisassociatePersonasFromEntitiesCommand,
+  DisassociatePersonasFromEntitiesCommandInput,
+  DisassociatePersonasFromEntitiesCommandOutput,
+} from "./commands/DisassociatePersonasFromEntitiesCommand";
+import {
   GetQuerySuggestionsCommand,
   GetQuerySuggestionsCommandInput,
   GetQuerySuggestionsCommandOutput,
 } from "./commands/GetQuerySuggestionsCommand";
+import {
+  GetSnapshotsCommand,
+  GetSnapshotsCommandInput,
+  GetSnapshotsCommandOutput,
+} from "./commands/GetSnapshotsCommand";
 import {
   ListDataSourcesCommand,
   ListDataSourcesCommandInput,
@@ -105,6 +145,21 @@ import {
   ListDataSourceSyncJobsCommandInput,
   ListDataSourceSyncJobsCommandOutput,
 } from "./commands/ListDataSourceSyncJobsCommand";
+import {
+  ListEntityPersonasCommand,
+  ListEntityPersonasCommandInput,
+  ListEntityPersonasCommandOutput,
+} from "./commands/ListEntityPersonasCommand";
+import {
+  ListExperienceEntitiesCommand,
+  ListExperienceEntitiesCommandInput,
+  ListExperienceEntitiesCommandOutput,
+} from "./commands/ListExperienceEntitiesCommand";
+import {
+  ListExperiencesCommand,
+  ListExperiencesCommandInput,
+  ListExperiencesCommandOutput,
+} from "./commands/ListExperiencesCommand";
 import { ListFaqsCommand, ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
 import {
   ListGroupsOlderThanOrderingIdCommand,
@@ -159,6 +214,11 @@ import {
   UpdateDataSourceCommandInput,
   UpdateDataSourceCommandOutput,
 } from "./commands/UpdateDataSourceCommand";
+import {
+  UpdateExperienceCommand,
+  UpdateExperienceCommandInput,
+  UpdateExperienceCommandOutput,
+} from "./commands/UpdateExperienceCommand";
 import { UpdateIndexCommand, UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import {
   UpdateQuerySuggestionsBlockListCommand,
@@ -181,6 +241,78 @@ import { KendraClient } from "./KendraClient";
  * <p>Amazon Kendra is a service for indexing large document sets.</p>
  */
 export class Kendra extends KendraClient {
+  /**
+   * <p>Grants users or groups in your Amazon Web Services SSO identity source access
+   *             to your Amazon Kendra experience. You can create an Amazon Kendra experience such as a
+   *             search application. For more information on creating a search application
+   *             experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
+   *                 a search experience with no code</a>.</p>
+   */
+  public associateEntitiesToExperience(
+    args: AssociateEntitiesToExperienceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateEntitiesToExperienceCommandOutput>;
+  public associateEntitiesToExperience(
+    args: AssociateEntitiesToExperienceCommandInput,
+    cb: (err: any, data?: AssociateEntitiesToExperienceCommandOutput) => void
+  ): void;
+  public associateEntitiesToExperience(
+    args: AssociateEntitiesToExperienceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateEntitiesToExperienceCommandOutput) => void
+  ): void;
+  public associateEntitiesToExperience(
+    args: AssociateEntitiesToExperienceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateEntitiesToExperienceCommandOutput) => void),
+    cb?: (err: any, data?: AssociateEntitiesToExperienceCommandOutput) => void
+  ): Promise<AssociateEntitiesToExperienceCommandOutput> | void {
+    const command = new AssociateEntitiesToExperienceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Defines the specific permissions of users or groups in your Amazon Web Services SSO
+   *             identity source with access to your Amazon Kendra experience. You can create an Amazon Kendra
+   *             experience such as a search application. For more information on creating a
+   *             search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
+   *                 a search experience with no code</a>.</p>
+   */
+  public associatePersonasToEntities(
+    args: AssociatePersonasToEntitiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociatePersonasToEntitiesCommandOutput>;
+  public associatePersonasToEntities(
+    args: AssociatePersonasToEntitiesCommandInput,
+    cb: (err: any, data?: AssociatePersonasToEntitiesCommandOutput) => void
+  ): void;
+  public associatePersonasToEntities(
+    args: AssociatePersonasToEntitiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociatePersonasToEntitiesCommandOutput) => void
+  ): void;
+  public associatePersonasToEntities(
+    args: AssociatePersonasToEntitiesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociatePersonasToEntitiesCommandOutput) => void),
+    cb?: (err: any, data?: AssociatePersonasToEntitiesCommandOutput) => void
+  ): Promise<AssociatePersonasToEntitiesCommandOutput> | void {
+    const command = new AssociatePersonasToEntitiesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Removes one or more documents from an index. The documents must have
    *       been added with the <code>BatchPutDocument</code> operation.</p>
@@ -309,6 +441,9 @@ export class Kendra extends KendraClient {
    *             from the time you cleared suggestions. If you do not see any
    *             new suggestions, then please allow Amazon Kendra to collect
    *             enough queries to learn new suggestions.</p>
+   *         <p>
+   *             <code>ClearQuerySuggestions</code> is currently not supported in the
+   *             Amazon Web Services GovCloud (US-West) region.</p>
    */
   public clearQuerySuggestions(
     args: ClearQuerySuggestionsCommandInput,
@@ -348,6 +483,8 @@ export class Kendra extends KendraClient {
    *             <code>CreateDataSource</code> is a synchronous operation. The
    *       operation returns 200 if the data source was successfully created.
    *       Otherwise, an exception is raised.</p>
+   *          <p>Amazon S3 and <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html">custom</a> data sources are
+   *       the only supported data sources in the Amazon Web Services GovCloud (US-West) region.</p>
    */
   public createDataSource(
     args: CreateDataSourceCommandInput,
@@ -368,6 +505,40 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: CreateDataSourceCommandOutput) => void
   ): Promise<CreateDataSourceCommandOutput> | void {
     const command = new CreateDataSourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an Amazon Kendra experience such as a search application. For more information
+   *             on creating a search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a
+   *                 search experience with no code</a>.</p>
+   */
+  public createExperience(
+    args: CreateExperienceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateExperienceCommandOutput>;
+  public createExperience(
+    args: CreateExperienceCommandInput,
+    cb: (err: any, data?: CreateExperienceCommandOutput) => void
+  ): void;
+  public createExperience(
+    args: CreateExperienceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateExperienceCommandOutput) => void
+  ): void;
+  public createExperience(
+    args: CreateExperienceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateExperienceCommandOutput) => void),
+    cb?: (err: any, data?: CreateExperienceCommandOutput) => void
+  ): Promise<CreateExperienceCommandOutput> | void {
+    const command = new CreateExperienceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -447,6 +618,9 @@ export class Kendra extends KendraClient {
    *         <p>For information on the current quota limits for block lists, see
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
    *                 for Amazon Kendra</a>.</p>
+   *         <p>
+   *             <code>CreateQuerySuggestionsBlockList</code> is currently not supported in the
+   *             Amazon Web Services GovCloud (US-West) region.</p>
    */
   public createQuerySuggestionsBlockList(
     args: CreateQuerySuggestionsBlockListCommandInput,
@@ -547,6 +721,40 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * <p>Deletes your Amazon Kendra experience such as a search application. For more information on
+   *             creating a search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a search
+   *                 experience with no code</a>.</p>
+   */
+  public deleteExperience(
+    args: DeleteExperienceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteExperienceCommandOutput>;
+  public deleteExperience(
+    args: DeleteExperienceCommandInput,
+    cb: (err: any, data?: DeleteExperienceCommandOutput) => void
+  ): void;
+  public deleteExperience(
+    args: DeleteExperienceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteExperienceCommandOutput) => void
+  ): void;
+  public deleteExperience(
+    args: DeleteExperienceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteExperienceCommandOutput) => void),
+    cb?: (err: any, data?: DeleteExperienceCommandOutput) => void
+  ): Promise<DeleteExperienceCommandOutput> | void {
+    const command = new DeleteExperienceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Removes an FAQ from an index.</p>
    */
   public deleteFaq(args: DeleteFaqCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFaqCommandOutput>;
@@ -615,6 +823,9 @@ export class Kendra extends KendraClient {
    *             to the "Engineering" group when calling <code>PutPrincipalMapping</code>. You
    *             can update your internal list of users or sub groups and input this list
    *             when calling <code>PutPrincipalMapping</code>.</p>
+   *         <p>
+   *             <code>DeletePrincipalMapping</code> is currently not supported in the
+   *             Amazon Web Services GovCloud (US-West) region.</p>
    */
   public deletePrincipalMapping(
     args: DeletePrincipalMappingCommandInput,
@@ -650,6 +861,9 @@ export class Kendra extends KendraClient {
    *         <p>A deleted block list might not take effect right away. Amazon Kendra
    *             needs to refresh the entire suggestions list to add back the
    *             queries that were previously blocked.</p>
+   *         <p>
+   *             <code>DeleteQuerySuggestionsBlockList</code> is currently not supported in the
+   *             Amazon Web Services GovCloud (US-West) region.</p>
    */
   public deleteQuerySuggestionsBlockList(
     args: DeleteQuerySuggestionsBlockListCommandInput,
@@ -746,6 +960,41 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * <p>Gets information about your Amazon Kendra experience such as a search application.
+   *             For more information on creating a search application experience,
+   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
+   *                 a search experience with no code</a>.</p>
+   */
+  public describeExperience(
+    args: DescribeExperienceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeExperienceCommandOutput>;
+  public describeExperience(
+    args: DescribeExperienceCommandInput,
+    cb: (err: any, data?: DescribeExperienceCommandOutput) => void
+  ): void;
+  public describeExperience(
+    args: DescribeExperienceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeExperienceCommandOutput) => void
+  ): void;
+  public describeExperience(
+    args: DescribeExperienceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeExperienceCommandOutput) => void),
+    cb?: (err: any, data?: DescribeExperienceCommandOutput) => void
+  ): Promise<DescribeExperienceCommandOutput> | void {
+    const command = new DescribeExperienceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets information about an FAQ list.</p>
    */
   public describeFaq(args: DescribeFaqCommandInput, options?: __HttpHandlerOptions): Promise<DescribeFaqCommandOutput>;
@@ -810,6 +1059,9 @@ export class Kendra extends KendraClient {
    *             when actions were received by Amazon Kendra, the latest action that should process
    *             and apply after other actions, and useful error messages if an action could
    *             not be processed.</p>
+   *         <p>
+   *             <code>DescribePrincipalMapping</code> is currently not supported in the
+   *             Amazon Web Services GovCloud (US-West) region.</p>
    */
   public describePrincipalMapping(
     args: DescribePrincipalMappingCommandInput,
@@ -844,6 +1096,9 @@ export class Kendra extends KendraClient {
    * <p>Describes a block list used for query suggestions for an index.</p>
    *         <p>This is used to check the current settings that are applied to a
    *             block list.</p>
+   *         <p>
+   *             <code>DescribeQuerySuggestionsBlockList</code> is currently not supported in the
+   *             Amazon Web Services GovCloud (US-West) region.</p>
    */
   public describeQuerySuggestionsBlockList(
     args: DescribeQuerySuggestionsBlockListCommandInput,
@@ -878,6 +1133,9 @@ export class Kendra extends KendraClient {
    * <p>Describes the settings of query suggestions for an index.</p>
    *         <p>This is used to check the current settings applied
    *             to query suggestions.</p>
+   *         <p>
+   *             <code>DescribeQuerySuggestionsConfig</code> is currently not supported in the
+   *             Amazon Web Services GovCloud (US-West) region.</p>
    */
   public describeQuerySuggestionsConfig(
     args: DescribeQuerySuggestionsConfigCommandInput,
@@ -941,7 +1199,82 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * <p>Prevents users or groups in your Amazon Web Services SSO identity source
+   *             from accessing your Amazon Kendra experience. You can create an Amazon Kendra experience
+   *             such as a search application. For more information on creating a search
+   *             application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
+   *                 a search experience with no code</a>.</p>
+   */
+  public disassociateEntitiesFromExperience(
+    args: DisassociateEntitiesFromExperienceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateEntitiesFromExperienceCommandOutput>;
+  public disassociateEntitiesFromExperience(
+    args: DisassociateEntitiesFromExperienceCommandInput,
+    cb: (err: any, data?: DisassociateEntitiesFromExperienceCommandOutput) => void
+  ): void;
+  public disassociateEntitiesFromExperience(
+    args: DisassociateEntitiesFromExperienceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateEntitiesFromExperienceCommandOutput) => void
+  ): void;
+  public disassociateEntitiesFromExperience(
+    args: DisassociateEntitiesFromExperienceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateEntitiesFromExperienceCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateEntitiesFromExperienceCommandOutput) => void
+  ): Promise<DisassociateEntitiesFromExperienceCommandOutput> | void {
+    const command = new DisassociateEntitiesFromExperienceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes the specific permissions of users or groups in your Amazon Web Services SSO
+   *             identity source with access to your Amazon Kendra experience. You can create an Amazon Kendra
+   *             experience such as a search application. For more information on creating a
+   *             search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a
+   *                 search experience with no code</a>.</p>
+   */
+  public disassociatePersonasFromEntities(
+    args: DisassociatePersonasFromEntitiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociatePersonasFromEntitiesCommandOutput>;
+  public disassociatePersonasFromEntities(
+    args: DisassociatePersonasFromEntitiesCommandInput,
+    cb: (err: any, data?: DisassociatePersonasFromEntitiesCommandOutput) => void
+  ): void;
+  public disassociatePersonasFromEntities(
+    args: DisassociatePersonasFromEntitiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociatePersonasFromEntitiesCommandOutput) => void
+  ): void;
+  public disassociatePersonasFromEntities(
+    args: DisassociatePersonasFromEntitiesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociatePersonasFromEntitiesCommandOutput) => void),
+    cb?: (err: any, data?: DisassociatePersonasFromEntitiesCommandOutput) => void
+  ): Promise<DisassociatePersonasFromEntitiesCommandOutput> | void {
+    const command = new DisassociatePersonasFromEntitiesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Fetches the queries that are suggested to your users.</p>
+   *         <p>
+   *             <code>GetQuerySuggestions</code> is currently not supported in the
+   *             Amazon Web Services GovCloud (US-West) region.</p>
    */
   public getQuerySuggestions(
     args: GetQuerySuggestionsCommandInput,
@@ -962,6 +1295,37 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: GetQuerySuggestionsCommandOutput) => void
   ): Promise<GetQuerySuggestionsCommandOutput> | void {
     const command = new GetQuerySuggestionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves search metrics data. The data provides a snapshot of how
+   *             your users interact with your search application and how effective
+   *             the application is.</p>
+   */
+  public getSnapshots(
+    args: GetSnapshotsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSnapshotsCommandOutput>;
+  public getSnapshots(args: GetSnapshotsCommandInput, cb: (err: any, data?: GetSnapshotsCommandOutput) => void): void;
+  public getSnapshots(
+    args: GetSnapshotsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSnapshotsCommandOutput) => void
+  ): void;
+  public getSnapshots(
+    args: GetSnapshotsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSnapshotsCommandOutput) => void),
+    cb?: (err: any, data?: GetSnapshotsCommandOutput) => void
+  ): Promise<GetSnapshotsCommandOutput> | void {
+    const command = new GetSnapshotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1038,6 +1402,110 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * <p>Lists specific permissions of users and groups with access to your
+   *             Amazon Kendra experience.</p>
+   */
+  public listEntityPersonas(
+    args: ListEntityPersonasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEntityPersonasCommandOutput>;
+  public listEntityPersonas(
+    args: ListEntityPersonasCommandInput,
+    cb: (err: any, data?: ListEntityPersonasCommandOutput) => void
+  ): void;
+  public listEntityPersonas(
+    args: ListEntityPersonasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEntityPersonasCommandOutput) => void
+  ): void;
+  public listEntityPersonas(
+    args: ListEntityPersonasCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEntityPersonasCommandOutput) => void),
+    cb?: (err: any, data?: ListEntityPersonasCommandOutput) => void
+  ): Promise<ListEntityPersonasCommandOutput> | void {
+    const command = new ListEntityPersonasCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists users or groups in your Amazon Web Services SSO identity source that are
+   *             granted access to your Amazon Kendra experience. You can create an Amazon Kendra experience
+   *             such as a search application. For more information on creating a search
+   *             application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
+   *                 a search experience with no code</a>.</p>
+   */
+  public listExperienceEntities(
+    args: ListExperienceEntitiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExperienceEntitiesCommandOutput>;
+  public listExperienceEntities(
+    args: ListExperienceEntitiesCommandInput,
+    cb: (err: any, data?: ListExperienceEntitiesCommandOutput) => void
+  ): void;
+  public listExperienceEntities(
+    args: ListExperienceEntitiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExperienceEntitiesCommandOutput) => void
+  ): void;
+  public listExperienceEntities(
+    args: ListExperienceEntitiesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExperienceEntitiesCommandOutput) => void),
+    cb?: (err: any, data?: ListExperienceEntitiesCommandOutput) => void
+  ): Promise<ListExperienceEntitiesCommandOutput> | void {
+    const command = new ListExperienceEntitiesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists one or more Amazon Kendra experiences. You can create an Amazon Kendra experience such
+   *             as a search application. For more information on creating a search application
+   *             experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a
+   *                 search experience with no code</a>.</p>
+   */
+  public listExperiences(
+    args: ListExperiencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExperiencesCommandOutput>;
+  public listExperiences(
+    args: ListExperiencesCommandInput,
+    cb: (err: any, data?: ListExperiencesCommandOutput) => void
+  ): void;
+  public listExperiences(
+    args: ListExperiencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExperiencesCommandOutput) => void
+  ): void;
+  public listExperiences(
+    args: ListExperiencesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExperiencesCommandOutput) => void),
+    cb?: (err: any, data?: ListExperiencesCommandOutput) => void
+  ): Promise<ListExperiencesCommandOutput> | void {
+    const command = new ListExperiencesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets a list of FAQ lists associated with an index.</p>
    */
   public listFaqs(args: ListFaqsCommandInput, options?: __HttpHandlerOptions): Promise<ListFaqsCommandOutput>;
@@ -1066,6 +1534,9 @@ export class Kendra extends KendraClient {
   /**
    * <p>Provides a list of groups that are mapped to users before a
    *             given ordering or timestamp identifier.</p>
+   *         <p>
+   *             <code>ListGroupsOlderThanOrderingId</code> is currently not supported in the
+   *             Amazon Web Services GovCloud (US-West) region.</p>
    */
   public listGroupsOlderThanOrderingId(
     args: ListGroupsOlderThanOrderingIdCommandInput,
@@ -1127,6 +1598,9 @@ export class Kendra extends KendraClient {
    *         <p>For information on the current quota limits for block lists, see
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
    *                 for Amazon Kendra</a>.</p>
+   *         <p>
+   *             <code>ListQuerySuggestionsBlockLists</code> is currently not supported in the
+   *             Amazon Web Services GovCloud (US-West) region.</p>
    */
   public listQuerySuggestionsBlockLists(
     args: ListQuerySuggestionsBlockListsCommandInput,
@@ -1236,6 +1710,9 @@ export class Kendra extends KendraClient {
    *                 on user context</a>.</p>
    *         <p>If more than five <code>PUT</code> actions for a group are currently
    *             processing, a validation exception is thrown.</p>
+   *         <p>
+   *             <code>PutPrincipalMapping</code> is currently not supported in the
+   *             Amazon Web Services GovCloud (US-West) region.</p>
    */
   public putPrincipalMapping(
     args: PutPrincipalMappingCommandInput,
@@ -1382,7 +1859,10 @@ export class Kendra extends KendraClient {
 
   /**
    * <p>Enables you to provide feedback to Amazon Kendra to improve the
-   *             performance of your index. </p>
+   *             performance of your index.</p>
+   *         <p>
+   *             <code>SubmitFeedback</code> is currently not supported in the
+   *             Amazon Web Services GovCloud (US-West) region.</p>
    */
   public submitFeedback(
     args: SubmitFeedbackCommandInput,
@@ -1506,6 +1986,40 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * <p>Updates your Amazon Kendra experience such as a search application. For more information on
+   *             creating a search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a
+   *                 search experience with no code</a>.</p>
+   */
+  public updateExperience(
+    args: UpdateExperienceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateExperienceCommandOutput>;
+  public updateExperience(
+    args: UpdateExperienceCommandInput,
+    cb: (err: any, data?: UpdateExperienceCommandOutput) => void
+  ): void;
+  public updateExperience(
+    args: UpdateExperienceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateExperienceCommandOutput) => void
+  ): void;
+  public updateExperience(
+    args: UpdateExperienceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateExperienceCommandOutput) => void),
+    cb?: (err: any, data?: UpdateExperienceCommandOutput) => void
+  ): Promise<UpdateExperienceCommandOutput> | void {
+    const command = new UpdateExperienceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates an existing Amazon Kendra index.</p>
    */
   public updateIndex(args: UpdateIndexCommandInput, options?: __HttpHandlerOptions): Promise<UpdateIndexCommandOutput>;
@@ -1540,6 +2054,9 @@ export class Kendra extends KendraClient {
    *             finish before submitting another update.</p>
    *         <p>Amazon Kendra supports partial updates, so you only need to provide the fields
    *             you want to update.</p>
+   *         <p>
+   *             <code>UpdateQuerySuggestionsBlockList</code> is currently not supported in the
+   *             Amazon Web Services GovCloud (US-West) region.</p>
    */
   public updateQuerySuggestionsBlockList(
     args: UpdateQuerySuggestionsBlockListCommandInput,
@@ -1580,6 +2097,9 @@ export class Kendra extends KendraClient {
    *             The time for your updated settings to take effect depends on the updates
    *             made and the number of search queries in your index.</p>
    *         <p>You can still enable/disable query suggestions at any time.</p>
+   *         <p>
+   *             <code>UpdateQuerySuggestionsConfig</code> is currently not supported in the
+   *             Amazon Web Services GovCloud (US-West) region.</p>
    */
   public updateQuerySuggestionsConfig(
     args: UpdateQuerySuggestionsConfigCommandInput,

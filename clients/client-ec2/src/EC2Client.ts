@@ -77,6 +77,10 @@ import { AdvertiseByoipCidrCommandInput, AdvertiseByoipCidrCommandOutput } from 
 import { AllocateAddressCommandInput, AllocateAddressCommandOutput } from "./commands/AllocateAddressCommand";
 import { AllocateHostsCommandInput, AllocateHostsCommandOutput } from "./commands/AllocateHostsCommand";
 import {
+  AllocateIpamPoolCidrCommandInput,
+  AllocateIpamPoolCidrCommandOutput,
+} from "./commands/AllocateIpamPoolCidrCommand";
+import {
   ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
   ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput,
 } from "./commands/ApplySecurityGroupsToClientVpnTargetNetworkCommand";
@@ -244,6 +248,9 @@ import {
   CreateInternetGatewayCommandInput,
   CreateInternetGatewayCommandOutput,
 } from "./commands/CreateInternetGatewayCommand";
+import { CreateIpamCommandInput, CreateIpamCommandOutput } from "./commands/CreateIpamCommand";
+import { CreateIpamPoolCommandInput, CreateIpamPoolCommandOutput } from "./commands/CreateIpamPoolCommand";
+import { CreateIpamScopeCommandInput, CreateIpamScopeCommandOutput } from "./commands/CreateIpamScopeCommand";
 import { CreateKeyPairCommandInput, CreateKeyPairCommandOutput } from "./commands/CreateKeyPairCommand";
 import {
   CreateLaunchTemplateCommandInput,
@@ -272,6 +279,10 @@ import {
   CreateNetworkAclEntryCommandOutput,
 } from "./commands/CreateNetworkAclEntryCommand";
 import {
+  CreateNetworkInsightsAccessScopeCommandInput,
+  CreateNetworkInsightsAccessScopeCommandOutput,
+} from "./commands/CreateNetworkInsightsAccessScopeCommand";
+import {
   CreateNetworkInsightsPathCommandInput,
   CreateNetworkInsightsPathCommandOutput,
 } from "./commands/CreateNetworkInsightsPathCommand";
@@ -287,6 +298,10 @@ import {
   CreatePlacementGroupCommandInput,
   CreatePlacementGroupCommandOutput,
 } from "./commands/CreatePlacementGroupCommand";
+import {
+  CreatePublicIpv4PoolCommandInput,
+  CreatePublicIpv4PoolCommandOutput,
+} from "./commands/CreatePublicIpv4PoolCommand";
 import {
   CreateReplaceRootVolumeTaskCommandInput,
   CreateReplaceRootVolumeTaskCommandOutput,
@@ -429,6 +444,9 @@ import {
   DeleteInternetGatewayCommandInput,
   DeleteInternetGatewayCommandOutput,
 } from "./commands/DeleteInternetGatewayCommand";
+import { DeleteIpamCommandInput, DeleteIpamCommandOutput } from "./commands/DeleteIpamCommand";
+import { DeleteIpamPoolCommandInput, DeleteIpamPoolCommandOutput } from "./commands/DeleteIpamPoolCommand";
+import { DeleteIpamScopeCommandInput, DeleteIpamScopeCommandOutput } from "./commands/DeleteIpamScopeCommand";
 import { DeleteKeyPairCommandInput, DeleteKeyPairCommandOutput } from "./commands/DeleteKeyPairCommand";
 import {
   DeleteLaunchTemplateCommandInput,
@@ -457,6 +475,14 @@ import {
   DeleteNetworkAclEntryCommandOutput,
 } from "./commands/DeleteNetworkAclEntryCommand";
 import {
+  DeleteNetworkInsightsAccessScopeAnalysisCommandInput,
+  DeleteNetworkInsightsAccessScopeAnalysisCommandOutput,
+} from "./commands/DeleteNetworkInsightsAccessScopeAnalysisCommand";
+import {
+  DeleteNetworkInsightsAccessScopeCommandInput,
+  DeleteNetworkInsightsAccessScopeCommandOutput,
+} from "./commands/DeleteNetworkInsightsAccessScopeCommand";
+import {
   DeleteNetworkInsightsAnalysisCommandInput,
   DeleteNetworkInsightsAnalysisCommandOutput,
 } from "./commands/DeleteNetworkInsightsAnalysisCommand";
@@ -476,6 +502,10 @@ import {
   DeletePlacementGroupCommandInput,
   DeletePlacementGroupCommandOutput,
 } from "./commands/DeletePlacementGroupCommand";
+import {
+  DeletePublicIpv4PoolCommandInput,
+  DeletePublicIpv4PoolCommandOutput,
+} from "./commands/DeletePublicIpv4PoolCommand";
 import {
   DeleteQueuedReservedInstancesCommandInput,
   DeleteQueuedReservedInstancesCommandOutput,
@@ -577,6 +607,14 @@ import {
   DeprovisionByoipCidrCommandInput,
   DeprovisionByoipCidrCommandOutput,
 } from "./commands/DeprovisionByoipCidrCommand";
+import {
+  DeprovisionIpamPoolCidrCommandInput,
+  DeprovisionIpamPoolCidrCommandOutput,
+} from "./commands/DeprovisionIpamPoolCidrCommand";
+import {
+  DeprovisionPublicIpv4PoolCidrCommandInput,
+  DeprovisionPublicIpv4PoolCidrCommandOutput,
+} from "./commands/DeprovisionPublicIpv4PoolCidrCommand";
 import { DeregisterImageCommandInput, DeregisterImageCommandOutput } from "./commands/DeregisterImageCommand";
 import {
   DeregisterInstanceEventNotificationAttributesCommandInput,
@@ -760,6 +798,9 @@ import {
   DescribeInternetGatewaysCommandInput,
   DescribeInternetGatewaysCommandOutput,
 } from "./commands/DescribeInternetGatewaysCommand";
+import { DescribeIpamPoolsCommandInput, DescribeIpamPoolsCommandOutput } from "./commands/DescribeIpamPoolsCommand";
+import { DescribeIpamsCommandInput, DescribeIpamsCommandOutput } from "./commands/DescribeIpamsCommand";
+import { DescribeIpamScopesCommandInput, DescribeIpamScopesCommandOutput } from "./commands/DescribeIpamScopesCommand";
 import { DescribeIpv6PoolsCommandInput, DescribeIpv6PoolsCommandOutput } from "./commands/DescribeIpv6PoolsCommand";
 import { DescribeKeyPairsCommandInput, DescribeKeyPairsCommandOutput } from "./commands/DescribeKeyPairsCommand";
 import {
@@ -810,6 +851,14 @@ import {
   DescribeNetworkAclsCommandInput,
   DescribeNetworkAclsCommandOutput,
 } from "./commands/DescribeNetworkAclsCommand";
+import {
+  DescribeNetworkInsightsAccessScopeAnalysesCommandInput,
+  DescribeNetworkInsightsAccessScopeAnalysesCommandOutput,
+} from "./commands/DescribeNetworkInsightsAccessScopeAnalysesCommand";
+import {
+  DescribeNetworkInsightsAccessScopesCommandInput,
+  DescribeNetworkInsightsAccessScopesCommandOutput,
+} from "./commands/DescribeNetworkInsightsAccessScopesCommand";
 import {
   DescribeNetworkInsightsAnalysesCommandInput,
   DescribeNetworkInsightsAnalysesCommandOutput,
@@ -1071,6 +1120,10 @@ import {
   DisableImageDeprecationCommandOutput,
 } from "./commands/DisableImageDeprecationCommand";
 import {
+  DisableIpamOrganizationAdminAccountCommandInput,
+  DisableIpamOrganizationAdminAccountCommandOutput,
+} from "./commands/DisableIpamOrganizationAdminAccountCommand";
+import {
   DisableSerialConsoleAccessCommandInput,
   DisableSerialConsoleAccessCommandOutput,
 } from "./commands/DisableSerialConsoleAccessCommand";
@@ -1146,6 +1199,10 @@ import {
   EnableImageDeprecationCommandInput,
   EnableImageDeprecationCommandOutput,
 } from "./commands/EnableImageDeprecationCommand";
+import {
+  EnableIpamOrganizationAdminAccountCommandInput,
+  EnableIpamOrganizationAdminAccountCommandOutput,
+} from "./commands/EnableIpamOrganizationAdminAccountCommand";
 import {
   EnableSerialConsoleAccessCommandInput,
   EnableSerialConsoleAccessCommandOutput,
@@ -1227,6 +1284,19 @@ import {
   GetInstanceTypesFromInstanceRequirementsCommandOutput,
 } from "./commands/GetInstanceTypesFromInstanceRequirementsCommand";
 import {
+  GetIpamAddressHistoryCommandInput,
+  GetIpamAddressHistoryCommandOutput,
+} from "./commands/GetIpamAddressHistoryCommand";
+import {
+  GetIpamPoolAllocationsCommandInput,
+  GetIpamPoolAllocationsCommandOutput,
+} from "./commands/GetIpamPoolAllocationsCommand";
+import { GetIpamPoolCidrsCommandInput, GetIpamPoolCidrsCommandOutput } from "./commands/GetIpamPoolCidrsCommand";
+import {
+  GetIpamResourceCidrsCommandInput,
+  GetIpamResourceCidrsCommandOutput,
+} from "./commands/GetIpamResourceCidrsCommand";
+import {
   GetLaunchTemplateDataCommandInput,
   GetLaunchTemplateDataCommandOutput,
 } from "./commands/GetLaunchTemplateDataCommand";
@@ -1238,6 +1308,14 @@ import {
   GetManagedPrefixListEntriesCommandInput,
   GetManagedPrefixListEntriesCommandOutput,
 } from "./commands/GetManagedPrefixListEntriesCommand";
+import {
+  GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput,
+  GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput,
+} from "./commands/GetNetworkInsightsAccessScopeAnalysisFindingsCommand";
+import {
+  GetNetworkInsightsAccessScopeContentCommandInput,
+  GetNetworkInsightsAccessScopeContentCommandOutput,
+} from "./commands/GetNetworkInsightsAccessScopeContentCommand";
 import { GetPasswordDataCommandInput, GetPasswordDataCommandOutput } from "./commands/GetPasswordDataCommand";
 import {
   GetReservedInstancesExchangeQuoteCommandInput,
@@ -1367,6 +1445,13 @@ import {
   ModifyInstancePlacementCommandInput,
   ModifyInstancePlacementCommandOutput,
 } from "./commands/ModifyInstancePlacementCommand";
+import { ModifyIpamCommandInput, ModifyIpamCommandOutput } from "./commands/ModifyIpamCommand";
+import { ModifyIpamPoolCommandInput, ModifyIpamPoolCommandOutput } from "./commands/ModifyIpamPoolCommand";
+import {
+  ModifyIpamResourceCidrCommandInput,
+  ModifyIpamResourceCidrCommandOutput,
+} from "./commands/ModifyIpamResourceCidrCommand";
+import { ModifyIpamScopeCommandInput, ModifyIpamScopeCommandOutput } from "./commands/ModifyIpamScopeCommand";
 import {
   ModifyLaunchTemplateCommandInput,
   ModifyLaunchTemplateCommandOutput,
@@ -1470,7 +1555,19 @@ import {
 } from "./commands/ModifyVpnTunnelOptionsCommand";
 import { MonitorInstancesCommandInput, MonitorInstancesCommandOutput } from "./commands/MonitorInstancesCommand";
 import { MoveAddressToVpcCommandInput, MoveAddressToVpcCommandOutput } from "./commands/MoveAddressToVpcCommand";
+import {
+  MoveByoipCidrToIpamCommandInput,
+  MoveByoipCidrToIpamCommandOutput,
+} from "./commands/MoveByoipCidrToIpamCommand";
 import { ProvisionByoipCidrCommandInput, ProvisionByoipCidrCommandOutput } from "./commands/ProvisionByoipCidrCommand";
+import {
+  ProvisionIpamPoolCidrCommandInput,
+  ProvisionIpamPoolCidrCommandOutput,
+} from "./commands/ProvisionIpamPoolCidrCommand";
+import {
+  ProvisionPublicIpv4PoolCidrCommandInput,
+  ProvisionPublicIpv4PoolCidrCommandOutput,
+} from "./commands/ProvisionPublicIpv4PoolCidrCommand";
 import {
   PurchaseHostReservationCommandInput,
   PurchaseHostReservationCommandOutput,
@@ -1519,6 +1616,10 @@ import {
 } from "./commands/RejectVpcPeeringConnectionCommand";
 import { ReleaseAddressCommandInput, ReleaseAddressCommandOutput } from "./commands/ReleaseAddressCommand";
 import { ReleaseHostsCommandInput, ReleaseHostsCommandOutput } from "./commands/ReleaseHostsCommand";
+import {
+  ReleaseIpamPoolAllocationCommandInput,
+  ReleaseIpamPoolAllocationCommandOutput,
+} from "./commands/ReleaseIpamPoolAllocationCommand";
 import {
   ReplaceIamInstanceProfileAssociationCommandInput,
   ReplaceIamInstanceProfileAssociationCommandOutput,
@@ -1628,6 +1729,10 @@ import {
 } from "./commands/SendDiagnosticInterruptCommand";
 import { StartInstancesCommandInput, StartInstancesCommandOutput } from "./commands/StartInstancesCommand";
 import {
+  StartNetworkInsightsAccessScopeAnalysisCommandInput,
+  StartNetworkInsightsAccessScopeAnalysisCommandOutput,
+} from "./commands/StartNetworkInsightsAccessScopeAnalysisCommand";
+import {
   StartNetworkInsightsAnalysisCommandInput,
   StartNetworkInsightsAnalysisCommandOutput,
 } from "./commands/StartNetworkInsightsAnalysisCommand";
@@ -1671,6 +1776,7 @@ export type ServiceInputTypes =
   | AdvertiseByoipCidrCommandInput
   | AllocateAddressCommandInput
   | AllocateHostsCommandInput
+  | AllocateIpamPoolCidrCommandInput
   | ApplySecurityGroupsToClientVpnTargetNetworkCommandInput
   | AssignIpv6AddressesCommandInput
   | AssignPrivateIpAddressesCommandInput
@@ -1725,6 +1831,9 @@ export type ServiceInputTypes =
   | CreateInstanceEventWindowCommandInput
   | CreateInstanceExportTaskCommandInput
   | CreateInternetGatewayCommandInput
+  | CreateIpamCommandInput
+  | CreateIpamPoolCommandInput
+  | CreateIpamScopeCommandInput
   | CreateKeyPairCommandInput
   | CreateLaunchTemplateCommandInput
   | CreateLaunchTemplateVersionCommandInput
@@ -1734,10 +1843,12 @@ export type ServiceInputTypes =
   | CreateNatGatewayCommandInput
   | CreateNetworkAclCommandInput
   | CreateNetworkAclEntryCommandInput
+  | CreateNetworkInsightsAccessScopeCommandInput
   | CreateNetworkInsightsPathCommandInput
   | CreateNetworkInterfaceCommandInput
   | CreateNetworkInterfacePermissionCommandInput
   | CreatePlacementGroupCommandInput
+  | CreatePublicIpv4PoolCommandInput
   | CreateReplaceRootVolumeTaskCommandInput
   | CreateReservedInstancesListingCommandInput
   | CreateRestoreImageTaskCommandInput
@@ -1784,6 +1895,9 @@ export type ServiceInputTypes =
   | DeleteFpgaImageCommandInput
   | DeleteInstanceEventWindowCommandInput
   | DeleteInternetGatewayCommandInput
+  | DeleteIpamCommandInput
+  | DeleteIpamPoolCommandInput
+  | DeleteIpamScopeCommandInput
   | DeleteKeyPairCommandInput
   | DeleteLaunchTemplateCommandInput
   | DeleteLaunchTemplateVersionsCommandInput
@@ -1793,11 +1907,14 @@ export type ServiceInputTypes =
   | DeleteNatGatewayCommandInput
   | DeleteNetworkAclCommandInput
   | DeleteNetworkAclEntryCommandInput
+  | DeleteNetworkInsightsAccessScopeAnalysisCommandInput
+  | DeleteNetworkInsightsAccessScopeCommandInput
   | DeleteNetworkInsightsAnalysisCommandInput
   | DeleteNetworkInsightsPathCommandInput
   | DeleteNetworkInterfaceCommandInput
   | DeleteNetworkInterfacePermissionCommandInput
   | DeletePlacementGroupCommandInput
+  | DeletePublicIpv4PoolCommandInput
   | DeleteQueuedReservedInstancesCommandInput
   | DeleteRouteCommandInput
   | DeleteRouteTableCommandInput
@@ -1830,6 +1947,8 @@ export type ServiceInputTypes =
   | DeleteVpnConnectionRouteCommandInput
   | DeleteVpnGatewayCommandInput
   | DeprovisionByoipCidrCommandInput
+  | DeprovisionIpamPoolCidrCommandInput
+  | DeprovisionPublicIpv4PoolCidrCommandInput
   | DeregisterImageCommandInput
   | DeregisterInstanceEventNotificationAttributesCommandInput
   | DeregisterTransitGatewayMulticastGroupMembersCommandInput
@@ -1884,6 +2003,9 @@ export type ServiceInputTypes =
   | DescribeInstanceTypesCommandInput
   | DescribeInstancesCommandInput
   | DescribeInternetGatewaysCommandInput
+  | DescribeIpamPoolsCommandInput
+  | DescribeIpamScopesCommandInput
+  | DescribeIpamsCommandInput
   | DescribeIpv6PoolsCommandInput
   | DescribeKeyPairsCommandInput
   | DescribeLaunchTemplateVersionsCommandInput
@@ -1898,6 +2020,8 @@ export type ServiceInputTypes =
   | DescribeMovingAddressesCommandInput
   | DescribeNatGatewaysCommandInput
   | DescribeNetworkAclsCommandInput
+  | DescribeNetworkInsightsAccessScopeAnalysesCommandInput
+  | DescribeNetworkInsightsAccessScopesCommandInput
   | DescribeNetworkInsightsAnalysesCommandInput
   | DescribeNetworkInsightsPathsCommandInput
   | DescribeNetworkInterfaceAttributeCommandInput
@@ -1969,6 +2093,7 @@ export type ServiceInputTypes =
   | DisableEbsEncryptionByDefaultCommandInput
   | DisableFastSnapshotRestoresCommandInput
   | DisableImageDeprecationCommandInput
+  | DisableIpamOrganizationAdminAccountCommandInput
   | DisableSerialConsoleAccessCommandInput
   | DisableTransitGatewayRouteTablePropagationCommandInput
   | DisableVgwRoutePropagationCommandInput
@@ -1988,6 +2113,7 @@ export type ServiceInputTypes =
   | EnableEbsEncryptionByDefaultCommandInput
   | EnableFastSnapshotRestoresCommandInput
   | EnableImageDeprecationCommandInput
+  | EnableIpamOrganizationAdminAccountCommandInput
   | EnableSerialConsoleAccessCommandInput
   | EnableTransitGatewayRouteTablePropagationCommandInput
   | EnableVgwRoutePropagationCommandInput
@@ -2011,9 +2137,15 @@ export type ServiceInputTypes =
   | GetGroupsForCapacityReservationCommandInput
   | GetHostReservationPurchasePreviewCommandInput
   | GetInstanceTypesFromInstanceRequirementsCommandInput
+  | GetIpamAddressHistoryCommandInput
+  | GetIpamPoolAllocationsCommandInput
+  | GetIpamPoolCidrsCommandInput
+  | GetIpamResourceCidrsCommandInput
   | GetLaunchTemplateDataCommandInput
   | GetManagedPrefixListAssociationsCommandInput
   | GetManagedPrefixListEntriesCommandInput
+  | GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput
+  | GetNetworkInsightsAccessScopeContentCommandInput
   | GetPasswordDataCommandInput
   | GetReservedInstancesExchangeQuoteCommandInput
   | GetSerialConsoleAccessStatusCommandInput
@@ -2053,6 +2185,10 @@ export type ServiceInputTypes =
   | ModifyInstanceEventWindowCommandInput
   | ModifyInstanceMetadataOptionsCommandInput
   | ModifyInstancePlacementCommandInput
+  | ModifyIpamCommandInput
+  | ModifyIpamPoolCommandInput
+  | ModifyIpamResourceCidrCommandInput
+  | ModifyIpamScopeCommandInput
   | ModifyLaunchTemplateCommandInput
   | ModifyManagedPrefixListCommandInput
   | ModifyNetworkInterfaceAttributeCommandInput
@@ -2084,7 +2220,10 @@ export type ServiceInputTypes =
   | ModifyVpnTunnelOptionsCommandInput
   | MonitorInstancesCommandInput
   | MoveAddressToVpcCommandInput
+  | MoveByoipCidrToIpamCommandInput
   | ProvisionByoipCidrCommandInput
+  | ProvisionIpamPoolCidrCommandInput
+  | ProvisionPublicIpv4PoolCidrCommandInput
   | PurchaseHostReservationCommandInput
   | PurchaseReservedInstancesOfferingCommandInput
   | PurchaseScheduledInstancesCommandInput
@@ -2100,6 +2239,7 @@ export type ServiceInputTypes =
   | RejectVpcPeeringConnectionCommandInput
   | ReleaseAddressCommandInput
   | ReleaseHostsCommandInput
+  | ReleaseIpamPoolAllocationCommandInput
   | ReplaceIamInstanceProfileAssociationCommandInput
   | ReplaceNetworkAclAssociationCommandInput
   | ReplaceNetworkAclEntryCommandInput
@@ -2130,6 +2270,7 @@ export type ServiceInputTypes =
   | SearchTransitGatewayRoutesCommandInput
   | SendDiagnosticInterruptCommandInput
   | StartInstancesCommandInput
+  | StartNetworkInsightsAccessScopeAnalysisCommandInput
   | StartNetworkInsightsAnalysisCommandInput
   | StartVpcEndpointServicePrivateDnsVerificationCommandInput
   | StopInstancesCommandInput
@@ -2152,6 +2293,7 @@ export type ServiceOutputTypes =
   | AdvertiseByoipCidrCommandOutput
   | AllocateAddressCommandOutput
   | AllocateHostsCommandOutput
+  | AllocateIpamPoolCidrCommandOutput
   | ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
   | AssignIpv6AddressesCommandOutput
   | AssignPrivateIpAddressesCommandOutput
@@ -2206,6 +2348,9 @@ export type ServiceOutputTypes =
   | CreateInstanceEventWindowCommandOutput
   | CreateInstanceExportTaskCommandOutput
   | CreateInternetGatewayCommandOutput
+  | CreateIpamCommandOutput
+  | CreateIpamPoolCommandOutput
+  | CreateIpamScopeCommandOutput
   | CreateKeyPairCommandOutput
   | CreateLaunchTemplateCommandOutput
   | CreateLaunchTemplateVersionCommandOutput
@@ -2215,10 +2360,12 @@ export type ServiceOutputTypes =
   | CreateNatGatewayCommandOutput
   | CreateNetworkAclCommandOutput
   | CreateNetworkAclEntryCommandOutput
+  | CreateNetworkInsightsAccessScopeCommandOutput
   | CreateNetworkInsightsPathCommandOutput
   | CreateNetworkInterfaceCommandOutput
   | CreateNetworkInterfacePermissionCommandOutput
   | CreatePlacementGroupCommandOutput
+  | CreatePublicIpv4PoolCommandOutput
   | CreateReplaceRootVolumeTaskCommandOutput
   | CreateReservedInstancesListingCommandOutput
   | CreateRestoreImageTaskCommandOutput
@@ -2265,6 +2412,9 @@ export type ServiceOutputTypes =
   | DeleteFpgaImageCommandOutput
   | DeleteInstanceEventWindowCommandOutput
   | DeleteInternetGatewayCommandOutput
+  | DeleteIpamCommandOutput
+  | DeleteIpamPoolCommandOutput
+  | DeleteIpamScopeCommandOutput
   | DeleteKeyPairCommandOutput
   | DeleteLaunchTemplateCommandOutput
   | DeleteLaunchTemplateVersionsCommandOutput
@@ -2274,11 +2424,14 @@ export type ServiceOutputTypes =
   | DeleteNatGatewayCommandOutput
   | DeleteNetworkAclCommandOutput
   | DeleteNetworkAclEntryCommandOutput
+  | DeleteNetworkInsightsAccessScopeAnalysisCommandOutput
+  | DeleteNetworkInsightsAccessScopeCommandOutput
   | DeleteNetworkInsightsAnalysisCommandOutput
   | DeleteNetworkInsightsPathCommandOutput
   | DeleteNetworkInterfaceCommandOutput
   | DeleteNetworkInterfacePermissionCommandOutput
   | DeletePlacementGroupCommandOutput
+  | DeletePublicIpv4PoolCommandOutput
   | DeleteQueuedReservedInstancesCommandOutput
   | DeleteRouteCommandOutput
   | DeleteRouteTableCommandOutput
@@ -2311,6 +2464,8 @@ export type ServiceOutputTypes =
   | DeleteVpnConnectionRouteCommandOutput
   | DeleteVpnGatewayCommandOutput
   | DeprovisionByoipCidrCommandOutput
+  | DeprovisionIpamPoolCidrCommandOutput
+  | DeprovisionPublicIpv4PoolCidrCommandOutput
   | DeregisterImageCommandOutput
   | DeregisterInstanceEventNotificationAttributesCommandOutput
   | DeregisterTransitGatewayMulticastGroupMembersCommandOutput
@@ -2365,6 +2520,9 @@ export type ServiceOutputTypes =
   | DescribeInstanceTypesCommandOutput
   | DescribeInstancesCommandOutput
   | DescribeInternetGatewaysCommandOutput
+  | DescribeIpamPoolsCommandOutput
+  | DescribeIpamScopesCommandOutput
+  | DescribeIpamsCommandOutput
   | DescribeIpv6PoolsCommandOutput
   | DescribeKeyPairsCommandOutput
   | DescribeLaunchTemplateVersionsCommandOutput
@@ -2379,6 +2537,8 @@ export type ServiceOutputTypes =
   | DescribeMovingAddressesCommandOutput
   | DescribeNatGatewaysCommandOutput
   | DescribeNetworkAclsCommandOutput
+  | DescribeNetworkInsightsAccessScopeAnalysesCommandOutput
+  | DescribeNetworkInsightsAccessScopesCommandOutput
   | DescribeNetworkInsightsAnalysesCommandOutput
   | DescribeNetworkInsightsPathsCommandOutput
   | DescribeNetworkInterfaceAttributeCommandOutput
@@ -2450,6 +2610,7 @@ export type ServiceOutputTypes =
   | DisableEbsEncryptionByDefaultCommandOutput
   | DisableFastSnapshotRestoresCommandOutput
   | DisableImageDeprecationCommandOutput
+  | DisableIpamOrganizationAdminAccountCommandOutput
   | DisableSerialConsoleAccessCommandOutput
   | DisableTransitGatewayRouteTablePropagationCommandOutput
   | DisableVgwRoutePropagationCommandOutput
@@ -2469,6 +2630,7 @@ export type ServiceOutputTypes =
   | EnableEbsEncryptionByDefaultCommandOutput
   | EnableFastSnapshotRestoresCommandOutput
   | EnableImageDeprecationCommandOutput
+  | EnableIpamOrganizationAdminAccountCommandOutput
   | EnableSerialConsoleAccessCommandOutput
   | EnableTransitGatewayRouteTablePropagationCommandOutput
   | EnableVgwRoutePropagationCommandOutput
@@ -2492,9 +2654,15 @@ export type ServiceOutputTypes =
   | GetGroupsForCapacityReservationCommandOutput
   | GetHostReservationPurchasePreviewCommandOutput
   | GetInstanceTypesFromInstanceRequirementsCommandOutput
+  | GetIpamAddressHistoryCommandOutput
+  | GetIpamPoolAllocationsCommandOutput
+  | GetIpamPoolCidrsCommandOutput
+  | GetIpamResourceCidrsCommandOutput
   | GetLaunchTemplateDataCommandOutput
   | GetManagedPrefixListAssociationsCommandOutput
   | GetManagedPrefixListEntriesCommandOutput
+  | GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
+  | GetNetworkInsightsAccessScopeContentCommandOutput
   | GetPasswordDataCommandOutput
   | GetReservedInstancesExchangeQuoteCommandOutput
   | GetSerialConsoleAccessStatusCommandOutput
@@ -2534,6 +2702,10 @@ export type ServiceOutputTypes =
   | ModifyInstanceEventWindowCommandOutput
   | ModifyInstanceMetadataOptionsCommandOutput
   | ModifyInstancePlacementCommandOutput
+  | ModifyIpamCommandOutput
+  | ModifyIpamPoolCommandOutput
+  | ModifyIpamResourceCidrCommandOutput
+  | ModifyIpamScopeCommandOutput
   | ModifyLaunchTemplateCommandOutput
   | ModifyManagedPrefixListCommandOutput
   | ModifyNetworkInterfaceAttributeCommandOutput
@@ -2565,7 +2737,10 @@ export type ServiceOutputTypes =
   | ModifyVpnTunnelOptionsCommandOutput
   | MonitorInstancesCommandOutput
   | MoveAddressToVpcCommandOutput
+  | MoveByoipCidrToIpamCommandOutput
   | ProvisionByoipCidrCommandOutput
+  | ProvisionIpamPoolCidrCommandOutput
+  | ProvisionPublicIpv4PoolCidrCommandOutput
   | PurchaseHostReservationCommandOutput
   | PurchaseReservedInstancesOfferingCommandOutput
   | PurchaseScheduledInstancesCommandOutput
@@ -2581,6 +2756,7 @@ export type ServiceOutputTypes =
   | RejectVpcPeeringConnectionCommandOutput
   | ReleaseAddressCommandOutput
   | ReleaseHostsCommandOutput
+  | ReleaseIpamPoolAllocationCommandOutput
   | ReplaceIamInstanceProfileAssociationCommandOutput
   | ReplaceNetworkAclAssociationCommandOutput
   | ReplaceNetworkAclEntryCommandOutput
@@ -2611,6 +2787,7 @@ export type ServiceOutputTypes =
   | SearchTransitGatewayRoutesCommandOutput
   | SendDiagnosticInterruptCommandOutput
   | StartInstancesCommandOutput
+  | StartNetworkInsightsAccessScopeAnalysisCommandOutput
   | StartNetworkInsightsAnalysisCommandOutput
   | StartVpcEndpointServicePrivateDnsVerificationCommandOutput
   | StopInstancesCommandOutput

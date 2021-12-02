@@ -24,9 +24,9 @@ export class SageMakerRuntime extends SageMakerRuntimeClient {
    *         <p>Amazon SageMaker strips all POST headers except those supported by the API. Amazon SageMaker might add
    *             additional headers. You should not rely on the behavior of headers outside those
    *             enumerated in the request syntax. </p>
-   *         <p>Calls to <code>InvokeEndpoint</code> are authenticated by using AWS Signature Version
+   *         <p>Calls to <code>InvokeEndpoint</code> are authenticated by using Amazon Web Services Signature Version
    *             4. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating
-   *                 Requests (AWS Signature Version 4)</a> in the <i>Amazon S3 API
+   *                 Requests (Amazon Web Services Signature Version 4)</a> in the <i>Amazon S3 API
    *                 Reference</i>.</p>
    *         <p>A customer's model containers must respond to requests within 60 seconds. The model
    *             itself can have a maximum processing time of 60 seconds before responding to
@@ -82,8 +82,8 @@ export class SageMakerRuntime extends SageMakerRuntimeClient {
    *             Amazon SageMaker might add additional headers. You should not rely on the behavior
    *             of headers outside those enumerated in the request syntax.</p>
    *
-   *         <p>Calls to <code>InvokeEndpointAsync</code> are authenticated by using AWS Signature
-   *             Version 4. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (AWS Signature Version 4)</a> in the <i>Amazon S3 API
+   *         <p>Calls to <code>InvokeEndpointAsync</code> are authenticated by using Amazon Web Services Signature
+   *             Version 4. For information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (Amazon Web Services Signature Version 4)</a> in the <i>Amazon S3 API
    *                 Reference</i>.</p>
    */
   public invokeEndpointAsync(

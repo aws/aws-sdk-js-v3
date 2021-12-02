@@ -105,6 +105,10 @@ import {
 } from "./commands/CreateHyperParameterTuningJobCommand";
 import { CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
 import { CreateImageVersionCommandInput, CreateImageVersionCommandOutput } from "./commands/CreateImageVersionCommand";
+import {
+  CreateInferenceRecommendationsJobCommandInput,
+  CreateInferenceRecommendationsJobCommandOutput,
+} from "./commands/CreateInferenceRecommendationsJobCommand";
 import { CreateLabelingJobCommandInput, CreateLabelingJobCommandOutput } from "./commands/CreateLabelingJobCommand";
 import {
   CreateModelBiasJobDefinitionCommandInput,
@@ -308,9 +312,17 @@ import {
   DescribeImageVersionCommandOutput,
 } from "./commands/DescribeImageVersionCommand";
 import {
+  DescribeInferenceRecommendationsJobCommandInput,
+  DescribeInferenceRecommendationsJobCommandOutput,
+} from "./commands/DescribeInferenceRecommendationsJobCommand";
+import {
   DescribeLabelingJobCommandInput,
   DescribeLabelingJobCommandOutput,
 } from "./commands/DescribeLabelingJobCommand";
+import {
+  DescribeLineageGroupCommandInput,
+  DescribeLineageGroupCommandOutput,
+} from "./commands/DescribeLineageGroupCommand";
 import {
   DescribeModelBiasJobDefinitionCommandInput,
   DescribeModelBiasJobDefinitionCommandOutput,
@@ -402,6 +414,10 @@ import {
   GetDeviceFleetReportCommandOutput,
 } from "./commands/GetDeviceFleetReportCommand";
 import {
+  GetLineageGroupPolicyCommandInput,
+  GetLineageGroupPolicyCommandOutput,
+} from "./commands/GetLineageGroupPolicyCommand";
+import {
   GetModelPackageGroupPolicyCommandInput,
   GetModelPackageGroupPolicyCommandOutput,
 } from "./commands/GetModelPackageGroupPolicyCommand";
@@ -465,11 +481,16 @@ import {
 } from "./commands/ListHyperParameterTuningJobsCommand";
 import { ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
 import { ListImageVersionsCommandInput, ListImageVersionsCommandOutput } from "./commands/ListImageVersionsCommand";
+import {
+  ListInferenceRecommendationsJobsCommandInput,
+  ListInferenceRecommendationsJobsCommandOutput,
+} from "./commands/ListInferenceRecommendationsJobsCommand";
 import { ListLabelingJobsCommandInput, ListLabelingJobsCommandOutput } from "./commands/ListLabelingJobsCommand";
 import {
   ListLabelingJobsForWorkteamCommandInput,
   ListLabelingJobsForWorkteamCommandOutput,
 } from "./commands/ListLabelingJobsForWorkteamCommand";
+import { ListLineageGroupsCommandInput, ListLineageGroupsCommandOutput } from "./commands/ListLineageGroupsCommand";
 import {
   ListModelBiasJobDefinitionsCommandInput,
   ListModelBiasJobDefinitionsCommandOutput,
@@ -478,6 +499,7 @@ import {
   ListModelExplainabilityJobDefinitionsCommandInput,
   ListModelExplainabilityJobDefinitionsCommandOutput,
 } from "./commands/ListModelExplainabilityJobDefinitionsCommand";
+import { ListModelMetadataCommandInput, ListModelMetadataCommandOutput } from "./commands/ListModelMetadataCommand";
 import {
   ListModelPackageGroupsCommandInput,
   ListModelPackageGroupsCommandOutput,
@@ -546,6 +568,7 @@ import {
   PutModelPackageGroupPolicyCommandInput,
   PutModelPackageGroupPolicyCommandOutput,
 } from "./commands/PutModelPackageGroupPolicyCommand";
+import { QueryLineageCommandInput, QueryLineageCommandOutput } from "./commands/QueryLineageCommand";
 import { RegisterDevicesCommandInput, RegisterDevicesCommandOutput } from "./commands/RegisterDevicesCommand";
 import { RenderUiTemplateCommandInput, RenderUiTemplateCommandOutput } from "./commands/RenderUiTemplateCommand";
 import {
@@ -583,6 +606,10 @@ import {
   StopHyperParameterTuningJobCommandInput,
   StopHyperParameterTuningJobCommandOutput,
 } from "./commands/StopHyperParameterTuningJobCommand";
+import {
+  StopInferenceRecommendationsJobCommandInput,
+  StopInferenceRecommendationsJobCommandOutput,
+} from "./commands/StopInferenceRecommendationsJobCommand";
 import { StopLabelingJobCommandInput, StopLabelingJobCommandOutput } from "./commands/StopLabelingJobCommand";
 import {
   StopMonitoringScheduleCommandInput,
@@ -677,6 +704,7 @@ export type ServiceInputTypes =
   | CreateHyperParameterTuningJobCommandInput
   | CreateImageCommandInput
   | CreateImageVersionCommandInput
+  | CreateInferenceRecommendationsJobCommandInput
   | CreateLabelingJobCommandInput
   | CreateModelBiasJobDefinitionCommandInput
   | CreateModelCommandInput
@@ -762,7 +790,9 @@ export type ServiceInputTypes =
   | DescribeHyperParameterTuningJobCommandInput
   | DescribeImageCommandInput
   | DescribeImageVersionCommandInput
+  | DescribeInferenceRecommendationsJobCommandInput
   | DescribeLabelingJobCommandInput
+  | DescribeLineageGroupCommandInput
   | DescribeModelBiasJobDefinitionCommandInput
   | DescribeModelCommandInput
   | DescribeModelExplainabilityJobDefinitionCommandInput
@@ -790,6 +820,7 @@ export type ServiceInputTypes =
   | DisassociateTrialComponentCommandInput
   | EnableSagemakerServicecatalogPortfolioCommandInput
   | GetDeviceFleetReportCommandInput
+  | GetLineageGroupPolicyCommandInput
   | GetModelPackageGroupPolicyCommandInput
   | GetSagemakerServicecatalogPortfolioStatusCommandInput
   | GetSearchSuggestionsCommandInput
@@ -818,10 +849,13 @@ export type ServiceInputTypes =
   | ListHyperParameterTuningJobsCommandInput
   | ListImageVersionsCommandInput
   | ListImagesCommandInput
+  | ListInferenceRecommendationsJobsCommandInput
   | ListLabelingJobsCommandInput
   | ListLabelingJobsForWorkteamCommandInput
+  | ListLineageGroupsCommandInput
   | ListModelBiasJobDefinitionsCommandInput
   | ListModelExplainabilityJobDefinitionsCommandInput
+  | ListModelMetadataCommandInput
   | ListModelPackageGroupsCommandInput
   | ListModelPackagesCommandInput
   | ListModelQualityJobDefinitionsCommandInput
@@ -848,6 +882,7 @@ export type ServiceInputTypes =
   | ListWorkforcesCommandInput
   | ListWorkteamsCommandInput
   | PutModelPackageGroupPolicyCommandInput
+  | QueryLineageCommandInput
   | RegisterDevicesCommandInput
   | RenderUiTemplateCommandInput
   | RetryPipelineExecutionCommandInput
@@ -861,6 +896,7 @@ export type ServiceInputTypes =
   | StopCompilationJobCommandInput
   | StopEdgePackagingJobCommandInput
   | StopHyperParameterTuningJobCommandInput
+  | StopInferenceRecommendationsJobCommandInput
   | StopLabelingJobCommandInput
   | StopMonitoringScheduleCommandInput
   | StopNotebookInstanceCommandInput
@@ -921,6 +957,7 @@ export type ServiceOutputTypes =
   | CreateHyperParameterTuningJobCommandOutput
   | CreateImageCommandOutput
   | CreateImageVersionCommandOutput
+  | CreateInferenceRecommendationsJobCommandOutput
   | CreateLabelingJobCommandOutput
   | CreateModelBiasJobDefinitionCommandOutput
   | CreateModelCommandOutput
@@ -1006,7 +1043,9 @@ export type ServiceOutputTypes =
   | DescribeHyperParameterTuningJobCommandOutput
   | DescribeImageCommandOutput
   | DescribeImageVersionCommandOutput
+  | DescribeInferenceRecommendationsJobCommandOutput
   | DescribeLabelingJobCommandOutput
+  | DescribeLineageGroupCommandOutput
   | DescribeModelBiasJobDefinitionCommandOutput
   | DescribeModelCommandOutput
   | DescribeModelExplainabilityJobDefinitionCommandOutput
@@ -1034,6 +1073,7 @@ export type ServiceOutputTypes =
   | DisassociateTrialComponentCommandOutput
   | EnableSagemakerServicecatalogPortfolioCommandOutput
   | GetDeviceFleetReportCommandOutput
+  | GetLineageGroupPolicyCommandOutput
   | GetModelPackageGroupPolicyCommandOutput
   | GetSagemakerServicecatalogPortfolioStatusCommandOutput
   | GetSearchSuggestionsCommandOutput
@@ -1062,10 +1102,13 @@ export type ServiceOutputTypes =
   | ListHyperParameterTuningJobsCommandOutput
   | ListImageVersionsCommandOutput
   | ListImagesCommandOutput
+  | ListInferenceRecommendationsJobsCommandOutput
   | ListLabelingJobsCommandOutput
   | ListLabelingJobsForWorkteamCommandOutput
+  | ListLineageGroupsCommandOutput
   | ListModelBiasJobDefinitionsCommandOutput
   | ListModelExplainabilityJobDefinitionsCommandOutput
+  | ListModelMetadataCommandOutput
   | ListModelPackageGroupsCommandOutput
   | ListModelPackagesCommandOutput
   | ListModelQualityJobDefinitionsCommandOutput
@@ -1092,6 +1135,7 @@ export type ServiceOutputTypes =
   | ListWorkforcesCommandOutput
   | ListWorkteamsCommandOutput
   | PutModelPackageGroupPolicyCommandOutput
+  | QueryLineageCommandOutput
   | RegisterDevicesCommandOutput
   | RenderUiTemplateCommandOutput
   | RetryPipelineExecutionCommandOutput
@@ -1105,6 +1149,7 @@ export type ServiceOutputTypes =
   | StopCompilationJobCommandOutput
   | StopEdgePackagingJobCommandOutput
   | StopHyperParameterTuningJobCommandOutput
+  | StopInferenceRecommendationsJobCommandOutput
   | StopLabelingJobCommandOutput
   | StopMonitoringScheduleCommandOutput
   | StopNotebookInstanceCommandOutput

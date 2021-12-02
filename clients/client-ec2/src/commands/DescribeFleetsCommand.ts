@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeFleetsRequest, DescribeFleetsResult } from "../models/models_2";
+import { DescribeFleetsRequest, DescribeFleetsResult } from "../models/models_3";
 import { deserializeAws_ec2DescribeFleetsCommand, serializeAws_ec2DescribeFleetsCommand } from "../protocols/Aws_ec2";
 
 export interface DescribeFleetsCommandInput extends DescribeFleetsRequest {}

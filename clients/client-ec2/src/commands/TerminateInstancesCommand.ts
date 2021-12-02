@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { TerminateInstancesRequest, TerminateInstancesResult } from "../models/models_5";
+import { TerminateInstancesRequest, TerminateInstancesResult } from "../models/models_6";
 import {
   deserializeAws_ec2TerminateInstancesCommand,
   serializeAws_ec2TerminateInstancesCommand,

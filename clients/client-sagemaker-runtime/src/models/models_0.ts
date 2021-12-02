@@ -2,6 +2,24 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
+ * <p>Your request caused an exception with an internal dependency. Contact customer support. </p>
+ */
+export interface InternalDependencyException extends __SmithyException, $MetadataBearer {
+  name: "InternalDependencyException";
+  $fault: "server";
+  Message?: string;
+}
+
+export namespace InternalDependencyException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InternalDependencyException): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p> An internal failure occurred. </p>
  */
 export interface InternalFailure extends __SmithyException, $MetadataBearer {
@@ -58,7 +76,7 @@ export interface InvokeEndpointInput {
    *             prepend the custom attribute with <code>Trace ID:</code> in your post-processing
    *             function.</p>
    *
-   *         <p>This feature is currently supported in the AWS SDKs but not in the Amazon SageMaker Python
+   *         <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker Python
    *             SDK.</p>
    */
   CustomAttributes?: string;
@@ -137,7 +155,7 @@ export interface InvokeEndpointOutput {
    *             returned. For example, if a custom attribute represents the trace ID, your model can
    *             prepend the custom attribute with <code>Trace ID:</code> in your post-processing
    *             function.</p>
-   *         <p>This feature is currently supported in the AWS SDKs but not in the Amazon SageMaker Python
+   *         <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker Python
    *             SDK.</p>
    */
   CustomAttributes?: string;
@@ -183,6 +201,24 @@ export namespace ModelError {
    * @internal
    */
   export const filterSensitiveLog = (obj: ModelError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Either a serverless endpoint variant's resources are still being provisioned, or a multi-model endpoint is still downloading or loading the target model. Wait and try your request again.</p>
+ */
+export interface ModelNotReadyException extends __SmithyException, $MetadataBearer {
+  name: "ModelNotReadyException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ModelNotReadyException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelNotReadyException): any => ({
     ...obj,
   });
 }
@@ -257,7 +293,7 @@ export interface InvokeEndpointAsyncInput {
    *             value is returned. For example, if a custom attribute represents the trace ID,
    *             your model can prepend the custom attribute with <code>Trace ID</code>: in your post-processing function. </p>
    *
-   *         <p>This feature is currently supported in the AWS SDKs but not in the Amazon SageMaker Python SDK. </p>
+   *         <p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker Python SDK. </p>
    */
   CustomAttributes?: string;
 

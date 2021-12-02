@@ -5988,6 +5988,8 @@ const serializeAws_json1_1NewPrivateVirtualInterface = (
       input.customerAddress !== null && { customerAddress: input.customerAddress }),
     ...(input.directConnectGatewayId !== undefined &&
       input.directConnectGatewayId !== null && { directConnectGatewayId: input.directConnectGatewayId }),
+    ...(input.enableSiteLink !== undefined &&
+      input.enableSiteLink !== null && { enableSiteLink: input.enableSiteLink }),
     ...(input.mtu !== undefined && input.mtu !== null && { mtu: input.mtu }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
     ...(input.virtualGatewayId !== undefined &&
@@ -6074,6 +6076,8 @@ const serializeAws_json1_1NewTransitVirtualInterface = (
       input.customerAddress !== null && { customerAddress: input.customerAddress }),
     ...(input.directConnectGatewayId !== undefined &&
       input.directConnectGatewayId !== null && { directConnectGatewayId: input.directConnectGatewayId }),
+    ...(input.enableSiteLink !== undefined &&
+      input.enableSiteLink !== null && { enableSiteLink: input.enableSiteLink }),
     ...(input.mtu !== undefined && input.mtu !== null && { mtu: input.mtu }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
     ...(input.virtualInterfaceName !== undefined &&
@@ -6257,9 +6261,13 @@ const serializeAws_json1_1UpdateVirtualInterfaceAttributesRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.enableSiteLink !== undefined &&
+      input.enableSiteLink !== null && { enableSiteLink: input.enableSiteLink }),
     ...(input.mtu !== undefined && input.mtu !== null && { mtu: input.mtu }),
     ...(input.virtualInterfaceId !== undefined &&
       input.virtualInterfaceId !== null && { virtualInterfaceId: input.virtualInterfaceId }),
+    ...(input.virtualInterfaceName !== undefined &&
+      input.virtualInterfaceName !== null && { virtualInterfaceName: input.virtualInterfaceName }),
   };
 };
 
@@ -7276,6 +7284,7 @@ const deserializeAws_json1_1VirtualInterface = (output: any, context: __SerdeCon
       output.routeFilterPrefixes !== undefined && output.routeFilterPrefixes !== null
         ? deserializeAws_json1_1RouteFilterPrefixList(output.routeFilterPrefixes, context)
         : undefined,
+    siteLinkEnabled: __expectBoolean(output.siteLinkEnabled),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)

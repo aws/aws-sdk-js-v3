@@ -1022,6 +1022,11 @@ export interface VirtualInterface {
    * <p>The tags associated with the virtual interface.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>Indicates whether SiteLink is enabled.</p>
+   */
+  siteLinkEnabled?: boolean;
 }
 
 export namespace VirtualInterface {
@@ -1418,7 +1423,9 @@ export namespace ConfirmConnectionResponse {
 export interface ConfirmCustomerAgreementRequest {
   /**
    * <p>
+   *
    *       The name of the customer agreement.
+   *
    *     </p>
    */
   agreementName?: string;
@@ -2527,6 +2534,11 @@ export interface NewPrivateVirtualInterface {
    * <p>The tags associated with the private virtual interface.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>Indicates whether to enable or disable SiteLink.</p>
+   */
+  enableSiteLink?: boolean;
 }
 
 export namespace NewPrivateVirtualInterface {
@@ -2694,6 +2706,11 @@ export interface NewTransitVirtualInterface {
    * <p>The tags associated with the transitive virtual interface.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>Indicates whether to enable or disable SiteLink.</p>
+   */
+  enableSiteLink?: boolean;
 }
 
 export namespace NewTransitVirtualInterface {
@@ -3796,7 +3813,7 @@ export interface DescribeRouterConfigurationResponse {
   virtualInterfaceId?: string;
 
   /**
-   * <p>The name of the virtual interface assigned by the customer network.</p>
+   * <p>Provides the details about a virtual interface's router.</p>
    */
   virtualInterfaceName?: string;
 }
@@ -4434,6 +4451,16 @@ export interface UpdateVirtualInterfaceAttributesRequest {
    * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
    */
   mtu?: number;
+
+  /**
+   * <p>Indicates whether to enable or disable SiteLink.</p>
+   */
+  enableSiteLink?: boolean;
+
+  /**
+   * <p>The name of the virtual private interface.</p>
+   */
+  virtualInterfaceName?: string;
 }
 
 export namespace UpdateVirtualInterfaceAttributesRequest {

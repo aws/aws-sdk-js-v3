@@ -23,7 +23,6 @@ export interface DisassociateDRTRoleCommandOutput extends DisassociateDRTRoleRes
 
 /**
  * <p>Removes the Shield Response Team's (SRT) access to your Amazon Web Services account.</p>
- * 	        <p>To make a <code>DisassociateDRTRole</code> request, you must be subscribed to the <a href="https://aws.amazon.com/premiumsupport/business-support/">Business Support plan</a> or the <a href="https://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the SRT access to your account, you can submit a <code>DisassociateDRTRole</code> request to remove this access.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

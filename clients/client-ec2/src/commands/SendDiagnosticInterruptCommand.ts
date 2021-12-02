@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { SendDiagnosticInterruptRequest } from "../models/models_5";
+import { SendDiagnosticInterruptRequest } from "../models/models_6";
 import {
   deserializeAws_ec2SendDiagnosticInterruptCommand,
   serializeAws_ec2SendDiagnosticInterruptCommand,

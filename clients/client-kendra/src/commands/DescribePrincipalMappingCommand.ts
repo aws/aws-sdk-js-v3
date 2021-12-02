@@ -28,6 +28,9 @@ export interface DescribePrincipalMappingCommandOutput extends DescribePrincipal
  *             when actions were received by Amazon Kendra, the latest action that should process
  *             and apply after other actions, and useful error messages if an action could
  *             not be processed.</p>
+ *         <p>
+ *             <code>DescribePrincipalMapping</code> is currently not supported in the
+ *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

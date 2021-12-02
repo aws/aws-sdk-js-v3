@@ -11,7 +11,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribePipelineRequest, DescribePipelineResponse } from "../models/models_1";
+import { DescribePipelineRequest, DescribePipelineResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1DescribePipelineCommand,
   serializeAws_json1_1DescribePipelineCommand,

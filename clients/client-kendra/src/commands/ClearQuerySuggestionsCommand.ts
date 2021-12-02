@@ -29,6 +29,9 @@ export interface ClearQuerySuggestionsCommandOutput extends __MetadataBearer {}
  *             from the time you cleared suggestions. If you do not see any
  *             new suggestions, then please allow Amazon Kendra to collect
  *             enough queries to learn new suggestions.</p>
+ *         <p>
+ *             <code>ClearQuerySuggestions</code> is currently not supported in the
+ *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

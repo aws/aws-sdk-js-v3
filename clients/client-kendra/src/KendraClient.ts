@@ -50,6 +50,14 @@ import {
 } from "@aws-sdk/types";
 
 import {
+  AssociateEntitiesToExperienceCommandInput,
+  AssociateEntitiesToExperienceCommandOutput,
+} from "./commands/AssociateEntitiesToExperienceCommand";
+import {
+  AssociatePersonasToEntitiesCommandInput,
+  AssociatePersonasToEntitiesCommandOutput,
+} from "./commands/AssociatePersonasToEntitiesCommand";
+import {
   BatchDeleteDocumentCommandInput,
   BatchDeleteDocumentCommandOutput,
 } from "./commands/BatchDeleteDocumentCommand";
@@ -63,6 +71,7 @@ import {
   ClearQuerySuggestionsCommandOutput,
 } from "./commands/ClearQuerySuggestionsCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
+import { CreateExperienceCommandInput, CreateExperienceCommandOutput } from "./commands/CreateExperienceCommand";
 import { CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
 import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import {
@@ -71,6 +80,7 @@ import {
 } from "./commands/CreateQuerySuggestionsBlockListCommand";
 import { CreateThesaurusCommandInput, CreateThesaurusCommandOutput } from "./commands/CreateThesaurusCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
+import { DeleteExperienceCommandInput, DeleteExperienceCommandOutput } from "./commands/DeleteExperienceCommand";
 import { DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand";
 import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
 import {
@@ -83,6 +93,7 @@ import {
 } from "./commands/DeleteQuerySuggestionsBlockListCommand";
 import { DeleteThesaurusCommandInput, DeleteThesaurusCommandOutput } from "./commands/DeleteThesaurusCommand";
 import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "./commands/DescribeDataSourceCommand";
+import { DescribeExperienceCommandInput, DescribeExperienceCommandOutput } from "./commands/DescribeExperienceCommand";
 import { DescribeFaqCommandInput, DescribeFaqCommandOutput } from "./commands/DescribeFaqCommand";
 import { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "./commands/DescribeIndexCommand";
 import {
@@ -99,14 +110,29 @@ import {
 } from "./commands/DescribeQuerySuggestionsConfigCommand";
 import { DescribeThesaurusCommandInput, DescribeThesaurusCommandOutput } from "./commands/DescribeThesaurusCommand";
 import {
+  DisassociateEntitiesFromExperienceCommandInput,
+  DisassociateEntitiesFromExperienceCommandOutput,
+} from "./commands/DisassociateEntitiesFromExperienceCommand";
+import {
+  DisassociatePersonasFromEntitiesCommandInput,
+  DisassociatePersonasFromEntitiesCommandOutput,
+} from "./commands/DisassociatePersonasFromEntitiesCommand";
+import {
   GetQuerySuggestionsCommandInput,
   GetQuerySuggestionsCommandOutput,
 } from "./commands/GetQuerySuggestionsCommand";
+import { GetSnapshotsCommandInput, GetSnapshotsCommandOutput } from "./commands/GetSnapshotsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
 import {
   ListDataSourceSyncJobsCommandInput,
   ListDataSourceSyncJobsCommandOutput,
 } from "./commands/ListDataSourceSyncJobsCommand";
+import { ListEntityPersonasCommandInput, ListEntityPersonasCommandOutput } from "./commands/ListEntityPersonasCommand";
+import {
+  ListExperienceEntitiesCommandInput,
+  ListExperienceEntitiesCommandOutput,
+} from "./commands/ListExperienceEntitiesCommand";
+import { ListExperiencesCommandInput, ListExperiencesCommandOutput } from "./commands/ListExperiencesCommand";
 import { ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
 import {
   ListGroupsOlderThanOrderingIdCommandInput,
@@ -139,6 +165,7 @@ import { SubmitFeedbackCommandInput, SubmitFeedbackCommandOutput } from "./comma
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
+import { UpdateExperienceCommandInput, UpdateExperienceCommandOutput } from "./commands/UpdateExperienceCommand";
 import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import {
   UpdateQuerySuggestionsBlockListCommandInput,
@@ -152,31 +179,42 @@ import { UpdateThesaurusCommandInput, UpdateThesaurusCommandOutput } from "./com
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | AssociateEntitiesToExperienceCommandInput
+  | AssociatePersonasToEntitiesCommandInput
   | BatchDeleteDocumentCommandInput
   | BatchGetDocumentStatusCommandInput
   | BatchPutDocumentCommandInput
   | ClearQuerySuggestionsCommandInput
   | CreateDataSourceCommandInput
+  | CreateExperienceCommandInput
   | CreateFaqCommandInput
   | CreateIndexCommandInput
   | CreateQuerySuggestionsBlockListCommandInput
   | CreateThesaurusCommandInput
   | DeleteDataSourceCommandInput
+  | DeleteExperienceCommandInput
   | DeleteFaqCommandInput
   | DeleteIndexCommandInput
   | DeletePrincipalMappingCommandInput
   | DeleteQuerySuggestionsBlockListCommandInput
   | DeleteThesaurusCommandInput
   | DescribeDataSourceCommandInput
+  | DescribeExperienceCommandInput
   | DescribeFaqCommandInput
   | DescribeIndexCommandInput
   | DescribePrincipalMappingCommandInput
   | DescribeQuerySuggestionsBlockListCommandInput
   | DescribeQuerySuggestionsConfigCommandInput
   | DescribeThesaurusCommandInput
+  | DisassociateEntitiesFromExperienceCommandInput
+  | DisassociatePersonasFromEntitiesCommandInput
   | GetQuerySuggestionsCommandInput
+  | GetSnapshotsCommandInput
   | ListDataSourceSyncJobsCommandInput
   | ListDataSourcesCommandInput
+  | ListEntityPersonasCommandInput
+  | ListExperienceEntitiesCommandInput
+  | ListExperiencesCommandInput
   | ListFaqsCommandInput
   | ListGroupsOlderThanOrderingIdCommandInput
   | ListIndicesCommandInput
@@ -191,37 +229,49 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDataSourceCommandInput
+  | UpdateExperienceCommandInput
   | UpdateIndexCommandInput
   | UpdateQuerySuggestionsBlockListCommandInput
   | UpdateQuerySuggestionsConfigCommandInput
   | UpdateThesaurusCommandInput;
 
 export type ServiceOutputTypes =
+  | AssociateEntitiesToExperienceCommandOutput
+  | AssociatePersonasToEntitiesCommandOutput
   | BatchDeleteDocumentCommandOutput
   | BatchGetDocumentStatusCommandOutput
   | BatchPutDocumentCommandOutput
   | ClearQuerySuggestionsCommandOutput
   | CreateDataSourceCommandOutput
+  | CreateExperienceCommandOutput
   | CreateFaqCommandOutput
   | CreateIndexCommandOutput
   | CreateQuerySuggestionsBlockListCommandOutput
   | CreateThesaurusCommandOutput
   | DeleteDataSourceCommandOutput
+  | DeleteExperienceCommandOutput
   | DeleteFaqCommandOutput
   | DeleteIndexCommandOutput
   | DeletePrincipalMappingCommandOutput
   | DeleteQuerySuggestionsBlockListCommandOutput
   | DeleteThesaurusCommandOutput
   | DescribeDataSourceCommandOutput
+  | DescribeExperienceCommandOutput
   | DescribeFaqCommandOutput
   | DescribeIndexCommandOutput
   | DescribePrincipalMappingCommandOutput
   | DescribeQuerySuggestionsBlockListCommandOutput
   | DescribeQuerySuggestionsConfigCommandOutput
   | DescribeThesaurusCommandOutput
+  | DisassociateEntitiesFromExperienceCommandOutput
+  | DisassociatePersonasFromEntitiesCommandOutput
   | GetQuerySuggestionsCommandOutput
+  | GetSnapshotsCommandOutput
   | ListDataSourceSyncJobsCommandOutput
   | ListDataSourcesCommandOutput
+  | ListEntityPersonasCommandOutput
+  | ListExperienceEntitiesCommandOutput
+  | ListExperiencesCommandOutput
   | ListFaqsCommandOutput
   | ListGroupsOlderThanOrderingIdCommandOutput
   | ListIndicesCommandOutput
@@ -236,6 +286,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDataSourceCommandOutput
+  | UpdateExperienceCommandOutput
   | UpdateIndexCommandOutput
   | UpdateQuerySuggestionsBlockListCommandOutput
   | UpdateQuerySuggestionsConfigCommandOutput

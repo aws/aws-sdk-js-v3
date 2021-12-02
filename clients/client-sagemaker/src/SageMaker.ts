@@ -119,6 +119,11 @@ import {
   CreateImageVersionCommandOutput,
 } from "./commands/CreateImageVersionCommand";
 import {
+  CreateInferenceRecommendationsJobCommand,
+  CreateInferenceRecommendationsJobCommandInput,
+  CreateInferenceRecommendationsJobCommandOutput,
+} from "./commands/CreateInferenceRecommendationsJobCommand";
+import {
   CreateLabelingJobCommand,
   CreateLabelingJobCommandInput,
   CreateLabelingJobCommandOutput,
@@ -512,10 +517,20 @@ import {
   DescribeImageVersionCommandOutput,
 } from "./commands/DescribeImageVersionCommand";
 import {
+  DescribeInferenceRecommendationsJobCommand,
+  DescribeInferenceRecommendationsJobCommandInput,
+  DescribeInferenceRecommendationsJobCommandOutput,
+} from "./commands/DescribeInferenceRecommendationsJobCommand";
+import {
   DescribeLabelingJobCommand,
   DescribeLabelingJobCommandInput,
   DescribeLabelingJobCommandOutput,
 } from "./commands/DescribeLabelingJobCommand";
+import {
+  DescribeLineageGroupCommand,
+  DescribeLineageGroupCommandInput,
+  DescribeLineageGroupCommandOutput,
+} from "./commands/DescribeLineageGroupCommand";
 import {
   DescribeModelBiasJobDefinitionCommand,
   DescribeModelBiasJobDefinitionCommandInput,
@@ -652,6 +667,11 @@ import {
   GetDeviceFleetReportCommandOutput,
 } from "./commands/GetDeviceFleetReportCommand";
 import {
+  GetLineageGroupPolicyCommand,
+  GetLineageGroupPolicyCommandInput,
+  GetLineageGroupPolicyCommandOutput,
+} from "./commands/GetLineageGroupPolicyCommand";
+import {
   GetModelPackageGroupPolicyCommand,
   GetModelPackageGroupPolicyCommandInput,
   GetModelPackageGroupPolicyCommandOutput,
@@ -772,6 +792,11 @@ import {
   ListImageVersionsCommandOutput,
 } from "./commands/ListImageVersionsCommand";
 import {
+  ListInferenceRecommendationsJobsCommand,
+  ListInferenceRecommendationsJobsCommandInput,
+  ListInferenceRecommendationsJobsCommandOutput,
+} from "./commands/ListInferenceRecommendationsJobsCommand";
+import {
   ListLabelingJobsCommand,
   ListLabelingJobsCommandInput,
   ListLabelingJobsCommandOutput,
@@ -782,6 +807,11 @@ import {
   ListLabelingJobsForWorkteamCommandOutput,
 } from "./commands/ListLabelingJobsForWorkteamCommand";
 import {
+  ListLineageGroupsCommand,
+  ListLineageGroupsCommandInput,
+  ListLineageGroupsCommandOutput,
+} from "./commands/ListLineageGroupsCommand";
+import {
   ListModelBiasJobDefinitionsCommand,
   ListModelBiasJobDefinitionsCommandInput,
   ListModelBiasJobDefinitionsCommandOutput,
@@ -791,6 +821,11 @@ import {
   ListModelExplainabilityJobDefinitionsCommandInput,
   ListModelExplainabilityJobDefinitionsCommandOutput,
 } from "./commands/ListModelExplainabilityJobDefinitionsCommand";
+import {
+  ListModelMetadataCommand,
+  ListModelMetadataCommandInput,
+  ListModelMetadataCommandOutput,
+} from "./commands/ListModelMetadataCommand";
 import {
   ListModelPackageGroupsCommand,
   ListModelPackageGroupsCommandInput,
@@ -910,6 +945,11 @@ import {
   PutModelPackageGroupPolicyCommandOutput,
 } from "./commands/PutModelPackageGroupPolicyCommand";
 import {
+  QueryLineageCommand,
+  QueryLineageCommandInput,
+  QueryLineageCommandOutput,
+} from "./commands/QueryLineageCommand";
+import {
   RegisterDevicesCommand,
   RegisterDevicesCommandInput,
   RegisterDevicesCommandOutput,
@@ -970,6 +1010,11 @@ import {
   StopHyperParameterTuningJobCommandInput,
   StopHyperParameterTuningJobCommandOutput,
 } from "./commands/StopHyperParameterTuningJobCommand";
+import {
+  StopInferenceRecommendationsJobCommand,
+  StopInferenceRecommendationsJobCommandInput,
+  StopInferenceRecommendationsJobCommandOutput,
+} from "./commands/StopInferenceRecommendationsJobCommand";
 import {
   StopLabelingJobCommand,
   StopLabelingJobCommandInput,
@@ -2215,6 +2260,39 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: CreateImageVersionCommandOutput) => void
   ): Promise<CreateImageVersionCommandOutput> | void {
     const command = new CreateImageVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts a recommendation job. You can create either an instance
+   *           recommendation or load test job.</p>
+   */
+  public createInferenceRecommendationsJob(
+    args: CreateInferenceRecommendationsJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInferenceRecommendationsJobCommandOutput>;
+  public createInferenceRecommendationsJob(
+    args: CreateInferenceRecommendationsJobCommandInput,
+    cb: (err: any, data?: CreateInferenceRecommendationsJobCommandOutput) => void
+  ): void;
+  public createInferenceRecommendationsJob(
+    args: CreateInferenceRecommendationsJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateInferenceRecommendationsJobCommandOutput) => void
+  ): void;
+  public createInferenceRecommendationsJob(
+    args: CreateInferenceRecommendationsJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInferenceRecommendationsJobCommandOutput) => void),
+    cb?: (err: any, data?: CreateInferenceRecommendationsJobCommandOutput) => void
+  ): Promise<CreateInferenceRecommendationsJobCommandOutput> | void {
+    const command = new CreateInferenceRecommendationsJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5297,6 +5375,39 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Provides the results of the Inference Recommender job.
+   *           One or more recommendation jobs are returned.</p>
+   */
+  public describeInferenceRecommendationsJob(
+    args: DescribeInferenceRecommendationsJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInferenceRecommendationsJobCommandOutput>;
+  public describeInferenceRecommendationsJob(
+    args: DescribeInferenceRecommendationsJobCommandInput,
+    cb: (err: any, data?: DescribeInferenceRecommendationsJobCommandOutput) => void
+  ): void;
+  public describeInferenceRecommendationsJob(
+    args: DescribeInferenceRecommendationsJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInferenceRecommendationsJobCommandOutput) => void
+  ): void;
+  public describeInferenceRecommendationsJob(
+    args: DescribeInferenceRecommendationsJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInferenceRecommendationsJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInferenceRecommendationsJobCommandOutput) => void
+  ): Promise<DescribeInferenceRecommendationsJobCommandOutput> | void {
+    const command = new DescribeInferenceRecommendationsJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets information about a labeling job.</p>
    */
   public describeLabelingJob(
@@ -5318,6 +5429,40 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: DescribeLabelingJobCommandOutput) => void
   ): Promise<DescribeLabelingJobCommandOutput> | void {
     const command = new DescribeLabelingJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides a list of properties for the requested lineage group.
+   *          For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/xaccount-lineage-tracking.html">
+   *             Cross-Account Lineage Tracking </a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
+   */
+  public describeLineageGroup(
+    args: DescribeLineageGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLineageGroupCommandOutput>;
+  public describeLineageGroup(
+    args: DescribeLineageGroupCommandInput,
+    cb: (err: any, data?: DescribeLineageGroupCommandOutput) => void
+  ): void;
+  public describeLineageGroup(
+    args: DescribeLineageGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLineageGroupCommandOutput) => void
+  ): void;
+  public describeLineageGroup(
+    args: DescribeLineageGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLineageGroupCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLineageGroupCommandOutput) => void
+  ): Promise<DescribeLineageGroupCommandOutput> | void {
+    const command = new DescribeLineageGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -6230,6 +6375,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>The resource policy for the lineage group.</p>
+   */
+  public getLineageGroupPolicy(
+    args: GetLineageGroupPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLineageGroupPolicyCommandOutput>;
+  public getLineageGroupPolicy(
+    args: GetLineageGroupPolicyCommandInput,
+    cb: (err: any, data?: GetLineageGroupPolicyCommandOutput) => void
+  ): void;
+  public getLineageGroupPolicy(
+    args: GetLineageGroupPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLineageGroupPolicyCommandOutput) => void
+  ): void;
+  public getLineageGroupPolicy(
+    args: GetLineageGroupPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLineageGroupPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetLineageGroupPolicyCommandOutput) => void
+  ): Promise<GetLineageGroupPolicyCommandOutput> | void {
+    const command = new GetLineageGroupPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets a resource policy that manages access for a model group. For information about
    *             resource policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html">Identity-based
    *                 policies and resource-based policies</a> in the <i>Amazon Web Services Identity and
@@ -7112,6 +7289,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Lists recommendation jobs that satisfy various filters.</p>
+   */
+  public listInferenceRecommendationsJobs(
+    args: ListInferenceRecommendationsJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInferenceRecommendationsJobsCommandOutput>;
+  public listInferenceRecommendationsJobs(
+    args: ListInferenceRecommendationsJobsCommandInput,
+    cb: (err: any, data?: ListInferenceRecommendationsJobsCommandOutput) => void
+  ): void;
+  public listInferenceRecommendationsJobs(
+    args: ListInferenceRecommendationsJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInferenceRecommendationsJobsCommandOutput) => void
+  ): void;
+  public listInferenceRecommendationsJobs(
+    args: ListInferenceRecommendationsJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInferenceRecommendationsJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListInferenceRecommendationsJobsCommandOutput) => void
+  ): Promise<ListInferenceRecommendationsJobsCommandOutput> | void {
+    const command = new ListInferenceRecommendationsJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets a list of labeling jobs.</p>
    */
   public listLabelingJobs(
@@ -7165,6 +7374,40 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: ListLabelingJobsForWorkteamCommandOutput) => void
   ): Promise<ListLabelingJobsForWorkteamCommandOutput> | void {
     const command = new ListLabelingJobsForWorkteamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>A list of lineage groups shared with your Amazon Web Services account.
+   *          For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/xaccount-lineage-tracking.html">
+   *             Cross-Account Lineage Tracking </a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
+   */
+  public listLineageGroups(
+    args: ListLineageGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLineageGroupsCommandOutput>;
+  public listLineageGroups(
+    args: ListLineageGroupsCommandInput,
+    cb: (err: any, data?: ListLineageGroupsCommandOutput) => void
+  ): void;
+  public listLineageGroups(
+    args: ListLineageGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLineageGroupsCommandOutput) => void
+  ): void;
+  public listLineageGroups(
+    args: ListLineageGroupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLineageGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListLineageGroupsCommandOutput) => void
+  ): Promise<ListLineageGroupsCommandOutput> | void {
+    const command = new ListLineageGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -7231,6 +7474,39 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: ListModelExplainabilityJobDefinitionsCommandOutput) => void
   ): Promise<ListModelExplainabilityJobDefinitionsCommandOutput> | void {
     const command = new ListModelExplainabilityJobDefinitionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the domain, framework, task, and model name of standard
+   *           machine learning models found in common model zoos.</p>
+   */
+  public listModelMetadata(
+    args: ListModelMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListModelMetadataCommandOutput>;
+  public listModelMetadata(
+    args: ListModelMetadataCommandInput,
+    cb: (err: any, data?: ListModelMetadataCommandOutput) => void
+  ): void;
+  public listModelMetadata(
+    args: ListModelMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListModelMetadataCommandOutput) => void
+  ): void;
+  public listModelMetadata(
+    args: ListModelMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListModelMetadataCommandOutput) => void),
+    cb?: (err: any, data?: ListModelMetadataCommandOutput) => void
+  ): Promise<ListModelMetadataCommandOutput> | void {
+    const command = new ListModelMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -8107,6 +8383,37 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Use this action to inspect your lineage and discover relationships between entities.
+   *          For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/querying-lineage-entities.html">
+   *             Querying Lineage Entities</a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
+   */
+  public queryLineage(
+    args: QueryLineageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<QueryLineageCommandOutput>;
+  public queryLineage(args: QueryLineageCommandInput, cb: (err: any, data?: QueryLineageCommandOutput) => void): void;
+  public queryLineage(
+    args: QueryLineageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: QueryLineageCommandOutput) => void
+  ): void;
+  public queryLineage(
+    args: QueryLineageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: QueryLineageCommandOutput) => void),
+    cb?: (err: any, data?: QueryLineageCommandOutput) => void
+  ): Promise<QueryLineageCommandOutput> | void {
+    const command = new QueryLineageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Register devices.</p>
    */
   public registerDevices(
@@ -8532,6 +8839,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: StopHyperParameterTuningJobCommandOutput) => void
   ): Promise<StopHyperParameterTuningJobCommandOutput> | void {
     const command = new StopHyperParameterTuningJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops an Inference Recommender job.</p>
+   */
+  public stopInferenceRecommendationsJob(
+    args: StopInferenceRecommendationsJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopInferenceRecommendationsJobCommandOutput>;
+  public stopInferenceRecommendationsJob(
+    args: StopInferenceRecommendationsJobCommandInput,
+    cb: (err: any, data?: StopInferenceRecommendationsJobCommandOutput) => void
+  ): void;
+  public stopInferenceRecommendationsJob(
+    args: StopInferenceRecommendationsJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopInferenceRecommendationsJobCommandOutput) => void
+  ): void;
+  public stopInferenceRecommendationsJob(
+    args: StopInferenceRecommendationsJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopInferenceRecommendationsJobCommandOutput) => void),
+    cb?: (err: any, data?: StopInferenceRecommendationsJobCommandOutput) => void
+  ): Promise<StopInferenceRecommendationsJobCommandOutput> | void {
+    const command = new StopInferenceRecommendationsJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
