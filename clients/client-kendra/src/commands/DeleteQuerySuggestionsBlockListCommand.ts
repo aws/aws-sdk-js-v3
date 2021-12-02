@@ -26,6 +26,9 @@ export interface DeleteQuerySuggestionsBlockListCommandOutput extends __Metadata
  *         <p>A deleted block list might not take effect right away. Amazon Kendra
  *             needs to refresh the entire suggestions list to add back the
  *             queries that were previously blocked.</p>
+ *         <p>
+ *             <code>DeleteQuerySuggestionsBlockList</code> is currently not supported in the
+ *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

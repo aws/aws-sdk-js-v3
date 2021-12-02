@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ImportSnapshotRequest, ImportSnapshotResult } from "../models/models_4";
+import { ImportSnapshotRequest, ImportSnapshotResult } from "../models/models_5";
 import { deserializeAws_ec2ImportSnapshotCommand, serializeAws_ec2ImportSnapshotCommand } from "../protocols/Aws_ec2";
 
 export interface ImportSnapshotCommandInput extends ImportSnapshotRequest {}

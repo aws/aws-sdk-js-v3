@@ -34,6 +34,9 @@ export interface DeletePrincipalMappingCommandOutput extends __MetadataBearer {}
  *             to the "Engineering" group when calling <code>PutPrincipalMapping</code>. You
  *             can update your internal list of users or sub groups and input this list
  *             when calling <code>PutPrincipalMapping</code>.</p>
+ *         <p>
+ *             <code>DeletePrincipalMapping</code> is currently not supported in the
+ *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

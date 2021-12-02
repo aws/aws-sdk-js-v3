@@ -19,7 +19,14 @@ import {
   InvokeEndpointAsyncCommandOutput,
 } from "../commands/InvokeEndpointAsyncCommand";
 import { InvokeEndpointCommandInput, InvokeEndpointCommandOutput } from "../commands/InvokeEndpointCommand";
-import { InternalFailure, ModelError, ServiceUnavailable, ValidationError } from "../models/models_0";
+import {
+  InternalDependencyException,
+  InternalFailure,
+  ModelError,
+  ModelNotReadyException,
+  ServiceUnavailable,
+  ValidationError,
+} from "../models/models_0";
 
 export const serializeAws_restJson1InvokeEndpointCommand = async (
   input: InvokeEndpointCommandInput,
@@ -147,6 +154,14 @@ const deserializeAws_restJson1InvokeEndpointCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalDependencyException":
+    case "com.amazonaws.sagemakerruntime#InternalDependencyException":
+      response = {
+        ...(await deserializeAws_restJson1InternalDependencyExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalFailure":
     case "com.amazonaws.sagemakerruntime#InternalFailure":
       response = {
@@ -159,6 +174,14 @@ const deserializeAws_restJson1InvokeEndpointCommandError = async (
     case "com.amazonaws.sagemakerruntime#ModelError":
       response = {
         ...(await deserializeAws_restJson1ModelErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ModelNotReadyException":
+    case "com.amazonaws.sagemakerruntime#ModelNotReadyException":
+      response = {
+        ...(await deserializeAws_restJson1ModelNotReadyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -271,6 +294,23 @@ const deserializeAws_restJson1InvokeEndpointAsyncCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+const deserializeAws_restJson1InternalDependencyExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InternalDependencyException> => {
+  const contents: InternalDependencyException = {
+    name: "InternalDependencyException",
+    $fault: "server",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = __expectString(data.Message);
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1InternalFailureResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -313,6 +353,23 @@ const deserializeAws_restJson1ModelErrorResponse = async (
   }
   if (data.OriginalStatusCode !== undefined && data.OriginalStatusCode !== null) {
     contents.OriginalStatusCode = __expectInt32(data.OriginalStatusCode);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ModelNotReadyExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ModelNotReadyException> => {
+  const contents: ModelNotReadyException = {
+    name: "ModelNotReadyException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };

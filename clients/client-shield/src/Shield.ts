@@ -86,6 +86,11 @@ import {
   DescribeSubscriptionCommandOutput,
 } from "./commands/DescribeSubscriptionCommand";
 import {
+  DisableApplicationLayerAutomaticResponseCommand,
+  DisableApplicationLayerAutomaticResponseCommandInput,
+  DisableApplicationLayerAutomaticResponseCommandOutput,
+} from "./commands/DisableApplicationLayerAutomaticResponseCommand";
+import {
   DisableProactiveEngagementCommand,
   DisableProactiveEngagementCommandInput,
   DisableProactiveEngagementCommandOutput,
@@ -105,6 +110,11 @@ import {
   DisassociateHealthCheckCommandInput,
   DisassociateHealthCheckCommandOutput,
 } from "./commands/DisassociateHealthCheckCommand";
+import {
+  EnableApplicationLayerAutomaticResponseCommand,
+  EnableApplicationLayerAutomaticResponseCommandInput,
+  EnableApplicationLayerAutomaticResponseCommandOutput,
+} from "./commands/EnableApplicationLayerAutomaticResponseCommand";
 import {
   EnableProactiveEngagementCommand,
   EnableProactiveEngagementCommandInput,
@@ -143,6 +153,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateApplicationLayerAutomaticResponseCommand,
+  UpdateApplicationLayerAutomaticResponseCommandInput,
+  UpdateApplicationLayerAutomaticResponseCommandOutput,
+} from "./commands/UpdateApplicationLayerAutomaticResponseCommand";
+import {
   UpdateEmergencyContactSettingsCommand,
   UpdateEmergencyContactSettingsCommandInput,
   UpdateEmergencyContactSettingsCommandOutput,
@@ -168,7 +183,7 @@ import { ShieldClient } from "./ShieldClient";
 export class Shield extends ShieldClient {
   /**
    * <p>Authorizes the Shield Response Team (SRT) to access the specified Amazon S3 bucket containing log data such as Application Load Balancer access logs, CloudFront logs, or logs from third party sources. You can associate up to 10 Amazon S3 buckets with your subscription.</p>
-   * 	        <p>To use the services of the SRT and make an <code>AssociateDRTLogBucket</code> request, you must be subscribed to the <a href="https://aws.amazon.com/premiumsupport/business-support/">Business Support plan</a> or the <a href="https://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise Support plan</a>.</p>
+   *          <p>To use the services of the SRT and make an <code>AssociateDRTLogBucket</code> request, you must be subscribed to the <a href="https://docs.aws.amazon.com/premiumsupport/business-support/">Business Support plan</a> or the <a href="https://docs.aws.amazon.com/premiumsupport/enterprise-support/">Enterprise Support plan</a>.</p>
    */
   public associateDRTLogBucket(
     args: AssociateDRTLogBucketCommandInput,
@@ -202,11 +217,12 @@ export class Shield extends ShieldClient {
   /**
    * <p>Authorizes the Shield Response Team (SRT) using the specified role, to access your Amazon Web Services account to assist with DDoS attack mitigation during potential attacks. This enables the SRT to inspect your WAF configuration and create or update WAF rules and web ACLs.</p>
    *          <p>You can associate only one <code>RoleArn</code> with your subscription. If you submit an <code>AssociateDRTRole</code> request for an account that already has an associated role, the new <code>RoleArn</code> will replace the existing <code>RoleArn</code>. </p>
-   *          <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href="https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy">AWSShieldDRTAccessPolicy</a> managed policy to the role you will specify in the request. For more information see <a href=" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html">Attaching and Detaching IAM Policies</a>. The role must also trust the service principal <code> drt.shield.amazonaws.com</code>. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html">IAM JSON Policy Elements: Principal</a>.</p>
+   *          <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <code>AWSShieldDRTAccessPolicy</code> managed policy to the role that you'll specify in the request. You can access this policy in the IAM console at <a href="https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy">AWSShieldDRTAccessPolicy</a>. For more information see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html">Adding and removing IAM identity permissions</a>. The role must also trust the service principal
+   * <code>drt.shield.amazonaws.com</code>. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html">IAM JSON policy elements: Principal</a>.</p>
    *
    *          <p>The SRT will have access only to your WAF and Shield resources. By submitting this request, you authorize the SRT to inspect your WAF and Shield configuration and create and update WAF rules and web ACLs on your behalf. The SRT takes these actions only if explicitly authorized by you.</p>
-   *          <p>You must have the <code>iam:PassRole</code> permission to make an <code>AssociateDRTRole</code> request. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an Amazon Web Services Service</a>. </p>
-   *          <p>To use the services of the SRT and make an <code>AssociateDRTRole</code> request, you must be subscribed to the <a href="https://aws.amazon.com/premiumsupport/business-support/">Business Support plan</a> or the <a href="https://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise Support plan</a>.</p>
+   *          <p>You must have the <code>iam:PassRole</code> permission to make an <code>AssociateDRTRole</code> request. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a user permissions to pass a role to an Amazon Web Services service</a>. </p>
+   *          <p>To use the services of the SRT and make an <code>AssociateDRTRole</code> request, you must be subscribed to the <a href="https://docs.aws.amazon.com/premiumsupport/business-support/">Business Support plan</a> or the <a href="https://docs.aws.amazon.com/premiumsupport/enterprise-support/">Enterprise Support plan</a>.</p>
    */
   public associateDRTRole(
     args: AssociateDRTRoleCommandInput,
@@ -238,8 +254,8 @@ export class Shield extends ShieldClient {
   }
 
   /**
-   * <p>Adds health-based detection to the Shield Advanced protection for a resource. Shield Advanced health-based detection uses the health of your Amazon Web Services resource to improve responsiveness and accuracy in attack detection and mitigation.  </p>
-   *          <p>You define the health check in Route 53 and then associate it with your Shield Advanced protection. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option">Shield Advanced Health-Based Detection</a> in the <i>WAF Developer Guide</i>. </p>
+   * <p>Adds health-based detection to the Shield Advanced protection for a resource. Shield Advanced health-based detection uses the health of your Amazon Web Services resource to improve responsiveness and accuracy in attack detection and response.  </p>
+   *          <p>You define the health check in Route 53 and then associate it with your Shield Advanced protection. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option">Shield Advanced Health-Based Detection</a> in the <i>WAF Developer Guide</i>. </p>
    */
   public associateHealthCheck(
     args: AssociateHealthCheckCommandInput,
@@ -308,8 +324,12 @@ export class Shield extends ShieldClient {
   }
 
   /**
-   * <p>Enables Shield Advanced for a specific Amazon Web Services resource. The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.</p>
-   *          <p>You can add protection to only a single resource with each CreateProtection request. If you want to add protection to multiple resources at once, use the <a href="https://console.aws.amazon.com/waf/">WAF console</a>. For more information see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html">Getting Started with Shield Advanced</a> and <a href="https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html">Add Shield Advanced Protection to more Amazon Web Services Resources</a>.</p>
+   * <p>Enables Shield Advanced for a specific Amazon Web Services resource. The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.</p>
+   *          <p>You can add protection to only a single resource with each <code>CreateProtection</code> request. You can add protection to multiple resources
+   *           at once through the Shield Advanced console at <a href="https://console.aws.amazon.com/wafv2/shieldv2#/">https://console.aws.amazon.com/wafv2/shieldv2#/</a>.
+   *               For more information see
+   *           <a href="https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html">Getting Started with Shield Advanced</a>
+   *               and <a href="https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html">Adding Shield Advanced protection to Amazon Web Services resources</a>.</p>
    */
   public createProtection(
     args: CreateProtectionCommandInput,
@@ -731,6 +751,41 @@ export class Shield extends ShieldClient {
   }
 
   /**
+   * <p>Disable the Shield Advanced automatic application layer DDoS mitigation feature for the resource. This
+   *        stops Shield Advanced from creating, verifying, and applying WAF rules for attacks that it detects for the resource. </p>
+   */
+  public disableApplicationLayerAutomaticResponse(
+    args: DisableApplicationLayerAutomaticResponseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableApplicationLayerAutomaticResponseCommandOutput>;
+  public disableApplicationLayerAutomaticResponse(
+    args: DisableApplicationLayerAutomaticResponseCommandInput,
+    cb: (err: any, data?: DisableApplicationLayerAutomaticResponseCommandOutput) => void
+  ): void;
+  public disableApplicationLayerAutomaticResponse(
+    args: DisableApplicationLayerAutomaticResponseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableApplicationLayerAutomaticResponseCommandOutput) => void
+  ): void;
+  public disableApplicationLayerAutomaticResponse(
+    args: DisableApplicationLayerAutomaticResponseCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisableApplicationLayerAutomaticResponseCommandOutput) => void),
+    cb?: (err: any, data?: DisableApplicationLayerAutomaticResponseCommandOutput) => void
+  ): Promise<DisableApplicationLayerAutomaticResponseCommandOutput> | void {
+    const command = new DisableApplicationLayerAutomaticResponseCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Removes authorization from the Shield Response Team (SRT) to notify contacts about escalations to the SRT and to initiate proactive customer support.</p>
    */
   public disableProactiveEngagement(
@@ -764,7 +819,6 @@ export class Shield extends ShieldClient {
 
   /**
    * <p>Removes the Shield Response Team's (SRT) access to the specified Amazon S3 bucket containing the logs that you shared previously.</p>
-   * 	        <p>To make a <code>DisassociateDRTLogBucket</code> request, you must be subscribed to the <a href="https://aws.amazon.com/premiumsupport/business-support/">Business Support plan</a> or the <a href="https://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the SRT access to your account, you can submit a <code>DisassociateDRTLogBucket</code> request to remove this access.</p>
    */
   public disassociateDRTLogBucket(
     args: DisassociateDRTLogBucketCommandInput,
@@ -797,7 +851,6 @@ export class Shield extends ShieldClient {
 
   /**
    * <p>Removes the Shield Response Team's (SRT) access to your Amazon Web Services account.</p>
-   * 	        <p>To make a <code>DisassociateDRTRole</code> request, you must be subscribed to the <a href="https://aws.amazon.com/premiumsupport/business-support/">Business Support plan</a> or the <a href="https://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the SRT access to your account, you can submit a <code>DisassociateDRTRole</code> request to remove this access.</p>
    */
   public disassociateDRTRole(
     args: DisassociateDRTRoleCommandInput,
@@ -829,8 +882,8 @@ export class Shield extends ShieldClient {
   }
 
   /**
-   * <p>Removes health-based detection from the Shield Advanced protection for a resource. Shield Advanced health-based detection uses the health of your Amazon Web Services resource to improve responsiveness and accuracy in attack detection and mitigation. </p>
-   *          <p>You define the health check in Route 53 and then associate or disassociate it with your Shield Advanced protection. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option">Shield Advanced Health-Based Detection</a> in the <i>WAF Developer Guide</i>. </p>
+   * <p>Removes health-based detection from the Shield Advanced protection for a resource. Shield Advanced health-based detection uses the health of your Amazon Web Services resource to improve responsiveness and accuracy in attack detection and response. </p>
+   *          <p>You define the health check in Route 53 and then associate or disassociate it with your Shield Advanced protection. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option">Shield Advanced Health-Based Detection</a> in the <i>WAF Developer Guide</i>. </p>
    */
   public disassociateHealthCheck(
     args: DisassociateHealthCheckCommandInput,
@@ -851,6 +904,53 @@ export class Shield extends ShieldClient {
     cb?: (err: any, data?: DisassociateHealthCheckCommandOutput) => void
   ): Promise<DisassociateHealthCheckCommandOutput> | void {
     const command = new DisassociateHealthCheckCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Enable the Shield Advanced automatic application layer DDoS mitigation for the resource. </p>
+   *          <note>
+   *             <p>This feature is available for Amazon CloudFront distributions only.</p>
+   *          </note>
+   *          <p>This causes Shield Advanced to create, verify, and apply WAF rules for DDoS attacks that it detects for the
+   *        resource. Shield Advanced applies the rules in a Shield rule group inside the web ACL that you've associated
+   *            with the resource. For information about how automatic mitigation works and the requirements for using it, see
+   *    <a href="https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced-automatic-app-layer-response.html">Shield Advanced automatic application layer DDoS mitigation</a>.</p>
+   *          <p>Don't use this action to make changes to automatic mitigation settings when it's already enabled for a resource. Instead, use <a>UpdateApplicationLayerAutomaticResponse</a>.</p>
+   *          <p>To use this feature, you must associate a web ACL with the protected resource. The web ACL must be created using the latest version of WAF (v2). You can associate the web ACL through the Shield Advanced console
+   *            at <a href="https://console.aws.amazon.com/wafv2/shieldv2#/">https://console.aws.amazon.com/wafv2/shieldv2#/</a>. For more information,
+   *                see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html">Getting Started with Shield Advanced</a>.</p>
+   *          <p>You can also do this through the WAF console or the WAF API, but you must manage Shield Advanced automatic mitigation through Shield Advanced. For information about WAF, see
+   *        <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">WAF Developer Guide</a>.</p>
+   */
+  public enableApplicationLayerAutomaticResponse(
+    args: EnableApplicationLayerAutomaticResponseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableApplicationLayerAutomaticResponseCommandOutput>;
+  public enableApplicationLayerAutomaticResponse(
+    args: EnableApplicationLayerAutomaticResponseCommandInput,
+    cb: (err: any, data?: EnableApplicationLayerAutomaticResponseCommandOutput) => void
+  ): void;
+  public enableApplicationLayerAutomaticResponse(
+    args: EnableApplicationLayerAutomaticResponseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableApplicationLayerAutomaticResponseCommandOutput) => void
+  ): void;
+  public enableApplicationLayerAutomaticResponse(
+    args: EnableApplicationLayerAutomaticResponseCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: EnableApplicationLayerAutomaticResponseCommandOutput) => void),
+    cb?: (err: any, data?: EnableApplicationLayerAutomaticResponseCommandOutput) => void
+  ): Promise<EnableApplicationLayerAutomaticResponseCommandOutput> | void {
+    const command = new EnableApplicationLayerAutomaticResponseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1128,6 +1228,40 @@ export class Shield extends ShieldClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an existing Shield Advanced automatic application layer DDoS mitigation configuration for the specified resource.</p>
+   */
+  public updateApplicationLayerAutomaticResponse(
+    args: UpdateApplicationLayerAutomaticResponseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateApplicationLayerAutomaticResponseCommandOutput>;
+  public updateApplicationLayerAutomaticResponse(
+    args: UpdateApplicationLayerAutomaticResponseCommandInput,
+    cb: (err: any, data?: UpdateApplicationLayerAutomaticResponseCommandOutput) => void
+  ): void;
+  public updateApplicationLayerAutomaticResponse(
+    args: UpdateApplicationLayerAutomaticResponseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateApplicationLayerAutomaticResponseCommandOutput) => void
+  ): void;
+  public updateApplicationLayerAutomaticResponse(
+    args: UpdateApplicationLayerAutomaticResponseCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateApplicationLayerAutomaticResponseCommandOutput) => void),
+    cb?: (err: any, data?: UpdateApplicationLayerAutomaticResponseCommandOutput) => void
+  ): Promise<UpdateApplicationLayerAutomaticResponseCommandOutput> | void {
+    const command = new UpdateApplicationLayerAutomaticResponseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -139,6 +139,58 @@ export namespace AggregatedUtterancesSummary {
 }
 
 /**
+ * <p>The object containing information that associates the recommended
+ *          intent/slot type with a conversation.</p>
+ */
+export interface AssociatedTranscript {
+  /**
+   * <p>The content of the transcript that meets the search filter criteria.
+   *          For the JSON format of the transcript, see <a href="https://docs.aws.amazon.com/lex/latest/dg/designing-output-format.html">Output transcript
+   *             format</a>.</p>
+   */
+  transcript?: string;
+}
+
+export namespace AssociatedTranscript {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociatedTranscript): any => ({
+    ...obj,
+  });
+}
+
+export enum AssociatedTranscriptFilterName {
+  IntentId = "IntentId",
+  SlotTypeId = "SlotTypeId",
+}
+
+/**
+ * <p>Filters to search for the associated transcript.</p>
+ */
+export interface AssociatedTranscriptFilter {
+  /**
+   * <p>The name of the field to use for filtering. The allowed names are
+   *          IntentId and SlotTypeId.</p>
+   */
+  name: AssociatedTranscriptFilterName | string | undefined;
+
+  /**
+   * <p>The values to use to filter the transcript.</p>
+   */
+  values: string[] | undefined;
+}
+
+export namespace AssociatedTranscriptFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociatedTranscriptFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Specifies an Amazon S3 bucket for logging audio conversations</p>
  */
 export interface S3BucketLogDestination {
@@ -803,6 +855,7 @@ export enum BotLocaleStatus {
   Failed = "Failed",
   Importing = "Importing",
   NotBuilt = "NotBuilt",
+  Processing = "Processing",
   ReadyExpressTesting = "ReadyExpressTesting",
 }
 
@@ -849,6 +902,154 @@ export namespace BotLocaleSummary {
    * @internal
    */
   export const filterSensitiveLog = (obj: BotLocaleSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The object that contains the statistical summary of recommended
+ *          intents associated with the bot recommendation.</p>
+ */
+export interface IntentStatistics {
+  /**
+   * <p>The number of recommended intents associated with the bot
+   *          recommendation.</p>
+   */
+  discoveredIntentCount?: number;
+}
+
+export namespace IntentStatistics {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IntentStatistics): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The object that contains the statistical summary of the recommended
+ *          slot type associated with the bot recommendation.</p>
+ */
+export interface SlotTypeStatistics {
+  /**
+   * <p>The number of recommended slot types associated with the bot
+   *          recommendation.</p>
+   */
+  discoveredSlotTypeCount?: number;
+}
+
+export namespace SlotTypeStatistics {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SlotTypeStatistics): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A statistical summary of the bot recommendation results.</p>
+ */
+export interface BotRecommendationResultStatistics {
+  /**
+   * <p>Statistical information about about the intents associated with the
+   *          bot recommendation results.</p>
+   */
+  intents?: IntentStatistics;
+
+  /**
+   * <p>Statistical information about the slot types associated with the bot
+   *          recommendation results.</p>
+   */
+  slotTypes?: SlotTypeStatistics;
+}
+
+export namespace BotRecommendationResultStatistics {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BotRecommendationResultStatistics): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The object representing the URL of the bot definition, the URL of
+ *          the associated transcript and a statistical summary of the bot
+ *          recommendation results.</p>
+ */
+export interface BotRecommendationResults {
+  /**
+   * <p>The presigned URL link of the recommended bot definition.</p>
+   */
+  botLocaleExportUrl?: string;
+
+  /**
+   * <p>The presigned url link of the associated transcript.</p>
+   */
+  associatedTranscriptsUrl?: string;
+
+  /**
+   * <p>The statistical summary of the bot recommendation results.</p>
+   */
+  statistics?: BotRecommendationResultStatistics;
+}
+
+export namespace BotRecommendationResults {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BotRecommendationResults): any => ({
+    ...obj,
+  });
+}
+
+export enum BotRecommendationStatus {
+  Available = "Available",
+  Deleted = "Deleted",
+  Deleting = "Deleting",
+  Downloading = "Downloading",
+  Failed = "Failed",
+  Processing = "Processing",
+  Updating = "Updating",
+}
+
+/**
+ * <p>A summary of the bot recommendation.</p>
+ */
+export interface BotRecommendationSummary {
+  /**
+   * <p>The status of the bot recommendation.</p>
+   *          <p>If the status is Failed, then the reasons for the failure are listed
+   *          in the failureReasons field. </p>
+   */
+  botRecommendationStatus: BotRecommendationStatus | string | undefined;
+
+  /**
+   * <p>The unique identifier of the bot recommendation to be
+   *          updated.</p>
+   */
+  botRecommendationId: string | undefined;
+
+  /**
+   * <p>A timestamp of the date and time that the bot recommendation was
+   *          created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>A timestamp of the date and time that the bot recommendation was
+   *          last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+}
+
+export namespace BotRecommendationSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BotRecommendationSummary): any => ({
     ...obj,
   });
 }
@@ -3789,6 +3990,33 @@ export namespace CreateUploadUrlResponse {
   });
 }
 
+/**
+ * <p>The object used for specifying the data range that the customer
+ *          wants Amazon Lex to read through in the input transcripts.</p>
+ */
+export interface DateRangeFilter {
+  /**
+   * <p>A timestamp indicating the start date for the date range
+   *          filter.</p>
+   */
+  startDateTime: Date | undefined;
+
+  /**
+   * <p>A timestamp indicating the end date for the date range
+   *          filter.</p>
+   */
+  endDateTime: Date | undefined;
+}
+
+export namespace DateRangeFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DateRangeFilter): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteBotRequest {
   /**
    * <p>The identifier of the bot to delete. </p>
@@ -4658,6 +4886,297 @@ export namespace DescribeBotLocaleResponse {
   });
 }
 
+export interface DescribeBotRecommendationRequest {
+  /**
+   * <p>The unique identifier of the bot associated with the bot
+   *          recommendation.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot associated with the bot
+   *          recommendation.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The identifier of the language and locale of the bot recommendation
+   *          to describe. The string must match one of the supported locales. For
+   *          more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * <p>The identifier of the bot recommendation to describe.</p>
+   */
+  botRecommendationId: string | undefined;
+}
+
+export namespace DescribeBotRecommendationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeBotRecommendationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The object representing the passwords that were used to encrypt the
+ *          data related to the bot recommendation, as well as the KMS key ARN used
+ *          to encrypt the associated metadata.</p>
+ */
+export interface EncryptionSetting {
+  /**
+   * <p>The KMS key ARN used to encrypt the metadata associated with the bot
+   *          recommendation.</p>
+   */
+  kmsKeyArn?: string;
+
+  /**
+   * <p>The password used to encrypt the recommended bot recommendation
+   *          file.</p>
+   */
+  botLocaleExportPassword?: string;
+
+  /**
+   * <p>The password used to encrypt the associated transcript file.</p>
+   */
+  associatedTranscriptsPassword?: string;
+}
+
+export namespace EncryptionSetting {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EncryptionSetting): any => ({
+    ...obj,
+    ...(obj.botLocaleExportPassword && { botLocaleExportPassword: SENSITIVE_STRING }),
+    ...(obj.associatedTranscriptsPassword && { associatedTranscriptsPassword: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>The object that contains a path format that will be applied when
+ *          Amazon Lex reads the transcript file in the bucket you provide. Specify this
+ *          object if you only want Lex to read a subset of files in your Amazon S3
+ *          bucket.</p>
+ */
+export interface PathFormat {
+  /**
+   * <p>A list of Amazon S3 prefixes that points to sub-folders in the Amazon S3
+   *          bucket. Specify this list if you only want Lex to read the files under
+   *          this set of sub-folders.</p>
+   */
+  objectPrefixes?: string[];
+}
+
+export namespace PathFormat {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PathFormat): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The object that contains transcript filter details that are
+ *          associated with a bot recommendation.</p>
+ */
+export interface LexTranscriptFilter {
+  /**
+   * <p>The object that contains a date range filter that will be applied to
+   *          the transcript. Specify this object if you want Amazon Lex to only read the
+   *          files that are within the date range.</p>
+   */
+  dateRangeFilter?: DateRangeFilter;
+}
+
+export namespace LexTranscriptFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LexTranscriptFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The object representing the filter that Amazon Lex will use to select the
+ *          appropriate transcript.</p>
+ */
+export interface TranscriptFilter {
+  /**
+   * <p>The object representing the filter that Amazon Lex will use to select the
+   *          appropriate transcript when the transcript format is the Amazon Lex
+   *          format.</p>
+   */
+  lexTranscriptFilter?: LexTranscriptFilter;
+}
+
+export namespace TranscriptFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TranscriptFilter): any => ({
+    ...obj,
+  });
+}
+
+export enum TranscriptFormat {
+  Lex = "Lex",
+}
+
+/**
+ * <p>The object representing the Amazon S3 bucket containing the transcript,
+ *          as well as the associated metadata.</p>
+ */
+export interface S3BucketTranscriptSource {
+  /**
+   * <p>The name of the bucket containing the transcript and the associated
+   *          metadata.</p>
+   */
+  s3BucketName: string | undefined;
+
+  /**
+   * <p>The object that contains a path format that will be applied when
+   *          Amazon Lex reads the transcript file in the bucket you provide. Specify this
+   *          object if you only want Lex to read a subset of files in your Amazon S3
+   *          bucket.</p>
+   */
+  pathFormat?: PathFormat;
+
+  /**
+   * <p>The format of the transcript content. Currently, Genie only supports
+   *          the Amazon Lex transcript format.</p>
+   */
+  transcriptFormat: TranscriptFormat | string | undefined;
+
+  /**
+   * <p>The object that contains the filter which will be applied when Amazon Lex
+   *          reads through the Amazon S3 bucket. Specify this object if you want Amazon Lex to
+   *          read only a subset of the Amazon S3 bucket based on the filter you
+   *          provide.</p>
+   */
+  transcriptFilter?: TranscriptFilter;
+
+  /**
+   * <p>The ARN of the KMS key that customer use to encrypt their Amazon S3
+   *          bucket. Only use this field if your bucket is encrypted using a
+   *          customer managed KMS key.</p>
+   */
+  kmsKeyArn?: string;
+}
+
+export namespace S3BucketTranscriptSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3BucketTranscriptSource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Indicates the setting of the location where the transcript is
+ *          stored.</p>
+ */
+export interface TranscriptSourceSetting {
+  /**
+   * <p>Indicates the setting of the Amazon S3 bucket where the transcript is
+   *          stored.</p>
+   */
+  s3BucketTranscriptSource?: S3BucketTranscriptSource;
+}
+
+export namespace TranscriptSourceSetting {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TranscriptSourceSetting): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeBotRecommendationResponse {
+  /**
+   * <p>The identifier of the bot associated with the bot
+   *          recommendation.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The version of the bot associated with the bot
+   *          recommendation.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The identifier of the language and locale of the bot recommendation
+   *          to describe.</p>
+   */
+  localeId?: string;
+
+  /**
+   * <p>The status of the bot recommendation. If the status is Failed, then
+   *          the reasons for the failure are listed in the failureReasons field.
+   *       </p>
+   */
+  botRecommendationStatus?: BotRecommendationStatus | string;
+
+  /**
+   * <p>The identifier of the bot recommendation being described.</p>
+   */
+  botRecommendationId?: string;
+
+  /**
+   * <p>If botRecommendationStatus is Failed, Amazon Lex explains why.</p>
+   */
+  failureReasons?: string[];
+
+  /**
+   * <p>The date and time that the bot recommendation was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time that the bot recommendation was last
+   *          updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>The object representing the Amazon S3 bucket containing the transcript,
+   *          as well as the associated metadata.</p>
+   */
+  transcriptSourceSetting?: TranscriptSourceSetting;
+
+  /**
+   * <p>The object representing the passwords that were used to encrypt the
+   *          data related to the bot recommendation results, as well as the KMS key
+   *          ARN used to encrypt the associated metadata.</p>
+   */
+  encryptionSetting?: EncryptionSetting;
+
+  /**
+   * <p>The object representing the URL of the bot definition, the URL of
+   *          the associated transcript and a statistical summary of the bot
+   *          recommendation results.</p>
+   */
+  botRecommendationResults?: BotRecommendationResults;
+}
+
+export namespace DescribeBotRecommendationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeBotRecommendationResponse): any => ({
+    ...obj,
+    ...(obj.encryptionSetting && { encryptionSetting: EncryptionSetting.filterSensitiveLog(obj.encryptionSetting) }),
+  });
+}
+
 export interface DescribeBotVersionRequest {
   /**
    * <p>The identifier of the bot containing the version to return metadata
@@ -4836,6 +5355,7 @@ export namespace DescribeImportRequest {
 }
 
 export enum MergeStrategy {
+  Append = "Append",
   FailOnConflict = "FailOnConflict",
   Overwrite = "Overwrite",
 }
@@ -6156,6 +6676,97 @@ export namespace ListBotLocalesResponse {
   });
 }
 
+export interface ListBotRecommendationsRequest {
+  /**
+   * <p>The unique identifier of the bot that contains the bot
+   *          recommendation list.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot that contains the bot recommendation
+   *          list.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The identifier of the language and locale of the bot recommendation
+   *          list.</p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * <p>The maximum number of bot recommendations to return in each page of
+   *          results. If there are fewer results than the max page size, only the
+   *          actual number of results are returned.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>If the response from the ListBotRecommendation operation contains
+   *          more results than specified in the maxResults parameter, a token is
+   *          returned in the response. Use that token in the nextToken parameter to
+   *          return the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListBotRecommendationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListBotRecommendationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListBotRecommendationsResponse {
+  /**
+   * <p>The unique identifier of the bot that contains the bot
+   *          recommendation list.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The version of the bot that contains the bot recommendation
+   *          list.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The identifier of the language and locale of the bot recommendation
+   *          list.</p>
+   */
+  localeId?: string;
+
+  /**
+   * <p>Summary information for the bot recommendations that meet the filter
+   *          specified in this request. The length of the list is specified in the
+   *          maxResults parameter of the request. If there are more bot
+   *          recommendations available, the nextToken field contains a token to get
+   *          the next page of results.</p>
+   */
+  botRecommendationSummaries?: BotRecommendationSummary[];
+
+  /**
+   * <p>A token that indicates whether there are more results to return in a
+   *          response to the ListBotRecommendations operation. If the nextToken
+   *          field is present, you send the contents as the nextToken parameter of a
+   *          ListBotRecommendations operation request to get the next page of
+   *          results. </p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListBotRecommendationsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListBotRecommendationsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListBotsRequest {
   /**
    * <p>Specifies sorting parameters for the list of bots. You can specify
@@ -6735,6 +7346,140 @@ export namespace ListIntentsResponse {
   });
 }
 
+export interface ListRecommendedIntentsRequest {
+  /**
+   * <p>The unique identifier of the bot associated with the recommended
+   *          intents.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot that contains the recommended intents.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The identifier of the language and locale of the recommended
+   *          intents.</p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * <p>The identifier of the bot recommendation that contains the
+   *          recommended intents.</p>
+   */
+  botRecommendationId: string | undefined;
+
+  /**
+   * <p>If the response from the ListRecommendedIntents operation contains
+   *          more results than specified in the maxResults parameter, a token is
+   *          returned in the response. Use that token in the nextToken parameter to
+   *          return the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of bot recommendations to return in each page of
+   *          results. If there are fewer results than the max page size, only the
+   *          actual number of results are returned.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListRecommendedIntentsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListRecommendedIntentsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that contains a summary of a recommended intent.</p>
+ */
+export interface RecommendedIntentSummary {
+  /**
+   * <p>The unique identifier of a recommended intent associated with the
+   *          bot recommendation.</p>
+   */
+  intentId?: string;
+
+  /**
+   * <p>The name of a recommended intent associated with the bot
+   *          recommendation.</p>
+   */
+  intentName?: string;
+
+  /**
+   * <p>The count of sample utterances of a recommended intent that is
+   *          associated with a bot recommendation.</p>
+   */
+  sampleUtterancesCount?: number;
+}
+
+export namespace RecommendedIntentSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RecommendedIntentSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListRecommendedIntentsResponse {
+  /**
+   * <p>The unique identifier of the bot associated with the recommended
+   *          intent.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The version of the bot that contains the intent.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The identifier of the language and locale of the intents to list.
+   *          The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
+   */
+  localeId?: string;
+
+  /**
+   * <p>The identifier of the bot recommendation that contains the
+   *          recommended intent.</p>
+   */
+  botRecommendationId?: string;
+
+  /**
+   * <p>Summary information for the intents that meet the filter criteria
+   *          specified in the request. The length of the list is specified in the
+   *          maxResults parameter of the request. If there are more intents
+   *          available, the nextToken field contains a token to get the next page of
+   *          results.</p>
+   */
+  summaryList?: RecommendedIntentSummary[];
+
+  /**
+   * <p>A token that indicates whether there are more results to return in a
+   *          response to the ListRecommendedIntents operation. If the nextToken
+   *          field is present, you send the contents as the nextToken parameter of a
+   *          ListRecommendedIntents operation request to get the next page of
+   *          results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListRecommendedIntentsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListRecommendedIntentsResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum SlotFilterName {
   SlotName = "SlotName",
 }
@@ -7223,6 +7968,238 @@ export namespace ListTagsForResourceResponse {
    */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
+  });
+}
+
+export enum SearchOrder {
+  Ascending = "Ascending",
+  Descending = "Descending",
+}
+
+export interface SearchAssociatedTranscriptsRequest {
+  /**
+   * <p>The unique identifier of the bot associated with the transcripts
+   *          that you are searching.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot containing the transcripts that you are
+   *          searching.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The identifier of the language and locale of the transcripts to
+   *          search. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>
+   *          </p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the bot recommendation associated with the
+   *          transcripts to search.</p>
+   */
+  botRecommendationId: string | undefined;
+
+  /**
+   * <p>How SearchResults are ordered. Valid values are Ascending or
+   *          Descending. The default is Descending.</p>
+   */
+  searchOrder?: SearchOrder | string;
+
+  /**
+   * <p>A list of filter objects.</p>
+   */
+  filters: AssociatedTranscriptFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of bot recommendations to return in each page of
+   *          results. If there are fewer results than the max page size, only the
+   *          actual number of results are returned.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>If the response from the SearchAssociatedTranscriptsRequest
+   *          operation contains more results than specified in the maxResults
+   *          parameter, an index is returned in the response. Use that index in the
+   *          nextIndex parameter to return the next page of results.</p>
+   */
+  nextIndex?: number;
+}
+
+export namespace SearchAssociatedTranscriptsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchAssociatedTranscriptsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchAssociatedTranscriptsResponse {
+  /**
+   * <p>The unique identifier of the bot associated with the transcripts
+   *          that you are searching.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The version of the bot containing the transcripts that you are
+   *          searching.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The identifier of the language and locale of the transcripts to
+   *          search. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>
+   *          </p>
+   */
+  localeId?: string;
+
+  /**
+   * <p> The unique identifier of the bot recommendation associated with the
+   *          transcripts to search.</p>
+   */
+  botRecommendationId?: string;
+
+  /**
+   * <p>A index that indicates whether there are more results to return in a
+   *          response to the SearchAssociatedTranscripts operation. If the nextIndex
+   *          field is present, you send the contents as the nextIndex parameter of a
+   *          SearchAssociatedTranscriptsRequest operation to get the next page of
+   *          results.</p>
+   */
+  nextIndex?: number;
+
+  /**
+   * <p>The object that contains the associated transcript that meet the
+   *          criteria you specified.</p>
+   */
+  associatedTranscripts?: AssociatedTranscript[];
+
+  /**
+   * <p>The total number of transcripts returned by the search.</p>
+   */
+  totalResults?: number;
+}
+
+export namespace SearchAssociatedTranscriptsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchAssociatedTranscriptsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StartBotRecommendationRequest {
+  /**
+   * <p>The unique identifier of the bot containing the bot
+   *          recommendation.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot containing the bot recommendation.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The identifier of the language and locale of the bot recommendation
+   *          to start. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>
+   *          </p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * <p>The object representing the Amazon S3 bucket containing the transcript,
+   *          as well as the associated metadata.</p>
+   */
+  transcriptSourceSetting: TranscriptSourceSetting | undefined;
+
+  /**
+   * <p>The object representing the passwords that will be used to encrypt
+   *          the data related to the bot recommendation results, as well as the KMS
+   *          key ARN used to encrypt the associated metadata.</p>
+   */
+  encryptionSetting?: EncryptionSetting;
+}
+
+export namespace StartBotRecommendationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartBotRecommendationRequest): any => ({
+    ...obj,
+    ...(obj.encryptionSetting && { encryptionSetting: EncryptionSetting.filterSensitiveLog(obj.encryptionSetting) }),
+  });
+}
+
+export interface StartBotRecommendationResponse {
+  /**
+   * <p>The unique identifier of the bot containing the bot
+   *          recommendation.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The version of the bot containing the bot recommendation.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The identifier of the language and locale of the bot recommendation
+   *          to start. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>
+   *          </p>
+   */
+  localeId?: string;
+
+  /**
+   * <p>The status of the bot recommendation.</p>
+   *          <p>If the status is Failed, then the reasons for the failure are listed
+   *          in the failureReasons field. </p>
+   */
+  botRecommendationStatus?: BotRecommendationStatus | string;
+
+  /**
+   * <p>The identifier of the bot recommendation that you have
+   *          created.</p>
+   */
+  botRecommendationId?: string;
+
+  /**
+   * <p>A timestamp of the date and time that the bot recommendation was
+   *          created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The object representing the Amazon S3 bucket containing the transcript,
+   *          as well as the associated metadata.</p>
+   */
+  transcriptSourceSetting?: TranscriptSourceSetting;
+
+  /**
+   * <p>The object representing the passwords that were used to encrypt the
+   *          data related to the bot recommendation results, as well as the KMS key
+   *          ARN used to encrypt the associated metadata.</p>
+   */
+  encryptionSetting?: EncryptionSetting;
+}
+
+export namespace StartBotRecommendationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartBotRecommendationResponse): any => ({
+    ...obj,
+    ...(obj.encryptionSetting && { encryptionSetting: EncryptionSetting.filterSensitiveLog(obj.encryptionSetting) }),
   });
 }
 
@@ -7728,6 +8705,121 @@ export namespace UpdateBotLocaleResponse {
    */
   export const filterSensitiveLog = (obj: UpdateBotLocaleResponse): any => ({
     ...obj,
+  });
+}
+
+export interface UpdateBotRecommendationRequest {
+  /**
+   * <p>The unique identifier of the bot containing the bot recommendation
+   *          to be updated.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot containing the bot recommendation to be
+   *          updated.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The identifier of the language and locale of the bot recommendation
+   *          to update. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>
+   *          </p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the bot recommendation to be
+   *          updated.</p>
+   */
+  botRecommendationId: string | undefined;
+
+  /**
+   * <p>The object representing the passwords that will be used to encrypt
+   *          the data related to the bot recommendation results, as well as the KMS
+   *          key ARN used to encrypt the associated metadata.</p>
+   */
+  encryptionSetting: EncryptionSetting | undefined;
+}
+
+export namespace UpdateBotRecommendationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateBotRecommendationRequest): any => ({
+    ...obj,
+    ...(obj.encryptionSetting && { encryptionSetting: EncryptionSetting.filterSensitiveLog(obj.encryptionSetting) }),
+  });
+}
+
+export interface UpdateBotRecommendationResponse {
+  /**
+   * <p>The unique identifier of the bot containing the bot recommendation
+   *          that has been updated.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The version of the bot containing the bot recommendation that has
+   *          been updated.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The identifier of the language and locale of the bot recommendation
+   *          to update. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>
+   *          </p>
+   */
+  localeId?: string;
+
+  /**
+   * <p>The status of the bot recommendation.</p>
+   *          <p>If the status is Failed, then the reasons for the failure are listed
+   *          in the failureReasons field. </p>
+   */
+  botRecommendationStatus?: BotRecommendationStatus | string;
+
+  /**
+   * <p>The unique identifier of the bot recommendation to be
+   *          updated.</p>
+   */
+  botRecommendationId?: string;
+
+  /**
+   * <p>A timestamp of the date and time that the bot recommendation was
+   *          created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>A timestamp of the date and time that the bot recommendation was
+   *          last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>The object representing the Amazon S3 bucket containing the transcript,
+   *          as well as the associated metadata.</p>
+   */
+  transcriptSourceSetting?: TranscriptSourceSetting;
+
+  /**
+   * <p>The object representing the passwords that were used to encrypt the
+   *          data related to the bot recommendation results, as well as the KMS key
+   *          ARN used to encrypt the associated metadata.</p>
+   */
+  encryptionSetting?: EncryptionSetting;
+}
+
+export namespace UpdateBotRecommendationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateBotRecommendationResponse): any => ({
+    ...obj,
+    ...(obj.encryptionSetting && { encryptionSetting: EncryptionSetting.filterSensitiveLog(obj.encryptionSetting) }),
   });
 }
 

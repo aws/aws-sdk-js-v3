@@ -46,6 +46,11 @@ import {
   AllocateHostsCommandOutput,
 } from "./commands/AllocateHostsCommand";
 import {
+  AllocateIpamPoolCidrCommand,
+  AllocateIpamPoolCidrCommandInput,
+  AllocateIpamPoolCidrCommandOutput,
+} from "./commands/AllocateIpamPoolCidrCommand";
+import {
   ApplySecurityGroupsToClientVpnTargetNetworkCommand,
   ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
   ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput,
@@ -303,6 +308,17 @@ import {
   CreateInternetGatewayCommandInput,
   CreateInternetGatewayCommandOutput,
 } from "./commands/CreateInternetGatewayCommand";
+import { CreateIpamCommand, CreateIpamCommandInput, CreateIpamCommandOutput } from "./commands/CreateIpamCommand";
+import {
+  CreateIpamPoolCommand,
+  CreateIpamPoolCommandInput,
+  CreateIpamPoolCommandOutput,
+} from "./commands/CreateIpamPoolCommand";
+import {
+  CreateIpamScopeCommand,
+  CreateIpamScopeCommandInput,
+  CreateIpamScopeCommandOutput,
+} from "./commands/CreateIpamScopeCommand";
 import {
   CreateKeyPairCommand,
   CreateKeyPairCommandInput,
@@ -349,6 +365,11 @@ import {
   CreateNetworkAclEntryCommandOutput,
 } from "./commands/CreateNetworkAclEntryCommand";
 import {
+  CreateNetworkInsightsAccessScopeCommand,
+  CreateNetworkInsightsAccessScopeCommandInput,
+  CreateNetworkInsightsAccessScopeCommandOutput,
+} from "./commands/CreateNetworkInsightsAccessScopeCommand";
+import {
   CreateNetworkInsightsPathCommand,
   CreateNetworkInsightsPathCommandInput,
   CreateNetworkInsightsPathCommandOutput,
@@ -368,6 +389,11 @@ import {
   CreatePlacementGroupCommandInput,
   CreatePlacementGroupCommandOutput,
 } from "./commands/CreatePlacementGroupCommand";
+import {
+  CreatePublicIpv4PoolCommand,
+  CreatePublicIpv4PoolCommandInput,
+  CreatePublicIpv4PoolCommandOutput,
+} from "./commands/CreatePublicIpv4PoolCommand";
 import {
   CreateReplaceRootVolumeTaskCommand,
   CreateReplaceRootVolumeTaskCommandInput,
@@ -586,6 +612,17 @@ import {
   DeleteInternetGatewayCommandInput,
   DeleteInternetGatewayCommandOutput,
 } from "./commands/DeleteInternetGatewayCommand";
+import { DeleteIpamCommand, DeleteIpamCommandInput, DeleteIpamCommandOutput } from "./commands/DeleteIpamCommand";
+import {
+  DeleteIpamPoolCommand,
+  DeleteIpamPoolCommandInput,
+  DeleteIpamPoolCommandOutput,
+} from "./commands/DeleteIpamPoolCommand";
+import {
+  DeleteIpamScopeCommand,
+  DeleteIpamScopeCommandInput,
+  DeleteIpamScopeCommandOutput,
+} from "./commands/DeleteIpamScopeCommand";
 import {
   DeleteKeyPairCommand,
   DeleteKeyPairCommandInput,
@@ -632,6 +669,16 @@ import {
   DeleteNetworkAclEntryCommandOutput,
 } from "./commands/DeleteNetworkAclEntryCommand";
 import {
+  DeleteNetworkInsightsAccessScopeAnalysisCommand,
+  DeleteNetworkInsightsAccessScopeAnalysisCommandInput,
+  DeleteNetworkInsightsAccessScopeAnalysisCommandOutput,
+} from "./commands/DeleteNetworkInsightsAccessScopeAnalysisCommand";
+import {
+  DeleteNetworkInsightsAccessScopeCommand,
+  DeleteNetworkInsightsAccessScopeCommandInput,
+  DeleteNetworkInsightsAccessScopeCommandOutput,
+} from "./commands/DeleteNetworkInsightsAccessScopeCommand";
+import {
   DeleteNetworkInsightsAnalysisCommand,
   DeleteNetworkInsightsAnalysisCommandInput,
   DeleteNetworkInsightsAnalysisCommandOutput,
@@ -656,6 +703,11 @@ import {
   DeletePlacementGroupCommandInput,
   DeletePlacementGroupCommandOutput,
 } from "./commands/DeletePlacementGroupCommand";
+import {
+  DeletePublicIpv4PoolCommand,
+  DeletePublicIpv4PoolCommandInput,
+  DeletePublicIpv4PoolCommandOutput,
+} from "./commands/DeletePublicIpv4PoolCommand";
 import {
   DeleteQueuedReservedInstancesCommand,
   DeleteQueuedReservedInstancesCommandInput,
@@ -804,6 +856,16 @@ import {
   DeprovisionByoipCidrCommandInput,
   DeprovisionByoipCidrCommandOutput,
 } from "./commands/DeprovisionByoipCidrCommand";
+import {
+  DeprovisionIpamPoolCidrCommand,
+  DeprovisionIpamPoolCidrCommandInput,
+  DeprovisionIpamPoolCidrCommandOutput,
+} from "./commands/DeprovisionIpamPoolCidrCommand";
+import {
+  DeprovisionPublicIpv4PoolCidrCommand,
+  DeprovisionPublicIpv4PoolCidrCommandInput,
+  DeprovisionPublicIpv4PoolCidrCommandOutput,
+} from "./commands/DeprovisionPublicIpv4PoolCidrCommand";
 import {
   DeregisterImageCommand,
   DeregisterImageCommandInput,
@@ -1075,6 +1137,21 @@ import {
   DescribeInternetGatewaysCommandOutput,
 } from "./commands/DescribeInternetGatewaysCommand";
 import {
+  DescribeIpamPoolsCommand,
+  DescribeIpamPoolsCommandInput,
+  DescribeIpamPoolsCommandOutput,
+} from "./commands/DescribeIpamPoolsCommand";
+import {
+  DescribeIpamsCommand,
+  DescribeIpamsCommandInput,
+  DescribeIpamsCommandOutput,
+} from "./commands/DescribeIpamsCommand";
+import {
+  DescribeIpamScopesCommand,
+  DescribeIpamScopesCommandInput,
+  DescribeIpamScopesCommandOutput,
+} from "./commands/DescribeIpamScopesCommand";
+import {
   DescribeIpv6PoolsCommand,
   DescribeIpv6PoolsCommandInput,
   DescribeIpv6PoolsCommandOutput,
@@ -1144,6 +1221,16 @@ import {
   DescribeNetworkAclsCommandInput,
   DescribeNetworkAclsCommandOutput,
 } from "./commands/DescribeNetworkAclsCommand";
+import {
+  DescribeNetworkInsightsAccessScopeAnalysesCommand,
+  DescribeNetworkInsightsAccessScopeAnalysesCommandInput,
+  DescribeNetworkInsightsAccessScopeAnalysesCommandOutput,
+} from "./commands/DescribeNetworkInsightsAccessScopeAnalysesCommand";
+import {
+  DescribeNetworkInsightsAccessScopesCommand,
+  DescribeNetworkInsightsAccessScopesCommandInput,
+  DescribeNetworkInsightsAccessScopesCommandOutput,
+} from "./commands/DescribeNetworkInsightsAccessScopesCommand";
 import {
   DescribeNetworkInsightsAnalysesCommand,
   DescribeNetworkInsightsAnalysesCommandInput,
@@ -1500,6 +1587,11 @@ import {
   DisableImageDeprecationCommandOutput,
 } from "./commands/DisableImageDeprecationCommand";
 import {
+  DisableIpamOrganizationAdminAccountCommand,
+  DisableIpamOrganizationAdminAccountCommandInput,
+  DisableIpamOrganizationAdminAccountCommandOutput,
+} from "./commands/DisableIpamOrganizationAdminAccountCommand";
+import {
   DisableSerialConsoleAccessCommand,
   DisableSerialConsoleAccessCommandInput,
   DisableSerialConsoleAccessCommandOutput,
@@ -1594,6 +1686,11 @@ import {
   EnableImageDeprecationCommandInput,
   EnableImageDeprecationCommandOutput,
 } from "./commands/EnableImageDeprecationCommand";
+import {
+  EnableIpamOrganizationAdminAccountCommand,
+  EnableIpamOrganizationAdminAccountCommandInput,
+  EnableIpamOrganizationAdminAccountCommandOutput,
+} from "./commands/EnableIpamOrganizationAdminAccountCommand";
 import {
   EnableSerialConsoleAccessCommand,
   EnableSerialConsoleAccessCommandInput,
@@ -1706,6 +1803,26 @@ import {
   GetInstanceTypesFromInstanceRequirementsCommandOutput,
 } from "./commands/GetInstanceTypesFromInstanceRequirementsCommand";
 import {
+  GetIpamAddressHistoryCommand,
+  GetIpamAddressHistoryCommandInput,
+  GetIpamAddressHistoryCommandOutput,
+} from "./commands/GetIpamAddressHistoryCommand";
+import {
+  GetIpamPoolAllocationsCommand,
+  GetIpamPoolAllocationsCommandInput,
+  GetIpamPoolAllocationsCommandOutput,
+} from "./commands/GetIpamPoolAllocationsCommand";
+import {
+  GetIpamPoolCidrsCommand,
+  GetIpamPoolCidrsCommandInput,
+  GetIpamPoolCidrsCommandOutput,
+} from "./commands/GetIpamPoolCidrsCommand";
+import {
+  GetIpamResourceCidrsCommand,
+  GetIpamResourceCidrsCommandInput,
+  GetIpamResourceCidrsCommandOutput,
+} from "./commands/GetIpamResourceCidrsCommand";
+import {
   GetLaunchTemplateDataCommand,
   GetLaunchTemplateDataCommandInput,
   GetLaunchTemplateDataCommandOutput,
@@ -1720,6 +1837,16 @@ import {
   GetManagedPrefixListEntriesCommandInput,
   GetManagedPrefixListEntriesCommandOutput,
 } from "./commands/GetManagedPrefixListEntriesCommand";
+import {
+  GetNetworkInsightsAccessScopeAnalysisFindingsCommand,
+  GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput,
+  GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput,
+} from "./commands/GetNetworkInsightsAccessScopeAnalysisFindingsCommand";
+import {
+  GetNetworkInsightsAccessScopeContentCommand,
+  GetNetworkInsightsAccessScopeContentCommandInput,
+  GetNetworkInsightsAccessScopeContentCommandOutput,
+} from "./commands/GetNetworkInsightsAccessScopeContentCommand";
 import {
   GetPasswordDataCommand,
   GetPasswordDataCommandInput,
@@ -1903,6 +2030,22 @@ import {
   ModifyInstancePlacementCommandInput,
   ModifyInstancePlacementCommandOutput,
 } from "./commands/ModifyInstancePlacementCommand";
+import { ModifyIpamCommand, ModifyIpamCommandInput, ModifyIpamCommandOutput } from "./commands/ModifyIpamCommand";
+import {
+  ModifyIpamPoolCommand,
+  ModifyIpamPoolCommandInput,
+  ModifyIpamPoolCommandOutput,
+} from "./commands/ModifyIpamPoolCommand";
+import {
+  ModifyIpamResourceCidrCommand,
+  ModifyIpamResourceCidrCommandInput,
+  ModifyIpamResourceCidrCommandOutput,
+} from "./commands/ModifyIpamResourceCidrCommand";
+import {
+  ModifyIpamScopeCommand,
+  ModifyIpamScopeCommandInput,
+  ModifyIpamScopeCommandOutput,
+} from "./commands/ModifyIpamScopeCommand";
 import {
   ModifyLaunchTemplateCommand,
   ModifyLaunchTemplateCommandInput,
@@ -2059,10 +2202,25 @@ import {
   MoveAddressToVpcCommandOutput,
 } from "./commands/MoveAddressToVpcCommand";
 import {
+  MoveByoipCidrToIpamCommand,
+  MoveByoipCidrToIpamCommandInput,
+  MoveByoipCidrToIpamCommandOutput,
+} from "./commands/MoveByoipCidrToIpamCommand";
+import {
   ProvisionByoipCidrCommand,
   ProvisionByoipCidrCommandInput,
   ProvisionByoipCidrCommandOutput,
 } from "./commands/ProvisionByoipCidrCommand";
+import {
+  ProvisionIpamPoolCidrCommand,
+  ProvisionIpamPoolCidrCommandInput,
+  ProvisionIpamPoolCidrCommandOutput,
+} from "./commands/ProvisionIpamPoolCidrCommand";
+import {
+  ProvisionPublicIpv4PoolCidrCommand,
+  ProvisionPublicIpv4PoolCidrCommandInput,
+  ProvisionPublicIpv4PoolCidrCommandOutput,
+} from "./commands/ProvisionPublicIpv4PoolCidrCommand";
 import {
   PurchaseHostReservationCommand,
   PurchaseHostReservationCommandInput,
@@ -2138,6 +2296,11 @@ import {
   ReleaseHostsCommandInput,
   ReleaseHostsCommandOutput,
 } from "./commands/ReleaseHostsCommand";
+import {
+  ReleaseIpamPoolAllocationCommand,
+  ReleaseIpamPoolAllocationCommandInput,
+  ReleaseIpamPoolAllocationCommandOutput,
+} from "./commands/ReleaseIpamPoolAllocationCommand";
 import {
   ReplaceIamInstanceProfileAssociationCommand,
   ReplaceIamInstanceProfileAssociationCommandInput,
@@ -2288,6 +2451,11 @@ import {
   StartInstancesCommandInput,
   StartInstancesCommandOutput,
 } from "./commands/StartInstancesCommand";
+import {
+  StartNetworkInsightsAccessScopeAnalysisCommand,
+  StartNetworkInsightsAccessScopeAnalysisCommandInput,
+  StartNetworkInsightsAccessScopeAnalysisCommandOutput,
+} from "./commands/StartNetworkInsightsAccessScopeAnalysisCommand";
 import {
   StartNetworkInsightsAnalysisCommand,
   StartNetworkInsightsAnalysisCommandInput,
@@ -2690,6 +2858,39 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: AllocateHostsCommandOutput) => void
   ): Promise<AllocateHostsCommandOutput> | void {
     const command = new AllocateHostsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href="/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *       </p>
+   */
+  public allocateIpamPoolCidr(
+    args: AllocateIpamPoolCidrCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AllocateIpamPoolCidrCommandOutput>;
+  public allocateIpamPoolCidr(
+    args: AllocateIpamPoolCidrCommandInput,
+    cb: (err: any, data?: AllocateIpamPoolCidrCommandOutput) => void
+  ): void;
+  public allocateIpamPoolCidr(
+    args: AllocateIpamPoolCidrCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AllocateIpamPoolCidrCommandOutput) => void
+  ): void;
+  public allocateIpamPoolCidr(
+    args: AllocateIpamPoolCidrCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AllocateIpamPoolCidrCommandOutput) => void),
+    cb?: (err: any, data?: AllocateIpamPoolCidrCommandOutput) => void
+  ): Promise<AllocateIpamPoolCidrCommandOutput> | void {
+    const command = new AllocateIpamPoolCidrCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4831,6 +5032,101 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Create an IPAM. Amazon VCP IP Address Manager (IPAM) is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization.</p>
+   *          <p>For more information, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *       </p>
+   */
+  public createIpam(args: CreateIpamCommandInput, options?: __HttpHandlerOptions): Promise<CreateIpamCommandOutput>;
+  public createIpam(args: CreateIpamCommandInput, cb: (err: any, data?: CreateIpamCommandOutput) => void): void;
+  public createIpam(
+    args: CreateIpamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIpamCommandOutput) => void
+  ): void;
+  public createIpam(
+    args: CreateIpamCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIpamCommandOutput) => void),
+    cb?: (err: any, data?: CreateIpamCommandOutput) => void
+  ): Promise<CreateIpamCommandOutput> | void {
+    const command = new CreateIpamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p>
+   *          <p>For more information, see <a href="/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *       </p>
+   */
+  public createIpamPool(
+    args: CreateIpamPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIpamPoolCommandOutput>;
+  public createIpamPool(
+    args: CreateIpamPoolCommandInput,
+    cb: (err: any, data?: CreateIpamPoolCommandOutput) => void
+  ): void;
+  public createIpamPool(
+    args: CreateIpamPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIpamPoolCommandOutput) => void
+  ): void;
+  public createIpamPool(
+    args: CreateIpamPoolCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIpamPoolCommandOutput) => void),
+    cb?: (err: any, data?: CreateIpamPoolCommandOutput) => void
+  ): Promise<CreateIpamPoolCommandOutput> | void {
+    const command = new CreateIpamPoolCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p>
+   *          <p>For more information, see <a href="/vpc/latest/ipam/add-scope-ipam.html">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   */
+  public createIpamScope(
+    args: CreateIpamScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIpamScopeCommandOutput>;
+  public createIpamScope(
+    args: CreateIpamScopeCommandInput,
+    cb: (err: any, data?: CreateIpamScopeCommandOutput) => void
+  ): void;
+  public createIpamScope(
+    args: CreateIpamScopeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIpamScopeCommandOutput) => void
+  ): void;
+  public createIpamScope(
+    args: CreateIpamScopeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIpamScopeCommandOutput) => void),
+    cb?: (err: any, data?: CreateIpamScopeCommandOutput) => void
+  ): Promise<CreateIpamScopeCommandOutput> | void {
+    const command = new CreateIpamScopeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates an ED25519 or 2048-bit RSA key pair with the specified name. Amazon EC2 stores the public
    *             key and displays the private key for you to save to a file. The private key is returned
    *             as an unencrypted PEM encoded PKCS#1 private key. If a key with the specified name
@@ -5158,6 +5454,41 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Creates a Network Access Scope.</p>
+   *          <p>Amazon Web Services Network Access Analyzer enables cloud networking and cloud operations teams
+   *          to verify that their networks on Amazon Web Services conform to their network security and governance
+   *          objectives. For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/">Amazon Web Services Network Access Analyzer Guide</a>.</p>
+   */
+  public createNetworkInsightsAccessScope(
+    args: CreateNetworkInsightsAccessScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateNetworkInsightsAccessScopeCommandOutput>;
+  public createNetworkInsightsAccessScope(
+    args: CreateNetworkInsightsAccessScopeCommandInput,
+    cb: (err: any, data?: CreateNetworkInsightsAccessScopeCommandOutput) => void
+  ): void;
+  public createNetworkInsightsAccessScope(
+    args: CreateNetworkInsightsAccessScopeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateNetworkInsightsAccessScopeCommandOutput) => void
+  ): void;
+  public createNetworkInsightsAccessScope(
+    args: CreateNetworkInsightsAccessScopeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNetworkInsightsAccessScopeCommandOutput) => void),
+    cb?: (err: any, data?: CreateNetworkInsightsAccessScopeCommandOutput) => void
+  ): Promise<CreateNetworkInsightsAccessScopeCommandOutput> | void {
+    const command = new CreateNetworkInsightsAccessScopeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a path to analyze for reachability.</p>
    *          <p>Reachability Analyzer enables you to analyze and debug network reachability between
    *           two resources in your virtual private cloud (VPC). For more information, see
@@ -5291,6 +5622,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: CreatePlacementGroupCommandOutput) => void
   ): Promise<CreatePlacementGroupCommandOutput> | void {
     const command = new CreatePlacementGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a public IPv4 address pool. A public IPv4 pool is an EC2 IP address pool required for the public IPv4 CIDRs that you own and bring to Amazon Web Services to manage with IPAM. IPv6 addresses you bring to Amazon Web Services, however, use IPAM pools only. To monitor the status of pool creation, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html">DescribePublicIpv4Pools</a>.</p>
+   */
+  public createPublicIpv4Pool(
+    args: CreatePublicIpv4PoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePublicIpv4PoolCommandOutput>;
+  public createPublicIpv4Pool(
+    args: CreatePublicIpv4PoolCommandInput,
+    cb: (err: any, data?: CreatePublicIpv4PoolCommandOutput) => void
+  ): void;
+  public createPublicIpv4Pool(
+    args: CreatePublicIpv4PoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePublicIpv4PoolCommandOutput) => void
+  ): void;
+  public createPublicIpv4Pool(
+    args: CreatePublicIpv4PoolCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePublicIpv4PoolCommandOutput) => void),
+    cb?: (err: any, data?: CreatePublicIpv4PoolCommandOutput) => void
+  ): Promise<CreatePublicIpv4PoolCommandOutput> | void {
+    const command = new CreatePublicIpv4PoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -7060,6 +7423,112 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p>
+   *          <note>
+   *             <p>You cannot delete an IPAM if there are CIDRs provisioned to pools or if there are allocations in the pools within the IPAM. To deprovision pool
+   *                CIDRs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html">DeprovisionIpamPoolCidr</a>. To release allocations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>.
+   *             </p>
+   *          </note>
+   *          <p>For more information, see <a href="/vpc/latest/ipam/delete-ipam.html">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *       </p>
+   */
+  public deleteIpam(args: DeleteIpamCommandInput, options?: __HttpHandlerOptions): Promise<DeleteIpamCommandOutput>;
+  public deleteIpam(args: DeleteIpamCommandInput, cb: (err: any, data?: DeleteIpamCommandOutput) => void): void;
+  public deleteIpam(
+    args: DeleteIpamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIpamCommandOutput) => void
+  ): void;
+  public deleteIpam(
+    args: DeleteIpamCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIpamCommandOutput) => void),
+    cb?: (err: any, data?: DeleteIpamCommandOutput) => void
+  ): Promise<DeleteIpamCommandOutput> | void {
+    const command = new DeleteIpamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete an IPAM pool.</p>
+   *          <note>
+   *             <p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release
+   *          allocations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>. To deprovision pool
+   *          CIDRs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html">DeprovisionIpamPoolCidr</a>.</p>
+   *          </note>
+   *          <p>For more information, see <a href="/vpc/latest/ipam/delete-pool-ipam.html">Delete a pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *       </p>
+   */
+  public deleteIpamPool(
+    args: DeleteIpamPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIpamPoolCommandOutput>;
+  public deleteIpamPool(
+    args: DeleteIpamPoolCommandInput,
+    cb: (err: any, data?: DeleteIpamPoolCommandOutput) => void
+  ): void;
+  public deleteIpamPool(
+    args: DeleteIpamPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIpamPoolCommandOutput) => void
+  ): void;
+  public deleteIpamPool(
+    args: DeleteIpamPoolCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIpamPoolCommandOutput) => void),
+    cb?: (err: any, data?: DeleteIpamPoolCommandOutput) => void
+  ): Promise<DeleteIpamPoolCommandOutput> | void {
+    const command = new DeleteIpamPoolCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete the scope for an IPAM. You cannot delete the default scopes.</p>
+   *          <p>For more information, see <a href="/vpc/latest/ipam/delete-scope-ipam.html">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *       </p>
+   */
+  public deleteIpamScope(
+    args: DeleteIpamScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIpamScopeCommandOutput>;
+  public deleteIpamScope(
+    args: DeleteIpamScopeCommandInput,
+    cb: (err: any, data?: DeleteIpamScopeCommandOutput) => void
+  ): void;
+  public deleteIpamScope(
+    args: DeleteIpamScopeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIpamScopeCommandOutput) => void
+  ): void;
+  public deleteIpamScope(
+    args: DeleteIpamScopeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIpamScopeCommandOutput) => void),
+    cb?: (err: any, data?: DeleteIpamScopeCommandOutput) => void
+  ): Promise<DeleteIpamScopeCommandOutput> | void {
+    const command = new DeleteIpamScopeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified key pair, by removing the public key from Amazon EC2.</p>
    */
   public deleteKeyPair(
@@ -7355,6 +7824,72 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Deletes the specified Network Access Scope.</p>
+   */
+  public deleteNetworkInsightsAccessScope(
+    args: DeleteNetworkInsightsAccessScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteNetworkInsightsAccessScopeCommandOutput>;
+  public deleteNetworkInsightsAccessScope(
+    args: DeleteNetworkInsightsAccessScopeCommandInput,
+    cb: (err: any, data?: DeleteNetworkInsightsAccessScopeCommandOutput) => void
+  ): void;
+  public deleteNetworkInsightsAccessScope(
+    args: DeleteNetworkInsightsAccessScopeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteNetworkInsightsAccessScopeCommandOutput) => void
+  ): void;
+  public deleteNetworkInsightsAccessScope(
+    args: DeleteNetworkInsightsAccessScopeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNetworkInsightsAccessScopeCommandOutput) => void),
+    cb?: (err: any, data?: DeleteNetworkInsightsAccessScopeCommandOutput) => void
+  ): Promise<DeleteNetworkInsightsAccessScopeCommandOutput> | void {
+    const command = new DeleteNetworkInsightsAccessScopeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified Network Access Scope analysis.</p>
+   */
+  public deleteNetworkInsightsAccessScopeAnalysis(
+    args: DeleteNetworkInsightsAccessScopeAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteNetworkInsightsAccessScopeAnalysisCommandOutput>;
+  public deleteNetworkInsightsAccessScopeAnalysis(
+    args: DeleteNetworkInsightsAccessScopeAnalysisCommandInput,
+    cb: (err: any, data?: DeleteNetworkInsightsAccessScopeAnalysisCommandOutput) => void
+  ): void;
+  public deleteNetworkInsightsAccessScopeAnalysis(
+    args: DeleteNetworkInsightsAccessScopeAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteNetworkInsightsAccessScopeAnalysisCommandOutput) => void
+  ): void;
+  public deleteNetworkInsightsAccessScopeAnalysis(
+    args: DeleteNetworkInsightsAccessScopeAnalysisCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteNetworkInsightsAccessScopeAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: DeleteNetworkInsightsAccessScopeAnalysisCommandOutput) => void
+  ): Promise<DeleteNetworkInsightsAccessScopeAnalysisCommandOutput> | void {
+    const command = new DeleteNetworkInsightsAccessScopeAnalysisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified network insights analysis.</p>
    */
   public deleteNetworkInsightsAnalysis(
@@ -7509,6 +8044,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DeletePlacementGroupCommandOutput) => void
   ): Promise<DeletePlacementGroupCommandOutput> | void {
     const command = new DeletePlacementGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete a public IPv4 pool. A public IPv4 pool is an EC2 IP address pool required for the public IPv4 CIDRs that you own and bring to Amazon Web Services to manage with IPAM. IPv6 addresses you bring to Amazon Web Services, however, use IPAM pools only.</p>
+   */
+  public deletePublicIpv4Pool(
+    args: DeletePublicIpv4PoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePublicIpv4PoolCommandOutput>;
+  public deletePublicIpv4Pool(
+    args: DeletePublicIpv4PoolCommandInput,
+    cb: (err: any, data?: DeletePublicIpv4PoolCommandOutput) => void
+  ): void;
+  public deletePublicIpv4Pool(
+    args: DeletePublicIpv4PoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePublicIpv4PoolCommandOutput) => void
+  ): void;
+  public deletePublicIpv4Pool(
+    args: DeletePublicIpv4PoolCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePublicIpv4PoolCommandOutput) => void),
+    cb?: (err: any, data?: DeletePublicIpv4PoolCommandOutput) => void
+  ): Promise<DeletePublicIpv4PoolCommandOutput> | void {
+    const command = new DeletePublicIpv4PoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -8591,6 +9158,70 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DeprovisionByoipCidrCommandOutput) => void
   ): Promise<DeprovisionByoipCidrCommandOutput> | void {
     const command = new DeprovisionByoipCidrCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see <a href="/vpc/latest/ipam/depro-pool-cidr-ipam.html">Deprovision pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   */
+  public deprovisionIpamPoolCidr(
+    args: DeprovisionIpamPoolCidrCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeprovisionIpamPoolCidrCommandOutput>;
+  public deprovisionIpamPoolCidr(
+    args: DeprovisionIpamPoolCidrCommandInput,
+    cb: (err: any, data?: DeprovisionIpamPoolCidrCommandOutput) => void
+  ): void;
+  public deprovisionIpamPoolCidr(
+    args: DeprovisionIpamPoolCidrCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeprovisionIpamPoolCidrCommandOutput) => void
+  ): void;
+  public deprovisionIpamPoolCidr(
+    args: DeprovisionIpamPoolCidrCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeprovisionIpamPoolCidrCommandOutput) => void),
+    cb?: (err: any, data?: DeprovisionIpamPoolCidrCommandOutput) => void
+  ): Promise<DeprovisionIpamPoolCidrCommandOutput> | void {
+    const command = new DeprovisionIpamPoolCidrCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deprovision a CIDR from a public IPv4 pool.</p>
+   */
+  public deprovisionPublicIpv4PoolCidr(
+    args: DeprovisionPublicIpv4PoolCidrCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeprovisionPublicIpv4PoolCidrCommandOutput>;
+  public deprovisionPublicIpv4PoolCidr(
+    args: DeprovisionPublicIpv4PoolCidrCommandInput,
+    cb: (err: any, data?: DeprovisionPublicIpv4PoolCidrCommandOutput) => void
+  ): void;
+  public deprovisionPublicIpv4PoolCidr(
+    args: DeprovisionPublicIpv4PoolCidrCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeprovisionPublicIpv4PoolCidrCommandOutput) => void
+  ): void;
+  public deprovisionPublicIpv4PoolCidr(
+    args: DeprovisionPublicIpv4PoolCidrCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeprovisionPublicIpv4PoolCidrCommandOutput) => void),
+    cb?: (err: any, data?: DeprovisionPublicIpv4PoolCidrCommandOutput) => void
+  ): Promise<DeprovisionPublicIpv4PoolCidrCommandOutput> | void {
+    const command = new DeprovisionPublicIpv4PoolCidrCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -10565,6 +11196,104 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Get information about your IPAM pools.</p>
+   */
+  public describeIpamPools(
+    args: DescribeIpamPoolsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIpamPoolsCommandOutput>;
+  public describeIpamPools(
+    args: DescribeIpamPoolsCommandInput,
+    cb: (err: any, data?: DescribeIpamPoolsCommandOutput) => void
+  ): void;
+  public describeIpamPools(
+    args: DescribeIpamPoolsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIpamPoolsCommandOutput) => void
+  ): void;
+  public describeIpamPools(
+    args: DescribeIpamPoolsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIpamPoolsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIpamPoolsCommandOutput) => void
+  ): Promise<DescribeIpamPoolsCommandOutput> | void {
+    const command = new DescribeIpamPoolsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get information about your IPAM pools.</p>
+   *          <p>For more information, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *       </p>
+   */
+  public describeIpams(
+    args: DescribeIpamsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIpamsCommandOutput>;
+  public describeIpams(
+    args: DescribeIpamsCommandInput,
+    cb: (err: any, data?: DescribeIpamsCommandOutput) => void
+  ): void;
+  public describeIpams(
+    args: DescribeIpamsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIpamsCommandOutput) => void
+  ): void;
+  public describeIpams(
+    args: DescribeIpamsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIpamsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIpamsCommandOutput) => void
+  ): Promise<DescribeIpamsCommandOutput> | void {
+    const command = new DescribeIpamsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get information about your IPAM scopes.</p>
+   */
+  public describeIpamScopes(
+    args: DescribeIpamScopesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIpamScopesCommandOutput>;
+  public describeIpamScopes(
+    args: DescribeIpamScopesCommandInput,
+    cb: (err: any, data?: DescribeIpamScopesCommandOutput) => void
+  ): void;
+  public describeIpamScopes(
+    args: DescribeIpamScopesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIpamScopesCommandOutput) => void
+  ): void;
+  public describeIpamScopes(
+    args: DescribeIpamScopesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIpamScopesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIpamScopesCommandOutput) => void
+  ): Promise<DescribeIpamScopesCommandOutput> | void {
+    const command = new DescribeIpamScopesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes your IPv6 address pools.</p>
    */
   public describeIpv6Pools(
@@ -11020,6 +11749,72 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DescribeNetworkAclsCommandOutput) => void
   ): Promise<DescribeNetworkAclsCommandOutput> | void {
     const command = new DescribeNetworkAclsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the specified Network Access Scope analyses.</p>
+   */
+  public describeNetworkInsightsAccessScopeAnalyses(
+    args: DescribeNetworkInsightsAccessScopeAnalysesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeNetworkInsightsAccessScopeAnalysesCommandOutput>;
+  public describeNetworkInsightsAccessScopeAnalyses(
+    args: DescribeNetworkInsightsAccessScopeAnalysesCommandInput,
+    cb: (err: any, data?: DescribeNetworkInsightsAccessScopeAnalysesCommandOutput) => void
+  ): void;
+  public describeNetworkInsightsAccessScopeAnalyses(
+    args: DescribeNetworkInsightsAccessScopeAnalysesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeNetworkInsightsAccessScopeAnalysesCommandOutput) => void
+  ): void;
+  public describeNetworkInsightsAccessScopeAnalyses(
+    args: DescribeNetworkInsightsAccessScopeAnalysesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeNetworkInsightsAccessScopeAnalysesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeNetworkInsightsAccessScopeAnalysesCommandOutput) => void
+  ): Promise<DescribeNetworkInsightsAccessScopeAnalysesCommandOutput> | void {
+    const command = new DescribeNetworkInsightsAccessScopeAnalysesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the specified Network Access Scopes.</p>
+   */
+  public describeNetworkInsightsAccessScopes(
+    args: DescribeNetworkInsightsAccessScopesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeNetworkInsightsAccessScopesCommandOutput>;
+  public describeNetworkInsightsAccessScopes(
+    args: DescribeNetworkInsightsAccessScopesCommandInput,
+    cb: (err: any, data?: DescribeNetworkInsightsAccessScopesCommandOutput) => void
+  ): void;
+  public describeNetworkInsightsAccessScopes(
+    args: DescribeNetworkInsightsAccessScopesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeNetworkInsightsAccessScopesCommandOutput) => void
+  ): void;
+  public describeNetworkInsightsAccessScopes(
+    args: DescribeNetworkInsightsAccessScopesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNetworkInsightsAccessScopesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeNetworkInsightsAccessScopesCommandOutput) => void
+  ): Promise<DescribeNetworkInsightsAccessScopesCommandOutput> | void {
+    const command = new DescribeNetworkInsightsAccessScopesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -13546,6 +14341,39 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Disable the IPAM account. For more information, see <a href="/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *       </p>
+   */
+  public disableIpamOrganizationAdminAccount(
+    args: DisableIpamOrganizationAdminAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableIpamOrganizationAdminAccountCommandOutput>;
+  public disableIpamOrganizationAdminAccount(
+    args: DisableIpamOrganizationAdminAccountCommandInput,
+    cb: (err: any, data?: DisableIpamOrganizationAdminAccountCommandOutput) => void
+  ): void;
+  public disableIpamOrganizationAdminAccount(
+    args: DisableIpamOrganizationAdminAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableIpamOrganizationAdminAccountCommandOutput) => void
+  ): void;
+  public disableIpamOrganizationAdminAccount(
+    args: DisableIpamOrganizationAdminAccountCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableIpamOrganizationAdminAccountCommandOutput) => void),
+    cb?: (err: any, data?: DisableIpamOrganizationAdminAccountCommandOutput) => void
+  ): Promise<DisableIpamOrganizationAdminAccountCommandOutput> | void {
+    const command = new DisableIpamOrganizationAdminAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disables access to the EC2 serial console of all instances for your account. By default,
    * 			access to the EC2 serial console is disabled for your account. For more information, see
    * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2
@@ -14216,6 +15044,39 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: EnableImageDeprecationCommandOutput) => void
   ): Promise<EnableImageDeprecationCommandOutput> | void {
     const command = new EnableImageDeprecationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href="/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *       </p>
+   */
+  public enableIpamOrganizationAdminAccount(
+    args: EnableIpamOrganizationAdminAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableIpamOrganizationAdminAccountCommandOutput>;
+  public enableIpamOrganizationAdminAccount(
+    args: EnableIpamOrganizationAdminAccountCommandInput,
+    cb: (err: any, data?: EnableIpamOrganizationAdminAccountCommandOutput) => void
+  ): void;
+  public enableIpamOrganizationAdminAccount(
+    args: EnableIpamOrganizationAdminAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableIpamOrganizationAdminAccountCommandOutput) => void
+  ): void;
+  public enableIpamOrganizationAdminAccount(
+    args: EnableIpamOrganizationAdminAccountCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableIpamOrganizationAdminAccountCommandOutput) => void),
+    cb?: (err: any, data?: EnableIpamOrganizationAdminAccountCommandOutput) => void
+  ): Promise<EnableIpamOrganizationAdminAccountCommandOutput> | void {
+    const command = new EnableIpamOrganizationAdminAccountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -15048,6 +15909,134 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href="/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   */
+  public getIpamAddressHistory(
+    args: GetIpamAddressHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamAddressHistoryCommandOutput>;
+  public getIpamAddressHistory(
+    args: GetIpamAddressHistoryCommandInput,
+    cb: (err: any, data?: GetIpamAddressHistoryCommandOutput) => void
+  ): void;
+  public getIpamAddressHistory(
+    args: GetIpamAddressHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamAddressHistoryCommandOutput) => void
+  ): void;
+  public getIpamAddressHistory(
+    args: GetIpamAddressHistoryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIpamAddressHistoryCommandOutput) => void),
+    cb?: (err: any, data?: GetIpamAddressHistoryCommandOutput) => void
+  ): Promise<GetIpamAddressHistoryCommandOutput> | void {
+    const command = new GetIpamAddressHistoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get a list of all the CIDR allocations in an IPAM pool.</p>
+   */
+  public getIpamPoolAllocations(
+    args: GetIpamPoolAllocationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamPoolAllocationsCommandOutput>;
+  public getIpamPoolAllocations(
+    args: GetIpamPoolAllocationsCommandInput,
+    cb: (err: any, data?: GetIpamPoolAllocationsCommandOutput) => void
+  ): void;
+  public getIpamPoolAllocations(
+    args: GetIpamPoolAllocationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamPoolAllocationsCommandOutput) => void
+  ): void;
+  public getIpamPoolAllocations(
+    args: GetIpamPoolAllocationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIpamPoolAllocationsCommandOutput) => void),
+    cb?: (err: any, data?: GetIpamPoolAllocationsCommandOutput) => void
+  ): Promise<GetIpamPoolAllocationsCommandOutput> | void {
+    const command = new GetIpamPoolAllocationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get the CIDRs provisioned to an IPAM pool.</p>
+   */
+  public getIpamPoolCidrs(
+    args: GetIpamPoolCidrsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamPoolCidrsCommandOutput>;
+  public getIpamPoolCidrs(
+    args: GetIpamPoolCidrsCommandInput,
+    cb: (err: any, data?: GetIpamPoolCidrsCommandOutput) => void
+  ): void;
+  public getIpamPoolCidrs(
+    args: GetIpamPoolCidrsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamPoolCidrsCommandOutput) => void
+  ): void;
+  public getIpamPoolCidrs(
+    args: GetIpamPoolCidrsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIpamPoolCidrsCommandOutput) => void),
+    cb?: (err: any, data?: GetIpamPoolCidrsCommandOutput) => void
+  ): Promise<GetIpamPoolCidrsCommandOutput> | void {
+    const command = new GetIpamPoolCidrsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get information about the resources in a scope.</p>
+   */
+  public getIpamResourceCidrs(
+    args: GetIpamResourceCidrsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamResourceCidrsCommandOutput>;
+  public getIpamResourceCidrs(
+    args: GetIpamResourceCidrsCommandInput,
+    cb: (err: any, data?: GetIpamResourceCidrsCommandOutput) => void
+  ): void;
+  public getIpamResourceCidrs(
+    args: GetIpamResourceCidrsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamResourceCidrsCommandOutput) => void
+  ): void;
+  public getIpamResourceCidrs(
+    args: GetIpamResourceCidrsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIpamResourceCidrsCommandOutput) => void),
+    cb?: (err: any, data?: GetIpamResourceCidrsCommandOutput) => void
+  ): Promise<GetIpamResourceCidrsCommandOutput> | void {
+    const command = new GetIpamResourceCidrsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the configuration data of the specified instance. You can use this data
    *             to create a launch template. </p>
    *         <p>This action calls on other describe actions to get instance information. Depending on your instance configuration, you may need to allow the following
@@ -15137,6 +16126,72 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: GetManagedPrefixListEntriesCommandOutput) => void
   ): Promise<GetManagedPrefixListEntriesCommandOutput> | void {
     const command = new GetManagedPrefixListEntriesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the findings for the specified Network Access Scope analysis.</p>
+   */
+  public getNetworkInsightsAccessScopeAnalysisFindings(
+    args: GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput>;
+  public getNetworkInsightsAccessScopeAnalysisFindings(
+    args: GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput,
+    cb: (err: any, data?: GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput) => void
+  ): void;
+  public getNetworkInsightsAccessScopeAnalysisFindings(
+    args: GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput) => void
+  ): void;
+  public getNetworkInsightsAccessScopeAnalysisFindings(
+    args: GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput) => void),
+    cb?: (err: any, data?: GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput) => void
+  ): Promise<GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput> | void {
+    const command = new GetNetworkInsightsAccessScopeAnalysisFindingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the content for the specified Network Access Scope.</p>
+   */
+  public getNetworkInsightsAccessScopeContent(
+    args: GetNetworkInsightsAccessScopeContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNetworkInsightsAccessScopeContentCommandOutput>;
+  public getNetworkInsightsAccessScopeContent(
+    args: GetNetworkInsightsAccessScopeContentCommandInput,
+    cb: (err: any, data?: GetNetworkInsightsAccessScopeContentCommandOutput) => void
+  ): void;
+  public getNetworkInsightsAccessScopeContent(
+    args: GetNetworkInsightsAccessScopeContentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetNetworkInsightsAccessScopeContentCommandOutput) => void
+  ): void;
+  public getNetworkInsightsAccessScopeContent(
+    args: GetNetworkInsightsAccessScopeContentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNetworkInsightsAccessScopeContentCommandOutput) => void),
+    cb?: (err: any, data?: GetNetworkInsightsAccessScopeContentCommandOutput) => void
+  ): Promise<GetNetworkInsightsAccessScopeContentCommandOutput> | void {
+    const command = new GetNetworkInsightsAccessScopeContentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -16601,6 +17656,132 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Modify the configurations of an IPAM.
+   *       </p>
+   */
+  public modifyIpam(args: ModifyIpamCommandInput, options?: __HttpHandlerOptions): Promise<ModifyIpamCommandOutput>;
+  public modifyIpam(args: ModifyIpamCommandInput, cb: (err: any, data?: ModifyIpamCommandOutput) => void): void;
+  public modifyIpam(
+    args: ModifyIpamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyIpamCommandOutput) => void
+  ): void;
+  public modifyIpam(
+    args: ModifyIpamCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyIpamCommandOutput) => void),
+    cb?: (err: any, data?: ModifyIpamCommandOutput) => void
+  ): Promise<ModifyIpamCommandOutput> | void {
+    const command = new ModifyIpamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modify the configurations of an IPAM pool.</p>
+   *          <p>For more information, see <a href="/vpc/latest/ipam/mod-pool-ipam.html">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *       </p>
+   */
+  public modifyIpamPool(
+    args: ModifyIpamPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyIpamPoolCommandOutput>;
+  public modifyIpamPool(
+    args: ModifyIpamPoolCommandInput,
+    cb: (err: any, data?: ModifyIpamPoolCommandOutput) => void
+  ): void;
+  public modifyIpamPool(
+    args: ModifyIpamPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyIpamPoolCommandOutput) => void
+  ): void;
+  public modifyIpamPool(
+    args: ModifyIpamPoolCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyIpamPoolCommandOutput) => void),
+    cb?: (err: any, data?: ModifyIpamPoolCommandOutput) => void
+  ): Promise<ModifyIpamPoolCommandOutput> | void {
+    const command = new ModifyIpamPoolCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.</p>
+   *          <p>For more information, see <a href="/vpc/latest/ipam/move-resource-ipam.html">Move resource CIDRs between scopes</a> and <a href="/vpc/latest/ipam/change-monitoring-state-ipam.html">Change the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   */
+  public modifyIpamResourceCidr(
+    args: ModifyIpamResourceCidrCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyIpamResourceCidrCommandOutput>;
+  public modifyIpamResourceCidr(
+    args: ModifyIpamResourceCidrCommandInput,
+    cb: (err: any, data?: ModifyIpamResourceCidrCommandOutput) => void
+  ): void;
+  public modifyIpamResourceCidr(
+    args: ModifyIpamResourceCidrCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyIpamResourceCidrCommandOutput) => void
+  ): void;
+  public modifyIpamResourceCidr(
+    args: ModifyIpamResourceCidrCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyIpamResourceCidrCommandOutput) => void),
+    cb?: (err: any, data?: ModifyIpamResourceCidrCommandOutput) => void
+  ): Promise<ModifyIpamResourceCidrCommandOutput> | void {
+    const command = new ModifyIpamResourceCidrCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modify an IPAM scope.</p>
+   */
+  public modifyIpamScope(
+    args: ModifyIpamScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyIpamScopeCommandOutput>;
+  public modifyIpamScope(
+    args: ModifyIpamScopeCommandInput,
+    cb: (err: any, data?: ModifyIpamScopeCommandOutput) => void
+  ): void;
+  public modifyIpamScope(
+    args: ModifyIpamScopeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyIpamScopeCommandOutput) => void
+  ): void;
+  public modifyIpamScope(
+    args: ModifyIpamScopeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyIpamScopeCommandOutput) => void),
+    cb?: (err: any, data?: ModifyIpamScopeCommandOutput) => void
+  ): Promise<ModifyIpamScopeCommandOutput> | void {
+    const command = new ModifyIpamScopeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Modifies a launch template. You can specify which version of the launch template to
    *             set as the default version. When launching an instance, the default version applies when
    *             a launch template version is not specified.</p>
@@ -17798,6 +18979,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.</p>
+   */
+  public moveByoipCidrToIpam(
+    args: MoveByoipCidrToIpamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MoveByoipCidrToIpamCommandOutput>;
+  public moveByoipCidrToIpam(
+    args: MoveByoipCidrToIpamCommandInput,
+    cb: (err: any, data?: MoveByoipCidrToIpamCommandOutput) => void
+  ): void;
+  public moveByoipCidrToIpam(
+    args: MoveByoipCidrToIpamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MoveByoipCidrToIpamCommandOutput) => void
+  ): void;
+  public moveByoipCidrToIpam(
+    args: MoveByoipCidrToIpamCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MoveByoipCidrToIpamCommandOutput) => void),
+    cb?: (err: any, data?: MoveByoipCidrToIpamCommandOutput) => void
+  ): Promise<MoveByoipCidrToIpamCommandOutput> | void {
+    const command = new MoveByoipCidrToIpamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Provisions an IPv4 or IPv6 address range for use with your Amazon Web Services resources through bring your own IP
    *          addresses (BYOIP) and creates a corresponding address pool. After the address range is
    *          provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.</p>
@@ -17830,6 +19043,74 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: ProvisionByoipCidrCommandOutput) => void
   ): Promise<ProvisionByoipCidrCommandOutput> | void {
     const command = new ProvisionByoipCidrCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provision a CIDR to an IPAM pool. You can use thsi action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.</p>
+   *          <p>For more information, see <a href="/vpc/latest/ipam/prov-cidr-ipam.html">Provision CIDRs to pools</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *       </p>
+   */
+  public provisionIpamPoolCidr(
+    args: ProvisionIpamPoolCidrCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ProvisionIpamPoolCidrCommandOutput>;
+  public provisionIpamPoolCidr(
+    args: ProvisionIpamPoolCidrCommandInput,
+    cb: (err: any, data?: ProvisionIpamPoolCidrCommandOutput) => void
+  ): void;
+  public provisionIpamPoolCidr(
+    args: ProvisionIpamPoolCidrCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ProvisionIpamPoolCidrCommandOutput) => void
+  ): void;
+  public provisionIpamPoolCidr(
+    args: ProvisionIpamPoolCidrCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ProvisionIpamPoolCidrCommandOutput) => void),
+    cb?: (err: any, data?: ProvisionIpamPoolCidrCommandOutput) => void
+  ): Promise<ProvisionIpamPoolCidrCommandOutput> | void {
+    const command = new ProvisionIpamPoolCidrCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provision a CIDR to a public IPv4 pool.</p>
+   *          <p>For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *       </p>
+   */
+  public provisionPublicIpv4PoolCidr(
+    args: ProvisionPublicIpv4PoolCidrCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ProvisionPublicIpv4PoolCidrCommandOutput>;
+  public provisionPublicIpv4PoolCidr(
+    args: ProvisionPublicIpv4PoolCidrCommandInput,
+    cb: (err: any, data?: ProvisionPublicIpv4PoolCidrCommandOutput) => void
+  ): void;
+  public provisionPublicIpv4PoolCidr(
+    args: ProvisionPublicIpv4PoolCidrCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ProvisionPublicIpv4PoolCidrCommandOutput) => void
+  ): void;
+  public provisionPublicIpv4PoolCidr(
+    args: ProvisionPublicIpv4PoolCidrCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ProvisionPublicIpv4PoolCidrCommandOutput) => void),
+    cb?: (err: any, data?: ProvisionPublicIpv4PoolCidrCommandOutput) => void
+  ): Promise<ProvisionPublicIpv4PoolCidrCommandOutput> | void {
+    const command = new ProvisionPublicIpv4PoolCidrCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -18428,6 +19709,39 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: ReleaseHostsCommandOutput) => void
   ): Promise<ReleaseHostsCommandOutput> | void {
     const command = new ReleaseHostsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Release an allocation within an IPAM pool. You can only use this action to release manual allocations. To remove an allocation for a resource without deleting the resource, set its monitored state to false using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html">ModifyIpamResourceCidr</a>. For more information, see <a href="/vpc/latest/ipam/release-pool-alloc-ipam.html">Release an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *       </p>
+   */
+  public releaseIpamPoolAllocation(
+    args: ReleaseIpamPoolAllocationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReleaseIpamPoolAllocationCommandOutput>;
+  public releaseIpamPoolAllocation(
+    args: ReleaseIpamPoolAllocationCommandInput,
+    cb: (err: any, data?: ReleaseIpamPoolAllocationCommandOutput) => void
+  ): void;
+  public releaseIpamPoolAllocation(
+    args: ReleaseIpamPoolAllocationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ReleaseIpamPoolAllocationCommandOutput) => void
+  ): void;
+  public releaseIpamPoolAllocation(
+    args: ReleaseIpamPoolAllocationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReleaseIpamPoolAllocationCommandOutput) => void),
+    cb?: (err: any, data?: ReleaseIpamPoolAllocationCommandOutput) => void
+  ): Promise<ReleaseIpamPoolAllocationCommandOutput> | void {
+    const command = new ReleaseIpamPoolAllocationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -19570,6 +20884,40 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: StartInstancesCommandOutput) => void
   ): Promise<StartInstancesCommandOutput> | void {
     const command = new StartInstancesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts analyzing the specified Network Access Scope.</p>
+   */
+  public startNetworkInsightsAccessScopeAnalysis(
+    args: StartNetworkInsightsAccessScopeAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartNetworkInsightsAccessScopeAnalysisCommandOutput>;
+  public startNetworkInsightsAccessScopeAnalysis(
+    args: StartNetworkInsightsAccessScopeAnalysisCommandInput,
+    cb: (err: any, data?: StartNetworkInsightsAccessScopeAnalysisCommandOutput) => void
+  ): void;
+  public startNetworkInsightsAccessScopeAnalysis(
+    args: StartNetworkInsightsAccessScopeAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartNetworkInsightsAccessScopeAnalysisCommandOutput) => void
+  ): void;
+  public startNetworkInsightsAccessScopeAnalysis(
+    args: StartNetworkInsightsAccessScopeAnalysisCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartNetworkInsightsAccessScopeAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: StartNetworkInsightsAccessScopeAnalysisCommandOutput) => void
+  ): Promise<StartNetworkInsightsAccessScopeAnalysisCommandOutput> | void {
+    const command = new StartNetworkInsightsAccessScopeAnalysisCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

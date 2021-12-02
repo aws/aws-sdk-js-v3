@@ -105,6 +105,7 @@ import {
   AccountHealth,
   AccountInsightHealth,
   AnomalyReportedTimeRange,
+  AnomalyResource,
   AnomalySourceDetails,
   AnomalyTimeRange,
   CloudFormationCollection,
@@ -136,6 +137,14 @@ import {
   NotificationChannelConfig,
   OpsCenterIntegration,
   OpsCenterIntegrationConfig,
+  PerformanceInsightsMetricDimensionGroup,
+  PerformanceInsightsMetricQuery,
+  PerformanceInsightsMetricsDetail,
+  PerformanceInsightsReferenceComparisonValues,
+  PerformanceInsightsReferenceData,
+  PerformanceInsightsReferenceMetric,
+  PerformanceInsightsReferenceScalar,
+  PerformanceInsightsStat,
   PredictionTimeRange,
   ProactiveAnomaly,
   ProactiveAnomalySummary,
@@ -168,11 +177,16 @@ import {
   ServiceResourceCost,
   SnsChannelConfig,
   StartTimeRange,
+  TagCollection,
+  TagCollectionFilter,
+  TagCostEstimationResourceCollectionFilter,
+  TagHealth,
   ThrottlingException,
   TimestampMetricValuePair,
   UpdateCloudFormationCollectionFilter,
   UpdateResourceCollectionFilter,
   UpdateServiceIntegrationConfig,
+  UpdateTagCollectionFilter,
   ValidationException,
   ValidationExceptionField,
 } from "../models/models_0";
@@ -1775,6 +1789,7 @@ export const deserializeAws_restJson1DescribeResourceCollectionHealthCommand = a
     CloudFormation: undefined,
     NextToken: undefined,
     Service: undefined,
+    Tags: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CloudFormation !== undefined && data.CloudFormation !== null) {
@@ -1785,6 +1800,9 @@ export const deserializeAws_restJson1DescribeResourceCollectionHealthCommand = a
   }
   if (data.Service !== undefined && data.Service !== null) {
     contents.Service = deserializeAws_restJson1ServiceHealths(data.Service, context);
+  }
+  if (data.Tags !== undefined && data.Tags !== null) {
+    contents.Tags = deserializeAws_restJson1TagHealths(data.Tags, context);
   }
   return Promise.resolve(contents);
 };
@@ -3481,10 +3499,25 @@ const serializeAws_restJson1CostEstimationResourceCollectionFilter = (
           context
         ),
       }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && {
+        Tags: serializeAws_restJson1TagCostEstimationResourceCollectionFilters(input.Tags, context),
+      }),
   };
 };
 
 const serializeAws_restJson1CostEstimationStackNames = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1CostEstimationTagValues = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3664,6 +3697,8 @@ const serializeAws_restJson1ResourceCollection = (input: ResourceCollection, con
       input.CloudFormation !== null && {
         CloudFormation: serializeAws_restJson1CloudFormationCollection(input.CloudFormation, context),
       }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagCollections(input.Tags, context) }),
   };
 };
 
@@ -3758,6 +3793,65 @@ const serializeAws_restJson1StartTimeRange = (input: StartTimeRange, context: __
   };
 };
 
+const serializeAws_restJson1TagCollection = (input: TagCollection, context: __SerdeContext): any => {
+  return {
+    ...(input.AppBoundaryKey !== undefined &&
+      input.AppBoundaryKey !== null && { AppBoundaryKey: input.AppBoundaryKey }),
+    ...(input.TagValues !== undefined &&
+      input.TagValues !== null && { TagValues: serializeAws_restJson1TagValues(input.TagValues, context) }),
+  };
+};
+
+const serializeAws_restJson1TagCollections = (input: TagCollection[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1TagCollection(entry, context);
+    });
+};
+
+const serializeAws_restJson1TagCostEstimationResourceCollectionFilter = (
+  input: TagCostEstimationResourceCollectionFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AppBoundaryKey !== undefined &&
+      input.AppBoundaryKey !== null && { AppBoundaryKey: input.AppBoundaryKey }),
+    ...(input.TagValues !== undefined &&
+      input.TagValues !== null && {
+        TagValues: serializeAws_restJson1CostEstimationTagValues(input.TagValues, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1TagCostEstimationResourceCollectionFilters = (
+  input: TagCostEstimationResourceCollectionFilter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1TagCostEstimationResourceCollectionFilter(entry, context);
+    });
+};
+
+const serializeAws_restJson1TagValues = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1UpdateCloudFormationCollectionFilter = (
   input: UpdateCloudFormationCollectionFilter,
   context: __SerdeContext
@@ -3777,6 +3871,8 @@ const serializeAws_restJson1UpdateResourceCollectionFilter = (
       input.CloudFormation !== null && {
         CloudFormation: serializeAws_restJson1UpdateCloudFormationCollectionFilter(input.CloudFormation, context),
       }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1UpdateTagCollectionFilters(input.Tags, context) }),
   };
 };
 
@@ -3793,6 +3889,43 @@ const serializeAws_restJson1UpdateServiceIntegrationConfig = (
 };
 
 const serializeAws_restJson1UpdateStackNames = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1UpdateTagCollectionFilter = (
+  input: UpdateTagCollectionFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AppBoundaryKey !== undefined &&
+      input.AppBoundaryKey !== null && { AppBoundaryKey: input.AppBoundaryKey }),
+    ...(input.TagValues !== undefined &&
+      input.TagValues !== null && { TagValues: serializeAws_restJson1UpdateTagValues(input.TagValues, context) }),
+  };
+};
+
+const serializeAws_restJson1UpdateTagCollectionFilters = (
+  input: UpdateTagCollectionFilter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1UpdateTagCollectionFilter(entry, context);
+    });
+};
+
+const serializeAws_restJson1UpdateTagValues = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3847,11 +3980,33 @@ const deserializeAws_restJson1AnomalyReportedTimeRange = (
   } as any;
 };
 
+const deserializeAws_restJson1AnomalyResource = (output: any, context: __SerdeContext): AnomalyResource => {
+  return {
+    Name: __expectString(output.Name),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1AnomalyResources = (output: any, context: __SerdeContext): AnomalyResource[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AnomalyResource(entry, context);
+    });
+};
+
 const deserializeAws_restJson1AnomalySourceDetails = (output: any, context: __SerdeContext): AnomalySourceDetails => {
   return {
     CloudWatchMetrics:
       output.CloudWatchMetrics !== undefined && output.CloudWatchMetrics !== null
         ? deserializeAws_restJson1CloudWatchMetricsDetails(output.CloudWatchMetrics, context)
+        : undefined,
+    PerformanceInsightsMetrics:
+      output.PerformanceInsightsMetrics !== undefined && output.PerformanceInsightsMetrics !== null
+        ? deserializeAws_restJson1PerformanceInsightsMetricsDetails(output.PerformanceInsightsMetrics, context)
         : undefined,
   } as any;
 };
@@ -3867,6 +4022,17 @@ const deserializeAws_restJson1AnomalyTimeRange = (output: any, context: __SerdeC
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1AssociatedResourceArns = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_restJson1Channels = (output: any, context: __SerdeContext): NotificationChannel[] => {
@@ -4021,10 +4187,25 @@ const deserializeAws_restJson1CostEstimationResourceCollectionFilter = (
       output.CloudFormation !== undefined && output.CloudFormation !== null
         ? deserializeAws_restJson1CloudFormationCostEstimationResourceCollectionFilter(output.CloudFormation, context)
         : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagCostEstimationResourceCollectionFilters(output.Tags, context)
+        : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1CostEstimationStackNames = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1CostEstimationTagValues = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4157,6 +4338,194 @@ const deserializeAws_restJson1OpsCenterIntegration = (output: any, context: __Se
   return {
     OptInStatus: __expectString(output.OptInStatus),
   } as any;
+};
+
+const deserializeAws_restJson1PerformanceInsightsMetricDimensionGroup = (
+  output: any,
+  context: __SerdeContext
+): PerformanceInsightsMetricDimensionGroup => {
+  return {
+    Dimensions:
+      output.Dimensions !== undefined && output.Dimensions !== null
+        ? deserializeAws_restJson1PerformanceInsightsMetricDimensions(output.Dimensions, context)
+        : undefined,
+    Group: __expectString(output.Group),
+    Limit: __expectInt32(output.Limit),
+  } as any;
+};
+
+const deserializeAws_restJson1PerformanceInsightsMetricDimensions = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1PerformanceInsightsMetricFilterMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
+};
+
+const deserializeAws_restJson1PerformanceInsightsMetricQuery = (
+  output: any,
+  context: __SerdeContext
+): PerformanceInsightsMetricQuery => {
+  return {
+    Filter:
+      output.Filter !== undefined && output.Filter !== null
+        ? deserializeAws_restJson1PerformanceInsightsMetricFilterMap(output.Filter, context)
+        : undefined,
+    GroupBy:
+      output.GroupBy !== undefined && output.GroupBy !== null
+        ? deserializeAws_restJson1PerformanceInsightsMetricDimensionGroup(output.GroupBy, context)
+        : undefined,
+    Metric: __expectString(output.Metric),
+  } as any;
+};
+
+const deserializeAws_restJson1PerformanceInsightsMetricsDetail = (
+  output: any,
+  context: __SerdeContext
+): PerformanceInsightsMetricsDetail => {
+  return {
+    MetricDisplayName: __expectString(output.MetricDisplayName),
+    MetricQuery:
+      output.MetricQuery !== undefined && output.MetricQuery !== null
+        ? deserializeAws_restJson1PerformanceInsightsMetricQuery(output.MetricQuery, context)
+        : undefined,
+    ReferenceData:
+      output.ReferenceData !== undefined && output.ReferenceData !== null
+        ? deserializeAws_restJson1PerformanceInsightsReferenceDataList(output.ReferenceData, context)
+        : undefined,
+    StatsAtAnomaly:
+      output.StatsAtAnomaly !== undefined && output.StatsAtAnomaly !== null
+        ? deserializeAws_restJson1PerformanceInsightsStats(output.StatsAtAnomaly, context)
+        : undefined,
+    StatsAtBaseline:
+      output.StatsAtBaseline !== undefined && output.StatsAtBaseline !== null
+        ? deserializeAws_restJson1PerformanceInsightsStats(output.StatsAtBaseline, context)
+        : undefined,
+    Unit: __expectString(output.Unit),
+  } as any;
+};
+
+const deserializeAws_restJson1PerformanceInsightsMetricsDetails = (
+  output: any,
+  context: __SerdeContext
+): PerformanceInsightsMetricsDetail[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PerformanceInsightsMetricsDetail(entry, context);
+    });
+};
+
+const deserializeAws_restJson1PerformanceInsightsReferenceComparisonValues = (
+  output: any,
+  context: __SerdeContext
+): PerformanceInsightsReferenceComparisonValues => {
+  return {
+    ReferenceMetric:
+      output.ReferenceMetric !== undefined && output.ReferenceMetric !== null
+        ? deserializeAws_restJson1PerformanceInsightsReferenceMetric(output.ReferenceMetric, context)
+        : undefined,
+    ReferenceScalar:
+      output.ReferenceScalar !== undefined && output.ReferenceScalar !== null
+        ? deserializeAws_restJson1PerformanceInsightsReferenceScalar(output.ReferenceScalar, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PerformanceInsightsReferenceData = (
+  output: any,
+  context: __SerdeContext
+): PerformanceInsightsReferenceData => {
+  return {
+    ComparisonValues:
+      output.ComparisonValues !== undefined && output.ComparisonValues !== null
+        ? deserializeAws_restJson1PerformanceInsightsReferenceComparisonValues(output.ComparisonValues, context)
+        : undefined,
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_restJson1PerformanceInsightsReferenceDataList = (
+  output: any,
+  context: __SerdeContext
+): PerformanceInsightsReferenceData[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PerformanceInsightsReferenceData(entry, context);
+    });
+};
+
+const deserializeAws_restJson1PerformanceInsightsReferenceMetric = (
+  output: any,
+  context: __SerdeContext
+): PerformanceInsightsReferenceMetric => {
+  return {
+    MetricQuery:
+      output.MetricQuery !== undefined && output.MetricQuery !== null
+        ? deserializeAws_restJson1PerformanceInsightsMetricQuery(output.MetricQuery, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PerformanceInsightsReferenceScalar = (
+  output: any,
+  context: __SerdeContext
+): PerformanceInsightsReferenceScalar => {
+  return {
+    Value: __limitedParseDouble(output.Value),
+  } as any;
+};
+
+const deserializeAws_restJson1PerformanceInsightsStat = (
+  output: any,
+  context: __SerdeContext
+): PerformanceInsightsStat => {
+  return {
+    Type: __expectString(output.Type),
+    Value: __limitedParseDouble(output.Value),
+  } as any;
+};
+
+const deserializeAws_restJson1PerformanceInsightsStats = (
+  output: any,
+  context: __SerdeContext
+): PerformanceInsightsStat[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PerformanceInsightsStat(entry, context);
+    });
 };
 
 const deserializeAws_restJson1PredictionTimeRange = (output: any, context: __SerdeContext): PredictionTimeRange => {
@@ -4295,6 +4664,10 @@ const deserializeAws_restJson1ProactiveInsightSummary = (
   context: __SerdeContext
 ): ProactiveInsightSummary => {
   return {
+    AssociatedResourceArns:
+      output.AssociatedResourceArns !== undefined && output.AssociatedResourceArns !== null
+        ? deserializeAws_restJson1AssociatedResourceArns(output.AssociatedResourceArns, context)
+        : undefined,
     Id: __expectString(output.Id),
     InsightTimeRange:
       output.InsightTimeRange !== undefined && output.InsightTimeRange !== null
@@ -4379,12 +4752,19 @@ const deserializeAws_restJson1ReactiveAnomaly = (output: any, context: __SerdeCo
       output.AnomalyReportedTimeRange !== undefined && output.AnomalyReportedTimeRange !== null
         ? deserializeAws_restJson1AnomalyReportedTimeRange(output.AnomalyReportedTimeRange, context)
         : undefined,
+    AnomalyResources:
+      output.AnomalyResources !== undefined && output.AnomalyResources !== null
+        ? deserializeAws_restJson1AnomalyResources(output.AnomalyResources, context)
+        : undefined,
     AnomalyTimeRange:
       output.AnomalyTimeRange !== undefined && output.AnomalyTimeRange !== null
         ? deserializeAws_restJson1AnomalyTimeRange(output.AnomalyTimeRange, context)
         : undefined,
     AssociatedInsightId: __expectString(output.AssociatedInsightId),
+    CausalAnomalyId: __expectString(output.CausalAnomalyId),
+    Description: __expectString(output.Description),
     Id: __expectString(output.Id),
+    Name: __expectString(output.Name),
     ResourceCollection:
       output.ResourceCollection !== undefined && output.ResourceCollection !== null
         ? deserializeAws_restJson1ResourceCollection(output.ResourceCollection, context)
@@ -4395,6 +4775,7 @@ const deserializeAws_restJson1ReactiveAnomaly = (output: any, context: __SerdeCo
         ? deserializeAws_restJson1AnomalySourceDetails(output.SourceDetails, context)
         : undefined,
     Status: __expectString(output.Status),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -4407,12 +4788,19 @@ const deserializeAws_restJson1ReactiveAnomalySummary = (
       output.AnomalyReportedTimeRange !== undefined && output.AnomalyReportedTimeRange !== null
         ? deserializeAws_restJson1AnomalyReportedTimeRange(output.AnomalyReportedTimeRange, context)
         : undefined,
+    AnomalyResources:
+      output.AnomalyResources !== undefined && output.AnomalyResources !== null
+        ? deserializeAws_restJson1AnomalyResources(output.AnomalyResources, context)
+        : undefined,
     AnomalyTimeRange:
       output.AnomalyTimeRange !== undefined && output.AnomalyTimeRange !== null
         ? deserializeAws_restJson1AnomalyTimeRange(output.AnomalyTimeRange, context)
         : undefined,
     AssociatedInsightId: __expectString(output.AssociatedInsightId),
+    CausalAnomalyId: __expectString(output.CausalAnomalyId),
+    Description: __expectString(output.Description),
     Id: __expectString(output.Id),
+    Name: __expectString(output.Name),
     ResourceCollection:
       output.ResourceCollection !== undefined && output.ResourceCollection !== null
         ? deserializeAws_restJson1ResourceCollection(output.ResourceCollection, context)
@@ -4423,6 +4811,7 @@ const deserializeAws_restJson1ReactiveAnomalySummary = (
         ? deserializeAws_restJson1AnomalySourceDetails(output.SourceDetails, context)
         : undefined,
     Status: __expectString(output.Status),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -4460,6 +4849,10 @@ const deserializeAws_restJson1ReactiveInsightSummary = (
   context: __SerdeContext
 ): ReactiveInsightSummary => {
   return {
+    AssociatedResourceArns:
+      output.AssociatedResourceArns !== undefined && output.AssociatedResourceArns !== null
+        ? deserializeAws_restJson1AssociatedResourceArns(output.AssociatedResourceArns, context)
+        : undefined,
     Id: __expectString(output.Id),
     InsightTimeRange:
       output.InsightTimeRange !== undefined && output.InsightTimeRange !== null
@@ -4555,6 +4948,7 @@ const deserializeAws_restJson1RecommendationRelatedAnomaly = (
   context: __SerdeContext
 ): RecommendationRelatedAnomaly => {
   return {
+    AnomalyId: __expectString(output.AnomalyId),
     Resources:
       output.Resources !== undefined && output.Resources !== null
         ? deserializeAws_restJson1RecommendationRelatedAnomalyResources(output.Resources, context)
@@ -4708,6 +5102,10 @@ const deserializeAws_restJson1ResourceCollection = (output: any, context: __Serd
       output.CloudFormation !== undefined && output.CloudFormation !== null
         ? deserializeAws_restJson1CloudFormationCollection(output.CloudFormation, context)
         : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagCollections(output.Tags, context)
+        : undefined,
   } as any;
 };
 
@@ -4719,6 +5117,10 @@ const deserializeAws_restJson1ResourceCollectionFilter = (
     CloudFormation:
       output.CloudFormation !== undefined && output.CloudFormation !== null
         ? deserializeAws_restJson1CloudFormationCollectionFilter(output.CloudFormation, context)
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagCollectionFilters(output.Tags, context)
         : undefined,
   } as any;
 };
@@ -4811,6 +5213,108 @@ const deserializeAws_restJson1SnsChannelConfig = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1StackNames = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1TagCollection = (output: any, context: __SerdeContext): TagCollection => {
+  return {
+    AppBoundaryKey: __expectString(output.AppBoundaryKey),
+    TagValues:
+      output.TagValues !== undefined && output.TagValues !== null
+        ? deserializeAws_restJson1TagValues(output.TagValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TagCollectionFilter = (output: any, context: __SerdeContext): TagCollectionFilter => {
+  return {
+    AppBoundaryKey: __expectString(output.AppBoundaryKey),
+    TagValues:
+      output.TagValues !== undefined && output.TagValues !== null
+        ? deserializeAws_restJson1TagValues(output.TagValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TagCollectionFilters = (output: any, context: __SerdeContext): TagCollectionFilter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TagCollectionFilter(entry, context);
+    });
+};
+
+const deserializeAws_restJson1TagCollections = (output: any, context: __SerdeContext): TagCollection[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TagCollection(entry, context);
+    });
+};
+
+const deserializeAws_restJson1TagCostEstimationResourceCollectionFilter = (
+  output: any,
+  context: __SerdeContext
+): TagCostEstimationResourceCollectionFilter => {
+  return {
+    AppBoundaryKey: __expectString(output.AppBoundaryKey),
+    TagValues:
+      output.TagValues !== undefined && output.TagValues !== null
+        ? deserializeAws_restJson1CostEstimationTagValues(output.TagValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TagCostEstimationResourceCollectionFilters = (
+  output: any,
+  context: __SerdeContext
+): TagCostEstimationResourceCollectionFilter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TagCostEstimationResourceCollectionFilter(entry, context);
+    });
+};
+
+const deserializeAws_restJson1TagHealth = (output: any, context: __SerdeContext): TagHealth => {
+  return {
+    AppBoundaryKey: __expectString(output.AppBoundaryKey),
+    Insight:
+      output.Insight !== undefined && output.Insight !== null
+        ? deserializeAws_restJson1InsightHealth(output.Insight, context)
+        : undefined,
+    TagValue: __expectString(output.TagValue),
+  } as any;
+};
+
+const deserializeAws_restJson1TagHealths = (output: any, context: __SerdeContext): TagHealth[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TagHealth(entry, context);
+    });
+};
+
+const deserializeAws_restJson1TagValues = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

@@ -11,7 +11,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RetryPipelineExecutionRequest, RetryPipelineExecutionResponse } from "../models/models_2";
+import { RetryPipelineExecutionRequest, RetryPipelineExecutionResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1RetryPipelineExecutionCommand,
   serializeAws_json1_1RetryPipelineExecutionCommand,

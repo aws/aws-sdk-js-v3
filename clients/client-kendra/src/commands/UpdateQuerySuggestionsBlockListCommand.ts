@@ -30,6 +30,9 @@ export interface UpdateQuerySuggestionsBlockListCommandOutput extends __Metadata
  *             finish before submitting another update.</p>
  *         <p>Amazon Kendra supports partial updates, so you only need to provide the fields
  *             you want to update.</p>
+ *         <p>
+ *             <code>UpdateQuerySuggestionsBlockList</code> is currently not supported in the
+ *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

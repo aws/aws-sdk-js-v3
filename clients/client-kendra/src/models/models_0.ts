@@ -187,6 +187,283 @@ export namespace AdditionalResultAttribute {
   });
 }
 
+export enum EntityType {
+  GROUP = "GROUP",
+  USER = "USER",
+}
+
+/**
+ * <p>Provides the configuration information of users or groups in
+ *             your Amazon Web Services SSO identity source to grant access your Amazon Kendra
+ *             experience.</p>
+ */
+export interface EntityConfiguration {
+  /**
+   * <p>The identifier of a user or group in your Amazon Web Services SSO identity
+   *             source. For example, a user ID could be an email.</p>
+   */
+  EntityId: string | undefined;
+
+  /**
+   * <p>Specifies whether you are configuring a <code>User</code> or a
+   *             <code>Group</code>.</p>
+   */
+  EntityType: EntityType | string | undefined;
+}
+
+export namespace EntityConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EntityConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateEntitiesToExperienceRequest {
+  /**
+   * <p>The identifier of your Amazon Kendra experience.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The identifier of the index for your Amazon Kendra experience.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>Lists users or groups in your Amazon Web Services SSO identity source.</p>
+   */
+  EntityList: EntityConfiguration[] | undefined;
+}
+
+export namespace AssociateEntitiesToExperienceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateEntitiesToExperienceRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information on the users or groups in your Amazon Web Services SSO identity
+ *             source that failed to properly configure with your Amazon Kendra experience.</p>
+ */
+export interface FailedEntity {
+  /**
+   * <p>The identifier of the user or group in your Amazon Web Services SSO identity
+   *             source. For example, a user ID could be an email.</p>
+   */
+  EntityId?: string;
+
+  /**
+   * <p>The reason the user or group in your Amazon Web Services SSO identity source
+   *             failed to properly configure with your Amazon Kendra experience.</p>
+   */
+  ErrorMessage?: string;
+}
+
+export namespace FailedEntity {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FailedEntity): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateEntitiesToExperienceResponse {
+  /**
+   * <p>Lists the users or groups in your Amazon Web Services SSO identity source that
+   *             failed to properly configure with your Amazon Kendra experience.</p>
+   */
+  FailedEntityList?: FailedEntity[];
+}
+
+export namespace AssociateEntitiesToExperienceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateEntitiesToExperienceResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
+  name: "InternalServerException";
+  $fault: "server";
+  Message?: string;
+}
+
+export namespace InternalServerException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InternalServerException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface ResourceAlreadyExistException extends __SmithyException, $MetadataBearer {
+  name: "ResourceAlreadyExistException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ResourceAlreadyExistException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceAlreadyExistException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
+  name: "ThrottlingException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ThrottlingException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface ValidationException extends __SmithyException, $MetadataBearer {
+  name: "ValidationException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ValidationException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
+    ...obj,
+  });
+}
+
+export enum Persona {
+  OWNER = "OWNER",
+  VIEWER = "VIEWER",
+}
+
+/**
+ * <p>Provides the configuration information of users or groups in your
+ *             Amazon Web Services SSO identity source for access to your Amazon Kendra experience.
+ *             Specific permissions are defined for each user or group once they are
+ *             granted access to your Amazon Kendra experience.</p>
+ */
+export interface EntityPersonaConfiguration {
+  /**
+   * <p>The identifier of a user or group in your Amazon Web Services SSO identity
+   *             source. For example, a user ID could be an email.</p>
+   */
+  EntityId: string | undefined;
+
+  /**
+   * <p>The persona that defines the specific permissions of the user or group
+   *             in your Amazon Web Services SSO identity source. The available personas or
+   *             access roles are <code>Owner</code> and <code>Viewer</code>. For more
+   *             information on these personas, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html#access-search-experience">Providing
+   *                 access to your search page</a>.</p>
+   */
+  Persona: Persona | string | undefined;
+}
+
+export namespace EntityPersonaConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EntityPersonaConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociatePersonasToEntitiesRequest {
+  /**
+   * <p>The identifier of your Amazon Kendra experience.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The identifier of the index for your Amazon Kendra experience.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The personas that define the specific permissions of users or groups in
+   *             your Amazon Web Services SSO identity source. The available personas or access
+   *             roles are <code>Owner</code> and <code>Viewer</code>. For more information
+   *             on these personas, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html#access-search-experience">Providing
+   *                 access to your search page</a>.</p>
+   */
+  Personas: EntityPersonaConfiguration[] | undefined;
+}
+
+export namespace AssociatePersonasToEntitiesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociatePersonasToEntitiesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociatePersonasToEntitiesResponse {
+  /**
+   * <p>Lists the users or groups in your Amazon Web Services SSO identity source that
+   *             failed to properly configure with your Amazon Kendra experience.</p>
+   */
+  FailedEntityList?: FailedEntity[];
+}
+
+export namespace AssociatePersonasToEntitiesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociatePersonasToEntitiesResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The value of a custom document attribute. You can only provide one
  *             value for a custom attribute.</p>
@@ -273,7 +550,7 @@ export interface BasicAuthenticationConfiguration {
   Port: number | undefined;
 
   /**
-   * <p>Your secret ARN, which you can create in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">AWS Secrets Manager</a>
+   * <p>Your secret ARN, which you can create in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">Secrets Manager</a>
    *          </p>
    *         <p>You use a secret if basic authentication credentials are required to connect
    *             to a website. The secret stores your credentials of user name and password.</p>
@@ -442,78 +719,6 @@ export namespace ConflictException {
    * @internal
    */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p></p>
- */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
-  Message?: string;
-}
-
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p></p>
- */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p></p>
- */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p></p>
- */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
 }
@@ -700,6 +905,248 @@ export namespace BatchGetDocumentStatusResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: BatchGetDocumentStatusResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum ConditionOperator {
+  BeginsWith = "BeginsWith",
+  Contains = "Contains",
+  Equals = "Equals",
+  Exists = "Exists",
+  GreaterThan = "GreaterThan",
+  GreaterThanOrEquals = "GreaterThanOrEquals",
+  LessThan = "LessThan",
+  LessThanOrEquals = "LessThanOrEquals",
+  NotContains = "NotContains",
+  NotEquals = "NotEquals",
+  NotExists = "NotExists",
+}
+
+/**
+ * <p>The condition used for the target document attribute or metadata field when
+ *             ingesting documents into Amazon Kendra. You use this with <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_DocumentAttributeTarget.html">DocumentAttributeTarget
+ *                 to apply the condition</a>.</p>
+ *         <p>For example, you can create the 'Department' target field and have it prefill
+ *             department names associated with the documents based on information in the
+ *             'Source_URI' field. Set the condition that if the 'Source_URI' field contains
+ *             'financial' in its URI value, then prefill the target field 'Department' with
+ *             the target value 'Finance' for the document.</p>
+ *         <p>Amazon Kendra cannot create a target field if it has not already been created as an
+ *             index field. After you create your index field, you can create a document metadata
+ *             field using <code>DocumentAttributeTarget</code>. Amazon Kendra then will map your newly
+ *             created metadata field to your index field.</p>
+ */
+export interface DocumentAttributeCondition {
+  /**
+   * <p>The identifier of the document attribute used for the condition.</p>
+   *         <p>For example, 'Source_URI' could be an identifier for the attribute or metadata
+   *             field that contains source URIs associated with the documents.</p>
+   *         <p>Amazon Kendra currently does not support <code>_document_body</code> as an attribute
+   *             key used for the condition.</p>
+   */
+  ConditionDocumentAttributeKey: string | undefined;
+
+  /**
+   * <p>The condition operator.</p>
+   *         <p>For example, you can use 'Contains' to partially match a string.</p>
+   */
+  Operator: ConditionOperator | string | undefined;
+
+  /**
+   * <p>The value used by the operator.</p>
+   *         <p>For example, you can specify the value 'financial' for strings in the 'Source_URI'
+   *             field that partially match or contain this value.</p>
+   */
+  ConditionOnValue?: DocumentAttributeValue;
+}
+
+export namespace DocumentAttributeCondition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DocumentAttributeCondition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The target document attribute or metadata field you want to alter when ingesting
+ *             documents into Amazon Kendra.</p>
+ *         <p>For example, you can delete customer identification numbers associated with the
+ *             documents, stored in the document metadata field called 'Customer_ID'. You set the
+ *             target key as 'Customer_ID' and the deletion flag to <code>TRUE</code>. This
+ *             removes all customer ID values in the field 'Customer_ID'. This would scrub
+ *             personally identifiable information from each document's metadata.</p>
+ *         <p>Amazon Kendra cannot create a target field if it has not already been created as an
+ *             index field. After you create your index field, you can create a document metadata
+ *             field using <code>DocumentAttributeTarget</code>. Amazon Kendra then will map your newly
+ *             created metadata field to your index field.</p>
+ *         <p>You can also use this with <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_DocumentAttributeCondition.html">DocumentAttributeCondition</a>.</p>
+ */
+export interface DocumentAttributeTarget {
+  /**
+   * <p>The identifier of the target document attribute or metadata field.</p>
+   *         <p>For example, 'Department' could be an identifier for the target attribute or
+   *             metadata field that includes the department names associated with the documents.</p>
+   */
+  TargetDocumentAttributeKey?: string;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to delete the existing target value for your specified target
+   *             attribute key. You cannot create a target value and set this to <code>TRUE</code>.
+   *             To create a target value (<code>TargetDocumentAttributeValue</code>), set this to
+   *             <code>FALSE</code>.</p>
+   */
+  TargetDocumentAttributeValueDeletion?: boolean;
+
+  /**
+   * <p>The target value you want to create for the target attribute.</p>
+   *         <p>For example, 'Finance' could be the target value for the target attribute key
+   *             'Department'.</p>
+   */
+  TargetDocumentAttributeValue?: DocumentAttributeValue;
+}
+
+export namespace DocumentAttributeTarget {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DocumentAttributeTarget): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the configuration information for applying basic logic to alter document
+ *             metadata and content when ingesting documents into Amazon Kendra. To apply advanced
+ *             logic, to go beyond what you can do with basic logic, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_HookConfiguration.html">HookConfiguration</a>.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html">Customizing document metadata
+ *                 during the ingestion process</a>.</p>
+ */
+export interface InlineCustomDocumentEnrichmentConfiguration {
+  /**
+   * <p>Configuration of the condition used for the target document attribute or metadata
+   *             field when ingesting documents into Amazon Kendra.</p>
+   */
+  Condition?: DocumentAttributeCondition;
+
+  /**
+   * <p>Configuration of the target document attribute or metadata field when ingesting
+   *             documents into Amazon Kendra. You can also include a value.</p>
+   */
+  Target?: DocumentAttributeTarget;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to delete content if the condition used for the target
+   *             attribute is met.</p>
+   */
+  DocumentContentDeletion?: boolean;
+}
+
+export namespace InlineCustomDocumentEnrichmentConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InlineCustomDocumentEnrichmentConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the configuration information for invoking a Lambda function in
+ *             Lambda to alter document metadata and content when ingesting
+ *             documents into Amazon Kendra. You can configure your Lambda function using
+ *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_PreExtractionHookConfiguration.html">PreExtractionHookConfiguration</a>
+ *             if you want to apply advanced alterations on the original or raw documents.
+ *             If you want to apply advanced alterations on the Amazon Kendra structured documents,
+ *             you must configure your Lambda function using <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_PostExtractionHookConfiguration.html">PostExtractionHookConfiguration</a>.
+ *             You can only invoke one Lambda function. However, this function can invoke other
+ *             functions it requires.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html">Customizing document metadata
+ *                 during the ingestion process</a>.</p>
+ */
+export interface HookConfiguration {
+  /**
+   * <p>The condition used for when a Lambda function should be invoked.</p>
+   *         <p>For example, you can specify a condition that if there are empty date-time
+   *             values, then Amazon Kendra should invoke a function that inserts the current date-time.</p>
+   */
+  InvocationCondition?: DocumentAttributeCondition;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a role with permission to run a Lambda function
+   *             during ingestion. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles for Amazon Kendra</a>.</p>
+   */
+  LambdaArn: string | undefined;
+
+  /**
+   * <p>Stores the original, raw documents or the structured, parsed
+   *             documents before and after altering them. For more information,
+   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda">Data
+   *                 contracts for Lambda functions</a>.</p>
+   */
+  S3Bucket: string | undefined;
+}
+
+export namespace HookConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HookConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the configuration information for altering document metadata and content
+ *             during the document ingestion process.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html">Customizing document metadata
+ *                 during the ingestion process</a>.</p>
+ */
+export interface CustomDocumentEnrichmentConfiguration {
+  /**
+   * <p>Configuration information to alter document attributes or metadata fields and
+   *             content when ingesting documents into Amazon Kendra.</p>
+   */
+  InlineConfigurations?: InlineCustomDocumentEnrichmentConfiguration[];
+
+  /**
+   * <p>Configuration information for invoking a Lambda function in Lambda
+   *             on the original or raw documents before extracting their metadata and text. You can
+   *             use a Lambda function to apply advanced logic for creating, modifying, or deleting
+   *             document metadata and content. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation">Advanced
+   *                 data manipulation</a>.</p>
+   */
+  PreExtractionHookConfiguration?: HookConfiguration;
+
+  /**
+   * <p>Configuration information for invoking a Lambda function in Lambda
+   *             on the structured documents with their metadata and text extracted. You can use a
+   *             Lambda function to apply advanced logic for creating, modifying, or deleting document
+   *             metadata and content. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation">Advanced
+   *                 data manipulation</a>.</p>
+   */
+  PostExtractionHookConfiguration?: HookConfiguration;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a role with permission to run
+   *             <code>PreExtractionHookConfiguration</code> and
+   *             <code>PostExtractionHookConfiguration</code> for altering document metadata
+   *             and content during the document ingestion process. For more information,
+   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles for
+   *                 Amazon Kendra</a>.</p>
+   */
+  RoleArn?: string;
+}
+
+export namespace CustomDocumentEnrichmentConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomDocumentEnrichmentConfiguration): any => ({
     ...obj,
   });
 }
@@ -913,6 +1360,17 @@ export interface BatchPutDocumentRequest {
    *       quotas, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</p>
    */
   Documents: Document[] | undefined;
+
+  /**
+   * <p>Configuration information for altering your document metadata and content during
+   *             the document ingestion process when you use the <code>BatchPutDocument</code>
+   *             operation.</p>
+   *         <p>For more information on how to create, modify and delete document metadata,
+   *             or make other content alterations when you ingest documents into Amazon Kendra, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html">Customizing
+   *                 document metadata during the ingestion process</a>.</p>
+   */
+  CustomDocumentEnrichmentConfiguration?: CustomDocumentEnrichmentConfiguration;
 }
 
 export namespace BatchPutDocumentRequest {
@@ -1400,7 +1858,7 @@ export interface ConfluenceConfiguration {
   ServerUrl: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an Secrets Managersecret
+   * <p>The Amazon Resource Name (ARN) of an Secrets Manager secret
    *             that contains the key/value pairs required to connect to your
    *             Confluence server. The secret must contain a JSON structure with the
    *             following keys:</p>
@@ -2523,7 +2981,7 @@ export interface ServiceNowConfiguration {
   /**
    * <p>Determines the type of authentication used to connect to the
    *             ServiceNow instance. If you choose <code>HTTP_BASIC</code>, Amazon Kendra is
-   *             authenticated using the user name and password provided in the AWS
+   *             authenticated using the user name and password provided in the
    *             Secrets Manager secret in the <code>SecretArn</code> field. When you
    *             choose <code>OAUTH2</code>, Amazon Kendra is authenticated using the OAuth
    *             token and secret provided in the Secrets Manager secret, and the
@@ -2576,7 +3034,7 @@ export interface SharePointConfiguration {
    *             domain name as part of the credentials. For
    *             more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html">Using a
    *                 Microsoft SharePoint Data Source</a>. For more information
-   *             about Secrets Manager, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html"> What Is
+   *             about Secrets Manager see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html"> What Is
    *                 Secrets Manager</a> in the <i>Secrets Manager
    *                 </i> user guide.</p>
    */
@@ -2688,7 +3146,7 @@ export interface ProxyConfiguration {
   Port: number | undefined;
 
   /**
-   * <p>Your secret ARN, which you can create in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">AWS Secrets Manager</a>
+   * <p>Your secret ARN, which you can create in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">Secrets Manager</a>
    *          </p>
    *         <p>The credentials are optional. You use a secret if web proxy credentials
    *             are required to connect to a website host. Amazon Kendra currently support basic
@@ -2718,8 +3176,8 @@ export enum WebCrawlerMode {
  *         <p>
  *             <i>When selecting websites to index, you must adhere to
  *             the <a href="https://aws.amazon.com/aup/">Amazon Acceptable Use Policy</a>
- *             and all other Amazon terms. Remember that you must only use the Amazon Kendra web
- *             crawler to index your own webpages, or webpages that you have authorization
+ *             and all other Amazon terms. Remember that you must only use Amazon Kendra Web
+ *             Crawler to index your own webpages, or webpages that you have authorization
  *             to index.</i>
  *          </p>
  */
@@ -2771,8 +3229,8 @@ export namespace SeedUrlConfiguration {
  *         <p>
  *             <i>When selecting websites to index, you must adhere to
  *             the <a href="https://aws.amazon.com/aup/">Amazon Acceptable Use Policy</a>
- *             and all other Amazon terms. Remember that you must only use the Amazon Kendra web
- *             crawler to index your own webpages, or webpages that you have authorization
+ *             and all other Amazon terms. Remember that you must only use Amazon Kendra Web
+ *             Crawler to index your own webpages, or webpages that you have authorization
  *             to index.</i>
  *          </p>
  */
@@ -2802,8 +3260,8 @@ export namespace SiteMapsConfiguration {
  *         <p>
  *             <i>When selecting websites to index, you must adhere to
  *             the <a href="https://aws.amazon.com/aup/">Amazon Acceptable Use Policy</a>
- *             and all other Amazon terms. Remember that you must only use the Amazon Kendra web
- *             crawler to index your own webpages, or webpages that you have authorization to
+ *             and all other Amazon terms. Remember that you must only use Amazon Kendra Web
+ *             Crawler to index your own webpages, or webpages that you have authorization to
  *             index.</i>
  *          </p>
  */
@@ -2837,7 +3295,7 @@ export namespace Urls {
 
 /**
  * <p>Provides the configuration information required for Amazon Kendra
- *             web crawler.</p>
+ *             Web Crawler.</p>
  */
 export interface WebCrawlerConfiguration {
   /**
@@ -2851,8 +3309,8 @@ export interface WebCrawlerConfiguration {
    *         <p>
    *             <i>When selecting websites to index, you must adhere to
    *             the <a href="https://aws.amazon.com/aup/">Amazon Acceptable Use Policy</a>
-   *             and all other Amazon terms. Remember that you must only use the Amazon Kendra
-   *             web crawler to index your own webpages, or webpages that you have
+   *             and all other Amazon terms. Remember that you must only use Amazon Kendra
+   *             Web Crawler to index your own webpages, or webpages that you have
    *             authorization to index.</i>
    *          </p>
    */
@@ -2914,7 +3372,7 @@ export interface WebCrawlerConfiguration {
    *             port is 443, the standard port for HTTPS.</p>
    *         <p>Web proxy credentials are optional and you can use them to connect to a
    *             web proxy server that requires basic authentication. To store web proxy
-   *             credentials, you use a secret in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">AWS Secrets Manager</a>.</p>
+   *             credentials, you use a secret in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">Secrets Manager</a>.</p>
    */
   ProxyConfiguration?: ProxyConfiguration;
 
@@ -2924,7 +3382,7 @@ export interface WebCrawlerConfiguration {
    *         <p>You can connect to websites using basic authentication of user name and password.</p>
    *         <p>You must provide the website host name and port number. For example, the host name
    *             of https://a.example.com/page1.html is "a.example.com" and the port is 443, the
-   *             standard port for HTTPS. You use a secret in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">AWS Secrets Manager</a> to store
+   *             standard port for HTTPS. You use a secret in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">Secrets Manager</a> to store
    *             your authentication credentials.</p>
    */
   AuthenticationConfiguration?: AuthenticationConfiguration;
@@ -2950,11 +3408,11 @@ export interface WorkDocsConfiguration {
    * <p>The identifier of the directory corresponding to your
    *             Amazon WorkDocs site repository.</p>
    *         <p>You can find the organization ID in the
-   *             <a href="https://console.aws.amazon.com/directoryservicev2/">AWS Directory Service</a> by going to
+   *             <a href="https://console.aws.amazon.com/directoryservicev2/">Directory Service</a> by going to
    *             <b>Active Directory</b>, then
    *             <b>Directories</b>. Your Amazon WorkDocs site directory has an
    *             ID, which is the organization ID. You can also set up a new Amazon WorkDocs
-   *             directory in the AWS Directory Service console and enable a Amazon WorkDocs site
+   *             directory in the Directory Service console and enable a Amazon WorkDocs site
    *             for the directory in the Amazon WorkDocs console.</p>
    */
   OrganizationId: string | undefined;
@@ -3022,7 +3480,7 @@ export namespace WorkDocsConfiguration {
 }
 
 /**
- * <p>Configuration information for a Amazon Kendra data source.</p>
+ * <p>Configuration information for an Amazon Kendra data source.</p>
  */
 export interface DataSourceConfiguration {
   /**
@@ -3075,7 +3533,7 @@ export interface DataSourceConfiguration {
 
   /**
    * <p>Provides the configuration information required for Amazon Kendra
-   *             web crawler.</p>
+   *             Web Crawler.</p>
    */
   WebCrawlerConfiguration?: WebCrawlerConfiguration;
 
@@ -3217,6 +3675,16 @@ export interface CreateDataSourceRequest {
    *                 documents in languages other than English</a>.</p>
    */
   LanguageCode?: string;
+
+  /**
+   * <p>Configuration information for altering document metadata and content during the
+   *             document ingestion process when you create a data source.</p>
+   *         <p>For more information on how to create, modify and delete document metadata, or make
+   *             other content alterations when you ingest documents into Amazon Kendra, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html">Customizing
+   *                 document metadata during the ingestion process</a>.</p>
+   */
+  CustomDocumentEnrichmentConfiguration?: CustomDocumentEnrichmentConfiguration;
 }
 
 export namespace CreateDataSourceRequest {
@@ -3245,19 +3713,152 @@ export namespace CreateDataSourceResponse {
 }
 
 /**
- * <p></p>
+ * <p>Configuration information for your content sources, such as data sources,
+ *             FAQs, and content indexed directly via <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a>.</p>
  */
-export interface ResourceAlreadyExistException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAlreadyExistException";
-  $fault: "client";
-  Message?: string;
+export interface ContentSourceConfiguration {
+  /**
+   * <p>The identifier of the data sources you want to use for your Amazon Kendra experience.</p>
+   */
+  DataSourceIds?: string[];
+
+  /**
+   * <p>The identifier of the FAQs that you want to use for your Amazon Kendra experience.</p>
+   */
+  FaqIds?: string[];
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to use documents you indexed directly using the
+   *                 <code>BatchPutDocument</code> operation.</p>
+   */
+  DirectPutContent?: boolean;
 }
 
-export namespace ResourceAlreadyExistException {
+export namespace ContentSourceConfiguration {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistException): any => ({
+  export const filterSensitiveLog = (obj: ContentSourceConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration information for the identifiers of your users.</p>
+ */
+export interface UserIdentityConfiguration {
+  /**
+   * <p>The Amazon Web Services SSO field name that contains the identifiers of your users,
+   *             such as their emails. This is used for <a href="https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html">user context filtering</a>
+   *             and for granting access to your Amazon Kendra experience. You must set up Amazon Web Services SSO
+   *             with Amazon Kendra. You must include your users and groups in your Access Control List when
+   *             you ingest documents into your index. For more information, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/getting-started-aws-sso.html">Getting
+   *                 started with an Amazon Web Services SSO identity source</a>.</p>
+   */
+  IdentityAttributeName?: string;
+}
+
+export namespace UserIdentityConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserIdentityConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the configuration information for your Amazon Kendra experience. This includes
+ *             the data source IDs and/or FAQ IDs, and user or group information to grant access
+ *             to your Amazon Kendra experience.</p>
+ */
+export interface ExperienceConfiguration {
+  /**
+   * <p>The identifiers of your data sources and FAQs. Or, you can specify
+   *             that you want to use documents indexed via the <code>BatchPutDocument</code>
+   *             operation. This is the content you want to use for your Amazon Kendra experience.</p>
+   */
+  ContentSourceConfiguration?: ContentSourceConfiguration;
+
+  /**
+   * <p>The Amazon Web Services SSO field name that contains the identifiers of your users,
+   *             such as their emails.</p>
+   */
+  UserIdentityConfiguration?: UserIdentityConfiguration;
+}
+
+export namespace ExperienceConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExperienceConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateExperienceRequest {
+  /**
+   * <p>A name for your Amazon Kendra experience.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The identifier of the index for your Amazon Kendra experience.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a role with permission to access <code>Query</code>
+   *             operations, <code>QuerySuggestions</code> operations, <code>SubmitFeedback</code>
+   *             operations, and Amazon Web Services SSO that stores your user and group information.
+   *             For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles for Amazon Kendra</a>.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>Provides the configuration information for your Amazon Kendra experience. This includes
+   *             <code>ContentSourceConfiguration</code>, which specifies the data source IDs
+   *             and/or FAQ IDs, and <code>UserIdentityConfiguration</code>, which specifies the
+   *             user or group information to grant access to your Amazon Kendra experience.</p>
+   */
+  Configuration?: ExperienceConfiguration;
+
+  /**
+   * <p>A description for your Amazon Kendra experience.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A token that you provide to identify the request to create your Amazon Kendra experience.
+   *             Multiple calls to the <code>CreateExperience</code> operation with the same client
+   *             token creates only one Amazon Kendra experience.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace CreateExperienceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateExperienceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateExperienceResponse {
+  /**
+   * <p>The identifier for your created Amazon Kendra experience.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace CreateExperienceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateExperienceResponse): any => ({
     ...obj,
   });
 }
@@ -3394,26 +3995,26 @@ export enum UserGroupResolutionMode {
 
 /**
  * <p>Provides the configuration information to fetch access levels
- *          of groups and users from an AWS Single Sign-On identity
+ *          of groups and users from an Amazon Web Services Single Sign On identity
  *          source. This is useful for setting up user context filtering, where
  *          Amazon Kendra filters search results for different users based on their
  *          group's access to documents. You can also map your users to their
  *          groups for user context filtering using the
- *          <a href="https://docs.aws.amazon.com/latest/dg/API_PutPrincipalMapping.html">PutPrincipalMapping
+ *          <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html">PutPrincipalMapping
  *             operation</a>.</p>
- *          <p>To set up an AWS SSO identity source in the console to use with
+ *          <p>To set up an Amazon Web Services SSO identity source in the console to use with
  *          Amazon Kendra, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/getting-started-aws-sso.html">Getting started
- *             with an AWS SSO identity source</a>. You must also grant the required
- *             permissions to use AWS SSO with Amazon Kendra. For more information, see
+ *             with an Amazon Web Services SSO identity source</a>. You must also grant the required
+ *          permissions to use Amazon Web Services SSO with Amazon Kendra. For more information, see
  *          <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-aws-sso">IAM roles for
- *             AWS Single Sign-On</a>.</p>
+ *             Amazon Web Services SSO</a>.</p>
  */
 export interface UserGroupResolutionConfiguration {
   /**
    * <p>The identity store provider (mode) you want to use to fetch access levels of groups and
-   *          users. AWS Single Sign-On is currently the only available mode. Your users and groups
+   *          users. Amazon Web Services Single Sign On is currently the only available mode. Your users and groups
    *          must
-   *          exist in an AWS SSO identity source in order to use this mode.</p>
+   *          exist in an Amazon Web Services SSO identity source in order to use this mode.</p>
    */
   UserGroupResolutionMode: UserGroupResolutionMode | string | undefined;
 }
@@ -3613,7 +4214,7 @@ export interface CreateIndexRequest {
   UserContextPolicy?: UserContextPolicy | string;
 
   /**
-   * <p>Enables fetching access levels of groups and users from an AWS Single Sign-On
+   * <p>Enables fetching access levels of groups and users from an Amazon Web Services Single Sign On
    *          identity source. To configure this, see
    *          <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html">UserGroupResolutionConfiguration</a>.</p>
    */
@@ -3747,7 +4348,7 @@ export interface CreateThesaurusRequest {
   Description?: string;
 
   /**
-   * <p>An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions
+   * <p>An IAM role that gives Amazon Kendra permissions
    *          to access thesaurus file specified in <code>SourceS3Path</code>.
    *       </p>
    */
@@ -3820,6 +4421,38 @@ export namespace DeleteDataSourceRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteDataSourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteExperienceRequest {
+  /**
+   * <p>The identifier of your Amazon Kendra experience you want to delete.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The identifier of the index for your Amazon Kendra experience you want to delete.</p>
+   */
+  IndexId: string | undefined;
+}
+
+export namespace DeleteExperienceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteExperienceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteExperienceResponse {}
+
+export namespace DeleteExperienceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteExperienceResponse): any => ({
     ...obj,
   });
 }
@@ -4061,6 +4694,16 @@ export interface DescribeDataSourceResponse {
    *                 documents in languages other than English</a>.</p>
    */
   LanguageCode?: string;
+
+  /**
+   * <p>Configuration information for altering document metadata and content during the
+   *             document ingestion process when you describe a data source.</p>
+   *         <p>For more information on how to create, modify and delete document metadata, or make
+   *             other content alterations when you ingest documents into Amazon Kendra, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html">Customizing
+   *                 document metadata during the ingestion process</a>.</p>
+   */
+  CustomDocumentEnrichmentConfiguration?: CustomDocumentEnrichmentConfiguration;
 }
 
 export namespace DescribeDataSourceResponse {
@@ -4068,6 +4711,142 @@ export namespace DescribeDataSourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeDataSourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeExperienceRequest {
+  /**
+   * <p>The identifier of your Amazon Kendra experience you want to get information on.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The identifier of the index for your Amazon Kendra experience you want to get
+   *             information on.</p>
+   */
+  IndexId: string | undefined;
+}
+
+export namespace DescribeExperienceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeExperienceRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum EndpointType {
+  HOME = "HOME",
+}
+
+/**
+ * <p>Provides the configuration information of the endpoint for your Amazon Kendra
+ *             experience.</p>
+ */
+export interface ExperienceEndpoint {
+  /**
+   * <p>The type of endpoint for your Amazon Kendra experience. The type currently available
+   *             is <code>HOME</code>, which is a unique and fully hosted URL to the home page
+   *             of your Amazon Kendra experience.</p>
+   */
+  EndpointType?: EndpointType | string;
+
+  /**
+   * <p>The endpoint of your Amazon Kendra experience.</p>
+   */
+  Endpoint?: string;
+}
+
+export namespace ExperienceEndpoint {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExperienceEndpoint): any => ({
+    ...obj,
+  });
+}
+
+export enum ExperienceStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+}
+
+export interface DescribeExperienceResponse {
+  /**
+   * <p>Shows the identifier of your Amazon Kendra experience.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>Shows the identifier of the index for your Amazon Kendra experience.</p>
+   */
+  IndexId?: string;
+
+  /**
+   * <p>Shows the name of your Amazon Kendra experience.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully
+   *             hosted by Amazon Web Services.</p>
+   */
+  Endpoints?: ExperienceEndpoint[];
+
+  /**
+   * <p>Shows the configuration information for your Amazon Kendra experience. This includes
+   *                 <code>ContentSourceConfiguration</code>, which specifies the data source IDs
+   *             and/or FAQ IDs, and <code>UserIdentityConfiguration</code>, which specifies the
+   *             user or group information to grant access to your Amazon Kendra experience.</p>
+   */
+  Configuration?: ExperienceConfiguration;
+
+  /**
+   * <p>Shows the date-time your Amazon Kendra experience was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>Shows the date-time your Amazon Kendra experience was last updated.</p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * <p>Shows the description for your Amazon Kendra experience.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The current processing status of your Amazon Kendra experience. When the status
+   *             is <code>ACTIVE</code>, your Amazon Kendra experience is ready to use. When the
+   *             status is <code>FAILED</code>, the <code>ErrorMessage</code> field contains
+   *             the reason that this failed.</p>
+   */
+  Status?: ExperienceStatus | string;
+
+  /**
+   * <p>Shows the Amazon Resource Name (ARN) of a role with permission to access
+   *             <code>Query</code> operations, <code>QuerySuggestions</code> operations,
+   *             <code>SubmitFeedback</code> operations, and Amazon Web Services SSO that stores
+   *             your user and group information.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The reason your Amazon Kendra experience could not properly process.</p>
+   */
+  ErrorMessage?: string;
+}
+
+export namespace DescribeExperienceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeExperienceResponse): any => ({
     ...obj,
   });
 }
@@ -4577,7 +5356,7 @@ export interface DescribeIndexResponse {
 
   /**
    * <p>Shows whether you have enabled the configuration for fetching access
-   *          levels of groups and users from an AWS Single Sign-On identity source.</p>
+   *          levels of groups and users from an Amazon Web Services Single Sign On identity source.</p>
    */
   UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration;
 }
@@ -5040,7 +5819,7 @@ export interface DescribeThesaurusResponse {
   UpdatedAt?: Date;
 
   /**
-   * <p>An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions
+   * <p>An IAM role that gives Amazon Kendra permissions
    *          to access thesaurus file specified in <code>SourceS3Path</code>.
    *       </p>
    */
@@ -5076,6 +5855,93 @@ export namespace DescribeThesaurusResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeThesaurusResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateEntitiesFromExperienceRequest {
+  /**
+   * <p>The identifier of your Amazon Kendra experience.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The identifier of the index for your Amazon Kendra experience.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>Lists users or groups in your Amazon Web Services SSO identity source.</p>
+   */
+  EntityList: EntityConfiguration[] | undefined;
+}
+
+export namespace DisassociateEntitiesFromExperienceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateEntitiesFromExperienceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateEntitiesFromExperienceResponse {
+  /**
+   * <p>Lists the users or groups in your Amazon Web Services SSO identity source that
+   *             failed to properly remove access to your Amazon Kendra experience.</p>
+   */
+  FailedEntityList?: FailedEntity[];
+}
+
+export namespace DisassociateEntitiesFromExperienceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateEntitiesFromExperienceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociatePersonasFromEntitiesRequest {
+  /**
+   * <p>The identifier of your Amazon Kendra experience.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The identifier of the index for your Amazon Kendra experience.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The identifiers of users or groups in your Amazon Web Services SSO identity
+   *             source. For example, user IDs could be user emails.</p>
+   */
+  EntityIds: string[] | undefined;
+}
+
+export namespace DisassociatePersonasFromEntitiesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociatePersonasFromEntitiesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociatePersonasFromEntitiesResponse {
+  /**
+   * <p>Lists the users or groups in your Amazon Web Services SSO identity source that
+   *             failed to properly remove access to your Amazon Kendra experience.</p>
+   */
+  FailedEntityList?: FailedEntity[];
+}
+
+export namespace DisassociatePersonasFromEntitiesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociatePersonasFromEntitiesResponse): any => ({
     ...obj,
   });
 }
@@ -5229,6 +6095,178 @@ export namespace GetQuerySuggestionsResponse {
   });
 }
 
+export enum Interval {
+  ONE_MONTH_AGO = "ONE_MONTH_AGO",
+  ONE_WEEK_AGO = "ONE_WEEK_AGO",
+  THIS_MONTH = "THIS_MONTH",
+  THIS_WEEK = "THIS_WEEK",
+  TWO_MONTHS_AGO = "TWO_MONTHS_AGO",
+  TWO_WEEKS_AGO = "TWO_WEEKS_AGO",
+}
+
+export enum MetricType {
+  AGG_QUERY_DOC_METRICS = "AGG_QUERY_DOC_METRICS",
+  DOCS_BY_CLICK_COUNT = "DOCS_BY_CLICK_COUNT",
+  QUERIES_BY_COUNT = "QUERIES_BY_COUNT",
+  QUERIES_BY_ZERO_CLICK_RATE = "QUERIES_BY_ZERO_CLICK_RATE",
+  QUERIES_BY_ZERO_RESULT_RATE = "QUERIES_BY_ZERO_RESULT_RATE",
+  TREND_QUERY_DOC_METRICS = "TREND_QUERY_DOC_METRICS",
+}
+
+export interface GetSnapshotsRequest {
+  /**
+   * <p>The identifier of the index to get search metrics data.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The time interval or time window to get search metrics data.
+   *             The time interval uses the time zone of your index.
+   *             You can view data in the following time windows:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>THIS_WEEK</code>: The current week, starting on
+   *                     the Sunday and ending on the day before the current date.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ONE_WEEK_AGO</code>: The previous week, starting on
+   *                     the Sunday and ending on the following Saturday.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>TWO_WEEKS_AGO</code>: The week before the previous week,
+   *                     starting on the Sunday and ending on the following Saturday.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>THIS_MONTH</code>: The current month, starting on the
+   *                     first day of the month and ending on the day before the current date.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ONE_MONTH_AGO</code>: The previous month, starting on the
+   *                     first day of the month and ending on the last day of the month.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>TWO_MONTHS_AGO</code>: The month before the previous month,
+   *                     starting on the first day of the month and ending on last day of the month.</p>
+   *             </li>
+   *          </ul>
+   */
+  Interval: Interval | string | undefined;
+
+  /**
+   * <p>The metric you want to retrieve. You
+   *             can specify only one metric per call.</p>
+   *         <p>For more information about the metrics you can view, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/search-analytics.html">Gaining
+   *                 insights with search analytics</a>.</p>
+   */
+  MetricType: MetricType | string | undefined;
+
+  /**
+   * <p>If the previous response was incomplete (because there
+   *             is more data to retrieve), Amazon Kendra returns a pagination token in
+   *             the response. You can use this pagination token to
+   *             retrieve the next set of search metrics data.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of returned data for the metric.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace GetSnapshotsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSnapshotsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides a range of time.</p>
+ */
+export interface TimeRange {
+  /**
+   * <p>The UNIX datetime of the beginning of the time range.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The UNIX datetime of the end of the time range.</p>
+   */
+  EndTime?: Date;
+}
+
+export namespace TimeRange {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TimeRange): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSnapshotsResponse {
+  /**
+   * <p>The date-time for the beginning and end of the time window
+   *             for the search metrics data.</p>
+   */
+  SnapShotTimeFilter?: TimeRange;
+
+  /**
+   * <p>The column headers for the search metrics data.</p>
+   */
+  SnapshotsDataHeader?: string[];
+
+  /**
+   * <p>The search metrics data. The data returned depends on the
+   *             metric type you requested.</p>
+   */
+  SnapshotsData?: string[][];
+
+  /**
+   * <p>If the response is truncated, Amazon Kendra returns this
+   *             token, which you can use in a later request to retrieve the
+   *             next set of search metrics data.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetSnapshotsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSnapshotsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input to the request is not valid.</p>
+ */
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
+  name: "InvalidRequestException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
+    ...obj,
+  });
+}
+
 export interface ListDataSourcesRequest {
   /**
    * <p>The identifier of the index that contains the data source.</p>
@@ -5332,30 +6370,6 @@ export namespace ListDataSourcesResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides a range of time.</p>
- */
-export interface TimeRange {
-  /**
-   * <p>The UNIX datetime of the beginning of the time range.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The UNIX datetime of the end of the time range.</p>
-   */
-  EndTime?: Date;
-}
-
-export namespace TimeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeRange): any => ({
     ...obj,
   });
 }
@@ -5549,6 +6563,330 @@ export namespace ListDataSourceSyncJobsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListDataSourceSyncJobsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListEntityPersonasRequest {
+  /**
+   * <p>The identifier of your Amazon Kendra experience.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The identifier of the index for your Amazon Kendra experience.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>If the previous response was incomplete (because there is more data to retrieve),
+   *             Amazon Kendra returns a pagination token in the response. You can use this pagination
+   *             token to retrieve the next set of users or groups.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of returned users or groups.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListEntityPersonasRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEntityPersonasRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summary information for users or groups in your Amazon Web Services SSO identity
+ *             source. This applies to users and groups with specific permissions that define
+ *             their level of access to your Amazon Kendra experience. You can create an Amazon Kendra experience
+ *             such as a search application. For more information on creating a search application
+ *             experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a
+ *                 search experience with no code</a>.</p>
+ */
+export interface PersonasSummary {
+  /**
+   * <p>The identifier of a user or group in your Amazon Web Services SSO identity source.
+   *             For example, a user ID could be an email.</p>
+   */
+  EntityId?: string;
+
+  /**
+   * <p>The persona that defines the specific permissions of the user or group in
+   *             your Amazon Web Services SSO identity source. The available personas or access
+   *             roles are <code>Owner</code> and <code>Viewer</code>. For more information on
+   *             these personas, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html#access-search-experience">Providing
+   *                 access to your search page</a>.</p>
+   */
+  Persona?: Persona | string;
+
+  /**
+   * <p>The date-time the summary information was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The date-time the summary information was last updated.</p>
+   */
+  UpdatedAt?: Date;
+}
+
+export namespace PersonasSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PersonasSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListEntityPersonasResponse {
+  /**
+   * <p>An array of summary information for one or more users or groups.</p>
+   */
+  SummaryItems?: PersonasSummary[];
+
+  /**
+   * <p>If the response is truncated, Amazon Kendra returns this token, which you can use in
+   *             a later request to retrieve the next set of users or groups.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListEntityPersonasResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEntityPersonasResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListExperienceEntitiesRequest {
+  /**
+   * <p>The identifier of your Amazon Kendra experience.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The identifier of the index for your Amazon Kendra experience.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>If the previous response was incomplete (because there is more data to retrieve),
+   *             Amazon Kendra returns a pagination token in the response. You can use this pagination
+   *             token to retrieve the next set of users or groups.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListExperienceEntitiesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListExperienceEntitiesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the user entity.</p>
+ */
+export interface EntityDisplayData {
+  /**
+   * <p>The name of the user.</p>
+   */
+  UserName?: string;
+
+  /**
+   * <p>The name of the group.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The user name of the user.</p>
+   */
+  IdentifiedUserName?: string;
+
+  /**
+   * <p>The first name of the user.</p>
+   */
+  FirstName?: string;
+
+  /**
+   * <p>The last name of the user.</p>
+   */
+  LastName?: string;
+}
+
+export namespace EntityDisplayData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EntityDisplayData): any => ({
+    ...obj,
+    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
+    ...(obj.GroupName && { GroupName: SENSITIVE_STRING }),
+    ...(obj.IdentifiedUserName && { IdentifiedUserName: SENSITIVE_STRING }),
+    ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
+    ...(obj.LastName && { LastName: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>Summary information for users or groups in your Amazon Web Services SSO identity
+ *             source with granted access to your Amazon Kendra experience. You can create an Amazon Kendra
+ *             experience such as a search application. For more information on creating a
+ *             search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
+ *                 a search experience with no code</a>.</p>
+ */
+export interface ExperienceEntitiesSummary {
+  /**
+   * <p>The identifier of a user or group in your Amazon Web Services SSO identity source.
+   *             For example, a user ID could be an email.</p>
+   */
+  EntityId?: string;
+
+  /**
+   * <p>Shows the type as <code>User</code> or <code>Group</code>.</p>
+   */
+  EntityType?: EntityType | string;
+
+  /**
+   * <p>Information about the user entity.</p>
+   */
+  DisplayData?: EntityDisplayData;
+}
+
+export namespace ExperienceEntitiesSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExperienceEntitiesSummary): any => ({
+    ...obj,
+    ...(obj.DisplayData && { DisplayData: EntityDisplayData.filterSensitiveLog(obj.DisplayData) }),
+  });
+}
+
+export interface ListExperienceEntitiesResponse {
+  /**
+   * <p>An array of summary information for one or more users or groups.</p>
+   */
+  SummaryItems?: ExperienceEntitiesSummary[];
+
+  /**
+   * <p>If the response is truncated, Amazon Kendra returns this token, which you can use in
+   *             a later request to retrieve the next set of users or groups.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListExperienceEntitiesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListExperienceEntitiesResponse): any => ({
+    ...obj,
+    ...(obj.SummaryItems && {
+      SummaryItems: obj.SummaryItems.map((item) => ExperienceEntitiesSummary.filterSensitiveLog(item)),
+    }),
+  });
+}
+
+export interface ListExperiencesRequest {
+  /**
+   * <p>The identifier of the index for your Amazon Kendra experience.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>If the previous response was incomplete (because there is more data
+   *             to retrieve), Amazon Kendra returns a pagination token in the response. You can use this
+   *             pagination token to retrieve the next set of Amazon Kendra experiences.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of returned Amazon Kendra experiences.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListExperiencesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListExperiencesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summary information for your Amazon Kendra experience. You can create an Amazon Kendra
+ *             experience such as a search application. For more information on creating
+ *             a search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
+ *                 a search experience with no code</a>.</p>
+ */
+export interface ExperiencesSummary {
+  /**
+   * <p>The name of your Amazon Kendra experience.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The identifier of your Amazon Kendra experience.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The date-time your Amazon Kendra experience was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The processing status of your Amazon Kendra experience.</p>
+   */
+  Status?: ExperienceStatus | string;
+
+  /**
+   * <p>The endpoint URLs for your Amazon Kendra experiences. The URLs are unique
+   *             and fully hosted by Amazon Web Services.</p>
+   */
+  Endpoints?: ExperienceEndpoint[];
+}
+
+export namespace ExperiencesSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExperiencesSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListExperiencesResponse {
+  /**
+   * <p>An array of summary information for one or more Amazon Kendra experiences.</p>
+   */
+  SummaryItems?: ExperiencesSummary[];
+
+  /**
+   * <p>If the response is truncated, Amazon Kendra returns this token, which you can use
+   *             in a later request to retrieve the next set of Amazon Kendra experiences.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListExperiencesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListExperiencesResponse): any => ({
     ...obj,
   });
 }
@@ -6953,7 +8291,7 @@ export interface UpdateDataSourceRequest {
   IndexId: string | undefined;
 
   /**
-   * <p>Configuration information for a Amazon Kendra data source.</p>
+   * <p>Configuration information for an Amazon Kendra data source.</p>
    */
   Configuration?: DataSourceConfiguration;
 
@@ -6981,6 +8319,16 @@ export interface UpdateDataSourceRequest {
    *                 documents in languages other than English</a>.</p>
    */
   LanguageCode?: string;
+
+  /**
+   * <p>Configuration information for altering document metadata and content during the
+   *             document ingestion process when you update a data source.</p>
+   *         <p>For more information on how to create, modify and delete document metadata, or make
+   *             other content alterations when you ingest documents into Amazon Kendra, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html">Customizing
+   *                 document metadata during the ingestion process</a>.</p>
+   */
+  CustomDocumentEnrichmentConfiguration?: CustomDocumentEnrichmentConfiguration;
 }
 
 export namespace UpdateDataSourceRequest {
@@ -6988,6 +8336,51 @@ export namespace UpdateDataSourceRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateDataSourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateExperienceRequest {
+  /**
+   * <p>The identifier of your Amazon Kendra experience you want to update.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of your Amazon Kendra experience you want to update.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The identifier of the index for your Amazon Kendra experience you want to update.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a role with permission to access <code>Query</code>
+   *             operations, <code>QuerySuggestions</code> operations, <code>SubmitFeedback</code>
+   *             operations, and Amazon Web Services SSO that stores your user and group information.
+   *             For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles for Amazon Kendra</a>.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>Provides the user configuration information. This includes the Amazon Web Services SSO
+   *             field name that contains the identifiers of your users, such as their emails.</p>
+   */
+  Configuration?: ExperienceConfiguration;
+
+  /**
+   * <p>The description of your Amazon Kendra experience you want to update.</p>
+   */
+  Description?: string;
+}
+
+export namespace UpdateExperienceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateExperienceRequest): any => ({
     ...obj,
   });
 }
@@ -7040,7 +8433,7 @@ export interface UpdateIndexRequest {
   UserContextPolicy?: UserContextPolicy | string;
 
   /**
-   * <p>Enables fetching access levels of groups and users from an AWS Single Sign-On
+   * <p>Enables fetching access levels of groups and users from an Amazon Web Services Single Sign On
    *          identity source. To configure this, see
    *          <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html">UserGroupResolutionConfiguration</a>.</p>
    */
@@ -7234,7 +8627,7 @@ export namespace UpdateThesaurusRequest {
  *             </li>
  *             <li>
  *                <p>
- *                   <code> <EqualTo></code>
+ *                   <code> <EqualsTo></code>
  *                </p>
  *             </li>
  *          </ol>

@@ -31,6 +31,9 @@ export interface UpdateQuerySuggestionsConfigCommandOutput extends __MetadataBea
  *             The time for your updated settings to take effect depends on the updates
  *             made and the number of search queries in your index.</p>
  *         <p>You can still enable/disable query suggestions at any time.</p>
+ *         <p>
+ *             <code>UpdateQuerySuggestionsConfig</code> is currently not supported in the
+ *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

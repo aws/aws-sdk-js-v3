@@ -15,7 +15,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   GetTransitGatewayAttachmentPropagationsRequest,
   GetTransitGatewayAttachmentPropagationsResult,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2GetTransitGatewayAttachmentPropagationsCommand,
   serializeAws_ec2GetTransitGatewayAttachmentPropagationsCommand,

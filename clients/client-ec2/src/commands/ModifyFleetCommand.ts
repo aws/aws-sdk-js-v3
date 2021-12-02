@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyFleetRequest, ModifyFleetResult } from "../models/models_4";
+import { ModifyFleetRequest, ModifyFleetResult } from "../models/models_5";
 import { deserializeAws_ec2ModifyFleetCommand, serializeAws_ec2ModifyFleetCommand } from "../protocols/Aws_ec2";
 
 export interface ModifyFleetCommandInput extends ModifyFleetRequest {}

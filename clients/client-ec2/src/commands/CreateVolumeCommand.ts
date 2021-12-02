@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateVolumeRequest, Volume } from "../models/models_1";
+import { CreateVolumeRequest, Volume } from "../models/models_2";
 import { deserializeAws_ec2CreateVolumeCommand, serializeAws_ec2CreateVolumeCommand } from "../protocols/Aws_ec2";
 
 export interface CreateVolumeCommandInput extends CreateVolumeRequest {}

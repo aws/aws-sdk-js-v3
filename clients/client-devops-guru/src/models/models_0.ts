@@ -321,7 +321,9 @@ export namespace ValidationExceptionField {
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "CANNOT_PARSE",
   FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
+  INVALID_PARAMETER_COMBINATION = "INVALID_PARAMETER_COMBINATION",
   OTHER = "OTHER",
+  PARAMETER_INCONSISTENT_WITH_SERVICE_STATE = "PARAMETER_INCONSISTENT_WITH_SERVICE_STATE",
   UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
 }
 
@@ -383,6 +385,33 @@ export namespace AnomalyReportedTimeRange {
   });
 }
 
+/**
+ * <p>The Amazon Web Services resources in which DevOps Guru detected unusual behavior that resulted in
+ *       	the generation of an anomaly. When DevOps Guru detects multiple related anomalies, it creates
+ *       and insight with details about the anomalous behavior and suggestions about how to correct the
+ *       problem.</p>
+ */
+export interface AnomalyResource {
+  /**
+   * <p>The name of the Amazon Web Services resource.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of the Amazon Web Services resource.</p>
+   */
+  Type?: string;
+}
+
+export namespace AnomalyResource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AnomalyResource): any => ({
+    ...obj,
+  });
+}
+
 export enum AnomalySeverity {
   HIGH = "HIGH",
   LOW = "LOW",
@@ -390,7 +419,7 @@ export enum AnomalySeverity {
 }
 
 /**
- * <p> The dimension of a Amazon CloudWatch metric that is used when DevOps Guru analyzes the resources in
+ * <p> The dimension of am Amazon CloudWatch metric that is used when DevOps Guru analyzes the resources in
  * 			your account for operational problems and anomalous behavior. A dimension is a
  * 			name/value pair that is part of the identity of a metric. A metric can have up to 10
  * 			dimensions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension">Dimensions</a> in the <i>Amazon CloudWatch User Guide</i>. </p>
@@ -452,13 +481,13 @@ export namespace TimestampMetricValuePair {
  */
 export interface CloudWatchMetricsDataSummary {
   /**
-   * <p>This is a list of cloudwatch metric values at given timestamp.</p>
+   * <p>This is a list of Amazon CloudWatch metric values at given timestamp.</p>
    */
   TimestampMetricValuePairList?: TimestampMetricValuePair[];
 
   /**
-   * <p>This is enum of the status showing whether the metric value pair list has Partial or
-   * 			Complete data or there was an error.</p>
+   * <p>This is an enum of the status showing whether the metric value pair list has partial or
+   * 			complete data, or if there was an error.</p>
    */
   StatusCode?: CloudWatchMetricDataStatusCode | string;
 }
@@ -536,15 +565,471 @@ export namespace CloudWatchMetricsDetail {
 }
 
 /**
+ * <p>A logical grouping of Performance Insights metrics for a related subject area. For example, the
+ *    		<code>db.sql</code> dimension group consists of the following dimensions:
+ *    		<code>db.sql.id</code>, <code>db.sql.db_id</code>, <code>db.sql.statement</code>, and
+ *    		<code>db.sql.tokenized_id</code>.</p>
+ *    	     <note>
+ *    		       <p>Each response element returns a maximum of 500 bytes. For larger elements, such as SQL statements,
+ *    			only the first 500 bytes are returned.</p>
+ *    	     </note>
+ *
+ *    	     <p>Amazon RDS Performance Insights enables you to monitor and explore different
+ *    		dimensions of database load based on data captured from a running DB instance.
+ *    		DB load is measured as average active sessions. Performance Insights provides the
+ *    		data to API consumers as a two-dimensional time-series dataset. The time dimension
+ *    		provides DB load data for each time point in the queried time range. Each time point
+ *    		decomposes overall load in relation to the requested dimensions, measured at that
+ *    		time point. Examples include SQL, Wait event, User, and Host. </p>
+ *
+ *    	     <ul>
+ *             <li>
+ *    			         <p>To learn more about Performance Insights and Amazon Aurora DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html"> Amazon Aurora User Guide</a>.
+ *    			</p>
+ *    		       </li>
+ *             <li>
+ *    			         <p>To learn more about Performance Insights and Amazon RDS DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html"> Amazon RDS User Guide</a>.
+ *    			</p>
+ *    		       </li>
+ *          </ul>
+ */
+export interface PerformanceInsightsMetricDimensionGroup {
+  /**
+   * <p>The name of the dimension group. Its valid values are:</p>
+   *
+   *    	     <ul>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db</code> - The name of the database to which the client is connected (only Aurora PostgreSQL, Amazon RDS PostgreSQL,
+   *    				Aurora MySQL, Amazon RDS MySQL, and MariaDB)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.application</code> - The name of the application that is connected to the database (only Aurora
+   *    				PostgreSQL and RDS PostgreSQL)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.host</code> - The host name of the connected client (all engines)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.session_type</code> - The type of the current session (only Aurora PostgreSQL and RDS PostgreSQL)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.sql</code> - The SQL that is currently executing (all engines)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.sql_tokenized</code> - The SQL digest (all engines)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.wait_event</code> - The event for which the database backend is waiting  (all engines)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.wait_event_type</code> - The type of event for which the database backend is waiting (all engines)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.user</code> - The user logged in to the database (all engines)</p>
+   *    		       </li>
+   *          </ul>
+   */
+  Group?: string;
+
+  /**
+   * <p>A list of specific dimensions from a dimension group. If this parameter is not present,
+   *    		then it signifies that all of the dimensions in the group were requested or are present in
+   *    		the response.</p>
+   *    	     <p>Valid values for elements in the <code>Dimensions</code> array are:</p>
+   *
+   *    	     <ul>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.application.name</code> - The name of the application that is connected to the database (only
+   *    				Aurora PostgreSQL and RDS PostgreSQL)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.host.id</code> - The host ID of the connected client (all engines)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.host.name</code> - The host name of the connected client (all engines)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.name</code> - The name of the database to which the client is connected (only Aurora PostgreSQL, Amazon RDS
+   *    				PostgreSQL, Aurora MySQL, Amazon RDS MySQL, and MariaDB)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.session_type.name</code> - The type of the current session (only Aurora PostgreSQL and RDS PostgreSQL)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.sql.id</code> - The SQL ID generated by Performance Insights (all engines)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.sql.db_id</code> - The SQL ID generated by the database (all engines)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.sql.statement</code> - The SQL text that is being executed (all engines)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.sql.tokenized_id</code>
+   *    			         </p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.sql_tokenized.id</code> - The SQL digest ID generated by Performance Insights (all engines)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.sql_tokenized.db_id</code> - SQL digest ID generated by the database (all engines)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.sql_tokenized.statement</code> - The SQL digest text (all engines)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.user.id</code> - The ID of the user logged in to the database (all engines)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.user.name</code> - The name of the user logged in to the database (all engines)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.wait_event.name</code> - The event for which the backend is waiting (all engines)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.wait_event.type</code> - The type of event for which the backend is waiting (all engines)</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.wait_event_type.name</code> - The name of the event type for which the backend is waiting (all
+   *    				engines)</p>
+   *    		       </li>
+   *          </ul>
+   */
+  Dimensions?: string[];
+
+  /**
+   * <p>The maximum number of items to fetch for this dimension group.</p>
+   */
+  Limit?: number;
+}
+
+export namespace PerformanceInsightsMetricDimensionGroup {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PerformanceInsightsMetricDimensionGroup): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A single query to be processed. Use these parameters to
+ *    		query the Performance Insights <code>GetResourceMetrics</code> API to retrieve the metrics
+ *    		for an anomaly. For more information, see <code>
+ *                <a href="https://docs.aws.amazon.com/performance-insights/latest/APIReference/API_GetResourceMetrics.html">GetResourceMetrics</a>
+ *             </code>
+ *    	in the <i>Amazon RDS Performance Insights API Reference</i>.</p>
+ *
+ *    	     <p>Amazon RDS Performance Insights enables you to monitor and explore different
+ *    		dimensions of database load based on data captured from a running DB instance.
+ *    		DB load is measured as average active sessions. Performance Insights provides the
+ *    		data to API consumers as a two-dimensional time-series dataset. The time dimension
+ *    		provides DB load data for each time point in the queried time range. Each time point
+ *    		decomposes overall load in relation to the requested dimensions, measured at that
+ *    		time point. Examples include SQL, Wait event, User, and Host. </p>
+ *
+ *    	     <ul>
+ *             <li>
+ *    			         <p>To learn more about Performance Insights and Amazon Aurora DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html"> Amazon Aurora User Guide</a>.
+ *    			</p>
+ *    		       </li>
+ *             <li>
+ *    			         <p>To learn more about Performance Insights and Amazon RDS DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html"> Amazon RDS User Guide</a>.
+ *    			</p>
+ *    		       </li>
+ *          </ul>
+ */
+export interface PerformanceInsightsMetricQuery {
+  /**
+   * <p>The name of the meteric used used when querying an Performance Insights <code>GetResourceMetrics</code> API for
+   *    	anomaly metrics.</p>
+   *
+   *    	     <p>Valid values for <code>Metric</code> are:</p>
+   *
+   *    	     <ul>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.load.avg</code> - a scaled representation of the number of active sessions
+   *    				for the database engine.</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>
+   *    				           <code>db.sampledload.avg</code> - the raw number of active sessions for the
+   *    				database engine.</p>
+   *    		       </li>
+   *          </ul>
+   *    	     <p>If the number of active sessions is less than an internal Performance Insights threshold, <code>db.load.avg</code> and <code>db.sampledload.avg</code>
+   *    		are the same value. If the number of active sessions is greater than the internal threshold, Performance Insights samples the active sessions, with <code>db.load.avg</code>
+   *    		showing the scaled values, <code>db.sampledload.avg</code> showing the raw values, and <code>db.sampledload.avg</code> less than <code>db.load.avg</code>.
+   *    		For most use cases, you can query <code>db.load.avg</code> only. </p>
+   */
+  Metric?: string;
+
+  /**
+   * <p>The specification for how to aggregate the data points from a Performance Insights <code>GetResourceMetrics</code> API query. The
+   *    		Performance Insights query returns all of the dimensions within that group,
+   *    		unless you provide the names of specific dimensions within that group. You can also request
+   *    		that Performance Insights return a limited number of values for a dimension.</p>
+   */
+  GroupBy?: PerformanceInsightsMetricDimensionGroup;
+
+  /**
+   * <p>One or more filters to apply to a Performance Insights <code>GetResourceMetrics</code> API query. Restrictions:</p>
+   *    	     <ul>
+   *             <li>
+   *    			         <p>Any number of filters by the same dimension, as specified in the <code>GroupBy</code> parameter.</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>A single filter for any other dimension in this dimension group.</p>
+   *    		       </li>
+   *          </ul>
+   */
+  Filter?: { [key: string]: string };
+}
+
+export namespace PerformanceInsightsMetricQuery {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PerformanceInsightsMetricQuery): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a reference metric used to evaluate Performance Insights.</p>
+ */
+export interface PerformanceInsightsReferenceMetric {
+  /**
+   * <p>A query to be processed on the metric.</p>
+   */
+  MetricQuery?: PerformanceInsightsMetricQuery;
+}
+
+export namespace PerformanceInsightsReferenceMetric {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PerformanceInsightsReferenceMetric): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A reference value to compare Performance Insights metrics against to determine if the metrics
+ *       demonstrate anomalous behavior.</p>
+ */
+export interface PerformanceInsightsReferenceScalar {
+  /**
+   * <p>The reference value.</p>
+   */
+  Value?: number;
+}
+
+export namespace PerformanceInsightsReferenceScalar {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PerformanceInsightsReferenceScalar): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Reference scalar values and other metrics that DevOps Guru displays on a graph in its console along with the actual metrics it
+ *       analyzed. Compare these reference values to your actual metrics to help you understand anomalous behavior that DevOps Guru detected.</p>
+ */
+export interface PerformanceInsightsReferenceComparisonValues {
+  /**
+   * <p>A scalar value DevOps Guru for a metric that DevOps Guru compares to actual metric values. This reference value is used
+   *       to determine if an actual metric value should be considered anomalous.</p>
+   */
+  ReferenceScalar?: PerformanceInsightsReferenceScalar;
+
+  /**
+   * <p>A metric that DevOps Guru compares to actual metric values. This reference metric is used
+   *    		to determine if an actual metric should be considered anomalous.</p>
+   */
+  ReferenceMetric?: PerformanceInsightsReferenceMetric;
+}
+
+export namespace PerformanceInsightsReferenceComparisonValues {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PerformanceInsightsReferenceComparisonValues): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Reference data used to evaluate Performance Insights to determine if its performance
+ *       is anomalous or not.</p>
+ */
+export interface PerformanceInsightsReferenceData {
+  /**
+   * <p>The name of the reference data.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The specific reference values used to evaluate the Performance Insights. For more information, see
+   * 			<code>
+   *                <a href="https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsReferenceComparisonValues.html">PerformanceInsightsReferenceComparisonValues</a>
+   *             </code>.
+   * 		</p>
+   */
+  ComparisonValues?: PerformanceInsightsReferenceComparisonValues;
+}
+
+export namespace PerformanceInsightsReferenceData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PerformanceInsightsReferenceData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A statistic in a Performance Insights collection.</p>
+ */
+export interface PerformanceInsightsStat {
+  /**
+   * <p>The statistic type.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The value of the statistic.</p>
+   */
+  Value?: number;
+}
+
+export namespace PerformanceInsightsStat {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PerformanceInsightsStat): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about Performance Insights metrics.</p>
+ *
+ *    	     <p>Amazon RDS Performance Insights enables you to monitor and explore different
+ *    		dimensions of database load based on data captured from a running DB instance.
+ *    		DB load is measured as average active sessions. Performance Insights provides the
+ *    		data to API consumers as a two-dimensional time-series dataset. The time dimension
+ *    		provides DB load data for each time point in the queried time range. Each time point
+ *    		decomposes overall load in relation to the requested dimensions, measured at that
+ *    		time point. Examples include SQL, Wait event, User, and Host. </p>
+ *
+ *    	     <ul>
+ *             <li>
+ *    			         <p>To learn more about Performance Insights and Amazon Aurora DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html"> Amazon Aurora User Guide</a>.
+ *    			</p>
+ *    		       </li>
+ *             <li>
+ *    			         <p>To learn more about Performance Insights and Amazon RDS DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html"> Amazon RDS User Guide</a>.
+ *    			</p>
+ *    		       </li>
+ *          </ul>
+ */
+export interface PerformanceInsightsMetricsDetail {
+  /**
+   * <p>The name used for a specific Performance Insights metric.</p>
+   */
+  MetricDisplayName?: string;
+
+  /**
+   * <p>The unit of measure for a metric. For example, a session or a process.</p>
+   */
+  Unit?: string;
+
+  /**
+   * <p>A single query to be processed for the metric. For more information, see
+   *    		<code>
+   *                <a href="https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsMetricQuery.html">PerformanceInsightsMetricQuery</a>
+   *             </code>.</p>
+   */
+  MetricQuery?: PerformanceInsightsMetricQuery;
+
+  /**
+   * <p>
+   *       	For more information, see
+   *       	<code>
+   *                <a href="https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsReferenceData.html">PerformanceInsightsReferenceData</a>
+   *             </code>.
+   *       </p>
+   */
+  ReferenceData?: PerformanceInsightsReferenceData[];
+
+  /**
+   * <p>The metric statistics during the anomalous period detected by DevOps Guru;</p>
+   */
+  StatsAtAnomaly?: PerformanceInsightsStat[];
+
+  /**
+   * <p>Typical metric statistics that are not considered anomalous. When DevOps Guru analyzes
+   * 			metrics, it compares them to <code>StatsAtBaseline</code> to help determine if they are
+   * 			anomalous.</p>
+   */
+  StatsAtBaseline?: PerformanceInsightsStat[];
+}
+
+export namespace PerformanceInsightsMetricsDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PerformanceInsightsMetricsDetail): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p> Details about the source of the anomalous operational data that triggered the
- * 			anomaly. The one supported source is Amazon CloudWatch metrics. </p>
+ * 			anomaly.</p>
  */
 export interface AnomalySourceDetails {
   /**
-   * <p> An array of <code>CloudWatchMetricsDetail</code> object that contains information
-   * 			about the analyzed metrics that displayed anomalous behavior. </p>
+   * <p>An array of <code>CloudWatchMetricsDetail</code> objects that contain information
+   * 			about analyzed CloudWatch metrics that show anomalous behavior. </p>
    */
   CloudWatchMetrics?: CloudWatchMetricsDetail[];
+
+  /**
+   * <p>An array of <code>PerformanceInsightsMetricsDetail</code> objects that contain information
+   *    		about analyzed Performance Insights metrics that show anomalous behavior.</p>
+   */
+  PerformanceInsightsMetrics?: PerformanceInsightsMetricsDetail[];
 }
 
 export namespace AnomalySourceDetails {
@@ -585,6 +1070,11 @@ export namespace AnomalyTimeRange {
   export const filterSensitiveLog = (obj: AnomalyTimeRange): any => ({
     ...obj,
   });
+}
+
+export enum AnomalyType {
+  CAUSAL = "CAUSAL",
+  CONTEXTUAL = "CONTEXTUAL",
 }
 
 export interface DescribeAccountHealthRequest {}
@@ -757,9 +1247,86 @@ export namespace CloudFormationCollection {
 }
 
 /**
+ * <p>A collection of Amazon Web Services stags.</p>
+ *    	     <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
+ *    		tagging, so you can assign the same tag to resources from different services to indicate
+ *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
+ *    		table resource that you assign to an Lambda function. For more information about
+ *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
+ *    			best practices</a> whitepaper. </p>
+ *    	     <p>Each Amazon Web Services tag has two parts. </p>
+ *    	     <ul>
+ *             <li>
+ *    			         <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
+ *    				<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
+ *    				<i>keys</i> are case-sensitive.</p>
+ *    		       </li>
+ *             <li>
+ *    			         <p>An optional field known as a tag <i>value</i> (for example,
+ *    				<code>111122223333</code>, <code>Production</code>, or a team
+ *    				name). Omitting the tag <i>value</i> is the same as using an empty
+ *    				string. Like tag <i>keys</i>, tag <i>values</i> are
+ *    				case-sensitive.</p>
+ *    		       </li>
+ *          </ul>
+ *    	     <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
+ *    	     <important>
+ * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+ * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
+ * 			<code>Devops-guru-deployment-application</code> or
+ * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
+ * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+ * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
+ * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+ * 			application might be <code>Devops-Guru-production-application/RDS</code> or
+ * 			<code>Devops-Guru-production-application/containers</code>.</p>
+ * 	        </important>
+ */
+export interface TagCollection {
+  /**
+   * <p>An Amazon Web Services tag <i>key</i> that is used to identify the Amazon Web Services resources that
+   *       	DevOps Guru analyzes. All Amazon Web Services resources in your account and Region tagged with this <i>key</i> make
+   *       up your DevOps Guru application and analysis boundary.</p>
+   *          <important>
+   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
+   * 			<code>Devops-guru-deployment-application</code> or
+   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
+   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
+   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			application might be <code>Devops-Guru-production-application/RDS</code> or
+   * 			<code>Devops-Guru-production-application/containers</code>.</p>
+   * 	        </important>
+   */
+  AppBoundaryKey: string | undefined;
+
+  /**
+   * <p>The values in an Amazon Web Services tag collection.</p>
+   *    	     <p>The tag's <i>value</i> is an optional field used to associate a string with
+   * 					the tag <i>key</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team
+   *    				name). The <i>key</i> and <i>value</i> are the tag's <i>key</i> pair.
+   *    				Omitting the tag <i>value</i> is the same as using an empty
+   *    				string. Like tag <i>keys</i>, tag <i>values</i> are
+   *    				case-sensitive. You can specify a maximum of 256 characters for a tag value.</p>
+   */
+  TagValues: string[] | undefined;
+}
+
+export namespace TagCollection {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagCollection): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
- * 			The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
- *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+ * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+ *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+ *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
  */
 export interface ResourceCollection {
   /**
@@ -767,6 +1334,44 @@ export interface ResourceCollection {
    * 			DevOps Guru analyzes. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   CloudFormation?: CloudFormationCollection;
+
+  /**
+   * <p>The Amazon Web Services tags that are used by resources in the resource collection.</p>
+   *    	     <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
+   *    		tagging, so you can assign the same tag to resources from different services to indicate
+   *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
+   *    		table resource that you assign to an Lambda function. For more information about
+   *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
+   *    			best practices</a> whitepaper. </p>
+   *    	     <p>Each Amazon Web Services tag has two parts. </p>
+   *    	     <ul>
+   *             <li>
+   *    			         <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
+   *    				<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
+   *    				<i>keys</i> are case-sensitive.</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>An optional field known as a tag <i>value</i> (for example,
+   *    				<code>111122223333</code>, <code>Production</code>, or a team
+   *    				name). Omitting the tag <i>value</i> is the same as using an empty
+   *    				string. Like tag <i>keys</i>, tag <i>values</i> are
+   *    				case-sensitive.</p>
+   *    		       </li>
+   *          </ul>
+   *    	     <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
+   *    	     <important>
+   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
+   * 			<code>Devops-guru-deployment-application</code> or
+   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
+   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
+   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			application might be <code>Devops-Guru-production-application/RDS</code> or
+   * 			<code>Devops-Guru-production-application/containers</code>.</p>
+   * 	        </important>
+   */
+  Tags?: TagCollection[];
 }
 
 export namespace ResourceCollection {
@@ -789,7 +1394,10 @@ export interface ProactiveAnomaly {
   Id?: string;
 
   /**
-   * <p> The severity of a proactive anomaly. </p>
+   * <p>The severity of the anomaly. The severity of anomalies that generate
+   * 	an insight determine that insight's severity. For more information, see
+   * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
+   * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
   Severity?: AnomalySeverity | string;
 
@@ -812,7 +1420,7 @@ export interface ProactiveAnomaly {
 
   /**
    * <p>
-   * 			A <code>AnomalyReportedTimeRange</code> object that specifies the time range between when the anomaly is opened and the time when it is closed.
+   * 			An <code>AnomalyReportedTimeRange</code> object that specifies the time range between when the anomaly is opened and the time when it is closed.
    * 		</p>
    */
   AnomalyReportedTimeRange?: AnomalyReportedTimeRange;
@@ -837,8 +1445,9 @@ export interface ProactiveAnomaly {
 
   /**
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
-   * 			The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   ResourceCollection?: ResourceCollection;
 
@@ -869,7 +1478,10 @@ export interface ReactiveAnomaly {
   Id?: string;
 
   /**
-   * <p>The severity of the anomaly. </p>
+   * <p>The severity of the anomaly. The severity of anomalies that generate
+   * 	an insight determine that insight's severity. For more information, see
+   * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
+   * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
   Severity?: AnomalySeverity | string;
 
@@ -887,7 +1499,7 @@ export interface ReactiveAnomaly {
 
   /**
    * <p>
-   * 			A <code>AnomalyReportedTimeRange</code> object that specifies the time range between when the anomaly is opened and the time when it is closed.
+   * 			An <code>AnomalyReportedTimeRange</code> object that specifies the time range between when the anomaly is opened and the time when it is closed.
    * 		</p>
    */
   AnomalyReportedTimeRange?: AnomalyReportedTimeRange;
@@ -906,10 +1518,47 @@ export interface ReactiveAnomaly {
 
   /**
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
-   * 			The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   ResourceCollection?: ResourceCollection;
+
+  /**
+   * <p>The type of the reactive anomaly. It can be one of the following types.</p>
+   * 	        <ul>
+   *             <li>
+   * 	   	          <p>
+   * 	   		            <code>CAUSAL</code> - the anomaly can cause a new insight.</p>
+   * 	           </li>
+   *             <li>
+   * 	   	          <p>
+   * 	   		            <code>CONTEXTUAL</code> - the anomaly contains additional information about an insight or its causal anomaly.</p>
+   * 	           </li>
+   *          </ul>
+   */
+  Type?: AnomalyType | string;
+
+  /**
+   * <p>The name of the reactive anomaly.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A description of the reactive anomaly.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the causal anomaly that is associated with this
+   *       reactive anomaly. The ID of a `CAUSAL` anomaly is always `NULL`.</p>
+   */
+  CausalAnomalyId?: string;
+
+  /**
+   * <p>The Amazon Web Services resources in which anomalous behavior was detected by DevOps Guru.</p>
+   */
+  AnomalyResources?: AnomalyResource[];
 }
 
 export namespace ReactiveAnomaly {
@@ -923,12 +1572,12 @@ export namespace ReactiveAnomaly {
 
 export interface DescribeAnomalyResponse {
   /**
-   * <p> A <code>ReactiveAnomaly</code> object that represents the requested anomaly. </p>
+   * <p> A <code>ProactiveAnomaly</code> object that represents the requested anomaly. </p>
    */
   ProactiveAnomaly?: ProactiveAnomaly;
 
   /**
-   * <p> A <code>ProactiveAnomaly</code> object that represents the requested anomaly. </p>
+   * <p> A <code>ReactiveAnomaly</code> object that represents the requested anomaly. </p>
    */
   ReactiveAnomaly?: ReactiveAnomaly;
 }
@@ -1079,7 +1728,9 @@ export interface ProactiveInsight {
   Name?: string;
 
   /**
-   * <p>The severity of the proactive insight. </p>
+   * <p>The severity of the insight. For more information, see
+   * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
+   * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
   Severity?: InsightSeverity | string;
 
@@ -1102,8 +1753,9 @@ export interface ProactiveInsight {
 
   /**
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
-   * 			The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   ResourceCollection?: ResourceCollection;
 
@@ -1139,7 +1791,9 @@ export interface ReactiveInsight {
   Name?: string;
 
   /**
-   * <p> The severity of a reactive insight. </p>
+   * <p>The severity of the insight. For more information, see
+   * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
+   * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
   Severity?: InsightSeverity | string;
 
@@ -1156,8 +1810,9 @@ export interface ReactiveInsight {
 
   /**
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
-   * 			The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   ResourceCollection?: ResourceCollection;
 
@@ -1321,8 +1976,9 @@ export enum OrganizationResourceCollectionType {
 export interface DescribeOrganizationResourceCollectionHealthRequest {
   /**
    * <p> An Amazon Web Services resource collection type. This type specifies how analyzed Amazon Web Services resources
-   * 			are defined. The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   * 			are defined. The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   OrganizationResourceCollectionType: OrganizationResourceCollectionType | string | undefined;
 
@@ -1497,7 +2153,7 @@ export namespace ServiceHealth {
 export interface DescribeOrganizationResourceCollectionHealthResponse {
   /**
    * <p>The returned <code>CloudFormationHealthOverview</code> object that contains an
-   * 				<code>InsightHealthOverview</code> object with the requested system health
+   * 			<code>InsightHealthOverview</code> object with the requested system health
    * 			information.</p>
    */
   CloudFormation?: CloudFormationHealth[];
@@ -1532,13 +2188,15 @@ export namespace DescribeOrganizationResourceCollectionHealthResponse {
 export enum ResourceCollectionType {
   AWS_CLOUD_FORMATION = "AWS_CLOUD_FORMATION",
   AWS_SERVICE = "AWS_SERVICE",
+  AWS_TAGS = "AWS_TAGS",
 }
 
 export interface DescribeResourceCollectionHealthRequest {
   /**
    * <p> An Amazon Web Services resource collection type. This type specifies how analyzed Amazon Web Services resources
-   * 			are defined. The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   * 			are defined. The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   ResourceCollectionType: ResourceCollectionType | string | undefined;
 
@@ -1558,13 +2216,64 @@ export namespace DescribeResourceCollectionHealthRequest {
   });
 }
 
+/**
+ * <p> Information about the health of Amazon Web Services resources in your account that are specified by
+ *    		an Amazon Web Services tag <i>key</i>. </p>
+ */
+export interface TagHealth {
+  /**
+   * <p>An Amazon Web Services tag <i>key</i> that is used to identify the Amazon Web Services resources that
+   *       	DevOps Guru analyzes. All Amazon Web Services resources in your account and Region tagged with this <i>key</i> make
+   *       up your DevOps Guru application and analysis boundary.</p>
+   *          <important>
+   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
+   * 			<code>Devops-guru-deployment-application</code> or
+   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
+   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
+   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			application might be <code>Devops-Guru-production-application/RDS</code> or
+   * 			<code>Devops-Guru-production-application/containers</code>.</p>
+   * 	        </important>
+   */
+  AppBoundaryKey?: string;
+
+  /**
+   * <p>The value in an Amazon Web Services tag.</p>
+   *    	     <p>The tag's <i>value</i> is an optional field used to associate a string with
+   * 					the tag <i>key</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team
+   *    				name). The <i>key</i> and <i>value</i> are the tag's <i>key</i> pair.
+   *    				Omitting the tag <i>value</i> is the same as using an empty
+   *    				string. Like tag <i>keys</i>, tag <i>values</i> are
+   *    				case-sensitive. You can specify a maximum of 256 characters for a tag value.</p>
+   */
+  TagValue?: string;
+
+  /**
+   * <p>Information about the health of the Amazon Web Services resources in your account that are
+   * 			specified by an Amazon Web Services tag, including the number of open proactive, open reactive
+   * 			insights, and the Mean Time to Recover (MTTR) of closed insights. </p>
+   */
+  Insight?: InsightHealth;
+}
+
+export namespace TagHealth {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagHealth): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeResourceCollectionHealthResponse {
   /**
    * <p> The returned <code>CloudFormationHealthOverview</code> object that contains an
    * 				<code>InsightHealthOverview</code> object with the requested system health
    * 			information. </p>
    */
-  CloudFormation: CloudFormationHealth[] | undefined;
+  CloudFormation?: CloudFormationHealth[];
 
   /**
    * <p>An array of <code>ServiceHealth</code> objects that describes the health of the Amazon Web Services
@@ -1577,6 +2286,44 @@ export interface DescribeResourceCollectionHealthResponse {
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services tags that are used by resources in the resource collection.</p>
+   *    	     <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
+   *    		tagging, so you can assign the same tag to resources from different services to indicate
+   *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
+   *    		table resource that you assign to an Lambda function. For more information about
+   *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
+   *    			best practices</a> whitepaper. </p>
+   *    	     <p>Each Amazon Web Services tag has two parts. </p>
+   *    	     <ul>
+   *             <li>
+   *    			         <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
+   *    				<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
+   *    				<i>keys</i> are case-sensitive.</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>An optional field known as a tag <i>value</i> (for example,
+   *    				<code>111122223333</code>, <code>Production</code>, or a team
+   *    				name). Omitting the tag <i>value</i> is the same as using an empty
+   *    				string. Like tag <i>keys</i>, tag <i>values</i> are
+   *    				case-sensitive.</p>
+   *    		       </li>
+   *          </ul>
+   *    	     <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
+   *    	     <important>
+   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
+   * 			<code>Devops-guru-deployment-application</code> or
+   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
+   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
+   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			application might be <code>Devops-Guru-production-application/RDS</code> or
+   * 			<code>Devops-Guru-production-application/containers</code>.</p>
+   * 	        </important>
+   */
+  Tags?: TagHealth[];
 }
 
 export namespace DescribeResourceCollectionHealthResponse {
@@ -1761,6 +2508,54 @@ export namespace CloudFormationCostEstimationResourceCollectionFilter {
 }
 
 /**
+ * <p>Information about a collection of Amazon Web Services resources that are identified by an
+ *    		Amazon Web Services tag. This collection of resources is used to create a monthly cost estimate
+ *    		for DevOps Guru to analyze Amazon Web Services resources. The maximum number of tags you can specify for a
+ *    		cost estimate is one. The estimate created is for the cost to analyze the Amazon Web Services
+ *    		resources defined by the tag. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html">Stacks</a> in the
+ *    		<i>Amazon Web Services CloudFormation User Guide</i>.</p>
+ */
+export interface TagCostEstimationResourceCollectionFilter {
+  /**
+   * <p>An Amazon Web Services tag <i>key</i> that is used to identify the Amazon Web Services resources that
+   *       	DevOps Guru analyzes. All Amazon Web Services resources in your account and Region tagged with this <i>key</i> make
+   *       up your DevOps Guru application and analysis boundary.</p>
+   *          <important>
+   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
+   * 			<code>Devops-guru-deployment-application</code> or
+   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
+   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
+   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			application might be <code>Devops-Guru-production-application/RDS</code> or
+   * 			<code>Devops-Guru-production-application/containers</code>.</p>
+   * 	        </important>
+   */
+  AppBoundaryKey: string | undefined;
+
+  /**
+   * <p>The values in an Amazon Web Services tag collection.</p>
+   *    	     <p>The tag's <i>value</i> is an optional field used to associate a string with
+   * 					the tag <i>key</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team
+   *    				name). The <i>key</i> and <i>value</i> are the tag's <i>key</i> pair.
+   *    				Omitting the tag <i>value</i> is the same as using an empty
+   *    				string. Like tag <i>keys</i>, tag <i>values</i> are
+   *    				case-sensitive. You can specify a maximum of 256 characters for a tag value.</p>
+   */
+  TagValues: string[] | undefined;
+}
+
+export namespace TagCostEstimationResourceCollectionFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagCostEstimationResourceCollectionFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Information about a filter used to specify which Amazon Web Services resources are analyzed to
  * 			create a monthly DevOps Guru cost estimate. For more information,
  * 			see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html">Estimate your
@@ -1773,6 +2568,45 @@ export interface CostEstimationResourceCollectionFilter {
    * 			used to create a monthly estimate for DevOps Guru.</p>
    */
   CloudFormation?: CloudFormationCostEstimationResourceCollectionFilter;
+
+  /**
+   * <p>The Amazon Web Services tags used to filter the resource collection that is used for
+   *    		a cost estimate.</p>
+   *    	     <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
+   *    		tagging, so you can assign the same tag to resources from different services to indicate
+   *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
+   *    		table resource that you assign to an Lambda function. For more information about
+   *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
+   *    			best practices</a> whitepaper. </p>
+   *    	     <p>Each Amazon Web Services tag has two parts. </p>
+   *    	     <ul>
+   *             <li>
+   *    			         <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
+   *    				<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
+   *    				<i>keys</i> are case-sensitive.</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>An optional field known as a tag <i>value</i> (for example,
+   *    				<code>111122223333</code>, <code>Production</code>, or a team
+   *    				name). Omitting the tag <i>value</i> is the same as using an empty
+   *    				string. Like tag <i>keys</i>, tag <i>values</i> are
+   *    				case-sensitive.</p>
+   *    		       </li>
+   *          </ul>
+   *    	     <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
+   *    	     <important>
+   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
+   * 			<code>Devops-guru-deployment-application</code> or
+   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
+   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
+   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			application might be <code>Devops-Guru-production-application/RDS</code> or
+   * 			<code>Devops-Guru-production-application/containers</code>.</p>
+   * 	        </important>
+   */
+  Tags?: TagCostEstimationResourceCollectionFilter[];
 }
 
 export namespace CostEstimationResourceCollectionFilter {
@@ -1907,6 +2741,50 @@ export namespace CloudFormationCollectionFilter {
 }
 
 /**
+ * <p>A collection of Amazon Web Services tags used to filter insights. This is used to return insights generated from
+ *       only resources that contain the tags in the tag collection.</p>
+ */
+export interface TagCollectionFilter {
+  /**
+   * <p>An Amazon Web Services tag <i>key</i> that is used to identify the Amazon Web Services resources that
+   *       	DevOps Guru analyzes. All Amazon Web Services resources in your account and Region tagged with this <i>key</i> make
+   *       up your DevOps Guru application and analysis boundary.</p>
+   *          <important>
+   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
+   * 			<code>Devops-guru-deployment-application</code> or
+   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
+   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
+   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			application might be <code>Devops-Guru-production-application/RDS</code> or
+   * 			<code>Devops-Guru-production-application/containers</code>.</p>
+   * 	        </important>
+   */
+  AppBoundaryKey: string | undefined;
+
+  /**
+   * <p>The values in an Amazon Web Services tag collection.</p>
+   *    	     <p>The tag's <i>value</i> is an optional field used to associate a string with
+   * 					the tag <i>key</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team
+   *    				name). The <i>key</i> and <i>value</i> are the tag's <i>key</i> pair.
+   *    				Omitting the tag <i>value</i> is the same as using an empty
+   *    				string. Like tag <i>keys</i>, tag <i>values</i> are
+   *    				case-sensitive. You can specify a maximum of 256 characters for a tag value.</p>
+   */
+  TagValues: string[] | undefined;
+}
+
+export namespace TagCollectionFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagCollectionFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p> Information about a filter used to specify which Amazon Web Services resources are analyzed for
  * 			anomalous behavior by DevOps Guru. </p>
  */
@@ -1918,6 +2796,44 @@ export interface ResourceCollectionFilter {
    * 				<i>Amazon Web Services CloudFormation User Guide</i>. </p>
    */
   CloudFormation?: CloudFormationCollectionFilter;
+
+  /**
+   * <p>The Amazon Web Services tags used to filter the resources in the resource collection.</p>
+   *    	     <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
+   *    		tagging, so you can assign the same tag to resources from different services to indicate
+   *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
+   *    		table resource that you assign to an Lambda function. For more information about
+   *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
+   *    			best practices</a> whitepaper. </p>
+   *    	     <p>Each Amazon Web Services tag has two parts. </p>
+   *    	     <ul>
+   *             <li>
+   *    			         <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
+   *    				<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
+   *    				<i>keys</i> are case-sensitive.</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>An optional field known as a tag <i>value</i> (for example,
+   *    				<code>111122223333</code>, <code>Production</code>, or a team
+   *    				name). Omitting the tag <i>value</i> is the same as using an empty
+   *    				string. Like tag <i>keys</i>, tag <i>values</i> are
+   *    				case-sensitive.</p>
+   *    		       </li>
+   *          </ul>
+   *    	     <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
+   *    	     <important>
+   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
+   * 			<code>Devops-guru-deployment-application</code> or
+   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
+   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
+   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			application might be <code>Devops-Guru-production-application/RDS</code> or
+   * 			<code>Devops-Guru-production-application/containers</code>.</p>
+   * 	        </important>
+   */
+  Tags?: TagCollectionFilter[];
 }
 
 export namespace ResourceCollectionFilter {
@@ -1932,8 +2848,9 @@ export namespace ResourceCollectionFilter {
 export interface GetResourceCollectionResponse {
   /**
    * <p> The requested list of Amazon Web Services resource collections.
-   * 			The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   ResourceCollection?: ResourceCollectionFilter;
 
@@ -2029,7 +2946,10 @@ export interface ProactiveAnomalySummary {
   Id?: string;
 
   /**
-   * <p>The severity of the anomaly.</p>
+   * <p>The severity of the anomaly. The severity of anomalies that generate
+   * 	an insight determine that insight's severity. For more information, see
+   * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
+   * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
   Severity?: AnomalySeverity | string;
 
@@ -2052,7 +2972,7 @@ export interface ProactiveAnomalySummary {
 
   /**
    * <p>
-   * 			A <code>AnomalyReportedTimeRange</code> object that specifies the time range between when the anomaly is opened and the time when it is closed.
+   * 			An <code>AnomalyReportedTimeRange</code> object that specifies the time range between when the anomaly is opened and the time when it is closed.
    * 		</p>
    */
   AnomalyReportedTimeRange?: AnomalyReportedTimeRange;
@@ -2077,8 +2997,9 @@ export interface ProactiveAnomalySummary {
 
   /**
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
-   * 			The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   ResourceCollection?: ResourceCollection;
 
@@ -2110,7 +3031,10 @@ export interface ReactiveAnomalySummary {
   Id?: string;
 
   /**
-   * <p> The severity of the reactive anomaly. </p>
+   * <p>The severity of the anomaly. The severity of anomalies that generate
+   * 	an insight determine that insight's severity. For more information, see
+   * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
+   * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
   Severity?: AnomalySeverity | string;
 
@@ -2128,7 +3052,7 @@ export interface ReactiveAnomalySummary {
 
   /**
    * <p>
-   * 			A <code>AnomalyReportedTimeRange</code> object that specifies the time range between when the anomaly is opened and the time when it is closed.
+   * 			An <code>AnomalyReportedTimeRange</code> object that specifies the time range between when the anomaly is opened and the time when it is closed.
    * 		</p>
    */
   AnomalyReportedTimeRange?: AnomalyReportedTimeRange;
@@ -2147,10 +3071,47 @@ export interface ReactiveAnomalySummary {
 
   /**
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
-   * 			The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   ResourceCollection?: ResourceCollection;
+
+  /**
+   * <p>The type of the reactive anomaly. It can be one of the following types.</p>
+   * 	        <ul>
+   *             <li>
+   * 	   	          <p>
+   * 	   		            <code>CAUSAL</code> - the anomaly can cause a new insight.</p>
+   * 	           </li>
+   *             <li>
+   * 	   	          <p>
+   * 	   		            <code>CONTEXTUAL</code> - the anomaly contains additional information about an insight or its causal anomaly.</p>
+   * 	           </li>
+   *          </ul>
+   */
+  Type?: AnomalyType | string;
+
+  /**
+   * <p>The name of the reactive anomaly.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A description of the reactive anomaly.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the causal anomaly that is associated with this
+   *       reactive anomaly. The ID of a `CAUSAL` anomaly is always `NULL`.</p>
+   */
+  CausalAnomalyId?: string;
+
+  /**
+   * <p>The Amazon Web Services resources in which anomalous behavior was detected by DevOps Guru.</p>
+   */
+  AnomalyResources?: AnomalyResource[];
 }
 
 export namespace ReactiveAnomalySummary {
@@ -2264,8 +3225,9 @@ export interface ListEventsFilters {
 
   /**
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
-   * 			The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   ResourceCollection?: ResourceCollection;
 }
@@ -2352,8 +3314,9 @@ export namespace EventResource {
 export interface Event {
   /**
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
-   * 			The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   ResourceCollection?: ResourceCollection;
 
@@ -2627,7 +3590,9 @@ export interface ProactiveInsightSummary {
   Name?: string;
 
   /**
-   * <p>The severity of the proactive insight. </p>
+   * <p>The severity of the insight. For more information, see
+   * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
+   * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
   Severity?: InsightSeverity | string;
 
@@ -2650,8 +3615,9 @@ export interface ProactiveInsightSummary {
 
   /**
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
-   * 			The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   ResourceCollection?: ResourceCollection;
 
@@ -2659,6 +3625,12 @@ export interface ProactiveInsightSummary {
    * <p>A collection of the names of Amazon Web Services services.</p>
    */
   ServiceCollection?: ServiceCollection;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs)
+   * 	of the Amazon Web Services resources that generated this insight.</p>
+   */
+  AssociatedResourceArns?: string[];
 }
 
 export namespace ProactiveInsightSummary {
@@ -2687,7 +3659,9 @@ export interface ReactiveInsightSummary {
   Name?: string;
 
   /**
-   * <p> The severity of a reactive insight. </p>
+   * <p>The severity of the insight. For more information, see
+   * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
+   * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
   Severity?: InsightSeverity | string;
 
@@ -2704,8 +3678,9 @@ export interface ReactiveInsightSummary {
 
   /**
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
-   * 			The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   ResourceCollection?: ResourceCollection;
 
@@ -2713,6 +3688,12 @@ export interface ReactiveInsightSummary {
    * <p>A collection of the names of Amazon Web Services services.</p>
    */
   ServiceCollection?: ServiceCollection;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs)
+   * 	of the Amazon Web Services resources that generated this insight.</p>
+   */
+  AssociatedResourceArns?: string[];
 }
 
 export namespace ReactiveInsightSummary {
@@ -2865,7 +3846,7 @@ export namespace ListOrganizationInsightsRequest {
 
 /**
  * <p>Details about a proactive insight. This object is returned by
- * 				<code>DescribeInsight</code>.</p>
+ * 			<code>DescribeInsight</code>.</p>
  */
 export interface ProactiveOrganizationInsightSummary {
   /**
@@ -2889,7 +3870,9 @@ export interface ProactiveOrganizationInsightSummary {
   Name?: string;
 
   /**
-   * <p> An array of severity values used to search for insights. </p>
+   * <p> An array of severity values used to search for insights. For more information, see
+   * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
+   * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
   Severity?: InsightSeverity | string;
 
@@ -2912,8 +3895,9 @@ export interface ProactiveOrganizationInsightSummary {
 
   /**
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
-   * 			The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   ResourceCollection?: ResourceCollection;
 
@@ -2934,7 +3918,7 @@ export namespace ProactiveOrganizationInsightSummary {
 
 /**
  * <p>Information about a reactive insight. This object is returned by
- * 				<code>DescribeInsight</code>.</p>
+ * 			<code>DescribeInsight</code>.</p>
  */
 export interface ReactiveOrganizationInsightSummary {
   /**
@@ -2943,7 +3927,7 @@ export interface ReactiveOrganizationInsightSummary {
   Id?: string;
 
   /**
-   * <p>The ID of the Amazon Web Services account.</p>
+   * <p>The ID of the Amazon Web Services account. </p>
    */
   AccountId?: string;
 
@@ -2958,7 +3942,9 @@ export interface ReactiveOrganizationInsightSummary {
   Name?: string;
 
   /**
-   * <p> An array of severity values used to search for insights. </p>
+   * <p> An array of severity values used to search for insights. For more information, see
+   * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
+   * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
   Severity?: InsightSeverity | string;
 
@@ -2975,8 +3961,9 @@ export interface ReactiveOrganizationInsightSummary {
 
   /**
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
-   * 			The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   ResourceCollection?: ResourceCollection;
 
@@ -3080,7 +4067,11 @@ export interface RecommendationRelatedAnomalyResource {
   Name?: string;
 
   /**
-   * <p> The type of the resource. </p>
+   * <p> The type of the resource. Resource types take the same form that is
+   * 			used by Amazon Web Services CloudFormation resource type identifiers, <code>service-provider::service-name::data-type-name</code>.
+   * 			For example, <code>AWS::RDS::DBCluster</code>. For more information, see
+   * 			<a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and
+   * 				property types reference</a> in the <i>Amazon Web Services CloudFormation User Guide</i>.</p>
    */
   Type?: string;
 }
@@ -3155,6 +4146,11 @@ export interface RecommendationRelatedAnomaly {
    * 			For example, details in Amazon CloudWatch metrics. </p>
    */
   SourceDetails?: RecommendationRelatedAnomalySourceDetail[];
+
+  /**
+   * <p>The ID of an anomaly that generated the insight with this recommendation.</p>
+   */
+  AnomalyId?: string;
 }
 
 export namespace RecommendationRelatedAnomaly {
@@ -3359,8 +4355,9 @@ export interface SearchInsightsFilters {
 
   /**
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
-   * 			The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   ResourceCollection?: ResourceCollection;
 
@@ -3464,8 +4461,9 @@ export interface SearchOrganizationInsightsFilters {
 
   /**
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
-   * 			The one type of Amazon Web Services resource collection supported is Amazon Web Services CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the Amazon Web Services resources that are defined in the stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   ResourceCollection?: ResourceCollection;
 
@@ -3516,7 +4514,7 @@ export interface SearchOrganizationInsightsRequest {
 
   /**
    * <p> The type of insights you are searching for (<code>REACTIVE</code> or
-   * 				<code>PROACTIVE</code>). </p>
+   * 			<code>PROACTIVE</code>). </p>
    */
   Type: InsightType | string | undefined;
 }
@@ -3618,13 +4616,95 @@ export namespace UpdateCloudFormationCollectionFilter {
 }
 
 /**
+ * <p>A new collection of Amazon Web Services resources that are defined by an Amazon Web Services tag or tag
+ *       <i>key</i>/<i>value</i> pair.</p>
+ */
+export interface UpdateTagCollectionFilter {
+  /**
+   * <p>An Amazon Web Services tag <i>key</i> that is used to identify the Amazon Web Services resources that
+   *       	DevOps Guru analyzes. All Amazon Web Services resources in your account and Region tagged with this <i>key</i> make
+   *       up your DevOps Guru application and analysis boundary.</p>
+   *          <important>
+   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
+   * 			<code>Devops-guru-deployment-application</code> or
+   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
+   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
+   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			application might be <code>Devops-Guru-production-application/RDS</code> or
+   * 			<code>Devops-Guru-production-application/containers</code>.</p>
+   * 	        </important>
+   */
+  AppBoundaryKey: string | undefined;
+
+  /**
+   * <p>The values in an Amazon Web Services tag collection.</p>
+   *    	     <p>The tag's <i>value</i> is an optional field used to associate a string with
+   * 					the tag <i>key</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team
+   *    				name). The <i>key</i> and <i>value</i> are the tag's <i>key</i> pair.
+   *    				Omitting the tag <i>value</i> is the same as using an empty
+   *    				string. Like tag <i>keys</i>, tag <i>values</i> are
+   *    				case-sensitive. You can specify a maximum of 256 characters for a tag value.</p>
+   */
+  TagValues: string[] | undefined;
+}
+
+export namespace UpdateTagCollectionFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateTagCollectionFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p> Contains information used to update a collection of Amazon Web Services resources. </p>
  */
 export interface UpdateResourceCollectionFilter {
   /**
-   * <p> An collection of Amazon Web Services CloudFormation stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   * <p> A collection of Amazon Web Services CloudFormation stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   CloudFormation?: UpdateCloudFormationCollectionFilter;
+
+  /**
+   * <p>The updated Amazon Web Services tags used to filter the resources in the resource collection.</p>
+   *    	     <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
+   *    		tagging, so you can assign the same tag to resources from different services to indicate
+   *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
+   *    		table resource that you assign to an Lambda function. For more information about
+   *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
+   *    			best practices</a> whitepaper. </p>
+   *    	     <p>Each Amazon Web Services tag has two parts. </p>
+   *    	     <ul>
+   *             <li>
+   *    			         <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
+   *    				<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
+   *    				<i>keys</i> are case-sensitive.</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>An optional field known as a tag <i>value</i> (for example,
+   *    				<code>111122223333</code>, <code>Production</code>, or a team
+   *    				name). Omitting the tag <i>value</i> is the same as using an empty
+   *    				string. Like tag <i>keys</i>, tag <i>values</i> are
+   *    				case-sensitive.</p>
+   *    		       </li>
+   *          </ul>
+   *    	     <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
+   *    	     <important>
+   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
+   * 			<code>Devops-guru-deployment-application</code> or
+   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
+   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
+   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			application might be <code>Devops-Guru-production-application/RDS</code> or
+   * 			<code>Devops-Guru-production-application/containers</code>.</p>
+   * 	        </important>
+   */
+  Tags?: UpdateTagCollectionFilter[];
 }
 
 export namespace UpdateResourceCollectionFilter {

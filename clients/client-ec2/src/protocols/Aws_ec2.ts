@@ -52,6 +52,10 @@ import { AdvertiseByoipCidrCommandInput, AdvertiseByoipCidrCommandOutput } from 
 import { AllocateAddressCommandInput, AllocateAddressCommandOutput } from "../commands/AllocateAddressCommand";
 import { AllocateHostsCommandInput, AllocateHostsCommandOutput } from "../commands/AllocateHostsCommand";
 import {
+  AllocateIpamPoolCidrCommandInput,
+  AllocateIpamPoolCidrCommandOutput,
+} from "../commands/AllocateIpamPoolCidrCommand";
+import {
   ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
   ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput,
 } from "../commands/ApplySecurityGroupsToClientVpnTargetNetworkCommand";
@@ -219,6 +223,9 @@ import {
   CreateInternetGatewayCommandInput,
   CreateInternetGatewayCommandOutput,
 } from "../commands/CreateInternetGatewayCommand";
+import { CreateIpamCommandInput, CreateIpamCommandOutput } from "../commands/CreateIpamCommand";
+import { CreateIpamPoolCommandInput, CreateIpamPoolCommandOutput } from "../commands/CreateIpamPoolCommand";
+import { CreateIpamScopeCommandInput, CreateIpamScopeCommandOutput } from "../commands/CreateIpamScopeCommand";
 import { CreateKeyPairCommandInput, CreateKeyPairCommandOutput } from "../commands/CreateKeyPairCommand";
 import {
   CreateLaunchTemplateCommandInput,
@@ -247,6 +254,10 @@ import {
   CreateNetworkAclEntryCommandOutput,
 } from "../commands/CreateNetworkAclEntryCommand";
 import {
+  CreateNetworkInsightsAccessScopeCommandInput,
+  CreateNetworkInsightsAccessScopeCommandOutput,
+} from "../commands/CreateNetworkInsightsAccessScopeCommand";
+import {
   CreateNetworkInsightsPathCommandInput,
   CreateNetworkInsightsPathCommandOutput,
 } from "../commands/CreateNetworkInsightsPathCommand";
@@ -262,6 +273,10 @@ import {
   CreatePlacementGroupCommandInput,
   CreatePlacementGroupCommandOutput,
 } from "../commands/CreatePlacementGroupCommand";
+import {
+  CreatePublicIpv4PoolCommandInput,
+  CreatePublicIpv4PoolCommandOutput,
+} from "../commands/CreatePublicIpv4PoolCommand";
 import {
   CreateReplaceRootVolumeTaskCommandInput,
   CreateReplaceRootVolumeTaskCommandOutput,
@@ -404,6 +419,9 @@ import {
   DeleteInternetGatewayCommandInput,
   DeleteInternetGatewayCommandOutput,
 } from "../commands/DeleteInternetGatewayCommand";
+import { DeleteIpamCommandInput, DeleteIpamCommandOutput } from "../commands/DeleteIpamCommand";
+import { DeleteIpamPoolCommandInput, DeleteIpamPoolCommandOutput } from "../commands/DeleteIpamPoolCommand";
+import { DeleteIpamScopeCommandInput, DeleteIpamScopeCommandOutput } from "../commands/DeleteIpamScopeCommand";
 import { DeleteKeyPairCommandInput, DeleteKeyPairCommandOutput } from "../commands/DeleteKeyPairCommand";
 import {
   DeleteLaunchTemplateCommandInput,
@@ -432,6 +450,14 @@ import {
   DeleteNetworkAclEntryCommandOutput,
 } from "../commands/DeleteNetworkAclEntryCommand";
 import {
+  DeleteNetworkInsightsAccessScopeAnalysisCommandInput,
+  DeleteNetworkInsightsAccessScopeAnalysisCommandOutput,
+} from "../commands/DeleteNetworkInsightsAccessScopeAnalysisCommand";
+import {
+  DeleteNetworkInsightsAccessScopeCommandInput,
+  DeleteNetworkInsightsAccessScopeCommandOutput,
+} from "../commands/DeleteNetworkInsightsAccessScopeCommand";
+import {
   DeleteNetworkInsightsAnalysisCommandInput,
   DeleteNetworkInsightsAnalysisCommandOutput,
 } from "../commands/DeleteNetworkInsightsAnalysisCommand";
@@ -451,6 +477,10 @@ import {
   DeletePlacementGroupCommandInput,
   DeletePlacementGroupCommandOutput,
 } from "../commands/DeletePlacementGroupCommand";
+import {
+  DeletePublicIpv4PoolCommandInput,
+  DeletePublicIpv4PoolCommandOutput,
+} from "../commands/DeletePublicIpv4PoolCommand";
 import {
   DeleteQueuedReservedInstancesCommandInput,
   DeleteQueuedReservedInstancesCommandOutput,
@@ -552,6 +582,14 @@ import {
   DeprovisionByoipCidrCommandInput,
   DeprovisionByoipCidrCommandOutput,
 } from "../commands/DeprovisionByoipCidrCommand";
+import {
+  DeprovisionIpamPoolCidrCommandInput,
+  DeprovisionIpamPoolCidrCommandOutput,
+} from "../commands/DeprovisionIpamPoolCidrCommand";
+import {
+  DeprovisionPublicIpv4PoolCidrCommandInput,
+  DeprovisionPublicIpv4PoolCidrCommandOutput,
+} from "../commands/DeprovisionPublicIpv4PoolCidrCommand";
 import { DeregisterImageCommandInput, DeregisterImageCommandOutput } from "../commands/DeregisterImageCommand";
 import {
   DeregisterInstanceEventNotificationAttributesCommandInput,
@@ -735,6 +773,9 @@ import {
   DescribeInternetGatewaysCommandInput,
   DescribeInternetGatewaysCommandOutput,
 } from "../commands/DescribeInternetGatewaysCommand";
+import { DescribeIpamPoolsCommandInput, DescribeIpamPoolsCommandOutput } from "../commands/DescribeIpamPoolsCommand";
+import { DescribeIpamsCommandInput, DescribeIpamsCommandOutput } from "../commands/DescribeIpamsCommand";
+import { DescribeIpamScopesCommandInput, DescribeIpamScopesCommandOutput } from "../commands/DescribeIpamScopesCommand";
 import { DescribeIpv6PoolsCommandInput, DescribeIpv6PoolsCommandOutput } from "../commands/DescribeIpv6PoolsCommand";
 import { DescribeKeyPairsCommandInput, DescribeKeyPairsCommandOutput } from "../commands/DescribeKeyPairsCommand";
 import {
@@ -785,6 +826,14 @@ import {
   DescribeNetworkAclsCommandInput,
   DescribeNetworkAclsCommandOutput,
 } from "../commands/DescribeNetworkAclsCommand";
+import {
+  DescribeNetworkInsightsAccessScopeAnalysesCommandInput,
+  DescribeNetworkInsightsAccessScopeAnalysesCommandOutput,
+} from "../commands/DescribeNetworkInsightsAccessScopeAnalysesCommand";
+import {
+  DescribeNetworkInsightsAccessScopesCommandInput,
+  DescribeNetworkInsightsAccessScopesCommandOutput,
+} from "../commands/DescribeNetworkInsightsAccessScopesCommand";
 import {
   DescribeNetworkInsightsAnalysesCommandInput,
   DescribeNetworkInsightsAnalysesCommandOutput,
@@ -1046,6 +1095,10 @@ import {
   DisableImageDeprecationCommandOutput,
 } from "../commands/DisableImageDeprecationCommand";
 import {
+  DisableIpamOrganizationAdminAccountCommandInput,
+  DisableIpamOrganizationAdminAccountCommandOutput,
+} from "../commands/DisableIpamOrganizationAdminAccountCommand";
+import {
   DisableSerialConsoleAccessCommandInput,
   DisableSerialConsoleAccessCommandOutput,
 } from "../commands/DisableSerialConsoleAccessCommand";
@@ -1121,6 +1174,10 @@ import {
   EnableImageDeprecationCommandInput,
   EnableImageDeprecationCommandOutput,
 } from "../commands/EnableImageDeprecationCommand";
+import {
+  EnableIpamOrganizationAdminAccountCommandInput,
+  EnableIpamOrganizationAdminAccountCommandOutput,
+} from "../commands/EnableIpamOrganizationAdminAccountCommand";
 import {
   EnableSerialConsoleAccessCommandInput,
   EnableSerialConsoleAccessCommandOutput,
@@ -1202,6 +1259,19 @@ import {
   GetInstanceTypesFromInstanceRequirementsCommandOutput,
 } from "../commands/GetInstanceTypesFromInstanceRequirementsCommand";
 import {
+  GetIpamAddressHistoryCommandInput,
+  GetIpamAddressHistoryCommandOutput,
+} from "../commands/GetIpamAddressHistoryCommand";
+import {
+  GetIpamPoolAllocationsCommandInput,
+  GetIpamPoolAllocationsCommandOutput,
+} from "../commands/GetIpamPoolAllocationsCommand";
+import { GetIpamPoolCidrsCommandInput, GetIpamPoolCidrsCommandOutput } from "../commands/GetIpamPoolCidrsCommand";
+import {
+  GetIpamResourceCidrsCommandInput,
+  GetIpamResourceCidrsCommandOutput,
+} from "../commands/GetIpamResourceCidrsCommand";
+import {
   GetLaunchTemplateDataCommandInput,
   GetLaunchTemplateDataCommandOutput,
 } from "../commands/GetLaunchTemplateDataCommand";
@@ -1213,6 +1283,14 @@ import {
   GetManagedPrefixListEntriesCommandInput,
   GetManagedPrefixListEntriesCommandOutput,
 } from "../commands/GetManagedPrefixListEntriesCommand";
+import {
+  GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput,
+  GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput,
+} from "../commands/GetNetworkInsightsAccessScopeAnalysisFindingsCommand";
+import {
+  GetNetworkInsightsAccessScopeContentCommandInput,
+  GetNetworkInsightsAccessScopeContentCommandOutput,
+} from "../commands/GetNetworkInsightsAccessScopeContentCommand";
 import { GetPasswordDataCommandInput, GetPasswordDataCommandOutput } from "../commands/GetPasswordDataCommand";
 import {
   GetReservedInstancesExchangeQuoteCommandInput,
@@ -1342,6 +1420,13 @@ import {
   ModifyInstancePlacementCommandInput,
   ModifyInstancePlacementCommandOutput,
 } from "../commands/ModifyInstancePlacementCommand";
+import { ModifyIpamCommandInput, ModifyIpamCommandOutput } from "../commands/ModifyIpamCommand";
+import { ModifyIpamPoolCommandInput, ModifyIpamPoolCommandOutput } from "../commands/ModifyIpamPoolCommand";
+import {
+  ModifyIpamResourceCidrCommandInput,
+  ModifyIpamResourceCidrCommandOutput,
+} from "../commands/ModifyIpamResourceCidrCommand";
+import { ModifyIpamScopeCommandInput, ModifyIpamScopeCommandOutput } from "../commands/ModifyIpamScopeCommand";
 import {
   ModifyLaunchTemplateCommandInput,
   ModifyLaunchTemplateCommandOutput,
@@ -1445,7 +1530,19 @@ import {
 } from "../commands/ModifyVpnTunnelOptionsCommand";
 import { MonitorInstancesCommandInput, MonitorInstancesCommandOutput } from "../commands/MonitorInstancesCommand";
 import { MoveAddressToVpcCommandInput, MoveAddressToVpcCommandOutput } from "../commands/MoveAddressToVpcCommand";
+import {
+  MoveByoipCidrToIpamCommandInput,
+  MoveByoipCidrToIpamCommandOutput,
+} from "../commands/MoveByoipCidrToIpamCommand";
 import { ProvisionByoipCidrCommandInput, ProvisionByoipCidrCommandOutput } from "../commands/ProvisionByoipCidrCommand";
+import {
+  ProvisionIpamPoolCidrCommandInput,
+  ProvisionIpamPoolCidrCommandOutput,
+} from "../commands/ProvisionIpamPoolCidrCommand";
+import {
+  ProvisionPublicIpv4PoolCidrCommandInput,
+  ProvisionPublicIpv4PoolCidrCommandOutput,
+} from "../commands/ProvisionPublicIpv4PoolCidrCommand";
 import {
   PurchaseHostReservationCommandInput,
   PurchaseHostReservationCommandOutput,
@@ -1494,6 +1591,10 @@ import {
 } from "../commands/RejectVpcPeeringConnectionCommand";
 import { ReleaseAddressCommandInput, ReleaseAddressCommandOutput } from "../commands/ReleaseAddressCommand";
 import { ReleaseHostsCommandInput, ReleaseHostsCommandOutput } from "../commands/ReleaseHostsCommand";
+import {
+  ReleaseIpamPoolAllocationCommandInput,
+  ReleaseIpamPoolAllocationCommandOutput,
+} from "../commands/ReleaseIpamPoolAllocationCommand";
 import {
   ReplaceIamInstanceProfileAssociationCommandInput,
   ReplaceIamInstanceProfileAssociationCommandOutput,
@@ -1603,6 +1704,10 @@ import {
 } from "../commands/SendDiagnosticInterruptCommand";
 import { StartInstancesCommandInput, StartInstancesCommandOutput } from "../commands/StartInstancesCommand";
 import {
+  StartNetworkInsightsAccessScopeAnalysisCommandInput,
+  StartNetworkInsightsAccessScopeAnalysisCommandOutput,
+} from "../commands/StartNetworkInsightsAccessScopeAnalysisCommand";
+import {
   StartNetworkInsightsAnalysisCommandInput,
   StartNetworkInsightsAnalysisCommandOutput,
 } from "../commands/StartNetworkInsightsAnalysisCommand";
@@ -1655,10 +1760,14 @@ import {
   AcceptVpcEndpointConnectionsResult,
   AcceptVpcPeeringConnectionRequest,
   AcceptVpcPeeringConnectionResult,
+  AccessScopeAnalysisFinding,
+  AccessScopePath,
+  AccessScopePathRequest,
   AccountAttribute,
   AccountAttributeName,
   AccountAttributeValue,
   ActiveInstance,
+  AddIpamOperatingRegion,
   AddPrefixListEntry,
   Address,
   AddressAttribute,
@@ -1668,8 +1777,15 @@ import {
   AllocateAddressResult,
   AllocateHostsRequest,
   AllocateHostsResult,
+  AllocateIpamPoolCidrRequest,
+  AllocateIpamPoolCidrResult,
   AllowedPrincipal,
   AlternatePathHint,
+  AnalysisAclRule,
+  AnalysisComponent,
+  AnalysisPacketHeader,
+  AnalysisRouteTableRoute,
+  AnalysisSecurityGroupRule,
   ApplySecurityGroupsToClientVpnTargetNetworkRequest,
   ApplySecurityGroupsToClientVpnTargetNetworkResult,
   AssignedPrivateIpAddress,
@@ -1745,7 +1861,6 @@ import {
   CancelSpotInstanceRequestsResult,
   CapacityReservation,
   CapacityReservationFleetCancellationState,
-  CapacityReservationOptionsRequest,
   CarrierGateway,
   CertificateAuthenticationRequest,
   CidrBlock,
@@ -1784,7 +1899,6 @@ import {
   CreateDhcpOptionsResult,
   CreateEgressOnlyInternetGatewayRequest,
   CreateEgressOnlyInternetGatewayResult,
-  CreateFleetRequest,
   CustomerGateway,
   DhcpConfiguration,
   DhcpOptions,
@@ -1793,12 +1907,7 @@ import {
   FailedCapacityReservationFleetCancellationResult,
   FederatedAuthenticationRequest,
   FleetCapacityReservation,
-  FleetLaunchTemplateConfigRequest,
-  FleetLaunchTemplateOverridesRequest,
-  FleetLaunchTemplateSpecification,
   FleetLaunchTemplateSpecificationRequest,
-  FleetSpotCapacityRebalanceRequest,
-  FleetSpotMaintenanceStrategiesRequest,
   IamInstanceProfile,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
@@ -1808,33 +1917,36 @@ import {
   InstanceEventWindowAssociationTarget,
   InstanceEventWindowTimeRange,
   InstanceGeneration,
-  InstanceRequirementsRequest,
   InternetGatewayAttachment,
+  IpamPoolAllocation,
   IpPermission,
   IpRange,
   Ipv4PrefixSpecification,
   Ipv6CidrBlock,
   Ipv6Range,
   LocalStorageType,
-  MemoryGiBPerVCpuRequest,
-  MemoryMiBRequest,
-  NetworkInterfaceCountRequest,
   NewDhcpConfiguration,
-  OnDemandOptionsRequest,
+  PacketHeaderStatement,
+  PacketHeaderStatementRequest,
+  PathComponent,
+  PathStatement,
+  PathStatementRequest,
   PeeringAttachmentStatus,
   PeeringTgwInfo,
-  Placement,
+  PortRange,
   PrefixListId,
   PriceSchedule,
   PrivateDnsNameOptionsOnLaunch,
+  Protocol,
   PtrUpdateStatus,
   ReferencedSecurityGroup,
   ReservationFleetInstanceSpecification,
   ReservedInstancesListing,
+  ResourceStatement,
+  ResourceStatementRequest,
   RouteTableAssociationState,
   S3Storage,
   SecurityGroupRule,
-  SpotOptionsRequest,
   Storage,
   Subnet,
   SubnetAssociation,
@@ -1842,9 +1954,9 @@ import {
   SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
-  TargetCapacitySpecificationRequest,
   TargetConfigurationRequest,
-  TotalLocalStorageGBRequest,
+  ThroughResourcesStatement,
+  ThroughResourcesStatementRequest,
   TransitGatewayAssociation,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
@@ -1854,7 +1966,6 @@ import {
   UnsuccessfulItem,
   UnsuccessfulItemError,
   UserIdGroupPair,
-  VCpuCountRangeRequest,
   VolumeAttachment,
   Vpc,
   VpcAttachment,
@@ -1869,10 +1980,12 @@ import {
 import {
   BaselineEbsBandwidthMbps,
   BlockDeviceMapping,
+  CapacityReservationOptionsRequest,
   CapacityReservationTarget,
   CapacityReservationTargetResponse,
   CreateFleetError,
   CreateFleetInstance,
+  CreateFleetRequest,
   CreateFleetResult,
   CreateFlowLogsRequest,
   CreateFlowLogsResult,
@@ -1886,6 +1999,12 @@ import {
   CreateInstanceExportTaskResult,
   CreateInternetGatewayRequest,
   CreateInternetGatewayResult,
+  CreateIpamPoolRequest,
+  CreateIpamPoolResult,
+  CreateIpamRequest,
+  CreateIpamResult,
+  CreateIpamScopeRequest,
+  CreateIpamScopeResult,
   CreateKeyPairRequest,
   CreateLaunchTemplateRequest,
   CreateLaunchTemplateResult,
@@ -1902,6 +2021,8 @@ import {
   CreateNetworkAclEntryRequest,
   CreateNetworkAclRequest,
   CreateNetworkAclResult,
+  CreateNetworkInsightsAccessScopeRequest,
+  CreateNetworkInsightsAccessScopeResult,
   CreateNetworkInsightsPathRequest,
   CreateNetworkInsightsPathResult,
   CreateNetworkInterfacePermissionRequest,
@@ -1910,6 +2031,8 @@ import {
   CreateNetworkInterfaceResult,
   CreatePlacementGroupRequest,
   CreatePlacementGroupResult,
+  CreatePublicIpv4PoolRequest,
+  CreatePublicIpv4PoolResult,
   CreateReplaceRootVolumeTaskRequest,
   CreateReplaceRootVolumeTaskResult,
   CreateReservedInstancesListingRequest,
@@ -1943,42 +2066,26 @@ import {
   CreateTrafficMirrorTargetRequest,
   CreateTrafficMirrorTargetResult,
   CreateTransitGatewayConnectPeerRequest,
-  CreateTransitGatewayConnectPeerResult,
   CreateTransitGatewayConnectRequest,
   CreateTransitGatewayConnectRequestOptions,
   CreateTransitGatewayConnectResult,
-  CreateTransitGatewayMulticastDomainRequest,
-  CreateTransitGatewayMulticastDomainRequestOptions,
-  CreateTransitGatewayMulticastDomainResult,
-  CreateTransitGatewayPeeringAttachmentRequest,
-  CreateTransitGatewayPeeringAttachmentResult,
-  CreateTransitGatewayPrefixListReferenceRequest,
-  CreateTransitGatewayPrefixListReferenceResult,
   CreateTransitGatewayRequest,
   CreateTransitGatewayResult,
-  CreateTransitGatewayRouteRequest,
-  CreateTransitGatewayRouteResult,
-  CreateTransitGatewayRouteTableRequest,
-  CreateTransitGatewayRouteTableResult,
-  CreateTransitGatewayVpcAttachmentRequest,
-  CreateTransitGatewayVpcAttachmentRequestOptions,
-  CreateTransitGatewayVpcAttachmentResult,
-  CreateVolumeRequest,
-  CreateVpcEndpointRequest,
-  CreateVpcEndpointResult,
-  CreateVpcRequest,
-  CreateVpcResult,
   CreditSpecification,
   CreditSpecificationRequest,
   DestinationOptionsRequest,
-  DnsEntry,
   EbsBlockDevice,
   ElasticGpuSpecification,
   ElasticGpuSpecificationResponse,
   ExportTask,
   ExportToS3Task,
   ExportToS3TaskSpecification,
+  FleetLaunchTemplateConfigRequest,
   FleetLaunchTemplateOverrides,
+  FleetLaunchTemplateOverridesRequest,
+  FleetLaunchTemplateSpecification,
+  FleetSpotCapacityRebalanceRequest,
+  FleetSpotMaintenanceStrategiesRequest,
   GroupIdentifier,
   IcmpTypeCode,
   InstanceEventWindowTimeRangeRequest,
@@ -1986,15 +2093,20 @@ import {
   InstanceIpv6Address,
   InstanceIpv6AddressRequest,
   InstanceRequirements,
+  InstanceRequirementsRequest,
   InstanceSpecification,
   InternetGateway,
+  Ipam,
+  IpamOperatingRegion,
+  IpamPool,
+  IpamResourceTag,
+  IpamScope,
   Ipv4PrefixSpecificationRequest,
   Ipv4PrefixSpecificationResponse,
   Ipv6PrefixSpecification,
   Ipv6PrefixSpecificationRequest,
   Ipv6PrefixSpecificationResponse,
   KeyPair,
-  LastError,
   LaunchTemplate,
   LaunchTemplateAndOverridesResponse,
   LaunchTemplateBlockDeviceMapping,
@@ -2036,43 +2148,52 @@ import {
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
   MemoryGiBPerVCpu,
+  MemoryGiBPerVCpuRequest,
   MemoryMiB,
+  MemoryMiBRequest,
   NatGateway,
   NatGatewayAddress,
   NetworkAcl,
   NetworkAclAssociation,
   NetworkAclEntry,
+  NetworkInsightsAccessScope,
+  NetworkInsightsAccessScopeContent,
   NetworkInsightsPath,
   NetworkInterface,
   NetworkInterfaceAssociation,
   NetworkInterfaceAttachment,
   NetworkInterfaceCount,
+  NetworkInterfaceCountRequest,
   NetworkInterfaceIpv6Address,
   NetworkInterfacePermission,
   NetworkInterfacePermissionState,
   NetworkInterfacePrivateIpAddress,
+  OnDemandOptionsRequest,
+  Placement,
   PlacementGroup,
   PlacementResponse,
-  PortRange,
   PriceScheduleSpecification,
   PrivateIpAddressSpecification,
   PropagatingVgw,
   ProvisionedBandwidth,
   ReplaceRootVolumeTask,
+  RequestIpamResourceTag,
   RequestLaunchTemplateData,
   ResponseLaunchTemplateData,
   Route,
   RouteTable,
   RouteTableAssociation,
   S3ObjectTag,
-  SecurityGroupIdentifier,
   Snapshot,
   SnapshotInfo,
   SpotDatafeedSubscription,
   SpotInstanceStateFault,
+  SpotOptionsRequest,
   StorageLocation,
   SubnetCidrReservation,
+  TargetCapacitySpecificationRequest,
   TotalLocalStorageGB,
+  TotalLocalStorageGBRequest,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
   TrafficMirrorNetworkService,
@@ -2084,23 +2205,13 @@ import {
   TransitGatewayAttachmentBgpConfiguration,
   TransitGatewayConnect,
   TransitGatewayConnectOptions,
-  TransitGatewayConnectPeer,
-  TransitGatewayConnectPeerConfiguration,
   TransitGatewayConnectRequestBgpOptions,
-  TransitGatewayMulticastDomain,
-  TransitGatewayMulticastDomainOptions,
   TransitGatewayOptions,
-  TransitGatewayPrefixListAttachment,
-  TransitGatewayPrefixListReference,
   TransitGatewayRequestOptions,
-  TransitGatewayRoute,
-  TransitGatewayRouteAttachment,
-  TransitGatewayRouteTable,
   ValidationError,
   ValidationWarning,
   VCpuCountRange,
-  Volume,
-  VpcEndpoint,
+  VCpuCountRangeRequest,
 } from "../models/models_1";
 import {
   AssociatedTargetNetwork,
@@ -2108,7 +2219,6 @@ import {
   AvailabilityZone,
   AvailabilityZoneMessage,
   CapacityReservationFleet,
-  CapacityReservationOptions,
   CertificateAuthentication,
   ClassicLinkInstance,
   ClientConnectResponseOptions,
@@ -2121,13 +2231,32 @@ import {
   CoipPool,
   ConnectionLogResponseOptions,
   ConnectionNotification,
-  ConversionTask,
+  CreateTransitGatewayConnectPeerResult,
+  CreateTransitGatewayMulticastDomainRequest,
+  CreateTransitGatewayMulticastDomainRequestOptions,
+  CreateTransitGatewayMulticastDomainResult,
+  CreateTransitGatewayPeeringAttachmentRequest,
+  CreateTransitGatewayPeeringAttachmentResult,
+  CreateTransitGatewayPrefixListReferenceRequest,
+  CreateTransitGatewayPrefixListReferenceResult,
+  CreateTransitGatewayRouteRequest,
+  CreateTransitGatewayRouteResult,
+  CreateTransitGatewayRouteTableRequest,
+  CreateTransitGatewayRouteTableResult,
+  CreateTransitGatewayVpcAttachmentRequest,
+  CreateTransitGatewayVpcAttachmentRequestOptions,
+  CreateTransitGatewayVpcAttachmentResult,
+  CreateVolumeRequest,
   CreateVpcEndpointConnectionNotificationRequest,
   CreateVpcEndpointConnectionNotificationResult,
+  CreateVpcEndpointRequest,
+  CreateVpcEndpointResult,
   CreateVpcEndpointServiceConfigurationRequest,
   CreateVpcEndpointServiceConfigurationResult,
   CreateVpcPeeringConnectionRequest,
   CreateVpcPeeringConnectionResult,
+  CreateVpcRequest,
+  CreateVpcResult,
   CreateVpnConnectionRequest,
   CreateVpnConnectionResult,
   CreateVpnConnectionRouteRequest,
@@ -2155,6 +2284,12 @@ import {
   DeleteInstanceEventWindowRequest,
   DeleteInstanceEventWindowResult,
   DeleteInternetGatewayRequest,
+  DeleteIpamPoolRequest,
+  DeleteIpamPoolResult,
+  DeleteIpamRequest,
+  DeleteIpamResult,
+  DeleteIpamScopeRequest,
+  DeleteIpamScopeResult,
   DeleteKeyPairRequest,
   DeleteLaunchTemplateRequest,
   DeleteLaunchTemplateResult,
@@ -2172,6 +2307,10 @@ import {
   DeleteNatGatewayResult,
   DeleteNetworkAclEntryRequest,
   DeleteNetworkAclRequest,
+  DeleteNetworkInsightsAccessScopeAnalysisRequest,
+  DeleteNetworkInsightsAccessScopeAnalysisResult,
+  DeleteNetworkInsightsAccessScopeRequest,
+  DeleteNetworkInsightsAccessScopeResult,
   DeleteNetworkInsightsAnalysisRequest,
   DeleteNetworkInsightsAnalysisResult,
   DeleteNetworkInsightsPathRequest,
@@ -2180,6 +2319,8 @@ import {
   DeleteNetworkInterfacePermissionResult,
   DeleteNetworkInterfaceRequest,
   DeletePlacementGroupRequest,
+  DeletePublicIpv4PoolRequest,
+  DeletePublicIpv4PoolResult,
   DeleteQueuedReservedInstancesError,
   DeleteQueuedReservedInstancesRequest,
   DeleteQueuedReservedInstancesResult,
@@ -2233,6 +2374,10 @@ import {
   DeleteVpnGatewayRequest,
   DeprovisionByoipCidrRequest,
   DeprovisionByoipCidrResult,
+  DeprovisionIpamPoolCidrRequest,
+  DeprovisionIpamPoolCidrResult,
+  DeprovisionPublicIpv4PoolCidrRequest,
+  DeprovisionPublicIpv4PoolCidrResult,
   DeregisterImageRequest,
   DeregisterInstanceEventNotificationAttributesRequest,
   DeregisterInstanceEventNotificationAttributesResult,
@@ -2276,6 +2421,76 @@ import {
   DescribeCoipPoolsRequest,
   DescribeCoipPoolsResult,
   DescribeConversionTasksRequest,
+  DirectoryServiceAuthentication,
+  DiskImageDescription,
+  DiskImageVolumeDescription,
+  DnsEntry,
+  FailedQueuedPurchaseDeletion,
+  FederatedAuthentication,
+  Filter,
+  IdFormat,
+  IKEVersionsListValue,
+  IKEVersionsRequestListValue,
+  ImportInstanceTaskDetails,
+  ImportInstanceVolumeDetailItem,
+  ImportVolumeTaskDetails,
+  InstanceEventWindowStateChange,
+  InstanceTagNotificationAttribute,
+  IpamPoolCidr,
+  IpamPoolCidrFailureReason,
+  LastError,
+  Phase1DHGroupNumbersListValue,
+  Phase1DHGroupNumbersRequestListValue,
+  Phase1EncryptionAlgorithmsListValue,
+  Phase1EncryptionAlgorithmsRequestListValue,
+  Phase1IntegrityAlgorithmsListValue,
+  Phase1IntegrityAlgorithmsRequestListValue,
+  Phase2DHGroupNumbersListValue,
+  Phase2DHGroupNumbersRequestListValue,
+  Phase2EncryptionAlgorithmsListValue,
+  Phase2EncryptionAlgorithmsRequestListValue,
+  Phase2IntegrityAlgorithmsListValue,
+  Phase2IntegrityAlgorithmsRequestListValue,
+  PrivateDnsNameConfiguration,
+  ResponseError,
+  SecurityGroupIdentifier,
+  ServiceConfiguration,
+  ServiceTypeDetail,
+  SuccessfulQueuedPurchaseDeletion,
+  TargetNetwork,
+  TransitGatewayConnectPeer,
+  TransitGatewayConnectPeerConfiguration,
+  TransitGatewayMulticastDeregisteredGroupMembers,
+  TransitGatewayMulticastDeregisteredGroupSources,
+  TransitGatewayMulticastDomain,
+  TransitGatewayMulticastDomainOptions,
+  TransitGatewayPrefixListAttachment,
+  TransitGatewayPrefixListReference,
+  TransitGatewayRoute,
+  TransitGatewayRouteAttachment,
+  TransitGatewayRouteTable,
+  TunnelOption,
+  VgwTelemetry,
+  Volume,
+  VpcEndpoint,
+  VpnConnection,
+  VpnConnectionOptions,
+  VpnConnectionOptionsSpecification,
+  VpnGateway,
+  VpnStaticRoute,
+  VpnTunnelOptionsSpecification,
+} from "../models/models_2";
+import {
+  AnalysisLoadBalancerListener,
+  AnalysisLoadBalancerTarget,
+  ArchitectureType,
+  AttributeBooleanValue,
+  AvailableCapacity,
+  BootModeType,
+  CapacityReservationOptions,
+  CapacityReservationSpecificationResponse,
+  ConversionTask,
+  CpuOptions,
   DescribeConversionTasksResult,
   DescribeCustomerGatewaysRequest,
   DescribeCustomerGatewaysResult,
@@ -2308,88 +2523,6 @@ import {
   DescribeFpgaImagesResult,
   DescribeHostReservationOfferingsRequest,
   DescribeHostReservationOfferingsResult,
-  DestinationOptionsResponse,
-  DirectoryServiceAuthentication,
-  DiskImageDescription,
-  DiskImageVolumeDescription,
-  ElasticGpuHealth,
-  ElasticGpus,
-  EventInformation,
-  ExportImageTask,
-  ExportTaskS3Location,
-  FailedQueuedPurchaseDeletion,
-  FederatedAuthentication,
-  Filter,
-  FleetData,
-  FleetLaunchTemplateConfig,
-  FleetSpotCapacityRebalance,
-  FleetSpotMaintenanceStrategies,
-  FlowLog,
-  FpgaImage,
-  FpgaImageAttribute,
-  FpgaImageState,
-  HistoryRecordEntry,
-  HostOffering,
-  IdFormat,
-  IKEVersionsListValue,
-  IKEVersionsRequestListValue,
-  ImportInstanceTaskDetails,
-  ImportInstanceVolumeDetailItem,
-  ImportVolumeTaskDetails,
-  InstanceEventWindowStateChange,
-  InstanceTagNotificationAttribute,
-  LoadPermission,
-  OnDemandOptions,
-  PciId,
-  Phase1DHGroupNumbersListValue,
-  Phase1DHGroupNumbersRequestListValue,
-  Phase1EncryptionAlgorithmsListValue,
-  Phase1EncryptionAlgorithmsRequestListValue,
-  Phase1IntegrityAlgorithmsListValue,
-  Phase1IntegrityAlgorithmsRequestListValue,
-  Phase2DHGroupNumbersListValue,
-  Phase2DHGroupNumbersRequestListValue,
-  Phase2EncryptionAlgorithmsListValue,
-  Phase2EncryptionAlgorithmsRequestListValue,
-  Phase2IntegrityAlgorithmsListValue,
-  Phase2IntegrityAlgorithmsRequestListValue,
-  PrivateDnsNameConfiguration,
-  ProductCode,
-  ResponseError,
-  ServiceConfiguration,
-  ServiceTypeDetail,
-  SpotOptions,
-  SuccessfulQueuedPurchaseDeletion,
-  TargetCapacitySpecification,
-  TargetNetwork,
-  TransitGatewayMulticastDeregisteredGroupMembers,
-  TransitGatewayMulticastDeregisteredGroupSources,
-  TunnelOption,
-  VgwTelemetry,
-  VpnConnection,
-  VpnConnectionOptions,
-  VpnConnectionOptionsSpecification,
-  VpnGateway,
-  VpnStaticRoute,
-  VpnTunnelOptionsSpecification,
-} from "../models/models_2";
-import {
-  AnalysisAclRule,
-  AnalysisComponent,
-  AnalysisLoadBalancerListener,
-  AnalysisLoadBalancerTarget,
-  AnalysisPacketHeader,
-  AnalysisRouteTableRoute,
-  AnalysisSecurityGroupRule,
-  ArchitectureType,
-  AttributeBooleanValue,
-  AvailableCapacity,
-  BootModeType,
-  CapacityReservationSpecificationResponse,
-  ClassicLoadBalancer,
-  ClassicLoadBalancersConfig,
-  CpuOptions,
-  CreateVolumePermission,
   DescribeHostReservationsRequest,
   DescribeHostReservationsResult,
   DescribeHostsRequest,
@@ -2424,6 +2557,12 @@ import {
   DescribeInstanceTypesResult,
   DescribeInternetGatewaysRequest,
   DescribeInternetGatewaysResult,
+  DescribeIpamPoolsRequest,
+  DescribeIpamPoolsResult,
+  DescribeIpamScopesRequest,
+  DescribeIpamScopesResult,
+  DescribeIpamsRequest,
+  DescribeIpamsResult,
   DescribeIpv6PoolsRequest,
   DescribeIpv6PoolsResult,
   DescribeKeyPairsRequest,
@@ -2452,6 +2591,10 @@ import {
   DescribeNatGatewaysResult,
   DescribeNetworkAclsRequest,
   DescribeNetworkAclsResult,
+  DescribeNetworkInsightsAccessScopeAnalysesRequest,
+  DescribeNetworkInsightsAccessScopeAnalysesResult,
+  DescribeNetworkInsightsAccessScopesRequest,
+  DescribeNetworkInsightsAccessScopesResult,
   DescribeNetworkInsightsAnalysesRequest,
   DescribeNetworkInsightsAnalysesResult,
   DescribeNetworkInsightsPathsRequest,
@@ -2477,11 +2620,132 @@ import {
   DescribeReservedInstancesListingsRequest,
   DescribeReservedInstancesListingsResult,
   DescribeReservedInstancesModificationsRequest,
+  DescribeReservedInstancesRequest,
+  DescribeReservedInstancesResult,
+  DestinationOptionsResponse,
+  DiskInfo,
+  EbsInfo,
+  EbsInstanceBlockDevice,
+  EbsOptimizedInfo,
+  EfaInfo,
+  ElasticGpuAssociation,
+  ElasticGpuHealth,
+  ElasticGpus,
+  ElasticInferenceAcceleratorAssociation,
+  EnclaveOptions,
+  EventInformation,
+  Explanation,
+  ExportImageTask,
+  ExportTaskS3Location,
+  FleetData,
+  FleetLaunchTemplateConfig,
+  FleetSpotCapacityRebalance,
+  FleetSpotMaintenanceStrategies,
+  FlowLog,
+  FpgaDeviceInfo,
+  FpgaDeviceMemoryInfo,
+  FpgaImage,
+  FpgaImageAttribute,
+  FpgaImageState,
+  FpgaInfo,
+  GpuDeviceInfo,
+  GpuDeviceMemoryInfo,
+  GpuInfo,
+  HibernationOptions,
+  HistoryRecordEntry,
+  Host,
+  HostInstance,
+  HostOffering,
+  HostProperties,
+  HostReservation,
+  Image,
+  ImageAttribute,
+  ImportImageLicenseConfigurationResponse,
+  ImportImageTask,
+  ImportSnapshotTask,
+  InferenceAcceleratorInfo,
+  InferenceDeviceInfo,
+  Instance,
+  InstanceAttribute,
+  InstanceBlockDeviceMapping,
+  InstanceCapacity,
+  InstanceCreditSpecification,
+  InstanceIpv4Prefix,
+  InstanceIpv6Prefix,
+  InstanceMetadataOptionsResponse,
+  InstanceNetworkInterface,
+  InstanceNetworkInterfaceAssociation,
+  InstanceNetworkInterfaceAttachment,
+  InstancePrivateIpAddress,
+  InstanceState,
+  InstanceStatus,
+  InstanceStatusDetails,
+  InstanceStatusEvent,
+  InstanceStatusSummary,
+  InstanceStorageInfo,
+  InstanceTypeInfo,
+  InstanceTypeOffering,
+  Ipv6Pool,
+  KeyPairInfo,
+  LaunchPermission,
+  LicenseConfiguration,
+  LoadPermission,
+  LocalGateway,
+  LocalGatewayRouteTable,
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
+  LocalGatewayVirtualInterface,
+  LocalGatewayVirtualInterfaceGroup,
+  MemoryInfo,
+  Monitoring,
+  MovingAddressStatus,
+  NetworkCardInfo,
+  NetworkInfo,
+  NetworkInsightsAccessScopeAnalysis,
+  NetworkInsightsAnalysis,
+  OnDemandOptions,
+  PciId,
+  PlacementGroupInfo,
+  PlacementGroupStrategy,
+  PoolCidrBlock,
+  PrefixList,
+  PrincipalIdFormat,
+  PrivateDnsNameOptionsResponse,
+  ProcessorInfo,
+  ProductCode,
+  PublicIpv4Pool,
+  PublicIpv4PoolRange,
+  RecurringCharge,
+  Region,
+  Reservation,
+  ReservedInstances,
+  ReservedInstancesConfiguration,
+  ReservedInstancesId,
+  ReservedInstancesModification,
+  ReservedInstancesModificationResult,
+  RootDeviceType,
+  SnapshotDetail,
+  SnapshotTaskDetail,
+  SpotOptions,
+  StateReason,
+  TargetCapacitySpecification,
+  UsageClassType,
+  UserBucketDetails,
+  VCpuInfo,
+  VirtualizationType,
+} from "../models/models_3";
+import {
+  AssociatedRole,
+  AthenaIntegration,
+  CapacityReservationGroup,
+  ClassicLinkDnsSupport,
+  ClassicLoadBalancer,
+  ClassicLoadBalancersConfig,
+  ClientCertificateRevocationListStatus,
+  CoipAddressUsage,
+  CreateVolumePermission,
   DescribeReservedInstancesModificationsResult,
   DescribeReservedInstancesOfferingsRequest,
   DescribeReservedInstancesOfferingsResult,
-  DescribeReservedInstancesRequest,
-  DescribeReservedInstancesResult,
   DescribeRouteTablesRequest,
   DescribeRouteTablesResult,
   DescribeScheduledInstanceAvailabilityRequest,
@@ -2511,133 +2775,6 @@ import {
   DescribeSpotInstanceRequestsRequest,
   DescribeSpotInstanceRequestsResult,
   DescribeSpotPriceHistoryRequest,
-  DiskInfo,
-  EbsInfo,
-  EbsInstanceBlockDevice,
-  EbsOptimizedInfo,
-  EfaInfo,
-  ElasticGpuAssociation,
-  ElasticInferenceAcceleratorAssociation,
-  EnclaveOptions,
-  Explanation,
-  FpgaDeviceInfo,
-  FpgaDeviceMemoryInfo,
-  FpgaInfo,
-  GpuDeviceInfo,
-  GpuDeviceMemoryInfo,
-  GpuInfo,
-  HibernationOptions,
-  HistoryRecord,
-  Host,
-  HostInstance,
-  HostProperties,
-  HostReservation,
-  Image,
-  ImageAttribute,
-  ImportImageLicenseConfigurationResponse,
-  ImportImageTask,
-  ImportSnapshotTask,
-  InferenceAcceleratorInfo,
-  InferenceDeviceInfo,
-  Instance,
-  InstanceAttribute,
-  InstanceBlockDeviceMapping,
-  InstanceCapacity,
-  InstanceCreditSpecification,
-  InstanceIpv4Prefix,
-  InstanceIpv6Prefix,
-  InstanceMetadataOptionsResponse,
-  InstanceNetworkInterface,
-  InstanceNetworkInterfaceAssociation,
-  InstanceNetworkInterfaceAttachment,
-  InstanceNetworkInterfaceSpecification,
-  InstancePrivateIpAddress,
-  InstanceState,
-  InstanceStatus,
-  InstanceStatusDetails,
-  InstanceStatusEvent,
-  InstanceStatusSummary,
-  InstanceStorageInfo,
-  InstanceTypeInfo,
-  InstanceTypeOffering,
-  Ipv6Pool,
-  KeyPairInfo,
-  LaunchPermission,
-  LaunchSpecification,
-  LaunchTemplateConfig,
-  LaunchTemplateOverrides,
-  LicenseConfiguration,
-  LoadBalancersConfig,
-  LocalGateway,
-  LocalGatewayRouteTable,
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
-  LocalGatewayVirtualInterface,
-  LocalGatewayVirtualInterfaceGroup,
-  MemoryInfo,
-  Monitoring,
-  MovingAddressStatus,
-  NetworkCardInfo,
-  NetworkInfo,
-  NetworkInsightsAnalysis,
-  PathComponent,
-  PlacementGroupInfo,
-  PlacementGroupStrategy,
-  PoolCidrBlock,
-  PrefixList,
-  PricingDetail,
-  PrincipalIdFormat,
-  PrivateDnsNameOptionsResponse,
-  ProcessorInfo,
-  PublicIpv4Pool,
-  PublicIpv4PoolRange,
-  RecurringCharge,
-  Region,
-  Reservation,
-  ReservedInstances,
-  ReservedInstancesConfiguration,
-  ReservedInstancesId,
-  ReservedInstancesModification,
-  ReservedInstancesModificationResult,
-  ReservedInstancesOffering,
-  RootDeviceType,
-  RunInstancesMonitoringEnabled,
-  ScheduledInstance,
-  ScheduledInstanceAvailability,
-  ScheduledInstanceRecurrence,
-  ScheduledInstanceRecurrenceRequest,
-  SecurityGroup,
-  SecurityGroupReference,
-  SlotDateTimeRangeRequest,
-  SlotStartTimeRangeRequest,
-  SnapshotDetail,
-  SnapshotTaskDetail,
-  SnapshotTierStatus,
-  SpotCapacityRebalance,
-  SpotFleetLaunchSpecification,
-  SpotFleetMonitoring,
-  SpotFleetRequestConfig,
-  SpotFleetRequestConfigData,
-  SpotFleetTagSpecification,
-  SpotInstanceRequest,
-  SpotInstanceStatus,
-  SpotMaintenanceStrategies,
-  SpotPlacement,
-  StateReason,
-  TargetGroup,
-  TargetGroupsConfig,
-  UsageClassType,
-  UserBucketDetails,
-  VCpuInfo,
-  VirtualizationType,
-} from "../models/models_3";
-import {
-  AssociatedRole,
-  AthenaIntegration,
-  CapacityReservationGroup,
-  ClassicLinkDnsSupport,
-  ClientCertificateRevocationListStatus,
-  ClientData,
-  CoipAddressUsage,
   DescribeSpotPriceHistoryResult,
   DescribeStaleSecurityGroupsRequest,
   DescribeStaleSecurityGroupsResult,
@@ -2721,6 +2858,8 @@ import {
   DisableFastSnapshotRestoreSuccessItem,
   DisableImageDeprecationRequest,
   DisableImageDeprecationResult,
+  DisableIpamOrganizationAdminAccountRequest,
+  DisableIpamOrganizationAdminAccountResult,
   DisableSerialConsoleAccessRequest,
   DisableSerialConsoleAccessResult,
   DisableTransitGatewayRouteTablePropagationRequest,
@@ -2750,9 +2889,6 @@ import {
   DisassociateTrunkInterfaceResult,
   DisassociateVpcCidrBlockRequest,
   DisassociateVpcCidrBlockResult,
-  DiskImage,
-  DiskImageDetail,
-  DnsServersOptionsModifyStructure,
   EnableEbsEncryptionByDefaultRequest,
   EnableEbsEncryptionByDefaultResult,
   EnableFastSnapshotRestoreErrorItem,
@@ -2763,6 +2899,8 @@ import {
   EnableFastSnapshotRestoreSuccessItem,
   EnableImageDeprecationRequest,
   EnableImageDeprecationResult,
+  EnableIpamOrganizationAdminAccountRequest,
+  EnableIpamOrganizationAdminAccountResult,
   EnableSerialConsoleAccessRequest,
   EnableSerialConsoleAccessResult,
   EnableTransitGatewayRouteTablePropagationRequest,
@@ -2808,12 +2946,96 @@ import {
   GetHostReservationPurchasePreviewResult,
   GetInstanceTypesFromInstanceRequirementsRequest,
   GetInstanceTypesFromInstanceRequirementsResult,
+  GetIpamAddressHistoryRequest,
+  GetIpamAddressHistoryResult,
+  GetIpamPoolAllocationsRequest,
+  GetIpamPoolAllocationsResult,
+  GetIpamPoolCidrsRequest,
+  GetIpamPoolCidrsResult,
+  GetIpamResourceCidrsRequest,
+  GetIpamResourceCidrsResult,
   GetLaunchTemplateDataRequest,
+  HistoryRecord,
+  InstanceEventWindowDisassociationRequest,
+  InstanceFamilyCreditSpecification,
+  InstanceNetworkInterfaceSpecification,
+  InstanceTypeInfoFromInstanceRequirements,
+  InstanceUsage,
+  IntegrateServices,
+  IpamAddressHistoryRecord,
+  IpamResourceCidr,
+  Ipv6CidrAssociation,
+  LaunchSpecification,
+  LaunchTemplateConfig,
+  LaunchTemplateOverrides,
+  LoadBalancersConfig,
+  PricingDetail,
+  PrivateDnsDetails,
+  Purchase,
+  ReservedInstancesOffering,
+  RunInstancesMonitoringEnabled,
+  ScheduledInstance,
+  ScheduledInstanceAvailability,
+  ScheduledInstanceRecurrence,
+  ScheduledInstanceRecurrenceRequest,
+  SecurityGroup,
+  SecurityGroupReference,
+  ServiceDetail,
+  SlotDateTimeRangeRequest,
+  SlotStartTimeRangeRequest,
+  SnapshotTierStatus,
+  SpotCapacityRebalance,
+  SpotFleetLaunchSpecification,
+  SpotFleetMonitoring,
+  SpotFleetRequestConfig,
+  SpotFleetRequestConfigData,
+  SpotFleetTagSpecification,
+  SpotInstanceRequest,
+  SpotInstanceStatus,
+  SpotMaintenanceStrategies,
+  SpotPlacement,
+  SpotPrice,
+  StaleIpPermission,
+  StaleSecurityGroup,
+  StoreImageTaskResult,
+  TagDescription,
+  TargetGroup,
+  TargetGroupsConfig,
+  TransitGatewayAttachment,
+  TransitGatewayAttachmentAssociation,
+  TransitGatewayPropagation,
+  VolumeModification,
+  VolumeStatusAction,
+  VolumeStatusAttachmentStatus,
+  VolumeStatusDetails,
+  VolumeStatusEvent,
+  VolumeStatusInfo,
+  VolumeStatusItem,
+  VpcClassicLink,
+  VpcEndpointConnection,
+} from "../models/models_4";
+import {
+  BlobAttributeValue,
+  CapacityReservationSpecification,
+  CidrAuthorizationContext,
+  ClientData,
+  CpuOptionsRequest,
+  CreateVolumePermissionModifications,
+  DiskImage,
+  DiskImageDetail,
+  DnsServersOptionsModifyStructure,
+  EbsInstanceBlockDeviceSpecification,
+  ElasticInferenceAccelerator,
+  EnclaveOptionsRequest,
   GetLaunchTemplateDataResult,
   GetManagedPrefixListAssociationsRequest,
   GetManagedPrefixListAssociationsResult,
   GetManagedPrefixListEntriesRequest,
   GetManagedPrefixListEntriesResult,
+  GetNetworkInsightsAccessScopeAnalysisFindingsRequest,
+  GetNetworkInsightsAccessScopeAnalysisFindingsResult,
+  GetNetworkInsightsAccessScopeContentRequest,
+  GetNetworkInsightsAccessScopeContentResult,
   GetPasswordDataRequest,
   GetPasswordDataResult,
   GetReservedInstancesExchangeQuoteRequest,
@@ -2838,6 +3060,7 @@ import {
   GetVpnConnectionDeviceSampleConfigurationResult,
   GetVpnConnectionDeviceTypesRequest,
   GetVpnConnectionDeviceTypesResult,
+  HibernationOptionsRequest,
   ImageDiskContainer,
   ImportClientVpnClientCertificateRevocationListRequest,
   ImportClientVpnClientCertificateRevocationListResult,
@@ -2853,13 +3076,13 @@ import {
   ImportSnapshotResult,
   ImportVolumeRequest,
   ImportVolumeResult,
-  InstanceEventWindowDisassociationRequest,
-  InstanceFamilyCreditSpecification,
+  InstanceBlockDeviceMappingSpecification,
+  InstanceCreditSpecificationRequest,
+  InstanceMarketOptionsRequest,
+  InstanceMonitoring,
   InstanceRequirementsWithMetadataRequest,
-  InstanceTypeInfoFromInstanceRequirements,
-  InstanceUsage,
-  IntegrateServices,
-  Ipv6CidrAssociation,
+  IpamCidrAuthorizationContext,
+  LaunchPermissionModifications,
   ListSnapshotsInRecycleBinRequest,
   ListSnapshotsInRecycleBinResult,
   LoadPermissionModifications,
@@ -2883,63 +3106,6 @@ import {
   ModifyFpgaImageAttributeRequest,
   ModifyFpgaImageAttributeResult,
   ModifyHostsRequest,
-  PrefixListAssociation,
-  PrefixListEntry,
-  PrivateDnsDetails,
-  Purchase,
-  ReservationValue,
-  ReservedInstanceReservationValue,
-  ServiceDetail,
-  SnapshotDiskContainer,
-  SnapshotRecycleBinInfo,
-  SpotPlacementScore,
-  SpotPrice,
-  StaleIpPermission,
-  StaleSecurityGroup,
-  StoreImageTaskResult,
-  TagDescription,
-  TargetConfiguration,
-  TargetReservationValue,
-  TransitGatewayAttachment,
-  TransitGatewayAttachmentAssociation,
-  TransitGatewayAttachmentPropagation,
-  TransitGatewayMulticastDomainAssociation,
-  TransitGatewayPropagation,
-  TransitGatewayRouteTableAssociation,
-  TransitGatewayRouteTablePropagation,
-  UserBucket,
-  UserData,
-  VolumeDetail,
-  VolumeModification,
-  VolumeStatusAction,
-  VolumeStatusAttachmentStatus,
-  VolumeStatusDetails,
-  VolumeStatusEvent,
-  VolumeStatusInfo,
-  VolumeStatusItem,
-  VpcClassicLink,
-  VpcEndpointConnection,
-  VpnConnectionDeviceType,
-} from "../models/models_4";
-import {
-  BlobAttributeValue,
-  CapacityReservationSpecification,
-  CidrAuthorizationContext,
-  CpuOptionsRequest,
-  CreateVolumePermissionModifications,
-  EbsInstanceBlockDeviceSpecification,
-  ElasticInferenceAccelerator,
-  EnclaveOptionsRequest,
-  HibernationOptionsRequest,
-  InstanceBlockDeviceMappingSpecification,
-  InstanceCreditSpecificationRequest,
-  InstanceMarketOptionsRequest,
-  InstanceMetadataOptionsRequest,
-  InstanceMonitoring,
-  InstanceStateChange,
-  LaunchPermissionModifications,
-  LaunchTemplateSpecification,
-  LicenseConfigurationRequest,
   ModifyHostsResult,
   ModifyIdentityIdFormatRequest,
   ModifyIdFormatRequest,
@@ -2957,6 +3123,14 @@ import {
   ModifyInstanceMetadataOptionsResult,
   ModifyInstancePlacementRequest,
   ModifyInstancePlacementResult,
+  ModifyIpamPoolRequest,
+  ModifyIpamPoolResult,
+  ModifyIpamRequest,
+  ModifyIpamResourceCidrRequest,
+  ModifyIpamResourceCidrResult,
+  ModifyIpamResult,
+  ModifyIpamScopeRequest,
+  ModifyIpamScopeResult,
   ModifyLaunchTemplateRequest,
   ModifyLaunchTemplateResult,
   ModifyManagedPrefixListRequest,
@@ -3017,12 +3191,19 @@ import {
   MonitorInstancesResult,
   MoveAddressToVpcRequest,
   MoveAddressToVpcResult,
+  MoveByoipCidrToIpamRequest,
+  MoveByoipCidrToIpamResult,
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
-  PrivateDnsNameOptionsRequest,
+  PrefixListAssociation,
+  PrefixListEntry,
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResult,
+  ProvisionIpamPoolCidrRequest,
+  ProvisionIpamPoolCidrResult,
+  ProvisionPublicIpv4PoolCidrRequest,
+  ProvisionPublicIpv4PoolCidrResult,
   PurchaseHostReservationRequest,
   PurchaseHostReservationResult,
   PurchaseRequest,
@@ -3053,6 +3234,9 @@ import {
   ReleaseAddressRequest,
   ReleaseHostsRequest,
   ReleaseHostsResult,
+  ReleaseIpamPoolAllocationRequest,
+  ReleaseIpamPoolAllocationResult,
+  RemoveIpamOperatingRegion,
   RemovePrefixListEntry,
   ReplaceIamInstanceProfileAssociationRequest,
   ReplaceIamInstanceProfileAssociationResult,
@@ -3071,7 +3255,9 @@ import {
   RequestSpotInstancesRequest,
   RequestSpotInstancesResult,
   RequestSpotLaunchSpecification,
+  ReservationValue,
   ReservedInstanceLimitPrice,
+  ReservedInstanceReservationValue,
   ResetAddressAttributeRequest,
   ResetAddressAttributeResult,
   ResetEbsDefaultKmsKeyIdRequest,
@@ -3096,6 +3282,36 @@ import {
   RevokeSecurityGroupEgressResult,
   RevokeSecurityGroupIngressRequest,
   RevokeSecurityGroupIngressResult,
+  SecurityGroupRuleRequest,
+  SecurityGroupRuleUpdate,
+  SnapshotDiskContainer,
+  SnapshotRecycleBinInfo,
+  SpotMarketOptions,
+  SpotPlacementScore,
+  SuccessfulInstanceCreditSpecificationItem,
+  TargetConfiguration,
+  TargetReservationValue,
+  TrafficMirrorFilterRuleField,
+  TrafficMirrorSessionField,
+  TransitGatewayAttachmentPropagation,
+  TransitGatewayMulticastDomainAssociation,
+  TransitGatewayMulticastRegisteredGroupMembers,
+  TransitGatewayMulticastRegisteredGroupSources,
+  TransitGatewayRouteTableAssociation,
+  TransitGatewayRouteTablePropagation,
+  UnsuccessfulInstanceCreditSpecificationItem,
+  UnsuccessfulInstanceCreditSpecificationItemError,
+  UserBucket,
+  UserData,
+  VolumeDetail,
+  VpnConnectionDeviceType,
+} from "../models/models_5";
+import {
+  InstanceMetadataOptionsRequest,
+  InstanceStateChange,
+  LaunchTemplateSpecification,
+  LicenseConfigurationRequest,
+  PrivateDnsNameOptionsRequest,
   RunInstancesRequest,
   RunScheduledInstancesRequest,
   RunScheduledInstancesResult,
@@ -3115,43 +3331,35 @@ import {
   SearchTransitGatewayRoutesRequest,
   SearchTransitGatewayRoutesResult,
   SecurityGroupRuleDescription,
-  SecurityGroupRuleRequest,
-  SecurityGroupRuleUpdate,
   SendDiagnosticInterruptRequest,
-  SpotMarketOptions,
   StartInstancesRequest,
   StartInstancesResult,
+  StartNetworkInsightsAccessScopeAnalysisRequest,
+  StartNetworkInsightsAccessScopeAnalysisResult,
   StartNetworkInsightsAnalysisRequest,
   StartNetworkInsightsAnalysisResult,
   StartVpcEndpointServicePrivateDnsVerificationRequest,
   StartVpcEndpointServicePrivateDnsVerificationResult,
   StopInstancesRequest,
   StopInstancesResult,
-  SuccessfulInstanceCreditSpecificationItem,
   TerminateClientVpnConnectionsRequest,
   TerminateClientVpnConnectionsResult,
   TerminateConnectionStatus,
   TerminateInstancesRequest,
   TerminateInstancesResult,
-  TrafficMirrorFilterRuleField,
-  TrafficMirrorSessionField,
   TransitGatewayMulticastGroup,
-  TransitGatewayMulticastRegisteredGroupMembers,
-  TransitGatewayMulticastRegisteredGroupSources,
   UnassignIpv6AddressesRequest,
   UnassignIpv6AddressesResult,
   UnassignPrivateIpAddressesRequest,
   UnmonitorInstancesRequest,
   UnmonitorInstancesResult,
-  UnsuccessfulInstanceCreditSpecificationItem,
-  UnsuccessfulInstanceCreditSpecificationItemError,
   UpdateSecurityGroupRuleDescriptionsEgressRequest,
   UpdateSecurityGroupRuleDescriptionsEgressResult,
   UpdateSecurityGroupRuleDescriptionsIngressRequest,
   UpdateSecurityGroupRuleDescriptionsIngressResult,
   WithdrawByoipCidrRequest,
   WithdrawByoipCidrResult,
-} from "../models/models_5";
+} from "../models/models_6";
 
 export const serializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand = async (
   input: AcceptReservedInstancesExchangeQuoteCommandInput,
@@ -3292,6 +3500,22 @@ export const serializeAws_ec2AllocateHostsCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2AllocateHostsRequest(input, context),
     Action: "AllocateHosts",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2AllocateIpamPoolCidrCommand = async (
+  input: AllocateIpamPoolCidrCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2AllocateIpamPoolCidrRequest(input, context),
+    Action: "AllocateIpamPoolCidr",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4161,6 +4385,54 @@ export const serializeAws_ec2CreateInternetGatewayCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2CreateIpamCommand = async (
+  input: CreateIpamCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CreateIpamRequest(input, context),
+    Action: "CreateIpam",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2CreateIpamPoolCommand = async (
+  input: CreateIpamPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CreateIpamPoolRequest(input, context),
+    Action: "CreateIpamPool",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2CreateIpamScopeCommand = async (
+  input: CreateIpamScopeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CreateIpamScopeRequest(input, context),
+    Action: "CreateIpamScope",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2CreateKeyPairCommand = async (
   input: CreateKeyPairCommandInput,
   context: __SerdeContext
@@ -4305,6 +4577,22 @@ export const serializeAws_ec2CreateNetworkAclEntryCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2CreateNetworkInsightsAccessScopeCommand = async (
+  input: CreateNetworkInsightsAccessScopeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CreateNetworkInsightsAccessScopeRequest(input, context),
+    Action: "CreateNetworkInsightsAccessScope",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2CreateNetworkInsightsPathCommand = async (
   input: CreateNetworkInsightsPathCommandInput,
   context: __SerdeContext
@@ -4364,6 +4652,22 @@ export const serializeAws_ec2CreatePlacementGroupCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2CreatePlacementGroupRequest(input, context),
     Action: "CreatePlacementGroup",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2CreatePublicIpv4PoolCommand = async (
+  input: CreatePublicIpv4PoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CreatePublicIpv4PoolRequest(input, context),
+    Action: "CreatePublicIpv4Pool",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5105,6 +5409,54 @@ export const serializeAws_ec2DeleteInternetGatewayCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DeleteIpamCommand = async (
+  input: DeleteIpamCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeleteIpamRequest(input, context),
+    Action: "DeleteIpam",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DeleteIpamPoolCommand = async (
+  input: DeleteIpamPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeleteIpamPoolRequest(input, context),
+    Action: "DeleteIpamPool",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DeleteIpamScopeCommand = async (
+  input: DeleteIpamScopeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeleteIpamScopeRequest(input, context),
+    Action: "DeleteIpamScope",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DeleteKeyPairCommand = async (
   input: DeleteKeyPairCommandInput,
   context: __SerdeContext
@@ -5249,6 +5601,38 @@ export const serializeAws_ec2DeleteNetworkAclEntryCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DeleteNetworkInsightsAccessScopeCommand = async (
+  input: DeleteNetworkInsightsAccessScopeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeleteNetworkInsightsAccessScopeRequest(input, context),
+    Action: "DeleteNetworkInsightsAccessScope",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommand = async (
+  input: DeleteNetworkInsightsAccessScopeAnalysisCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisRequest(input, context),
+    Action: "DeleteNetworkInsightsAccessScopeAnalysis",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DeleteNetworkInsightsAnalysisCommand = async (
   input: DeleteNetworkInsightsAnalysisCommandInput,
   context: __SerdeContext
@@ -5324,6 +5708,22 @@ export const serializeAws_ec2DeletePlacementGroupCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2DeletePlacementGroupRequest(input, context),
     Action: "DeletePlacementGroup",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DeletePublicIpv4PoolCommand = async (
+  input: DeletePublicIpv4PoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeletePublicIpv4PoolRequest(input, context),
+    Action: "DeletePublicIpv4Pool",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5836,6 +6236,38 @@ export const serializeAws_ec2DeprovisionByoipCidrCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2DeprovisionByoipCidrRequest(input, context),
     Action: "DeprovisionByoipCidr",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DeprovisionIpamPoolCidrCommand = async (
+  input: DeprovisionIpamPoolCidrCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeprovisionIpamPoolCidrRequest(input, context),
+    Action: "DeprovisionIpamPoolCidr",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DeprovisionPublicIpv4PoolCidrCommand = async (
+  input: DeprovisionPublicIpv4PoolCidrCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeprovisionPublicIpv4PoolCidrRequest(input, context),
+    Action: "DeprovisionPublicIpv4PoolCidr",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6705,6 +7137,54 @@ export const serializeAws_ec2DescribeInternetGatewaysCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DescribeIpamPoolsCommand = async (
+  input: DescribeIpamPoolsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeIpamPoolsRequest(input, context),
+    Action: "DescribeIpamPools",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DescribeIpamsCommand = async (
+  input: DescribeIpamsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeIpamsRequest(input, context),
+    Action: "DescribeIpams",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DescribeIpamScopesCommand = async (
+  input: DescribeIpamScopesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeIpamScopesRequest(input, context),
+    Action: "DescribeIpamScopes",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DescribeIpv6PoolsCommand = async (
   input: DescribeIpv6PoolsCommandInput,
   context: __SerdeContext
@@ -6924,6 +7404,38 @@ export const serializeAws_ec2DescribeNetworkAclsCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2DescribeNetworkAclsRequest(input, context),
     Action: "DescribeNetworkAcls",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DescribeNetworkInsightsAccessScopeAnalysesCommand = async (
+  input: DescribeNetworkInsightsAccessScopeAnalysesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeNetworkInsightsAccessScopeAnalysesRequest(input, context),
+    Action: "DescribeNetworkInsightsAccessScopeAnalyses",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DescribeNetworkInsightsAccessScopesCommand = async (
+  input: DescribeNetworkInsightsAccessScopesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeNetworkInsightsAccessScopesRequest(input, context),
+    Action: "DescribeNetworkInsightsAccessScopes",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -8065,6 +8577,22 @@ export const serializeAws_ec2DisableImageDeprecationCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DisableIpamOrganizationAdminAccountCommand = async (
+  input: DisableIpamOrganizationAdminAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DisableIpamOrganizationAdminAccountRequest(input, context),
+    Action: "DisableIpamOrganizationAdminAccount",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DisableSerialConsoleAccessCommand = async (
   input: DisableSerialConsoleAccessCommandInput,
   context: __SerdeContext
@@ -8364,6 +8892,22 @@ export const serializeAws_ec2EnableImageDeprecationCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2EnableImageDeprecationRequest(input, context),
     Action: "EnableImageDeprecation",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2EnableIpamOrganizationAdminAccountCommand = async (
+  input: EnableIpamOrganizationAdminAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2EnableIpamOrganizationAdminAccountRequest(input, context),
+    Action: "EnableIpamOrganizationAdminAccount",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -8737,6 +9281,70 @@ export const serializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand = a
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2GetIpamAddressHistoryCommand = async (
+  input: GetIpamAddressHistoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2GetIpamAddressHistoryRequest(input, context),
+    Action: "GetIpamAddressHistory",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2GetIpamPoolAllocationsCommand = async (
+  input: GetIpamPoolAllocationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2GetIpamPoolAllocationsRequest(input, context),
+    Action: "GetIpamPoolAllocations",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2GetIpamPoolCidrsCommand = async (
+  input: GetIpamPoolCidrsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2GetIpamPoolCidrsRequest(input, context),
+    Action: "GetIpamPoolCidrs",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2GetIpamResourceCidrsCommand = async (
+  input: GetIpamResourceCidrsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2GetIpamResourceCidrsRequest(input, context),
+    Action: "GetIpamResourceCidrs",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2GetLaunchTemplateDataCommand = async (
   input: GetLaunchTemplateDataCommandInput,
   context: __SerdeContext
@@ -8780,6 +9388,38 @@ export const serializeAws_ec2GetManagedPrefixListEntriesCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2GetManagedPrefixListEntriesRequest(input, context),
     Action: "GetManagedPrefixListEntries",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsCommand = async (
+  input: GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsRequest(input, context),
+    Action: "GetNetworkInsightsAccessScopeAnalysisFindings",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2GetNetworkInsightsAccessScopeContentCommand = async (
+  input: GetNetworkInsightsAccessScopeContentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2GetNetworkInsightsAccessScopeContentRequest(input, context),
+    Action: "GetNetworkInsightsAccessScopeContent",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -9409,6 +10049,70 @@ export const serializeAws_ec2ModifyInstancePlacementCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2ModifyIpamCommand = async (
+  input: ModifyIpamCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifyIpamRequest(input, context),
+    Action: "ModifyIpam",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ModifyIpamPoolCommand = async (
+  input: ModifyIpamPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifyIpamPoolRequest(input, context),
+    Action: "ModifyIpamPool",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ModifyIpamResourceCidrCommand = async (
+  input: ModifyIpamResourceCidrCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifyIpamResourceCidrRequest(input, context),
+    Action: "ModifyIpamResourceCidr",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ModifyIpamScopeCommand = async (
+  input: ModifyIpamScopeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifyIpamScopeRequest(input, context),
+    Action: "ModifyIpamScope",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2ModifyLaunchTemplateCommand = async (
   input: ModifyLaunchTemplateCommandInput,
   context: __SerdeContext
@@ -9905,6 +10609,22 @@ export const serializeAws_ec2MoveAddressToVpcCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2MoveByoipCidrToIpamCommand = async (
+  input: MoveByoipCidrToIpamCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2MoveByoipCidrToIpamRequest(input, context),
+    Action: "MoveByoipCidrToIpam",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2ProvisionByoipCidrCommand = async (
   input: ProvisionByoipCidrCommandInput,
   context: __SerdeContext
@@ -9916,6 +10636,38 @@ export const serializeAws_ec2ProvisionByoipCidrCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2ProvisionByoipCidrRequest(input, context),
     Action: "ProvisionByoipCidr",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ProvisionIpamPoolCidrCommand = async (
+  input: ProvisionIpamPoolCidrCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ProvisionIpamPoolCidrRequest(input, context),
+    Action: "ProvisionIpamPoolCidr",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ProvisionPublicIpv4PoolCidrCommand = async (
+  input: ProvisionPublicIpv4PoolCidrCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ProvisionPublicIpv4PoolCidrRequest(input, context),
+    Action: "ProvisionPublicIpv4PoolCidr",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -10156,6 +10908,22 @@ export const serializeAws_ec2ReleaseHostsCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2ReleaseHostsRequest(input, context),
     Action: "ReleaseHosts",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ReleaseIpamPoolAllocationCommand = async (
+  input: ReleaseIpamPoolAllocationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ReleaseIpamPoolAllocationRequest(input, context),
+    Action: "ReleaseIpamPoolAllocation",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -10636,6 +11404,22 @@ export const serializeAws_ec2StartInstancesCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2StartInstancesRequest(input, context),
     Action: "StartInstances",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2StartNetworkInsightsAccessScopeAnalysisCommand = async (
+  input: StartNetworkInsightsAccessScopeAnalysisCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2StartNetworkInsightsAccessScopeAnalysisRequest(input, context),
+    Action: "StartNetworkInsightsAccessScopeAnalysis",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -11206,6 +11990,52 @@ const deserializeAws_ec2AllocateHostsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AllocateHostsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2AllocateIpamPoolCidrCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AllocateIpamPoolCidrCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2AllocateIpamPoolCidrCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2AllocateIpamPoolCidrResult(data, context);
+  const response: AllocateIpamPoolCidrCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2AllocateIpamPoolCidrCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AllocateIpamPoolCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -13703,6 +14533,144 @@ const deserializeAws_ec2CreateInternetGatewayCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2CreateIpamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIpamCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CreateIpamCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CreateIpamResult(data, context);
+  const response: CreateIpamCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CreateIpamCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIpamCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2CreateIpamPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIpamPoolCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CreateIpamPoolCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CreateIpamPoolResult(data, context);
+  const response: CreateIpamPoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CreateIpamPoolCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIpamPoolCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2CreateIpamScopeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIpamScopeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CreateIpamScopeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CreateIpamScopeResult(data, context);
+  const response: CreateIpamScopeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CreateIpamScopeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIpamScopeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2CreateKeyPairCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -14114,6 +15082,52 @@ const deserializeAws_ec2CreateNetworkAclEntryCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2CreateNetworkInsightsAccessScopeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateNetworkInsightsAccessScopeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CreateNetworkInsightsAccessScopeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CreateNetworkInsightsAccessScopeResult(data, context);
+  const response: CreateNetworkInsightsAccessScopeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CreateNetworkInsightsAccessScopeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateNetworkInsightsAccessScopeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2CreateNetworkInsightsPathCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -14273,6 +15287,52 @@ const deserializeAws_ec2CreatePlacementGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePlacementGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2CreatePublicIpv4PoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePublicIpv4PoolCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CreatePublicIpv4PoolCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CreatePublicIpv4PoolResult(data, context);
+  const response: CreatePublicIpv4PoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CreatePublicIpv4PoolCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePublicIpv4PoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -16399,6 +17459,144 @@ const deserializeAws_ec2DeleteInternetGatewayCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2DeleteIpamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIpamCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeleteIpamCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeleteIpamResult(data, context);
+  const response: DeleteIpamCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeleteIpamCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIpamCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2DeleteIpamPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIpamPoolCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeleteIpamPoolCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeleteIpamPoolResult(data, context);
+  const response: DeleteIpamPoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeleteIpamPoolCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIpamPoolCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2DeleteIpamScopeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIpamScopeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeleteIpamScopeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeleteIpamScopeResult(data, context);
+  const response: DeleteIpamScopeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeleteIpamScopeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIpamScopeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2DeleteKeyPairCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -16804,6 +18002,98 @@ const deserializeAws_ec2DeleteNetworkAclEntryCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2DeleteNetworkInsightsAccessScopeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteNetworkInsightsAccessScopeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeleteNetworkInsightsAccessScopeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeleteNetworkInsightsAccessScopeResult(data, context);
+  const response: DeleteNetworkInsightsAccessScopeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeleteNetworkInsightsAccessScopeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteNetworkInsightsAccessScopeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteNetworkInsightsAccessScopeAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisResult(data, context);
+  const response: DeleteNetworkInsightsAccessScopeAnalysisCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteNetworkInsightsAccessScopeAnalysisCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2DeleteNetworkInsightsAnalysisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -17003,6 +18293,52 @@ const deserializeAws_ec2DeletePlacementGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePlacementGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2DeletePublicIpv4PoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePublicIpv4PoolCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeletePublicIpv4PoolCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeletePublicIpv4PoolResult(data, context);
+  const response: DeletePublicIpv4PoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeletePublicIpv4PoolCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePublicIpv4PoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -18439,6 +19775,98 @@ const deserializeAws_ec2DeprovisionByoipCidrCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeprovisionByoipCidrCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2DeprovisionIpamPoolCidrCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeprovisionIpamPoolCidrCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeprovisionIpamPoolCidrCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeprovisionIpamPoolCidrResult(data, context);
+  const response: DeprovisionIpamPoolCidrCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeprovisionIpamPoolCidrCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeprovisionIpamPoolCidrCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2DeprovisionPublicIpv4PoolCidrCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeprovisionPublicIpv4PoolCidrCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeprovisionPublicIpv4PoolCidrCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeprovisionPublicIpv4PoolCidrResult(data, context);
+  const response: DeprovisionPublicIpv4PoolCidrCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeprovisionPublicIpv4PoolCidrCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeprovisionPublicIpv4PoolCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -20945,6 +22373,144 @@ const deserializeAws_ec2DescribeInternetGatewaysCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2DescribeIpamPoolsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIpamPoolsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeIpamPoolsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeIpamPoolsResult(data, context);
+  const response: DescribeIpamPoolsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeIpamPoolsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIpamPoolsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2DescribeIpamsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIpamsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeIpamsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeIpamsResult(data, context);
+  const response: DescribeIpamsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeIpamsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIpamsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2DescribeIpamScopesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIpamScopesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeIpamScopesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeIpamScopesResult(data, context);
+  const response: DescribeIpamScopesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeIpamScopesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIpamScopesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2DescribeIpv6PoolsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -21567,6 +23133,98 @@ const deserializeAws_ec2DescribeNetworkAclsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeNetworkAclsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2DescribeNetworkInsightsAccessScopeAnalysesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeNetworkInsightsAccessScopeAnalysesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeNetworkInsightsAccessScopeAnalysesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeNetworkInsightsAccessScopeAnalysesResult(data, context);
+  const response: DescribeNetworkInsightsAccessScopeAnalysesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeNetworkInsightsAccessScopeAnalysesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeNetworkInsightsAccessScopeAnalysesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2DescribeNetworkInsightsAccessScopesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeNetworkInsightsAccessScopesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeNetworkInsightsAccessScopesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeNetworkInsightsAccessScopesResult(data, context);
+  const response: DescribeNetworkInsightsAccessScopesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeNetworkInsightsAccessScopesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeNetworkInsightsAccessScopesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -24849,6 +26507,52 @@ const deserializeAws_ec2DisableImageDeprecationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2DisableIpamOrganizationAdminAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableIpamOrganizationAdminAccountCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DisableIpamOrganizationAdminAccountCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DisableIpamOrganizationAdminAccountResult(data, context);
+  const response: DisableIpamOrganizationAdminAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DisableIpamOrganizationAdminAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableIpamOrganizationAdminAccountCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2DisableSerialConsoleAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -25689,6 +27393,52 @@ const deserializeAws_ec2EnableImageDeprecationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableImageDeprecationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2EnableIpamOrganizationAdminAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableIpamOrganizationAdminAccountCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2EnableIpamOrganizationAdminAccountCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2EnableIpamOrganizationAdminAccountResult(data, context);
+  const response: EnableIpamOrganizationAdminAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2EnableIpamOrganizationAdminAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableIpamOrganizationAdminAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -26766,6 +28516,190 @@ const deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommandError = a
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2GetIpamAddressHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIpamAddressHistoryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2GetIpamAddressHistoryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2GetIpamAddressHistoryResult(data, context);
+  const response: GetIpamAddressHistoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2GetIpamAddressHistoryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIpamAddressHistoryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2GetIpamPoolAllocationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIpamPoolAllocationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2GetIpamPoolAllocationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2GetIpamPoolAllocationsResult(data, context);
+  const response: GetIpamPoolAllocationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2GetIpamPoolAllocationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIpamPoolAllocationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2GetIpamPoolCidrsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIpamPoolCidrsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2GetIpamPoolCidrsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2GetIpamPoolCidrsResult(data, context);
+  const response: GetIpamPoolCidrsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2GetIpamPoolCidrsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIpamPoolCidrsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2GetIpamResourceCidrsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIpamResourceCidrsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2GetIpamResourceCidrsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2GetIpamResourceCidrsResult(data, context);
+  const response: GetIpamResourceCidrsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2GetIpamResourceCidrsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIpamResourceCidrsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2GetLaunchTemplateDataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -26879,6 +28813,98 @@ const deserializeAws_ec2GetManagedPrefixListEntriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetManagedPrefixListEntriesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsResult(data, context);
+  const response: GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2GetNetworkInsightsAccessScopeContentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetNetworkInsightsAccessScopeContentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2GetNetworkInsightsAccessScopeContentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2GetNetworkInsightsAccessScopeContentResult(data, context);
+  const response: GetNetworkInsightsAccessScopeContentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2GetNetworkInsightsAccessScopeContentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetNetworkInsightsAccessScopeContentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -28686,6 +30712,190 @@ const deserializeAws_ec2ModifyInstancePlacementCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2ModifyIpamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyIpamCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifyIpamCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifyIpamResult(data, context);
+  const response: ModifyIpamCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifyIpamCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyIpamCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2ModifyIpamPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyIpamPoolCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifyIpamPoolCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifyIpamPoolResult(data, context);
+  const response: ModifyIpamPoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifyIpamPoolCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyIpamPoolCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2ModifyIpamResourceCidrCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyIpamResourceCidrCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifyIpamResourceCidrCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifyIpamResourceCidrResult(data, context);
+  const response: ModifyIpamResourceCidrCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifyIpamResourceCidrCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyIpamResourceCidrCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2ModifyIpamScopeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyIpamScopeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifyIpamScopeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifyIpamScopeResult(data, context);
+  const response: ModifyIpamScopeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifyIpamScopeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyIpamScopeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2ModifyLaunchTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -30097,6 +32307,52 @@ const deserializeAws_ec2MoveAddressToVpcCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2MoveByoipCidrToIpamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MoveByoipCidrToIpamCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2MoveByoipCidrToIpamCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2MoveByoipCidrToIpamResult(data, context);
+  const response: MoveByoipCidrToIpamCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2MoveByoipCidrToIpamCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MoveByoipCidrToIpamCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2ProvisionByoipCidrCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -30118,6 +32374,98 @@ const deserializeAws_ec2ProvisionByoipCidrCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ProvisionByoipCidrCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2ProvisionIpamPoolCidrCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ProvisionIpamPoolCidrCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ProvisionIpamPoolCidrCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ProvisionIpamPoolCidrResult(data, context);
+  const response: ProvisionIpamPoolCidrCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ProvisionIpamPoolCidrCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ProvisionIpamPoolCidrCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2ProvisionPublicIpv4PoolCidrCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ProvisionPublicIpv4PoolCidrCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ProvisionPublicIpv4PoolCidrCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ProvisionPublicIpv4PoolCidrResult(data, context);
+  const response: ProvisionPublicIpv4PoolCidrCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ProvisionPublicIpv4PoolCidrCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ProvisionPublicIpv4PoolCidrCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -30802,6 +33150,52 @@ const deserializeAws_ec2ReleaseHostsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReleaseHostsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2ReleaseIpamPoolAllocationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReleaseIpamPoolAllocationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ReleaseIpamPoolAllocationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ReleaseIpamPoolAllocationResult(data, context);
+  const response: ReleaseIpamPoolAllocationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ReleaseIpamPoolAllocationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReleaseIpamPoolAllocationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -32183,6 +34577,52 @@ const deserializeAws_ec2StartInstancesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2StartNetworkInsightsAccessScopeAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartNetworkInsightsAccessScopeAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2StartNetworkInsightsAccessScopeAnalysisCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2StartNetworkInsightsAccessScopeAnalysisResult(data, context);
+  const response: StartNetworkInsightsAccessScopeAnalysisCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2StartNetworkInsightsAccessScopeAnalysisCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartNetworkInsightsAccessScopeAnalysisCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2StartNetworkInsightsAnalysisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -32887,6 +35327,48 @@ const serializeAws_ec2AcceptVpcPeeringConnectionRequest = (
   return entries;
 };
 
+const serializeAws_ec2AccessScopePathListRequest = (input: AccessScopePathRequest[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_ec2AccessScopePathRequest(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Item.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2AccessScopePathRequest = (input: AccessScopePathRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Source !== undefined && input.Source !== null) {
+    const memberEntries = serializeAws_ec2PathStatementRequest(input.Source, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Source.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Destination !== undefined && input.Destination !== null) {
+    const memberEntries = serializeAws_ec2PathStatementRequest(input.Destination, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Destination.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ThroughResources !== undefined && input.ThroughResources !== null) {
+    const memberEntries = serializeAws_ec2ThroughResourcesStatementRequestList(input.ThroughResources, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ThroughResource.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_ec2AccountAttributeNameStringList = (
   input: (AccountAttributeName | string)[],
   context: __SerdeContext
@@ -32898,6 +35380,30 @@ const serializeAws_ec2AccountAttributeNameStringList = (
       continue;
     }
     entries[`AttributeName.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2AddIpamOperatingRegion = (input: AddIpamOperatingRegion, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.RegionName !== undefined && input.RegionName !== null) {
+    entries["RegionName"] = input.RegionName;
+  }
+  return entries;
+};
+
+const serializeAws_ec2AddIpamOperatingRegionSet = (input: AddIpamOperatingRegion[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_ec2AddIpamOperatingRegion(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Member.${counter}.${key}`] = value;
+    });
     counter++;
   }
   return entries;
@@ -33000,6 +35506,45 @@ const serializeAws_ec2AllocateHostsRequest = (input: AllocateHostsRequest, conte
   }
   if (input.HostRecovery !== undefined && input.HostRecovery !== null) {
     entries["HostRecovery"] = input.HostRecovery;
+  }
+  return entries;
+};
+
+const serializeAws_ec2AllocateIpamPoolCidrRequest = (
+  input: AllocateIpamPoolCidrRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamPoolId !== undefined && input.IpamPoolId !== null) {
+    entries["IpamPoolId"] = input.IpamPoolId;
+  }
+  if (input.Cidr !== undefined && input.Cidr !== null) {
+    entries["Cidr"] = input.Cidr;
+  }
+  if (input.NetmaskLength !== undefined && input.NetmaskLength !== null) {
+    entries["NetmaskLength"] = input.NetmaskLength;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken !== undefined && input.ClientToken !== null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.Description !== undefined && input.Description !== null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.PreviewNextCidr !== undefined && input.PreviewNextCidr !== null) {
+    entries["PreviewNextCidr"] = input.PreviewNextCidr;
+  }
+  if (input.DisallowedCidrs !== undefined && input.DisallowedCidrs !== null) {
+    const memberEntries = serializeAws_ec2IpamPoolAllocationDisallowedCidrs(input.DisallowedCidrs, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DisallowedCidr.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -33393,6 +35938,18 @@ const serializeAws_ec2AssociateVpcCidrBlockRequest = (
   }
   if (input.Ipv6CidrBlock !== undefined && input.Ipv6CidrBlock !== null) {
     entries["Ipv6CidrBlock"] = input.Ipv6CidrBlock;
+  }
+  if (input.Ipv4IpamPoolId !== undefined && input.Ipv4IpamPoolId !== null) {
+    entries["Ipv4IpamPoolId"] = input.Ipv4IpamPoolId;
+  }
+  if (input.Ipv4NetmaskLength !== undefined && input.Ipv4NetmaskLength !== null) {
+    entries["Ipv4NetmaskLength"] = input.Ipv4NetmaskLength;
+  }
+  if (input.Ipv6IpamPoolId !== undefined && input.Ipv6IpamPoolId !== null) {
+    entries["Ipv6IpamPoolId"] = input.Ipv6IpamPoolId;
+  }
+  if (input.Ipv6NetmaskLength !== undefined && input.Ipv6NetmaskLength !== null) {
+    entries["Ipv6NetmaskLength"] = input.Ipv6NetmaskLength;
   }
   return entries;
 };
@@ -35013,6 +37570,125 @@ const serializeAws_ec2CreateInternetGatewayRequest = (
   return entries;
 };
 
+const serializeAws_ec2CreateIpamPoolRequest = (input: CreateIpamPoolRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamScopeId !== undefined && input.IpamScopeId !== null) {
+    entries["IpamScopeId"] = input.IpamScopeId;
+  }
+  if (input.Locale !== undefined && input.Locale !== null) {
+    entries["Locale"] = input.Locale;
+  }
+  if (input.SourceIpamPoolId !== undefined && input.SourceIpamPoolId !== null) {
+    entries["SourceIpamPoolId"] = input.SourceIpamPoolId;
+  }
+  if (input.Description !== undefined && input.Description !== null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.AddressFamily !== undefined && input.AddressFamily !== null) {
+    entries["AddressFamily"] = input.AddressFamily;
+  }
+  if (input.AutoImport !== undefined && input.AutoImport !== null) {
+    entries["AutoImport"] = input.AutoImport;
+  }
+  if (input.PubliclyAdvertisable !== undefined && input.PubliclyAdvertisable !== null) {
+    entries["PubliclyAdvertisable"] = input.PubliclyAdvertisable;
+  }
+  if (input.AllocationMinNetmaskLength !== undefined && input.AllocationMinNetmaskLength !== null) {
+    entries["AllocationMinNetmaskLength"] = input.AllocationMinNetmaskLength;
+  }
+  if (input.AllocationMaxNetmaskLength !== undefined && input.AllocationMaxNetmaskLength !== null) {
+    entries["AllocationMaxNetmaskLength"] = input.AllocationMaxNetmaskLength;
+  }
+  if (input.AllocationDefaultNetmaskLength !== undefined && input.AllocationDefaultNetmaskLength !== null) {
+    entries["AllocationDefaultNetmaskLength"] = input.AllocationDefaultNetmaskLength;
+  }
+  if (input.AllocationResourceTags !== undefined && input.AllocationResourceTags !== null) {
+    const memberEntries = serializeAws_ec2RequestIpamResourceTagList(input.AllocationResourceTags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AllocationResourceTag.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken !== undefined && input.ClientToken !== null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.AwsService !== undefined && input.AwsService !== null) {
+    entries["AwsService"] = input.AwsService;
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreateIpamRequest = (input: CreateIpamRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.Description !== undefined && input.Description !== null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.OperatingRegions !== undefined && input.OperatingRegions !== null) {
+    const memberEntries = serializeAws_ec2AddIpamOperatingRegionSet(input.OperatingRegions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `OperatingRegion.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken !== undefined && input.ClientToken !== null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreateIpamScopeRequest = (input: CreateIpamScopeRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamId !== undefined && input.IpamId !== null) {
+    entries["IpamId"] = input.IpamId;
+  }
+  if (input.Description !== undefined && input.Description !== null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken !== undefined && input.ClientToken !== null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  return entries;
+};
+
 const serializeAws_ec2CreateKeyPairRequest = (input: CreateKeyPairRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.KeyName !== undefined && input.KeyName !== null) {
@@ -35279,6 +37955,44 @@ const serializeAws_ec2CreateNetworkAclRequest = (input: CreateNetworkAclRequest,
   return entries;
 };
 
+const serializeAws_ec2CreateNetworkInsightsAccessScopeRequest = (
+  input: CreateNetworkInsightsAccessScopeRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.MatchPaths !== undefined && input.MatchPaths !== null) {
+    const memberEntries = serializeAws_ec2AccessScopePathListRequest(input.MatchPaths, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MatchPath.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ExcludePaths !== undefined && input.ExcludePaths !== null) {
+    const memberEntries = serializeAws_ec2AccessScopePathListRequest(input.ExcludePaths, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ExcludePath.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken !== undefined && input.ClientToken !== null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2CreateNetworkInsightsPathRequest = (
   input: CreateNetworkInsightsPathRequest,
   context: __SerdeContext
@@ -35443,6 +38157,24 @@ const serializeAws_ec2CreatePlacementGroupRequest = (
   }
   if (input.PartitionCount !== undefined && input.PartitionCount !== null) {
     entries["PartitionCount"] = input.PartitionCount;
+  }
+  if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreatePublicIpv4PoolRequest = (
+  input: CreatePublicIpv4PoolRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
   }
   if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
@@ -36551,6 +39283,18 @@ const serializeAws_ec2CreateVpcRequest = (input: CreateVpcRequest, context: __Se
   if (input.Ipv6CidrBlock !== undefined && input.Ipv6CidrBlock !== null) {
     entries["Ipv6CidrBlock"] = input.Ipv6CidrBlock;
   }
+  if (input.Ipv4IpamPoolId !== undefined && input.Ipv4IpamPoolId !== null) {
+    entries["Ipv4IpamPoolId"] = input.Ipv4IpamPoolId;
+  }
+  if (input.Ipv4NetmaskLength !== undefined && input.Ipv4NetmaskLength !== null) {
+    entries["Ipv4NetmaskLength"] = input.Ipv4NetmaskLength;
+  }
+  if (input.Ipv6IpamPoolId !== undefined && input.Ipv6IpamPoolId !== null) {
+    entries["Ipv6IpamPoolId"] = input.Ipv6IpamPoolId;
+  }
+  if (input.Ipv6NetmaskLength !== undefined && input.Ipv6NetmaskLength !== null) {
+    entries["Ipv6NetmaskLength"] = input.Ipv6NetmaskLength;
+  }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
   }
@@ -36844,6 +39588,39 @@ const serializeAws_ec2DeleteInternetGatewayRequest = (
   return entries;
 };
 
+const serializeAws_ec2DeleteIpamPoolRequest = (input: DeleteIpamPoolRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamPoolId !== undefined && input.IpamPoolId !== null) {
+    entries["IpamPoolId"] = input.IpamPoolId;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DeleteIpamRequest = (input: DeleteIpamRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamId !== undefined && input.IpamId !== null) {
+    entries["IpamId"] = input.IpamId;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DeleteIpamScopeRequest = (input: DeleteIpamScopeRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamScopeId !== undefined && input.IpamScopeId !== null) {
+    entries["IpamScopeId"] = input.IpamScopeId;
+  }
+  return entries;
+};
+
 const serializeAws_ec2DeleteKeyPairRequest = (input: DeleteKeyPairRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.KeyName !== undefined && input.KeyName !== null) {
@@ -36989,6 +39766,34 @@ const serializeAws_ec2DeleteNetworkAclRequest = (input: DeleteNetworkAclRequest,
   return entries;
 };
 
+const serializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisRequest = (
+  input: DeleteNetworkInsightsAccessScopeAnalysisRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.NetworkInsightsAccessScopeAnalysisId !== undefined && input.NetworkInsightsAccessScopeAnalysisId !== null) {
+    entries["NetworkInsightsAccessScopeAnalysisId"] = input.NetworkInsightsAccessScopeAnalysisId;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DeleteNetworkInsightsAccessScopeRequest = (
+  input: DeleteNetworkInsightsAccessScopeRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.NetworkInsightsAccessScopeId !== undefined && input.NetworkInsightsAccessScopeId !== null) {
+    entries["NetworkInsightsAccessScopeId"] = input.NetworkInsightsAccessScopeId;
+  }
+  return entries;
+};
+
 const serializeAws_ec2DeleteNetworkInsightsAnalysisRequest = (
   input: DeleteNetworkInsightsAnalysisRequest,
   context: __SerdeContext
@@ -37058,6 +39863,20 @@ const serializeAws_ec2DeletePlacementGroupRequest = (
   }
   if (input.GroupName !== undefined && input.GroupName !== null) {
     entries["GroupName"] = input.GroupName;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DeletePublicIpv4PoolRequest = (
+  input: DeletePublicIpv4PoolRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.PoolId !== undefined && input.PoolId !== null) {
+    entries["PoolId"] = input.PoolId;
   }
   return entries;
 };
@@ -37534,6 +40353,40 @@ const serializeAws_ec2DeprovisionByoipCidrRequest = (
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DeprovisionIpamPoolCidrRequest = (
+  input: DeprovisionIpamPoolCidrRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamPoolId !== undefined && input.IpamPoolId !== null) {
+    entries["IpamPoolId"] = input.IpamPoolId;
+  }
+  if (input.Cidr !== undefined && input.Cidr !== null) {
+    entries["Cidr"] = input.Cidr;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DeprovisionPublicIpv4PoolCidrRequest = (
+  input: DeprovisionPublicIpv4PoolCidrRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.PoolId !== undefined && input.PoolId !== null) {
+    entries["PoolId"] = input.PoolId;
+  }
+  if (input.Cidr !== undefined && input.Cidr !== null) {
+    entries["Cidr"] = input.Cidr;
   }
   return entries;
 };
@@ -38956,6 +41809,90 @@ const serializeAws_ec2DescribeInternetGatewaysRequest = (
   return entries;
 };
 
+const serializeAws_ec2DescribeIpamPoolsRequest = (input: DescribeIpamPoolsRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.IpamPoolIds !== undefined && input.IpamPoolIds !== null) {
+    const memberEntries = serializeAws_ec2ValueStringList(input.IpamPoolIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `IpamPoolId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_ec2DescribeIpamScopesRequest = (input: DescribeIpamScopesRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.IpamScopeIds !== undefined && input.IpamScopeIds !== null) {
+    const memberEntries = serializeAws_ec2ValueStringList(input.IpamScopeIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `IpamScopeId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_ec2DescribeIpamsRequest = (input: DescribeIpamsRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.IpamIds !== undefined && input.IpamIds !== null) {
+    const memberEntries = serializeAws_ec2ValueStringList(input.IpamIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `IpamId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_ec2DescribeIpv6PoolsRequest = (input: DescribeIpv6PoolsRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PoolIds !== undefined && input.PoolIds !== null) {
@@ -39418,6 +42355,86 @@ const serializeAws_ec2DescribeNetworkAclsRequest = (
   }
   if (input.MaxResults !== undefined && input.MaxResults !== null) {
     entries["MaxResults"] = input.MaxResults;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DescribeNetworkInsightsAccessScopeAnalysesRequest = (
+  input: DescribeNetworkInsightsAccessScopeAnalysesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (
+    input.NetworkInsightsAccessScopeAnalysisIds !== undefined &&
+    input.NetworkInsightsAccessScopeAnalysisIds !== null
+  ) {
+    const memberEntries = serializeAws_ec2NetworkInsightsAccessScopeAnalysisIdList(
+      input.NetworkInsightsAccessScopeAnalysisIds,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NetworkInsightsAccessScopeAnalysisId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.NetworkInsightsAccessScopeId !== undefined && input.NetworkInsightsAccessScopeId !== null) {
+    entries["NetworkInsightsAccessScopeId"] = input.NetworkInsightsAccessScopeId;
+  }
+  if (input.AnalysisStartTimeBegin !== undefined && input.AnalysisStartTimeBegin !== null) {
+    entries["AnalysisStartTimeBegin"] = input.AnalysisStartTimeBegin.toISOString().split(".")[0] + "Z";
+  }
+  if (input.AnalysisStartTimeEnd !== undefined && input.AnalysisStartTimeEnd !== null) {
+    entries["AnalysisStartTimeEnd"] = input.AnalysisStartTimeEnd.toISOString().split(".")[0] + "Z";
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DescribeNetworkInsightsAccessScopesRequest = (
+  input: DescribeNetworkInsightsAccessScopesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.NetworkInsightsAccessScopeIds !== undefined && input.NetworkInsightsAccessScopeIds !== null) {
+    const memberEntries = serializeAws_ec2NetworkInsightsAccessScopeIdList(
+      input.NetworkInsightsAccessScopeIds,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NetworkInsightsAccessScopeId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
   }
   return entries;
 };
@@ -41445,6 +44462,20 @@ const serializeAws_ec2DisableImageDeprecationRequest = (
   return entries;
 };
 
+const serializeAws_ec2DisableIpamOrganizationAdminAccountRequest = (
+  input: DisableIpamOrganizationAdminAccountRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.DelegatedAdminAccountId !== undefined && input.DelegatedAdminAccountId !== null) {
+    entries["DelegatedAdminAccountId"] = input.DelegatedAdminAccountId;
+  }
+  return entries;
+};
+
 const serializeAws_ec2DisableSerialConsoleAccessRequest = (
   input: DisableSerialConsoleAccessRequest,
   context: __SerdeContext
@@ -41962,6 +44993,20 @@ const serializeAws_ec2EnableImageDeprecationRequest = (
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2EnableIpamOrganizationAdminAccountRequest = (
+  input: EnableIpamOrganizationAdminAccountRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.DelegatedAdminAccountId !== undefined && input.DelegatedAdminAccountId !== null) {
+    entries["DelegatedAdminAccountId"] = input.DelegatedAdminAccountId;
   }
   return entries;
 };
@@ -42741,6 +45786,138 @@ const serializeAws_ec2GetInstanceTypesFromInstanceRequirementsRequest = (
   return entries;
 };
 
+const serializeAws_ec2GetIpamAddressHistoryRequest = (
+  input: GetIpamAddressHistoryRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.Cidr !== undefined && input.Cidr !== null) {
+    entries["Cidr"] = input.Cidr;
+  }
+  if (input.IpamScopeId !== undefined && input.IpamScopeId !== null) {
+    entries["IpamScopeId"] = input.IpamScopeId;
+  }
+  if (input.VpcId !== undefined && input.VpcId !== null) {
+    entries["VpcId"] = input.VpcId;
+  }
+  if (input.StartTime !== undefined && input.StartTime !== null) {
+    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  }
+  if (input.EndTime !== undefined && input.EndTime !== null) {
+    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  return entries;
+};
+
+const serializeAws_ec2GetIpamPoolAllocationsRequest = (
+  input: GetIpamPoolAllocationsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamPoolId !== undefined && input.IpamPoolId !== null) {
+    entries["IpamPoolId"] = input.IpamPoolId;
+  }
+  if (input.IpamPoolAllocationId !== undefined && input.IpamPoolAllocationId !== null) {
+    entries["IpamPoolAllocationId"] = input.IpamPoolAllocationId;
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  return entries;
+};
+
+const serializeAws_ec2GetIpamPoolCidrsRequest = (input: GetIpamPoolCidrsRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamPoolId !== undefined && input.IpamPoolId !== null) {
+    entries["IpamPoolId"] = input.IpamPoolId;
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  return entries;
+};
+
+const serializeAws_ec2GetIpamResourceCidrsRequest = (
+  input: GetIpamResourceCidrsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.IpamScopeId !== undefined && input.IpamScopeId !== null) {
+    entries["IpamScopeId"] = input.IpamScopeId;
+  }
+  if (input.IpamPoolId !== undefined && input.IpamPoolId !== null) {
+    entries["IpamPoolId"] = input.IpamPoolId;
+  }
+  if (input.ResourceId !== undefined && input.ResourceId !== null) {
+    entries["ResourceId"] = input.ResourceId;
+  }
+  if (input.ResourceType !== undefined && input.ResourceType !== null) {
+    entries["ResourceType"] = input.ResourceType;
+  }
+  if (input.ResourceTag !== undefined && input.ResourceTag !== null) {
+    const memberEntries = serializeAws_ec2RequestIpamResourceTag(input.ResourceTag, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ResourceTag.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ResourceOwner !== undefined && input.ResourceOwner !== null) {
+    entries["ResourceOwner"] = input.ResourceOwner;
+  }
+  return entries;
+};
+
 const serializeAws_ec2GetLaunchTemplateDataRequest = (
   input: GetLaunchTemplateDataRequest,
   context: __SerdeContext
@@ -42794,6 +45971,40 @@ const serializeAws_ec2GetManagedPrefixListEntriesRequest = (
   }
   if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
+  }
+  return entries;
+};
+
+const serializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsRequest = (
+  input: GetNetworkInsightsAccessScopeAnalysisFindingsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.NetworkInsightsAccessScopeAnalysisId !== undefined && input.NetworkInsightsAccessScopeAnalysisId !== null) {
+    entries["NetworkInsightsAccessScopeAnalysisId"] = input.NetworkInsightsAccessScopeAnalysisId;
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2GetNetworkInsightsAccessScopeContentRequest = (
+  input: GetNetworkInsightsAccessScopeContentRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.NetworkInsightsAccessScopeId !== undefined && input.NetworkInsightsAccessScopeId !== null) {
+    entries["NetworkInsightsAccessScopeId"] = input.NetworkInsightsAccessScopeId;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
   }
   return entries;
 };
@@ -44425,6 +47636,33 @@ const serializeAws_ec2IntegrateServices = (input: IntegrateServices, context: __
 };
 
 const serializeAws_ec2InternetGatewayIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2IpamCidrAuthorizationContext = (
+  input: IpamCidrAuthorizationContext,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Message !== undefined && input.Message !== null) {
+    entries["Message"] = input.Message;
+  }
+  if (input.Signature !== undefined && input.Signature !== null) {
+    entries["Signature"] = input.Signature;
+  }
+  return entries;
+};
+
+const serializeAws_ec2IpamPoolAllocationDisallowedCidrs = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -46240,6 +49478,120 @@ const serializeAws_ec2ModifyInstancePlacementRequest = (
   return entries;
 };
 
+const serializeAws_ec2ModifyIpamPoolRequest = (input: ModifyIpamPoolRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamPoolId !== undefined && input.IpamPoolId !== null) {
+    entries["IpamPoolId"] = input.IpamPoolId;
+  }
+  if (input.Description !== undefined && input.Description !== null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.AutoImport !== undefined && input.AutoImport !== null) {
+    entries["AutoImport"] = input.AutoImport;
+  }
+  if (input.AllocationMinNetmaskLength !== undefined && input.AllocationMinNetmaskLength !== null) {
+    entries["AllocationMinNetmaskLength"] = input.AllocationMinNetmaskLength;
+  }
+  if (input.AllocationMaxNetmaskLength !== undefined && input.AllocationMaxNetmaskLength !== null) {
+    entries["AllocationMaxNetmaskLength"] = input.AllocationMaxNetmaskLength;
+  }
+  if (input.AllocationDefaultNetmaskLength !== undefined && input.AllocationDefaultNetmaskLength !== null) {
+    entries["AllocationDefaultNetmaskLength"] = input.AllocationDefaultNetmaskLength;
+  }
+  if (input.ClearAllocationDefaultNetmaskLength !== undefined && input.ClearAllocationDefaultNetmaskLength !== null) {
+    entries["ClearAllocationDefaultNetmaskLength"] = input.ClearAllocationDefaultNetmaskLength;
+  }
+  if (input.AddAllocationResourceTags !== undefined && input.AddAllocationResourceTags !== null) {
+    const memberEntries = serializeAws_ec2RequestIpamResourceTagList(input.AddAllocationResourceTags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AddAllocationResourceTag.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.RemoveAllocationResourceTags !== undefined && input.RemoveAllocationResourceTags !== null) {
+    const memberEntries = serializeAws_ec2RequestIpamResourceTagList(input.RemoveAllocationResourceTags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RemoveAllocationResourceTag.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_ec2ModifyIpamRequest = (input: ModifyIpamRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamId !== undefined && input.IpamId !== null) {
+    entries["IpamId"] = input.IpamId;
+  }
+  if (input.Description !== undefined && input.Description !== null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.AddOperatingRegions !== undefined && input.AddOperatingRegions !== null) {
+    const memberEntries = serializeAws_ec2AddIpamOperatingRegionSet(input.AddOperatingRegions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AddOperatingRegion.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.RemoveOperatingRegions !== undefined && input.RemoveOperatingRegions !== null) {
+    const memberEntries = serializeAws_ec2RemoveIpamOperatingRegionSet(input.RemoveOperatingRegions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RemoveOperatingRegion.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_ec2ModifyIpamResourceCidrRequest = (
+  input: ModifyIpamResourceCidrRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.ResourceId !== undefined && input.ResourceId !== null) {
+    entries["ResourceId"] = input.ResourceId;
+  }
+  if (input.ResourceCidr !== undefined && input.ResourceCidr !== null) {
+    entries["ResourceCidr"] = input.ResourceCidr;
+  }
+  if (input.ResourceRegion !== undefined && input.ResourceRegion !== null) {
+    entries["ResourceRegion"] = input.ResourceRegion;
+  }
+  if (input.CurrentIpamScopeId !== undefined && input.CurrentIpamScopeId !== null) {
+    entries["CurrentIpamScopeId"] = input.CurrentIpamScopeId;
+  }
+  if (input.DestinationIpamScopeId !== undefined && input.DestinationIpamScopeId !== null) {
+    entries["DestinationIpamScopeId"] = input.DestinationIpamScopeId;
+  }
+  if (input.Monitored !== undefined && input.Monitored !== null) {
+    entries["Monitored"] = input.Monitored;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ModifyIpamScopeRequest = (input: ModifyIpamScopeRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamScopeId !== undefined && input.IpamScopeId !== null) {
+    entries["IpamScopeId"] = input.IpamScopeId;
+  }
+  if (input.Description !== undefined && input.Description !== null) {
+    entries["Description"] = input.Description;
+  }
+  return entries;
+};
+
 const serializeAws_ec2ModifyLaunchTemplateRequest = (
   input: ModifyLaunchTemplateRequest,
   context: __SerdeContext
@@ -47336,6 +50688,26 @@ const serializeAws_ec2MoveAddressToVpcRequest = (input: MoveAddressToVpcRequest,
   return entries;
 };
 
+const serializeAws_ec2MoveByoipCidrToIpamRequest = (
+  input: MoveByoipCidrToIpamRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.Cidr !== undefined && input.Cidr !== null) {
+    entries["Cidr"] = input.Cidr;
+  }
+  if (input.IpamPoolId !== undefined && input.IpamPoolId !== null) {
+    entries["IpamPoolId"] = input.IpamPoolId;
+  }
+  if (input.IpamPoolOwner !== undefined && input.IpamPoolOwner !== null) {
+    entries["IpamPoolOwner"] = input.IpamPoolOwner;
+  }
+  return entries;
+};
+
 const serializeAws_ec2NatGatewayIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -47350,6 +50722,32 @@ const serializeAws_ec2NatGatewayIdStringList = (input: string[], context: __Serd
 };
 
 const serializeAws_ec2NetworkAclIdStringList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2NetworkInsightsAccessScopeAnalysisIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2NetworkInsightsAccessScopeIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -47559,6 +50957,82 @@ const serializeAws_ec2OwnerStringList = (input: string[], context: __SerdeContex
     }
     entries[`Owner.${counter}`] = entry;
     counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2PacketHeaderStatementRequest = (
+  input: PacketHeaderStatementRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.SourceAddresses !== undefined && input.SourceAddresses !== null) {
+    const memberEntries = serializeAws_ec2ValueStringList(input.SourceAddresses, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SourceAddress.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DestinationAddresses !== undefined && input.DestinationAddresses !== null) {
+    const memberEntries = serializeAws_ec2ValueStringList(input.DestinationAddresses, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DestinationAddress.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SourcePorts !== undefined && input.SourcePorts !== null) {
+    const memberEntries = serializeAws_ec2ValueStringList(input.SourcePorts, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SourcePort.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DestinationPorts !== undefined && input.DestinationPorts !== null) {
+    const memberEntries = serializeAws_ec2ValueStringList(input.DestinationPorts, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DestinationPort.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SourcePrefixLists !== undefined && input.SourcePrefixLists !== null) {
+    const memberEntries = serializeAws_ec2ValueStringList(input.SourcePrefixLists, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SourcePrefixList.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DestinationPrefixLists !== undefined && input.DestinationPrefixLists !== null) {
+    const memberEntries = serializeAws_ec2ValueStringList(input.DestinationPrefixLists, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DestinationPrefixList.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Protocols !== undefined && input.Protocols !== null) {
+    const memberEntries = serializeAws_ec2ProtocolList(input.Protocols, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Protocol.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_ec2PathStatementRequest = (input: PathStatementRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.PacketHeaderStatement !== undefined && input.PacketHeaderStatement !== null) {
+    const memberEntries = serializeAws_ec2PacketHeaderStatementRequest(input.PacketHeaderStatement, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `PacketHeaderStatement.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ResourceStatement !== undefined && input.ResourceStatement !== null) {
+    const memberEntries = serializeAws_ec2ResourceStatementRequest(input.ResourceStatement, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ResourceStatement.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -48016,6 +51490,19 @@ const serializeAws_ec2ProductDescriptionList = (input: string[], context: __Serd
   return entries;
 };
 
+const serializeAws_ec2ProtocolList = (input: (Protocol | string)[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_ec2ProvisionByoipCidrRequest = (input: ProvisionByoipCidrRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Cidr !== undefined && input.Cidr !== null) {
@@ -48046,6 +51533,50 @@ const serializeAws_ec2ProvisionByoipCidrRequest = (input: ProvisionByoipCidrRequ
   }
   if (input.MultiRegion !== undefined && input.MultiRegion !== null) {
     entries["MultiRegion"] = input.MultiRegion;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ProvisionIpamPoolCidrRequest = (
+  input: ProvisionIpamPoolCidrRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamPoolId !== undefined && input.IpamPoolId !== null) {
+    entries["IpamPoolId"] = input.IpamPoolId;
+  }
+  if (input.Cidr !== undefined && input.Cidr !== null) {
+    entries["Cidr"] = input.Cidr;
+  }
+  if (input.CidrAuthorizationContext !== undefined && input.CidrAuthorizationContext !== null) {
+    const memberEntries = serializeAws_ec2IpamCidrAuthorizationContext(input.CidrAuthorizationContext, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CidrAuthorizationContext.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_ec2ProvisionPublicIpv4PoolCidrRequest = (
+  input: ProvisionPublicIpv4PoolCidrRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamPoolId !== undefined && input.IpamPoolId !== null) {
+    entries["IpamPoolId"] = input.IpamPoolId;
+  }
+  if (input.PoolId !== undefined && input.PoolId !== null) {
+    entries["PoolId"] = input.PoolId;
+  }
+  if (input.NetmaskLength !== undefined && input.NetmaskLength !== null) {
+    entries["NetmaskLength"] = input.NetmaskLength;
   }
   return entries;
 };
@@ -48500,6 +52031,53 @@ const serializeAws_ec2ReleaseHostsRequest = (input: ReleaseHostsRequest, context
   return entries;
 };
 
+const serializeAws_ec2ReleaseIpamPoolAllocationRequest = (
+  input: ReleaseIpamPoolAllocationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.IpamPoolId !== undefined && input.IpamPoolId !== null) {
+    entries["IpamPoolId"] = input.IpamPoolId;
+  }
+  if (input.Cidr !== undefined && input.Cidr !== null) {
+    entries["Cidr"] = input.Cidr;
+  }
+  if (input.IpamPoolAllocationId !== undefined && input.IpamPoolAllocationId !== null) {
+    entries["IpamPoolAllocationId"] = input.IpamPoolAllocationId;
+  }
+  return entries;
+};
+
+const serializeAws_ec2RemoveIpamOperatingRegion = (input: RemoveIpamOperatingRegion, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.RegionName !== undefined && input.RegionName !== null) {
+    entries["RegionName"] = input.RegionName;
+  }
+  return entries;
+};
+
+const serializeAws_ec2RemoveIpamOperatingRegionSet = (
+  input: RemoveIpamOperatingRegion[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_ec2RemoveIpamOperatingRegion(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_ec2RemovePrefixListEntries = (input: RemovePrefixListEntry[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -48785,6 +52363,33 @@ const serializeAws_ec2RequestInstanceTypeList = (input: (_InstanceType | string)
       continue;
     }
     entries[`Member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2RequestIpamResourceTag = (input: RequestIpamResourceTag, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Key !== undefined && input.Key !== null) {
+    entries["Key"] = input.Key;
+  }
+  if (input.Value !== undefined && input.Value !== null) {
+    entries["Value"] = input.Value;
+  }
+  return entries;
+};
+
+const serializeAws_ec2RequestIpamResourceTagList = (input: RequestIpamResourceTag[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_ec2RequestIpamResourceTag(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Item.${counter}.${key}`] = value;
+    });
     counter++;
   }
   return entries;
@@ -49469,6 +53074,25 @@ const serializeAws_ec2ResourceList = (input: string[], context: __SerdeContext):
     }
     entries[`Item.${counter}`] = entry;
     counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ResourceStatementRequest = (input: ResourceStatementRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Resources !== undefined && input.Resources !== null) {
+    const memberEntries = serializeAws_ec2ValueStringList(input.Resources, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Resource.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ResourceTypes !== undefined && input.ResourceTypes !== null) {
+    const memberEntries = serializeAws_ec2ValueStringList(input.ResourceTypes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ResourceType.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -50995,6 +54619,33 @@ const serializeAws_ec2StartInstancesRequest = (input: StartInstancesRequest, con
   return entries;
 };
 
+const serializeAws_ec2StartNetworkInsightsAccessScopeAnalysisRequest = (
+  input: StartNetworkInsightsAccessScopeAnalysisRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.NetworkInsightsAccessScopeId !== undefined && input.NetworkInsightsAccessScopeId !== null) {
+    entries["NetworkInsightsAccessScopeId"] = input.NetworkInsightsAccessScopeId;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken !== undefined && input.ClientToken !== null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  return entries;
+};
+
 const serializeAws_ec2StartNetworkInsightsAnalysisRequest = (
   input: StartNetworkInsightsAnalysisRequest,
   context: __SerdeContext
@@ -51281,6 +54932,40 @@ const serializeAws_ec2TerminateInstancesRequest = (input: TerminateInstancesRequ
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ThroughResourcesStatementRequest = (
+  input: ThroughResourcesStatementRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ResourceStatement !== undefined && input.ResourceStatement !== null) {
+    const memberEntries = serializeAws_ec2ResourceStatementRequest(input.ResourceStatement, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ResourceStatement.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_ec2ThroughResourcesStatementRequestList = (
+  input: ThroughResourcesStatementRequest[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_ec2ThroughResourcesStatementRequest(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Item.${counter}.${key}`] = value;
+    });
+    counter++;
   }
   return entries;
 };
@@ -52364,6 +56049,86 @@ const deserializeAws_ec2AcceptVpcPeeringConnectionResult = (
   return contents;
 };
 
+const deserializeAws_ec2AccessScopeAnalysisFinding = (
+  output: any,
+  context: __SerdeContext
+): AccessScopeAnalysisFinding => {
+  const contents: any = {
+    NetworkInsightsAccessScopeAnalysisId: undefined,
+    NetworkInsightsAccessScopeId: undefined,
+    FindingId: undefined,
+    FindingComponents: undefined,
+  };
+  if (output["networkInsightsAccessScopeAnalysisId"] !== undefined) {
+    contents.NetworkInsightsAccessScopeAnalysisId = __expectString(output["networkInsightsAccessScopeAnalysisId"]);
+  }
+  if (output["networkInsightsAccessScopeId"] !== undefined) {
+    contents.NetworkInsightsAccessScopeId = __expectString(output["networkInsightsAccessScopeId"]);
+  }
+  if (output["findingId"] !== undefined) {
+    contents.FindingId = __expectString(output["findingId"]);
+  }
+  if (output.findingComponentSet === "") {
+    contents.FindingComponents = [];
+  }
+  if (output["findingComponentSet"] !== undefined && output["findingComponentSet"]["item"] !== undefined) {
+    contents.FindingComponents = deserializeAws_ec2PathComponentList(
+      __getArrayIfSingleItem(output["findingComponentSet"]["item"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2AccessScopeAnalysisFindingList = (
+  output: any,
+  context: __SerdeContext
+): AccessScopeAnalysisFinding[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2AccessScopeAnalysisFinding(entry, context);
+    });
+};
+
+const deserializeAws_ec2AccessScopePath = (output: any, context: __SerdeContext): AccessScopePath => {
+  const contents: any = {
+    Source: undefined,
+    Destination: undefined,
+    ThroughResources: undefined,
+  };
+  if (output["source"] !== undefined) {
+    contents.Source = deserializeAws_ec2PathStatement(output["source"], context);
+  }
+  if (output["destination"] !== undefined) {
+    contents.Destination = deserializeAws_ec2PathStatement(output["destination"], context);
+  }
+  if (output.throughResourceSet === "") {
+    contents.ThroughResources = [];
+  }
+  if (output["throughResourceSet"] !== undefined && output["throughResourceSet"]["item"] !== undefined) {
+    contents.ThroughResources = deserializeAws_ec2ThroughResourcesStatementList(
+      __getArrayIfSingleItem(output["throughResourceSet"]["item"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2AccessScopePathList = (output: any, context: __SerdeContext): AccessScopePath[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2AccessScopePath(entry, context);
+    });
+};
+
 const deserializeAws_ec2AccountAttribute = (output: any, context: __SerdeContext): AccountAttribute => {
   const contents: any = {
     AttributeName: undefined,
@@ -52622,6 +56387,19 @@ const deserializeAws_ec2AllocateHostsResult = (output: any, context: __SerdeCont
   return contents;
 };
 
+const deserializeAws_ec2AllocateIpamPoolCidrResult = (
+  output: any,
+  context: __SerdeContext
+): AllocateIpamPoolCidrResult => {
+  const contents: any = {
+    IpamPoolAllocation: undefined,
+  };
+  if (output["ipamPoolAllocation"] !== undefined) {
+    contents.IpamPoolAllocation = deserializeAws_ec2IpamPoolAllocation(output["ipamPoolAllocation"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2AllowedPrincipal = (output: any, context: __SerdeContext): AllowedPrincipal => {
   const contents: any = {
     PrincipalType: undefined,
@@ -52706,12 +56484,16 @@ const deserializeAws_ec2AnalysisComponent = (output: any, context: __SerdeContex
   const contents: any = {
     Id: undefined,
     Arn: undefined,
+    Name: undefined,
   };
   if (output["id"] !== undefined) {
     contents.Id = __expectString(output["id"]);
   }
   if (output["arn"] !== undefined) {
     contents.Arn = __expectString(output["arn"]);
+  }
+  if (output["name"] !== undefined) {
+    contents.Name = __expectString(output["name"]);
   }
   return contents;
 };
@@ -55598,6 +59380,36 @@ const deserializeAws_ec2CreateInternetGatewayResult = (
   return contents;
 };
 
+const deserializeAws_ec2CreateIpamPoolResult = (output: any, context: __SerdeContext): CreateIpamPoolResult => {
+  const contents: any = {
+    IpamPool: undefined,
+  };
+  if (output["ipamPool"] !== undefined) {
+    contents.IpamPool = deserializeAws_ec2IpamPool(output["ipamPool"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2CreateIpamResult = (output: any, context: __SerdeContext): CreateIpamResult => {
+  const contents: any = {
+    Ipam: undefined,
+  };
+  if (output["ipam"] !== undefined) {
+    contents.Ipam = deserializeAws_ec2Ipam(output["ipam"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2CreateIpamScopeResult = (output: any, context: __SerdeContext): CreateIpamScopeResult => {
+  const contents: any = {
+    IpamScope: undefined,
+  };
+  if (output["ipamScope"] !== undefined) {
+    contents.IpamScope = deserializeAws_ec2IpamScope(output["ipamScope"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2CreateLaunchTemplateResult = (
   output: any,
   context: __SerdeContext
@@ -55698,6 +59510,29 @@ const deserializeAws_ec2CreateNetworkAclResult = (output: any, context: __SerdeC
   return contents;
 };
 
+const deserializeAws_ec2CreateNetworkInsightsAccessScopeResult = (
+  output: any,
+  context: __SerdeContext
+): CreateNetworkInsightsAccessScopeResult => {
+  const contents: any = {
+    NetworkInsightsAccessScope: undefined,
+    NetworkInsightsAccessScopeContent: undefined,
+  };
+  if (output["networkInsightsAccessScope"] !== undefined) {
+    contents.NetworkInsightsAccessScope = deserializeAws_ec2NetworkInsightsAccessScope(
+      output["networkInsightsAccessScope"],
+      context
+    );
+  }
+  if (output["networkInsightsAccessScopeContent"] !== undefined) {
+    contents.NetworkInsightsAccessScopeContent = deserializeAws_ec2NetworkInsightsAccessScopeContent(
+      output["networkInsightsAccessScopeContent"],
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_ec2CreateNetworkInsightsPathResult = (
   output: any,
   context: __SerdeContext
@@ -55750,6 +59585,19 @@ const deserializeAws_ec2CreatePlacementGroupResult = (
   };
   if (output["placementGroup"] !== undefined) {
     contents.PlacementGroup = deserializeAws_ec2PlacementGroup(output["placementGroup"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2CreatePublicIpv4PoolResult = (
+  output: any,
+  context: __SerdeContext
+): CreatePublicIpv4PoolResult => {
+  const contents: any = {
+    PoolId: undefined,
+  };
+  if (output["poolId"] !== undefined) {
+    contents.PoolId = __expectString(output["poolId"]);
   }
   return contents;
 };
@@ -56505,6 +60353,36 @@ const deserializeAws_ec2DeleteInstanceEventWindowResult = (
   return contents;
 };
 
+const deserializeAws_ec2DeleteIpamPoolResult = (output: any, context: __SerdeContext): DeleteIpamPoolResult => {
+  const contents: any = {
+    IpamPool: undefined,
+  };
+  if (output["ipamPool"] !== undefined) {
+    contents.IpamPool = deserializeAws_ec2IpamPool(output["ipamPool"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DeleteIpamResult = (output: any, context: __SerdeContext): DeleteIpamResult => {
+  const contents: any = {
+    Ipam: undefined,
+  };
+  if (output["ipam"] !== undefined) {
+    contents.Ipam = deserializeAws_ec2Ipam(output["ipam"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DeleteIpamScopeResult = (output: any, context: __SerdeContext): DeleteIpamScopeResult => {
+  const contents: any = {
+    IpamScope: undefined,
+  };
+  if (output["ipamScope"] !== undefined) {
+    contents.IpamScope = deserializeAws_ec2IpamScope(output["ipamScope"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2DeleteLaunchTemplateResult = (
   output: any,
   context: __SerdeContext
@@ -56681,6 +60559,32 @@ const deserializeAws_ec2DeleteNatGatewayResult = (output: any, context: __SerdeC
   return contents;
 };
 
+const deserializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteNetworkInsightsAccessScopeAnalysisResult => {
+  const contents: any = {
+    NetworkInsightsAccessScopeAnalysisId: undefined,
+  };
+  if (output["networkInsightsAccessScopeAnalysisId"] !== undefined) {
+    contents.NetworkInsightsAccessScopeAnalysisId = __expectString(output["networkInsightsAccessScopeAnalysisId"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DeleteNetworkInsightsAccessScopeResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteNetworkInsightsAccessScopeResult => {
+  const contents: any = {
+    NetworkInsightsAccessScopeId: undefined,
+  };
+  if (output["networkInsightsAccessScopeId"] !== undefined) {
+    contents.NetworkInsightsAccessScopeId = __expectString(output["networkInsightsAccessScopeId"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2DeleteNetworkInsightsAnalysisResult = (
   output: any,
   context: __SerdeContext
@@ -56716,6 +60620,19 @@ const deserializeAws_ec2DeleteNetworkInterfacePermissionResult = (
   };
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DeletePublicIpv4PoolResult = (
+  output: any,
+  context: __SerdeContext
+): DeletePublicIpv4PoolResult => {
+  const contents: any = {
+    ReturnValue: undefined,
+  };
+  if (output["returnValue"] !== undefined) {
+    contents.ReturnValue = __parseBoolean(output["returnValue"]);
   }
   return contents;
 };
@@ -57051,6 +60968,53 @@ const deserializeAws_ec2DeprovisionByoipCidrResult = (
   };
   if (output["byoipCidr"] !== undefined) {
     contents.ByoipCidr = deserializeAws_ec2ByoipCidr(output["byoipCidr"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DeprovisionedAddressSet = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_ec2DeprovisionIpamPoolCidrResult = (
+  output: any,
+  context: __SerdeContext
+): DeprovisionIpamPoolCidrResult => {
+  const contents: any = {
+    IpamPoolCidr: undefined,
+  };
+  if (output["ipamPoolCidr"] !== undefined) {
+    contents.IpamPoolCidr = deserializeAws_ec2IpamPoolCidr(output["ipamPoolCidr"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DeprovisionPublicIpv4PoolCidrResult = (
+  output: any,
+  context: __SerdeContext
+): DeprovisionPublicIpv4PoolCidrResult => {
+  const contents: any = {
+    PoolId: undefined,
+    DeprovisionedAddresses: undefined,
+  };
+  if (output["poolId"] !== undefined) {
+    contents.PoolId = __expectString(output["poolId"]);
+  }
+  if (output.deprovisionedAddressSet === "") {
+    contents.DeprovisionedAddresses = [];
+  }
+  if (output["deprovisionedAddressSet"] !== undefined && output["deprovisionedAddressSet"]["item"] !== undefined) {
+    contents.DeprovisionedAddresses = deserializeAws_ec2DeprovisionedAddressSet(
+      __getArrayIfSingleItem(output["deprovisionedAddressSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -58282,6 +62246,60 @@ const deserializeAws_ec2DescribeInternetGatewaysResult = (
   return contents;
 };
 
+const deserializeAws_ec2DescribeIpamPoolsResult = (output: any, context: __SerdeContext): DescribeIpamPoolsResult => {
+  const contents: any = {
+    NextToken: undefined,
+    IpamPools: undefined,
+  };
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  if (output.ipamPoolSet === "") {
+    contents.IpamPools = [];
+  }
+  if (output["ipamPoolSet"] !== undefined && output["ipamPoolSet"]["item"] !== undefined) {
+    contents.IpamPools = deserializeAws_ec2IpamPoolSet(__getArrayIfSingleItem(output["ipamPoolSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DescribeIpamScopesResult = (output: any, context: __SerdeContext): DescribeIpamScopesResult => {
+  const contents: any = {
+    NextToken: undefined,
+    IpamScopes: undefined,
+  };
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  if (output.ipamScopeSet === "") {
+    contents.IpamScopes = [];
+  }
+  if (output["ipamScopeSet"] !== undefined && output["ipamScopeSet"]["item"] !== undefined) {
+    contents.IpamScopes = deserializeAws_ec2IpamScopeSet(
+      __getArrayIfSingleItem(output["ipamScopeSet"]["item"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DescribeIpamsResult = (output: any, context: __SerdeContext): DescribeIpamsResult => {
+  const contents: any = {
+    NextToken: undefined,
+    Ipams: undefined,
+  };
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  if (output.ipamSet === "") {
+    contents.Ipams = [];
+  }
+  if (output["ipamSet"] !== undefined && output["ipamSet"]["item"] !== undefined) {
+    contents.Ipams = deserializeAws_ec2IpamSet(__getArrayIfSingleItem(output["ipamSet"]["item"]), context);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2DescribeIpv6PoolsResult = (output: any, context: __SerdeContext): DescribeIpv6PoolsResult => {
   const contents: any = {
     Ipv6Pools: undefined,
@@ -58592,6 +62610,58 @@ const deserializeAws_ec2DescribeNetworkAclsResult = (
   if (output["networkAclSet"] !== undefined && output["networkAclSet"]["item"] !== undefined) {
     contents.NetworkAcls = deserializeAws_ec2NetworkAclList(
       __getArrayIfSingleItem(output["networkAclSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DescribeNetworkInsightsAccessScopeAnalysesResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeNetworkInsightsAccessScopeAnalysesResult => {
+  const contents: any = {
+    NetworkInsightsAccessScopeAnalyses: undefined,
+    NextToken: undefined,
+  };
+  if (output.networkInsightsAccessScopeAnalysisSet === "") {
+    contents.NetworkInsightsAccessScopeAnalyses = [];
+  }
+  if (
+    output["networkInsightsAccessScopeAnalysisSet"] !== undefined &&
+    output["networkInsightsAccessScopeAnalysisSet"]["item"] !== undefined
+  ) {
+    contents.NetworkInsightsAccessScopeAnalyses = deserializeAws_ec2NetworkInsightsAccessScopeAnalysisList(
+      __getArrayIfSingleItem(output["networkInsightsAccessScopeAnalysisSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DescribeNetworkInsightsAccessScopesResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeNetworkInsightsAccessScopesResult => {
+  const contents: any = {
+    NetworkInsightsAccessScopes: undefined,
+    NextToken: undefined,
+  };
+  if (output.networkInsightsAccessScopeSet === "") {
+    contents.NetworkInsightsAccessScopes = [];
+  }
+  if (
+    output["networkInsightsAccessScopeSet"] !== undefined &&
+    output["networkInsightsAccessScopeSet"]["item"] !== undefined
+  ) {
+    contents.NetworkInsightsAccessScopes = deserializeAws_ec2NetworkInsightsAccessScopeList(
+      __getArrayIfSingleItem(output["networkInsightsAccessScopeSet"]["item"]),
       context
     );
   }
@@ -60393,6 +64463,19 @@ const deserializeAws_ec2DisableImageDeprecationResult = (
   return contents;
 };
 
+const deserializeAws_ec2DisableIpamOrganizationAdminAccountResult = (
+  output: any,
+  context: __SerdeContext
+): DisableIpamOrganizationAdminAccountResult => {
+  const contents: any = {
+    Success: undefined,
+  };
+  if (output["success"] !== undefined) {
+    contents.Success = __parseBoolean(output["success"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2DisableSerialConsoleAccessResult = (
   output: any,
   context: __SerdeContext
@@ -61226,6 +65309,19 @@ const deserializeAws_ec2EnableImageDeprecationResult = (
   };
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2EnableIpamOrganizationAdminAccountResult = (
+  output: any,
+  context: __SerdeContext
+): EnableIpamOrganizationAdminAccountResult => {
+  const contents: any = {
+    Success: undefined,
+  };
+  if (output["success"] !== undefined) {
+    contents.Success = __parseBoolean(output["success"]);
   }
   return contents;
 };
@@ -62778,6 +66874,95 @@ const deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsResult = (
   return contents;
 };
 
+const deserializeAws_ec2GetIpamAddressHistoryResult = (
+  output: any,
+  context: __SerdeContext
+): GetIpamAddressHistoryResult => {
+  const contents: any = {
+    HistoryRecords: undefined,
+    NextToken: undefined,
+  };
+  if (output.historyRecordSet === "") {
+    contents.HistoryRecords = [];
+  }
+  if (output["historyRecordSet"] !== undefined && output["historyRecordSet"]["item"] !== undefined) {
+    contents.HistoryRecords = deserializeAws_ec2IpamAddressHistoryRecordSet(
+      __getArrayIfSingleItem(output["historyRecordSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2GetIpamPoolAllocationsResult = (
+  output: any,
+  context: __SerdeContext
+): GetIpamPoolAllocationsResult => {
+  const contents: any = {
+    IpamPoolAllocations: undefined,
+    NextToken: undefined,
+  };
+  if (output.ipamPoolAllocationSet === "") {
+    contents.IpamPoolAllocations = [];
+  }
+  if (output["ipamPoolAllocationSet"] !== undefined && output["ipamPoolAllocationSet"]["item"] !== undefined) {
+    contents.IpamPoolAllocations = deserializeAws_ec2IpamPoolAllocationSet(
+      __getArrayIfSingleItem(output["ipamPoolAllocationSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2GetIpamPoolCidrsResult = (output: any, context: __SerdeContext): GetIpamPoolCidrsResult => {
+  const contents: any = {
+    IpamPoolCidrs: undefined,
+    NextToken: undefined,
+  };
+  if (output.ipamPoolCidrSet === "") {
+    contents.IpamPoolCidrs = [];
+  }
+  if (output["ipamPoolCidrSet"] !== undefined && output["ipamPoolCidrSet"]["item"] !== undefined) {
+    contents.IpamPoolCidrs = deserializeAws_ec2IpamPoolCidrSet(
+      __getArrayIfSingleItem(output["ipamPoolCidrSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2GetIpamResourceCidrsResult = (
+  output: any,
+  context: __SerdeContext
+): GetIpamResourceCidrsResult => {
+  const contents: any = {
+    NextToken: undefined,
+    IpamResourceCidrs: undefined,
+  };
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  if (output.ipamResourceCidrSet === "") {
+    contents.IpamResourceCidrs = [];
+  }
+  if (output["ipamResourceCidrSet"] !== undefined && output["ipamResourceCidrSet"]["item"] !== undefined) {
+    contents.IpamResourceCidrs = deserializeAws_ec2IpamResourceCidrSet(
+      __getArrayIfSingleItem(output["ipamResourceCidrSet"]["item"]),
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_ec2GetLaunchTemplateDataResult = (
   output: any,
   context: __SerdeContext
@@ -62833,6 +67018,53 @@ const deserializeAws_ec2GetManagedPrefixListEntriesResult = (
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsResult = (
+  output: any,
+  context: __SerdeContext
+): GetNetworkInsightsAccessScopeAnalysisFindingsResult => {
+  const contents: any = {
+    NetworkInsightsAccessScopeAnalysisId: undefined,
+    AnalysisStatus: undefined,
+    AnalysisFindings: undefined,
+    NextToken: undefined,
+  };
+  if (output["networkInsightsAccessScopeAnalysisId"] !== undefined) {
+    contents.NetworkInsightsAccessScopeAnalysisId = __expectString(output["networkInsightsAccessScopeAnalysisId"]);
+  }
+  if (output["analysisStatus"] !== undefined) {
+    contents.AnalysisStatus = __expectString(output["analysisStatus"]);
+  }
+  if (output.analysisFindingSet === "") {
+    contents.AnalysisFindings = [];
+  }
+  if (output["analysisFindingSet"] !== undefined && output["analysisFindingSet"]["item"] !== undefined) {
+    contents.AnalysisFindings = deserializeAws_ec2AccessScopeAnalysisFindingList(
+      __getArrayIfSingleItem(output["analysisFindingSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2GetNetworkInsightsAccessScopeContentResult = (
+  output: any,
+  context: __SerdeContext
+): GetNetworkInsightsAccessScopeContentResult => {
+  const contents: any = {
+    NetworkInsightsAccessScopeContent: undefined,
+  };
+  if (output["networkInsightsAccessScopeContent"] !== undefined) {
+    contents.NetworkInsightsAccessScopeContent = deserializeAws_ec2NetworkInsightsAccessScopeContent(
+      output["networkInsightsAccessScopeContent"],
+      context
+    );
   }
   return contents;
 };
@@ -66321,6 +70553,538 @@ const deserializeAws_ec2IpAddressList = (output: any, context: __SerdeContext): 
     });
 };
 
+const deserializeAws_ec2Ipam = (output: any, context: __SerdeContext): Ipam => {
+  const contents: any = {
+    OwnerId: undefined,
+    IpamId: undefined,
+    IpamArn: undefined,
+    IpamRegion: undefined,
+    PublicDefaultScopeId: undefined,
+    PrivateDefaultScopeId: undefined,
+    ScopeCount: undefined,
+    Description: undefined,
+    OperatingRegions: undefined,
+    State: undefined,
+    Tags: undefined,
+  };
+  if (output["ownerId"] !== undefined) {
+    contents.OwnerId = __expectString(output["ownerId"]);
+  }
+  if (output["ipamId"] !== undefined) {
+    contents.IpamId = __expectString(output["ipamId"]);
+  }
+  if (output["ipamArn"] !== undefined) {
+    contents.IpamArn = __expectString(output["ipamArn"]);
+  }
+  if (output["ipamRegion"] !== undefined) {
+    contents.IpamRegion = __expectString(output["ipamRegion"]);
+  }
+  if (output["publicDefaultScopeId"] !== undefined) {
+    contents.PublicDefaultScopeId = __expectString(output["publicDefaultScopeId"]);
+  }
+  if (output["privateDefaultScopeId"] !== undefined) {
+    contents.PrivateDefaultScopeId = __expectString(output["privateDefaultScopeId"]);
+  }
+  if (output["scopeCount"] !== undefined) {
+    contents.ScopeCount = __strictParseInt32(output["scopeCount"]) as number;
+  }
+  if (output["description"] !== undefined) {
+    contents.Description = __expectString(output["description"]);
+  }
+  if (output.operatingRegionSet === "") {
+    contents.OperatingRegions = [];
+  }
+  if (output["operatingRegionSet"] !== undefined && output["operatingRegionSet"]["item"] !== undefined) {
+    contents.OperatingRegions = deserializeAws_ec2IpamOperatingRegionSet(
+      __getArrayIfSingleItem(output["operatingRegionSet"]["item"]),
+      context
+    );
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  }
+  if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2IpamAddressHistoryRecord = (output: any, context: __SerdeContext): IpamAddressHistoryRecord => {
+  const contents: any = {
+    ResourceOwnerId: undefined,
+    ResourceRegion: undefined,
+    ResourceType: undefined,
+    ResourceId: undefined,
+    ResourceCidr: undefined,
+    ResourceName: undefined,
+    ResourceComplianceStatus: undefined,
+    ResourceOverlapStatus: undefined,
+    VpcId: undefined,
+    SampledStartTime: undefined,
+    SampledEndTime: undefined,
+  };
+  if (output["resourceOwnerId"] !== undefined) {
+    contents.ResourceOwnerId = __expectString(output["resourceOwnerId"]);
+  }
+  if (output["resourceRegion"] !== undefined) {
+    contents.ResourceRegion = __expectString(output["resourceRegion"]);
+  }
+  if (output["resourceType"] !== undefined) {
+    contents.ResourceType = __expectString(output["resourceType"]);
+  }
+  if (output["resourceId"] !== undefined) {
+    contents.ResourceId = __expectString(output["resourceId"]);
+  }
+  if (output["resourceCidr"] !== undefined) {
+    contents.ResourceCidr = __expectString(output["resourceCidr"]);
+  }
+  if (output["resourceName"] !== undefined) {
+    contents.ResourceName = __expectString(output["resourceName"]);
+  }
+  if (output["resourceComplianceStatus"] !== undefined) {
+    contents.ResourceComplianceStatus = __expectString(output["resourceComplianceStatus"]);
+  }
+  if (output["resourceOverlapStatus"] !== undefined) {
+    contents.ResourceOverlapStatus = __expectString(output["resourceOverlapStatus"]);
+  }
+  if (output["vpcId"] !== undefined) {
+    contents.VpcId = __expectString(output["vpcId"]);
+  }
+  if (output["sampledStartTime"] !== undefined) {
+    contents.SampledStartTime = __expectNonNull(__parseRfc3339DateTime(output["sampledStartTime"]));
+  }
+  if (output["sampledEndTime"] !== undefined) {
+    contents.SampledEndTime = __expectNonNull(__parseRfc3339DateTime(output["sampledEndTime"]));
+  }
+  return contents;
+};
+
+const deserializeAws_ec2IpamAddressHistoryRecordSet = (
+  output: any,
+  context: __SerdeContext
+): IpamAddressHistoryRecord[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2IpamAddressHistoryRecord(entry, context);
+    });
+};
+
+const deserializeAws_ec2IpamOperatingRegion = (output: any, context: __SerdeContext): IpamOperatingRegion => {
+  const contents: any = {
+    RegionName: undefined,
+  };
+  if (output["regionName"] !== undefined) {
+    contents.RegionName = __expectString(output["regionName"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2IpamOperatingRegionSet = (output: any, context: __SerdeContext): IpamOperatingRegion[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2IpamOperatingRegion(entry, context);
+    });
+};
+
+const deserializeAws_ec2IpamPool = (output: any, context: __SerdeContext): IpamPool => {
+  const contents: any = {
+    OwnerId: undefined,
+    IpamPoolId: undefined,
+    SourceIpamPoolId: undefined,
+    IpamPoolArn: undefined,
+    IpamScopeArn: undefined,
+    IpamScopeType: undefined,
+    IpamArn: undefined,
+    IpamRegion: undefined,
+    Locale: undefined,
+    PoolDepth: undefined,
+    State: undefined,
+    StateMessage: undefined,
+    Description: undefined,
+    AutoImport: undefined,
+    PubliclyAdvertisable: undefined,
+    AddressFamily: undefined,
+    AllocationMinNetmaskLength: undefined,
+    AllocationMaxNetmaskLength: undefined,
+    AllocationDefaultNetmaskLength: undefined,
+    AllocationResourceTags: undefined,
+    Tags: undefined,
+    AwsService: undefined,
+  };
+  if (output["ownerId"] !== undefined) {
+    contents.OwnerId = __expectString(output["ownerId"]);
+  }
+  if (output["ipamPoolId"] !== undefined) {
+    contents.IpamPoolId = __expectString(output["ipamPoolId"]);
+  }
+  if (output["sourceIpamPoolId"] !== undefined) {
+    contents.SourceIpamPoolId = __expectString(output["sourceIpamPoolId"]);
+  }
+  if (output["ipamPoolArn"] !== undefined) {
+    contents.IpamPoolArn = __expectString(output["ipamPoolArn"]);
+  }
+  if (output["ipamScopeArn"] !== undefined) {
+    contents.IpamScopeArn = __expectString(output["ipamScopeArn"]);
+  }
+  if (output["ipamScopeType"] !== undefined) {
+    contents.IpamScopeType = __expectString(output["ipamScopeType"]);
+  }
+  if (output["ipamArn"] !== undefined) {
+    contents.IpamArn = __expectString(output["ipamArn"]);
+  }
+  if (output["ipamRegion"] !== undefined) {
+    contents.IpamRegion = __expectString(output["ipamRegion"]);
+  }
+  if (output["locale"] !== undefined) {
+    contents.Locale = __expectString(output["locale"]);
+  }
+  if (output["poolDepth"] !== undefined) {
+    contents.PoolDepth = __strictParseInt32(output["poolDepth"]) as number;
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  if (output["stateMessage"] !== undefined) {
+    contents.StateMessage = __expectString(output["stateMessage"]);
+  }
+  if (output["description"] !== undefined) {
+    contents.Description = __expectString(output["description"]);
+  }
+  if (output["autoImport"] !== undefined) {
+    contents.AutoImport = __parseBoolean(output["autoImport"]);
+  }
+  if (output["publiclyAdvertisable"] !== undefined) {
+    contents.PubliclyAdvertisable = __parseBoolean(output["publiclyAdvertisable"]);
+  }
+  if (output["addressFamily"] !== undefined) {
+    contents.AddressFamily = __expectString(output["addressFamily"]);
+  }
+  if (output["allocationMinNetmaskLength"] !== undefined) {
+    contents.AllocationMinNetmaskLength = __strictParseInt32(output["allocationMinNetmaskLength"]) as number;
+  }
+  if (output["allocationMaxNetmaskLength"] !== undefined) {
+    contents.AllocationMaxNetmaskLength = __strictParseInt32(output["allocationMaxNetmaskLength"]) as number;
+  }
+  if (output["allocationDefaultNetmaskLength"] !== undefined) {
+    contents.AllocationDefaultNetmaskLength = __strictParseInt32(output["allocationDefaultNetmaskLength"]) as number;
+  }
+  if (output.allocationResourceTagSet === "") {
+    contents.AllocationResourceTags = [];
+  }
+  if (output["allocationResourceTagSet"] !== undefined && output["allocationResourceTagSet"]["item"] !== undefined) {
+    contents.AllocationResourceTags = deserializeAws_ec2IpamResourceTagList(
+      __getArrayIfSingleItem(output["allocationResourceTagSet"]["item"]),
+      context
+    );
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  }
+  if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  if (output["awsService"] !== undefined) {
+    contents.AwsService = __expectString(output["awsService"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2IpamPoolAllocation = (output: any, context: __SerdeContext): IpamPoolAllocation => {
+  const contents: any = {
+    Cidr: undefined,
+    IpamPoolAllocationId: undefined,
+    Description: undefined,
+    ResourceId: undefined,
+    ResourceType: undefined,
+    ResourceRegion: undefined,
+    ResourceOwner: undefined,
+  };
+  if (output["cidr"] !== undefined) {
+    contents.Cidr = __expectString(output["cidr"]);
+  }
+  if (output["ipamPoolAllocationId"] !== undefined) {
+    contents.IpamPoolAllocationId = __expectString(output["ipamPoolAllocationId"]);
+  }
+  if (output["description"] !== undefined) {
+    contents.Description = __expectString(output["description"]);
+  }
+  if (output["resourceId"] !== undefined) {
+    contents.ResourceId = __expectString(output["resourceId"]);
+  }
+  if (output["resourceType"] !== undefined) {
+    contents.ResourceType = __expectString(output["resourceType"]);
+  }
+  if (output["resourceRegion"] !== undefined) {
+    contents.ResourceRegion = __expectString(output["resourceRegion"]);
+  }
+  if (output["resourceOwner"] !== undefined) {
+    contents.ResourceOwner = __expectString(output["resourceOwner"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2IpamPoolAllocationSet = (output: any, context: __SerdeContext): IpamPoolAllocation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2IpamPoolAllocation(entry, context);
+    });
+};
+
+const deserializeAws_ec2IpamPoolCidr = (output: any, context: __SerdeContext): IpamPoolCidr => {
+  const contents: any = {
+    Cidr: undefined,
+    State: undefined,
+    FailureReason: undefined,
+  };
+  if (output["cidr"] !== undefined) {
+    contents.Cidr = __expectString(output["cidr"]);
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  if (output["failureReason"] !== undefined) {
+    contents.FailureReason = deserializeAws_ec2IpamPoolCidrFailureReason(output["failureReason"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2IpamPoolCidrFailureReason = (
+  output: any,
+  context: __SerdeContext
+): IpamPoolCidrFailureReason => {
+  const contents: any = {
+    Code: undefined,
+    Message: undefined,
+  };
+  if (output["code"] !== undefined) {
+    contents.Code = __expectString(output["code"]);
+  }
+  if (output["message"] !== undefined) {
+    contents.Message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2IpamPoolCidrSet = (output: any, context: __SerdeContext): IpamPoolCidr[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2IpamPoolCidr(entry, context);
+    });
+};
+
+const deserializeAws_ec2IpamPoolSet = (output: any, context: __SerdeContext): IpamPool[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2IpamPool(entry, context);
+    });
+};
+
+const deserializeAws_ec2IpamResourceCidr = (output: any, context: __SerdeContext): IpamResourceCidr => {
+  const contents: any = {
+    IpamId: undefined,
+    IpamScopeId: undefined,
+    IpamPoolId: undefined,
+    ResourceRegion: undefined,
+    ResourceOwnerId: undefined,
+    ResourceId: undefined,
+    ResourceName: undefined,
+    ResourceCidr: undefined,
+    ResourceType: undefined,
+    ResourceTags: undefined,
+    IpUsage: undefined,
+    ComplianceStatus: undefined,
+    ManagementState: undefined,
+    OverlapStatus: undefined,
+    VpcId: undefined,
+  };
+  if (output["ipamId"] !== undefined) {
+    contents.IpamId = __expectString(output["ipamId"]);
+  }
+  if (output["ipamScopeId"] !== undefined) {
+    contents.IpamScopeId = __expectString(output["ipamScopeId"]);
+  }
+  if (output["ipamPoolId"] !== undefined) {
+    contents.IpamPoolId = __expectString(output["ipamPoolId"]);
+  }
+  if (output["resourceRegion"] !== undefined) {
+    contents.ResourceRegion = __expectString(output["resourceRegion"]);
+  }
+  if (output["resourceOwnerId"] !== undefined) {
+    contents.ResourceOwnerId = __expectString(output["resourceOwnerId"]);
+  }
+  if (output["resourceId"] !== undefined) {
+    contents.ResourceId = __expectString(output["resourceId"]);
+  }
+  if (output["resourceName"] !== undefined) {
+    contents.ResourceName = __expectString(output["resourceName"]);
+  }
+  if (output["resourceCidr"] !== undefined) {
+    contents.ResourceCidr = __expectString(output["resourceCidr"]);
+  }
+  if (output["resourceType"] !== undefined) {
+    contents.ResourceType = __expectString(output["resourceType"]);
+  }
+  if (output.resourceTagSet === "") {
+    contents.ResourceTags = [];
+  }
+  if (output["resourceTagSet"] !== undefined && output["resourceTagSet"]["item"] !== undefined) {
+    contents.ResourceTags = deserializeAws_ec2IpamResourceTagList(
+      __getArrayIfSingleItem(output["resourceTagSet"]["item"]),
+      context
+    );
+  }
+  if (output["ipUsage"] !== undefined) {
+    contents.IpUsage = __strictParseFloat(output["ipUsage"]) as number;
+  }
+  if (output["complianceStatus"] !== undefined) {
+    contents.ComplianceStatus = __expectString(output["complianceStatus"]);
+  }
+  if (output["managementState"] !== undefined) {
+    contents.ManagementState = __expectString(output["managementState"]);
+  }
+  if (output["overlapStatus"] !== undefined) {
+    contents.OverlapStatus = __expectString(output["overlapStatus"]);
+  }
+  if (output["vpcId"] !== undefined) {
+    contents.VpcId = __expectString(output["vpcId"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2IpamResourceCidrSet = (output: any, context: __SerdeContext): IpamResourceCidr[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2IpamResourceCidr(entry, context);
+    });
+};
+
+const deserializeAws_ec2IpamResourceTag = (output: any, context: __SerdeContext): IpamResourceTag => {
+  const contents: any = {
+    Key: undefined,
+    Value: undefined,
+  };
+  if (output["key"] !== undefined) {
+    contents.Key = __expectString(output["key"]);
+  }
+  if (output["value"] !== undefined) {
+    contents.Value = __expectString(output["value"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2IpamResourceTagList = (output: any, context: __SerdeContext): IpamResourceTag[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2IpamResourceTag(entry, context);
+    });
+};
+
+const deserializeAws_ec2IpamScope = (output: any, context: __SerdeContext): IpamScope => {
+  const contents: any = {
+    OwnerId: undefined,
+    IpamScopeId: undefined,
+    IpamScopeArn: undefined,
+    IpamArn: undefined,
+    IpamRegion: undefined,
+    IpamScopeType: undefined,
+    IsDefault: undefined,
+    Description: undefined,
+    PoolCount: undefined,
+    State: undefined,
+    Tags: undefined,
+  };
+  if (output["ownerId"] !== undefined) {
+    contents.OwnerId = __expectString(output["ownerId"]);
+  }
+  if (output["ipamScopeId"] !== undefined) {
+    contents.IpamScopeId = __expectString(output["ipamScopeId"]);
+  }
+  if (output["ipamScopeArn"] !== undefined) {
+    contents.IpamScopeArn = __expectString(output["ipamScopeArn"]);
+  }
+  if (output["ipamArn"] !== undefined) {
+    contents.IpamArn = __expectString(output["ipamArn"]);
+  }
+  if (output["ipamRegion"] !== undefined) {
+    contents.IpamRegion = __expectString(output["ipamRegion"]);
+  }
+  if (output["ipamScopeType"] !== undefined) {
+    contents.IpamScopeType = __expectString(output["ipamScopeType"]);
+  }
+  if (output["isDefault"] !== undefined) {
+    contents.IsDefault = __parseBoolean(output["isDefault"]);
+  }
+  if (output["description"] !== undefined) {
+    contents.Description = __expectString(output["description"]);
+  }
+  if (output["poolCount"] !== undefined) {
+    contents.PoolCount = __strictParseInt32(output["poolCount"]) as number;
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  }
+  if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2IpamScopeSet = (output: any, context: __SerdeContext): IpamScope[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2IpamScope(entry, context);
+    });
+};
+
+const deserializeAws_ec2IpamSet = (output: any, context: __SerdeContext): Ipam[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2Ipam(entry, context);
+    });
+};
+
 const deserializeAws_ec2IpPermission = (output: any, context: __SerdeContext): IpPermission => {
   const contents: any = {
     FromPort: undefined,
@@ -68467,6 +73231,49 @@ const deserializeAws_ec2ModifyInstancePlacementResult = (
   return contents;
 };
 
+const deserializeAws_ec2ModifyIpamPoolResult = (output: any, context: __SerdeContext): ModifyIpamPoolResult => {
+  const contents: any = {
+    IpamPool: undefined,
+  };
+  if (output["ipamPool"] !== undefined) {
+    contents.IpamPool = deserializeAws_ec2IpamPool(output["ipamPool"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ModifyIpamResourceCidrResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyIpamResourceCidrResult => {
+  const contents: any = {
+    IpamResourceCidr: undefined,
+  };
+  if (output["ipamResourceCidr"] !== undefined) {
+    contents.IpamResourceCidr = deserializeAws_ec2IpamResourceCidr(output["ipamResourceCidr"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ModifyIpamResult = (output: any, context: __SerdeContext): ModifyIpamResult => {
+  const contents: any = {
+    Ipam: undefined,
+  };
+  if (output["ipam"] !== undefined) {
+    contents.Ipam = deserializeAws_ec2Ipam(output["ipam"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ModifyIpamScopeResult = (output: any, context: __SerdeContext): ModifyIpamScopeResult => {
+  const contents: any = {
+    IpamScope: undefined,
+  };
+  if (output["ipamScope"] !== undefined) {
+    contents.IpamScope = deserializeAws_ec2IpamScope(output["ipamScope"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2ModifyLaunchTemplateResult = (
   output: any,
   context: __SerdeContext
@@ -68830,6 +73637,19 @@ const deserializeAws_ec2MoveAddressToVpcResult = (output: any, context: __SerdeC
   return contents;
 };
 
+const deserializeAws_ec2MoveByoipCidrToIpamResult = (
+  output: any,
+  context: __SerdeContext
+): MoveByoipCidrToIpamResult => {
+  const contents: any = {
+    ByoipCidr: undefined,
+  };
+  if (output["byoipCidr"] !== undefined) {
+    contents.ByoipCidr = deserializeAws_ec2ByoipCidr(output["byoipCidr"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2MovingAddressStatus = (output: any, context: __SerdeContext): MovingAddressStatus => {
   const contents: any = {
     MoveStatus: undefined,
@@ -69189,6 +74009,155 @@ const deserializeAws_ec2NetworkInfo = (output: any, context: __SerdeContext): Ne
   return contents;
 };
 
+const deserializeAws_ec2NetworkInsightsAccessScope = (
+  output: any,
+  context: __SerdeContext
+): NetworkInsightsAccessScope => {
+  const contents: any = {
+    NetworkInsightsAccessScopeId: undefined,
+    NetworkInsightsAccessScopeArn: undefined,
+    CreatedDate: undefined,
+    UpdatedDate: undefined,
+    Tags: undefined,
+  };
+  if (output["networkInsightsAccessScopeId"] !== undefined) {
+    contents.NetworkInsightsAccessScopeId = __expectString(output["networkInsightsAccessScopeId"]);
+  }
+  if (output["networkInsightsAccessScopeArn"] !== undefined) {
+    contents.NetworkInsightsAccessScopeArn = __expectString(output["networkInsightsAccessScopeArn"]);
+  }
+  if (output["createdDate"] !== undefined) {
+    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(output["createdDate"]));
+  }
+  if (output["updatedDate"] !== undefined) {
+    contents.UpdatedDate = __expectNonNull(__parseRfc3339DateTime(output["updatedDate"]));
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  }
+  if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2NetworkInsightsAccessScopeAnalysis = (
+  output: any,
+  context: __SerdeContext
+): NetworkInsightsAccessScopeAnalysis => {
+  const contents: any = {
+    NetworkInsightsAccessScopeAnalysisId: undefined,
+    NetworkInsightsAccessScopeAnalysisArn: undefined,
+    NetworkInsightsAccessScopeId: undefined,
+    Status: undefined,
+    StatusMessage: undefined,
+    WarningMessage: undefined,
+    StartDate: undefined,
+    EndDate: undefined,
+    FindingsFound: undefined,
+    AnalyzedEniCount: undefined,
+    Tags: undefined,
+  };
+  if (output["networkInsightsAccessScopeAnalysisId"] !== undefined) {
+    contents.NetworkInsightsAccessScopeAnalysisId = __expectString(output["networkInsightsAccessScopeAnalysisId"]);
+  }
+  if (output["networkInsightsAccessScopeAnalysisArn"] !== undefined) {
+    contents.NetworkInsightsAccessScopeAnalysisArn = __expectString(output["networkInsightsAccessScopeAnalysisArn"]);
+  }
+  if (output["networkInsightsAccessScopeId"] !== undefined) {
+    contents.NetworkInsightsAccessScopeId = __expectString(output["networkInsightsAccessScopeId"]);
+  }
+  if (output["status"] !== undefined) {
+    contents.Status = __expectString(output["status"]);
+  }
+  if (output["statusMessage"] !== undefined) {
+    contents.StatusMessage = __expectString(output["statusMessage"]);
+  }
+  if (output["warningMessage"] !== undefined) {
+    contents.WarningMessage = __expectString(output["warningMessage"]);
+  }
+  if (output["startDate"] !== undefined) {
+    contents.StartDate = __expectNonNull(__parseRfc3339DateTime(output["startDate"]));
+  }
+  if (output["endDate"] !== undefined) {
+    contents.EndDate = __expectNonNull(__parseRfc3339DateTime(output["endDate"]));
+  }
+  if (output["findingsFound"] !== undefined) {
+    contents.FindingsFound = __expectString(output["findingsFound"]);
+  }
+  if (output["analyzedEniCount"] !== undefined) {
+    contents.AnalyzedEniCount = __strictParseInt32(output["analyzedEniCount"]) as number;
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  }
+  if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2NetworkInsightsAccessScopeAnalysisList = (
+  output: any,
+  context: __SerdeContext
+): NetworkInsightsAccessScopeAnalysis[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2NetworkInsightsAccessScopeAnalysis(entry, context);
+    });
+};
+
+const deserializeAws_ec2NetworkInsightsAccessScopeContent = (
+  output: any,
+  context: __SerdeContext
+): NetworkInsightsAccessScopeContent => {
+  const contents: any = {
+    NetworkInsightsAccessScopeId: undefined,
+    MatchPaths: undefined,
+    ExcludePaths: undefined,
+  };
+  if (output["networkInsightsAccessScopeId"] !== undefined) {
+    contents.NetworkInsightsAccessScopeId = __expectString(output["networkInsightsAccessScopeId"]);
+  }
+  if (output.matchPathSet === "") {
+    contents.MatchPaths = [];
+  }
+  if (output["matchPathSet"] !== undefined && output["matchPathSet"]["item"] !== undefined) {
+    contents.MatchPaths = deserializeAws_ec2AccessScopePathList(
+      __getArrayIfSingleItem(output["matchPathSet"]["item"]),
+      context
+    );
+  }
+  if (output.excludePathSet === "") {
+    contents.ExcludePaths = [];
+  }
+  if (output["excludePathSet"] !== undefined && output["excludePathSet"]["item"] !== undefined) {
+    contents.ExcludePaths = deserializeAws_ec2AccessScopePathList(
+      __getArrayIfSingleItem(output["excludePathSet"]["item"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2NetworkInsightsAccessScopeList = (
+  output: any,
+  context: __SerdeContext
+): NetworkInsightsAccessScope[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2NetworkInsightsAccessScope(entry, context);
+    });
+};
+
 const deserializeAws_ec2NetworkInsightsAnalysis = (output: any, context: __SerdeContext): NetworkInsightsAnalysis => {
   const contents: any = {
     NetworkInsightsAnalysisId: undefined,
@@ -69198,6 +74167,7 @@ const deserializeAws_ec2NetworkInsightsAnalysis = (output: any, context: __Serde
     StartDate: undefined,
     Status: undefined,
     StatusMessage: undefined,
+    WarningMessage: undefined,
     NetworkPathFound: undefined,
     ForwardPathComponents: undefined,
     ReturnPathComponents: undefined,
@@ -69231,6 +74201,9 @@ const deserializeAws_ec2NetworkInsightsAnalysis = (output: any, context: __Serde
   }
   if (output["statusMessage"] !== undefined) {
     contents.StatusMessage = __expectString(output["statusMessage"]);
+  }
+  if (output["warningMessage"] !== undefined) {
+    contents.WarningMessage = __expectString(output["warningMessage"]);
   }
   if (output["networkPathFound"] !== undefined) {
     contents.NetworkPathFound = __parseBoolean(output["networkPathFound"]);
@@ -69774,10 +74747,84 @@ const deserializeAws_ec2OnDemandOptions = (output: any, context: __SerdeContext)
   return contents;
 };
 
+const deserializeAws_ec2PacketHeaderStatement = (output: any, context: __SerdeContext): PacketHeaderStatement => {
+  const contents: any = {
+    SourceAddresses: undefined,
+    DestinationAddresses: undefined,
+    SourcePorts: undefined,
+    DestinationPorts: undefined,
+    SourcePrefixLists: undefined,
+    DestinationPrefixLists: undefined,
+    Protocols: undefined,
+  };
+  if (output.sourceAddressSet === "") {
+    contents.SourceAddresses = [];
+  }
+  if (output["sourceAddressSet"] !== undefined && output["sourceAddressSet"]["item"] !== undefined) {
+    contents.SourceAddresses = deserializeAws_ec2ValueStringList(
+      __getArrayIfSingleItem(output["sourceAddressSet"]["item"]),
+      context
+    );
+  }
+  if (output.destinationAddressSet === "") {
+    contents.DestinationAddresses = [];
+  }
+  if (output["destinationAddressSet"] !== undefined && output["destinationAddressSet"]["item"] !== undefined) {
+    contents.DestinationAddresses = deserializeAws_ec2ValueStringList(
+      __getArrayIfSingleItem(output["destinationAddressSet"]["item"]),
+      context
+    );
+  }
+  if (output.sourcePortSet === "") {
+    contents.SourcePorts = [];
+  }
+  if (output["sourcePortSet"] !== undefined && output["sourcePortSet"]["item"] !== undefined) {
+    contents.SourcePorts = deserializeAws_ec2ValueStringList(
+      __getArrayIfSingleItem(output["sourcePortSet"]["item"]),
+      context
+    );
+  }
+  if (output.destinationPortSet === "") {
+    contents.DestinationPorts = [];
+  }
+  if (output["destinationPortSet"] !== undefined && output["destinationPortSet"]["item"] !== undefined) {
+    contents.DestinationPorts = deserializeAws_ec2ValueStringList(
+      __getArrayIfSingleItem(output["destinationPortSet"]["item"]),
+      context
+    );
+  }
+  if (output.sourcePrefixListSet === "") {
+    contents.SourcePrefixLists = [];
+  }
+  if (output["sourcePrefixListSet"] !== undefined && output["sourcePrefixListSet"]["item"] !== undefined) {
+    contents.SourcePrefixLists = deserializeAws_ec2ValueStringList(
+      __getArrayIfSingleItem(output["sourcePrefixListSet"]["item"]),
+      context
+    );
+  }
+  if (output.destinationPrefixListSet === "") {
+    contents.DestinationPrefixLists = [];
+  }
+  if (output["destinationPrefixListSet"] !== undefined && output["destinationPrefixListSet"]["item"] !== undefined) {
+    contents.DestinationPrefixLists = deserializeAws_ec2ValueStringList(
+      __getArrayIfSingleItem(output["destinationPrefixListSet"]["item"]),
+      context
+    );
+  }
+  if (output.protocolSet === "") {
+    contents.Protocols = [];
+  }
+  if (output["protocolSet"] !== undefined && output["protocolSet"]["item"] !== undefined) {
+    contents.Protocols = deserializeAws_ec2ProtocolList(__getArrayIfSingleItem(output["protocolSet"]["item"]), context);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2PathComponent = (output: any, context: __SerdeContext): PathComponent => {
   const contents: any = {
     SequenceNumber: undefined,
     AclRule: undefined,
+    AttachedTo: undefined,
     Component: undefined,
     DestinationVpc: undefined,
     OutboundHeader: undefined,
@@ -69793,6 +74840,9 @@ const deserializeAws_ec2PathComponent = (output: any, context: __SerdeContext): 
   }
   if (output["aclRule"] !== undefined) {
     contents.AclRule = deserializeAws_ec2AnalysisAclRule(output["aclRule"], context);
+  }
+  if (output["attachedTo"] !== undefined) {
+    contents.AttachedTo = deserializeAws_ec2AnalysisComponent(output["attachedTo"], context);
   }
   if (output["component"] !== undefined) {
     contents.Component = deserializeAws_ec2AnalysisComponent(output["component"], context);
@@ -69833,6 +74883,20 @@ const deserializeAws_ec2PathComponentList = (output: any, context: __SerdeContex
       }
       return deserializeAws_ec2PathComponent(entry, context);
     });
+};
+
+const deserializeAws_ec2PathStatement = (output: any, context: __SerdeContext): PathStatement => {
+  const contents: any = {
+    PacketHeaderStatement: undefined,
+    ResourceStatement: undefined,
+  };
+  if (output["packetHeaderStatement"] !== undefined) {
+    contents.PacketHeaderStatement = deserializeAws_ec2PacketHeaderStatement(output["packetHeaderStatement"], context);
+  }
+  if (output["resourceStatement"] !== undefined) {
+    contents.ResourceStatement = deserializeAws_ec2ResourceStatement(output["resourceStatement"], context);
+  }
+  return contents;
 };
 
 const deserializeAws_ec2PciId = (output: any, context: __SerdeContext): PciId => {
@@ -70630,6 +75694,17 @@ const deserializeAws_ec2PropagatingVgwList = (output: any, context: __SerdeConte
     });
 };
 
+const deserializeAws_ec2ProtocolList = (output: any, context: __SerdeContext): (Protocol | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_ec2ProvisionByoipCidrResult = (output: any, context: __SerdeContext): ProvisionByoipCidrResult => {
   const contents: any = {
     ByoipCidr: undefined,
@@ -70662,6 +75737,36 @@ const deserializeAws_ec2ProvisionedBandwidth = (output: any, context: __SerdeCon
   }
   if (output["status"] !== undefined) {
     contents.Status = __expectString(output["status"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ProvisionIpamPoolCidrResult = (
+  output: any,
+  context: __SerdeContext
+): ProvisionIpamPoolCidrResult => {
+  const contents: any = {
+    IpamPoolCidr: undefined,
+  };
+  if (output["ipamPoolCidr"] !== undefined) {
+    contents.IpamPoolCidr = deserializeAws_ec2IpamPoolCidr(output["ipamPoolCidr"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ProvisionPublicIpv4PoolCidrResult = (
+  output: any,
+  context: __SerdeContext
+): ProvisionPublicIpv4PoolCidrResult => {
+  const contents: any = {
+    PoolId: undefined,
+    PoolAddressRange: undefined,
+  };
+  if (output["poolId"] !== undefined) {
+    contents.PoolId = __expectString(output["poolId"]);
+  }
+  if (output["poolAddressRange"] !== undefined) {
+    contents.PoolAddressRange = deserializeAws_ec2PublicIpv4PoolRange(output["poolAddressRange"], context);
   }
   return contents;
 };
@@ -71141,6 +76246,19 @@ const deserializeAws_ec2ReleaseHostsResult = (output: any, context: __SerdeConte
       __getArrayIfSingleItem(output["unsuccessful"]["item"]),
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ReleaseIpamPoolAllocationResult = (
+  output: any,
+  context: __SerdeContext
+): ReleaseIpamPoolAllocationResult => {
+  const contents: any = {
+    Success: undefined,
+  };
+  if (output["success"] !== undefined) {
+    contents.Success = __parseBoolean(output["success"]);
   }
   return contents;
 };
@@ -71833,6 +76951,32 @@ const deserializeAws_ec2ResetFpgaImageAttributeResult = (
   };
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ResourceStatement = (output: any, context: __SerdeContext): ResourceStatement => {
+  const contents: any = {
+    Resources: undefined,
+    ResourceTypes: undefined,
+  };
+  if (output.resourceSet === "") {
+    contents.Resources = [];
+  }
+  if (output["resourceSet"] !== undefined && output["resourceSet"]["item"] !== undefined) {
+    contents.Resources = deserializeAws_ec2ValueStringList(
+      __getArrayIfSingleItem(output["resourceSet"]["item"]),
+      context
+    );
+  }
+  if (output.resourceTypeSet === "") {
+    contents.ResourceTypes = [];
+  }
+  if (output["resourceTypeSet"] !== undefined && output["resourceTypeSet"]["item"] !== undefined) {
+    contents.ResourceTypes = deserializeAws_ec2ValueStringList(
+      __getArrayIfSingleItem(output["resourceTypeSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -74311,6 +79455,22 @@ const deserializeAws_ec2StartInstancesResult = (output: any, context: __SerdeCon
   return contents;
 };
 
+const deserializeAws_ec2StartNetworkInsightsAccessScopeAnalysisResult = (
+  output: any,
+  context: __SerdeContext
+): StartNetworkInsightsAccessScopeAnalysisResult => {
+  const contents: any = {
+    NetworkInsightsAccessScopeAnalysis: undefined,
+  };
+  if (output["networkInsightsAccessScopeAnalysis"] !== undefined) {
+    contents.NetworkInsightsAccessScopeAnalysis = deserializeAws_ec2NetworkInsightsAccessScopeAnalysis(
+      output["networkInsightsAccessScopeAnalysis"],
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_ec2StartNetworkInsightsAnalysisResult = (
   output: any,
   context: __SerdeContext
@@ -75055,6 +80215,33 @@ const deserializeAws_ec2ThreadsPerCoreList = (output: any, context: __SerdeConte
         return null as any;
       }
       return __strictParseInt32(entry) as number;
+    });
+};
+
+const deserializeAws_ec2ThroughResourcesStatement = (
+  output: any,
+  context: __SerdeContext
+): ThroughResourcesStatement => {
+  const contents: any = {
+    ResourceStatement: undefined,
+  };
+  if (output["resourceStatement"] !== undefined) {
+    contents.ResourceStatement = deserializeAws_ec2ResourceStatement(output["resourceStatement"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ThroughResourcesStatementList = (
+  output: any,
+  context: __SerdeContext
+): ThroughResourcesStatement[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2ThroughResourcesStatement(entry, context);
     });
 };
 

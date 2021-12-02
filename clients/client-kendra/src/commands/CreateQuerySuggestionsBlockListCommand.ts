@@ -33,6 +33,9 @@ export interface CreateQuerySuggestionsBlockListCommandOutput
  *         <p>For information on the current quota limits for block lists, see
  *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
  *                 for Amazon Kendra</a>.</p>
+ *         <p>
+ *             <code>CreateQuerySuggestionsBlockList</code> is currently not supported in the
+ *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

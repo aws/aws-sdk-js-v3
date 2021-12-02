@@ -11,7 +11,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListTrialComponentsRequest, ListTrialComponentsResponse } from "../models/models_2";
+import { ListTrialComponentsRequest, ListTrialComponentsResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1ListTrialComponentsCommand,
   serializeAws_json1_1ListTrialComponentsCommand,

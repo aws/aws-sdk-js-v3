@@ -11,7 +11,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListUserProfilesRequest, ListUserProfilesResponse } from "../models/models_2";
+import { ListUserProfilesRequest, ListUserProfilesResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1ListUserProfilesCommand,
   serializeAws_json1_1ListUserProfilesCommand,

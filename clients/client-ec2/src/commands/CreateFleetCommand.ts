@@ -12,8 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateFleetRequest } from "../models/models_0";
-import { CreateFleetResult } from "../models/models_1";
+import { CreateFleetRequest, CreateFleetResult } from "../models/models_1";
 import { deserializeAws_ec2CreateFleetCommand, serializeAws_ec2CreateFleetCommand } from "../protocols/Aws_ec2";
 
 export interface CreateFleetCommandInput extends CreateFleetRequest {}

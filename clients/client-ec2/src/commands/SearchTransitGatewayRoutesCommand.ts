@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { SearchTransitGatewayRoutesRequest, SearchTransitGatewayRoutesResult } from "../models/models_5";
+import { SearchTransitGatewayRoutesRequest, SearchTransitGatewayRoutesResult } from "../models/models_6";
 import {
   deserializeAws_ec2SearchTransitGatewayRoutesCommand,
   serializeAws_ec2SearchTransitGatewayRoutesCommand,

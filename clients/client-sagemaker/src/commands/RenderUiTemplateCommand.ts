@@ -11,7 +11,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RenderUiTemplateRequest, RenderUiTemplateResponse } from "../models/models_2";
+import { RenderUiTemplateRequest, RenderUiTemplateResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1RenderUiTemplateCommand,
   serializeAws_json1_1RenderUiTemplateCommand,

@@ -94,6 +94,10 @@ import {
   DescribeSubscriptionCommandOutput,
 } from "./commands/DescribeSubscriptionCommand";
 import {
+  DisableApplicationLayerAutomaticResponseCommandInput,
+  DisableApplicationLayerAutomaticResponseCommandOutput,
+} from "./commands/DisableApplicationLayerAutomaticResponseCommand";
+import {
   DisableProactiveEngagementCommandInput,
   DisableProactiveEngagementCommandOutput,
 } from "./commands/DisableProactiveEngagementCommand";
@@ -109,6 +113,10 @@ import {
   DisassociateHealthCheckCommandInput,
   DisassociateHealthCheckCommandOutput,
 } from "./commands/DisassociateHealthCheckCommand";
+import {
+  EnableApplicationLayerAutomaticResponseCommandInput,
+  EnableApplicationLayerAutomaticResponseCommandOutput,
+} from "./commands/EnableApplicationLayerAutomaticResponseCommand";
 import {
   EnableProactiveEngagementCommandInput,
   EnableProactiveEngagementCommandOutput,
@@ -133,6 +141,10 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateApplicationLayerAutomaticResponseCommandInput,
+  UpdateApplicationLayerAutomaticResponseCommandOutput,
+} from "./commands/UpdateApplicationLayerAutomaticResponseCommand";
 import {
   UpdateEmergencyContactSettingsCommandInput,
   UpdateEmergencyContactSettingsCommandOutput,
@@ -162,10 +174,12 @@ export type ServiceInputTypes =
   | DescribeProtectionCommandInput
   | DescribeProtectionGroupCommandInput
   | DescribeSubscriptionCommandInput
+  | DisableApplicationLayerAutomaticResponseCommandInput
   | DisableProactiveEngagementCommandInput
   | DisassociateDRTLogBucketCommandInput
   | DisassociateDRTRoleCommandInput
   | DisassociateHealthCheckCommandInput
+  | EnableApplicationLayerAutomaticResponseCommandInput
   | EnableProactiveEngagementCommandInput
   | GetSubscriptionStateCommandInput
   | ListAttacksCommandInput
@@ -175,6 +189,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateApplicationLayerAutomaticResponseCommandInput
   | UpdateEmergencyContactSettingsCommandInput
   | UpdateProtectionGroupCommandInput
   | UpdateSubscriptionCommandInput;
@@ -197,10 +212,12 @@ export type ServiceOutputTypes =
   | DescribeProtectionCommandOutput
   | DescribeProtectionGroupCommandOutput
   | DescribeSubscriptionCommandOutput
+  | DisableApplicationLayerAutomaticResponseCommandOutput
   | DisableProactiveEngagementCommandOutput
   | DisassociateDRTLogBucketCommandOutput
   | DisassociateDRTRoleCommandOutput
   | DisassociateHealthCheckCommandOutput
+  | EnableApplicationLayerAutomaticResponseCommandOutput
   | EnableProactiveEngagementCommandOutput
   | GetSubscriptionStateCommandOutput
   | ListAttacksCommandOutput
@@ -210,6 +227,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateApplicationLayerAutomaticResponseCommandOutput
   | UpdateEmergencyContactSettingsCommandOutput
   | UpdateProtectionGroupCommandOutput
   | UpdateSubscriptionCommandOutput;

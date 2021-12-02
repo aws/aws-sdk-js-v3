@@ -985,6 +985,673 @@ export namespace AcceptVpcPeeringConnectionResult {
 }
 
 /**
+ * <p>Describes a range of ports.</p>
+ */
+export interface PortRange {
+  /**
+   * <p>The first port in the range.</p>
+   */
+  From?: number;
+
+  /**
+   * <p>The last port in the range.</p>
+   */
+  To?: number;
+}
+
+export namespace PortRange {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PortRange): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a network access control (ACL) rule.</p>
+ */
+export interface AnalysisAclRule {
+  /**
+   * <p>The IPv4 address range, in CIDR notation.</p>
+   */
+  Cidr?: string;
+
+  /**
+   * <p>Indicates whether the rule is an outbound rule.</p>
+   */
+  Egress?: boolean;
+
+  /**
+   * <p>The range of ports.</p>
+   */
+  PortRange?: PortRange;
+
+  /**
+   * <p>The protocol.</p>
+   */
+  Protocol?: string;
+
+  /**
+   * <p>Indicates whether to allow or deny traffic that matches the rule.</p>
+   */
+  RuleAction?: string;
+
+  /**
+   * <p>The rule number.</p>
+   */
+  RuleNumber?: number;
+}
+
+export namespace AnalysisAclRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AnalysisAclRule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a path component.</p>
+ */
+export interface AnalysisComponent {
+  /**
+   * <p>The ID of the component.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the component.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the analysis component.</p>
+   */
+  Name?: string;
+}
+
+export namespace AnalysisComponent {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AnalysisComponent): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a header. Reflects any changes made by a component as traffic passes through.
+ *          The fields of an inbound header are null except for the first component of a path.</p>
+ */
+export interface AnalysisPacketHeader {
+  /**
+   * <p>The destination addresses.</p>
+   */
+  DestinationAddresses?: string[];
+
+  /**
+   * <p>The destination port ranges.</p>
+   */
+  DestinationPortRanges?: PortRange[];
+
+  /**
+   * <p>The protocol.</p>
+   */
+  Protocol?: string;
+
+  /**
+   * <p>The source addresses.</p>
+   */
+  SourceAddresses?: string[];
+
+  /**
+   * <p>The source port ranges.</p>
+   */
+  SourcePortRanges?: PortRange[];
+}
+
+export namespace AnalysisPacketHeader {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AnalysisPacketHeader): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a route table route.</p>
+ */
+export interface AnalysisRouteTableRoute {
+  /**
+   * <p>The destination IPv4 address, in CIDR notation.</p>
+   */
+  DestinationCidr?: string;
+
+  /**
+   * <p>The prefix of the Amazon Web Service.</p>
+   */
+  DestinationPrefixListId?: string;
+
+  /**
+   * <p>The ID of an egress-only internet gateway.</p>
+   */
+  EgressOnlyInternetGatewayId?: string;
+
+  /**
+   * <p>The ID of the gateway, such as an internet gateway or virtual private gateway.</p>
+   */
+  GatewayId?: string;
+
+  /**
+   * <p>The ID of the instance, such as a NAT instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The ID of a NAT gateway.</p>
+   */
+  NatGatewayId?: string;
+
+  /**
+   * <p>The ID of a network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>Describes how the route was created. The following are possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CreateRouteTable</code> - The route was automatically created when the route table was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CreateRoute</code> - The route was manually added to the route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EnableVgwRoutePropagation</code> - The route was propagated by route propagation.</p>
+   *             </li>
+   *          </ul>
+   */
+  Origin?: string;
+
+  /**
+   * <p>The ID of a transit gateway.</p>
+   */
+  TransitGatewayId?: string;
+
+  /**
+   * <p>The ID of a VPC peering connection.</p>
+   */
+  VpcPeeringConnectionId?: string;
+}
+
+export namespace AnalysisRouteTableRoute {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AnalysisRouteTableRoute): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a security group rule.</p>
+ */
+export interface AnalysisSecurityGroupRule {
+  /**
+   * <p>The IPv4 address range, in CIDR notation.</p>
+   */
+  Cidr?: string;
+
+  /**
+   * <p>The direction. The following are possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>egress</p>
+   *             </li>
+   *             <li>
+   *                <p>ingress</p>
+   *             </li>
+   *          </ul>
+   */
+  Direction?: string;
+
+  /**
+   * <p>The security group ID.</p>
+   */
+  SecurityGroupId?: string;
+
+  /**
+   * <p>The port range.</p>
+   */
+  PortRange?: PortRange;
+
+  /**
+   * <p>The prefix list ID.</p>
+   */
+  PrefixListId?: string;
+
+  /**
+   * <p>The protocol name.</p>
+   */
+  Protocol?: string;
+}
+
+export namespace AnalysisSecurityGroupRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AnalysisSecurityGroupRule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a path component.</p>
+ */
+export interface PathComponent {
+  /**
+   * <p>The sequence number.</p>
+   */
+  SequenceNumber?: number;
+
+  /**
+   * <p>The network ACL rule.</p>
+   */
+  AclRule?: AnalysisAclRule;
+
+  /**
+   * <p>The resource to which the path component is attached.</p>
+   */
+  AttachedTo?: AnalysisComponent;
+
+  /**
+   * <p>The component.</p>
+   */
+  Component?: AnalysisComponent;
+
+  /**
+   * <p>The destination VPC.</p>
+   */
+  DestinationVpc?: AnalysisComponent;
+
+  /**
+   * <p>The outbound header.</p>
+   */
+  OutboundHeader?: AnalysisPacketHeader;
+
+  /**
+   * <p>The inbound header.</p>
+   */
+  InboundHeader?: AnalysisPacketHeader;
+
+  /**
+   * <p>The route table route.</p>
+   */
+  RouteTableRoute?: AnalysisRouteTableRoute;
+
+  /**
+   * <p>The security group rule.</p>
+   */
+  SecurityGroupRule?: AnalysisSecurityGroupRule;
+
+  /**
+   * <p>The source VPC.</p>
+   */
+  SourceVpc?: AnalysisComponent;
+
+  /**
+   * <p>The subnet.</p>
+   */
+  Subnet?: AnalysisComponent;
+
+  /**
+   * <p>The component VPC.</p>
+   */
+  Vpc?: AnalysisComponent;
+}
+
+export namespace PathComponent {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PathComponent): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a finding for a Network Access Scope.</p>
+ */
+export interface AccessScopeAnalysisFinding {
+  /**
+   * <p>The ID of the Network Access Scope analysis.</p>
+   */
+  NetworkInsightsAccessScopeAnalysisId?: string;
+
+  /**
+   * <p>The ID of the Network Access Scope.</p>
+   */
+  NetworkInsightsAccessScopeId?: string;
+
+  /**
+   * <p>The ID of the finding.</p>
+   */
+  FindingId?: string;
+
+  /**
+   * <p>The finding components.</p>
+   */
+  FindingComponents?: PathComponent[];
+}
+
+export namespace AccessScopeAnalysisFinding {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AccessScopeAnalysisFinding): any => ({
+    ...obj,
+  });
+}
+
+export type Protocol = "tcp" | "udp";
+
+/**
+ * <p>Describes a packet header statement.</p>
+ */
+export interface PacketHeaderStatement {
+  /**
+   * <p>The source addresses.</p>
+   */
+  SourceAddresses?: string[];
+
+  /**
+   * <p>The destination addresses.</p>
+   */
+  DestinationAddresses?: string[];
+
+  /**
+   * <p>The source ports.</p>
+   */
+  SourcePorts?: string[];
+
+  /**
+   * <p>The destination ports.</p>
+   */
+  DestinationPorts?: string[];
+
+  /**
+   * <p>The source prefix lists.</p>
+   */
+  SourcePrefixLists?: string[];
+
+  /**
+   * <p>The destination prefix lists.</p>
+   */
+  DestinationPrefixLists?: string[];
+
+  /**
+   * <p>The protocols.</p>
+   */
+  Protocols?: (Protocol | string)[];
+}
+
+export namespace PacketHeaderStatement {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PacketHeaderStatement): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a resource statement.</p>
+ */
+export interface ResourceStatement {
+  /**
+   * <p>The resources.</p>
+   */
+  Resources?: string[];
+
+  /**
+   * <p>The resource types.</p>
+   */
+  ResourceTypes?: string[];
+}
+
+export namespace ResourceStatement {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceStatement): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a path statement.</p>
+ */
+export interface PathStatement {
+  /**
+   * <p>The packet header statement.</p>
+   */
+  PacketHeaderStatement?: PacketHeaderStatement;
+
+  /**
+   * <p>The resource statement.</p>
+   */
+  ResourceStatement?: ResourceStatement;
+}
+
+export namespace PathStatement {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PathStatement): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a through resource statement.</p>
+ */
+export interface ThroughResourcesStatement {
+  /**
+   * <p>The resource statement.</p>
+   */
+  ResourceStatement?: ResourceStatement;
+}
+
+export namespace ThroughResourcesStatement {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ThroughResourcesStatement): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a path.</p>
+ */
+export interface AccessScopePath {
+  /**
+   * <p>The source.</p>
+   */
+  Source?: PathStatement;
+
+  /**
+   * <p>The destination.</p>
+   */
+  Destination?: PathStatement;
+
+  /**
+   * <p>The through resources.</p>
+   */
+  ThroughResources?: ThroughResourcesStatement[];
+}
+
+export namespace AccessScopePath {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AccessScopePath): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a packet header statement.</p>
+ */
+export interface PacketHeaderStatementRequest {
+  /**
+   * <p>The source addresses.</p>
+   */
+  SourceAddresses?: string[];
+
+  /**
+   * <p>The destination addresses.</p>
+   */
+  DestinationAddresses?: string[];
+
+  /**
+   * <p>The source ports.</p>
+   */
+  SourcePorts?: string[];
+
+  /**
+   * <p>The destination ports.</p>
+   */
+  DestinationPorts?: string[];
+
+  /**
+   * <p>The source prefix lists.</p>
+   */
+  SourcePrefixLists?: string[];
+
+  /**
+   * <p>The destination prefix lists.</p>
+   */
+  DestinationPrefixLists?: string[];
+
+  /**
+   * <p>The protocols.</p>
+   */
+  Protocols?: (Protocol | string)[];
+}
+
+export namespace PacketHeaderStatementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PacketHeaderStatementRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a resource statement.</p>
+ */
+export interface ResourceStatementRequest {
+  /**
+   * <p>The resources.</p>
+   */
+  Resources?: string[];
+
+  /**
+   * <p>The resource types.</p>
+   */
+  ResourceTypes?: string[];
+}
+
+export namespace ResourceStatementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceStatementRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a path statement.</p>
+ */
+export interface PathStatementRequest {
+  /**
+   * <p>The packet header statement.</p>
+   */
+  PacketHeaderStatement?: PacketHeaderStatementRequest;
+
+  /**
+   * <p>The resource statement.</p>
+   */
+  ResourceStatement?: ResourceStatementRequest;
+}
+
+export namespace PathStatementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PathStatementRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a through resource statement.</p>
+ */
+export interface ThroughResourcesStatementRequest {
+  /**
+   * <p>The resource statement.</p>
+   */
+  ResourceStatement?: ResourceStatementRequest;
+}
+
+export namespace ThroughResourcesStatementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ThroughResourcesStatementRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a path.</p>
+ */
+export interface AccessScopePathRequest {
+  /**
+   * <p>The source.</p>
+   */
+  Source?: PathStatementRequest;
+
+  /**
+   * <p>The destination.</p>
+   */
+  Destination?: PathStatementRequest;
+
+  /**
+   * <p>The through resources.</p>
+   */
+  ThroughResources?: ThroughResourcesStatementRequest[];
+}
+
+export namespace AccessScopePathRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AccessScopePathRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes a value of an account attribute.</p>
  */
 export interface AccountAttributeValue {
@@ -1075,6 +1742,28 @@ export enum ActivityStatus {
   FULFILLED = "fulfilled",
   PENDING_FULFILLMENT = "pending_fulfillment",
   PENDING_TERMINATION = "pending_termination",
+}
+
+/**
+ * <p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
+ *          discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+ *          <p>For more information about operating Regions, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
+ *       </p>
+ */
+export interface AddIpamOperatingRegion {
+  /**
+   * <p>The name of the operating Region.</p>
+   */
+  RegionName?: string;
+}
+
+export namespace AddIpamOperatingRegion {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AddIpamOperatingRegion): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -1256,6 +1945,11 @@ export namespace AddressAttribute {
 
 export type AddressAttributeName = "domain-name";
 
+export enum AddressFamily {
+  ipv4 = "ipv4",
+  ipv6 = "ipv6",
+}
+
 export interface AdvertiseByoipCidrRequest {
   /**
    * <p>The address range, in CIDR notation. This must be the exact range that you provisioned.
@@ -1364,6 +2058,9 @@ export type ResourceType =
   | "instance"
   | "instance-event-window"
   | "internet-gateway"
+  | "ipam"
+  | "ipam-pool"
+  | "ipam-scope"
   | "ipv4pool-ec2"
   | "ipv6pool-ec2"
   | "key-pair"
@@ -1376,6 +2073,8 @@ export type ResourceType =
   | "local-gateway-virtual-interface-group"
   | "natgateway"
   | "network-acl"
+  | "network-insights-access-scope"
+  | "network-insights-access-scope-analysis"
   | "network-insights-analysis"
   | "network-insights-path"
   | "network-interface"
@@ -1641,6 +2340,150 @@ export namespace AllocateHostsResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: AllocateHostsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface AllocateIpamPoolCidrRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the IPAM pool from which you would like to allocate a CIDR.</p>
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>The CIDR you would like to allocate from the IPAM pool. Note the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Possible values: Any available IPv4 or IPv6 CIDR.</p>
+   */
+  Cidr?: string;
+
+  /**
+   * <p>The netmask length of the CIDR you would like to allocate from the IPAM pool. Note the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Possible netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths for IPv6 addresses are 0 - 128.</p>
+   */
+  NetmaskLength?: number;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>A description for the allocation.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A preview of the next available CIDR in a pool.</p>
+   */
+  PreviewNextCidr?: boolean;
+
+  /**
+   * <p>Exclude a particular CIDR range from being returned by the pool.</p>
+   */
+  DisallowedCidrs?: string[];
+}
+
+export namespace AllocateIpamPoolCidrRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AllocateIpamPoolCidrRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum IpamPoolAllocationResourceType {
+  custom = "custom",
+  ec2_public_ipv4_pool = "ec2-public-ipv4-pool",
+  ipam_pool = "ipam-pool",
+  vpc = "vpc",
+}
+
+/**
+ * <p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool.</p>
+ */
+export interface IpamPoolAllocation {
+  /**
+   * <p>The CIDR for the allocation. A CIDR is a representation of an IP address and its associated network mask (or netmask) and
+   *          refers to a range of IP addresses. An IPv4 CIDR example is <code>10.24.34.0/23</code>. An IPv6 CIDR example is <code>2001:DB8::/32</code>.</p>
+   */
+  Cidr?: string;
+
+  /**
+   * <p>The ID of an allocation.</p>
+   */
+  IpamPoolAllocationId?: string;
+
+  /**
+   * <p>A description of the pool allocation.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The type of the resource.</p>
+   */
+  ResourceType?: IpamPoolAllocationResourceType | string;
+
+  /**
+   * <p>The Amazon Web Services Region of the resource.</p>
+   */
+  ResourceRegion?: string;
+
+  /**
+   * <p>The owner of the resource.</p>
+   */
+  ResourceOwner?: string;
+}
+
+export namespace IpamPoolAllocation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IpamPoolAllocation): any => ({
+    ...obj,
+  });
+}
+
+export interface AllocateIpamPoolCidrResult {
+  /**
+   * <p>Information about the allocation created.</p>
+   */
+  IpamPoolAllocation?: IpamPoolAllocation;
+}
+
+export namespace AllocateIpamPoolCidrResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AllocateIpamPoolCidrResult): any => ({
     ...obj,
   });
 }
@@ -3005,6 +3848,27 @@ export interface AssociateVpcCidrBlockRequest {
    *         <p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>
    */
   Ipv6CidrBlock?: string;
+
+  /**
+   * <p>Associate a CIDR allocated from an IPv4 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   */
+  Ipv4IpamPoolId?: string;
+
+  /**
+   * <p>The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *       </p>
+   */
+  Ipv4NetmaskLength?: number;
+
+  /**
+   * <p>Associates a CIDR allocated from an IPv6 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   */
+  Ipv6IpamPoolId?: string;
+
+  /**
+   * <p>The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+   */
+  Ipv6NetmaskLength?: number;
 }
 
 export namespace AssociateVpcCidrBlockRequest {
@@ -7810,1111 +8674,4 @@ export enum LocalStorage {
 export enum LocalStorageType {
   HDD = "hdd",
   SSD = "ssd",
-}
-
-/**
- * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
- */
-export interface MemoryGiBPerVCpuRequest {
-  /**
-   * <p>The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this
-   *          parameter.</p>
-   */
-  Min?: number;
-
-  /**
-   * <p>The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this
-   *          parameter.</p>
-   */
-  Max?: number;
-}
-
-export namespace MemoryGiBPerVCpuRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemoryGiBPerVCpuRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The minimum and maximum amount of memory, in MiB.</p>
- */
-export interface MemoryMiBRequest {
-  /**
-   * <p>The minimum amount of memory, in MiB. To specify no minimum limit, specify
-   *          <code>0</code>.</p>
-   */
-  Min: number | undefined;
-
-  /**
-   * <p>The maximum amount of memory, in MiB. To specify no maximum limit, omit this
-   *          parameter.</p>
-   */
-  Max?: number;
-}
-
-export namespace MemoryMiBRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemoryMiBRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The minimum and maximum number of network interfaces.</p>
- */
-export interface NetworkInterfaceCountRequest {
-  /**
-   * <p>The minimum number of network interfaces. To specify no minimum limit, omit this
-   *          parameter.</p>
-   */
-  Min?: number;
-
-  /**
-   * <p>The maximum number of network interfaces. To specify no maximum limit, omit this
-   *          parameter.</p>
-   */
-  Max?: number;
-}
-
-export namespace NetworkInterfaceCountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkInterfaceCountRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The minimum and maximum amount of total local storage, in GB.</p>
- */
-export interface TotalLocalStorageGBRequest {
-  /**
-   * <p>The minimum amount of total local storage, in GB. To specify no minimum limit, omit this
-   *          parameter.</p>
-   */
-  Min?: number;
-
-  /**
-   * <p>The maximum amount of total local storage, in GB. To specify no maximum limit, omit this
-   *          parameter.</p>
-   */
-  Max?: number;
-}
-
-export namespace TotalLocalStorageGBRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TotalLocalStorageGBRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The minimum and maximum number of vCPUs.</p>
- */
-export interface VCpuCountRangeRequest {
-  /**
-   * <p>The minimum number of vCPUs. To specify no minimum limit, specify <code>0</code>.</p>
-   */
-  Min: number | undefined;
-
-  /**
-   * <p>The maximum number of vCPUs. To specify no maximum limit, omit this parameter.</p>
-   */
-  Max?: number;
-}
-
-export namespace VCpuCountRangeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VCpuCountRangeRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
- *       identify instance types with these attributes.</p>
- *          <p>When you specify multiple parameters, you get instance types that satisfy all of the
- *          specified parameters. If you specify multiple values for a parameter, you get instance
- *          types that satisfy any of the specified values.</p>
- *          <note>
- *             <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other parameters
- *             are optional. Any unspecified optional parameter is set to its default.</p>
- *          </note>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
- *             placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
- */
-export interface InstanceRequirementsRequest {
-  /**
-   * <p>The minimum and maximum number of vCPUs.</p>
-   */
-  VCpuCount: VCpuCountRangeRequest | undefined;
-
-  /**
-   * <p>The minimum and maximum amount of memory, in MiB.</p>
-   */
-  MemoryMiB: MemoryMiBRequest | undefined;
-
-  /**
-   * <p>The CPU manufacturers to include.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For instance types with Intel CPUs, specify <code>intel</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with AMD CPUs, specify <code>amd</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with Amazon Web Services CPUs, specify <code>amazon-web-services</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>Don't confuse the CPU manufacturer with the CPU architecture. Instances will
-   *          be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you
-   *          specify in your launch template.</p>
-   *          </note>
-   *          <p>Default: Any manufacturer</p>
-   */
-  CpuManufacturers?: (CpuManufacturer | string)[];
-
-  /**
-   * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
-   *          <p>Default: No minimum or maximum limits</p>
-   */
-  MemoryGiBPerVCpu?: MemoryGiBPerVCpuRequest;
-
-  /**
-   * <p>The instance types to exclude. You can use strings with one or more wild cards, represented by
-   *          an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The
-   *          following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,
-   *             <code>r*</code>, <code>*3*</code>.</p>
-   *          <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance
-   *       family, which includes all C5a and C5n instance types. If you specify
-   *       <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n
-   *       instance types.</p>
-   *          <p>Default: No excluded instance types</p>
-   */
-  ExcludedInstanceTypes?: string[];
-
-  /**
-   * <p>Indicates whether current or previous generation instance types are included. The
-   *       current generation instance types are recommended for use. Current generation instance types are
-   *       typically the latest two to three generations in each instance family. For more
-   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
-   *       <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>For current generation instance types, specify <code>current</code>.</p>
-   *          <p>For previous generation instance types, specify <code>previous</code>.</p>
-   *          <p>Default: Current and previous generation instance types</p>
-   */
-  InstanceGenerations?: (InstanceGeneration | string)[];
-
-  /**
-   * <p>The price protection threshold for Spot Instance. This is the maximum you’ll pay for an Spot Instance,
-   *          expressed as a percentage above the cheapest M, C, or R instance type with your specified
-   *          attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance
-   *          types priced above your threshold.</p>
-   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
-   *          <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>
-   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
-   *          <p>Default: <code>100</code>
-   *          </p>
-   */
-  SpotMaxPricePercentageOverLowestPrice?: number;
-
-  /**
-   * <p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance,
-   *          expressed as a percentage above the cheapest M, C, or R instance type with your specified
-   *          attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance
-   *          types priced above your threshold.</p>
-   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
-   *          <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>
-   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
-   *          <p>Default: <code>20</code>
-   *          </p>
-   */
-  OnDemandMaxPricePercentageOverLowestPrice?: number;
-
-  /**
-   * <p>Indicates whether bare metal instance types must be included, excluded, or required.</p>
-   *          <ul>
-   *             <li>
-   *                <p>To include bare metal instance types, specify <code>included</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To require only bare metal instance types, specify <code>required</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To exclude bare metal instance types, specify <code>excluded</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: <code>excluded</code>
-   *          </p>
-   */
-  BareMetal?: BareMetal | string;
-
-  /**
-   * <p>Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see
-   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable performance instances</a>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>To include burstable performance instance types, specify <code>included</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To require only burstable performance instance types, specify <code>required</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To exclude burstable performance instance types, specify <code>excluded</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: <code>excluded</code>
-   *          </p>
-   */
-  BurstablePerformance?: BurstablePerformance | string;
-
-  /**
-   * <p>Indicates whether instance types must support hibernation for On-Demand Instances.</p>
-   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   */
-  RequireHibernateSupport?: boolean;
-
-  /**
-   * <p>The minimum and maximum number of network interfaces.</p>
-   *          <p>Default: No minimum or maximum limits</p>
-   */
-  NetworkInterfaceCount?: NetworkInterfaceCountRequest;
-
-  /**
-   * <p>Indicates whether instance types with instance store volumes are included, excluded, or required. For more information,
-   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon
-   *          EC2 instance store</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>To include instance types with instance store volumes, specify
-   *                   <code>included</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To require only instance types with instance store volumes, specify
-   *                   <code>required</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To exclude instance types with instance store volumes, specify
-   *                   <code>excluded</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: <code>included</code>
-   *          </p>
-   */
-  LocalStorage?: LocalStorage | string;
-
-  /**
-   * <p>The type of local storage that is required.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with solid state drive (SDD) storage, specify <code>sdd</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: <code>hdd</code> and <code>sdd</code>
-   *          </p>
-   */
-  LocalStorageTypes?: (LocalStorageType | string)[];
-
-  /**
-   * <p>The minimum and maximum amount of total local storage, in GB.</p>
-   *          <p>Default: No minimum or maximum limits</p>
-   */
-  TotalLocalStorageGB?: TotalLocalStorageGBRequest;
-
-  /**
-   * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
-   *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>Default: No minimum or maximum limits</p>
-   */
-  BaselineEbsBandwidthMbps?: BaselineEbsBandwidthMbpsRequest;
-
-  /**
-   * <p>The accelerator types that must be on the instance type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>To include instance types with GPU hardware, specify <code>gpu</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To include instance types with FPGA hardware, specify <code>fpga</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To include instance types with inference hardware, specify <code>inference</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: Any accelerator type</p>
-   */
-  AcceleratorTypes?: (AcceleratorType | string)[];
-
-  /**
-   * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) on
-   *          an instance.</p>
-   *          <p>To exclude accelerator-enabled instance types, set <code>Max</code> to <code>0</code>.</p>
-   *          <p>Default: No minimum or maximum limits</p>
-   */
-  AcceleratorCount?: AcceleratorCountRequest;
-
-  /**
-   * <p>Indicates whether instance types must have accelerators by specific manufacturers.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For instance types with NVIDIA devices, specify <code>nvidia</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with AMD devices, specify <code>amd</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with Amazon Web Services devices, specify <code>amazon-web-services</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with Xilinx devices, specify <code>xilinx</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: Any manufacturer</p>
-   */
-  AcceleratorManufacturers?: (AcceleratorManufacturer | string)[];
-
-  /**
-   * <p>The accelerators that must be on the instance type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with Xilinx VU9P FPGAs, specify <code> vu9p</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: Any accelerator</p>
-   */
-  AcceleratorNames?: (AcceleratorName | string)[];
-
-  /**
-   * <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
-   *          <p>Default: No minimum or maximum limits</p>
-   */
-  AcceleratorTotalMemoryMiB?: AcceleratorTotalMemoryMiBRequest;
-}
-
-export namespace InstanceRequirementsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceRequirementsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the placement of an instance.</p>
- */
-export interface Placement {
-  /**
-   * <p>The Availability Zone of the instance.</p>
-   *         <p>If not specified, an Availability Zone will be automatically chosen for you based on
-   *             the load balancing criteria for the Region.</p>
-   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The affinity setting for the instance on the Dedicated Host. This parameter is not
-   *             supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a> command.</p>
-   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
-   */
-  Affinity?: string;
-
-  /**
-   * <p>The name of the placement group the instance is in.</p>
-   */
-  GroupName?: string;
-
-  /**
-   * <p>The number of the partition that the instance is in. Valid only if the placement group
-   *             strategy is set to <code>partition</code>.</p>
-   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
-   */
-  PartitionNumber?: number;
-
-  /**
-   * <p>The ID of the Dedicated Host on which the instance resides. This parameter is not
-   *             supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a> command.</p>
-   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
-   */
-  HostId?: string;
-
-  /**
-   * <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a
-   *             tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code>
-   *             tenancy is not supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a> command.</p>
-   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
-   *
-   *         <p>T3 instances that use the <code>unlimited</code> CPU credit option do not support <code>host</code> tenancy.</p>
-   */
-  Tenancy?: Tenancy | string;
-
-  /**
-   * <p>Reserved for future use.</p>
-   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
-   */
-  SpreadDomain?: string;
-
-  /**
-   * <p>The ARN of the host resource group in which to launch the instances. If you specify
-   *     		a host resource group ARN, omit the <b>Tenancy</b>
-   *     		parameter or set it to <code>host</code>.</p>
-   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
-   */
-  HostResourceGroupArn?: string;
-}
-
-export namespace Placement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Placement): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes overrides for a launch template.</p>
- */
-export interface FleetLaunchTemplateOverridesRequest {
-  /**
-   * <p>The instance type.</p>
-   *          <note>
-   *             <p>If you specify <code>InstanceTypes</code>, you can't specify
-   *                <code>InstanceRequirements</code>.</p>
-   *          </note>
-   */
-  InstanceType?: _InstanceType | string;
-
-  /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance.</p>
-   */
-  MaxPrice?: string;
-
-  /**
-   * <p>The IDs of the subnets in which to launch the instances. Separate multiple subnet IDs using commas (for example, <code>subnet-1234abcdeexample1, subnet-0987cdef6example2</code>). A request of type <code>instant</code> can have only one subnet ID.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The Availability Zone in which to launch the instances.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The number of units provided by the specified instance type.</p>
-   */
-  WeightedCapacity?: number;
-
-  /**
-   * <p>The priority for the launch template override. The highest priority is launched
-   *          first.</p>
-   *          <p>If the On-Demand <code>AllocationStrategy</code> is set to <code>prioritized</code>,
-   *          EC2 Fleet uses priority to determine which launch template override to use first in fulfilling
-   *          On-Demand capacity.</p>
-   *          <p>If the Spot <code>AllocationStrategy</code> is set to
-   *             <code>capacity-optimized-prioritized</code>, EC2 Fleet uses priority on a best-effort basis
-   *          to determine which launch template override to use in fulfilling Spot capacity, but
-   *          optimizes for capacity first.</p>
-   *          <p>Valid values are whole numbers starting at <code>0</code>. The lower the number, the
-   *          higher the priority. If no number is set, the launch template override has the lowest
-   *          priority. You can set the same priority for different launch template overrides.</p>
-   */
-  Priority?: number;
-
-  /**
-   * <p>The location where the instance launched, if applicable.</p>
-   */
-  Placement?: Placement;
-
-  /**
-   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
-   *          identify instance types with those attributes.</p>
-   *          <note>
-   *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
-   *                <code>InstanceTypes</code>.</p>
-   *          </note>
-   */
-  InstanceRequirements?: InstanceRequirementsRequest;
-}
-
-export namespace FleetLaunchTemplateOverridesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FleetLaunchTemplateOverridesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a launch template and overrides.</p>
- */
-export interface FleetLaunchTemplateConfigRequest {
-  /**
-   * <p>The launch template to use. You must specify either the launch template ID or launch
-   *          template name in the request. </p>
-   */
-  LaunchTemplateSpecification?: FleetLaunchTemplateSpecificationRequest;
-
-  /**
-   * <p>Any parameters that you specify override the same parameters in the launch
-   *          template.</p>
-   *          <p>For fleets of type <code>request</code> and <code>maintain</code>, a maximum of 300
-   *          items is allowed across all launch templates.</p>
-   */
-  Overrides?: FleetLaunchTemplateOverridesRequest[];
-}
-
-export namespace FleetLaunchTemplateConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FleetLaunchTemplateConfigRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum FleetOnDemandAllocationStrategy {
-  LOWEST_PRICE = "lowest-price",
-  PRIORITIZED = "prioritized",
-}
-
-export enum FleetCapacityReservationUsageStrategy {
-  USE_CAPACITY_RESERVATIONS_FIRST = "use-capacity-reservations-first",
-}
-
-/**
- * <p>Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand
- *          capacity.</p>
- *          <note>
- *             <p>This strategy can only be used if the EC2 Fleet is of type <code>instant</code>.</p>
- *          </note>
- *          <p>For more information about Capacity Reservations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">On-Demand Capacity
- *             Reservations</a> in the <i>Amazon EC2 User Guide</i>. For examples of using
- *          Capacity Reservations in an EC2 Fleet, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html">EC2 Fleet example
- *             configurations</a> in the <i>Amazon EC2 User Guide</i>.</p>
- */
-export interface CapacityReservationOptionsRequest {
-  /**
-   * <p>Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.</p>
-   *          <p>If you specify <code>use-capacity-reservations-first</code>, the fleet uses unused
-   *          Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If
-   *          multiple instance pools have unused Capacity Reservations, the On-Demand allocation
-   *          strategy (<code>lowest-price</code> or <code>prioritized</code>) is applied. If the number
-   *          of unused Capacity Reservations is less than the On-Demand target capacity, the remaining
-   *          On-Demand target capacity is launched according to the On-Demand allocation strategy
-   *             (<code>lowest-price</code> or <code>prioritized</code>).</p>
-   *          <p>If you do not specify a value, the fleet fulfils the On-Demand capacity according to the
-   *          chosen On-Demand allocation strategy.</p>
-   */
-  UsageStrategy?: FleetCapacityReservationUsageStrategy | string;
-}
-
-export namespace CapacityReservationOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CapacityReservationOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the configuration of On-Demand Instances in an EC2 Fleet.</p>
- */
-export interface OnDemandOptionsRequest {
-  /**
-   * <p>The strategy that determines the order of the launch template overrides to use in
-   *          fulfilling On-Demand capacity.</p>
-   *          <p>
-   *             <code>lowest-price</code> - EC2 Fleet uses price to determine the order, launching the lowest
-   *          price first.</p>
-   *          <p>
-   *             <code>prioritized</code> - EC2 Fleet uses the priority that you assigned to each launch
-   *          template override, launching the highest priority first.</p>
-   *          <p>Default: <code>lowest-price</code>
-   *          </p>
-   */
-  AllocationStrategy?: FleetOnDemandAllocationStrategy | string;
-
-  /**
-   * <p>The strategy for using unused Capacity Reservations for fulfilling On-Demand
-   *          capacity.</p>
-   *          <p>Supported only for fleets of type <code>instant</code>.</p>
-   */
-  CapacityReservationOptions?: CapacityReservationOptionsRequest;
-
-  /**
-   * <p>Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the
-   *          fleet.</p>
-   *          <p>Supported only for fleets of type <code>instant</code>.</p>
-   */
-  SingleInstanceType?: boolean;
-
-  /**
-   * <p>Indicates that the fleet launches all On-Demand Instances into a single Availability Zone.</p>
-   *          <p>Supported only for fleets of type <code>instant</code>.</p>
-   */
-  SingleAvailabilityZone?: boolean;
-
-  /**
-   * <p>The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is
-   *          not reached, the fleet launches no instances.</p>
-   *          <p>Supported only for fleets of type <code>instant</code>.</p>
-   *          <p>At least one of the following must be specified: <code>SingleAvailabilityZone</code> |
-   *          <code>SingleInstanceType</code>
-   *          </p>
-   */
-  MinTargetCapacity?: number;
-
-  /**
-   * <p>The maximum amount per hour for On-Demand Instances that you're willing to pay.</p>
-   */
-  MaxTotalPrice?: string;
-}
-
-export namespace OnDemandOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OnDemandOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum SpotAllocationStrategy {
-  CAPACITY_OPTIMIZED = "capacity-optimized",
-  CAPACITY_OPTIMIZED_PRIORITIZED = "capacity-optimized-prioritized",
-  DIVERSIFIED = "diversified",
-  LOWEST_PRICE = "lowest-price",
-}
-
-export type SpotInstanceInterruptionBehavior = "hibernate" | "stop" | "terminate";
-
-export enum FleetReplacementStrategy {
-  LAUNCH = "launch",
-  LAUNCH_BEFORE_TERMINATE = "launch-before-terminate",
-}
-
-/**
- * <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance
- *          notification signal that your Spot Instance is at an elevated risk of being interrupted.
- *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-capacity-rebalance">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>
- */
-export interface FleetSpotCapacityRebalanceRequest {
-  /**
-   * <p>The replacement strategy to use. Only available for fleets of type
-   *          <code>maintain</code>.</p>
-   *          <p>
-   *             <code>launch</code> - EC2 Fleet launches a replacement Spot Instance when a rebalance
-   *          notification is emitted for an existing Spot Instance in the fleet. EC2 Fleet does not
-   *          terminate the instances that receive a rebalance notification. You can terminate the old
-   *          instances, or you can leave them running. You are charged for all instances while they are
-   *          running. </p>
-   *          <p>
-   *             <code>launch-before-terminate</code> - EC2 Fleet launches a replacement Spot Instance
-   *          when a rebalance notification is emitted for an existing Spot Instance in the fleet, and
-   *          then, after a delay that you specify (in <code>TerminationDelay</code>), terminates the
-   *          instances that received a rebalance notification.</p>
-   */
-  ReplacementStrategy?: FleetReplacementStrategy | string;
-
-  /**
-   * <p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
-   *          Instance after launching a new replacement Spot Instance.</p>
-   *          <p>Valid only when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>
-   *          <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>
-   */
-  TerminationDelay?: number;
-}
-
-export namespace FleetSpotCapacityRebalanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FleetSpotCapacityRebalanceRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.</p>
- */
-export interface FleetSpotMaintenanceStrategiesRequest {
-  /**
-   * <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an
-   *          elevated risk of being interrupted.</p>
-   */
-  CapacityRebalance?: FleetSpotCapacityRebalanceRequest;
-}
-
-export namespace FleetSpotMaintenanceStrategiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FleetSpotMaintenanceStrategiesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the configuration of Spot Instances in an EC2 Fleet request.</p>
- */
-export interface SpotOptionsRequest {
-  /**
-   * <p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by
-   *          the EC2 Fleet.</p>
-   *          <p>
-   *             <code>lowest-price</code> - EC2 Fleet launches instances from
-   *          the Spot Instance pools with the lowest price.</p>
-   *          <p>
-   *             <code>diversified</code> - EC2 Fleet launches instances from all
-   *          of the Spot Instance pools that you specify.</p>
-   *          <p>
-   *             <code>capacity-optimized</code> (recommended) - EC2 Fleet
-   *          launches instances from Spot Instance pools with optimal capacity for the number of instances that
-   *          are launching. To give certain instance types a higher chance of launching first, use
-   *             <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by
-   *          using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can
-   *          assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements
-   *          the priorities on a best-effort basis, but optimizes for capacity first.
-   *             <code>capacity-optimized-prioritized</code> is supported only if your fleet uses a
-   *          launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to
-   *             <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
-   *          capacity.</p>
-   *          <p>Default: <code>lowest-price</code>
-   *          </p>
-   */
-  AllocationStrategy?: SpotAllocationStrategy | string;
-
-  /**
-   * <p>The strategies for managing your Spot Instances that are at an elevated risk of being
-   *          interrupted.</p>
-   */
-  MaintenanceStrategies?: FleetSpotMaintenanceStrategiesRequest;
-
-  /**
-   * <p>The behavior when a Spot Instance is interrupted.</p>
-   *          <p>Default: <code>terminate</code>
-   *          </p>
-   */
-  InstanceInterruptionBehavior?: SpotInstanceInterruptionBehavior | string;
-
-  /**
-   * <p>The number of Spot pools across which to allocate your target Spot capacity. Supported
-   *          only when Spot <code>AllocationStrategy</code> is set to <code>lowest-price</code>. EC2 Fleet
-   *          selects the cheapest Spot pools and evenly allocates your target Spot capacity across the
-   *          number of Spot pools that you specify.</p>
-   *          <p>Note that EC2 Fleet attempts to draw Spot Instances from the number of pools that you specify on a
-   *          best effort basis. If a pool runs out of Spot capacity before fulfilling your target
-   *          capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest
-   *          pool. To ensure that your target capacity is met, you might receive Spot Instances from more than
-   *          the number of pools that you specified. Similarly, if most of the pools have no Spot
-   *          capacity, you might receive your full target capacity from fewer than the number of pools
-   *          that you specified.</p>
-   */
-  InstancePoolsToUseCount?: number;
-
-  /**
-   * <p>Indicates that the fleet uses a single instance type to launch all Spot Instances in the
-   *          fleet.</p>
-   *          <p>Supported only for fleets of type <code>instant</code>.</p>
-   */
-  SingleInstanceType?: boolean;
-
-  /**
-   * <p>Indicates that the fleet launches all Spot Instances into a single Availability Zone.</p>
-   *          <p>Supported only for fleets of type <code>instant</code>.</p>
-   */
-  SingleAvailabilityZone?: boolean;
-
-  /**
-   * <p>The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is
-   *          not reached, the fleet launches no instances.</p>
-   *          <p>Supported only for fleets of type <code>instant</code>.</p>
-   *          <p>At least one of the following must be specified: <code>SingleAvailabilityZone</code> |
-   *          <code>SingleInstanceType</code>
-   *          </p>
-   */
-  MinTargetCapacity?: number;
-
-  /**
-   * <p>The maximum amount per hour for Spot Instances that you're willing to pay.</p>
-   */
-  MaxTotalPrice?: string;
-}
-
-export namespace SpotOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SpotOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum DefaultTargetCapacityType {
-  ON_DEMAND = "on-demand",
-  SPOT = "spot",
-}
-
-export enum TargetCapacityUnitType {
-  MEMORY_MIB = "memory-mib",
-  UNITS = "units",
-  VCPU = "vcpu",
-}
-
-/**
- * <p>The number of units to request. You can choose to set the target capacity as the number of
- *          instances. Or you can set the target capacity to a performance characteristic that is important to your application workload,
- *          such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can
- *          specify a target capacity of 0 and add capacity later.</p>
- *          <p>You can use the On-Demand Instance <code>MaxTotalPrice</code> parameter, the Spot Instance
- *             <code>MaxTotalPrice</code> parameter, or both parameters to ensure that your fleet cost
- *          does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances
- *          in your request, EC2 Fleet will launch instances until it reaches the maximum amount that you're
- *          willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops
- *          launching instances even if it hasn’t met the target capacity. The
- *          <code>MaxTotalPrice</code> parameters are located in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptionsRequest">OnDemandOptionsRequest</a>
- *          and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptionsRequest">SpotOptionsRequest</a>.</p>
- */
-export interface TargetCapacitySpecificationRequest {
-  /**
-   * <p>The number of units to request, filled using
-   *          <code>DefaultTargetCapacityType</code>.</p>
-   */
-  TotalTargetCapacity: number | undefined;
-
-  /**
-   * <p>The number of On-Demand units to request.</p>
-   */
-  OnDemandTargetCapacity?: number;
-
-  /**
-   * <p>The number of Spot units to request.</p>
-   */
-  SpotTargetCapacity?: number;
-
-  /**
-   * <p>The default <code>TotalTargetCapacity</code>, which is either <code>Spot</code> or
-   *             <code>On-Demand</code>.</p>
-   */
-  DefaultTargetCapacityType?: DefaultTargetCapacityType | string;
-
-  /**
-   * <p>The unit for the target capacity.</p>
-   *          <p>Default: <code>units</code> (translates to number of instances)</p>
-   */
-  TargetCapacityUnitType?: TargetCapacityUnitType | string;
-}
-
-export namespace TargetCapacitySpecificationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetCapacitySpecificationRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum FleetType {
-  INSTANT = "instant",
-  MAINTAIN = "maintain",
-  REQUEST = "request",
-}
-
-export interface CreateFleetRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *             Idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Describes the configuration of Spot Instances in an EC2 Fleet.</p>
-   */
-  SpotOptions?: SpotOptionsRequest;
-
-  /**
-   * <p>Describes the configuration of On-Demand Instances in an EC2 Fleet.</p>
-   */
-  OnDemandOptions?: OnDemandOptionsRequest;
-
-  /**
-   * <p>Indicates whether running instances should be terminated if the total target capacity of
-   *          the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
-   */
-  ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | string;
-
-  /**
-   * <p>The configuration for the EC2 Fleet.</p>
-   */
-  LaunchTemplateConfigs: FleetLaunchTemplateConfigRequest[] | undefined;
-
-  /**
-   * <p>The number of units to request.</p>
-   */
-  TargetCapacitySpecification: TargetCapacitySpecificationRequest | undefined;
-
-  /**
-   * <p>Indicates whether running instances should be terminated when the EC2 Fleet expires.</p>
-   */
-  TerminateInstancesWithExpiration?: boolean;
-
-  /**
-   * <p>The fleet type. The default value is <code>maintain</code>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>maintain</code> - The EC2 Fleet places an asynchronous request for your desired
-   *                capacity, and continues to maintain your desired Spot capacity by replenishing
-   *                interrupted Spot Instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>request</code> - The EC2 Fleet places an asynchronous one-time request for your
-   *                desired capacity, but does submit Spot requests in alternative capacity pools if Spot
-   *                capacity is unavailable, and does not maintain Spot capacity if Spot Instances are
-   *                interrupted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instant</code> - The EC2 Fleet places a synchronous one-time request for your
-   *                desired capacity, and returns errors for any instances that could not be
-   *                launched.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type">EC2 Fleet
-   *             request types</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   */
-  Type?: FleetType | string;
-
-  /**
-   * <p>The start date and time of the request, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *          The default is to start fulfilling the request immediately.</p>
-   */
-  ValidFrom?: Date;
-
-  /**
-   * <p>The end date and time of the request, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *          At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.</p>
-   */
-  ValidUntil?: Date;
-
-  /**
-   * <p>Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for
-   *          fleets of type <code>maintain</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks">EC2 Fleet
-   *             health checks</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   */
-  ReplaceUnhealthyInstances?: boolean;
-
-  /**
-   * <p>The key-value pair for tagging the EC2 Fleet request on creation. For more information, see
-   *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging your resources</a>.</p>
-   *          <p>If the fleet type is <code>instant</code>, specify a resource type of <code>fleet</code>
-   *          to tag the fleet or <code>instance</code> to tag the instances at launch.</p>
-   *          <p>If the fleet type is <code>maintain</code> or <code>request</code>, specify a resource
-   *          type of <code>fleet</code> to tag the fleet. You cannot specify a resource type of
-   *             <code>instance</code>. To tag instances at launch, specify the tags in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch template</a>.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Reserved.</p>
-   */
-  Context?: string;
-}
-
-export namespace CreateFleetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFleetRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the Amazon EC2 launch template and the launch template version that can be used
- *             by a Spot Fleet request to configure Amazon EC2 instances. For information about launch templates,
- *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching an instance from a launch template</a> in the
- *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
- */
-export interface FleetLaunchTemplateSpecification {
-  /**
-   * <p>The ID of the launch template. If you specify the template ID, you can't specify the
-   *             template name.</p>
-   */
-  LaunchTemplateId?: string;
-
-  /**
-   * <p>The name of the launch template. If you specify the template name, you can't specify
-   *             the template ID.</p>
-   */
-  LaunchTemplateName?: string;
-
-  /**
-   * <p>The launch template version number, <code>$Latest</code>, or <code>$Default</code>.
-   *             You must specify a value, otherwise the request fails.</p>
-   *         <p>If the value is <code>$Latest</code>, Amazon EC2 uses the latest version of the launch
-   *             template.</p>
-   *         <p>If the value is <code>$Default</code>, Amazon EC2 uses the default version of the launch
-   *             template.</p>
-   */
-  Version?: string;
-}
-
-export namespace FleetLaunchTemplateSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FleetLaunchTemplateSpecification): any => ({
-    ...obj,
-  });
 }

@@ -36,8 +36,8 @@ export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOut
  *             Amazon SageMaker might add additional headers. You should not rely on the behavior
  *             of headers outside those enumerated in the request syntax.</p>
  *
- *         <p>Calls to <code>InvokeEndpointAsync</code> are authenticated by using AWS Signature
- *             Version 4. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (AWS Signature Version 4)</a> in the <i>Amazon S3 API
+ *         <p>Calls to <code>InvokeEndpointAsync</code> are authenticated by using Amazon Web Services Signature
+ *             Version 4. For information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (Amazon Web Services Signature Version 4)</a> in the <i>Amazon S3 API
  *                 Reference</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

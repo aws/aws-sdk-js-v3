@@ -11,8 +11,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartPipelineExecutionRequest } from "../models/models_2";
-import { StartPipelineExecutionResponse } from "../models/models_3";
+import { StartPipelineExecutionRequest, StartPipelineExecutionResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1StartPipelineExecutionCommand,
   serializeAws_json1_1StartPipelineExecutionCommand,

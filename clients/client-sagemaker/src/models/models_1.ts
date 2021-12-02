@@ -3,10 +3,12 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import {
   ActionSource,
   ActionStatus,
+  AdditionalInferenceSpecificationDefinition,
   AlgorithmSpecification,
   AlgorithmStatus,
   AlgorithmStatusDetails,
   AlgorithmValidationSpecification,
+  AnnotationConsolidationConfig,
   AppNetworkAccessType,
   AppSecurityGroupManagement,
   AppSpecification,
@@ -36,6 +38,7 @@ import {
   CollectionConfiguration,
   CompilationJobStatus,
   ContainerDefinition,
+  ContentClassifier,
   ContextSource,
   DataCaptureConfig,
   DataQualityAppSpecification,
@@ -46,13 +49,13 @@ import {
   EdgeOutputConfig,
   EdgePresetDeploymentType,
   EndpointInput,
+  EnvironmentParameterRanges,
   FeatureDefinition,
   FlowDefinitionOutputConfig,
   GitConfig,
   HumanLoopActivationConfig,
   HumanLoopConfig,
   HumanLoopRequestSource,
-  HumanTaskConfig,
   HyperParameterTrainingJobDefinition,
   HyperParameterTuningJobConfig,
   HyperParameterTuningJobObjectiveType,
@@ -60,13 +63,10 @@ import {
   InferenceSpecification,
   InputConfig,
   KernelGatewayImageConfig,
-  LabelingJobDataAttributes,
-  LabelingJobDataSource,
   MetadataProperties,
   MetricsSource,
   ModelApprovalStatus,
   ModelDeployConfig,
-  ModelPackageStatus,
   MonitoringConstraintsResource,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
@@ -87,6 +87,8 @@ import {
   ProductionVariant,
   ProductionVariantAcceleratorType,
   ProductionVariantInstanceType,
+  ProductionVariantServerlessConfig,
+  PublicWorkforceTaskPrice,
   ResourceConfig,
   ResourceSpec,
   RetryStrategy,
@@ -101,6 +103,2124 @@ import {
   UserSettings,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>The endpoint configuration for the load test.</p>
+ */
+export interface EndpointInputConfiguration {
+  /**
+   * <p>The instance types to use for the load test.</p>
+   */
+  InstanceType: ProductionVariantInstanceType | string | undefined;
+
+  /**
+   * <p>The inference specification name in the model package version.</p>
+   */
+  InferenceSpecificationName?: string;
+
+  /**
+   * <p> The parameter you want to benchmark against.</p>
+   */
+  EnvironmentParameterRanges?: EnvironmentParameterRanges;
+}
+
+export namespace EndpointInputConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EndpointInputConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the maximum number of jobs that can run in parallel
+ *     and the maximum number of jobs that can run.</p>
+ */
+export interface RecommendationJobResourceLimit {
+  /**
+   * <p>Defines the maximum number of load tests.</p>
+   */
+  MaxNumberOfTests?: number;
+
+  /**
+   * <p>Defines the maximum number of parallel load tests.</p>
+   */
+  MaxParallelOfTests?: number;
+}
+
+export namespace RecommendationJobResourceLimit {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RecommendationJobResourceLimit): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines the traffic pattern.</p>
+ */
+export interface Phase {
+  /**
+   * <p>Specifies how many concurrent users to start with.</p>
+   */
+  InitialNumberOfUsers?: number;
+
+  /**
+   * <p>Specified how many new users to spawn in a minute.</p>
+   */
+  SpawnRate?: number;
+
+  /**
+   * <p>Specifies how long traffic phase should be.</p>
+   */
+  DurationInSeconds?: number;
+}
+
+export namespace Phase {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Phase): any => ({
+    ...obj,
+  });
+}
+
+export enum TrafficType {
+  PHASES = "PHASES",
+}
+
+/**
+ * <p>Defines the traffic pattern of the load test.</p>
+ */
+export interface TrafficPattern {
+  /**
+   * <p>Defines the traffic patterns.</p>
+   */
+  TrafficType?: TrafficType | string;
+
+  /**
+   * <p>Defines the phases traffic specification.</p>
+   */
+  Phases?: Phase[];
+}
+
+export namespace TrafficPattern {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TrafficPattern): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input configuration of the recommendation job.</p>
+ */
+export interface RecommendationJobInputConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a versioned model package.</p>
+   */
+  ModelPackageVersionArn: string | undefined;
+
+  /**
+   * <p>Specifies the maximum duration of the job, in seconds.></p>
+   */
+  JobDurationInSeconds?: number;
+
+  /**
+   * <p>Specifies the traffic pattern of the job.</p>
+   */
+  TrafficPattern?: TrafficPattern;
+
+  /**
+   * <p>Defines the resource limit of the job.</p>
+   */
+  ResourceLimit?: RecommendationJobResourceLimit;
+
+  /**
+   * <p>Specifies the endpoint configuration to use for a job.</p>
+   */
+  EndpointConfigurations?: EndpointInputConfiguration[];
+}
+
+export namespace RecommendationJobInputConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RecommendationJobInputConfig): any => ({
+    ...obj,
+  });
+}
+
+export enum RecommendationJobType {
+  ADVANCED = "Advanced",
+  DEFAULT = "Default",
+}
+
+/**
+ * <p>The model latency threshold.</p>
+ */
+export interface ModelLatencyThreshold {
+  /**
+   * <p>The model latency percentile threshold.</p>
+   */
+  Percentile?: string;
+
+  /**
+   * <p>The model latency percentile value in milliseconds.</p>
+   */
+  ValueInMilliseconds?: number;
+}
+
+export namespace ModelLatencyThreshold {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelLatencyThreshold): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies conditions for stopping a job. When a job reaches a
+ *            stopping condition limit, SageMaker ends the job.</p>
+ */
+export interface RecommendationJobStoppingConditions {
+  /**
+   * <p>The maximum number of requests per minute expected for the endpoint.</p>
+   */
+  MaxInvocations?: number;
+
+  /**
+   * <p>The interval of time taken by a model to respond as viewed from SageMaker.
+   *           The interval includes the local communication time taken to send the request
+   *           and to fetch the response from the container of a model and the time taken to
+   *           complete the inference in the container.</p>
+   */
+  ModelLatencyThresholds?: ModelLatencyThreshold[];
+}
+
+export namespace RecommendationJobStoppingConditions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RecommendationJobStoppingConditions): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateInferenceRecommendationsJobRequest {
+  /**
+   * <p>A name for the recommendation job. The name must be unique within
+   *            the Amazon Web Services Region and within your Amazon Web Services account.</p>
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>Defines the type of recommendation job. Specify <code>Default</code> to initiate an instance
+   *            recommendation and <code>Advanced</code> to initiate a load test. If left unspecified,
+   *            Amazon SageMaker Inference Recommender will run an instance recommendation (<code>DEFAULT</code>) job.</p>
+   */
+  JobType: RecommendationJobType | string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker
+   *     to perform tasks on your behalf.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>Provides information about the versioned model package Amazon Resource Name (ARN),
+   *     the traffic pattern, and endpoint configurations.</p>
+   */
+  InputConfig: RecommendationJobInputConfig | undefined;
+
+  /**
+   * <p>Description of the recommendation job.</p>
+   */
+  JobDescription?: string;
+
+  /**
+   * <p>A set of conditions for stopping a recommendation job.  If any of
+   *           the conditions are met, the job is automatically stopped.</p>
+   */
+  StoppingConditions?: RecommendationJobStoppingConditions;
+
+  /**
+   * <p>The metadata that you apply to Amazon Web Services resources to help you
+   *            categorize and organize them. Each tag consists of a key and a value, both of
+   *            which you define. For more information, see
+   *            <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>
+   *            in the Amazon Web Services General Reference.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateInferenceRecommendationsJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateInferenceRecommendationsJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateInferenceRecommendationsJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recommendation job.</p>
+   */
+  JobArn: string | undefined;
+}
+
+export namespace CreateInferenceRecommendationsJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateInferenceRecommendationsJobResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provided configuration information for the worker UI for a labeling job. Provide
+ *             either <code>HumanTaskUiArn</code> or <code>UiTemplateS3Uri</code>.</p>
+ *         <p>For named entity recognition, 3D point cloud and video frame labeling jobs, use
+ *                 <code>HumanTaskUiArn</code>.</p>
+ *         <p>For all other Ground Truth built-in task types and custom task types, use
+ *                 <code>UiTemplateS3Uri</code> to specify the location of a worker task template in
+ *             Amazon S3.</p>
+ */
+export interface UiConfig {
+  /**
+   * <p>The Amazon S3 bucket location of the UI template, or worker task template. This is the
+   *             template used to render the worker UI and tools for labeling job tasks. For more
+   *             information about the contents of a UI template, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step2.html"> Creating Your Custom
+   *                 Labeling Task Template</a>.</p>
+   */
+  UiTemplateS3Uri?: string;
+
+  /**
+   * <p>The ARN of the worker task template used to render the worker UI and tools for
+   *             labeling job tasks.</p>
+   *         <p>Use this parameter when you are creating a labeling job for named entity recognition,
+   *             3D point cloud and video frame labeling jobs. Use your labeling job task type to select
+   *             one of the following ARNs and use it with this parameter when you create a labeling job.
+   *             Replace <code>aws-region</code> with the Amazon Web Services Region you are creating your labeling job
+   *             in. For example, replace <code>aws-region</code> with <code>us-west-1</code> if you
+   *             create a labeling job in US West (N. California).</p>
+   *         <p>
+   *             <b>Named Entity Recognition</b>
+   *          </p>
+   *         <p>Use the following <code>HumanTaskUiArn</code> for named entity recognition labeling
+   *             jobs:</p>
+   *         <p>
+   *             <code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/NamedEntityRecognition</code>
+   *          </p>
+   *
+   *         <p>
+   *             <b>3D Point Cloud HumanTaskUiArns</b>
+   *          </p>
+   *
+   *         <p>Use this <code>HumanTaskUiArn</code> for 3D point cloud object detection and 3D point
+   *             cloud object detection adjustment labeling jobs. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p> Use this <code>HumanTaskUiArn</code> for 3D point cloud object tracking and 3D point
+   *             cloud object tracking adjustment labeling jobs. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p> Use this <code>HumanTaskUiArn</code> for 3D point cloud semantic segmentation and 3D
+   *             point cloud semantic segmentation adjustment labeling jobs.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>
+   *             <b>Video Frame HumanTaskUiArns</b>
+   *          </p>
+   *
+   *         <p>Use this <code>HumanTaskUiArn</code> for video frame object detection and video frame
+   *             object detection adjustment labeling jobs. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:sagemaker:region:394669845002:human-task-ui/VideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p> Use this <code>HumanTaskUiArn</code> for video frame object tracking and video frame
+   *             object tracking adjustment labeling jobs. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/VideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   */
+  HumanTaskUiArn?: string;
+}
+
+export namespace UiConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UiConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information required for human workers to complete a labeling task.</p>
+ */
+export interface HumanTaskConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the work team assigned to complete the tasks.</p>
+   */
+  WorkteamArn: string | undefined;
+
+  /**
+   * <p>Information about the user interface that workers use to complete the labeling
+   *             task.</p>
+   */
+  UiConfig: UiConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Lambda function that is run before a data object
+   *             is sent to a human worker. Use this function to provide input to a custom labeling
+   *             job.</p>
+   *         <p>For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in
+   *                 task types</a>, use one of the following Amazon SageMaker Ground Truth Lambda function ARNs for
+   *                 <code>PreHumanTaskLambdaArn</code>. For custom labeling workflows, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step3.html#sms-custom-templates-step3-prelambda">Pre-annotation Lambda</a>. </p>
+   *
+   *
+   *
+   *          <p>
+   *             <b>Bounding box</b> - Finds the most similar boxes from
+   *                     different workers based on the Jaccard index of the boxes.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-BoundingBox</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *
+   *           <p>
+   *             <b>Image classification</b> - Uses a variant of the Expectation
+   *                     Maximization approach to estimate the true class of an image based on
+   *                     annotations from individual workers.</p>
+   *
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-ImageMultiClass</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *             <p>
+   *             <b>Multi-label image classification</b> - Uses a variant of the Expectation
+   *                     Maximization approach to estimate the true classes of an image based on
+   *                     annotations from individual workers.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-ImageMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *             <p>
+   *             <b>Semantic segmentation</b> - Treats each pixel in an image as
+   *                     a multi-class classification and treats pixel annotations from workers as
+   *                     "votes" for the correct label.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-SemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-SemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-SemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-SemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-SemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-SemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-SemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-SemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-SemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-SemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-SemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-SemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *             <p>
+   *             <b>Text classification</b> - Uses a variant of the Expectation
+   *                     Maximization approach to estimate the true class of text based on annotations
+   *                     from individual workers.</p>
+   *             <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClass</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *             <p>
+   *             <b>Multi-label text classification</b> - Uses a variant of the
+   *                     Expectation Maximization approach to estimate the true classes of text based on
+   *                     annotations from individual workers.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClassMultiLabel</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *             <p>
+   *             <b>Named entity recognition</b> - Groups similar selections and
+   *                     calculates aggregate boundaries, resolving to most-assigned label.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-NamedEntityRecognition</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-NamedEntityRecognition</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-NamedEntityRecognition</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-NamedEntityRecognition</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-NamedEntityRecognition</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-NamedEntityRecognition</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-NamedEntityRecognition</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-NamedEntityRecognition</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-NamedEntityRecognition</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-NamedEntityRecognition</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-NamedEntityRecognition</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *
+   *
+   *
+   *         <p>
+   *             <b>Video Classification</b> - Use this task type when you need workers to classify videos using
+   *             predefined labels that you specify. Workers are shown videos and are asked to choose one
+   *             label for each video.</p>
+   *
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VideoMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VideoMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VideoMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VideoMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VideoMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VideoMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VideoMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VideoMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VideoMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VideoMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VideoMultiClass</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VideoMultiClass</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>
+   *             <b>Video Frame Object Detection</b> - Use this task type to
+   *             have workers identify and locate objects in a sequence of video frames (images extracted
+   *             from a video) using bounding boxes. For example, you can use this task to ask workers to
+   *             identify and localize various objects in a series of video frames, such as cars, bikes,
+   *             and pedestrians.</p>
+   *
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>
+   *             <b>Video Frame Object Tracking</b> - Use this task type to
+   *             have workers track the movement of objects in a sequence of video frames (images
+   *             extracted from a video) using bounding boxes. For example, you can use this task to ask
+   *             workers to track the movement of objects, such as cars, bikes, and pedestrians. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *
+   *
+   *
+   *         <p>
+   *             <b>3D Point Cloud Modalities</b>
+   *          </p>
+   *         <p>Use the following pre-annotation lambdas for 3D point cloud labeling modality tasks.
+   *             See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-task-types.html">3D Point Cloud Task types
+   *             </a> to learn more. </p>
+   *
+   *
+   *         <p>
+   *             <b>3D Point Cloud Object Detection</b> -
+   *         Use this task type when you want workers to classify objects in a 3D point cloud by
+   *         drawing 3D cuboids around objects. For example, you can use this task type to ask workers
+   *         to identify different types of objects in a point cloud, such as cars, bikes, and pedestrians.</p>
+   *                 <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-3DPointCloudObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-3DPointCloudObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-3DPointCloudObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-3DPointCloudObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-3DPointCloudObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-3DPointCloudObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-3DPointCloudObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-3DPointCloudObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-3DPointCloudObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-3DPointCloudObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-3DPointCloudObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-3DPointCloudObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>
+   *             <b>3D Point Cloud Object Tracking</b> -
+   *         Use this task type when you want workers to draw 3D cuboids around objects
+   *         that appear in a sequence of 3D point cloud frames.
+   *         For example, you can use this task type to ask workers to track
+   *         the movement of vehicles across multiple point cloud frames.
+   *         </p>
+   *                 <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-3DPointCloudObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *
+   *
+   *         <p>
+   *             <b>3D Point Cloud Semantic Segmentation</b> -
+   *             Use this task type when you want workers to create a point-level semantic segmentation masks by
+   *             painting objects in a 3D point cloud using different colors where each color is assigned to one of
+   *             the classes you specify.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-3DPointCloudSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-3DPointCloudSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-3DPointCloudSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-3DPointCloudSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-3DPointCloudSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-3DPointCloudSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-3DPointCloudSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-3DPointCloudSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-3DPointCloudSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-3DPointCloudSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-3DPointCloudSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-3DPointCloudSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>
+   *             <b>Use the following ARNs for Label Verification and Adjustment Jobs</b>
+   *          </p>
+   *         <p>Use label verification and adjustment jobs to review and adjust labels. To learn more,
+   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-verification-data.html">Verify and Adjust Labels </a>.</p>
+   *
+   *             <p>
+   *             <b>Bounding box verification</b> - Uses a variant of the
+   *                 Expectation Maximization approach to estimate the true class of verification
+   *                 judgement for bounding box labels based on annotations from individual
+   *                 workers.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationBoundingBox</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *             <p>
+   *             <b>Bounding box adjustment</b> - Finds the most similar boxes
+   *                     from different workers based on the Jaccard index of the adjusted
+   *                     annotations.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentBoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentBoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentBoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentBoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentBoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentBoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentBoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentBoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentBoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentBoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentBoundingBox</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentBoundingBox</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *             <p>
+   *             <b>Semantic segmentation verification</b> - Uses a variant of
+   *                     the Expectation Maximization approach to estimate the true class of verification
+   *                     judgment for semantic segmentation labels based on annotations from individual
+   *                     workers.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *             <p>
+   *             <b>Semantic segmentation adjustment</b> - Treats each pixel in
+   *                     an image as a multi-class classification and treats pixel adjusted annotations
+   *                     from workers as "votes" for the correct label.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *
+   *
+   *
+   *         <p>
+   *             <b>Video Frame Object Detection Adjustment</b> -
+   *             Use this task type when you want workers to adjust bounding boxes that workers have added
+   *             to video frames to classify and localize objects in a sequence of video frames.</p>
+   *
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentVideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentVideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentVideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentVideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentVideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentVideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentVideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentVideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentVideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentVideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentVideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentVideoObjectDetection</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>
+   *             <b>Video Frame Object Tracking Adjustment</b> -
+   *             Use this task type when you want workers to adjust bounding boxes that workers have added
+   *             to video frames to track object movement across a sequence of video frames.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentVideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentVideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentVideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentVideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentVideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentVideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentVideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentVideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentVideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentVideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentVideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentVideoObjectTracking</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *
+   *
+   *
+   *
+   *         <p>
+   *             <b>3D point cloud object detection adjustment</b> - Adjust
+   *             3D cuboids in a point cloud frame. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudObjectDetection</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>
+   *             <b>3D point cloud object tracking adjustment</b> - Adjust 3D
+   *             cuboids across a sequence of point cloud frames. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudObjectTracking</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>
+   *             <b>3D point cloud semantic segmentation adjustment</b> -
+   *             Adjust semantic segmentation masks in a 3D point cloud. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  PreHumanTaskLambdaArn: string | undefined;
+
+  /**
+   * <p>Keywords used to describe the task so that workers on Amazon Mechanical Turk can
+   *             discover the task.</p>
+   */
+  TaskKeywords?: string[];
+
+  /**
+   * <p>A title for the task for your human workers.</p>
+   */
+  TaskTitle: string | undefined;
+
+  /**
+   * <p>A description of the task for your human workers.</p>
+   */
+  TaskDescription: string | undefined;
+
+  /**
+   * <p>The number of human workers that will label an object. </p>
+   */
+  NumberOfHumanWorkersPerDataObject: number | undefined;
+
+  /**
+   * <p>The amount of time that a worker has to complete a task. </p>
+   *         <p>If you create a custom labeling job, the maximum value for this parameter is 8 hours
+   *             (28,800 seconds).</p>
+   *         <p>If you create a labeling job using a <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task type</a> the maximum
+   *             for this parameter depends on the task type you use:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-label-images.html">image</a> and
+   *                     <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-label-text.html">text</a> labeling jobs,
+   *                     the maximum is 8 hours (28,800 seconds).</p>
+   *             </li>
+   *             <li>
+   *                 <p>For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud.html">3D point cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html">video frame</a> labeling jobs, the maximum is 30 days (2952,000 seconds) for non-AL mode. For most users, the maximum is also 30 days.</p>
+   *             </li>
+   *          </ul>
+   */
+  TaskTimeLimitInSeconds: number | undefined;
+
+  /**
+   * <p>The length of time that a task remains available for labeling by human workers. The
+   *             default and maximum values for this parameter depend on the type of workforce you
+   *             use.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If you choose the Amazon Mechanical Turk workforce, the maximum is 12 hours (43,200 seconds).
+   *                     The default is 6 hours (21,600 seconds).</p>
+   *             </li>
+   *             <li>
+   *                 <p>If you choose a private or vendor workforce, the default value is 30 days (2592,000 seconds) for non-AL mode. For most users, the maximum is also 30 days.</p>
+   *             </li>
+   *          </ul>
+   */
+  TaskAvailabilityLifetimeInSeconds?: number;
+
+  /**
+   * <p>Defines the maximum number of data objects that can be labeled by human workers at the
+   *             same time. Also referred to as batch size. Each object may have more than one worker at one time.
+   *             The default value is 1000 objects.</p>
+   */
+  MaxConcurrentTaskCount?: number;
+
+  /**
+   * <p>Configures how labels are consolidated across human workers.</p>
+   */
+  AnnotationConsolidationConfig: AnnotationConsolidationConfig | undefined;
+
+  /**
+   * <p>The price that you pay for each task performed by an Amazon Mechanical Turk worker.</p>
+   */
+  PublicWorkforceTaskPrice?: PublicWorkforceTaskPrice;
+}
+
+export namespace HumanTaskConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HumanTaskConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Attributes of the data specified by the customer. Use these to describe the data to be
+ *             labeled.</p>
+ */
+export interface LabelingJobDataAttributes {
+  /**
+   * <p>Declares that your content is free of personally identifiable information or adult
+   *             content. Amazon SageMaker may restrict the Amazon Mechanical Turk workers that can view your task
+   *             based on this information.</p>
+   */
+  ContentClassifiers?: (ContentClassifier | string)[];
+}
+
+export namespace LabelingJobDataAttributes {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LabelingJobDataAttributes): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The Amazon S3 location of the input data objects.</p>
+ */
+export interface LabelingJobS3DataSource {
+  /**
+   * <p>The Amazon S3 location of the manifest file that describes the input data objects. </p>
+   *         <p>The input manifest file referenced in <code>ManifestS3Uri</code> must contain one of
+   *             the following keys: <code>source-ref</code> or <code>source</code>. The value of the
+   *             keys are interpreted as follows:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>source-ref</code>: The source of the object is the Amazon S3 object
+   *                     specified in the value. Use this value when the object is a binary object, such
+   *                     as an image.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>source</code>: The source of the object is the value. Use this
+   *                     value when the object is a text value.</p>
+   *             </li>
+   *          </ul>
+   *         <p>If you are a new user of Ground Truth, it is recommended you review <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-input-data-input-manifest.html">Use an Input Manifest File </a> in the Amazon SageMaker Developer Guide to learn how to
+   *             create an input manifest file.</p>
+   */
+  ManifestS3Uri: string | undefined;
+}
+
+export namespace LabelingJobS3DataSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LabelingJobS3DataSource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An Amazon SNS data source used for streaming labeling jobs.</p>
+ */
+export interface LabelingJobSnsDataSource {
+  /**
+   * <p>The Amazon SNS input topic Amazon Resource Name (ARN). Specify the ARN of the input topic
+   *       you will use to send new data objects to a streaming labeling job.</p>
+   */
+  SnsTopicArn: string | undefined;
+}
+
+export namespace LabelingJobSnsDataSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LabelingJobSnsDataSource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the location of input data.</p>
+ *
+ *          <p>You must specify at least one of the following: <code>S3DataSource</code> or <code>SnsDataSource</code>.</p>
+ *          <p>Use <code>SnsDataSource</code> to specify an SNS input topic
+ *     for a streaming labeling job. If you do not specify
+ *     and SNS input topic ARN, Ground Truth will create a one-time labeling job.</p>
+ *          <p>Use <code>S3DataSource</code> to specify an input
+ *     manifest file for both streaming and one-time labeling jobs.
+ *     Adding an <code>S3DataSource</code> is optional if you use <code>SnsDataSource</code> to create a streaming labeling job.</p>
+ */
+export interface LabelingJobDataSource {
+  /**
+   * <p>The Amazon S3 location of the input data objects.</p>
+   */
+  S3DataSource?: LabelingJobS3DataSource;
+
+  /**
+   * <p>An Amazon SNS data source used for streaming labeling jobs. To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-labeling-job.html#sms-streaming-how-it-works-send-data">Send Data to a Streaming Labeling Job</a>. </p>
+   */
+  SnsDataSource?: LabelingJobSnsDataSource;
+}
+
+export namespace LabelingJobDataSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LabelingJobDataSource): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Input configuration information for a labeling job.</p>
@@ -977,6 +3097,179 @@ export namespace CreateModelExplainabilityJobDefinitionResponse {
 }
 
 /**
+ * <p>Contains details regarding the file source.</p>
+ */
+export interface FileSource {
+  /**
+   * <p>The type of content stored in the file source.</p>
+   */
+  ContentType?: string;
+
+  /**
+   * <p>The digest of the file source.</p>
+   */
+  ContentDigest?: string;
+
+  /**
+   * <p>The Amazon S3 URI for the file source.</p>
+   */
+  S3Uri: string | undefined;
+}
+
+export namespace FileSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FileSource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the drift check bias baselines that can be used when the model monitor is set using the
+ *          model package.</p>
+ */
+export interface DriftCheckBias {
+  /**
+   * <p>The bias config file for a model.</p>
+   */
+  ConfigFile?: FileSource;
+
+  /**
+   * <p></p>
+   */
+  PreTrainingConstraints?: MetricsSource;
+
+  /**
+   * <p></p>
+   */
+  PostTrainingConstraints?: MetricsSource;
+}
+
+export namespace DriftCheckBias {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DriftCheckBias): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the drift check explainability baselines that can be used when the model monitor is set
+ *          using the model package. </p>
+ */
+export interface DriftCheckExplainability {
+  /**
+   * <p></p>
+   */
+  Constraints?: MetricsSource;
+
+  /**
+   * <p>The explainability config file for the model.</p>
+   */
+  ConfigFile?: FileSource;
+}
+
+export namespace DriftCheckExplainability {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DriftCheckExplainability): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the drift check data quality baselines that can be used when the model monitor is set using
+ *          the model package. </p>
+ */
+export interface DriftCheckModelDataQuality {
+  /**
+   * <p></p>
+   */
+  Statistics?: MetricsSource;
+
+  /**
+   * <p></p>
+   */
+  Constraints?: MetricsSource;
+}
+
+export namespace DriftCheckModelDataQuality {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DriftCheckModelDataQuality): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the drift check model quality baselines that can be used when the model monitor is set using
+ *          the model package. </p>
+ */
+export interface DriftCheckModelQuality {
+  /**
+   * <p></p>
+   */
+  Statistics?: MetricsSource;
+
+  /**
+   * <p></p>
+   */
+  Constraints?: MetricsSource;
+}
+
+export namespace DriftCheckModelQuality {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DriftCheckModelQuality): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the drift check baselines that can be used when the model monitor is set using the model
+ *          package. </p>
+ */
+export interface DriftCheckBaselines {
+  /**
+   * <p>Represents the drift check bias baselines that can be used when the model monitor is set using the model
+   *          package. </p>
+   */
+  Bias?: DriftCheckBias;
+
+  /**
+   * <p>Represents the drift check explainability baselines that can be used when the model monitor is set using
+   *          the model package. </p>
+   */
+  Explainability?: DriftCheckExplainability;
+
+  /**
+   * <p>Represents the drift check model quality baselines that can be used when the model monitor is set using
+   *          the model package.</p>
+   */
+  ModelQuality?: DriftCheckModelQuality;
+
+  /**
+   * <p>Represents the drift check model data quality baselines that can be used when the model monitor is set
+   *          using the model package.</p>
+   */
+  ModelDataQuality?: DriftCheckModelDataQuality;
+}
+
+export namespace DriftCheckBaselines {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DriftCheckBaselines): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Contains explainability metrics for a model.</p>
  */
 export interface Explainability {
@@ -1276,6 +3569,39 @@ export interface CreateModelPackageInput {
    * <p>The metadata properties associated with the model package versions.</p>
    */
   CustomerMetadataProperties?: { [key: string]: string };
+
+  /**
+   * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package.
+   *          For more information, see the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection">Drift Detection against Previous Baselines in SageMaker Pipelines</a> in the <i>Amazon SageMaker Developer Guide</i>.
+   *       </p>
+   */
+  DriftCheckBaselines?: DriftCheckBaselines;
+
+  /**
+   * <p>The machine learning domain of your model package and its components. Common
+   *     machine learning domains include computer vision and natural language processing.</p>
+   */
+  Domain?: string;
+
+  /**
+   * <p>The machine learning task your model package accomplishes. Common machine
+   *     learning tasks include object detection and image classification.</p>
+   */
+  Task?: string;
+
+  /**
+   * <p>The Amazon Simple Storage Service (Amazon S3) path where the sample payload are stored. This path must point
+   *     to a single gzip compressed tar archive (.tar.gz suffix).</p>
+   */
+  SamplePayloadUrl?: string;
+
+  /**
+   * <p>An array of additional Inference Specification objects. Each additional
+   *     Inference Specification specifies artifacts based on this model package that can
+   *     be used on inference endpoints. Generally used with SageMaker Neo to store the
+   *     compiled artifacts. </p>
+   */
+  AdditionalInferenceSpecifications?: AdditionalInferenceSpecificationDefinition[];
 }
 
 export namespace CreateModelPackageInput {
@@ -5563,7 +7889,7 @@ export interface DescribeActionResponse {
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, or project.</p>
+   *       component, lineage group, or project.</p>
    */
   CreatedBy?: UserContext;
 
@@ -5574,7 +7900,7 @@ export interface DescribeActionResponse {
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, or project.</p>
+   *       component, lineage group, or project.</p>
    */
   LastModifiedBy?: UserContext;
 
@@ -5582,6 +7908,11 @@ export interface DescribeActionResponse {
    * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
    */
   MetadataProperties?: MetadataProperties;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
+   */
+  LineageGroupArn?: string;
 }
 
 export namespace DescribeActionResponse {
@@ -5874,7 +8205,7 @@ export interface DescribeArtifactResponse {
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, or project.</p>
+   *       component, lineage group, or project.</p>
    */
   CreatedBy?: UserContext;
 
@@ -5885,7 +8216,7 @@ export interface DescribeArtifactResponse {
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, or project.</p>
+   *       component, lineage group, or project.</p>
    */
   LastModifiedBy?: UserContext;
 
@@ -5893,6 +8224,11 @@ export interface DescribeArtifactResponse {
    * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
    */
   MetadataProperties?: MetadataProperties;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
+   */
+  LineageGroupArn?: string;
 }
 
 export namespace DescribeArtifactResponse {
@@ -6255,6 +8591,12 @@ export interface DescribeCompilationJobResponse {
   InferenceImage?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the versioned model package that was
+   *     provided to SageMaker Neo when you initiated a compilation job.</p>
+   */
+  ModelPackageVersionArn?: string;
+
+  /**
    * <p>The time that the model compilation job was created.</p>
    */
   CreationTime: Date | undefined;
@@ -6373,7 +8715,7 @@ export interface DescribeContextResponse {
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, or project.</p>
+   *       component, lineage group, or project.</p>
    */
   CreatedBy?: UserContext;
 
@@ -6384,9 +8726,14 @@ export interface DescribeContextResponse {
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, or project.</p>
+   *       component, lineage group, or project.</p>
    */
   LastModifiedBy?: UserContext;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
+   */
+  LineageGroupArn?: string;
 }
 
 export namespace DescribeContextResponse {
@@ -7136,6 +9483,22 @@ export interface PendingProductionVariantSummary {
    * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
    */
   VariantStatus?: ProductionVariantStatus[];
+
+  /**
+   * <p>The serverless configuration for the endpoint.</p>
+   *          <note>
+   *             <p>Serverless Inference is in preview release for Amazon SageMaker and is subject to change. We do not recommend using this feature in production environments.</p>
+   *          </note>
+   */
+  CurrentServerlessConfig?: ProductionVariantServerlessConfig;
+
+  /**
+   * <p>The serverless configuration requested for this deployment, as specified in the endpoint configuration for the endpoint.</p>
+   *          <note>
+   *             <p>Serverless Inference is in preview release for Amazon SageMaker and is subject to change. We do not recommend using this feature in production environments.</p>
+   *          </note>
+   */
+  DesiredServerlessConfig?: ProductionVariantServerlessConfig;
 }
 
 export namespace PendingProductionVariantSummary {
@@ -7221,6 +9584,22 @@ export interface ProductionVariantSummary {
    * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
    */
   VariantStatus?: ProductionVariantStatus[];
+
+  /**
+   * <p>The serverless configuration for the endpoint.</p>
+   *          <note>
+   *             <p>Serverless Inference is in preview release for Amazon SageMaker and is subject to change. We do not recommend using this feature in production environments.</p>
+   *          </note>
+   */
+  CurrentServerlessConfig?: ProductionVariantServerlessConfig;
+
+  /**
+   * <p>The serverless configuration requested for the endpoint update.</p>
+   *          <note>
+   *             <p>Serverless Inference is in preview release for Amazon SageMaker and is subject to change. We do not recommend using this feature in production environments.</p>
+   *          </note>
+   */
+  DesiredServerlessConfig?: ProductionVariantServerlessConfig;
 }
 
 export namespace ProductionVariantSummary {
@@ -8394,6 +10773,261 @@ export namespace DescribeImageVersionResponse {
   });
 }
 
+export interface DescribeInferenceRecommendationsJobRequest {
+  /**
+   * <p>The name of the job. The name must be unique within an
+   *            Amazon Web Services Region in the Amazon Web Services account.</p>
+   */
+  JobName: string | undefined;
+}
+
+export namespace DescribeInferenceRecommendationsJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeInferenceRecommendationsJobRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The endpoint configuration made by Inference Recommender during a recommendation job.</p>
+ */
+export interface EndpointOutputConfiguration {
+  /**
+   * <p>The name of the endpoint made during a recommendation job.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The name of the production variant (deployed model) made during a recommendation job.</p>
+   */
+  VariantName: string | undefined;
+
+  /**
+   * <p>The instance type recommended by Amazon SageMaker Inference Recommender.</p>
+   */
+  InstanceType: ProductionVariantInstanceType | string | undefined;
+
+  /**
+   * <p>The number of instances recommended to launch initially.</p>
+   */
+  InitialInstanceCount: number | undefined;
+}
+
+export namespace EndpointOutputConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EndpointOutputConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The metrics of recommendations.</p>
+ */
+export interface RecommendationMetrics {
+  /**
+   * <p>Defines the cost per hour for the instance. </p>
+   */
+  CostPerHour: number | undefined;
+
+  /**
+   * <p>Defines the cost per inference for the instance .</p>
+   */
+  CostPerInference: number | undefined;
+
+  /**
+   * <p>The expected maximum number of requests per minute for the instance.</p>
+   */
+  MaxInvocations: number | undefined;
+
+  /**
+   * <p>The expected model latency at maximum invocation per minute for the instance.</p>
+   */
+  ModelLatency: number | undefined;
+}
+
+export namespace RecommendationMetrics {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RecommendationMetrics): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of environment parameters suggested by the Amazon SageMaker Inference Recommender.</p>
+ */
+export interface EnvironmentParameter {
+  /**
+   * <p>The environment key suggested by the Amazon SageMaker Inference Recommender.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The value type suggested by the Amazon SageMaker Inference Recommender.</p>
+   */
+  ValueType: string | undefined;
+
+  /**
+   * <p>The value suggested by the Amazon SageMaker Inference Recommender.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace EnvironmentParameter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EnvironmentParameter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines the model configuration. Includes the specification name and environment parameters.</p>
+ */
+export interface ModelConfiguration {
+  /**
+   * <p>The inference specification name in the model package version.</p>
+   */
+  InferenceSpecificationName?: string;
+
+  /**
+   * <p>Defines the environment parameters that includes key, value types, and values.</p>
+   */
+  EnvironmentParameters?: EnvironmentParameter[];
+}
+
+export namespace ModelConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of recommendations made by Amazon SageMaker Inference Recommender.</p>
+ */
+export interface InferenceRecommendation {
+  /**
+   * <p>The metrics used to decide what recommendation to make.</p>
+   */
+  Metrics: RecommendationMetrics | undefined;
+
+  /**
+   * <p>Defines the endpoint configuration parameters.</p>
+   */
+  EndpointConfiguration: EndpointOutputConfiguration | undefined;
+
+  /**
+   * <p>Defines the model configuration.</p>
+   */
+  ModelConfiguration: ModelConfiguration | undefined;
+}
+
+export namespace InferenceRecommendation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InferenceRecommendation): any => ({
+    ...obj,
+  });
+}
+
+export enum RecommendationJobStatus {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  PENDING = "PENDING",
+  STOPPED = "STOPPED",
+  STOPPING = "STOPPING",
+}
+
+export interface DescribeInferenceRecommendationsJobResponse {
+  /**
+   * <p>The name of the job. The name must be unique within an
+   *            Amazon Web Services Region in the Amazon Web Services account.</p>
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>The job description that you provided when you initiated the job.</p>
+   */
+  JobDescription?: string;
+
+  /**
+   * <p>The job type that you provided when you initiated the job.</p>
+   */
+  JobType: RecommendationJobType | string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the job.</p>
+   */
+  JobArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services
+   *            Identity and Access Management (IAM) role you provided when you initiated the job.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The status of the job.</p>
+   */
+  Status: RecommendationJobStatus | string | undefined;
+
+  /**
+   * <p>A timestamp that shows when the job was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp that shows when the job completed.</p>
+   */
+  CompletionTime?: Date;
+
+  /**
+   * <p>A timestamp that shows when the job was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>If the job fails, provides information why the job failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>Returns information about the versioned model package Amazon Resource Name (ARN),
+   *     the traffic pattern, and endpoint configurations you provided when you initiated the job.</p>
+   */
+  InputConfig: RecommendationJobInputConfig | undefined;
+
+  /**
+   * <p>The stopping conditions that you provided when you initiated the job.</p>
+   */
+  StoppingConditions?: RecommendationJobStoppingConditions;
+
+  /**
+   * <p>The recommendations made by Inference Recommender.</p>
+   */
+  InferenceRecommendations?: InferenceRecommendation[];
+}
+
+export namespace DescribeInferenceRecommendationsJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeInferenceRecommendationsJobResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeLabelingJobRequest {
   /**
    * <p>The name of the labeling job to return information for.</p>
@@ -8650,6 +11284,75 @@ export namespace DescribeLabelingJobResponse {
   });
 }
 
+export interface DescribeLineageGroupRequest {
+  /**
+   * <p>The name of the lineage group.</p>
+   */
+  LineageGroupName: string | undefined;
+}
+
+export namespace DescribeLineageGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeLineageGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLineageGroupResponse {
+  /**
+   * <p>The name of the lineage group.</p>
+   */
+  LineageGroupName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
+   */
+  LineageGroupArn?: string;
+
+  /**
+   * <p>The display name of the lineage group.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The description of the lineage group.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The creation time of lineage group.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, or project.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>The last modified time of the lineage group.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, or project.</p>
+   */
+  LastModifiedBy?: UserContext;
+}
+
+export namespace DescribeLineageGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeLineageGroupResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeModelInput {
   /**
    * <p>The name of the model.</p>
@@ -8742,1184 +11445,6 @@ export namespace DescribeModelBiasJobDefinitionRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeModelBiasJobDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeModelBiasJobDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model bias job.</p>
-   */
-  JobDefinitionArn: string | undefined;
-
-  /**
-   * <p>The name of the bias job definition. The name must be unique within an Amazon Web Services Region in the
-   *          Amazon Web Services account.</p>
-   */
-  JobDefinitionName: string | undefined;
-
-  /**
-   * <p>The time at which the model bias job was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The baseline configuration for a model bias job.</p>
-   */
-  ModelBiasBaselineConfig?: ModelBiasBaselineConfig;
-
-  /**
-   * <p>Configures the model bias job to run a specified Docker container image.</p>
-   */
-  ModelBiasAppSpecification: ModelBiasAppSpecification | undefined;
-
-  /**
-   * <p>Inputs for the model bias job.</p>
-   */
-  ModelBiasJobInput: ModelBiasJobInput | undefined;
-
-  /**
-   * <p>The output configuration for monitoring jobs.</p>
-   */
-  ModelBiasJobOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources to deploy for a monitoring job.</p>
-   */
-  JobResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Networking options for a model bias job.</p>
-   */
-  NetworkConfig?: MonitoringNetworkConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that
-   *          has read permission to the input data location and write permission to the output data
-   *          location in Amazon S3.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
-   */
-  StoppingCondition?: MonitoringStoppingCondition;
-}
-
-export namespace DescribeModelBiasJobDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeModelBiasJobDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeModelExplainabilityJobDefinitionRequest {
-  /**
-   * <p>The name of the model explainability job definition. The name must be unique within an
-   *          Amazon Web Services Region in the Amazon Web Services account.</p>
-   */
-  JobDefinitionName: string | undefined;
-}
-
-export namespace DescribeModelExplainabilityJobDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeModelExplainabilityJobDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeModelExplainabilityJobDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model explainability job.</p>
-   */
-  JobDefinitionArn: string | undefined;
-
-  /**
-   * <p>The name of the explainability job definition. The name must be unique within an Amazon Web Services
-   *          Region in the Amazon Web Services account.</p>
-   */
-  JobDefinitionName: string | undefined;
-
-  /**
-   * <p>The time at which the model explainability job was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The baseline configuration for a model explainability job.</p>
-   */
-  ModelExplainabilityBaselineConfig?: ModelExplainabilityBaselineConfig;
-
-  /**
-   * <p>Configures the model explainability job to run a specified Docker container
-   *          image.</p>
-   */
-  ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecification | undefined;
-
-  /**
-   * <p>Inputs for the model explainability job.</p>
-   */
-  ModelExplainabilityJobInput: ModelExplainabilityJobInput | undefined;
-
-  /**
-   * <p>The output configuration for monitoring jobs.</p>
-   */
-  ModelExplainabilityJobOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources to deploy for a monitoring job.</p>
-   */
-  JobResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Networking options for a model explainability job.</p>
-   */
-  NetworkConfig?: MonitoringNetworkConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that
-   *          has read permission to the input data location and write permission to the output data
-   *          location in Amazon S3.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
-   */
-  StoppingCondition?: MonitoringStoppingCondition;
-}
-
-export namespace DescribeModelExplainabilityJobDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeModelExplainabilityJobDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeModelPackageInput {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the model package to describe.</p>
-   *         <p>When you specify a name, the name must have 1 to 63 characters. Valid
-   *             characters are a-z, A-Z, 0-9, and - (hyphen).</p>
-   */
-  ModelPackageName: string | undefined;
-}
-
-export namespace DescribeModelPackageInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeModelPackageInput): any => ({
-    ...obj,
-  });
-}
-
-export enum DetailedModelPackageStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  NOT_STARTED = "NotStarted",
-}
-
-/**
- * <p>Represents the overall status of a model package.</p>
- */
-export interface ModelPackageStatusItem {
-  /**
-   * <p>The name of the model package for which the overall status is being reported.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The current status.</p>
-   */
-  Status: DetailedModelPackageStatus | string | undefined;
-
-  /**
-   * <p>if the overall status is <code>Failed</code>, the reason for the failure.</p>
-   */
-  FailureReason?: string;
-}
-
-export namespace ModelPackageStatusItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelPackageStatusItem): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Specifies the validation and image scan statuses of the model package.</p>
- */
-export interface ModelPackageStatusDetails {
-  /**
-   * <p>The validation status of the model package.</p>
-   */
-  ValidationStatuses: ModelPackageStatusItem[] | undefined;
-
-  /**
-   * <p>The status of the scan of the Docker image container for the model package.</p>
-   */
-  ImageScanStatuses?: ModelPackageStatusItem[];
-}
-
-export namespace ModelPackageStatusDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelPackageStatusDetails): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeModelPackageOutput {
-  /**
-   * <p>The name of the model package being described.</p>
-   */
-  ModelPackageName: string | undefined;
-
-  /**
-   * <p>If the model is a versioned model, the name of the model group that the versioned
-   *             model belongs to.</p>
-   */
-  ModelPackageGroupName?: string;
-
-  /**
-   * <p>The version of the model package.</p>
-   */
-  ModelPackageVersion?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model package.</p>
-   */
-  ModelPackageArn: string | undefined;
-
-  /**
-   * <p>A brief summary of the model package.</p>
-   */
-  ModelPackageDescription?: string;
-
-  /**
-   * <p>A timestamp specifying when the model package was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Details about inference jobs that can be run with models based on this model
-   *             package.</p>
-   */
-  InferenceSpecification?: InferenceSpecification;
-
-  /**
-   * <p>Details about the algorithm that was used to create the model package.</p>
-   */
-  SourceAlgorithmSpecification?: SourceAlgorithmSpecification;
-
-  /**
-   * <p>Configurations for one or more transform jobs that SageMaker runs to test the model
-   *             package.</p>
-   */
-  ValidationSpecification?: ModelPackageValidationSpecification;
-
-  /**
-   * <p>The current status of the model package.</p>
-   */
-  ModelPackageStatus: ModelPackageStatus | string | undefined;
-
-  /**
-   * <p>Details about the current status of the model package.</p>
-   */
-  ModelPackageStatusDetails: ModelPackageStatusDetails | undefined;
-
-  /**
-   * <p>Whether the model package is certified for listing on Amazon Web Services Marketplace.</p>
-   */
-  CertifyForMarketplace?: boolean;
-
-  /**
-   * <p>The approval status of the model package.</p>
-   */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, or project.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   */
-  MetadataProperties?: MetadataProperties;
-
-  /**
-   * <p>Metrics for the model.</p>
-   */
-  ModelMetrics?: ModelMetrics;
-
-  /**
-   * <p>The last time the model package was modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, or project.</p>
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * <p>A description provided for the model approval.</p>
-   */
-  ApprovalDescription?: string;
-
-  /**
-   * <p>The metadata properties associated with the model package versions.</p>
-   */
-  CustomerMetadataProperties?: { [key: string]: string };
-}
-
-export namespace DescribeModelPackageOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeModelPackageOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeModelPackageGroupInput {
-  /**
-   * <p>The name of the model group to describe.</p>
-   */
-  ModelPackageGroupName: string | undefined;
-}
-
-export namespace DescribeModelPackageGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeModelPackageGroupInput): any => ({
-    ...obj,
-  });
-}
-
-export enum ModelPackageGroupStatus {
-  COMPLETED = "Completed",
-  DELETE_FAILED = "DeleteFailed",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-}
-
-export interface DescribeModelPackageGroupOutput {
-  /**
-   * <p>The name of the model group.</p>
-   */
-  ModelPackageGroupName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model group.</p>
-   */
-  ModelPackageGroupArn: string | undefined;
-
-  /**
-   * <p>A description of the model group.</p>
-   */
-  ModelPackageGroupDescription?: string;
-
-  /**
-   * <p>The time that the model group was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, or project.</p>
-   */
-  CreatedBy: UserContext | undefined;
-
-  /**
-   * <p>The status of the model group.</p>
-   */
-  ModelPackageGroupStatus: ModelPackageGroupStatus | string | undefined;
-}
-
-export namespace DescribeModelPackageGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeModelPackageGroupOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeModelQualityJobDefinitionRequest {
-  /**
-   * <p>The name of the model quality job. The name must be unique within an Amazon Web Services Region in the
-   *          Amazon Web Services account.</p>
-   */
-  JobDefinitionName: string | undefined;
-}
-
-export namespace DescribeModelQualityJobDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeModelQualityJobDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeModelQualityJobDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model quality job.</p>
-   */
-  JobDefinitionArn: string | undefined;
-
-  /**
-   * <p>The name of the quality job definition. The name must be unique within an Amazon Web Services Region in
-   *          the Amazon Web Services account.</p>
-   */
-  JobDefinitionName: string | undefined;
-
-  /**
-   * <p>The time at which the model quality job was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The baseline configuration for a model quality job.</p>
-   */
-  ModelQualityBaselineConfig?: ModelQualityBaselineConfig;
-
-  /**
-   * <p>Configures the model quality job to run a specified Docker container image.</p>
-   */
-  ModelQualityAppSpecification: ModelQualityAppSpecification | undefined;
-
-  /**
-   * <p>Inputs for the model quality job.</p>
-   */
-  ModelQualityJobInput: ModelQualityJobInput | undefined;
-
-  /**
-   * <p>The output configuration for monitoring jobs.</p>
-   */
-  ModelQualityJobOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources to deploy for a monitoring job.</p>
-   */
-  JobResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Networking options for a model quality job.</p>
-   */
-  NetworkConfig?: MonitoringNetworkConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
-   *          perform tasks on your behalf.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
-   */
-  StoppingCondition?: MonitoringStoppingCondition;
-}
-
-export namespace DescribeModelQualityJobDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeModelQualityJobDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeMonitoringScheduleRequest {
-  /**
-   * <p>Name of a previously created monitoring schedule.</p>
-   */
-  MonitoringScheduleName: string | undefined;
-}
-
-export namespace DescribeMonitoringScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMonitoringScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum ExecutionStatus {
-  COMPLETED = "Completed",
-  COMPLETED_WITH_VIOLATIONS = "CompletedWithViolations",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
-
-/**
- * <p>Summary of information about the last monitoring job to run.</p>
- */
-export interface MonitoringExecutionSummary {
-  /**
-   * <p>The name of the monitoring schedule.</p>
-   */
-  MonitoringScheduleName: string | undefined;
-
-  /**
-   * <p>The time the monitoring job was scheduled.</p>
-   */
-  ScheduledTime: Date | undefined;
-
-  /**
-   * <p>The time at which the monitoring job was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>A timestamp that indicates the last time the monitoring job was modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The status of the monitoring job.</p>
-   */
-  MonitoringExecutionStatus: ExecutionStatus | string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the monitoring job.</p>
-   */
-  ProcessingJobArn?: string;
-
-  /**
-   * <p>The name of the endpoint used to run the monitoring job.</p>
-   */
-  EndpointName?: string;
-
-  /**
-   * <p>Contains the reason a monitoring job failed, if it failed.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The name of the monitoring job.</p>
-   */
-  MonitoringJobDefinitionName?: string;
-
-  /**
-   * <p>The type of the monitoring job.</p>
-   */
-  MonitoringType?: MonitoringType | string;
-}
-
-export namespace MonitoringExecutionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonitoringExecutionSummary): any => ({
-    ...obj,
-  });
-}
-
-export enum ScheduleStatus {
-  FAILED = "Failed",
-  PENDING = "Pending",
-  SCHEDULED = "Scheduled",
-  STOPPED = "Stopped",
-}
-
-export interface DescribeMonitoringScheduleResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
-   */
-  MonitoringScheduleArn: string | undefined;
-
-  /**
-   * <p>Name of the monitoring schedule.</p>
-   */
-  MonitoringScheduleName: string | undefined;
-
-  /**
-   * <p>The status of an monitoring job.</p>
-   */
-  MonitoringScheduleStatus: ScheduleStatus | string | undefined;
-
-  /**
-   * <p>The type of the monitoring job that this schedule runs. This is one of the following
-   *          values.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DATA_QUALITY</code> - The schedule is for a data quality monitoring
-   *                job.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MODEL_QUALITY</code> - The schedule is for a model quality monitoring
-   *                job.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MODEL_BIAS</code> - The schedule is for a bias monitoring job.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MODEL_EXPLAINABILITY</code> - The schedule is for an explainability
-   *                monitoring job.</p>
-   *             </li>
-   *          </ul>
-   */
-  MonitoringType?: MonitoringType | string;
-
-  /**
-   * <p>A string, up to one KB in size, that contains the reason a monitoring job failed, if it
-   *          failed.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The time at which the monitoring job was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The time at which the monitoring job was last modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The configuration object that specifies the monitoring schedule and defines the
-   *          monitoring job.</p>
-   */
-  MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
-
-  /**
-   * <p> The name of the endpoint for the monitoring job.</p>
-   */
-  EndpointName?: string;
-
-  /**
-   * <p>Describes metadata on the last execution to run, if there was one.</p>
-   */
-  LastMonitoringExecutionSummary?: MonitoringExecutionSummary;
-}
-
-export namespace DescribeMonitoringScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMonitoringScheduleResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeNotebookInstanceInput {
-  /**
-   * <p>The name of the notebook instance that you want information about.</p>
-   */
-  NotebookInstanceName: string | undefined;
-}
-
-export namespace DescribeNotebookInstanceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNotebookInstanceInput): any => ({
-    ...obj,
-  });
-}
-
-export enum NotebookInstanceStatus {
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-  Updating = "Updating",
-}
-
-export interface DescribeNotebookInstanceOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the notebook instance.</p>
-   */
-  NotebookInstanceArn?: string;
-
-  /**
-   * <p>The name of the Amazon SageMaker notebook instance. </p>
-   */
-  NotebookInstanceName?: string;
-
-  /**
-   * <p>The status of the notebook instance.</p>
-   */
-  NotebookInstanceStatus?: NotebookInstanceStatus | string;
-
-  /**
-   * <p>If status is <code>Failed</code>, the reason it failed.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The URL that you use to connect to the Jupyter notebook that is running in your
-   *             notebook instance. </p>
-   */
-  Url?: string;
-
-  /**
-   * <p>The type of ML compute instance running on the notebook instance.</p>
-   */
-  InstanceType?: _InstanceType | string;
-
-  /**
-   * <p>The ID of the VPC subnet.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The IDs of the VPC security groups.</p>
-   */
-  SecurityGroups?: string[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the instance.
-   *         </p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage
-   *             volume attached to the instance. </p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The network interface IDs that Amazon SageMaker created at the time of creating the instance.
-   *         </p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>A timestamp. Use this parameter to retrieve the time when the notebook instance was
-   *             last modified. </p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>A timestamp. Use this parameter to return the time when the notebook instance was
-   *             created</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Returns the name of a notebook instance lifecycle configuration.</p>
-   *         <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
-   *                 2.1: (Optional) Customize a Notebook Instance</a>
-   *         </p>
-   */
-  NotebookInstanceLifecycleConfigName?: string;
-
-  /**
-   * <p>Describes whether Amazon SageMaker provides internet access to the notebook instance. If this
-   *             value is set to <i>Disabled</i>, the notebook instance does not have
-   *             internet access, and cannot connect to Amazon SageMaker training and endpoint services.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook Instances Are Internet-Enabled by Default</a>.</p>
-   */
-  DirectInternetAccess?: DirectInternetAccess | string;
-
-  /**
-   * <p>The size, in GB, of the ML storage volume attached to the notebook instance.</p>
-   */
-  VolumeSizeInGB?: number;
-
-  /**
-   * <p>A list of the Elastic Inference (EI) instance types associated with this notebook
-   *             instance. Currently only one EI instance type can be associated with a notebook
-   *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
-   *                 SageMaker</a>.</p>
-   */
-  AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
-
-  /**
-   * <p>The Git repository associated with the notebook instance as its default code
-   *             repository. This can be either the name of a Git repository stored as a resource in your
-   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
-   *             other Git repository. When you open a notebook instance, it opens in the directory that
-   *             contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with Amazon SageMaker
-   *                 Notebook Instances</a>.</p>
-   */
-  DefaultCodeRepository?: string;
-
-  /**
-   * <p>An array of up to three Git repositories associated with the notebook instance. These
-   *             can be either the names of Git repositories stored as resources in your account, or the
-   *             URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
-   *             other Git repository. These repositories are cloned at the same level as the default
-   *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with Amazon SageMaker Notebook Instances</a>.</p>
-   */
-  AdditionalCodeRepositories?: string[];
-
-  /**
-   * <p>Whether root access is enabled or disabled for users of the notebook instance.</p>
-   *         <note>
-   *             <p>Lifecycle configurations need root access to be able to set up a notebook
-   *                 instance. Because of this, lifecycle configurations associated with a notebook
-   *                 instance always run with root access even if you disable root access for
-   *                 users.</p>
-   *         </note>
-   */
-  RootAccess?: RootAccess | string;
-
-  /**
-   * <p>The platform identifier of the notebook instance runtime environment.</p>
-   */
-  PlatformIdentifier?: string;
-}
-
-export namespace DescribeNotebookInstanceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNotebookInstanceOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeNotebookInstanceLifecycleConfigInput {
-  /**
-   * <p>The name of the lifecycle configuration to describe.</p>
-   */
-  NotebookInstanceLifecycleConfigName: string | undefined;
-}
-
-export namespace DescribeNotebookInstanceLifecycleConfigInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNotebookInstanceLifecycleConfigInput): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeNotebookInstanceLifecycleConfigOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lifecycle configuration.</p>
-   */
-  NotebookInstanceLifecycleConfigArn?: string;
-
-  /**
-   * <p>The name of the lifecycle configuration.</p>
-   */
-  NotebookInstanceLifecycleConfigName?: string;
-
-  /**
-   * <p>The shell script that runs only once, when you create a notebook instance.</p>
-   */
-  OnCreate?: NotebookInstanceLifecycleHook[];
-
-  /**
-   * <p>The shell script that runs every time you start a notebook instance, including when
-   *             you create the notebook instance.</p>
-   */
-  OnStart?: NotebookInstanceLifecycleHook[];
-
-  /**
-   * <p>A timestamp that tells when the lifecycle configuration was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>A timestamp that tells when the lifecycle configuration was created.</p>
-   */
-  CreationTime?: Date;
-}
-
-export namespace DescribeNotebookInstanceLifecycleConfigOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNotebookInstanceLifecycleConfigOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribePipelineRequest {
-  /**
-   * <p>The name of the pipeline to describe.</p>
-   */
-  PipelineName: string | undefined;
-}
-
-export namespace DescribePipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePipelineRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum PipelineStatus {
-  ACTIVE = "Active",
-}
-
-export interface DescribePipelineResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
-   */
-  PipelineArn?: string;
-
-  /**
-   * <p>The name of the pipeline.</p>
-   */
-  PipelineName?: string;
-
-  /**
-   * <p>The display name of the pipeline.</p>
-   */
-  PipelineDisplayName?: string;
-
-  /**
-   * <p>The JSON pipeline definition.</p>
-   */
-  PipelineDefinition?: string;
-
-  /**
-   * <p>The description of the pipeline.</p>
-   */
-  PipelineDescription?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) that the pipeline uses to execute.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The status of the pipeline execution.</p>
-   */
-  PipelineStatus?: PipelineStatus | string;
-
-  /**
-   * <p>The time when the pipeline was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The time when the pipeline was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The time when the pipeline was last run.</p>
-   */
-  LastRunTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, or project.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, or project.</p>
-   */
-  LastModifiedBy?: UserContext;
-}
-
-export namespace DescribePipelineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePipelineResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribePipelineDefinitionForExecutionRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   */
-  PipelineExecutionArn: string | undefined;
-}
-
-export namespace DescribePipelineDefinitionForExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePipelineDefinitionForExecutionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribePipelineDefinitionForExecutionResponse {
-  /**
-   * <p>The JSON pipeline definition.</p>
-   */
-  PipelineDefinition?: string;
-
-  /**
-   * <p>The time when the pipeline was created.</p>
-   */
-  CreationTime?: Date;
-}
-
-export namespace DescribePipelineDefinitionForExecutionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePipelineDefinitionForExecutionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribePipelineExecutionRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   */
-  PipelineExecutionArn: string | undefined;
-}
-
-export namespace DescribePipelineExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePipelineExecutionRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum PipelineExecutionStatus {
-  EXECUTING = "Executing",
-  FAILED = "Failed",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-  SUCCEEDED = "Succeeded",
-}
-
-/**
- * <p>Specifies the names of the experiment and trial created by a pipeline.</p>
- */
-export interface PipelineExperimentConfig {
-  /**
-   * <p>The name of the experiment.</p>
-   */
-  ExperimentName?: string;
-
-  /**
-   * <p>The name of the trial.</p>
-   */
-  TrialName?: string;
-}
-
-export namespace PipelineExperimentConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineExperimentConfig): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribePipelineExecutionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
-   */
-  PipelineArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   */
-  PipelineExecutionArn?: string;
-
-  /**
-   * <p>The display name of the pipeline execution.</p>
-   */
-  PipelineExecutionDisplayName?: string;
-
-  /**
-   * <p>The status of the pipeline execution.</p>
-   */
-  PipelineExecutionStatus?: PipelineExecutionStatus | string;
-
-  /**
-   * <p>The description of the pipeline execution.</p>
-   */
-  PipelineExecutionDescription?: string;
-
-  /**
-   * <p>Specifies the names of the experiment and trial created by a pipeline.</p>
-   */
-  PipelineExperimentConfig?: PipelineExperimentConfig;
-
-  /**
-   * <p>If the execution failed, a message describing why.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The time when the pipeline execution was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The time when the pipeline execution was modified last.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, or project.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, or project.</p>
-   */
-  LastModifiedBy?: UserContext;
-}
-
-export namespace DescribePipelineExecutionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePipelineExecutionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeProcessingJobRequest {
-  /**
-   * <p>The name of the processing job. The name must be unique within an Amazon Web Services Region in the
-   *             Amazon Web Services account.</p>
-   */
-  ProcessingJobName: string | undefined;
-}
-
-export namespace DescribeProcessingJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProcessingJobRequest): any => ({
     ...obj,
   });
 }

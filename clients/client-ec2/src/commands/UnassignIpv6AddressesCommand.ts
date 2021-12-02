@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { UnassignIpv6AddressesRequest, UnassignIpv6AddressesResult } from "../models/models_5";
+import { UnassignIpv6AddressesRequest, UnassignIpv6AddressesResult } from "../models/models_6";
 import {
   deserializeAws_ec2UnassignIpv6AddressesCommand,
   serializeAws_ec2UnassignIpv6AddressesCommand,

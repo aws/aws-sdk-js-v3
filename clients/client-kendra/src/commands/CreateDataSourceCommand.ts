@@ -30,6 +30,8 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *             <code>CreateDataSource</code> is a synchronous operation. The
  *       operation returns 200 if the data source was successfully created.
  *       Otherwise, an exception is raised.</p>
+ *          <p>Amazon S3 and <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html">custom</a> data sources are
+ *       the only supported data sources in the Amazon Web Services GovCloud (US-West) region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

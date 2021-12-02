@@ -88,6 +88,10 @@ import { DeleteUtterancesCommandInput, DeleteUtterancesCommandOutput } from "./c
 import { DescribeBotAliasCommandInput, DescribeBotAliasCommandOutput } from "./commands/DescribeBotAliasCommand";
 import { DescribeBotCommandInput, DescribeBotCommandOutput } from "./commands/DescribeBotCommand";
 import { DescribeBotLocaleCommandInput, DescribeBotLocaleCommandOutput } from "./commands/DescribeBotLocaleCommand";
+import {
+  DescribeBotRecommendationCommandInput,
+  DescribeBotRecommendationCommandOutput,
+} from "./commands/DescribeBotRecommendationCommand";
 import { DescribeBotVersionCommandInput, DescribeBotVersionCommandOutput } from "./commands/DescribeBotVersionCommand";
 import { DescribeExportCommandInput, DescribeExportCommandOutput } from "./commands/DescribeExportCommand";
 import { DescribeImportCommandInput, DescribeImportCommandOutput } from "./commands/DescribeImportCommand";
@@ -104,6 +108,10 @@ import {
 } from "./commands/ListAggregatedUtterancesCommand";
 import { ListBotAliasesCommandInput, ListBotAliasesCommandOutput } from "./commands/ListBotAliasesCommand";
 import { ListBotLocalesCommandInput, ListBotLocalesCommandOutput } from "./commands/ListBotLocalesCommand";
+import {
+  ListBotRecommendationsCommandInput,
+  ListBotRecommendationsCommandOutput,
+} from "./commands/ListBotRecommendationsCommand";
 import { ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
 import { ListBotVersionsCommandInput, ListBotVersionsCommandOutput } from "./commands/ListBotVersionsCommand";
 import { ListBuiltInIntentsCommandInput, ListBuiltInIntentsCommandOutput } from "./commands/ListBuiltInIntentsCommand";
@@ -114,18 +122,34 @@ import {
 import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
 import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import { ListIntentsCommandInput, ListIntentsCommandOutput } from "./commands/ListIntentsCommand";
+import {
+  ListRecommendedIntentsCommandInput,
+  ListRecommendedIntentsCommandOutput,
+} from "./commands/ListRecommendedIntentsCommand";
 import { ListSlotsCommandInput, ListSlotsCommandOutput } from "./commands/ListSlotsCommand";
 import { ListSlotTypesCommandInput, ListSlotTypesCommandOutput } from "./commands/ListSlotTypesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  SearchAssociatedTranscriptsCommandInput,
+  SearchAssociatedTranscriptsCommandOutput,
+} from "./commands/SearchAssociatedTranscriptsCommand";
+import {
+  StartBotRecommendationCommandInput,
+  StartBotRecommendationCommandOutput,
+} from "./commands/StartBotRecommendationCommand";
 import { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateBotAliasCommandInput, UpdateBotAliasCommandOutput } from "./commands/UpdateBotAliasCommand";
 import { UpdateBotCommandInput, UpdateBotCommandOutput } from "./commands/UpdateBotCommand";
 import { UpdateBotLocaleCommandInput, UpdateBotLocaleCommandOutput } from "./commands/UpdateBotLocaleCommand";
+import {
+  UpdateBotRecommendationCommandInput,
+  UpdateBotRecommendationCommandOutput,
+} from "./commands/UpdateBotRecommendationCommand";
 import { UpdateExportCommandInput, UpdateExportCommandOutput } from "./commands/UpdateExportCommand";
 import { UpdateIntentCommandInput, UpdateIntentCommandOutput } from "./commands/UpdateIntentCommand";
 import {
@@ -164,6 +188,7 @@ export type ServiceInputTypes =
   | DescribeBotAliasCommandInput
   | DescribeBotCommandInput
   | DescribeBotLocaleCommandInput
+  | DescribeBotRecommendationCommandInput
   | DescribeBotVersionCommandInput
   | DescribeExportCommandInput
   | DescribeImportCommandInput
@@ -174,6 +199,7 @@ export type ServiceInputTypes =
   | ListAggregatedUtterancesCommandInput
   | ListBotAliasesCommandInput
   | ListBotLocalesCommandInput
+  | ListBotRecommendationsCommandInput
   | ListBotVersionsCommandInput
   | ListBotsCommandInput
   | ListBuiltInIntentsCommandInput
@@ -181,15 +207,19 @@ export type ServiceInputTypes =
   | ListExportsCommandInput
   | ListImportsCommandInput
   | ListIntentsCommandInput
+  | ListRecommendedIntentsCommandInput
   | ListSlotTypesCommandInput
   | ListSlotsCommandInput
   | ListTagsForResourceCommandInput
+  | SearchAssociatedTranscriptsCommandInput
+  | StartBotRecommendationCommandInput
   | StartImportCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateBotAliasCommandInput
   | UpdateBotCommandInput
   | UpdateBotLocaleCommandInput
+  | UpdateBotRecommendationCommandInput
   | UpdateExportCommandInput
   | UpdateIntentCommandInput
   | UpdateResourcePolicyCommandInput
@@ -224,6 +254,7 @@ export type ServiceOutputTypes =
   | DescribeBotAliasCommandOutput
   | DescribeBotCommandOutput
   | DescribeBotLocaleCommandOutput
+  | DescribeBotRecommendationCommandOutput
   | DescribeBotVersionCommandOutput
   | DescribeExportCommandOutput
   | DescribeImportCommandOutput
@@ -234,6 +265,7 @@ export type ServiceOutputTypes =
   | ListAggregatedUtterancesCommandOutput
   | ListBotAliasesCommandOutput
   | ListBotLocalesCommandOutput
+  | ListBotRecommendationsCommandOutput
   | ListBotVersionsCommandOutput
   | ListBotsCommandOutput
   | ListBuiltInIntentsCommandOutput
@@ -241,15 +273,19 @@ export type ServiceOutputTypes =
   | ListExportsCommandOutput
   | ListImportsCommandOutput
   | ListIntentsCommandOutput
+  | ListRecommendedIntentsCommandOutput
   | ListSlotTypesCommandOutput
   | ListSlotsCommandOutput
   | ListTagsForResourceCommandOutput
+  | SearchAssociatedTranscriptsCommandOutput
+  | StartBotRecommendationCommandOutput
   | StartImportCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateBotAliasCommandOutput
   | UpdateBotCommandOutput
   | UpdateBotLocaleCommandOutput
+  | UpdateBotRecommendationCommandOutput
   | UpdateExportCommandOutput
   | UpdateIntentCommandOutput
   | UpdateResourcePolicyCommandOutput

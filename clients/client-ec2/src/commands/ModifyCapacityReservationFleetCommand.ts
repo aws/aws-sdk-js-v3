@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyCapacityReservationFleetRequest, ModifyCapacityReservationFleetResult } from "../models/models_4";
+import { ModifyCapacityReservationFleetRequest, ModifyCapacityReservationFleetResult } from "../models/models_5";
 import {
   deserializeAws_ec2ModifyCapacityReservationFleetCommand,
   serializeAws_ec2ModifyCapacityReservationFleetCommand,

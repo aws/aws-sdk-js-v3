@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RunScheduledInstancesRequest, RunScheduledInstancesResult } from "../models/models_5";
+import { RunScheduledInstancesRequest, RunScheduledInstancesResult } from "../models/models_6";
 import {
   deserializeAws_ec2RunScheduledInstancesCommand,
   serializeAws_ec2RunScheduledInstancesCommand,

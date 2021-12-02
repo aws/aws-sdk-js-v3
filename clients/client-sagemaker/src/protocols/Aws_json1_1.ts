@@ -79,6 +79,10 @@ import {
 } from "../commands/CreateHyperParameterTuningJobCommand";
 import { CreateImageCommandInput, CreateImageCommandOutput } from "../commands/CreateImageCommand";
 import { CreateImageVersionCommandInput, CreateImageVersionCommandOutput } from "../commands/CreateImageVersionCommand";
+import {
+  CreateInferenceRecommendationsJobCommandInput,
+  CreateInferenceRecommendationsJobCommandOutput,
+} from "../commands/CreateInferenceRecommendationsJobCommand";
 import { CreateLabelingJobCommandInput, CreateLabelingJobCommandOutput } from "../commands/CreateLabelingJobCommand";
 import {
   CreateModelBiasJobDefinitionCommandInput,
@@ -282,9 +286,17 @@ import {
   DescribeImageVersionCommandOutput,
 } from "../commands/DescribeImageVersionCommand";
 import {
+  DescribeInferenceRecommendationsJobCommandInput,
+  DescribeInferenceRecommendationsJobCommandOutput,
+} from "../commands/DescribeInferenceRecommendationsJobCommand";
+import {
   DescribeLabelingJobCommandInput,
   DescribeLabelingJobCommandOutput,
 } from "../commands/DescribeLabelingJobCommand";
+import {
+  DescribeLineageGroupCommandInput,
+  DescribeLineageGroupCommandOutput,
+} from "../commands/DescribeLineageGroupCommand";
 import {
   DescribeModelBiasJobDefinitionCommandInput,
   DescribeModelBiasJobDefinitionCommandOutput,
@@ -376,6 +388,10 @@ import {
   GetDeviceFleetReportCommandOutput,
 } from "../commands/GetDeviceFleetReportCommand";
 import {
+  GetLineageGroupPolicyCommandInput,
+  GetLineageGroupPolicyCommandOutput,
+} from "../commands/GetLineageGroupPolicyCommand";
+import {
   GetModelPackageGroupPolicyCommandInput,
   GetModelPackageGroupPolicyCommandOutput,
 } from "../commands/GetModelPackageGroupPolicyCommand";
@@ -439,11 +455,16 @@ import {
 } from "../commands/ListHyperParameterTuningJobsCommand";
 import { ListImagesCommandInput, ListImagesCommandOutput } from "../commands/ListImagesCommand";
 import { ListImageVersionsCommandInput, ListImageVersionsCommandOutput } from "../commands/ListImageVersionsCommand";
+import {
+  ListInferenceRecommendationsJobsCommandInput,
+  ListInferenceRecommendationsJobsCommandOutput,
+} from "../commands/ListInferenceRecommendationsJobsCommand";
 import { ListLabelingJobsCommandInput, ListLabelingJobsCommandOutput } from "../commands/ListLabelingJobsCommand";
 import {
   ListLabelingJobsForWorkteamCommandInput,
   ListLabelingJobsForWorkteamCommandOutput,
 } from "../commands/ListLabelingJobsForWorkteamCommand";
+import { ListLineageGroupsCommandInput, ListLineageGroupsCommandOutput } from "../commands/ListLineageGroupsCommand";
 import {
   ListModelBiasJobDefinitionsCommandInput,
   ListModelBiasJobDefinitionsCommandOutput,
@@ -452,6 +473,7 @@ import {
   ListModelExplainabilityJobDefinitionsCommandInput,
   ListModelExplainabilityJobDefinitionsCommandOutput,
 } from "../commands/ListModelExplainabilityJobDefinitionsCommand";
+import { ListModelMetadataCommandInput, ListModelMetadataCommandOutput } from "../commands/ListModelMetadataCommand";
 import {
   ListModelPackageGroupsCommandInput,
   ListModelPackageGroupsCommandOutput,
@@ -520,6 +542,7 @@ import {
   PutModelPackageGroupPolicyCommandInput,
   PutModelPackageGroupPolicyCommandOutput,
 } from "../commands/PutModelPackageGroupPolicyCommand";
+import { QueryLineageCommandInput, QueryLineageCommandOutput } from "../commands/QueryLineageCommand";
 import { RegisterDevicesCommandInput, RegisterDevicesCommandOutput } from "../commands/RegisterDevicesCommand";
 import { RenderUiTemplateCommandInput, RenderUiTemplateCommandOutput } from "../commands/RenderUiTemplateCommand";
 import {
@@ -557,6 +580,10 @@ import {
   StopHyperParameterTuningJobCommandInput,
   StopHyperParameterTuningJobCommandOutput,
 } from "../commands/StopHyperParameterTuningJobCommand";
+import {
+  StopInferenceRecommendationsJobCommandInput,
+  StopInferenceRecommendationsJobCommandOutput,
+} from "../commands/StopInferenceRecommendationsJobCommand";
 import { StopLabelingJobCommandInput, StopLabelingJobCommandOutput } from "../commands/StopLabelingJobCommand";
 import {
   StopMonitoringScheduleCommandInput,
@@ -627,6 +654,7 @@ import {
   ActionSummary,
   AddAssociationRequest,
   AddAssociationResponse,
+  AdditionalInferenceSpecificationDefinition,
   AddTagsInput,
   AddTagsOutput,
   AgentVersion,
@@ -680,11 +708,13 @@ import {
   CapacitySize,
   CaptureContentTypeHeader,
   CaptureOption,
+  CategoricalParameter,
   CategoricalParameterRange,
   CategoricalParameterRangeSpecification,
   Channel,
   ChannelSpecification,
   CheckpointConfig,
+  ClarifyCheckStepMetadata,
   CodeRepositorySummary,
   CognitoConfig,
   CognitoMemberDefinition,
@@ -752,6 +782,7 @@ import {
   DomainSettings,
   EdgeOutputConfig,
   EndpointInput,
+  EnvironmentParameterRanges,
   FeatureDefinition,
   FileSystemConfig,
   FileSystemDataSource,
@@ -762,7 +793,6 @@ import {
   HumanLoopActivationConfig,
   HumanLoopConfig,
   HumanLoopRequestSource,
-  HumanTaskConfig,
   HyperParameterAlgorithmSpecification,
   HyperParameterSpecification,
   HyperParameterTrainingJobDefinition,
@@ -778,15 +808,12 @@ import {
   KernelGatewayAppSettings,
   KernelGatewayImageConfig,
   KernelSpec,
-  LabelingJobDataAttributes,
-  LabelingJobDataSource,
-  LabelingJobS3DataSource,
-  LabelingJobSnsDataSource,
   MetadataProperties,
   MetricDatum,
   MetricDefinition,
   MetricsSource,
   ModelDeployConfig,
+  ModelInput,
   ModelPackageContainerDefinition,
   MonitoringClusterConfig,
   MonitoringConstraintsResource,
@@ -811,6 +838,7 @@ import {
   ProductionVariant,
   ProductionVariantCoreDumpConfig,
   ProductionVariantInstanceType,
+  ProductionVariantServerlessConfig,
   PublicWorkforceTaskPrice,
   RepositoryAuthConfig,
   ResourceConfig,
@@ -844,7 +872,6 @@ import {
   TransformResources,
   TransformS3DataSource,
   TuningJobCompletionCriteria,
-  UiConfig,
   UiTemplate,
   USD,
   UserContext,
@@ -852,6 +879,8 @@ import {
   VpcConfig,
 } from "../models/models_0";
 import {
+  CreateInferenceRecommendationsJobRequest,
+  CreateInferenceRecommendationsJobResponse,
   CreateLabelingJobRequest,
   CreateLabelingJobResponse,
   CreateModelBiasJobDefinitionRequest,
@@ -1005,14 +1034,122 @@ import {
   DescribeImageResponse,
   DescribeImageVersionRequest,
   DescribeImageVersionResponse,
+  DescribeInferenceRecommendationsJobRequest,
+  DescribeInferenceRecommendationsJobResponse,
   DescribeLabelingJobRequest,
   DescribeLabelingJobResponse,
+  DescribeLineageGroupRequest,
+  DescribeLineageGroupResponse,
   DescribeModelBiasJobDefinitionRequest,
+  DescribeModelInput,
+  DescribeModelOutput,
+  DriftCheckBaselines,
+  DriftCheckBias,
+  DriftCheckExplainability,
+  DriftCheckModelDataQuality,
+  DriftCheckModelQuality,
+  EdgeModel,
+  EdgePresetDeploymentOutput,
+  EndpointInputConfiguration,
+  EndpointOutputConfiguration,
+  EnvironmentParameter,
+  ExperimentConfig,
+  ExperimentSource,
+  Explainability,
+  FileSource,
+  FinalHyperParameterTuningJobObjectiveMetric,
+  HumanTaskConfig,
+  HyperParameterTrainingJobSummary,
+  InferenceExecutionConfig,
+  InferenceRecommendation,
+  LabelCounters,
+  LabelingJobAlgorithmsConfig,
+  LabelingJobDataAttributes,
+  LabelingJobDataSource,
+  LabelingJobInputConfig,
+  LabelingJobOutput,
+  LabelingJobOutputConfig,
+  LabelingJobResourceConfig,
+  LabelingJobS3DataSource,
+  LabelingJobSnsDataSource,
+  LabelingJobStoppingConditions,
+  MemberDefinition,
+  ModelArtifacts,
+  ModelBiasAppSpecification,
+  ModelBiasBaselineConfig,
+  ModelBiasJobInput,
+  ModelClientConfig,
+  ModelConfiguration,
+  ModelDataQuality,
+  ModelDeployResult,
+  ModelDigests,
+  ModelExplainabilityAppSpecification,
+  ModelExplainabilityBaselineConfig,
+  ModelExplainabilityJobInput,
+  ModelLatencyThreshold,
+  ModelMetrics,
+  ModelPackageValidationProfile,
+  ModelPackageValidationSpecification,
+  ModelQuality,
+  ModelQualityAppSpecification,
+  ModelQualityBaselineConfig,
+  ModelQualityJobInput,
+  MonitoringAppSpecification,
+  MonitoringBaselineConfig,
+  MonitoringGroundTruthS3Input,
+  MonitoringInput,
+  MonitoringJobDefinition,
+  MonitoringScheduleConfig,
+  NetworkConfig,
+  NotebookInstanceAcceleratorType,
+  NotebookInstanceLifecycleHook,
+  NotificationConfiguration,
+  ObjectiveStatusCounters,
+  OfflineStoreStatus,
+  OidcConfig,
+  OidcMemberDefinition,
+  PendingDeploymentSummary,
+  PendingProductionVariantSummary,
+  Phase,
+  ProcessingClusterConfig,
+  ProcessingFeatureStoreOutput,
+  ProcessingInput,
+  ProcessingOutput,
+  ProcessingOutputConfig,
+  ProcessingResources,
+  ProcessingS3Input,
+  ProcessingS3Output,
+  ProcessingStoppingCondition,
+  ProductionVariantStatus,
+  ProductionVariantSummary,
+  ProfilerConfig,
+  ProfilerRuleConfiguration,
+  ProvisioningParameter,
+  RecommendationJobInputConfig,
+  RecommendationJobResourceLimit,
+  RecommendationJobStoppingConditions,
+  RecommendationMetrics,
+  RedshiftDatasetDefinition,
+  ResolvedAttributes,
+  RetentionPolicy,
+  ScheduleConfig,
+  ServiceCatalogProvisioningDetails,
+  SourceAlgorithm,
+  SourceAlgorithmSpecification,
+  SourceIpConfig,
+  TensorBoardOutputConfig,
+  TrafficPattern,
+  TrainingJobStatusCounters,
+  TrialComponentArtifact,
+  TrialComponentParameterValue,
+  TrialComponentStatus,
+  UiConfig,
+  UiTemplateInfo,
+} from "../models/models_1";
+import {
   DescribeModelBiasJobDefinitionResponse,
   DescribeModelExplainabilityJobDefinitionRequest,
   DescribeModelExplainabilityJobDefinitionResponse,
-  DescribeModelInput,
-  DescribeModelOutput,
   DescribeModelPackageGroupInput,
   DescribeModelPackageGroupOutput,
   DescribeModelPackageInput,
@@ -1032,90 +1169,6 @@ import {
   DescribePipelineRequest,
   DescribePipelineResponse,
   DescribeProcessingJobRequest,
-  EdgeModel,
-  EdgePresetDeploymentOutput,
-  ExperimentConfig,
-  ExperimentSource,
-  Explainability,
-  FinalHyperParameterTuningJobObjectiveMetric,
-  HyperParameterTrainingJobSummary,
-  InferenceExecutionConfig,
-  LabelCounters,
-  LabelingJobAlgorithmsConfig,
-  LabelingJobInputConfig,
-  LabelingJobOutput,
-  LabelingJobOutputConfig,
-  LabelingJobResourceConfig,
-  LabelingJobStoppingConditions,
-  MemberDefinition,
-  ModelArtifacts,
-  ModelBiasAppSpecification,
-  ModelBiasBaselineConfig,
-  ModelBiasJobInput,
-  ModelClientConfig,
-  ModelDataQuality,
-  ModelDeployResult,
-  ModelDigests,
-  ModelExplainabilityAppSpecification,
-  ModelExplainabilityBaselineConfig,
-  ModelExplainabilityJobInput,
-  ModelMetrics,
-  ModelPackageStatusDetails,
-  ModelPackageStatusItem,
-  ModelPackageValidationProfile,
-  ModelPackageValidationSpecification,
-  ModelQuality,
-  ModelQualityAppSpecification,
-  ModelQualityBaselineConfig,
-  ModelQualityJobInput,
-  MonitoringAppSpecification,
-  MonitoringBaselineConfig,
-  MonitoringExecutionSummary,
-  MonitoringGroundTruthS3Input,
-  MonitoringInput,
-  MonitoringJobDefinition,
-  MonitoringScheduleConfig,
-  NetworkConfig,
-  NotebookInstanceAcceleratorType,
-  NotebookInstanceLifecycleHook,
-  NotificationConfiguration,
-  ObjectiveStatusCounters,
-  OfflineStoreStatus,
-  OidcConfig,
-  OidcMemberDefinition,
-  PendingDeploymentSummary,
-  PendingProductionVariantSummary,
-  PipelineExperimentConfig,
-  ProcessingClusterConfig,
-  ProcessingFeatureStoreOutput,
-  ProcessingInput,
-  ProcessingOutput,
-  ProcessingOutputConfig,
-  ProcessingResources,
-  ProcessingS3Input,
-  ProcessingS3Output,
-  ProcessingStoppingCondition,
-  ProductionVariantStatus,
-  ProductionVariantSummary,
-  ProfilerConfig,
-  ProfilerRuleConfiguration,
-  ProvisioningParameter,
-  RedshiftDatasetDefinition,
-  ResolvedAttributes,
-  RetentionPolicy,
-  ScheduleConfig,
-  ServiceCatalogProvisioningDetails,
-  SourceAlgorithm,
-  SourceAlgorithmSpecification,
-  SourceIpConfig,
-  TensorBoardOutputConfig,
-  TrainingJobStatusCounters,
-  TrialComponentArtifact,
-  TrialComponentParameterValue,
-  TrialComponentStatus,
-  UiTemplateInfo,
-} from "../models/models_1";
-import {
   DescribeProcessingJobResponse,
   DescribeProjectInput,
   DescribeProjectOutput,
@@ -1148,6 +1201,7 @@ import {
   DisassociateTrialComponentResponse,
   DomainDetails,
   DomainSettingsForUpdate,
+  Edge,
   EdgeModelStat,
   EdgeModelSummary,
   EdgePackagingJobSummary,
@@ -1164,6 +1218,8 @@ import {
   FlowDefinitionSummary,
   GetDeviceFleetReportRequest,
   GetDeviceFleetReportResponse,
+  GetLineageGroupPolicyRequest,
+  GetLineageGroupPolicyResponse,
   GetModelPackageGroupPolicyInput,
   GetModelPackageGroupPolicyOutput,
   GetSagemakerServicecatalogPortfolioStatusInput,
@@ -1175,10 +1231,13 @@ import {
   HyperParameterTuningJobSummary,
   Image,
   ImageVersion,
+  InferenceRecommendationsJob,
   LabelCountersForWorkteam,
   LabelingJobForWorkteamSummary,
   LabelingJobSummary,
   LambdaStepMetadata,
+  LineageGroupSummary,
+  LineageType,
   ListActionsRequest,
   ListActionsResponse,
   ListAlgorithmsInput,
@@ -1229,14 +1288,20 @@ import {
   ListImagesResponse,
   ListImageVersionsRequest,
   ListImageVersionsResponse,
+  ListInferenceRecommendationsJobsRequest,
+  ListInferenceRecommendationsJobsResponse,
   ListLabelingJobsForWorkteamRequest,
   ListLabelingJobsForWorkteamResponse,
   ListLabelingJobsRequest,
   ListLabelingJobsResponse,
+  ListLineageGroupsRequest,
+  ListLineageGroupsResponse,
   ListModelBiasJobDefinitionsRequest,
   ListModelBiasJobDefinitionsResponse,
   ListModelExplainabilityJobDefinitionsRequest,
   ListModelExplainabilityJobDefinitionsResponse,
+  ListModelMetadataRequest,
+  ListModelMetadataResponse,
   ListModelPackageGroupsInput,
   ListModelPackageGroupsOutput,
   ListModelPackagesInput,
@@ -1276,6 +1341,55 @@ import {
   ListTrainingJobsRequest,
   ListTrainingJobsResponse,
   ListTransformJobsRequest,
+  MetricData,
+  ModelMetadataFilter,
+  ModelMetadataSearchExpression,
+  ModelMetadataSummary,
+  ModelPackageGroupSummary,
+  ModelPackageStatusDetails,
+  ModelPackageStatusItem,
+  ModelPackageSummary,
+  ModelStepMetadata,
+  ModelSummary,
+  MonitoringExecutionSummary,
+  MonitoringJobDefinitionSummary,
+  MonitoringSchedule,
+  MonitoringScheduleSummary,
+  NotebookInstanceLifecycleConfigSummary,
+  NotebookInstanceSummary,
+  OidcConfigForResponse,
+  Parameter,
+  PipelineExecutionStep,
+  PipelineExecutionStepMetadata,
+  PipelineExecutionSummary,
+  PipelineExperimentConfig,
+  PipelineSummary,
+  ProcessingJobStepMetadata,
+  ProcessingJobSummary,
+  ProfilerRuleEvaluationStatus,
+  ProjectSummary,
+  PropertyNameQuery,
+  PropertyNameSuggestion,
+  QualityCheckStepMetadata,
+  RegisterModelStepMetadata,
+  RStudioServerProDomainSettingsForUpdate,
+  SecondaryStatusTransition,
+  ServiceCatalogProvisionedProductDetails,
+  StudioLifecycleConfigDetails,
+  SubscribedWorkteam,
+  SuggestionQuery,
+  TrainingJobStepMetadata,
+  TrainingJobSummary,
+  TransformJobStepMetadata,
+  TransformJobSummary,
+  TrialComponentMetricSummary,
+  TrialComponentSource,
+  TrialSource,
+  TuningJobStepMetaData,
+  Workforce,
+  Workteam,
+} from "../models/models_2";
+import {
   ListTransformJobsResponse,
   ListTrialComponentsRequest,
   ListTrialComponentsResponse,
@@ -1287,91 +1401,45 @@ import {
   ListWorkforcesResponse,
   ListWorkteamsRequest,
   ListWorkteamsResponse,
-  MetricData,
   ModelPackage,
   ModelPackageGroup,
-  ModelPackageGroupSummary,
-  ModelPackageSummary,
-  ModelStepMetadata,
-  ModelSummary,
-  MonitoringJobDefinitionSummary,
-  MonitoringSchedule,
-  MonitoringScheduleSummary,
   NestedFilters,
-  NotebookInstanceLifecycleConfigSummary,
-  NotebookInstanceSummary,
-  OidcConfigForResponse,
-  Parameter,
   Parent,
   Pipeline,
   PipelineExecution,
-  PipelineExecutionStep,
-  PipelineExecutionStepMetadata,
-  PipelineExecutionSummary,
-  PipelineSummary,
   ProcessingJob,
-  ProcessingJobStepMetadata,
-  ProcessingJobSummary,
   ProfilerConfigForUpdate,
-  ProfilerRuleEvaluationStatus,
   Project,
-  ProjectSummary,
-  PropertyNameQuery,
-  PropertyNameSuggestion,
   PutModelPackageGroupPolicyInput,
   PutModelPackageGroupPolicyOutput,
+  QueryFilters,
+  QueryLineageRequest,
+  QueryLineageResponse,
   RegisterDevicesRequest,
-  RegisterModelStepMetadata,
   RenderableTask,
   RenderingError,
   RenderUiTemplateRequest,
   RenderUiTemplateResponse,
   RetryPipelineExecutionRequest,
   RetryPipelineExecutionResponse,
-  RStudioServerProDomainSettingsForUpdate,
+  SearchExpression,
   SearchRecord,
+  SearchRequest,
   SearchResponse,
-  SecondaryStatusTransition,
   SendPipelineExecutionStepFailureRequest,
   SendPipelineExecutionStepFailureResponse,
   SendPipelineExecutionStepSuccessRequest,
   SendPipelineExecutionStepSuccessResponse,
-  ServiceCatalogProvisionedProductDetails,
+  ServiceCatalogProvisioningUpdateDetails,
   StartMonitoringScheduleRequest,
   StartNotebookInstanceInput,
   StartPipelineExecutionRequest,
-  StudioLifecycleConfigDetails,
-  SubscribedWorkteam,
-  SuggestionQuery,
-  TrainingJob,
-  TrainingJobStepMetadata,
-  TrainingJobSummary,
-  TransformJob,
-  TransformJobStepMetadata,
-  TransformJobSummary,
-  Trial,
-  TrialComponent,
-  TrialComponentMetricSummary,
-  TrialComponentSimpleSummary,
-  TrialComponentSource,
-  TrialComponentSourceDetail,
-  TrialComponentSummary,
-  TrialSource,
-  TrialSummary,
-  TuningJobStepMetaData,
-  UserProfileDetails,
-  Workforce,
-  Workteam,
-} from "../models/models_2";
-import {
-  SearchExpression,
-  SearchRequest,
-  ServiceCatalogProvisioningUpdateDetails,
   StartPipelineExecutionResponse,
   StopAutoMLJobRequest,
   StopCompilationJobRequest,
   StopEdgePackagingJobRequest,
   StopHyperParameterTuningJobRequest,
+  StopInferenceRecommendationsJobRequest,
   StopLabelingJobRequest,
   StopMonitoringScheduleRequest,
   StopNotebookInstanceInput,
@@ -1380,6 +1448,14 @@ import {
   StopProcessingJobRequest,
   StopTrainingJobRequest,
   StopTransformJobRequest,
+  TrainingJob,
+  TransformJob,
+  Trial,
+  TrialComponent,
+  TrialComponentSimpleSummary,
+  TrialComponentSourceDetail,
+  TrialComponentSummary,
+  TrialSummary,
   UpdateActionRequest,
   UpdateActionResponse,
   UpdateAppImageConfigRequest,
@@ -1428,7 +1504,9 @@ import {
   UpdateWorkforceResponse,
   UpdateWorkteamRequest,
   UpdateWorkteamResponse,
+  UserProfileDetails,
   VariantProperty,
+  Vertex,
 } from "../models/models_3";
 
 export const serializeAws_json1_1AddAssociationCommand = async (
@@ -1766,6 +1844,19 @@ export const serializeAws_json1_1CreateImageVersionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateImageVersionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateInferenceRecommendationsJobCommand = async (
+  input: CreateInferenceRecommendationsJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.CreateInferenceRecommendationsJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateInferenceRecommendationsJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2874,6 +2965,19 @@ export const serializeAws_json1_1DescribeImageVersionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeInferenceRecommendationsJobCommand = async (
+  input: DescribeInferenceRecommendationsJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DescribeInferenceRecommendationsJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeInferenceRecommendationsJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeLabelingJobCommand = async (
   input: DescribeLabelingJobCommandInput,
   context: __SerdeContext
@@ -2884,6 +2988,19 @@ export const serializeAws_json1_1DescribeLabelingJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeLabelingJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeLineageGroupCommand = async (
+  input: DescribeLineageGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DescribeLineageGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeLineageGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3235,6 +3352,19 @@ export const serializeAws_json1_1GetDeviceFleetReportCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDeviceFleetReportRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetLineageGroupPolicyCommand = async (
+  input: GetLineageGroupPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.GetLineageGroupPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetLineageGroupPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3602,6 +3732,19 @@ export const serializeAws_json1_1ListImageVersionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListInferenceRecommendationsJobsCommand = async (
+  input: ListInferenceRecommendationsJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListInferenceRecommendationsJobs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListInferenceRecommendationsJobsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListLabelingJobsCommand = async (
   input: ListLabelingJobsCommandInput,
   context: __SerdeContext
@@ -3628,6 +3771,19 @@ export const serializeAws_json1_1ListLabelingJobsForWorkteamCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListLineageGroupsCommand = async (
+  input: ListLineageGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListLineageGroups",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListLineageGroupsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListModelBiasJobDefinitionsCommand = async (
   input: ListModelBiasJobDefinitionsCommandInput,
   context: __SerdeContext
@@ -3651,6 +3807,19 @@ export const serializeAws_json1_1ListModelExplainabilityJobDefinitionsCommand = 
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListModelExplainabilityJobDefinitionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListModelMetadataCommand = async (
+  input: ListModelMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListModelMetadata",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListModelMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3992,6 +4161,19 @@ export const serializeAws_json1_1PutModelPackageGroupPolicyCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1QueryLineageCommand = async (
+  input: QueryLineageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.QueryLineage",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1QueryLineageRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1RegisterDevicesCommand = async (
   input: RegisterDevicesCommandInput,
   context: __SerdeContext
@@ -4158,6 +4340,19 @@ export const serializeAws_json1_1StopHyperParameterTuningJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopHyperParameterTuningJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StopInferenceRecommendationsJobCommand = async (
+  input: StopInferenceRecommendationsJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.StopInferenceRecommendationsJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StopInferenceRecommendationsJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -6042,6 +6237,68 @@ const deserializeAws_json1_1CreateImageVersionCommandError = async (
     case "com.amazonaws.sagemaker#ResourceNotFound":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateInferenceRecommendationsJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInferenceRecommendationsJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateInferenceRecommendationsJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateInferenceRecommendationsJobResponse(data, context);
+  const response: CreateInferenceRecommendationsJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateInferenceRecommendationsJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInferenceRecommendationsJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10629,6 +10886,60 @@ const deserializeAws_json1_1DescribeImageVersionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeInferenceRecommendationsJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInferenceRecommendationsJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeInferenceRecommendationsJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeInferenceRecommendationsJobResponse(data, context);
+  const response: DescribeInferenceRecommendationsJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeInferenceRecommendationsJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInferenceRecommendationsJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeLabelingJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -10650,6 +10961,60 @@ const deserializeAws_json1_1DescribeLabelingJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLabelingJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeLineageGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLineageGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeLineageGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeLineageGroupResponse(data, context);
+  const response: DescribeLineageGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeLineageGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLineageGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -12045,6 +12410,60 @@ const deserializeAws_json1_1GetDeviceFleetReportCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetLineageGroupPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLineageGroupPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetLineageGroupPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetLineageGroupPolicyResponse(data, context);
+  const response: GetLineageGroupPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetLineageGroupPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLineageGroupPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetModelPackageGroupPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -13381,6 +13800,52 @@ const deserializeAws_json1_1ListImageVersionsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListInferenceRecommendationsJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInferenceRecommendationsJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListInferenceRecommendationsJobsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListInferenceRecommendationsJobsResponse(data, context);
+  const response: ListInferenceRecommendationsJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListInferenceRecommendationsJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInferenceRecommendationsJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListLabelingJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -13481,6 +13946,52 @@ const deserializeAws_json1_1ListLabelingJobsForWorkteamCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListLineageGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLineageGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListLineageGroupsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListLineageGroupsResponse(data, context);
+  const response: ListLineageGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListLineageGroupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLineageGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListModelBiasJobDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -13548,6 +14059,52 @@ const deserializeAws_json1_1ListModelExplainabilityJobDefinitionsCommandError = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListModelExplainabilityJobDefinitionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListModelMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListModelMetadataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListModelMetadataResponse(data, context);
+  const response: ListModelMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListModelMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelMetadataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -14825,6 +15382,60 @@ const deserializeAws_json1_1PutModelPackageGroupPolicyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1QueryLineageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryLineageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1QueryLineageCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1QueryLineageResponse(data, context);
+  const response: QueryLineageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1QueryLineageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryLineageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1RegisterDevicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -15497,6 +16108,57 @@ const deserializeAws_json1_1StopHyperParameterTuningJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopHyperParameterTuningJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1StopInferenceRecommendationsJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopInferenceRecommendationsJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StopInferenceRecommendationsJobCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: StopInferenceRecommendationsJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StopInferenceRecommendationsJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopInferenceRecommendationsJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -17371,6 +18033,56 @@ const serializeAws_json1_1AdditionalCodeRepositoryNamesOrUrls = (input: string[]
     });
 };
 
+const serializeAws_json1_1AdditionalInferenceSpecificationDefinition = (
+  input: AdditionalInferenceSpecificationDefinition,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Containers !== undefined &&
+      input.Containers !== null && {
+        Containers: serializeAws_json1_1ModelPackageContainerDefinitionList(input.Containers, context),
+      }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.SupportedContentTypes !== undefined &&
+      input.SupportedContentTypes !== null && {
+        SupportedContentTypes: serializeAws_json1_1ContentTypes(input.SupportedContentTypes, context),
+      }),
+    ...(input.SupportedRealtimeInferenceInstanceTypes !== undefined &&
+      input.SupportedRealtimeInferenceInstanceTypes !== null && {
+        SupportedRealtimeInferenceInstanceTypes: serializeAws_json1_1RealtimeInferenceInstanceTypes(
+          input.SupportedRealtimeInferenceInstanceTypes,
+          context
+        ),
+      }),
+    ...(input.SupportedResponseMIMETypes !== undefined &&
+      input.SupportedResponseMIMETypes !== null && {
+        SupportedResponseMIMETypes: serializeAws_json1_1ResponseMIMETypes(input.SupportedResponseMIMETypes, context),
+      }),
+    ...(input.SupportedTransformInstanceTypes !== undefined &&
+      input.SupportedTransformInstanceTypes !== null && {
+        SupportedTransformInstanceTypes: serializeAws_json1_1TransformInstanceTypes(
+          input.SupportedTransformInstanceTypes,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_json1_1AdditionalInferenceSpecifications = (
+  input: AdditionalInferenceSpecificationDefinition[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1AdditionalInferenceSpecificationDefinition(entry, context);
+    });
+};
+
 const serializeAws_json1_1AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
@@ -17711,6 +18423,14 @@ const serializeAws_json1_1BatchDescribeModelPackageInput = (
 
 const serializeAws_json1_1Bias = (input: Bias, context: __SerdeContext): any => {
   return {
+    ...(input.PostTrainingReport !== undefined &&
+      input.PostTrainingReport !== null && {
+        PostTrainingReport: serializeAws_json1_1MetricsSource(input.PostTrainingReport, context),
+      }),
+    ...(input.PreTrainingReport !== undefined &&
+      input.PreTrainingReport !== null && {
+        PreTrainingReport: serializeAws_json1_1MetricsSource(input.PreTrainingReport, context),
+      }),
     ...(input.Report !== undefined &&
       input.Report !== null && { Report: serializeAws_json1_1MetricsSource(input.Report, context) }),
   };
@@ -17774,6 +18494,14 @@ const serializeAws_json1_1CaptureOptionList = (input: CaptureOption[], context: 
     });
 };
 
+const serializeAws_json1_1CategoricalParameter = (input: CategoricalParameter, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Value !== undefined &&
+      input.Value !== null && { Value: serializeAws_json1_1CategoricalParameterRangeValues(input.Value, context) }),
+  };
+};
+
 const serializeAws_json1_1CategoricalParameterRange = (
   input: CategoricalParameterRange,
   context: __SerdeContext
@@ -17807,6 +18535,28 @@ const serializeAws_json1_1CategoricalParameterRangeSpecification = (
     ...(input.Values !== undefined &&
       input.Values !== null && { Values: serializeAws_json1_1ParameterValues(input.Values, context) }),
   };
+};
+
+const serializeAws_json1_1CategoricalParameterRangeValues = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1CategoricalParameters = (input: CategoricalParameter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1CategoricalParameter(entry, context);
+    });
 };
 
 const serializeAws_json1_1Channel = (input: Channel, context: __SerdeContext): any => {
@@ -17959,6 +18709,8 @@ const serializeAws_json1_1ContainerDefinition = (input: ContainerDefinition, con
     ...(input.Image !== undefined && input.Image !== null && { Image: input.Image }),
     ...(input.ImageConfig !== undefined &&
       input.ImageConfig !== null && { ImageConfig: serializeAws_json1_1ImageConfig(input.ImageConfig, context) }),
+    ...(input.InferenceSpecificationName !== undefined &&
+      input.InferenceSpecificationName !== null && { InferenceSpecificationName: input.InferenceSpecificationName }),
     ...(input.Mode !== undefined && input.Mode !== null && { Mode: input.Mode }),
     ...(input.ModelDataUrl !== undefined && input.ModelDataUrl !== null && { ModelDataUrl: input.ModelDataUrl }),
     ...(input.ModelPackageName !== undefined &&
@@ -18208,6 +18960,8 @@ const serializeAws_json1_1CreateCompilationJobRequest = (
       input.CompilationJobName !== null && { CompilationJobName: input.CompilationJobName }),
     ...(input.InputConfig !== undefined &&
       input.InputConfig !== null && { InputConfig: serializeAws_json1_1InputConfig(input.InputConfig, context) }),
+    ...(input.ModelPackageVersionArn !== undefined &&
+      input.ModelPackageVersionArn !== null && { ModelPackageVersionArn: input.ModelPackageVersionArn }),
     ...(input.OutputConfig !== undefined &&
       input.OutputConfig !== null && { OutputConfig: serializeAws_json1_1OutputConfig(input.OutputConfig, context) }),
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
@@ -18528,6 +19282,28 @@ const serializeAws_json1_1CreateImageVersionRequest = (
   };
 };
 
+const serializeAws_json1_1CreateInferenceRecommendationsJobRequest = (
+  input: CreateInferenceRecommendationsJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InputConfig !== undefined &&
+      input.InputConfig !== null && {
+        InputConfig: serializeAws_json1_1RecommendationJobInputConfig(input.InputConfig, context),
+      }),
+    ...(input.JobDescription !== undefined &&
+      input.JobDescription !== null && { JobDescription: input.JobDescription }),
+    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
+    ...(input.JobType !== undefined && input.JobType !== null && { JobType: input.JobType }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.StoppingConditions !== undefined &&
+      input.StoppingConditions !== null && {
+        StoppingConditions: serializeAws_json1_1RecommendationJobStoppingConditions(input.StoppingConditions, context),
+      }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateLabelingJobRequest = (
   input: CreateLabelingJobRequest,
   context: __SerdeContext
@@ -18704,12 +19480,24 @@ const serializeAws_json1_1CreateModelPackageGroupInput = (
 
 const serializeAws_json1_1CreateModelPackageInput = (input: CreateModelPackageInput, context: __SerdeContext): any => {
   return {
+    ...(input.AdditionalInferenceSpecifications !== undefined &&
+      input.AdditionalInferenceSpecifications !== null && {
+        AdditionalInferenceSpecifications: serializeAws_json1_1AdditionalInferenceSpecifications(
+          input.AdditionalInferenceSpecifications,
+          context
+        ),
+      }),
     ...(input.CertifyForMarketplace !== undefined &&
       input.CertifyForMarketplace !== null && { CertifyForMarketplace: input.CertifyForMarketplace }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.CustomerMetadataProperties !== undefined &&
       input.CustomerMetadataProperties !== null && {
         CustomerMetadataProperties: serializeAws_json1_1CustomerMetadataMap(input.CustomerMetadataProperties, context),
+      }),
+    ...(input.Domain !== undefined && input.Domain !== null && { Domain: input.Domain }),
+    ...(input.DriftCheckBaselines !== undefined &&
+      input.DriftCheckBaselines !== null && {
+        DriftCheckBaselines: serializeAws_json1_1DriftCheckBaselines(input.DriftCheckBaselines, context),
       }),
     ...(input.InferenceSpecification !== undefined &&
       input.InferenceSpecification !== null && {
@@ -18729,6 +19517,8 @@ const serializeAws_json1_1CreateModelPackageInput = (input: CreateModelPackageIn
       input.ModelPackageGroupName !== null && { ModelPackageGroupName: input.ModelPackageGroupName }),
     ...(input.ModelPackageName !== undefined &&
       input.ModelPackageName !== null && { ModelPackageName: input.ModelPackageName }),
+    ...(input.SamplePayloadUrl !== undefined &&
+      input.SamplePayloadUrl !== null && { SamplePayloadUrl: input.SamplePayloadUrl }),
     ...(input.SourceAlgorithmSpecification !== undefined &&
       input.SourceAlgorithmSpecification !== null && {
         SourceAlgorithmSpecification: serializeAws_json1_1SourceAlgorithmSpecification(
@@ -18737,6 +19527,7 @@ const serializeAws_json1_1CreateModelPackageInput = (input: CreateModelPackageIn
         ),
       }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Task !== undefined && input.Task !== null && { Task: input.Task }),
     ...(input.ValidationSpecification !== undefined &&
       input.ValidationSpecification !== null && {
         ValidationSpecification: serializeAws_json1_1ModelPackageValidationSpecification(
@@ -20006,6 +20797,15 @@ const serializeAws_json1_1DescribeImageVersionRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeInferenceRecommendationsJobRequest = (
+  input: DescribeInferenceRecommendationsJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
+  };
+};
+
 const serializeAws_json1_1DescribeLabelingJobRequest = (
   input: DescribeLabelingJobRequest,
   context: __SerdeContext
@@ -20013,6 +20813,16 @@ const serializeAws_json1_1DescribeLabelingJobRequest = (
   return {
     ...(input.LabelingJobName !== undefined &&
       input.LabelingJobName !== null && { LabelingJobName: input.LabelingJobName }),
+  };
+};
+
+const serializeAws_json1_1DescribeLineageGroupRequest = (
+  input: DescribeLineageGroupRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LineageGroupName !== undefined &&
+      input.LineageGroupName !== null && { LineageGroupName: input.LineageGroupName }),
   };
 };
 
@@ -20341,6 +21151,73 @@ const serializeAws_json1_1DomainSettingsForUpdate = (input: DomainSettingsForUpd
   };
 };
 
+const serializeAws_json1_1DriftCheckBaselines = (input: DriftCheckBaselines, context: __SerdeContext): any => {
+  return {
+    ...(input.Bias !== undefined &&
+      input.Bias !== null && { Bias: serializeAws_json1_1DriftCheckBias(input.Bias, context) }),
+    ...(input.Explainability !== undefined &&
+      input.Explainability !== null && {
+        Explainability: serializeAws_json1_1DriftCheckExplainability(input.Explainability, context),
+      }),
+    ...(input.ModelDataQuality !== undefined &&
+      input.ModelDataQuality !== null && {
+        ModelDataQuality: serializeAws_json1_1DriftCheckModelDataQuality(input.ModelDataQuality, context),
+      }),
+    ...(input.ModelQuality !== undefined &&
+      input.ModelQuality !== null && {
+        ModelQuality: serializeAws_json1_1DriftCheckModelQuality(input.ModelQuality, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1DriftCheckBias = (input: DriftCheckBias, context: __SerdeContext): any => {
+  return {
+    ...(input.ConfigFile !== undefined &&
+      input.ConfigFile !== null && { ConfigFile: serializeAws_json1_1FileSource(input.ConfigFile, context) }),
+    ...(input.PostTrainingConstraints !== undefined &&
+      input.PostTrainingConstraints !== null && {
+        PostTrainingConstraints: serializeAws_json1_1MetricsSource(input.PostTrainingConstraints, context),
+      }),
+    ...(input.PreTrainingConstraints !== undefined &&
+      input.PreTrainingConstraints !== null && {
+        PreTrainingConstraints: serializeAws_json1_1MetricsSource(input.PreTrainingConstraints, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1DriftCheckExplainability = (
+  input: DriftCheckExplainability,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConfigFile !== undefined &&
+      input.ConfigFile !== null && { ConfigFile: serializeAws_json1_1FileSource(input.ConfigFile, context) }),
+    ...(input.Constraints !== undefined &&
+      input.Constraints !== null && { Constraints: serializeAws_json1_1MetricsSource(input.Constraints, context) }),
+  };
+};
+
+const serializeAws_json1_1DriftCheckModelDataQuality = (
+  input: DriftCheckModelDataQuality,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Constraints !== undefined &&
+      input.Constraints !== null && { Constraints: serializeAws_json1_1MetricsSource(input.Constraints, context) }),
+    ...(input.Statistics !== undefined &&
+      input.Statistics !== null && { Statistics: serializeAws_json1_1MetricsSource(input.Statistics, context) }),
+  };
+};
+
+const serializeAws_json1_1DriftCheckModelQuality = (input: DriftCheckModelQuality, context: __SerdeContext): any => {
+  return {
+    ...(input.Constraints !== undefined &&
+      input.Constraints !== null && { Constraints: serializeAws_json1_1MetricsSource(input.Constraints, context) }),
+    ...(input.Statistics !== undefined &&
+      input.Statistics !== null && { Statistics: serializeAws_json1_1MetricsSource(input.Statistics, context) }),
+  };
+};
+
 const serializeAws_json1_1EdgeOutputConfig = (input: EdgeOutputConfig, context: __SerdeContext): any => {
   return {
     ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
@@ -20383,6 +21260,38 @@ const serializeAws_json1_1EndpointInput = (input: EndpointInput, context: __Serd
   };
 };
 
+const serializeAws_json1_1EndpointInputConfiguration = (
+  input: EndpointInputConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EnvironmentParameterRanges !== undefined &&
+      input.EnvironmentParameterRanges !== null && {
+        EnvironmentParameterRanges: serializeAws_json1_1EnvironmentParameterRanges(
+          input.EnvironmentParameterRanges,
+          context
+        ),
+      }),
+    ...(input.InferenceSpecificationName !== undefined &&
+      input.InferenceSpecificationName !== null && { InferenceSpecificationName: input.InferenceSpecificationName }),
+    ...(input.InstanceType !== undefined && input.InstanceType !== null && { InstanceType: input.InstanceType }),
+  };
+};
+
+const serializeAws_json1_1EndpointInputConfigurations = (
+  input: EndpointInputConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1EndpointInputConfiguration(entry, context);
+    });
+};
+
 const serializeAws_json1_1EnvironmentMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -20393,6 +21302,21 @@ const serializeAws_json1_1EnvironmentMap = (input: { [key: string]: string }, co
       [key]: value,
     };
   }, {});
+};
+
+const serializeAws_json1_1EnvironmentParameterRanges = (
+  input: EnvironmentParameterRanges,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CategoricalParameterRanges !== undefined &&
+      input.CategoricalParameterRanges !== null && {
+        CategoricalParameterRanges: serializeAws_json1_1CategoricalParameters(
+          input.CategoricalParameterRanges,
+          context
+        ),
+      }),
+  };
 };
 
 const serializeAws_json1_1ExperimentConfig = (input: ExperimentConfig, context: __SerdeContext): any => {
@@ -20428,6 +21352,14 @@ const serializeAws_json1_1FeatureDefinitions = (input: FeatureDefinition[], cont
       }
       return serializeAws_json1_1FeatureDefinition(entry, context);
     });
+};
+
+const serializeAws_json1_1FileSource = (input: FileSource, context: __SerdeContext): any => {
+  return {
+    ...(input.ContentDigest !== undefined && input.ContentDigest !== null && { ContentDigest: input.ContentDigest }),
+    ...(input.ContentType !== undefined && input.ContentType !== null && { ContentType: input.ContentType }),
+    ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
+  };
 };
 
 const serializeAws_json1_1FileSystemConfig = (input: FileSystemConfig, context: __SerdeContext): any => {
@@ -20496,6 +21428,16 @@ const serializeAws_json1_1GetDeviceFleetReportRequest = (
   return {
     ...(input.DeviceFleetName !== undefined &&
       input.DeviceFleetName !== null && { DeviceFleetName: input.DeviceFleetName }),
+  };
+};
+
+const serializeAws_json1_1GetLineageGroupPolicyRequest = (
+  input: GetLineageGroupPolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LineageGroupName !== undefined &&
+      input.LineageGroupName !== null && { LineageGroupName: input.LineageGroupName }),
   };
 };
 
@@ -21714,6 +22656,34 @@ const serializeAws_json1_1ListImageVersionsRequest = (
   };
 };
 
+const serializeAws_json1_1ListInferenceRecommendationsJobsRequest = (
+  input: ListInferenceRecommendationsJobsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CreationTimeAfter !== undefined &&
+      input.CreationTimeAfter !== null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore !== undefined &&
+      input.CreationTimeBefore !== null && {
+        CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+      }),
+    ...(input.LastModifiedTimeAfter !== undefined &&
+      input.LastModifiedTimeAfter !== null && {
+        LastModifiedTimeAfter: Math.round(input.LastModifiedTimeAfter.getTime() / 1000),
+      }),
+    ...(input.LastModifiedTimeBefore !== undefined &&
+      input.LastModifiedTimeBefore !== null && {
+        LastModifiedTimeBefore: Math.round(input.LastModifiedTimeBefore.getTime() / 1000),
+      }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NameContains !== undefined && input.NameContains !== null && { NameContains: input.NameContains }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.SortBy !== undefined && input.SortBy !== null && { SortBy: input.SortBy }),
+    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
+    ...(input.StatusEquals !== undefined && input.StatusEquals !== null && { StatusEquals: input.StatusEquals }),
+  };
+};
+
 const serializeAws_json1_1ListLabelingJobsForWorkteamRequest = (
   input: ListLabelingJobsForWorkteamRequest,
   context: __SerdeContext
@@ -21771,6 +22741,22 @@ const serializeAws_json1_1ListLineageEntityParameterKey = (input: string[], cont
     });
 };
 
+const serializeAws_json1_1ListLineageGroupsRequest = (
+  input: ListLineageGroupsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CreatedAfter !== undefined &&
+      input.CreatedAfter !== null && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000) }),
+    ...(input.CreatedBefore !== undefined &&
+      input.CreatedBefore !== null && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.SortBy !== undefined && input.SortBy !== null && { SortBy: input.SortBy }),
+    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
+  };
+};
+
 const serializeAws_json1_1ListModelBiasJobDefinitionsRequest = (
   input: ListModelBiasJobDefinitionsRequest,
   context: __SerdeContext
@@ -21808,6 +22794,20 @@ const serializeAws_json1_1ListModelExplainabilityJobDefinitionsRequest = (
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.SortBy !== undefined && input.SortBy !== null && { SortBy: input.SortBy }),
     ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListModelMetadataRequest = (
+  input: ListModelMetadataRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.SearchExpression !== undefined &&
+      input.SearchExpression !== null && {
+        SearchExpression: serializeAws_json1_1ModelMetadataSearchExpression(input.SearchExpression, context),
+      }),
   };
 };
 
@@ -22488,6 +23488,60 @@ const serializeAws_json1_1ModelExplainabilityJobInput = (
   };
 };
 
+const serializeAws_json1_1ModelInput = (input: ModelInput, context: __SerdeContext): any => {
+  return {
+    ...(input.DataInputConfig !== undefined &&
+      input.DataInputConfig !== null && { DataInputConfig: input.DataInputConfig }),
+  };
+};
+
+const serializeAws_json1_1ModelLatencyThreshold = (input: ModelLatencyThreshold, context: __SerdeContext): any => {
+  return {
+    ...(input.Percentile !== undefined && input.Percentile !== null && { Percentile: input.Percentile }),
+    ...(input.ValueInMilliseconds !== undefined &&
+      input.ValueInMilliseconds !== null && { ValueInMilliseconds: input.ValueInMilliseconds }),
+  };
+};
+
+const serializeAws_json1_1ModelLatencyThresholds = (input: ModelLatencyThreshold[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ModelLatencyThreshold(entry, context);
+    });
+};
+
+const serializeAws_json1_1ModelMetadataFilter = (input: ModelMetadataFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1ModelMetadataFilters = (input: ModelMetadataFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ModelMetadataFilter(entry, context);
+    });
+};
+
+const serializeAws_json1_1ModelMetadataSearchExpression = (
+  input: ModelMetadataSearchExpression,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1ModelMetadataFilters(input.Filters, context) }),
+  };
+};
+
 const serializeAws_json1_1ModelMetrics = (input: ModelMetrics, context: __SerdeContext): any => {
   return {
     ...(input.Bias !== undefined && input.Bias !== null && { Bias: serializeAws_json1_1Bias(input.Bias, context) }),
@@ -22524,9 +23578,16 @@ const serializeAws_json1_1ModelPackageContainerDefinition = (
       input.ContainerHostname !== null && { ContainerHostname: input.ContainerHostname }),
     ...(input.Environment !== undefined &&
       input.Environment !== null && { Environment: serializeAws_json1_1EnvironmentMap(input.Environment, context) }),
+    ...(input.Framework !== undefined && input.Framework !== null && { Framework: input.Framework }),
+    ...(input.FrameworkVersion !== undefined &&
+      input.FrameworkVersion !== null && { FrameworkVersion: input.FrameworkVersion }),
     ...(input.Image !== undefined && input.Image !== null && { Image: input.Image }),
     ...(input.ImageDigest !== undefined && input.ImageDigest !== null && { ImageDigest: input.ImageDigest }),
     ...(input.ModelDataUrl !== undefined && input.ModelDataUrl !== null && { ModelDataUrl: input.ModelDataUrl }),
+    ...(input.ModelInput !== undefined &&
+      input.ModelInput !== null && { ModelInput: serializeAws_json1_1ModelInput(input.ModelInput, context) }),
+    ...(input.NearestModelName !== undefined &&
+      input.NearestModelName !== null && { NearestModelName: input.NearestModelName }),
     ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
   };
 };
@@ -23224,6 +24285,27 @@ const serializeAws_json1_1ParentHyperParameterTuningJobs = (
     });
 };
 
+const serializeAws_json1_1Phase = (input: Phase, context: __SerdeContext): any => {
+  return {
+    ...(input.DurationInSeconds !== undefined &&
+      input.DurationInSeconds !== null && { DurationInSeconds: input.DurationInSeconds }),
+    ...(input.InitialNumberOfUsers !== undefined &&
+      input.InitialNumberOfUsers !== null && { InitialNumberOfUsers: input.InitialNumberOfUsers }),
+    ...(input.SpawnRate !== undefined && input.SpawnRate !== null && { SpawnRate: input.SpawnRate }),
+  };
+};
+
+const serializeAws_json1_1Phases = (input: Phase[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Phase(entry, context);
+    });
+};
+
 const serializeAws_json1_1ProcessingClusterConfig = (input: ProcessingClusterConfig, context: __SerdeContext): any => {
   return {
     ...(input.InstanceCount !== undefined && input.InstanceCount !== null && { InstanceCount: input.InstanceCount }),
@@ -23370,6 +24452,10 @@ const serializeAws_json1_1ProductionVariant = (input: ProductionVariant, context
       input.InitialVariantWeight !== null && { InitialVariantWeight: __serializeFloat(input.InitialVariantWeight) }),
     ...(input.InstanceType !== undefined && input.InstanceType !== null && { InstanceType: input.InstanceType }),
     ...(input.ModelName !== undefined && input.ModelName !== null && { ModelName: input.ModelName }),
+    ...(input.ServerlessConfig !== undefined &&
+      input.ServerlessConfig !== null && {
+        ServerlessConfig: serializeAws_json1_1ProductionVariantServerlessConfig(input.ServerlessConfig, context),
+      }),
     ...(input.VariantName !== undefined && input.VariantName !== null && { VariantName: input.VariantName }),
   };
 };
@@ -23394,6 +24480,18 @@ const serializeAws_json1_1ProductionVariantList = (input: ProductionVariant[], c
       }
       return serializeAws_json1_1ProductionVariant(entry, context);
     });
+};
+
+const serializeAws_json1_1ProductionVariantServerlessConfig = (
+  input: ProductionVariantServerlessConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxConcurrency !== undefined &&
+      input.MaxConcurrency !== null && { MaxConcurrency: input.MaxConcurrency }),
+    ...(input.MemorySizeInMB !== undefined &&
+      input.MemorySizeInMB !== null && { MemorySizeInMB: input.MemorySizeInMB }),
+  };
 };
 
 const serializeAws_json1_1ProfilerConfig = (input: ProfilerConfig, context: __SerdeContext): any => {
@@ -23520,6 +24618,86 @@ const serializeAws_json1_1PutModelPackageGroupPolicyInput = (
   };
 };
 
+const serializeAws_json1_1QueryFilters = (input: QueryFilters, context: __SerdeContext): any => {
+  return {
+    ...(input.CreatedAfter !== undefined &&
+      input.CreatedAfter !== null && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000) }),
+    ...(input.CreatedBefore !== undefined &&
+      input.CreatedBefore !== null && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000) }),
+    ...(input.LineageTypes !== undefined &&
+      input.LineageTypes !== null && {
+        LineageTypes: serializeAws_json1_1QueryLineageTypes(input.LineageTypes, context),
+      }),
+    ...(input.ModifiedAfter !== undefined &&
+      input.ModifiedAfter !== null && { ModifiedAfter: Math.round(input.ModifiedAfter.getTime() / 1000) }),
+    ...(input.ModifiedBefore !== undefined &&
+      input.ModifiedBefore !== null && { ModifiedBefore: Math.round(input.ModifiedBefore.getTime() / 1000) }),
+    ...(input.Properties !== undefined &&
+      input.Properties !== null && { Properties: serializeAws_json1_1QueryProperties(input.Properties, context) }),
+    ...(input.Types !== undefined &&
+      input.Types !== null && { Types: serializeAws_json1_1QueryTypes(input.Types, context) }),
+  };
+};
+
+const serializeAws_json1_1QueryLineageRequest = (input: QueryLineageRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Direction !== undefined && input.Direction !== null && { Direction: input.Direction }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1QueryFilters(input.Filters, context) }),
+    ...(input.IncludeEdges !== undefined && input.IncludeEdges !== null && { IncludeEdges: input.IncludeEdges }),
+    ...(input.MaxDepth !== undefined && input.MaxDepth !== null && { MaxDepth: input.MaxDepth }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.StartArns !== undefined &&
+      input.StartArns !== null && { StartArns: serializeAws_json1_1QueryLineageStartArns(input.StartArns, context) }),
+  };
+};
+
+const serializeAws_json1_1QueryLineageStartArns = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1QueryLineageTypes = (input: (LineageType | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1QueryProperties = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
+const serializeAws_json1_1QueryTypes = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1RealtimeInferenceInstanceTypes = (
   input: (ProductionVariantInstanceType | string)[],
   context: __SerdeContext
@@ -23532,6 +24710,56 @@ const serializeAws_json1_1RealtimeInferenceInstanceTypes = (
       }
       return entry;
     });
+};
+
+const serializeAws_json1_1RecommendationJobInputConfig = (
+  input: RecommendationJobInputConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EndpointConfigurations !== undefined &&
+      input.EndpointConfigurations !== null && {
+        EndpointConfigurations: serializeAws_json1_1EndpointInputConfigurations(input.EndpointConfigurations, context),
+      }),
+    ...(input.JobDurationInSeconds !== undefined &&
+      input.JobDurationInSeconds !== null && { JobDurationInSeconds: input.JobDurationInSeconds }),
+    ...(input.ModelPackageVersionArn !== undefined &&
+      input.ModelPackageVersionArn !== null && { ModelPackageVersionArn: input.ModelPackageVersionArn }),
+    ...(input.ResourceLimit !== undefined &&
+      input.ResourceLimit !== null && {
+        ResourceLimit: serializeAws_json1_1RecommendationJobResourceLimit(input.ResourceLimit, context),
+      }),
+    ...(input.TrafficPattern !== undefined &&
+      input.TrafficPattern !== null && {
+        TrafficPattern: serializeAws_json1_1TrafficPattern(input.TrafficPattern, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1RecommendationJobResourceLimit = (
+  input: RecommendationJobResourceLimit,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxNumberOfTests !== undefined &&
+      input.MaxNumberOfTests !== null && { MaxNumberOfTests: input.MaxNumberOfTests }),
+    ...(input.MaxParallelOfTests !== undefined &&
+      input.MaxParallelOfTests !== null && { MaxParallelOfTests: input.MaxParallelOfTests }),
+  };
+};
+
+const serializeAws_json1_1RecommendationJobStoppingConditions = (
+  input: RecommendationJobStoppingConditions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxInvocations !== undefined &&
+      input.MaxInvocations !== null && { MaxInvocations: input.MaxInvocations }),
+    ...(input.ModelLatencyThresholds !== undefined &&
+      input.ModelLatencyThresholds !== null && {
+        ModelLatencyThresholds: serializeAws_json1_1ModelLatencyThresholds(input.ModelLatencyThresholds, context),
+      }),
+  };
 };
 
 const serializeAws_json1_1RedshiftDatasetDefinition = (
@@ -23982,6 +25210,15 @@ const serializeAws_json1_1StopHyperParameterTuningJobRequest = (
   };
 };
 
+const serializeAws_json1_1StopInferenceRecommendationsJobRequest = (
+  input: StopInferenceRecommendationsJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
+  };
+};
+
 const serializeAws_json1_1StopLabelingJobRequest = (input: StopLabelingJobRequest, context: __SerdeContext): any => {
   return {
     ...(input.LabelingJobName !== undefined &&
@@ -24134,6 +25371,14 @@ const serializeAws_json1_1TensorBoardOutputConfig = (input: TensorBoardOutputCon
   return {
     ...(input.LocalPath !== undefined && input.LocalPath !== null && { LocalPath: input.LocalPath }),
     ...(input.S3OutputPath !== undefined && input.S3OutputPath !== null && { S3OutputPath: input.S3OutputPath }),
+  };
+};
+
+const serializeAws_json1_1TrafficPattern = (input: TrafficPattern, context: __SerdeContext): any => {
+  return {
+    ...(input.Phases !== undefined &&
+      input.Phases !== null && { Phases: serializeAws_json1_1Phases(input.Phases, context) }),
+    ...(input.TrafficType !== undefined && input.TrafficType !== null && { TrafficType: input.TrafficType }),
   };
 };
 
@@ -24601,6 +25846,13 @@ const serializeAws_json1_1UpdateImageRequest = (input: UpdateImageRequest, conte
 
 const serializeAws_json1_1UpdateModelPackageInput = (input: UpdateModelPackageInput, context: __SerdeContext): any => {
   return {
+    ...(input.AdditionalInferenceSpecificationsToAdd !== undefined &&
+      input.AdditionalInferenceSpecificationsToAdd !== null && {
+        AdditionalInferenceSpecificationsToAdd: serializeAws_json1_1AdditionalInferenceSpecifications(
+          input.AdditionalInferenceSpecificationsToAdd,
+          context
+        ),
+      }),
     ...(input.ApprovalDescription !== undefined &&
       input.ApprovalDescription !== null && { ApprovalDescription: input.ApprovalDescription }),
     ...(input.CustomerMetadataProperties !== undefined &&
@@ -24999,6 +26251,51 @@ const deserializeAws_json1_1AdditionalCodeRepositoryNamesOrUrls = (output: any, 
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_json1_1AdditionalInferenceSpecificationDefinition = (
+  output: any,
+  context: __SerdeContext
+): AdditionalInferenceSpecificationDefinition => {
+  return {
+    Containers:
+      output.Containers !== undefined && output.Containers !== null
+        ? deserializeAws_json1_1ModelPackageContainerDefinitionList(output.Containers, context)
+        : undefined,
+    Description: __expectString(output.Description),
+    Name: __expectString(output.Name),
+    SupportedContentTypes:
+      output.SupportedContentTypes !== undefined && output.SupportedContentTypes !== null
+        ? deserializeAws_json1_1ContentTypes(output.SupportedContentTypes, context)
+        : undefined,
+    SupportedRealtimeInferenceInstanceTypes:
+      output.SupportedRealtimeInferenceInstanceTypes !== undefined &&
+      output.SupportedRealtimeInferenceInstanceTypes !== null
+        ? deserializeAws_json1_1RealtimeInferenceInstanceTypes(output.SupportedRealtimeInferenceInstanceTypes, context)
+        : undefined,
+    SupportedResponseMIMETypes:
+      output.SupportedResponseMIMETypes !== undefined && output.SupportedResponseMIMETypes !== null
+        ? deserializeAws_json1_1ResponseMIMETypes(output.SupportedResponseMIMETypes, context)
+        : undefined,
+    SupportedTransformInstanceTypes:
+      output.SupportedTransformInstanceTypes !== undefined && output.SupportedTransformInstanceTypes !== null
+        ? deserializeAws_json1_1TransformInstanceTypes(output.SupportedTransformInstanceTypes, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AdditionalInferenceSpecifications = (
+  output: any,
+  context: __SerdeContext
+): AdditionalInferenceSpecificationDefinition[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AdditionalInferenceSpecificationDefinition(entry, context);
     });
 };
 
@@ -25724,6 +27021,14 @@ const deserializeAws_json1_1BatchDescribeModelPackageSummary = (
 
 const deserializeAws_json1_1Bias = (output: any, context: __SerdeContext): Bias => {
   return {
+    PostTrainingReport:
+      output.PostTrainingReport !== undefined && output.PostTrainingReport !== null
+        ? deserializeAws_json1_1MetricsSource(output.PostTrainingReport, context)
+        : undefined,
+    PreTrainingReport:
+      output.PreTrainingReport !== undefined && output.PreTrainingReport !== null
+        ? deserializeAws_json1_1MetricsSource(output.PreTrainingReport, context)
+        : undefined,
     Report:
       output.Report !== undefined && output.Report !== null
         ? deserializeAws_json1_1MetricsSource(output.Report, context)
@@ -25832,6 +27137,16 @@ const deserializeAws_json1_1CaptureOptionList = (output: any, context: __SerdeCo
     });
 };
 
+const deserializeAws_json1_1CategoricalParameter = (output: any, context: __SerdeContext): CategoricalParameter => {
+  return {
+    Name: __expectString(output.Name),
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? deserializeAws_json1_1CategoricalParameterRangeValues(output.Value, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CategoricalParameterRange = (
   output: any,
   context: __SerdeContext
@@ -25869,6 +27184,28 @@ const deserializeAws_json1_1CategoricalParameterRangeSpecification = (
         ? deserializeAws_json1_1ParameterValues(output.Values, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1CategoricalParameterRangeValues = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_json1_1CategoricalParameters = (output: any, context: __SerdeContext): CategoricalParameter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CategoricalParameter(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Channel = (output: any, context: __SerdeContext): Channel => {
@@ -25936,6 +27273,22 @@ const deserializeAws_json1_1Cidrs = (output: any, context: __SerdeContext): stri
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_json1_1ClarifyCheckStepMetadata = (
+  output: any,
+  context: __SerdeContext
+): ClarifyCheckStepMetadata => {
+  return {
+    BaselineUsedForDriftCheckConstraints: __expectString(output.BaselineUsedForDriftCheckConstraints),
+    CalculatedBaselineConstraints: __expectString(output.CalculatedBaselineConstraints),
+    CheckJobArn: __expectString(output.CheckJobArn),
+    CheckType: __expectString(output.CheckType),
+    ModelPackageGroupName: __expectString(output.ModelPackageGroupName),
+    RegisterNewBaseline: __expectBoolean(output.RegisterNewBaseline),
+    SkipCheck: __expectBoolean(output.SkipCheck),
+    ViolationReport: __expectString(output.ViolationReport),
+  } as any;
 };
 
 const deserializeAws_json1_1CodeRepositorySummary = (output: any, context: __SerdeContext): CodeRepositorySummary => {
@@ -26119,6 +27472,7 @@ const deserializeAws_json1_1ContainerDefinition = (output: any, context: __Serde
       output.ImageConfig !== undefined && output.ImageConfig !== null
         ? deserializeAws_json1_1ImageConfig(output.ImageConfig, context)
         : undefined,
+    InferenceSpecificationName: __expectString(output.InferenceSpecificationName),
     Mode: __expectString(output.Mode),
     ModelDataUrl: __expectString(output.ModelDataUrl),
     ModelPackageName: __expectString(output.ModelPackageName),
@@ -26405,6 +27759,15 @@ const deserializeAws_json1_1CreateImageVersionResponse = (
 ): CreateImageVersionResponse => {
   return {
     ImageVersionArn: __expectString(output.ImageVersionArn),
+  } as any;
+};
+
+const deserializeAws_json1_1CreateInferenceRecommendationsJobResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateInferenceRecommendationsJobResponse => {
+  return {
+    JobArn: __expectString(output.JobArn),
   } as any;
 };
 
@@ -26998,6 +28361,7 @@ const deserializeAws_json1_1DescribeActionResponse = (output: any, context: __Se
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
+    LineageGroupArn: __expectString(output.LineageGroupArn),
     MetadataProperties:
       output.MetadataProperties !== undefined && output.MetadataProperties !== null
         ? deserializeAws_json1_1MetadataProperties(output.MetadataProperties, context)
@@ -27122,6 +28486,7 @@ const deserializeAws_json1_1DescribeArtifactResponse = (
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
+    LineageGroupArn: __expectString(output.LineageGroupArn),
     MetadataProperties:
       output.MetadataProperties !== undefined && output.MetadataProperties !== null
         ? deserializeAws_json1_1MetadataProperties(output.MetadataProperties, context)
@@ -27265,6 +28630,7 @@ const deserializeAws_json1_1DescribeCompilationJobResponse = (
       output.ModelDigests !== undefined && output.ModelDigests !== null
         ? deserializeAws_json1_1ModelDigests(output.ModelDigests, context)
         : undefined,
+    ModelPackageVersionArn: __expectString(output.ModelPackageVersionArn),
     OutputConfig:
       output.OutputConfig !== undefined && output.OutputConfig !== null
         ? deserializeAws_json1_1OutputConfig(output.OutputConfig, context)
@@ -27306,6 +28672,7 @@ const deserializeAws_json1_1DescribeContextResponse = (
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
+    LineageGroupArn: __expectString(output.LineageGroupArn),
     Properties:
       output.Properties !== undefined && output.Properties !== null
         ? deserializeAws_json1_1LineageEntityParameters(output.Properties, context)
@@ -27770,6 +29137,45 @@ const deserializeAws_json1_1DescribeImageVersionResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeInferenceRecommendationsJobResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeInferenceRecommendationsJobResponse => {
+  return {
+    CompletionTime:
+      output.CompletionTime !== undefined && output.CompletionTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
+        : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    FailureReason: __expectString(output.FailureReason),
+    InferenceRecommendations:
+      output.InferenceRecommendations !== undefined && output.InferenceRecommendations !== null
+        ? deserializeAws_json1_1InferenceRecommendations(output.InferenceRecommendations, context)
+        : undefined,
+    InputConfig:
+      output.InputConfig !== undefined && output.InputConfig !== null
+        ? deserializeAws_json1_1RecommendationJobInputConfig(output.InputConfig, context)
+        : undefined,
+    JobArn: __expectString(output.JobArn),
+    JobDescription: __expectString(output.JobDescription),
+    JobName: __expectString(output.JobName),
+    JobType: __expectString(output.JobType),
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    RoleArn: __expectString(output.RoleArn),
+    Status: __expectString(output.Status),
+    StoppingConditions:
+      output.StoppingConditions !== undefined && output.StoppingConditions !== null
+        ? deserializeAws_json1_1RecommendationJobStoppingConditions(output.StoppingConditions, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeLabelingJobResponse = (
   output: any,
   context: __SerdeContext
@@ -27823,6 +29229,34 @@ const deserializeAws_json1_1DescribeLabelingJobResponse = (
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeLineageGroupResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeLineageGroupResponse => {
+  return {
+    CreatedBy:
+      output.CreatedBy !== undefined && output.CreatedBy !== null
+        ? deserializeAws_json1_1UserContext(output.CreatedBy, context)
+        : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    Description: __expectString(output.Description),
+    DisplayName: __expectString(output.DisplayName),
+    LastModifiedBy:
+      output.LastModifiedBy !== undefined && output.LastModifiedBy !== null
+        ? deserializeAws_json1_1UserContext(output.LastModifiedBy, context)
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    LineageGroupArn: __expectString(output.LineageGroupArn),
+    LineageGroupName: __expectString(output.LineageGroupName),
   } as any;
 };
 
@@ -27966,6 +29400,10 @@ const deserializeAws_json1_1DescribeModelPackageOutput = (
   context: __SerdeContext
 ): DescribeModelPackageOutput => {
   return {
+    AdditionalInferenceSpecifications:
+      output.AdditionalInferenceSpecifications !== undefined && output.AdditionalInferenceSpecifications !== null
+        ? deserializeAws_json1_1AdditionalInferenceSpecifications(output.AdditionalInferenceSpecifications, context)
+        : undefined,
     ApprovalDescription: __expectString(output.ApprovalDescription),
     CertifyForMarketplace: __expectBoolean(output.CertifyForMarketplace),
     CreatedBy:
@@ -27979,6 +29417,11 @@ const deserializeAws_json1_1DescribeModelPackageOutput = (
     CustomerMetadataProperties:
       output.CustomerMetadataProperties !== undefined && output.CustomerMetadataProperties !== null
         ? deserializeAws_json1_1CustomerMetadataMap(output.CustomerMetadataProperties, context)
+        : undefined,
+    Domain: __expectString(output.Domain),
+    DriftCheckBaselines:
+      output.DriftCheckBaselines !== undefined && output.DriftCheckBaselines !== null
+        ? deserializeAws_json1_1DriftCheckBaselines(output.DriftCheckBaselines, context)
         : undefined,
     InferenceSpecification:
       output.InferenceSpecification !== undefined && output.InferenceSpecification !== null
@@ -28011,10 +29454,12 @@ const deserializeAws_json1_1DescribeModelPackageOutput = (
         ? deserializeAws_json1_1ModelPackageStatusDetails(output.ModelPackageStatusDetails, context)
         : undefined,
     ModelPackageVersion: __expectInt32(output.ModelPackageVersion),
+    SamplePayloadUrl: __expectString(output.SamplePayloadUrl),
     SourceAlgorithmSpecification:
       output.SourceAlgorithmSpecification !== undefined && output.SourceAlgorithmSpecification !== null
         ? deserializeAws_json1_1SourceAlgorithmSpecification(output.SourceAlgorithmSpecification, context)
         : undefined,
+    Task: __expectString(output.Task),
     ValidationSpecification:
       output.ValidationSpecification !== undefined && output.ValidationSpecification !== null
         ? deserializeAws_json1_1ModelPackageValidationSpecification(output.ValidationSpecification, context)
@@ -28593,6 +30038,7 @@ const deserializeAws_json1_1DescribeTrialComponentResponse = (
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
+    LineageGroupArn: __expectString(output.LineageGroupArn),
     MetadataProperties:
       output.MetadataProperties !== undefined && output.MetadataProperties !== null
         ? deserializeAws_json1_1MetadataProperties(output.MetadataProperties, context)
@@ -28848,6 +30294,97 @@ const deserializeAws_json1_1DomainSettings = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_json1_1DriftCheckBaselines = (output: any, context: __SerdeContext): DriftCheckBaselines => {
+  return {
+    Bias:
+      output.Bias !== undefined && output.Bias !== null
+        ? deserializeAws_json1_1DriftCheckBias(output.Bias, context)
+        : undefined,
+    Explainability:
+      output.Explainability !== undefined && output.Explainability !== null
+        ? deserializeAws_json1_1DriftCheckExplainability(output.Explainability, context)
+        : undefined,
+    ModelDataQuality:
+      output.ModelDataQuality !== undefined && output.ModelDataQuality !== null
+        ? deserializeAws_json1_1DriftCheckModelDataQuality(output.ModelDataQuality, context)
+        : undefined,
+    ModelQuality:
+      output.ModelQuality !== undefined && output.ModelQuality !== null
+        ? deserializeAws_json1_1DriftCheckModelQuality(output.ModelQuality, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DriftCheckBias = (output: any, context: __SerdeContext): DriftCheckBias => {
+  return {
+    ConfigFile:
+      output.ConfigFile !== undefined && output.ConfigFile !== null
+        ? deserializeAws_json1_1FileSource(output.ConfigFile, context)
+        : undefined,
+    PostTrainingConstraints:
+      output.PostTrainingConstraints !== undefined && output.PostTrainingConstraints !== null
+        ? deserializeAws_json1_1MetricsSource(output.PostTrainingConstraints, context)
+        : undefined,
+    PreTrainingConstraints:
+      output.PreTrainingConstraints !== undefined && output.PreTrainingConstraints !== null
+        ? deserializeAws_json1_1MetricsSource(output.PreTrainingConstraints, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DriftCheckExplainability = (
+  output: any,
+  context: __SerdeContext
+): DriftCheckExplainability => {
+  return {
+    ConfigFile:
+      output.ConfigFile !== undefined && output.ConfigFile !== null
+        ? deserializeAws_json1_1FileSource(output.ConfigFile, context)
+        : undefined,
+    Constraints:
+      output.Constraints !== undefined && output.Constraints !== null
+        ? deserializeAws_json1_1MetricsSource(output.Constraints, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DriftCheckModelDataQuality = (
+  output: any,
+  context: __SerdeContext
+): DriftCheckModelDataQuality => {
+  return {
+    Constraints:
+      output.Constraints !== undefined && output.Constraints !== null
+        ? deserializeAws_json1_1MetricsSource(output.Constraints, context)
+        : undefined,
+    Statistics:
+      output.Statistics !== undefined && output.Statistics !== null
+        ? deserializeAws_json1_1MetricsSource(output.Statistics, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DriftCheckModelQuality = (output: any, context: __SerdeContext): DriftCheckModelQuality => {
+  return {
+    Constraints:
+      output.Constraints !== undefined && output.Constraints !== null
+        ? deserializeAws_json1_1MetricsSource(output.Constraints, context)
+        : undefined,
+    Statistics:
+      output.Statistics !== undefined && output.Statistics !== null
+        ? deserializeAws_json1_1MetricsSource(output.Statistics, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1Edge = (output: any, context: __SerdeContext): Edge => {
+  return {
+    AssociationType: __expectString(output.AssociationType),
+    DestinationArn: __expectString(output.DestinationArn),
+    SourceArn: __expectString(output.SourceArn),
+  } as any;
+};
+
 const deserializeAws_json1_1EdgeModel = (output: any, context: __SerdeContext): EdgeModel => {
   return {
     LatestInference:
@@ -28971,6 +30508,17 @@ const deserializeAws_json1_1EdgePresetDeploymentOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1Edges = (output: any, context: __SerdeContext): Edge[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Edge(entry, context);
+    });
+};
+
 const deserializeAws_json1_1EnableSagemakerServicecatalogPortfolioOutput = (
   output: any,
   context: __SerdeContext
@@ -29052,6 +30600,46 @@ const deserializeAws_json1_1EndpointInput = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_json1_1EndpointInputConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EndpointInputConfiguration => {
+  return {
+    EnvironmentParameterRanges:
+      output.EnvironmentParameterRanges !== undefined && output.EnvironmentParameterRanges !== null
+        ? deserializeAws_json1_1EnvironmentParameterRanges(output.EnvironmentParameterRanges, context)
+        : undefined,
+    InferenceSpecificationName: __expectString(output.InferenceSpecificationName),
+    InstanceType: __expectString(output.InstanceType),
+  } as any;
+};
+
+const deserializeAws_json1_1EndpointInputConfigurations = (
+  output: any,
+  context: __SerdeContext
+): EndpointInputConfiguration[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EndpointInputConfiguration(entry, context);
+    });
+};
+
+const deserializeAws_json1_1EndpointOutputConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EndpointOutputConfiguration => {
+  return {
+    EndpointName: __expectString(output.EndpointName),
+    InitialInstanceCount: __expectInt32(output.InitialInstanceCount),
+    InstanceType: __expectString(output.InstanceType),
+    VariantName: __expectString(output.VariantName),
+  } as any;
+};
+
 const deserializeAws_json1_1EndpointSummary = (output: any, context: __SerdeContext): EndpointSummary => {
   return {
     CreationTime:
@@ -29089,6 +30677,37 @@ const deserializeAws_json1_1EnvironmentMap = (output: any, context: __SerdeConte
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_json1_1EnvironmentParameter = (output: any, context: __SerdeContext): EnvironmentParameter => {
+  return {
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
+    ValueType: __expectString(output.ValueType),
+  } as any;
+};
+
+const deserializeAws_json1_1EnvironmentParameterRanges = (
+  output: any,
+  context: __SerdeContext
+): EnvironmentParameterRanges => {
+  return {
+    CategoricalParameterRanges:
+      output.CategoricalParameterRanges !== undefined && output.CategoricalParameterRanges !== null
+        ? deserializeAws_json1_1CategoricalParameters(output.CategoricalParameterRanges, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1EnvironmentParameters = (output: any, context: __SerdeContext): EnvironmentParameter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EnvironmentParameter(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Experiment = (output: any, context: __SerdeContext): Experiment => {
@@ -29261,6 +30880,14 @@ const deserializeAws_json1_1FeatureGroupSummary = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1FileSource = (output: any, context: __SerdeContext): FileSource => {
+  return {
+    ContentDigest: __expectString(output.ContentDigest),
+    ContentType: __expectString(output.ContentType),
+    S3Uri: __expectString(output.S3Uri),
+  } as any;
+};
+
 const deserializeAws_json1_1FileSystemConfig = (output: any, context: __SerdeContext): FileSystemConfig => {
   return {
     DefaultGid: __expectInt32(output.DefaultGid),
@@ -29387,6 +31014,16 @@ const deserializeAws_json1_1GetDeviceFleetReportResponse = (
       output.ReportGenerated !== undefined && output.ReportGenerated !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReportGenerated)))
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetLineageGroupPolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): GetLineageGroupPolicyResponse => {
+  return {
+    LineageGroupArn: __expectString(output.LineageGroupArn),
+    ResourcePolicy: __expectString(output.ResourcePolicy),
   } as any;
 };
 
@@ -29926,6 +31563,81 @@ const deserializeAws_json1_1InferenceExecutionConfig = (
   } as any;
 };
 
+const deserializeAws_json1_1InferenceRecommendation = (
+  output: any,
+  context: __SerdeContext
+): InferenceRecommendation => {
+  return {
+    EndpointConfiguration:
+      output.EndpointConfiguration !== undefined && output.EndpointConfiguration !== null
+        ? deserializeAws_json1_1EndpointOutputConfiguration(output.EndpointConfiguration, context)
+        : undefined,
+    Metrics:
+      output.Metrics !== undefined && output.Metrics !== null
+        ? deserializeAws_json1_1RecommendationMetrics(output.Metrics, context)
+        : undefined,
+    ModelConfiguration:
+      output.ModelConfiguration !== undefined && output.ModelConfiguration !== null
+        ? deserializeAws_json1_1ModelConfiguration(output.ModelConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1InferenceRecommendations = (
+  output: any,
+  context: __SerdeContext
+): InferenceRecommendation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1InferenceRecommendation(entry, context);
+    });
+};
+
+const deserializeAws_json1_1InferenceRecommendationsJob = (
+  output: any,
+  context: __SerdeContext
+): InferenceRecommendationsJob => {
+  return {
+    CompletionTime:
+      output.CompletionTime !== undefined && output.CompletionTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
+        : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    FailureReason: __expectString(output.FailureReason),
+    JobArn: __expectString(output.JobArn),
+    JobDescription: __expectString(output.JobDescription),
+    JobName: __expectString(output.JobName),
+    JobType: __expectString(output.JobType),
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    RoleArn: __expectString(output.RoleArn),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1InferenceRecommendationsJobs = (
+  output: any,
+  context: __SerdeContext
+): InferenceRecommendationsJob[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1InferenceRecommendationsJob(entry, context);
+    });
+};
+
 const deserializeAws_json1_1InferenceSpecification = (output: any, context: __SerdeContext): InferenceSpecification => {
   return {
     Containers:
@@ -30338,6 +32050,33 @@ const deserializeAws_json1_1LineageEntityParameters = (
   }, {});
 };
 
+const deserializeAws_json1_1LineageGroupSummaries = (output: any, context: __SerdeContext): LineageGroupSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LineageGroupSummary(entry, context);
+    });
+};
+
+const deserializeAws_json1_1LineageGroupSummary = (output: any, context: __SerdeContext): LineageGroupSummary => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DisplayName: __expectString(output.DisplayName),
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    LineageGroupArn: __expectString(output.LineageGroupArn),
+    LineageGroupName: __expectString(output.LineageGroupName),
+  } as any;
+};
+
 const deserializeAws_json1_1ListActionsResponse = (output: any, context: __SerdeContext): ListActionsResponse => {
   return {
     ActionSummaries:
@@ -30633,6 +32372,19 @@ const deserializeAws_json1_1ListImageVersionsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListInferenceRecommendationsJobsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListInferenceRecommendationsJobsResponse => {
+  return {
+    InferenceRecommendationsJobs:
+      output.InferenceRecommendationsJobs !== undefined && output.InferenceRecommendationsJobs !== null
+        ? deserializeAws_json1_1InferenceRecommendationsJobs(output.InferenceRecommendationsJobs, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListLabelingJobsForWorkteamResponse = (
   output: any,
   context: __SerdeContext
@@ -30659,6 +32411,19 @@ const deserializeAws_json1_1ListLabelingJobsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListLineageGroupsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListLineageGroupsResponse => {
+  return {
+    LineageGroupSummaries:
+      output.LineageGroupSummaries !== undefined && output.LineageGroupSummaries !== null
+        ? deserializeAws_json1_1LineageGroupSummaries(output.LineageGroupSummaries, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListModelBiasJobDefinitionsResponse = (
   output: any,
   context: __SerdeContext
@@ -30680,6 +32445,19 @@ const deserializeAws_json1_1ListModelExplainabilityJobDefinitionsResponse = (
     JobDefinitionSummaries:
       output.JobDefinitionSummaries !== undefined && output.JobDefinitionSummaries !== null
         ? deserializeAws_json1_1MonitoringJobDefinitionSummaryList(output.JobDefinitionSummaries, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListModelMetadataResponse = (
+  output: any,
+  context: __SerdeContext
+): ListModelMetadataResponse => {
+  return {
+    ModelMetadataSummaries:
+      output.ModelMetadataSummaries !== undefined && output.ModelMetadataSummaries !== null
+        ? deserializeAws_json1_1ModelMetadataSummaries(output.ModelMetadataSummaries, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
@@ -31134,6 +32912,16 @@ const deserializeAws_json1_1ModelClientConfig = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1ModelConfiguration = (output: any, context: __SerdeContext): ModelConfiguration => {
+  return {
+    EnvironmentParameters:
+      output.EnvironmentParameters !== undefined && output.EnvironmentParameters !== null
+        ? deserializeAws_json1_1EnvironmentParameters(output.EnvironmentParameters, context)
+        : undefined,
+    InferenceSpecificationName: __expectString(output.InferenceSpecificationName),
+  } as any;
+};
+
 const deserializeAws_json1_1ModelDataQuality = (output: any, context: __SerdeContext): ModelDataQuality => {
   return {
     Constraints:
@@ -31205,6 +32993,54 @@ const deserializeAws_json1_1ModelExplainabilityJobInput = (
   } as any;
 };
 
+const deserializeAws_json1_1ModelInput = (output: any, context: __SerdeContext): ModelInput => {
+  return {
+    DataInputConfig: __expectString(output.DataInputConfig),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelLatencyThreshold = (output: any, context: __SerdeContext): ModelLatencyThreshold => {
+  return {
+    Percentile: __expectString(output.Percentile),
+    ValueInMilliseconds: __expectInt32(output.ValueInMilliseconds),
+  } as any;
+};
+
+const deserializeAws_json1_1ModelLatencyThresholds = (
+  output: any,
+  context: __SerdeContext
+): ModelLatencyThreshold[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ModelLatencyThreshold(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ModelMetadataSummaries = (output: any, context: __SerdeContext): ModelMetadataSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ModelMetadataSummary(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ModelMetadataSummary = (output: any, context: __SerdeContext): ModelMetadataSummary => {
+  return {
+    Domain: __expectString(output.Domain),
+    Framework: __expectString(output.Framework),
+    FrameworkVersion: __expectString(output.FrameworkVersion),
+    Model: __expectString(output.Model),
+    Task: __expectString(output.Task),
+  } as any;
+};
+
 const deserializeAws_json1_1ModelMetrics = (output: any, context: __SerdeContext): ModelMetrics => {
   return {
     Bias:
@@ -31226,6 +33062,10 @@ const deserializeAws_json1_1ModelMetrics = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ModelPackage = (output: any, context: __SerdeContext): ModelPackage => {
   return {
+    AdditionalInferenceSpecifications:
+      output.AdditionalInferenceSpecifications !== undefined && output.AdditionalInferenceSpecifications !== null
+        ? deserializeAws_json1_1AdditionalInferenceSpecifications(output.AdditionalInferenceSpecifications, context)
+        : undefined,
     ApprovalDescription: __expectString(output.ApprovalDescription),
     CertifyForMarketplace: __expectBoolean(output.CertifyForMarketplace),
     CreatedBy:
@@ -31239,6 +33079,11 @@ const deserializeAws_json1_1ModelPackage = (output: any, context: __SerdeContext
     CustomerMetadataProperties:
       output.CustomerMetadataProperties !== undefined && output.CustomerMetadataProperties !== null
         ? deserializeAws_json1_1CustomerMetadataMap(output.CustomerMetadataProperties, context)
+        : undefined,
+    Domain: __expectString(output.Domain),
+    DriftCheckBaselines:
+      output.DriftCheckBaselines !== undefined && output.DriftCheckBaselines !== null
+        ? deserializeAws_json1_1DriftCheckBaselines(output.DriftCheckBaselines, context)
         : undefined,
     InferenceSpecification:
       output.InferenceSpecification !== undefined && output.InferenceSpecification !== null
@@ -31271,6 +33116,7 @@ const deserializeAws_json1_1ModelPackage = (output: any, context: __SerdeContext
         ? deserializeAws_json1_1ModelPackageStatusDetails(output.ModelPackageStatusDetails, context)
         : undefined,
     ModelPackageVersion: __expectInt32(output.ModelPackageVersion),
+    SamplePayloadUrl: __expectString(output.SamplePayloadUrl),
     SourceAlgorithmSpecification:
       output.SourceAlgorithmSpecification !== undefined && output.SourceAlgorithmSpecification !== null
         ? deserializeAws_json1_1SourceAlgorithmSpecification(output.SourceAlgorithmSpecification, context)
@@ -31279,6 +33125,7 @@ const deserializeAws_json1_1ModelPackage = (output: any, context: __SerdeContext
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
         : undefined,
+    Task: __expectString(output.Task),
     ValidationSpecification:
       output.ValidationSpecification !== undefined && output.ValidationSpecification !== null
         ? deserializeAws_json1_1ModelPackageValidationSpecification(output.ValidationSpecification, context)
@@ -31296,9 +33143,16 @@ const deserializeAws_json1_1ModelPackageContainerDefinition = (
       output.Environment !== undefined && output.Environment !== null
         ? deserializeAws_json1_1EnvironmentMap(output.Environment, context)
         : undefined,
+    Framework: __expectString(output.Framework),
+    FrameworkVersion: __expectString(output.FrameworkVersion),
     Image: __expectString(output.Image),
     ImageDigest: __expectString(output.ImageDigest),
     ModelDataUrl: __expectString(output.ModelDataUrl),
+    ModelInput:
+      output.ModelInput !== undefined && output.ModelInput !== null
+        ? deserializeAws_json1_1ModelInput(output.ModelInput, context)
+        : undefined,
+    NearestModelName: __expectString(output.NearestModelName),
     ProductId: __expectString(output.ProductId),
   } as any;
 };
@@ -32397,12 +34251,20 @@ const deserializeAws_json1_1PendingProductionVariantSummary = (
   return {
     AcceleratorType: __expectString(output.AcceleratorType),
     CurrentInstanceCount: __expectInt32(output.CurrentInstanceCount),
+    CurrentServerlessConfig:
+      output.CurrentServerlessConfig !== undefined && output.CurrentServerlessConfig !== null
+        ? deserializeAws_json1_1ProductionVariantServerlessConfig(output.CurrentServerlessConfig, context)
+        : undefined,
     CurrentWeight: __limitedParseFloat32(output.CurrentWeight),
     DeployedImages:
       output.DeployedImages !== undefined && output.DeployedImages !== null
         ? deserializeAws_json1_1DeployedImages(output.DeployedImages, context)
         : undefined,
     DesiredInstanceCount: __expectInt32(output.DesiredInstanceCount),
+    DesiredServerlessConfig:
+      output.DesiredServerlessConfig !== undefined && output.DesiredServerlessConfig !== null
+        ? deserializeAws_json1_1ProductionVariantServerlessConfig(output.DesiredServerlessConfig, context)
+        : undefined,
     DesiredWeight: __limitedParseFloat32(output.DesiredWeight),
     InstanceType: __expectString(output.InstanceType),
     VariantName: __expectString(output.VariantName),
@@ -32424,6 +34286,25 @@ const deserializeAws_json1_1PendingProductionVariantSummaryList = (
         return null as any;
       }
       return deserializeAws_json1_1PendingProductionVariantSummary(entry, context);
+    });
+};
+
+const deserializeAws_json1_1Phase = (output: any, context: __SerdeContext): Phase => {
+  return {
+    DurationInSeconds: __expectInt32(output.DurationInSeconds),
+    InitialNumberOfUsers: __expectInt32(output.InitialNumberOfUsers),
+    SpawnRate: __expectInt32(output.SpawnRate),
+  } as any;
+};
+
+const deserializeAws_json1_1Phases = (output: any, context: __SerdeContext): Phase[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Phase(entry, context);
     });
 };
 
@@ -32544,6 +34425,10 @@ const deserializeAws_json1_1PipelineExecutionStepMetadata = (
       output.Callback !== undefined && output.Callback !== null
         ? deserializeAws_json1_1CallbackStepMetadata(output.Callback, context)
         : undefined,
+    ClarifyCheck:
+      output.ClarifyCheck !== undefined && output.ClarifyCheck !== null
+        ? deserializeAws_json1_1ClarifyCheckStepMetadata(output.ClarifyCheck, context)
+        : undefined,
     Condition:
       output.Condition !== undefined && output.Condition !== null
         ? deserializeAws_json1_1ConditionStepMetadata(output.Condition, context)
@@ -32559,6 +34444,10 @@ const deserializeAws_json1_1PipelineExecutionStepMetadata = (
     ProcessingJob:
       output.ProcessingJob !== undefined && output.ProcessingJob !== null
         ? deserializeAws_json1_1ProcessingJobStepMetadata(output.ProcessingJob, context)
+        : undefined,
+    QualityCheck:
+      output.QualityCheck !== undefined && output.QualityCheck !== null
+        ? deserializeAws_json1_1QualityCheckStepMetadata(output.QualityCheck, context)
         : undefined,
     RegisterModel:
       output.RegisterModel !== undefined && output.RegisterModel !== null
@@ -32906,6 +34795,10 @@ const deserializeAws_json1_1ProductionVariant = (output: any, context: __SerdeCo
     InitialVariantWeight: __limitedParseFloat32(output.InitialVariantWeight),
     InstanceType: __expectString(output.InstanceType),
     ModelName: __expectString(output.ModelName),
+    ServerlessConfig:
+      output.ServerlessConfig !== undefined && output.ServerlessConfig !== null
+        ? deserializeAws_json1_1ProductionVariantServerlessConfig(output.ServerlessConfig, context)
+        : undefined,
     VariantName: __expectString(output.VariantName),
   } as any;
 };
@@ -32929,6 +34822,16 @@ const deserializeAws_json1_1ProductionVariantList = (output: any, context: __Ser
       }
       return deserializeAws_json1_1ProductionVariant(entry, context);
     });
+};
+
+const deserializeAws_json1_1ProductionVariantServerlessConfig = (
+  output: any,
+  context: __SerdeContext
+): ProductionVariantServerlessConfig => {
+  return {
+    MaxConcurrency: __expectInt32(output.MaxConcurrency),
+    MemorySizeInMB: __expectInt32(output.MemorySizeInMB),
+  } as any;
 };
 
 const deserializeAws_json1_1ProductionVariantStatus = (
@@ -32965,12 +34868,20 @@ const deserializeAws_json1_1ProductionVariantSummary = (
 ): ProductionVariantSummary => {
   return {
     CurrentInstanceCount: __expectInt32(output.CurrentInstanceCount),
+    CurrentServerlessConfig:
+      output.CurrentServerlessConfig !== undefined && output.CurrentServerlessConfig !== null
+        ? deserializeAws_json1_1ProductionVariantServerlessConfig(output.CurrentServerlessConfig, context)
+        : undefined,
     CurrentWeight: __limitedParseFloat32(output.CurrentWeight),
     DeployedImages:
       output.DeployedImages !== undefined && output.DeployedImages !== null
         ? deserializeAws_json1_1DeployedImages(output.DeployedImages, context)
         : undefined,
     DesiredInstanceCount: __expectInt32(output.DesiredInstanceCount),
+    DesiredServerlessConfig:
+      output.DesiredServerlessConfig !== undefined && output.DesiredServerlessConfig !== null
+        ? deserializeAws_json1_1ProductionVariantServerlessConfig(output.DesiredServerlessConfig, context)
+        : undefined,
     DesiredWeight: __limitedParseFloat32(output.DesiredWeight),
     VariantName: __expectString(output.VariantName),
     VariantStatus:
@@ -33219,6 +35130,38 @@ const deserializeAws_json1_1PutModelPackageGroupPolicyOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1QualityCheckStepMetadata = (
+  output: any,
+  context: __SerdeContext
+): QualityCheckStepMetadata => {
+  return {
+    BaselineUsedForDriftCheckConstraints: __expectString(output.BaselineUsedForDriftCheckConstraints),
+    BaselineUsedForDriftCheckStatistics: __expectString(output.BaselineUsedForDriftCheckStatistics),
+    CalculatedBaselineConstraints: __expectString(output.CalculatedBaselineConstraints),
+    CalculatedBaselineStatistics: __expectString(output.CalculatedBaselineStatistics),
+    CheckJobArn: __expectString(output.CheckJobArn),
+    CheckType: __expectString(output.CheckType),
+    ModelPackageGroupName: __expectString(output.ModelPackageGroupName),
+    RegisterNewBaseline: __expectBoolean(output.RegisterNewBaseline),
+    SkipCheck: __expectBoolean(output.SkipCheck),
+    ViolationReport: __expectString(output.ViolationReport),
+  } as any;
+};
+
+const deserializeAws_json1_1QueryLineageResponse = (output: any, context: __SerdeContext): QueryLineageResponse => {
+  return {
+    Edges:
+      output.Edges !== undefined && output.Edges !== null
+        ? deserializeAws_json1_1Edges(output.Edges, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+    Vertices:
+      output.Vertices !== undefined && output.Vertices !== null
+        ? deserializeAws_json1_1Vertices(output.Vertices, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1RealtimeInferenceInstanceTypes = (
   output: any,
   context: __SerdeContext
@@ -33231,6 +35174,60 @@ const deserializeAws_json1_1RealtimeInferenceInstanceTypes = (
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_json1_1RecommendationJobInputConfig = (
+  output: any,
+  context: __SerdeContext
+): RecommendationJobInputConfig => {
+  return {
+    EndpointConfigurations:
+      output.EndpointConfigurations !== undefined && output.EndpointConfigurations !== null
+        ? deserializeAws_json1_1EndpointInputConfigurations(output.EndpointConfigurations, context)
+        : undefined,
+    JobDurationInSeconds: __expectInt32(output.JobDurationInSeconds),
+    ModelPackageVersionArn: __expectString(output.ModelPackageVersionArn),
+    ResourceLimit:
+      output.ResourceLimit !== undefined && output.ResourceLimit !== null
+        ? deserializeAws_json1_1RecommendationJobResourceLimit(output.ResourceLimit, context)
+        : undefined,
+    TrafficPattern:
+      output.TrafficPattern !== undefined && output.TrafficPattern !== null
+        ? deserializeAws_json1_1TrafficPattern(output.TrafficPattern, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RecommendationJobResourceLimit = (
+  output: any,
+  context: __SerdeContext
+): RecommendationJobResourceLimit => {
+  return {
+    MaxNumberOfTests: __expectInt32(output.MaxNumberOfTests),
+    MaxParallelOfTests: __expectInt32(output.MaxParallelOfTests),
+  } as any;
+};
+
+const deserializeAws_json1_1RecommendationJobStoppingConditions = (
+  output: any,
+  context: __SerdeContext
+): RecommendationJobStoppingConditions => {
+  return {
+    MaxInvocations: __expectInt32(output.MaxInvocations),
+    ModelLatencyThresholds:
+      output.ModelLatencyThresholds !== undefined && output.ModelLatencyThresholds !== null
+        ? deserializeAws_json1_1ModelLatencyThresholds(output.ModelLatencyThresholds, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RecommendationMetrics = (output: any, context: __SerdeContext): RecommendationMetrics => {
+  return {
+    CostPerHour: __limitedParseFloat32(output.CostPerHour),
+    CostPerInference: __limitedParseFloat32(output.CostPerInference),
+    MaxInvocations: __expectInt32(output.MaxInvocations),
+    ModelLatency: __expectInt32(output.ModelLatency),
+  } as any;
 };
 
 const deserializeAws_json1_1RedshiftDatasetDefinition = (
@@ -33801,6 +35798,16 @@ const deserializeAws_json1_1TensorBoardOutputConfig = (
   } as any;
 };
 
+const deserializeAws_json1_1TrafficPattern = (output: any, context: __SerdeContext): TrafficPattern => {
+  return {
+    Phases:
+      output.Phases !== undefined && output.Phases !== null
+        ? deserializeAws_json1_1Phases(output.Phases, context)
+        : undefined,
+    TrafficType: __expectString(output.TrafficType),
+  } as any;
+};
+
 const deserializeAws_json1_1TrafficRoutingConfig = (output: any, context: __SerdeContext): TrafficRoutingConfig => {
   return {
     CanarySize:
@@ -34329,6 +36336,7 @@ const deserializeAws_json1_1TrialComponent = (output: any, context: __SerdeConte
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
+    LineageGroupArn: __expectString(output.LineageGroupArn),
     MetadataProperties:
       output.MetadataProperties !== undefined && output.MetadataProperties !== null
         ? deserializeAws_json1_1MetadataProperties(output.MetadataProperties, context)
@@ -34910,6 +36918,25 @@ const deserializeAws_json1_1UserSettings = (output: any, context: __SerdeContext
         ? deserializeAws_json1_1TensorBoardAppSettings(output.TensorBoardAppSettings, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1Vertex = (output: any, context: __SerdeContext): Vertex => {
+  return {
+    Arn: __expectString(output.Arn),
+    LineageType: __expectString(output.LineageType),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_json1_1Vertices = (output: any, context: __SerdeContext): Vertex[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Vertex(entry, context);
+    });
 };
 
 const deserializeAws_json1_1VpcConfig = (output: any, context: __SerdeContext): VpcConfig => {

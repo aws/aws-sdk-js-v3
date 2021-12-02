@@ -23,6 +23,9 @@ export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsRes
 
 /**
  * <p>Fetches the queries that are suggested to your users.</p>
+ *         <p>
+ *             <code>GetQuerySuggestions</code> is currently not supported in the
+ *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
