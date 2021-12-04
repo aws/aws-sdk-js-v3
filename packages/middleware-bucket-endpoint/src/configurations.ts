@@ -6,7 +6,7 @@ export interface BucketEndpointInputConfig {
    */
   bucketEndpoint?: boolean;
   /**
-   * Whether to force path style URLs for S3 objects (e.g., https://s3.amazonaws.com/<bucketName>/<key> instead of https://<bucketName>.s3.amazonaws.com/<key>
+   * Whether to force path style URLs for S3 objects (e.g., https://s3.amazonaws.com/{bucketName}/{key} instead of https://{bucketName}.s3.amazonaws.com/{key}
    */
   forcePathStyle?: boolean;
   /**
