@@ -109,12 +109,10 @@ export class Upload extends EventEmitter {
       .join("/");
     const locationBucket = extendedEncodeURIComponent(this.params.Bucket!);
 
-    let Location: string;
-    if (this.client.config.forcePathStyle) {
-      Location = `${endpoint.protocol}//${endpoint.hostname}/${locationBucket}/${locationKey}`;
-    } else {
-      Location = `${endpoint.protocol}//${locationBucket}.${endpoint.hostname}/${locationKey}`;
-    }
+    const Location: string = this.client.config.forcePathStyle
+      ? `${endpoint.protocol}//${endpoint.hostname}/${locationBucket}/${locationKey}`
+      : `${endpoint.protocol}//${locationBucket}.${endpoint.hostname}/${locationKey}`;
+
     this.putResponse = {
       ...putResult,
       Bucket: this.params.Bucket,
