@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `KendraClient` and
-the commands you need, for example `BatchDeleteDocumentCommand`:
+the commands you need, for example `AssociateEntitiesToExperienceCommand`:
 
 ```js
 // ES5 example
-const { KendraClient, BatchDeleteDocumentCommand } = require("@aws-sdk/client-kendra");
+const { KendraClient, AssociateEntitiesToExperienceCommand } = require("@aws-sdk/client-kendra");
 ```
 
 ```ts
 // ES6+ example
-import { KendraClient, BatchDeleteDocumentCommand } from "@aws-sdk/client-kendra";
+import { KendraClient, AssociateEntitiesToExperienceCommand } from "@aws-sdk/client-kendra";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new KendraClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchDeleteDocumentCommand(params);
+const command = new AssociateEntitiesToExperienceCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.Kendra({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchDeleteDocument(params);
+  const data = await client.associateEntitiesToExperience(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .batchDeleteDocument(params)
+  .associateEntitiesToExperience(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.batchDeleteDocument(params, (err, data) => {
+client.associateEntitiesToExperience(params, (err, data) => {
   // proccess err and data.
 });
 ```

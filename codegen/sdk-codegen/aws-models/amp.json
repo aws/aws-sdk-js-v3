@@ -1,0 +1,2403 @@
+{
+  "smithy": "1.0",
+  "shapes": {
+    "com.amazonaws.amp#AccessDeniedException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Description of the error.",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "User does not have sufficient access to perform this action.",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
+      }
+    },
+    "com.amazonaws.amp#AlertManagerDefinition": {
+      "type": "resource",
+      "identifiers": {
+        "workspaceId": {
+          "target": "com.amazonaws.amp#WorkspaceId"
+        }
+      },
+      "put": {
+        "target": "com.amazonaws.amp#CreateAlertManagerDefinition"
+      },
+      "read": {
+        "target": "com.amazonaws.amp#DescribeAlertManagerDefinition"
+      },
+      "update": {
+        "target": "com.amazonaws.amp#PutAlertManagerDefinition"
+      },
+      "delete": {
+        "target": "com.amazonaws.amp#DeleteAlertManagerDefinition"
+      },
+      "traits": {
+        "aws.api#arn": {
+          "template": "workspace/{workspaceId}",
+          "absolute": false,
+          "noAccount": false,
+          "noRegion": false
+        },
+        "smithy.api#documentation": "The definition of the alert manager in the AMP workspace"
+      }
+    },
+    "com.amazonaws.amp#AlertManagerDefinitionData": {
+      "type": "blob",
+      "traits": {
+        "smithy.api#documentation": "The alert manager definition data."
+      }
+    },
+    "com.amazonaws.amp#AlertManagerDefinitionDescription": {
+      "type": "structure",
+      "members": {
+        "status": {
+          "target": "com.amazonaws.amp#AlertManagerDefinitionStatus",
+          "traits": {
+            "smithy.api#documentation": "The status of alert manager definition.",
+            "smithy.api#required": {}
+          }
+        },
+        "data": {
+          "target": "com.amazonaws.amp#AlertManagerDefinitionData",
+          "traits": {
+            "smithy.api#documentation": "The alert manager definition.",
+            "smithy.api#required": {}
+          }
+        },
+        "createdAt": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "The time when the alert manager definition was created.",
+            "smithy.api#required": {}
+          }
+        },
+        "modifiedAt": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "The time when the alert manager definition was modified.",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the properties of an alert manager definition."
+      }
+    },
+    "com.amazonaws.amp#AlertManagerDefinitionStatus": {
+      "type": "structure",
+      "members": {
+        "statusCode": {
+          "target": "com.amazonaws.amp#AlertManagerDefinitionStatusCode",
+          "traits": {
+            "smithy.api#documentation": "Status code of this definition.",
+            "smithy.api#required": {}
+          }
+        },
+        "statusReason": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The reason for failure if any."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the status of a definition."
+      }
+    },
+    "com.amazonaws.amp#AlertManagerDefinitionStatusCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "State of an alert manager definition.",
+        "smithy.api#enum": [
+          {
+            "value": "CREATING",
+            "name": "CREATING",
+            "documentation": "Definition is being created. Update/Deletion is disallowed until definition is ACTIVE and workspace status is ACTIVE."
+          },
+          {
+            "value": "ACTIVE",
+            "name": "ACTIVE",
+            "documentation": "Definition has been created/updated. Update/Deletion is disallowed until definition is ACTIVE and workspace status is ACTIVE."
+          },
+          {
+            "value": "UPDATING",
+            "name": "UPDATING",
+            "documentation": "Definition is being updated. Update/Deletion is disallowed until definition is ACTIVE and workspace status is ACTIVE."
+          },
+          {
+            "value": "DELETING",
+            "name": "DELETING",
+            "documentation": "Definition is being deleting. Update/Deletion is disallowed until definition is ACTIVE and workspace status is ACTIVE."
+          },
+          {
+            "value": "CREATION_FAILED",
+            "name": "CREATION_FAILED",
+            "documentation": "Definition creation failed."
+          },
+          {
+            "value": "UPDATE_FAILED",
+            "name": "UPDATE_FAILED",
+            "documentation": "Definition update failed."
+          }
+        ]
+      }
+    },
+    "com.amazonaws.amp#AmazonPrometheusService": {
+      "type": "service",
+      "version": "2020-08-01",
+      "operations": [
+        {
+          "target": "com.amazonaws.amp#ListTagsForResource"
+        },
+        {
+          "target": "com.amazonaws.amp#TagResource"
+        },
+        {
+          "target": "com.amazonaws.amp#UntagResource"
+        }
+      ],
+      "resources": [
+        {
+          "target": "com.amazonaws.amp#Workspace"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "amp",
+          "arnNamespace": "aps",
+          "cloudFormationName": "AmazonPrometheusService",
+          "cloudTrailEventSource": "CLOUDTRAIL_PLACEHOLDER_REPLACED_BY_CDK",
+          "endpointPrefix": "aps"
+        },
+        "aws.auth#sigv4": {
+          "name": "aps"
+        },
+        "aws.protocols#restJson1": {},
+        "smithy.api#cors": {
+          "additionalAllowedHeaders": [
+            "Authorization",
+            "x-amz-content-sha256",
+            "X-Amz-Date",
+            "x-amzn-trace-id",
+            "X-Amz-Security-Token",
+            "x-amz-user-agent",
+            "*",
+            "content-type",
+            "x-amzn-platform-id",
+            "X-Amz-Target",
+            "Date"
+          ],
+          "additionalExposedHeaders": [
+            "date",
+            "x-amz-apigw-id",
+            "x-amzn-trace-id",
+            "x-amzn-errortype",
+            "x-amzn-requestid",
+            "x-amzn-errormessage"
+          ]
+        },
+        "smithy.api#documentation": "Amazon Managed Service for Prometheus",
+        "smithy.api#title": "Amazon Prometheus Service"
+      }
+    },
+    "com.amazonaws.amp#ConflictException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Description of the error.",
+            "smithy.api#required": {}
+          }
+        },
+        "resourceId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Identifier of the resource affected.",
+            "smithy.api#required": {}
+          }
+        },
+        "resourceType": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Type of the resource affected.",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Updating or deleting a resource can cause an inconsistent state.",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
+      }
+    },
+    "com.amazonaws.amp#CreateAlertManagerDefinition": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.amp#CreateAlertManagerDefinitionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.amp#CreateAlertManagerDefinitionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.amp#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.amp#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.amp#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.amp#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.amp#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.amp#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.amp#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Create an alert manager definition.",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/workspaces/{workspaceId}/alertmanager/definition",
+          "code": 202
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.amp#CreateAlertManagerDefinitionRequest": {
+      "type": "structure",
+      "members": {
+        "workspaceId": {
+          "target": "com.amazonaws.amp#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "The ID of the workspace in which to create the alert manager definition.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "data": {
+          "target": "com.amazonaws.amp#AlertManagerDefinitionData",
+          "traits": {
+            "smithy.api#documentation": "The alert manager definition data.",
+            "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.amp#IdempotencyToken",
+          "traits": {
+            "smithy.api#documentation": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.",
+            "smithy.api#idempotencyToken": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the input of a CreateAlertManagerDefinition operation."
+      }
+    },
+    "com.amazonaws.amp#CreateAlertManagerDefinitionResponse": {
+      "type": "structure",
+      "members": {
+        "status": {
+          "target": "com.amazonaws.amp#AlertManagerDefinitionStatus",
+          "traits": {
+            "smithy.api#documentation": "The status of alert manager definition.",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the output of a CreateAlertManagerDefinition operation."
+      }
+    },
+    "com.amazonaws.amp#CreateRuleGroupsNamespace": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.amp#CreateRuleGroupsNamespaceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.amp#CreateRuleGroupsNamespaceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.amp#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.amp#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.amp#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.amp#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.amp#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.amp#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.amp#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Create a rule group namespace.",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/workspaces/{workspaceId}/rulegroupsnamespaces",
+          "code": 202
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.amp#CreateRuleGroupsNamespaceRequest": {
+      "type": "structure",
+      "members": {
+        "workspaceId": {
+          "target": "com.amazonaws.amp#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "The ID of the workspace in which to create the rule group namespace.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceName",
+          "traits": {
+            "smithy.api#documentation": "The rule groups namespace name.",
+            "smithy.api#required": {}
+          }
+        },
+        "data": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceData",
+          "traits": {
+            "smithy.api#documentation": "The namespace data that define the rule groups.",
+            "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.amp#IdempotencyToken",
+          "traits": {
+            "smithy.api#documentation": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.",
+            "smithy.api#idempotencyToken": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.amp#TagMap",
+          "traits": {
+            "smithy.api#documentation": "Optional, user-provided tags for this rule groups namespace."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the input of a CreateRuleGroupsNamespace operation."
+      }
+    },
+    "com.amazonaws.amp#CreateRuleGroupsNamespaceResponse": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceName",
+          "traits": {
+            "smithy.api#documentation": "The rule groups namespace name.",
+            "smithy.api#required": {}
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceArn",
+          "traits": {
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) of this rule groups namespace.",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceStatus",
+          "traits": {
+            "smithy.api#documentation": "The status of rule groups namespace.",
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.amp#TagMap",
+          "traits": {
+            "smithy.api#documentation": "The tags of this rule groups namespace."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the output of a CreateRuleGroupsNamespace operation."
+      }
+    },
+    "com.amazonaws.amp#CreateWorkspace": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.amp#CreateWorkspaceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.amp#CreateWorkspaceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.amp#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.amp#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.amp#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.amp#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.amp#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.amp#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Creates a new AMP workspace.",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/workspaces",
+          "code": 202
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.amp#CreateWorkspaceRequest": {
+      "type": "structure",
+      "members": {
+        "alias": {
+          "target": "com.amazonaws.amp#WorkspaceAlias",
+          "traits": {
+            "smithy.api#documentation": "An optional user-assigned alias for this workspace. This alias is for user reference and does not need to be unique."
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.amp#IdempotencyToken",
+          "traits": {
+            "smithy.api#documentation": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.",
+            "smithy.api#idempotencyToken": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.amp#TagMap",
+          "traits": {
+            "smithy.api#documentation": "Optional, user-provided tags for this workspace."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the input of a CreateWorkspace operation."
+      }
+    },
+    "com.amazonaws.amp#CreateWorkspaceResponse": {
+      "type": "structure",
+      "members": {
+        "workspaceId": {
+          "target": "com.amazonaws.amp#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "The generated ID of the workspace that was just created.",
+            "smithy.api#required": {}
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.amp#WorkspaceArn",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the workspace that was just created.",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.amp#WorkspaceStatus",
+          "traits": {
+            "smithy.api#documentation": "The status of the workspace that was just created (usually CREATING).",
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.amp#TagMap",
+          "traits": {
+            "smithy.api#documentation": "The tags of this workspace."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the output of a CreateWorkspace operation."
+      }
+    },
+    "com.amazonaws.amp#DeleteAlertManagerDefinition": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.amp#DeleteAlertManagerDefinitionRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.amp#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.amp#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.amp#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.amp#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.amp#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.amp#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Deletes an alert manager definition.",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/workspaces/{workspaceId}/alertmanager/definition",
+          "code": 202
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.amp#DeleteAlertManagerDefinitionRequest": {
+      "type": "structure",
+      "members": {
+        "workspaceId": {
+          "target": "com.amazonaws.amp#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "The ID of the workspace in which to delete the alert manager definition.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.amp#IdempotencyToken",
+          "traits": {
+            "smithy.api#documentation": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.",
+            "smithy.api#httpQuery": "clientToken",
+            "smithy.api#idempotencyToken": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the input of a DeleteAlertManagerDefinition operation."
+      }
+    },
+    "com.amazonaws.amp#DeleteRuleGroupsNamespace": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.amp#DeleteRuleGroupsNamespaceRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.amp#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.amp#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.amp#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.amp#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.amp#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.amp#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Delete a rule groups namespace.",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/workspaces/{workspaceId}/rulegroupsnamespaces/{name}",
+          "code": 202
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.amp#DeleteRuleGroupsNamespaceRequest": {
+      "type": "structure",
+      "members": {
+        "workspaceId": {
+          "target": "com.amazonaws.amp#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "The ID of the workspace to delete rule group definition.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceName",
+          "traits": {
+            "smithy.api#documentation": "The rule groups namespace name.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.amp#IdempotencyToken",
+          "traits": {
+            "smithy.api#documentation": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.",
+            "smithy.api#httpQuery": "clientToken",
+            "smithy.api#idempotencyToken": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the input of a DeleteRuleGroupsNamespace operation."
+      }
+    },
+    "com.amazonaws.amp#DeleteWorkspace": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.amp#DeleteWorkspaceRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.amp#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.amp#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.amp#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.amp#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.amp#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.amp#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Deletes an AMP workspace.",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/workspaces/{workspaceId}",
+          "code": 202
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.amp#DeleteWorkspaceRequest": {
+      "type": "structure",
+      "members": {
+        "workspaceId": {
+          "target": "com.amazonaws.amp#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "The ID of the workspace to delete.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.amp#IdempotencyToken",
+          "traits": {
+            "smithy.api#documentation": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.",
+            "smithy.api#httpQuery": "clientToken",
+            "smithy.api#idempotencyToken": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the input of a DeleteWorkspace operation."
+      }
+    },
+    "com.amazonaws.amp#DescribeAlertManagerDefinition": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.amp#DescribeAlertManagerDefinitionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.amp#DescribeAlertManagerDefinitionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.amp#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.amp#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.amp#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.amp#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.amp#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Describes an alert manager definition.",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/workspaces/{workspaceId}/alertmanager/definition",
+          "code": 200
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.amp#DescribeAlertManagerDefinitionRequest": {
+      "type": "structure",
+      "members": {
+        "workspaceId": {
+          "target": "com.amazonaws.amp#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "The ID of the workspace to describe.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the input of a DescribeAlertManagerDefinition operation."
+      }
+    },
+    "com.amazonaws.amp#DescribeAlertManagerDefinitionResponse": {
+      "type": "structure",
+      "members": {
+        "alertManagerDefinition": {
+          "target": "com.amazonaws.amp#AlertManagerDefinitionDescription",
+          "traits": {
+            "smithy.api#documentation": "The properties of the selected workspace's alert manager definition.",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the output of a DescribeAlertManagerDefinition operation."
+      }
+    },
+    "com.amazonaws.amp#DescribeRuleGroupsNamespace": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.amp#DescribeRuleGroupsNamespaceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.amp#DescribeRuleGroupsNamespaceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.amp#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.amp#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.amp#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.amp#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.amp#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Describe a rule groups namespace.",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/workspaces/{workspaceId}/rulegroupsnamespaces/{name}",
+          "code": 200
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.amp#DescribeRuleGroupsNamespaceRequest": {
+      "type": "structure",
+      "members": {
+        "workspaceId": {
+          "target": "com.amazonaws.amp#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "The ID of the workspace to describe.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceName",
+          "traits": {
+            "smithy.api#documentation": "The rule groups namespace.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the input of a DescribeRuleGroupsNamespace operation."
+      }
+    },
+    "com.amazonaws.amp#DescribeRuleGroupsNamespaceResponse": {
+      "type": "structure",
+      "members": {
+        "ruleGroupsNamespace": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceDescription",
+          "traits": {
+            "smithy.api#documentation": "The selected rule groups namespace.",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the output of a DescribeRuleGroupsNamespace operation."
+      }
+    },
+    "com.amazonaws.amp#DescribeWorkspace": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.amp#DescribeWorkspaceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.amp#DescribeWorkspaceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.amp#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.amp#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.amp#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.amp#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.amp#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Describes an existing AMP workspace.",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/workspaces/{workspaceId}",
+          "code": 200
+        },
+        "smithy.api#readonly": {},
+        "smithy.waiters#waitable": {
+          "WorkspaceActive": {
+            "documentation": "Wait until a workspace reaches ACTIVE status",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "workspace.status.statusCode",
+                    "expected": "ACTIVE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "workspace.status.statusCode",
+                    "expected": "UPDATING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "workspace.status.statusCode",
+                    "expected": "CREATING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ]
+          },
+          "WorkspaceDeleted": {
+            "documentation": "Wait until a workspace reaches DELETED status",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "errorType": "ResourceNotFoundException"
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "workspace.status.statusCode",
+                    "expected": "DELETING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "com.amazonaws.amp#DescribeWorkspaceRequest": {
+      "type": "structure",
+      "members": {
+        "workspaceId": {
+          "target": "com.amazonaws.amp#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "The ID of the workspace to describe.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the input of a DescribeWorkspace operation."
+      }
+    },
+    "com.amazonaws.amp#DescribeWorkspaceResponse": {
+      "type": "structure",
+      "members": {
+        "workspace": {
+          "target": "com.amazonaws.amp#WorkspaceDescription",
+          "traits": {
+            "smithy.api#documentation": "The properties of the selected workspace.",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the output of a DescribeWorkspace operation."
+      }
+    },
+    "com.amazonaws.amp#IdempotencyToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "An identifier used to ensure the idempotency of a write request.",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "[!-~]+"
+      }
+    },
+    "com.amazonaws.amp#InternalServerException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Description of the error.",
+            "smithy.api#required": {}
+          }
+        },
+        "retryAfterSeconds": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Advice to clients on when the call can be safely retried.",
+            "smithy.api#httpHeader": "Retry-After"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Unexpected error during processing of request.",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500,
+        "smithy.api#retryable": {}
+      }
+    },
+    "com.amazonaws.amp#ListRuleGroupsNamespaces": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.amp#ListRuleGroupsNamespacesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.amp#ListRuleGroupsNamespacesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.amp#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.amp#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.amp#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.amp#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.amp#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Lists rule groups namespaces.",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/workspaces/{workspaceId}/rulegroupsnamespaces",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "items": "ruleGroupsNamespaces",
+          "pageSize": "maxResults"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.amp#ListRuleGroupsNamespacesRequest": {
+      "type": "structure",
+      "members": {
+        "workspaceId": {
+          "target": "com.amazonaws.amp#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "The ID of the workspace.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceName",
+          "traits": {
+            "smithy.api#documentation": "Optional filter for rule groups namespace name. Only the rule groups namespace that begin with this value will be returned.",
+            "smithy.api#httpQuery": "name"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.amp#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "Pagination token to request the next page in a paginated list. This token is obtained from the output of the previous ListRuleGroupsNamespaces request.",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "maxResults": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Maximum results to return in response (default=100, maximum=1000).",
+            "smithy.api#httpQuery": "maxResults",
+            "smithy.api#range": {
+              "min": 1,
+              "max": 1000
+            }
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the input of a ListRuleGroupsNamespaces operation."
+      }
+    },
+    "com.amazonaws.amp#ListRuleGroupsNamespacesResponse": {
+      "type": "structure",
+      "members": {
+        "ruleGroupsNamespaces": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceSummaryList",
+          "traits": {
+            "smithy.api#documentation": "The list of the selected rule groups namespaces.",
+            "smithy.api#required": {}
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.amp#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "Pagination token to use when requesting the next page in this list."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the output of a ListRuleGroupsNamespaces operation."
+      }
+    },
+    "com.amazonaws.amp#ListTagsForResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.amp#ListTagsForResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.amp#ListTagsForResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.amp#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.amp#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.amp#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.amp#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.amp#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Lists the tags you have assigned to the resource.",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/tags/{resourceArn}",
+          "code": 200
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.amp#ListTagsForResourceRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the resource.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.amp#ListTagsForResourceResponse": {
+      "type": "structure",
+      "members": {
+        "tags": {
+          "target": "com.amazonaws.amp#TagMap"
+        }
+      }
+    },
+    "com.amazonaws.amp#ListWorkspaces": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.amp#ListWorkspacesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.amp#ListWorkspacesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.amp#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.amp#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.amp#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.amp#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Lists all AMP workspaces, including workspaces being created or deleted.",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/workspaces",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "items": "workspaces",
+          "pageSize": "maxResults"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.amp#ListWorkspacesRequest": {
+      "type": "structure",
+      "members": {
+        "nextToken": {
+          "target": "com.amazonaws.amp#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "Pagination token to request the next page in a paginated list. This token is obtained from the output of the previous ListWorkspaces request.",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "alias": {
+          "target": "com.amazonaws.amp#WorkspaceAlias",
+          "traits": {
+            "smithy.api#documentation": "Optional filter for workspace alias. Only the workspaces with aliases that begin with this value will be returned.",
+            "smithy.api#httpQuery": "alias"
+          }
+        },
+        "maxResults": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Maximum results to return in response (default=100, maximum=1000).",
+            "smithy.api#httpQuery": "maxResults",
+            "smithy.api#range": {
+              "min": 1,
+              "max": 1000
+            }
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the input of a ListWorkspaces operation."
+      }
+    },
+    "com.amazonaws.amp#ListWorkspacesResponse": {
+      "type": "structure",
+      "members": {
+        "workspaces": {
+          "target": "com.amazonaws.amp#WorkspaceSummaryList",
+          "traits": {
+            "smithy.api#documentation": "The list of existing workspaces, including those undergoing creation or deletion.",
+            "smithy.api#required": {}
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.amp#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "Pagination token to use when requesting the next page in this list."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the output of a ListWorkspaces operation."
+      }
+    },
+    "com.amazonaws.amp#PaginationToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "A token used to access the next page in a paginated result set."
+      }
+    },
+    "com.amazonaws.amp#PutAlertManagerDefinition": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.amp#PutAlertManagerDefinitionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.amp#PutAlertManagerDefinitionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.amp#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.amp#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.amp#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.amp#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.amp#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.amp#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.amp#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Update an alert manager definition.",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/workspaces/{workspaceId}/alertmanager/definition",
+          "code": 202
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.amp#PutAlertManagerDefinitionRequest": {
+      "type": "structure",
+      "members": {
+        "workspaceId": {
+          "target": "com.amazonaws.amp#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "The ID of the workspace in which to update the alert manager definition.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "data": {
+          "target": "com.amazonaws.amp#AlertManagerDefinitionData",
+          "traits": {
+            "smithy.api#documentation": "The alert manager definition data.",
+            "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.amp#IdempotencyToken",
+          "traits": {
+            "smithy.api#documentation": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.",
+            "smithy.api#idempotencyToken": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the input of a PutAlertManagerDefinition operation."
+      }
+    },
+    "com.amazonaws.amp#PutAlertManagerDefinitionResponse": {
+      "type": "structure",
+      "members": {
+        "status": {
+          "target": "com.amazonaws.amp#AlertManagerDefinitionStatus",
+          "traits": {
+            "smithy.api#documentation": "The status of alert manager definition.",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the output of a PutAlertManagerDefinition operation."
+      }
+    },
+    "com.amazonaws.amp#PutRuleGroupsNamespace": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.amp#PutRuleGroupsNamespaceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.amp#PutRuleGroupsNamespaceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.amp#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.amp#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.amp#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.amp#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.amp#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.amp#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.amp#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Update a rule groups namespace.",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/workspaces/{workspaceId}/rulegroupsnamespaces/{name}",
+          "code": 202
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.amp#PutRuleGroupsNamespaceRequest": {
+      "type": "structure",
+      "members": {
+        "workspaceId": {
+          "target": "com.amazonaws.amp#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "The ID of the workspace in which to update the rule group namespace.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceName",
+          "traits": {
+            "smithy.api#documentation": "The rule groups namespace name.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "data": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceData",
+          "traits": {
+            "smithy.api#documentation": "The namespace data that define the rule groups.",
+            "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.amp#IdempotencyToken",
+          "traits": {
+            "smithy.api#documentation": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.",
+            "smithy.api#idempotencyToken": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the input of a PutRuleGroupsNamespace operation."
+      }
+    },
+    "com.amazonaws.amp#PutRuleGroupsNamespaceResponse": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceName",
+          "traits": {
+            "smithy.api#documentation": "The rule groups namespace name.",
+            "smithy.api#required": {}
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceArn",
+          "traits": {
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) of this rule groups namespace.",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceStatus",
+          "traits": {
+            "smithy.api#documentation": "The status of rule groups namespace.",
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.amp#TagMap",
+          "traits": {
+            "smithy.api#documentation": "The tags of this rule groups namespace."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the output of a PutRuleGroupsNamespace operation."
+      }
+    },
+    "com.amazonaws.amp#ResourceNotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Description of the error.",
+            "smithy.api#required": {}
+          }
+        },
+        "resourceId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Identifier of the resource affected.",
+            "smithy.api#required": {}
+          }
+        },
+        "resourceType": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Type of the resource affected.",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Request references a resource which does not exist.",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.amp#RuleGroupsNamespace": {
+      "type": "resource",
+      "identifiers": {
+        "workspaceId": {
+          "target": "com.amazonaws.amp#WorkspaceId"
+        },
+        "name": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceName"
+        }
+      },
+      "put": {
+        "target": "com.amazonaws.amp#CreateRuleGroupsNamespace"
+      },
+      "read": {
+        "target": "com.amazonaws.amp#DescribeRuleGroupsNamespace"
+      },
+      "update": {
+        "target": "com.amazonaws.amp#PutRuleGroupsNamespace"
+      },
+      "delete": {
+        "target": "com.amazonaws.amp#DeleteRuleGroupsNamespace"
+      },
+      "list": {
+        "target": "com.amazonaws.amp#ListRuleGroupsNamespaces"
+      },
+      "traits": {
+        "aws.api#arn": {
+          "template": "rulegroupsnamespace/{workspaceId}/{name}",
+          "absolute": false,
+          "noAccount": false,
+          "noRegion": false
+        },
+        "smithy.api#documentation": "The definition of a rule group namespace in an AMP workspace"
+      }
+    },
+    "com.amazonaws.amp#RuleGroupsNamespaceArn": {
+      "type": "string",
+      "traits": {
+        "aws.api#arnReference": {
+          "type": "AWS::APS::RuleGroupsNamespace",
+          "service": "com.amazonaws.services.awsprometheus.serviceapi#ManagedPrometheusCP",
+          "resource": "com.amazonaws.amp#RuleGroupsNamespace"
+        },
+        "smithy.api#documentation": "An ARN identifying a rule groups namespace."
+      }
+    },
+    "com.amazonaws.amp#RuleGroupsNamespaceData": {
+      "type": "blob",
+      "traits": {
+        "smithy.api#documentation": "The rule groups namespace data."
+      }
+    },
+    "com.amazonaws.amp#RuleGroupsNamespaceDescription": {
+      "type": "structure",
+      "members": {
+        "arn": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceArn",
+          "traits": {
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) of this rule groups namespace.",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceName",
+          "traits": {
+            "smithy.api#documentation": "The rule groups namespace name.",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceStatus",
+          "traits": {
+            "smithy.api#documentation": "The status of rule groups namespace.",
+            "smithy.api#required": {}
+          }
+        },
+        "data": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceData",
+          "traits": {
+            "smithy.api#documentation": "The rule groups namespace data.",
+            "smithy.api#required": {}
+          }
+        },
+        "createdAt": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "The time when the rule groups namespace was created.",
+            "smithy.api#required": {}
+          }
+        },
+        "modifiedAt": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "The time when the rule groups namespace was modified.",
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.amp#TagMap",
+          "traits": {
+            "smithy.api#documentation": "The tags of this rule groups namespace."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents a description of the rule groups namespace."
+      }
+    },
+    "com.amazonaws.amp#RuleGroupsNamespaceName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "The namespace name that the rule group belong to.",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "[0-9A-Za-z][-.0-9A-Z_a-z]*"
+      }
+    },
+    "com.amazonaws.amp#RuleGroupsNamespaceStatus": {
+      "type": "structure",
+      "members": {
+        "statusCode": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceStatusCode",
+          "traits": {
+            "smithy.api#documentation": "Status code of this namespace.",
+            "smithy.api#required": {}
+          }
+        },
+        "statusReason": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The reason for failure if any."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the status of a namespace."
+      }
+    },
+    "com.amazonaws.amp#RuleGroupsNamespaceStatusCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "State of a namespace.",
+        "smithy.api#enum": [
+          {
+            "value": "CREATING",
+            "name": "CREATING",
+            "documentation": "Namespace is being created. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE."
+          },
+          {
+            "value": "ACTIVE",
+            "name": "ACTIVE",
+            "documentation": "Namespace has been created/updated. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE."
+          },
+          {
+            "value": "UPDATING",
+            "name": "UPDATING",
+            "documentation": "Namespace is being updated. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE."
+          },
+          {
+            "value": "DELETING",
+            "name": "DELETING",
+            "documentation": "Namespace is being deleting. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE."
+          },
+          {
+            "value": "CREATION_FAILED",
+            "name": "CREATION_FAILED",
+            "documentation": "Namespace creation failed."
+          },
+          {
+            "value": "UPDATE_FAILED",
+            "name": "UPDATE_FAILED",
+            "documentation": "Namespace update failed."
+          }
+        ]
+      }
+    },
+    "com.amazonaws.amp#RuleGroupsNamespaceSummary": {
+      "type": "structure",
+      "members": {
+        "arn": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceArn",
+          "traits": {
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) of this rule groups namespace.",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceName",
+          "traits": {
+            "smithy.api#documentation": "The rule groups namespace name.",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.amp#RuleGroupsNamespaceStatus",
+          "traits": {
+            "smithy.api#documentation": "The status of rule groups namespace.",
+            "smithy.api#required": {}
+          }
+        },
+        "createdAt": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "The time when the rule groups namespace was created.",
+            "smithy.api#required": {}
+          }
+        },
+        "modifiedAt": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "The time when the rule groups namespace was modified.",
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.amp#TagMap",
+          "traits": {
+            "smithy.api#documentation": "The tags of this rule groups namespace."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents a summary of the rule groups namespace."
+      }
+    },
+    "com.amazonaws.amp#RuleGroupsNamespaceSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.amp#RuleGroupsNamespaceSummary"
+      },
+      "traits": {
+        "smithy.api#documentation": "A list of rule groups namespace summary."
+      }
+    },
+    "com.amazonaws.amp#ServiceQuotaExceededException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Description of the error.",
+            "smithy.api#required": {}
+          }
+        },
+        "resourceId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Identifier of the resource affected.",
+            "smithy.api#required": {}
+          }
+        },
+        "resourceType": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Type of the resource affected.",
+            "smithy.api#required": {}
+          }
+        },
+        "serviceCode": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Service Quotas requirement to identify originating service.",
+            "smithy.api#required": {}
+          }
+        },
+        "quotaCode": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Service Quotas requirement to identify originating quota.",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Request would cause a service quota to be exceeded.",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 402
+      }
+    },
+    "com.amazonaws.amp#TagKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
+      }
+    },
+    "com.amazonaws.amp#TagKeys": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.amp#TagKey"
+      }
+    },
+    "com.amazonaws.amp#TagMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.amp#TagKey",
+        "traits": {
+          "smithy.api#documentation": "The key of the tag.\n\nConstraints: Tag keys are case-sensitive and accept a maximum of 128 Unicode characters.\nValid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @\nMay not begin with `aws:`.\n"
+        }
+      },
+      "value": {
+        "target": "com.amazonaws.amp#TagValue",
+        "traits": {
+          "smithy.api#documentation": "The value of the tag.\n\nConstraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.\nValid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @\n"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "The list of tags assigned to the resource.",
+        "smithy.api#length": {
+          "max": 50
+        }
+      }
+    },
+    "com.amazonaws.amp#TagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.amp#TagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.amp#TagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.amp#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.amp#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.amp#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.amp#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.amp#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Creates tags for the specified resource.",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/tags/{resourceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.amp#TagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the resource.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.amp#TagMap",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.amp#TagResourceResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.amp#TagValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
+      }
+    },
+    "com.amazonaws.amp#ThrottlingException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Description of the error.",
+            "smithy.api#required": {}
+          }
+        },
+        "serviceCode": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Service Quotas requirement to identify originating service."
+          }
+        },
+        "quotaCode": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Service Quotas requirement to identify originating quota."
+          }
+        },
+        "retryAfterSeconds": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Advice to clients on when the call can be safely retried.",
+            "smithy.api#httpHeader": "Retry-After"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Request was denied due to request throttling.",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429,
+        "smithy.api#retryable": {}
+      }
+    },
+    "com.amazonaws.amp#UntagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.amp#UntagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.amp#UntagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.amp#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.amp#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.amp#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.amp#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.amp#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Deletes tags from the specified resource.",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/tags/{resourceArn}",
+          "code": 200
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.amp#UntagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The ARN of the resource.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "tagKeys": {
+          "target": "com.amazonaws.amp#TagKeys",
+          "traits": {
+            "smithy.api#documentation": "One or more tag keys",
+            "smithy.api#httpQuery": "tagKeys",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.amp#UntagResourceResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.amp#UpdateWorkspaceAlias": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.amp#UpdateWorkspaceAliasRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.amp#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.amp#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.amp#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.amp#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.amp#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.amp#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.amp#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Updates an AMP workspace alias.",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/workspaces/{workspaceId}/alias",
+          "code": 204
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.amp#UpdateWorkspaceAliasRequest": {
+      "type": "structure",
+      "members": {
+        "workspaceId": {
+          "target": "com.amazonaws.amp#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "The ID of the workspace being updated.",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "alias": {
+          "target": "com.amazonaws.amp#WorkspaceAlias",
+          "traits": {
+            "smithy.api#documentation": "The new alias of the workspace."
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.amp#IdempotencyToken",
+          "traits": {
+            "smithy.api#documentation": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.",
+            "smithy.api#idempotencyToken": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the input of an UpdateWorkspaceAlias operation."
+      }
+    },
+    "com.amazonaws.amp#Uri": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
+        }
+      }
+    },
+    "com.amazonaws.amp#ValidationException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Description of the error.",
+            "smithy.api#required": {}
+          }
+        },
+        "reason": {
+          "target": "com.amazonaws.amp#ValidationExceptionReason",
+          "traits": {
+            "smithy.api#documentation": "Reason the request failed validation.",
+            "smithy.api#required": {}
+          }
+        },
+        "fieldList": {
+          "target": "com.amazonaws.amp#ValidationExceptionFieldList",
+          "traits": {
+            "smithy.api#documentation": "The field that caused the error, if applicable. If more than one field caused the error, pick one and elaborate in the message."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "The input fails to satisfy the constraints specified by an AWS service.",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.amp#ValidationExceptionField": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The field name.",
+            "smithy.api#required": {}
+          }
+        },
+        "message": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Message describing why the field failed validation.",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Stores information about a field passed inside a request that resulted in an exception."
+      }
+    },
+    "com.amazonaws.amp#ValidationExceptionFieldList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.amp#ValidationExceptionField"
+      },
+      "traits": {
+        "smithy.api#documentation": "A list of fields."
+      }
+    },
+    "com.amazonaws.amp#ValidationExceptionReason": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "Possible reasons a request failed validation.",
+        "smithy.api#enum": [
+          {
+            "value": "UNKNOWN_OPERATION",
+            "name": "UNKNOWN_OPERATION"
+          },
+          {
+            "value": "CANNOT_PARSE",
+            "name": "CANNOT_PARSE"
+          },
+          {
+            "value": "FIELD_VALIDATION_FAILED",
+            "name": "FIELD_VALIDATION_FAILED"
+          },
+          {
+            "value": "OTHER",
+            "name": "OTHER"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.amp#Workspace": {
+      "type": "resource",
+      "identifiers": {
+        "workspaceId": {
+          "target": "com.amazonaws.amp#WorkspaceId"
+        }
+      },
+      "create": {
+        "target": "com.amazonaws.amp#CreateWorkspace"
+      },
+      "read": {
+        "target": "com.amazonaws.amp#DescribeWorkspace"
+      },
+      "update": {
+        "target": "com.amazonaws.amp#UpdateWorkspaceAlias"
+      },
+      "delete": {
+        "target": "com.amazonaws.amp#DeleteWorkspace"
+      },
+      "list": {
+        "target": "com.amazonaws.amp#ListWorkspaces"
+      },
+      "resources": [
+        {
+          "target": "com.amazonaws.amp#AlertManagerDefinition"
+        },
+        {
+          "target": "com.amazonaws.amp#RuleGroupsNamespace"
+        }
+      ],
+      "traits": {
+        "aws.api#arn": {
+          "template": "workspace/{workspaceId}",
+          "absolute": false,
+          "noAccount": false,
+          "noRegion": false
+        },
+        "smithy.api#documentation": "An AMP workspace is a logical and isolated Prometheus server dedicated to Prometheus resources such as metrics, where you ingest, store, and query your Prometheus metrics."
+      }
+    },
+    "com.amazonaws.amp#WorkspaceAlias": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "A user-assigned workspace alias.",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.amp#WorkspaceArn": {
+      "type": "string",
+      "traits": {
+        "aws.api#arnReference": {
+          "type": "AWS::APS::Workspace",
+          "service": "com.amazonaws.services.awsprometheus.serviceapi#ManagedPrometheusCP",
+          "resource": "com.amazonaws.amp#Workspace"
+        },
+        "smithy.api#documentation": "An ARN identifying a Workspace."
+      }
+    },
+    "com.amazonaws.amp#WorkspaceDescription": {
+      "type": "structure",
+      "members": {
+        "workspaceId": {
+          "target": "com.amazonaws.amp#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "Unique string identifying this workspace.",
+            "smithy.api#required": {}
+          }
+        },
+        "alias": {
+          "target": "com.amazonaws.amp#WorkspaceAlias",
+          "traits": {
+            "smithy.api#documentation": "Alias of this workspace."
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.amp#WorkspaceArn",
+          "traits": {
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) of this workspace.",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.amp#WorkspaceStatus",
+          "traits": {
+            "smithy.api#documentation": "The status of this workspace.",
+            "smithy.api#required": {}
+          }
+        },
+        "prometheusEndpoint": {
+          "target": "com.amazonaws.amp#Uri",
+          "traits": {
+            "smithy.api#documentation": "Prometheus endpoint URI."
+          }
+        },
+        "createdAt": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "The time when the workspace was created.",
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.amp#TagMap",
+          "traits": {
+            "smithy.api#documentation": "The tags of this workspace."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the properties of a workspace.",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.amp#Workspace"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.amp#WorkspaceId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "A workspace ID.",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "[0-9A-Za-z][-.0-9A-Z_a-z]*"
+      }
+    },
+    "com.amazonaws.amp#WorkspaceStatus": {
+      "type": "structure",
+      "members": {
+        "statusCode": {
+          "target": "com.amazonaws.amp#WorkspaceStatusCode",
+          "traits": {
+            "smithy.api#documentation": "Status code of this workspace.",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents the status of a workspace."
+      }
+    },
+    "com.amazonaws.amp#WorkspaceStatusCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "State of a workspace.",
+        "smithy.api#enum": [
+          {
+            "value": "CREATING",
+            "name": "CREATING",
+            "documentation": "Workspace is being created. Deletion is disallowed until status is ACTIVE."
+          },
+          {
+            "value": "ACTIVE",
+            "name": "ACTIVE",
+            "documentation": "Workspace has been created and is usable."
+          },
+          {
+            "value": "UPDATING",
+            "name": "UPDATING",
+            "documentation": "Workspace is being updated. Updates are allowed only when status is ACTIVE."
+          },
+          {
+            "value": "DELETING",
+            "name": "DELETING",
+            "documentation": "Workspace is being deleted. Deletions are allowed only when status is ACTIVE."
+          },
+          {
+            "value": "CREATION_FAILED",
+            "name": "CREATION_FAILED",
+            "documentation": "Workspace creation failed. Refer to WorkspaceStatus.failureReason for more details."
+          }
+        ]
+      }
+    },
+    "com.amazonaws.amp#WorkspaceSummary": {
+      "type": "structure",
+      "members": {
+        "workspaceId": {
+          "target": "com.amazonaws.amp#WorkspaceId",
+          "traits": {
+            "smithy.api#documentation": "Unique string identifying this workspace.",
+            "smithy.api#required": {}
+          }
+        },
+        "alias": {
+          "target": "com.amazonaws.amp#WorkspaceAlias",
+          "traits": {
+            "smithy.api#documentation": "Alias of this workspace."
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.amp#WorkspaceArn",
+          "traits": {
+            "smithy.api#documentation": "The AmazonResourceName of this workspace.",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.amp#WorkspaceStatus",
+          "traits": {
+            "smithy.api#documentation": "The status of this workspace.",
+            "smithy.api#required": {}
+          }
+        },
+        "createdAt": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "The time when the workspace was created.",
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.amp#TagMap",
+          "traits": {
+            "smithy.api#documentation": "The tags of this workspace."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents a summary of the properties of a workspace.",
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.amp#Workspace"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.amp#WorkspaceSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.amp#WorkspaceSummary"
+      },
+      "traits": {
+        "smithy.api#documentation": "A list of workspace summaries."
+      }
+    }
+  }
+}

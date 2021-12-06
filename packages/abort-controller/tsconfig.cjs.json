@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
-    "stripInternal": true,
-    "declarationDir": "./dist/types",
-    "rootDir": "./src",
-    "outDir": "./dist/cjs",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "outDir": "dist-cjs",
+    "rootDir": "src",
+    "stripInternal": true
   },
   "extends": "../../tsconfig.cjs.json",
   "include": ["src/"]

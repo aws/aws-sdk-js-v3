@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AmpClient` and
-the commands you need, for example `CreateWorkspaceCommand`:
+the commands you need, for example `CreateAlertManagerDefinitionCommand`:
 
 ```js
 // ES5 example
-const { AmpClient, CreateWorkspaceCommand } = require("@aws-sdk/client-amp");
+const { AmpClient, CreateAlertManagerDefinitionCommand } = require("@aws-sdk/client-amp");
 ```
 
 ```ts
 // ES6+ example
-import { AmpClient, CreateWorkspaceCommand } from "@aws-sdk/client-amp";
+import { AmpClient, CreateAlertManagerDefinitionCommand } from "@aws-sdk/client-amp";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new AmpClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateWorkspaceCommand(params);
+const command = new CreateAlertManagerDefinitionCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.Amp({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createWorkspace(params);
+  const data = await client.createAlertManagerDefinition(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .createWorkspace(params)
+  .createAlertManagerDefinition(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.createWorkspace(params, (err, data) => {
+client.createAlertManagerDefinition(params, (err, data) => {
   // proccess err and data.
 });
 ```

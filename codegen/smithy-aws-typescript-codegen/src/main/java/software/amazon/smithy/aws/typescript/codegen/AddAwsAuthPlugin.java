@@ -20,6 +20,7 @@ import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isSig
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_CONFIG;
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
 
+import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -37,6 +38,7 @@ import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.traits.OptionalAuthTrait;
+import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -179,7 +181,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
                                     AwsDependency.STS_CLIENT.packageName);
                         } else {
                             writer.addImport("decorateDefaultCredentialProvider", "decorateDefaultCredentialProvider",
-                                    "./" + STS_ROLE_ASSUMERS_FILE);
+                                Paths.get(".", CodegenUtils.SOURCE_FOLDER, STS_ROLE_ASSUMERS_FILE).toString());
                         }
                         writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
                         writer.addImport("defaultProvider", "credentialDefaultProvider",
@@ -206,19 +208,19 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         String noTouchNoticePrefix = "// Please do not touch this file. It's generated from template in:\n"
                 + "// https://github.com/aws/aws-sdk-js-v3/blob/main/codegen/smithy-aws-typescript-codegen/"
                 + "src/main/resources/software/amazon/smithy/aws/typescript/codegen/";
-        writerFactory.accept("defaultRoleAssumers.ts", writer -> {
+        writerFactory.accept(Paths.get(CodegenUtils.SOURCE_FOLDER, "defaultRoleAssumers.ts").toString(), writer -> {
             String resourceName = String.format("%s%s.ts", STS_CLIENT_PREFIX, ROLE_ASSUMERS_FILE);
             String source = IoUtils.readUtf8Resource(getClass(), resourceName);
             writer.write("$L$L", noTouchNoticePrefix, resourceName);
             writer.write("$L", source);
         });
-        writerFactory.accept("defaultStsRoleAssumers.ts", writer -> {
+        writerFactory.accept(Paths.get(CodegenUtils.SOURCE_FOLDER, "defaultStsRoleAssumers.ts").toString(), writer -> {
             String resourceName = String.format("%s%s.ts", STS_CLIENT_PREFIX, STS_ROLE_ASSUMERS_FILE);
             String source = IoUtils.readUtf8Resource(getClass(), resourceName);
             writer.write("$L$L", noTouchNoticePrefix, resourceName);
             writer.write("$L", source);
         });
-        writerFactory.accept("defaultRoleAssumers.spec.ts", writer -> {
+        writerFactory.accept("test/defaultRoleAssumers.spec.ts", writer -> {
             String resourceName = String.format("%s%s.ts", STS_CLIENT_PREFIX, ROLE_ASSUMERS_TEST_FILE);
             String source = IoUtils.readUtf8Resource(getClass(), resourceName);
             writer.write("$L$L", noTouchNoticePrefix, resourceName);
@@ -237,7 +239,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         if (!testServiceId(service, "STS")) {
             return;
         }
-        writer.write("export * from $S", "./" + ROLE_ASSUMERS_FILE);
+        writer.write("export * from $S", Paths.get(".", ROLE_ASSUMERS_FILE).toString());
     }
 
     private static boolean testServiceId(Shape serviceShape, String expectedId) {

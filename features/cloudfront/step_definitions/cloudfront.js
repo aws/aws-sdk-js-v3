@@ -1,4 +1,3 @@
-const { CloudFront } = require("../../../clients/client-cloudfront");
 const { Before, Given } = require("cucumber");
 
 const createParams = {
@@ -53,7 +52,9 @@ const createParams = {
 };
 
 Before({ tags: "@cloudfront" }, function (scenario, callback) {
+  const { CloudFront } = require("../../../clients/client-cloudfront");
   this.service = new CloudFront({});
+
   this.cfCreateParams = createParams;
   callback();
 });

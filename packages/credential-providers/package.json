@@ -1,29 +1,18 @@
 {
   "name": "@aws-sdk/credential-providers",
-  "version": "3.27.0",
+  "version": "3.43.0",
   "description": "A collection of credential providers, without requiring service clients like STS, Cognito",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/es/index.js",
-  "browser": {
-    "@aws-sdk/credential-provider-env": false,
-    "@aws-sdk/credential-provider-imds": false,
-    "./fromIni": false,
-    "@aws-sdk/credential-provider-process": false,
-    "./fromTokenFile": false
-  },
-  "react-native": {
-    "@aws-sdk/credential-provider-env": false,
-    "@aws-sdk/credential-provider-imds": false,
-    "./fromIni": false,
-    "@aws-sdk/credential-provider-process": false,
-    "./fromTokenFile": false
-  },
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "browser": "./dist-es/index.web.js",
+  "react-native": "./dist-es/index.web.js",
   "sideEffects": false,
   "scripts": {
+    "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
-    "build": "yarn build:es && yarn build:cjs",
-    "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
+    "build:types": "tsc -p tsconfig.types.json",
+    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
     "test": "jest"
   },
   "keywords": [
@@ -36,39 +25,42 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/client-cognito-identity": "3.27.0",
-    "@aws-sdk/client-sso": "3.27.0",
-    "@aws-sdk/client-sts": "3.27.0",
-    "@aws-sdk/credential-provider-cognito-identity": "3.27.0",
-    "@aws-sdk/credential-provider-env": "3.27.0",
-    "@aws-sdk/credential-provider-imds": "3.27.0",
-    "@aws-sdk/credential-provider-ini": "3.27.0",
-    "@aws-sdk/credential-provider-process": "3.27.0",
-    "@aws-sdk/credential-provider-sso": "3.27.0",
-    "@aws-sdk/credential-provider-web-identity": "3.27.0",
-    "@aws-sdk/property-provider": "3.27.0",
-    "@aws-sdk/shared-ini-file-loader": "3.23.0",
-    "@aws-sdk/types": "3.25.0",
-    "@aws-sdk/util-credentials": "3.23.0",
+    "@aws-sdk/client-cognito-identity": "3.43.0",
+    "@aws-sdk/client-sso": "3.41.0",
+    "@aws-sdk/client-sts": "3.43.0",
+    "@aws-sdk/credential-provider-cognito-identity": "3.43.0",
+    "@aws-sdk/credential-provider-env": "3.40.0",
+    "@aws-sdk/credential-provider-imds": "3.40.0",
+    "@aws-sdk/credential-provider-ini": "3.41.0",
+    "@aws-sdk/credential-provider-process": "3.40.0",
+    "@aws-sdk/credential-provider-sso": "3.41.0",
+    "@aws-sdk/credential-provider-web-identity": "3.41.0",
+    "@aws-sdk/property-provider": "3.40.0",
+    "@aws-sdk/shared-ini-file-loader": "3.37.0",
+    "@aws-sdk/types": "3.40.0",
+    "@aws-sdk/util-credentials": "3.37.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.4",
     "@types/node": "^10.0.0",
     "jest": "^26.1.0",
-    "typescript": "~4.3.2"
+    "typescript": "~4.3.5"
   },
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist-types/index.d.ts",
   "engines": {
     "node": ">= 10.0.0"
   },
   "typesVersions": {
     "<4.0": {
-      "dist/types/*": [
-        "dist/types/ts3.4/*"
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
       ]
     }
   },
+  "files": [
+    "dist-*"
+  ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/credential-provider-ini",
   "repository": {
     "type": "git",

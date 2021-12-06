@@ -6,6 +6,7 @@ describe("bucketHostname", () => {
   const region = "us-west-2";
   describe("from bucket name", () => {
     [
+      { baseHostname: "s3.dualstack.us-west-2.amazonaws.com", isCustomEndpoint: false, dualstackEndpoint: true },
       { baseHostname: "s3.us-west-2.amazonaws.com", isCustomEndpoint: false },
       { baseHostname: "beta.example.com", isCustomEndpoint: true },
     ].forEach(({ baseHostname, isCustomEndpoint }) => {
@@ -187,20 +188,24 @@ describe("bucketHostname", () => {
 
   describe("from Access Point ARN", () => {
     describe("populates access point endpoint from ARN", () => {
-      const s3Hostname = "s3.us-west-2.amazonaws.com";
       const customHostname = "example.com";
 
-      describe(`baseHostname: ${s3Hostname}`, () => {
-        const baseHostname = s3Hostname;
+      describe.each([
+        ["s3.us-west-2.amazonaws.com", false],
+        ["s3.dualstack.us-west-2.amazonaws.com", true],
+      ])(`baseHostname: %s, dualstackEndpoint: %s`, (baseHostname, dualstackEndpoint) => {
         it("should use client region", () => {
           const { bucketEndpoint, hostname } = bucketHostname({
             bucketName: parseArn("arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint"),
             baseHostname,
             isCustomEndpoint: false,
             clientRegion: region,
+            dualstackEndpoint,
           });
           expect(bucketEndpoint).toBe(true);
-          expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
+          expect(hostname).toBe(
+            `myendpoint-123456789012.s3-accesspoint${dualstackEndpoint ? ".dualstack" : ""}.us-west-2.amazonaws.com`
+          );
         });
 
         it("should use ARN region", () => {
@@ -210,9 +215,12 @@ describe("bucketHostname", () => {
             isCustomEndpoint: false,
             clientRegion: region,
             useArnRegion: true,
+            dualstackEndpoint,
           });
           expect(bucketEndpoint).toBe(true);
-          expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint.us-east-1.amazonaws.com");
+          expect(hostname).toBe(
+            `myendpoint-123456789012.s3-accesspoint${dualstackEndpoint ? ".dualstack" : ""}.us-east-1.amazonaws.com`
+          );
         });
       });
 
@@ -324,9 +332,9 @@ describe("bucketHostname", () => {
       });
     });
 
-    describe("allows fips client region", () => {
+    describe("allows client region with fipsEndpoint", () => {
       const bucketArn = parseArn("arn:aws-us-gov:s3:us-gov-east-1:123456789012:accesspoint:myendpoint");
-      const clientRegion = "fips-us-gov-east-1";
+      const clientRegion = "us-gov-east-1";
       const clientPartition = "aws-us-gov";
       it("should use client region", () => {
         const { bucketEndpoint, hostname } = bucketHostname({
@@ -335,6 +343,7 @@ describe("bucketHostname", () => {
           isCustomEndpoint: false,
           clientRegion,
           clientPartition,
+          fipsEndpoint: true,
         });
         expect(bucketEndpoint).toBe(true);
         expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint-fips.us-gov-east-1.amazonaws.com");
@@ -348,6 +357,7 @@ describe("bucketHostname", () => {
           clientRegion,
           clientPartition,
           useArnRegion: true,
+          fipsEndpoint: true,
         });
         expect(bucketEndpoint).toBe(true);
         expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint-fips.us-gov-east-1.amazonaws.com");
@@ -362,15 +372,16 @@ describe("bucketHostname", () => {
           clientPartition,
           useArnRegion: true,
           dualstackEndpoint: true,
+          fipsEndpoint: true,
         });
         expect(bucketEndpoint).toBe(true);
         expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint-fips.dualstack.us-gov-east-1.amazonaws.com");
       });
     });
 
-    describe("validates FIPS client region matching ARN region", () => {
+    describe("validates client region with fips endpoint matching ARN region", () => {
       const bucketArn = parseArn("arn:aws-us-gov:s3:us-gov-west-1:123456789012:accesspoint:myendpoint");
-      const clientRegion = "fips-us-gov-east-1";
+      const clientRegion = "us-gov-east-1";
       const clientPartition = "aws-us-gov";
       it("should throw client region doesn't match arn region", () => {
         expect(() =>
@@ -380,6 +391,7 @@ describe("bucketHostname", () => {
             isCustomEndpoint: false,
             clientRegion,
             clientPartition,
+            fipsEndpoint: true,
           })
         ).toThrowError();
       });
@@ -393,6 +405,7 @@ describe("bucketHostname", () => {
             clientRegion,
             clientPartition,
             useArnRegion: true,
+            fipsEndpoint: true,
           })
         ).toThrowError();
       });
@@ -423,10 +436,6 @@ describe("bucketHostname", () => {
           {
             bucketArn: "arn:aws:s3:us-west-2:123456789012:bucket_name:mybucket",
             message: "ARN resource should begin with 'accesspoint:' or 'outpost:'",
-          },
-          {
-            bucketArn: "arn:aws:s3::123456789012:accesspoint:myendpoint",
-            message: "ARN region is empty",
           },
           {
             bucketArn: "arn:aws:s3:us-west-2::accesspoint:myendpoint",
@@ -478,6 +487,122 @@ describe("bucketHostname", () => {
           useArnRegion: true,
         }).signingRegion
       ).toBe("us-west-2");
+    });
+  });
+
+  describe("from Multi-region Access Point(MRAP) ARN", () => {
+    ["us-east-1", "us-west-2", "aws-global"].forEach((region) => {
+      it(`should populate endpoint from MRAP ARN in region "${region}"`, () => {
+        const { bucketEndpoint, hostname, signingRegion } = bucketHostname({
+          bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap"),
+          baseHostname: `s3.${region}.amazonaws.com`,
+          disableMultiregionAccessPoints: false,
+          clientRegion: region,
+          isCustomEndpoint: false,
+        });
+        expect(bucketEndpoint).toBe(true);
+        expect(hostname).toBe("mfzwi23gnjvgw.mrap.accesspoint.s3-global.amazonaws.com");
+        expect(signingRegion).toBe("*");
+      });
+    });
+
+    it('should populate endpoint from MRAP ARN in region "cn-north-2"', () => {
+      const { bucketEndpoint, hostname, signingRegion } = bucketHostname({
+        bucketName: parseArn("arn:aws-cn:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap"),
+        clientPartition: "aws-cn",
+        baseHostname: `s3.${region}.amazonaws.com.cn`,
+        disableMultiregionAccessPoints: false,
+        clientRegion: region,
+        isCustomEndpoint: false,
+      });
+      expect(bucketEndpoint).toBe(true);
+      expect(hostname).toBe("mfzwi23gnjvgw.mrap.accesspoint.s3-global.amazonaws.com.cn");
+      expect(signingRegion).toBe("*");
+    });
+
+    it("should throw if MRAP ARN is supplied but disabled through options", () => {
+      expect(() =>
+        bucketHostname({
+          bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap"),
+          baseHostname: `s3.us-west-2.amazonaws.com`,
+          disableMultiregionAccessPoints: true,
+          clientRegion: region,
+          isCustomEndpoint: false,
+        })
+      ).toThrow("SDK is attempting to use a MRAP ARN. Please enable to feature.");
+    });
+
+    it("should throw if dualstack option is set", () => {
+      expect(() =>
+        bucketHostname({
+          bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap"),
+          baseHostname: `s3.us-west-2.amazonaws.com`,
+          dualstackEndpoint: true,
+          clientRegion: region,
+          isCustomEndpoint: false,
+        })
+      ).toThrow("Dualstack endpoint is not supported with Outpost or Multi-region Access Point ARN.");
+    });
+
+    it("should throw if accelerate endpoint option is set", () => {
+      expect(() =>
+        bucketHostname({
+          bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap"),
+          baseHostname: `s3.us-west-2.amazonaws.com`,
+          accelerateEndpoint: true,
+          clientRegion: region,
+          isCustomEndpoint: false,
+        })
+      ).toThrow("Accelerate endpoint is not supported when bucket is an ARN");
+    });
+
+    it("should throw if region is empty and disableMultiregionAccessPoints option is set", () => {
+      expect(() =>
+        bucketHostname({
+          bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:myendpoint"),
+          baseHostname: `s3.us-west-2.amazonaws.com`,
+          disableMultiregionAccessPoints: true,
+          clientRegion: region,
+          isCustomEndpoint: false,
+        })
+      ).toThrow("");
+    });
+
+    it('should populate endpoint from MRAP ARN with access point name "myendpoint"', () => {
+      const { bucketEndpoint, hostname } = bucketHostname({
+        bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:myendpoint"),
+        baseHostname: `s3.us-west-2.amazonaws.com`,
+        disableMultiregionAccessPoints: false,
+        clientRegion: region,
+        isCustomEndpoint: false,
+      });
+      expect(bucketEndpoint).toBe(true);
+      expect(hostname).toBe("myendpoint.accesspoint.s3-global.amazonaws.com");
+    });
+
+    it('should populate endpoint from MRAP ARN with access point name "my.bucket"', () => {
+      const { bucketEndpoint, hostname } = bucketHostname({
+        bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:my.bucket"),
+        baseHostname: `s3.us-west-2.amazonaws.com`,
+        disableMultiregionAccessPoints: false,
+        clientRegion: region,
+        isCustomEndpoint: false,
+      });
+      expect(bucketEndpoint).toBe(true);
+      expect(hostname).toBe("my.bucket.accesspoint.s3-global.amazonaws.com");
+    });
+
+    it("should populate endpoint from MRAP ARN with custom endpoint", () => {
+      const { bucketEndpoint, hostname, signingRegion } = bucketHostname({
+        bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap"),
+        baseHostname: "vpce-123-abc.vpce.s3-global.amazonaws.com",
+        isCustomEndpoint: true,
+        clientRegion: "us-west-2",
+        disableMultiregionAccessPoints: false,
+      });
+      expect(bucketEndpoint).toBe(true);
+      expect(hostname).toBe("mfzwi23gnjvgw.mrap.vpce-123-abc.vpce.s3-global.amazonaws.com");
+      expect(signingRegion).toBe("*");
     });
   });
 
@@ -581,7 +706,7 @@ describe("bucketHostname", () => {
 
     describe("fips region", () => {
       it("should throw if client is using fips region", () => {
-        const clientRegion = "fips-us-gov-east-1";
+        const clientRegion = "us-gov-east-1";
         const clientPartition = "aws-us-gov";
         expect.assertions(2);
         expect(() => {
@@ -593,6 +718,7 @@ describe("bucketHostname", () => {
             isCustomEndpoint: false,
             clientRegion,
             clientPartition,
+            fipsEndpoint: true,
           });
         }).toThrow("FIPS region is not supported");
 
@@ -606,6 +732,7 @@ describe("bucketHostname", () => {
             clientRegion,
             clientPartition,
             useArnRegion: true,
+            fipsEndpoint: true,
           });
         }).toThrow("FIPS region is not supported");
       });
@@ -850,9 +977,10 @@ describe("bucketHostname", () => {
             bucketName: parseArn(arn),
             baseHostname: `s3.${region}.amazonaws.com`,
             isCustomEndpoint: false,
-            clientRegion,
+            clientRegion: clientRegion.startsWith("fips-") ? clientRegion.replace(/fips-/, "") : clientRegion,
             useArnRegion,
             clientPartition,
+            fipsEndpoint: clientRegion.startsWith("fips-"),
           });
           expect(bucketEndpoint).toBe(true);
           expect(hostname).toBe(expectedEndpoint);
@@ -968,8 +1096,9 @@ describe("bucketHostname", () => {
               baseHostname: `s3.${region}.amazonaws.com`,
               isCustomEndpoint: false,
               useArnRegion,
-              clientRegion,
+              clientRegion: clientRegion.startsWith("fips-") ? clientRegion.replace(/fips-/, "") : clientRegion,
               clientPartition,
+              fipsEndpoint: clientRegion.startsWith("fips-"),
             });
             // should never get here
             fail();

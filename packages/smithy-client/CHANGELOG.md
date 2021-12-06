@@ -3,6 +3,128 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.41.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.40.1...v3.41.0) (2021-11-11)
+
+
+### Bug Fixes
+
+* **smithy-client:** remove capturing groups from date regex ([#3008](https://github.com/aws/aws-sdk-js-v3/issues/3008)) ([3bc91c0](https://github.com/aws/aws-sdk-js-v3/commit/3bc91c0eb21ed802a27361ad92789b936cb47803))
+
+
+
+
+
+# [3.40.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.39.0...v3.40.0) (2021-11-05)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.38.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.37.0...v3.38.0) (2021-10-22)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.37.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.36.1...v3.37.0) (2021-10-15)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.36.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.35.0...v3.36.0) (2021-10-08)
+
+
+### Features
+
+* publish files in dist-* only ([#2873](https://github.com/aws/aws-sdk-js-v3/issues/2873)) ([53b4243](https://github.com/aws/aws-sdk-js-v3/commit/53b4243b066f25ff2412d5f0dea1036054b2df32))
+
+
+
+
+
+# [3.35.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.34.0...v3.35.0) (2021-10-04)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.34.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.33.0...v3.34.0) (2021-09-24)
+
+
+### Features
+
+* **non-clients:** remove comments from transpiled JS files ([#2813](https://github.com/aws/aws-sdk-js-v3/issues/2813)) ([e6fc7f3](https://github.com/aws/aws-sdk-js-v3/commit/e6fc7f3e0fa74785590ac19e7ed143c916bb9b6e))
+
+
+
+
+
+# [3.32.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.31.0...v3.32.0) (2021-09-17)
+
+**Note:** Version bump only for package @aws-sdk/smithy-client
+
+
+
+
+
+# [3.31.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.30.0...v3.31.0) (2021-09-11)
+
+
+### Features
+
+* **smithy-client:** support strict union parsing ([#2746](https://github.com/aws/aws-sdk-js-v3/issues/2746)) ([1159680](https://github.com/aws/aws-sdk-js-v3/commit/1159680b399625e247a57ac121483787249ed933))
+
+
+
+
+
+# [3.30.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.29.0...v3.30.0) (2021-09-07)
+
+
+### Features
+
+* **smithy-client:** support strict timestamp parsing ([#2737](https://github.com/aws/aws-sdk-js-v3/issues/2737)) ([c244678](https://github.com/aws/aws-sdk-js-v3/commit/c244678b7a50fafc6cc44a100f7787d5b8dea2c6))
+
+
+
+
+
+# [3.29.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.28.0...v3.29.0) (2021-09-02)
+
+
+### Bug Fixes
+
+* **parse:** reject numeric strings with non-numbers ([#2729](https://github.com/aws/aws-sdk-js-v3/issues/2729)) ([afeccd7](https://github.com/aws/aws-sdk-js-v3/commit/afeccd746a1f6095a7de510988a01df90072e1d7))
+
+
+### Features
+
+* **smithy-client:** add parse utils for sized numbers ([#2710](https://github.com/aws/aws-sdk-js-v3/issues/2710)) ([c1a7dd5](https://github.com/aws/aws-sdk-js-v3/commit/c1a7dd53ef786256c842d64c4eaccb4284e8be4f))
+
+
+
+
+
+# [3.28.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.27.0...v3.28.0) (2021-08-27)
+
+
+### Features
+
+* **smithy-client:** stricter parsing of request/response bodies ([#2713](https://github.com/aws/aws-sdk-js-v3/issues/2713)) ([0c74892](https://github.com/aws/aws-sdk-js-v3/commit/0c74892b3cbf1e288a4d5648a49f672ee48f2643))
+
+
+
+
+
 # [3.27.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.26.0...v3.27.0) (2021-08-19)
 
 **Note:** Version bump only for package @aws-sdk/smithy-client

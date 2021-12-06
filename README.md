@@ -42,6 +42,7 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
    1. [Middleware Stack](#middleware-stack)
 1. [Install from Source](#install-from-Source)
 1. [Giving feedback and contributing](#giving-feedback-and-contributing)
+1. [Known Issues](#known-issues)
 
 ## Getting Started
 
@@ -432,7 +433,7 @@ const client = new S3({ region: "us-west-2" });
 client.middlewareStack.add(
   (next, context) => async (args) => {
     args.request.headers["x-amz-meta-foo"] = "bar";
-    const result = next(args);
+    const result = await next(args);
     // result.response contains data returned from next middleware.
     return result;
   },
@@ -464,3 +465,7 @@ client.middlewareStack.add(middleware, {
 ```
 
 For a full middleware stack deep dive please check out our [blog post](https://aws.amazon.com/blogs/developer/middleware-stack-modular-aws-sdk-js/).
+
+## Known Issues
+
+1. [S3 Multi-Region Access Point(MRAP) is not available unless with additional dependency](https://github.com/aws/aws-sdk-js-v3/issues/2822)

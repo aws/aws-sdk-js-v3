@@ -1,13 +1,14 @@
-import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
-import { marshallInput, unmarshallOutput } from "../commands/utils";
 import {
   ExecuteStatementCommand as __ExecuteStatementCommand,
   ExecuteStatementCommandInput as __ExecuteStatementCommandInput,
   ExecuteStatementCommandOutput as __ExecuteStatementCommandOutput,
 } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@aws-sdk/smithy-client";
-import { Handler, MiddlewareStack, HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+
+import { marshallInput, unmarshallOutput } from "../commands/utils";
+import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 export type ExecuteStatementCommandInput = Omit<__ExecuteStatementCommandInput, "Parameters"> & {
   Parameters?: NativeAttributeValue[];

@@ -14,7 +14,6 @@ import {
   Provider,
 } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
-import { escapeUri } from "@aws-sdk/util-uri-escape";
 
 interface PreviouslyResolved {
   credentials: Provider<Credentials>;
@@ -65,7 +64,7 @@ export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved):
           input: {
             ...args.input,
             DestinationRegion: region,
-            PresignedUrl: escapeUri(formatUrl(presignedRequest)),
+            PresignedUrl: formatUrl(presignedRequest),
           },
         };
       }

@@ -1,8 +1,9 @@
 import { Readable } from "stream";
+
 import { byteLength } from "../bytelength";
+import { RawDataPart as DataPart } from "../Upload";
 import { getChunkStream as chunkFromReadable } from "./getChunkStream";
 import { getDataReadable } from "./getDataReadable";
-import { RawDataPart as DataPart } from "../Upload";
 
 const fs = require("fs");
 

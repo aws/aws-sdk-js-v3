@@ -1,13 +1,14 @@
-import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
-import { marshallInput, unmarshallOutput } from "../commands/utils";
 import {
   GetItemCommand as __GetItemCommand,
   GetItemCommandInput as __GetItemCommandInput,
   GetItemCommandOutput as __GetItemCommandOutput,
 } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@aws-sdk/smithy-client";
-import { Handler, MiddlewareStack, HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+
+import { marshallInput, unmarshallOutput } from "../commands/utils";
+import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 export type GetCommandInput = Omit<__GetItemCommandInput, "Key"> & {
   Key: { [key: string]: NativeAttributeValue } | undefined;

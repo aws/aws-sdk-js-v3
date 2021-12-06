@@ -3,6 +3,103 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.40.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.39.0...v3.40.0) (2021-11-05)
+
+
+### Bug Fixes
+
+* **node-config-provider:** move booleanSelector util to platform agnostic package ([#2992](https://github.com/aws/aws-sdk-js-v3/issues/2992)) ([2909c7b](https://github.com/aws/aws-sdk-js-v3/commit/2909c7bf636d78f82aa980588fb44bd17f78e001))
+
+
+
+
+
+# [3.39.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.38.0...v3.39.0) (2021-10-29)
+
+
+### Bug Fixes
+
+* **node-config-provider:** allow undefined for booleanSelector obj keys ([#2945](https://github.com/aws/aws-sdk-js-v3/issues/2945)) ([1bd56b6](https://github.com/aws/aws-sdk-js-v3/commit/1bd56b66b76de5728987fcf9657654523c290c5f))
+
+
+### Features
+
+* **node-config-provider:** add utility booleanSelector ([#2941](https://github.com/aws/aws-sdk-js-v3/issues/2941)) ([538d717](https://github.com/aws/aws-sdk-js-v3/commit/538d717f9fc77d63b86e7de026453e4eb274934d))
+
+
+
+
+
+# [3.38.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.37.0...v3.38.0) (2021-10-22)
+
+**Note:** Version bump only for package @aws-sdk/node-config-provider
+
+
+
+
+
+# [3.37.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.36.1...v3.37.0) (2021-10-15)
+
+**Note:** Version bump only for package @aws-sdk/node-config-provider
+
+
+
+
+
+# [3.36.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.35.0...v3.36.0) (2021-10-08)
+
+
+### Features
+
+* publish files in dist-* only ([#2873](https://github.com/aws/aws-sdk-js-v3/issues/2873)) ([53b4243](https://github.com/aws/aws-sdk-js-v3/commit/53b4243b066f25ff2412d5f0dea1036054b2df32))
+
+
+
+
+
+# [3.35.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.34.0...v3.35.0) (2021-10-04)
+
+**Note:** Version bump only for package @aws-sdk/node-config-provider
+
+
+
+
+
+# [3.34.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.33.0...v3.34.0) (2021-09-24)
+
+
+### Features
+
+* **non-clients:** remove comments from transpiled JS files ([#2813](https://github.com/aws/aws-sdk-js-v3/issues/2813)) ([e6fc7f3](https://github.com/aws/aws-sdk-js-v3/commit/e6fc7f3e0fa74785590ac19e7ed143c916bb9b6e))
+
+
+
+
+
+# [3.32.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.31.0...v3.32.0) (2021-09-17)
+
+**Note:** Version bump only for package @aws-sdk/node-config-provider
+
+
+
+
+
+# [3.29.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.28.0...v3.29.0) (2021-09-02)
+
+**Note:** Version bump only for package @aws-sdk/node-config-provider
+
+
+
+
+
+# [3.28.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.27.0...v3.28.0) (2021-08-27)
+
+**Note:** Version bump only for package @aws-sdk/node-config-provider
+
+
+
+
+
 # [3.27.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.26.0...v3.27.0) (2021-08-19)
 
 **Note:** Version bump only for package @aws-sdk/node-config-provider

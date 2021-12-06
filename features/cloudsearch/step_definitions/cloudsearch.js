@@ -1,7 +1,7 @@
-const { CloudSearch } = require("../../../clients/client-cloudsearch");
 const { Before, Given } = require("cucumber");
 
 Before({ tags: "@cloudsearch" }, function (scenario, callback) {
+  const { CloudSearch } = require("../../../clients/client-cloudsearch");
   this.service = new CloudSearch({});
   callback();
 });

@@ -1,9 +1,7 @@
 import {
   getArnResources as getS3AccesspointArnResources,
-  getPseudoRegion,
   validateAccountId,
   validateNoDualstack,
-  validateNoFIPS,
   validateOutpostService,
   validatePartition,
   validateRegion,
@@ -36,12 +34,17 @@ export const parseOutpostArnablesMiddleaware =
     if (!parameter) return next(args);
 
     const clientRegion = await options.region();
-    const { regionInfoProvider } = options;
     const useArnRegion = await options.useArnRegion();
-    const baseRegion = getPseudoRegion(clientRegion);
-    const { partition: clientPartition, signingRegion = baseRegion } = (await regionInfoProvider(baseRegion))!;
+    const useFipsEndpoint = await options.useFipsEndpoint();
+    const useDualstackEndpoint = await options.useDualstackEndpoint();
+    const baseRegion = clientRegion;
+    const { partition: clientPartition, signingRegion = baseRegion } = (await options.regionInfoProvider(baseRegion, {
+      useFipsEndpoint,
+      useDualstackEndpoint,
+    }))!;
     const validatorOptions: ValidateOutpostsArnOptions = {
-      useDualstackEndpoint: options.useDualstackEndpoint,
+      useFipsEndpoint,
+      useDualstackEndpoint,
       clientRegion,
       clientPartition,
       signingRegion,
@@ -87,6 +90,7 @@ type ValidateOutpostsArnOptions = {
   clientPartition: string;
   useArnRegion: boolean;
   useDualstackEndpoint: boolean;
+  useFipsEndpoint: boolean;
 };
 
 /**
@@ -98,7 +102,14 @@ type ValidateOutpostsArnOptions = {
  */
 const validateOutpostsArn = (
   arn: ARN,
-  { clientRegion, signingRegion, clientPartition, useArnRegion, useDualstackEndpoint }: ValidateOutpostsArnOptions
+  {
+    clientRegion,
+    signingRegion,
+    clientPartition,
+    useArnRegion,
+    useFipsEndpoint,
+    useDualstackEndpoint,
+  }: ValidateOutpostsArnOptions
 ) => {
   const { service, partition, accountId, region } = arn;
   validateOutpostService(service);
@@ -108,9 +119,10 @@ const validateOutpostsArn = (
     useArnRegion,
     clientRegion,
     clientSigningRegion: signingRegion,
+    useFipsEndpoint,
+    allowFipsRegion: true,
   });
   validateNoDualstack(useDualstackEndpoint);
-  if (!useArnRegion) validateNoFIPS(clientRegion);
 };
 
 const parseOutpostsAccessPointArnResource = (

@@ -7,17 +7,17 @@
 
 AWS SDK for JavaScript ComputeOptimizer Client for Node.js, Browser and React Native.
 
-<p>AWS Compute Optimizer is a service that analyzes the configuration and utilization
-metrics of your AWS compute resources, such as EC2 instances, Auto Scaling groups, AWS Lambda
-functions, and Amazon EBS volumes. It reports whether your resources are optimal, and
-generates optimization recommendations to reduce the cost and improve the performance of
-your workloads. Compute Optimizer also provides recent utilization metric data, as well as projected
-utilization metric data for the recommendations, which you can use to evaluate which
-recommendation provides the best price-performance trade-off. The analysis of your usage
-patterns can help you decide when to move or resize your running resources, and still
-meet your performance and capacity requirements. For more information about Compute Optimizer,
-including the required permissions to use the service, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">AWS Compute Optimizer User
-Guide</a>.</p>
+<p>Compute Optimizer is a service that analyzes the configuration and utilization
+metrics of your Amazon Web Services compute resources, such as Amazon EC2
+instances, Amazon EC2 Auto Scaling groups, Lambda functions, and Amazon EBS volumes. It reports whether your resources are optimal, and generates
+optimization recommendations to reduce the cost and improve the performance of your
+workloads. Compute Optimizer also provides recent utilization metric data, in addition
+to projected utilization metric data for the recommendations, which you can use to
+evaluate which recommendation provides the best price-performance trade-off. The
+analysis of your usage patterns can help you decide when to move or resize your running
+resources, and still meet your performance and capacity requirements. For more
+information about Compute Optimizer, including the required permissions to use the
+service, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">Compute Optimizer User Guide</a>.</p>
 
 ## Installing
 
@@ -34,19 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ComputeOptimizerClient` and
-the commands you need, for example `DescribeRecommendationExportJobsCommand`:
+the commands you need, for example `DeleteRecommendationPreferencesCommand`:
 
 ```js
 // ES5 example
-const {
-  ComputeOptimizerClient,
-  DescribeRecommendationExportJobsCommand,
-} = require("@aws-sdk/client-compute-optimizer");
+const { ComputeOptimizerClient, DeleteRecommendationPreferencesCommand } = require("@aws-sdk/client-compute-optimizer");
 ```
 
 ```ts
 // ES6+ example
-import { ComputeOptimizerClient, DescribeRecommendationExportJobsCommand } from "@aws-sdk/client-compute-optimizer";
+import { ComputeOptimizerClient, DeleteRecommendationPreferencesCommand } from "@aws-sdk/client-compute-optimizer";
 ```
 
 ### Usage
@@ -65,7 +62,7 @@ const client = new ComputeOptimizerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DescribeRecommendationExportJobsCommand(params);
+const command = new DeleteRecommendationPreferencesCommand(params);
 ```
 
 #### Async/await
@@ -144,7 +141,7 @@ const client = new AWS.ComputeOptimizer({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.describeRecommendationExportJobs(params);
+  const data = await client.deleteRecommendationPreferences(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -152,7 +149,7 @@ try {
 
 // Promises.
 client
-  .describeRecommendationExportJobs(params)
+  .deleteRecommendationPreferences(params)
   .then((data) => {
     // process data.
   })
@@ -161,7 +158,7 @@ client
   });
 
 // callbacks.
-client.describeRecommendationExportJobs(params, (err, data) => {
+client.deleteRecommendationPreferences(params, (err, data) => {
   // proccess err and data.
 });
 ```

@@ -4,7 +4,7 @@ const DOMAIN_PATTERN = /^[a-z0-9][a-z0-9\.\-]{1,61}[a-z0-9]$/;
 const IP_ADDRESS_PATTERN = /(\d+\.){3}\d+/;
 const DOTS_PATTERN = /\.\./;
 export const DOT_PATTERN = /\./;
-export const S3_HOSTNAME_PATTERN = /^(.+\.)?s3[.-]([a-z0-9-]+)\./;
+export const S3_HOSTNAME_PATTERN = /^(.+\.)?s3(-fips)?(\.dualstack)?[.-]([a-z0-9-]+)\./;
 const S3_US_EAST_1_ALTNAME_PATTERN = /^s3(-external-1)?\.amazonaws\.com$/;
 const AWS_PARTITION_SUFFIX = "amazonaws.com";
 
@@ -19,6 +19,7 @@ export interface BucketHostnameParams {
   clientRegion: string;
   accelerateEndpoint?: boolean;
   dualstackEndpoint?: boolean;
+  fipsEndpoint?: boolean;
   pathStyleEndpoint?: boolean;
   tlsCompatible?: boolean;
 }
@@ -28,17 +29,12 @@ export interface ArnHostnameParams extends Omit<BucketHostnameParams, "bucketNam
   clientSigningRegion?: string;
   clientPartition?: string;
   useArnRegion?: boolean;
+  disableMultiregionAccessPoints?: boolean;
 }
 
 export const isBucketNameOptions = (
   options: BucketHostnameParams | ArnHostnameParams
 ): options is BucketHostnameParams => typeof options.bucketName === "string";
-
-/**
- * Get pseudo region from supplied region. For example, if supplied with `fips-us-west-2`, it returns `us-west-2`.
- * @internal
- */
-export const getPseudoRegion = (region: string) => (isFipsRegion(region) ? region.replace(/fips-|-fips/, "") : region);
 
 /**
  * Determines whether a given string is DNS compliant per the rules outlined by
@@ -53,7 +49,7 @@ export const isDnsCompatibleBucketName = (bucketName: string): boolean =>
 
 const getRegionalSuffix = (hostname: string): [string, string] => {
   const parts = hostname.match(S3_HOSTNAME_PATTERN)!;
-  return [parts[2], hostname.replace(new RegExp(`^${parts[0]}`), "")];
+  return [parts[4], hostname.replace(new RegExp(`^${parts[0]}`), "")];
 };
 
 export const getSuffix = (hostname: string): [string, string] =>
@@ -127,12 +123,13 @@ export const validateRegion = (
     allowFipsRegion?: boolean;
     clientRegion: string;
     clientSigningRegion: string;
+    useFipsEndpoint: boolean;
   }
 ) => {
   if (region === "") {
     throw new Error("ARN region is empty");
   }
-  if (isFipsRegion(options.clientRegion)) {
+  if (options.useFipsEndpoint) {
     if (!options.allowFipsRegion) {
       throw new Error("FIPS region is not supported");
     } else if (!isEqualRegions(region, options.clientRegion)) {
@@ -141,8 +138,8 @@ export const validateRegion = (
   }
   if (
     !options.useArnRegion &&
-    !isEqualRegions(region, options.clientRegion) &&
-    !isEqualRegions(region, options.clientSigningRegion)
+    !isEqualRegions(region, options.clientRegion || "") &&
+    !isEqualRegions(region, options.clientSigningRegion || "")
   ) {
     throw new Error(`Region in ARN is incompatible, got ${region} but expected ${options.clientRegion}`);
   }
@@ -153,18 +150,12 @@ export const validateRegion = (
  * @param region
  */
 export const validateRegionalClient = (region: string) => {
-  if (["s3-external-1", "aws-global"].includes(getPseudoRegion(region))) {
+  if (["s3-external-1", "aws-global"].includes(region)) {
     throw new Error(`Client region ${region} is not regional`);
   }
 };
 
-/**
- * @internal
- */
-export const isFipsRegion = (region: string) => region.startsWith("fips-") || region.endsWith("-fips");
-
-const isEqualRegions = (regionA: string, regionB: string) =>
-  regionA === regionB || getPseudoRegion(regionA) === regionB || regionA === getPseudoRegion(regionB);
+const isEqualRegions = (regionA: string, regionB: string) => regionA === regionB;
 
 /**
  * Validate an account ID
@@ -184,12 +175,23 @@ export const validateDNSHostLabel = (label: string, options: { tlsCompatible?: b
   // reference: https://tools.ietf.org/html/rfc3986#section-3.2.2
   if (
     label.length >= 64 ||
-    !/^[a-z0-9][a-z0-9.-]+[a-z0-9]$/.test(label) ||
+    !/^[a-z0-9][a-z0-9.-]*[a-z0-9]$/.test(label) ||
     /(\d+\.){3}\d+/.test(label) ||
     /[.-]{2}/.test(label) ||
     (options?.tlsCompatible && DOT_PATTERN.test(label))
   ) {
     throw new Error(`Invalid DNS label ${label}`);
+  }
+};
+
+export const validateCustomEndpoint = (options: {
+  isCustomEndpoint?: boolean;
+  dualstackEndpoint?: boolean;
+  accelerateEndpoint?: boolean;
+}) => {
+  if (options.isCustomEndpoint) {
+    if (options.dualstackEndpoint) throw new Error("Dualstack endpoint is not supported with custom endpoint");
+    if (options.accelerateEndpoint) throw new Error("Accelerate endpoint is not supported with custom endpoint");
   }
 };
 
@@ -232,14 +234,29 @@ export const getArnResources = (
  * Throw if dual stack configuration is set to true.
  * @internal
  */
-export const validateNoDualstack = (dualstackEndpoint: boolean) => {
-  if (dualstackEndpoint) throw new Error("Dualstack endpoint is not supported with Outpost");
+export const validateNoDualstack = (dualstackEndpoint?: boolean) => {
+  if (dualstackEndpoint)
+    throw new Error("Dualstack endpoint is not supported with Outpost or Multi-region Access Point ARN.");
 };
 
 /**
- * Validate region is not appended or prepended with a `fips-`
+ * Validate fips endpoint is not set up.
  * @internal
  */
-export const validateNoFIPS = (region: string) => {
-  if (isFipsRegion(region ?? "")) throw new Error(`FIPS region is not supported with Outpost, got ${region}`);
+export const validateNoFIPS = (useFipsEndpoint?: boolean) => {
+  if (useFipsEndpoint) throw new Error(`FIPS region is not supported with Outpost.`);
+};
+
+/**
+ * Validate the multi-region access point alias.
+ * @private
+ */
+export const validateMrapAlias = (name: string) => {
+  try {
+    name.split(".").forEach((label) => {
+      validateDNSHostLabel(label);
+    });
+  } catch (e) {
+    throw new Error(`"${name}" is not a DNS compatible name.`);
+  }
 };

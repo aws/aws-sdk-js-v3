@@ -9,7 +9,7 @@ AWS SDK for JavaScript DLM Client for Node.js, Browser and React Native.
 
 <fullname>Amazon Data Lifecycle Manager</fullname>
 
-<p>With Amazon Data Lifecycle Manager, you can manage the lifecycle of your AWS resources. You create
+<p>With Amazon Data Lifecycle Manager, you can manage the lifecycle of your Amazon Web Services resources. You create
 lifecycle policies, which are used to automate operations on the specified
 resources.</p>
 <p>Amazon DLM supports Amazon EBS volumes and snapshots. For information about using Amazon DLM

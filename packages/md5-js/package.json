@@ -1,35 +1,36 @@
 {
   "name": "@aws-sdk/md5-js",
-  "version": "3.25.0",
+  "version": "3.40.0",
   "scripts": {
+    "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
-    "build": "yarn build:es && yarn build:cjs",
-    "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
+    "build:types": "tsc -p tsconfig.types.json",
+    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
     "test": "jest"
   },
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/es/index.js",
-  "types": "./dist/types/index.d.ts",
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@aws-sdk/util-base64-browser": "3.23.0",
-    "@aws-sdk/util-base64-node": "3.23.0",
-    "@aws-sdk/util-hex-encoding": "3.23.0",
+    "@aws-sdk/util-base64-browser": "3.37.0",
+    "@aws-sdk/util-base64-node": "3.37.0",
+    "@aws-sdk/util-hex-encoding": "3.37.0",
     "@types/jest": "^26.0.4",
     "@types/node": "^10.0.0",
     "hash-test-vectors": "^1.3.2",
     "jest": "^26.1.0",
-    "typescript": "~4.3.2"
+    "typescript": "~4.3.5"
   },
   "dependencies": {
-    "@aws-sdk/types": "3.25.0",
-    "@aws-sdk/util-utf8-browser": "3.23.0",
-    "@aws-sdk/util-utf8-node": "3.23.0",
+    "@aws-sdk/types": "3.40.0",
+    "@aws-sdk/util-utf8-browser": "3.37.0",
+    "@aws-sdk/util-utf8-node": "3.37.0",
     "tslib": "^2.3.0"
   },
   "browser": {
@@ -42,11 +43,14 @@
   },
   "typesVersions": {
     "<4.0": {
-      "dist/types/*": [
-        "dist/types/ts3.4/*"
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
       ]
     }
   },
+  "files": [
+    "dist-*"
+  ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/md5-js",
   "repository": {
     "type": "git",

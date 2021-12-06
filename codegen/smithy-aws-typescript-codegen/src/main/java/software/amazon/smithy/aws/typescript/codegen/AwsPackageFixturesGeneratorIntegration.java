@@ -50,10 +50,6 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             String resource =  IoUtils.readUtf8Resource(getClass(), "gitignore");
             writer.write(resource);
         });
-        writerFactory.accept(".npmignore", writer -> {
-            String resource =  IoUtils.readUtf8Resource(getClass(), "npmignore");
-            writer.write(resource);
-        });
         writerFactory.accept("LICENSE", writer -> {
             String resource =  IoUtils.readUtf8Resource(getClass(), "LICENSE.template");
             resource = resource.replace("${year}", Integer.toString(Calendar.getInstance().get(Calendar.YEAR)));

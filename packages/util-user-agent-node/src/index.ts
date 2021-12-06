@@ -3,6 +3,8 @@ import { Provider, UserAgent } from "@aws-sdk/types";
 import { platform, release } from "os";
 import { env, versions } from "process";
 
+import { isCrtAvailable } from "./is-crt-available";
+
 export const UA_APP_ID_ENV_NAME = "AWS_SDK_UA_APP_ID";
 export const UA_APP_ID_INI_NAME = "sdk-ua-app-id";
 
@@ -25,6 +27,11 @@ export const defaultUserAgent = ({ serviceId, clientVersion }: DefaultUserAgentO
     ["lang/js"],
     ["md/nodejs", `${versions.node}`],
   ];
+
+  const crtAvailable = isCrtAvailable();
+  if (crtAvailable) {
+    sections.push(crtAvailable);
+  }
 
   if (serviceId) {
     // api-metadata

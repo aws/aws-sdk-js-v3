@@ -28,6 +28,7 @@ import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.traits.PaginatedTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
@@ -49,14 +50,13 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
     ) {
         ServiceShape service = settings.getService(model);
         if (testServiceId(service, "DynamoDB")) {
-            String docClientPrefix = "doc-client-";
             Set<OperationShape> containedOperations =
                 new TreeSet<>(TopDownIndex.of(model).getContainedOperations(service));
             List<OperationShape> overridenOperationsList = new ArrayList<>();
 
             for (OperationShape operation : containedOperations) {
                 String operationName = symbolProvider.toSymbol(operation).getName();
-                String commandFileName = String.format("%s%s/%s.ts", docClientPrefix,
+                String commandFileName = String.format("%s%s/%s.ts", DocumentClientUtils.DOC_CLIENT_PREFIX,
                     DocumentClientUtils.CLIENT_COMMANDS_FOLDER, DocumentClientUtils.getModifiedName(operationName));
 
                 if (DocumentClientUtils.containsAttributeValue(model, symbolProvider, operation)) {
@@ -65,34 +65,65 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
                         writer -> new DocumentClientCommandGenerator(
                             settings, model, operation, symbolProvider, writer).run()
                     );
+
+                    if (operation.hasTrait(PaginatedTrait.ID)) {
+                        String paginationFileName = DocumentClientPaginationGenerator.getOutputFilelocation(operation);
+                        writerFactory.accept(paginationFileName, paginationWriter ->
+                            new DocumentClientPaginationGenerator(model, service, operation, symbolProvider,
+                                    paginationWriter).run());
+                    }
                 }
             }
 
-            writerFactory.accept(String.format("%s%s.ts", docClientPrefix, DocumentClientUtils.CLIENT_NAME),
-                writer -> new DocumentClientGenerator(settings, model, symbolProvider, writer).run());
+            writerFactory.accept(String.format("%s%s.ts", DocumentClientUtils.DOC_CLIENT_PREFIX,
+                DocumentClientUtils.CLIENT_NAME),
+                writer -> new DocumentBareBonesClientGenerator(settings, model, symbolProvider, writer).run());
 
-            writerFactory.accept(String.format("%s%s.ts", docClientPrefix, DocumentClientUtils.CLIENT_FULL_NAME),
-                writer -> new DocumentFullClientGenerator(settings, model, symbolProvider, writer).run());
+            writerFactory.accept(String.format("%s%s.ts", DocumentClientUtils.DOC_CLIENT_PREFIX,
+                DocumentClientUtils.CLIENT_FULL_NAME),
+                writer -> new DocumentAggregatedClientGenerator(settings, model, symbolProvider, writer).run());
 
-            writerFactory.accept(String.format("%sindex.ts", docClientPrefix), writer -> {
-                for (OperationShape operationOverriden: overridenOperationsList) {
-                    String operationFileName = DocumentClientUtils.getModifiedName(
-                        symbolProvider.toSymbol(operationOverriden).getName()
-                    );
-                    writer.write("export * from './$L/$L';",
-                        DocumentClientUtils.CLIENT_COMMANDS_FOLDER, operationFileName);
-                }
+            writerFactory.accept(String.format("%s%s/index.ts", DocumentClientUtils.DOC_CLIENT_PREFIX,
+                DocumentClientUtils.CLIENT_COMMANDS_FOLDER), writer -> {
+                    for (OperationShape operation : overridenOperationsList) {
+                        String operationFileName = DocumentClientUtils.getModifiedName(
+                            symbolProvider.toSymbol(operation).getName()
+                        );
+                        writer.write("export * from './$L';", operationFileName);
+                    }
+            });
+
+            writerFactory.accept(String.format("%s%s/index.ts", DocumentClientUtils.DOC_CLIENT_PREFIX,
+                DocumentClientPaginationGenerator.PAGINATION_FOLDER), writer -> {
+                    writer.write("export * from './Interfaces';");
+                    for (OperationShape operation : overridenOperationsList) {
+                        if (operation.hasTrait(PaginatedTrait.ID)) {
+                            String paginationFileName =
+                                DocumentClientUtils.getModifiedName(operation.getId().getName()) + "Paginator";
+                            writer.write("export * from './$L';", paginationFileName);
+                        }
+                    }
+            });
+
+            String paginationInterfaceFileName = DocumentClientPaginationGenerator.getInterfaceFilelocation();
+            writerFactory.accept(paginationInterfaceFileName, paginationWriter ->
+                    DocumentClientPaginationGenerator.generateServicePaginationInterfaces(paginationWriter));
+
+            writerFactory.accept(String.format("%sindex.ts", DocumentClientUtils.DOC_CLIENT_PREFIX), writer -> {
+                writer.write("export * from './commands';");
+                writer.write("export * from './pagination';");
                 writer.write("export * from './$L';", DocumentClientUtils.CLIENT_NAME);
                 writer.write("export * from './$L';", DocumentClientUtils.CLIENT_FULL_NAME);
             });
 
-            String utilsFileLocation = String.format("%s%s", docClientPrefix, DocumentClientUtils.CLIENT_UTILS_FILE);
-            writerFactory.accept(String.format("%s%s/%s.ts", docClientPrefix,
+            String utilsFileLocation = String.format("%s%s", DocumentClientUtils.DOC_CLIENT_PREFIX,
+                DocumentClientUtils.CLIENT_UTILS_FILE);
+            writerFactory.accept(String.format("%s%s/%s.ts", DocumentClientUtils.DOC_CLIENT_PREFIX,
                 DocumentClientUtils.CLIENT_COMMANDS_FOLDER, DocumentClientUtils.CLIENT_UTILS_FILE), writer -> {
                 writer.write(IoUtils.readUtf8Resource(AddDocumentClientPlugin.class,
                     String.format("%s.ts", utilsFileLocation)));
             });
-            writerFactory.accept(String.format("%s%s/%s.spec.ts", docClientPrefix,
+            writerFactory.accept(String.format("%s%s/%s.spec.ts", DocumentClientUtils.DOC_CLIENT_PREFIX,
                 DocumentClientUtils.CLIENT_COMMANDS_FOLDER, DocumentClientUtils.CLIENT_UTILS_FILE), writer -> {
                 writer.write(IoUtils.readUtf8Resource(AddDocumentClientPlugin.class,
                     String.format("%s.spec.ts", utilsFileLocation)));

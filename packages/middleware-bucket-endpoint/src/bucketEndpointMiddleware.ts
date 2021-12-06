@@ -12,7 +12,6 @@ import {
 import { parse as parseArn, validate as validateArn } from "@aws-sdk/util-arn-parser";
 
 import { bucketHostname } from "./bucketHostname";
-import { getPseudoRegion } from "./bucketHostnameUtils";
 import { BucketEndpointResolvedConfig } from "./configurations";
 
 export const bucketEndpointMiddleware =
@@ -30,8 +29,11 @@ export const bucketEndpointMiddleware =
         request.hostname = bucketName;
       } else if (validateArn(bucketName)) {
         const bucketArn = parseArn(bucketName);
-        const clientRegion = getPseudoRegion(await options.region());
-        const { partition, signingRegion = clientRegion } = (await options.regionInfoProvider(clientRegion)) || {};
+        const clientRegion = await options.region();
+        const useDualstackEndpoint = await options.useDualstackEndpoint();
+        const useFipsEndpoint = await options.useFipsEndpoint();
+        const { partition, signingRegion = clientRegion } =
+          (await options.regionInfoProvider(clientRegion, { useDualstackEndpoint, useFipsEndpoint })) || {};
         const useArnRegion = await options.useArnRegion();
         const {
           hostname,
@@ -42,7 +44,8 @@ export const bucketEndpointMiddleware =
           bucketName: bucketArn,
           baseHostname: request.hostname,
           accelerateEndpoint: options.useAccelerateEndpoint,
-          dualstackEndpoint: options.useDualstackEndpoint,
+          dualstackEndpoint: useDualstackEndpoint,
+          fipsEndpoint: useFipsEndpoint,
           pathStyleEndpoint: options.forcePathStyle,
           tlsCompatible: request.protocol === "https:",
           useArnRegion,
@@ -50,6 +53,7 @@ export const bucketEndpointMiddleware =
           clientSigningRegion: signingRegion,
           clientRegion: clientRegion,
           isCustomEndpoint: options.isCustomEndpoint,
+          disableMultiregionAccessPoints: await options.disableMultiregionAccessPoints(),
         });
 
         // If the request needs to use a region or service name inferred from ARN that different from client region, we
@@ -64,13 +68,16 @@ export const bucketEndpointMiddleware =
         request.hostname = hostname;
         replaceBucketInPath = bucketEndpoint;
       } else {
-        const clientRegion = getPseudoRegion(await options.region());
+        const clientRegion = await options.region();
+        const dualstackEndpoint = await options.useDualstackEndpoint();
+        const fipsEndpoint = await options.useFipsEndpoint();
         const { hostname, bucketEndpoint } = bucketHostname({
           bucketName,
           clientRegion,
           baseHostname: request.hostname,
           accelerateEndpoint: options.useAccelerateEndpoint,
-          dualstackEndpoint: options.useDualstackEndpoint,
+          dualstackEndpoint,
+          fipsEndpoint,
           pathStyleEndpoint: options.forcePathStyle,
           tlsCompatible: request.protocol === "https:",
           isCustomEndpoint: options.isCustomEndpoint,

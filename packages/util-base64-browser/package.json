@@ -1,14 +1,15 @@
 {
   "name": "@aws-sdk/util-base64-browser",
-  "version": "3.23.0",
+  "version": "3.37.0",
   "description": "A pure JS Base64 <-> UInt8Array converter",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/es/index.js",
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
   "scripts": {
+    "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
-    "build": "yarn build:es && yarn build:cjs",
-    "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
+    "build:types": "tsc -p tsconfig.types.json",
+    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
     "test": "jest"
   },
   "author": {
@@ -23,16 +24,19 @@
     "@types/jest": "^26.0.4",
     "@types/node": "^10.0.0",
     "jest": "^26.1.0",
-    "typescript": "~4.3.2"
+    "typescript": "~4.3.5"
   },
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist-types/index.d.ts",
   "typesVersions": {
     "<4.0": {
-      "dist/types/*": [
-        "dist/types/ts3.4/*"
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
       ]
     }
   },
+  "files": [
+    "dist-*"
+  ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-base64-browser",
   "repository": {
     "type": "git",

@@ -21,8 +21,12 @@ import software.amazon.smithy.aws.traits.ServiceTrait
 import kotlin.streams.toList
 
 buildscript {
+    repositories {
+        mavenCentral()
+    }
     dependencies {
-        "classpath"("software.amazon.smithy:smithy-aws-traits:[1.11.0,1.12.0[")
+        "classpath"("software.amazon.smithy:smithy-cli:${rootProject.extra["smithyVersion"]}")
+        "classpath"("software.amazon.smithy:smithy-aws-traits:${rootProject.extra["smithyVersion"]}")
     }
 }
 
@@ -31,7 +35,7 @@ plugins {
 }
 
 dependencies {
-    compile(project(":smithy-aws-typescript-codegen"))
+    implementation(project(":smithy-aws-typescript-codegen"))
 }
 
 // This project doesn't produce a JAR.

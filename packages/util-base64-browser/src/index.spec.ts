@@ -35,4 +35,10 @@ describe("fromBase64", () => {
   it("should convert double padded base64 strings to Uint8Arrays", () => {
     expect(fromBase64(b64DoublePadded)).toEqual(doublePadded);
   });
+
+  describe("should reject invalid base64 strings", () => {
+    it.each(["Rg", "Rg=", "[][]", "-_=="])("rejects '%s'", (value) => {
+      expect(() => fromBase64(value)).toThrowError();
+    });
+  });
 });

@@ -1,3 +1,4 @@
+import { AbortController, AbortSignal } from "@aws-sdk/abort-controller";
 import {
   CompletedPart,
   CompleteMultipartUploadCommand,
@@ -13,10 +14,10 @@ import {
 } from "@aws-sdk/client-s3";
 import { extendedEncodeURIComponent } from "@aws-sdk/smithy-client";
 import { EventEmitter } from "events";
-import { BodyDataTypes, Options, Progress, ServiceClients } from "./types";
-import { getChunk } from "./chunker";
+
 import { byteLength } from "./bytelength";
-import { AbortController, AbortSignal } from "@aws-sdk/abort-controller";
+import { getChunk } from "./chunker";
+import { BodyDataTypes, Options, Progress, ServiceClients } from "./types";
 
 export interface RawDataPart {
   partNumber: number;
@@ -54,7 +55,7 @@ export class Upload extends EventEmitter {
   private uploadId?: string;
   uploadEvent?: string;
 
-  private isMultiPart: boolean = true;
+  private isMultiPart = true;
   private putResponse?: CompleteMultipartUploadCommandOutput;
 
   constructor(options: Options) {

@@ -32,6 +32,7 @@ import software.amazon.smithy.model.traits.MediaTypeTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
+import software.amazon.smithy.typescript.codegen.TypeScriptSettings.ArtifactType;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentShapeDeserVisitor;
@@ -54,27 +55,51 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
         super(context);
     }
 
-    private DocumentMemberDeserVisitor getMemberVisitor(String dataSource) {
-        return new JsonMemberDeserVisitor(getContext(), dataSource, Format.EPOCH_SECONDS);
+    private DocumentMemberDeserVisitor getMemberVisitor(MemberShape memberShape, String dataSource) {
+        return new JsonMemberDeserVisitor(getContext(), memberShape, dataSource, Format.EPOCH_SECONDS);
     }
 
     @Override
     protected void deserializeCollection(GenerationContext context, CollectionShape shape) {
         TypeScriptWriter writer = context.getWriter();
         Shape target = context.getModel().expectShape(shape.getMember().getTarget());
+        ArtifactType artifactType = context.getSettings().getArtifactType();
 
         // Filter out null entries if we don't have the sparse trait.
         String potentialFilter = "";
-        if (!shape.hasTrait(SparseTrait.ID)) {
+        if (!shape.hasTrait(SparseTrait.ID) && !artifactType.equals(ArtifactType.SSDK)) {
             potentialFilter = ".filter((e: any) => e != null)";
+        }
+
+        if (shape.isSetShape()) {
+            writer.write("const uniqueValues = new Set<any>();");
         }
 
         writer.openBlock("return (output || [])$L.map((entry: any) => {", "});", potentialFilter, () -> {
             // Short circuit null values from serialization.
-            writer.write("if (entry === null) { return null as any; }");
+            writer.openBlock("if (entry === null) {", "}", () -> {
+                // In the SSDK we want to be very strict about not accepting nulls in non-sparse lists.
+                if (!shape.hasTrait(SparseTrait.ID) && artifactType.equals(ArtifactType.SSDK)) {
+                    writer.write("throw new TypeError('All elements of the non-sparse list $S must be non-null.');",
+                                 shape.getId());
+                } else {
+                    writer.write("return null as any;");
+                }
+            });
 
-            // Dispatch to the output value provider for any additional handling.
-            writer.write("return $L$L;", target.accept(getMemberVisitor("entry")), usesExpect(target) ? " as any" : "");
+            if (shape.isSetShape()) {
+                writer.write("const parsedEntry = $L$L;",
+                        target.accept(getMemberVisitor(shape.getMember(), "entry")),
+                        usesExpect(target) ? " as any" : "");
+                writer.write("if (uniqueValues.has(parsedEntry)) { throw new "
+                                + "TypeError('All elements of the set $S must be unique.'); } else { "
+                                + "uniqueValues.add(parsedEntry)\nreturn parsedEntry; }",
+                        shape.getId());
+            } else {
+                // Dispatch to the output value provider for any additional handling.
+                writer.write("return $L$L;", target.accept(getMemberVisitor(shape.getMember(), "entry")),
+                        usesExpect(target) ? " as any" : "");
+            }
         });
     }
 
@@ -112,7 +137,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                 writer.openBlock("return {", "};", () -> {
                     writer.write("...acc,");
                     // Dispatch to the output value provider for any additional handling.
-                    writer.write("[key]: $L$L", target.accept(getMemberVisitor("value")),
+                    writer.write("[key]: $L$L", target.accept(getMemberVisitor(shape.getValue(), "value")),
                             usesExpect(target) ? " as any" : "");
                 });
             }
@@ -138,12 +163,14 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                 if (usesExpect(target)) {
                     // Booleans and numbers will call expectBoolean/expectNumber which will handle
                     // null/undefined properly.
-                    writer.write("$L: $L,", memberName, target.accept(getMemberVisitor("output." + locationName)));
+                    writer.write("$L: $L,",
+                            memberName,
+                            target.accept(getMemberVisitor(memberShape, "output." + locationName)));
                 } else {
                     writer.write("$1L: (output.$2L !== undefined && output.$2L !== null)"
                                     + " ? $3L: undefined,", memberName, locationName,
                             // Dispatch to the output value provider for any additional handling.
-                            target.accept(getMemberVisitor("output." + locationName)));
+                            target.accept(getMemberVisitor(memberShape, "output." + locationName)));
                 }
             });
         });
@@ -173,7 +200,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                     .map(JsonNameTrait::getValue)
                     .orElse(memberName);
 
-            String memberValue = target.accept(getMemberVisitor("output." + locationName));
+            String memberValue = target.accept(getMemberVisitor(memberShape, "output." + locationName));
             if (usesExpect(target)) {
                 // Booleans and numbers will call expectBoolean/expectNumber which will handle
                 // null/undefined properly.

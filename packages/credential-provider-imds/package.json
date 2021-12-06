@@ -1,14 +1,15 @@
 {
   "name": "@aws-sdk/credential-provider-imds",
-  "version": "3.27.0",
+  "version": "3.40.0",
   "description": "AWS credential provider that sources credentials from the EC2 instance metadata service and ECS container metadata service",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/es/index.js",
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
   "scripts": {
+    "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
-    "build": "yarn build:es && yarn build:cjs",
-    "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
+    "build:types": "tsc -p tsconfig.types.json",
+    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
     "test": "jest"
   },
   "keywords": [
@@ -21,10 +22,10 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/node-config-provider": "3.27.0",
-    "@aws-sdk/property-provider": "3.27.0",
-    "@aws-sdk/types": "3.25.0",
-    "@aws-sdk/url-parser": "3.25.0",
+    "@aws-sdk/node-config-provider": "3.40.0",
+    "@aws-sdk/property-provider": "3.40.0",
+    "@aws-sdk/types": "3.40.0",
+    "@aws-sdk/url-parser": "3.40.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
@@ -32,19 +33,22 @@
     "@types/node": "^10.0.0",
     "jest": "^26.1.0",
     "nock": "^13.0.2",
-    "typescript": "~4.3.2"
+    "typescript": "~4.3.5"
   },
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist-types/index.d.ts",
   "engines": {
     "node": ">= 10.0.0"
   },
   "typesVersions": {
     "<4.0": {
-      "dist/types/*": [
-        "dist/types/ts3.4/*"
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
       ]
     }
   },
+  "files": [
+    "dist-*"
+  ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/credential-provider-imds",
   "repository": {
     "type": "git",

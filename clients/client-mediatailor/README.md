@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MediaTailorClient` and
-the commands you need, for example `CreateChannelCommand`:
+the commands you need, for example `ConfigureLogsForPlaybackConfigurationCommand`:
 
 ```js
 // ES5 example
-const { MediaTailorClient, CreateChannelCommand } = require("@aws-sdk/client-mediatailor");
+const { MediaTailorClient, ConfigureLogsForPlaybackConfigurationCommand } = require("@aws-sdk/client-mediatailor");
 ```
 
 ```ts
 // ES6+ example
-import { MediaTailorClient, CreateChannelCommand } from "@aws-sdk/client-mediatailor";
+import { MediaTailorClient, ConfigureLogsForPlaybackConfigurationCommand } from "@aws-sdk/client-mediatailor";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new MediaTailorClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateChannelCommand(params);
+const command = new ConfigureLogsForPlaybackConfigurationCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.MediaTailor({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createChannel(params);
+  const data = await client.configureLogsForPlaybackConfiguration(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .createChannel(params)
+  .configureLogsForPlaybackConfiguration(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.createChannel(params, (err, data) => {
+client.configureLogsForPlaybackConfiguration(params, (err, data) => {
   // proccess err and data.
 });
 ```

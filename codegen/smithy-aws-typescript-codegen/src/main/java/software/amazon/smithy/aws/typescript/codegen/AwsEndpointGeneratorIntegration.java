@@ -17,12 +17,14 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
 
+import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
+import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -47,7 +49,7 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             return;
         }
 
-        writerFactory.accept("endpoints.ts", writer -> {
+        writerFactory.accept(Paths.get(CodegenUtils.SOURCE_FOLDER, "endpoints.ts").toString(), writer -> {
             new EndpointGenerator(settings.getService(model), writer).run();
         });
     }
@@ -83,7 +85,8 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
         switch (target) {
             case SHARED:
                 return MapUtils.of("regionInfoProvider", writer -> {
-                    writer.addImport("defaultRegionInfoProvider", "defaultRegionInfoProvider", "./endpoints");
+                    writer.addImport("defaultRegionInfoProvider", "defaultRegionInfoProvider",
+                        Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoints").toString());
                     writer.write("defaultRegionInfoProvider");
                 });
             default:

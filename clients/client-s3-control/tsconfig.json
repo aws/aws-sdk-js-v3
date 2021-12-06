@@ -3,17 +3,16 @@
     "alwaysStrict": true,
     "target": "ES2018",
     "module": "commonjs",
-    "declaration": true,
     "strict": true,
-    "sourceMap": true,
     "downlevelIteration": true,
     "importHelpers": true,
     "noEmitHelpers": true,
     "incremental": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "declarationDir": "./dist/types",
-    "outDir": "dist/cjs",
+    "rootDir": "src",
+    "outDir": "dist-cjs",
+    "removeComments": true,
     "types": ["mocha", "node"]
   },
   "typedocOptions": {
@@ -24,10 +23,11 @@
     "ignoreCompilerErrors": true,
     "includeDeclarations": true,
     "stripInternal": true,
-    "readme": "./README.md",
+    "readme": "README.md",
     "mode": "file",
-    "out": "./docs",
+    "out": "docs",
     "theme": "minimal",
-    "plugin": ["@aws-sdk/client-documentation-generator"]
-  }
+    "plugin": ["@aws-sdk/service-client-documentation-generator"]
+  },
+  "exclude": ["test/**/*"]
 }

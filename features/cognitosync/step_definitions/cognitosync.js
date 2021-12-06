@@ -1,7 +1,7 @@
-const { CognitoSync } = require("../../../clients/client-cognito-sync");
 const { Before, Given } = require("cucumber");
 
 Before({ tags: "@cognitosync" }, function (scenario, callback) {
+  const { CognitoSync } = require("../../../clients/client-cognito-sync");
   this.service = new CognitoSync({});
   callback();
 });

@@ -18,6 +18,7 @@ package software.amazon.smithy.aws.typescript.codegen;
 import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.model.shapes.BigDecimalShape;
 import software.amazon.smithy.model.shapes.BigIntegerShape;
+import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
@@ -31,11 +32,33 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 @SmithyInternalApi
 final class JsonMemberDeserVisitor extends DocumentMemberDeserVisitor {
 
+    private final MemberShape memberShape;
+
     /**
      * @inheritDoc
      */
-    JsonMemberDeserVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
+    JsonMemberDeserVisitor(GenerationContext context,
+                           MemberShape memberShape,
+                           String dataSource,
+                           Format defaultTimestampFormat) {
         super(context, dataSource, defaultTimestampFormat);
+        this.memberShape = memberShape;
+    }
+
+    JsonMemberDeserVisitor(GenerationContext context,
+                           String dataSource,
+                           Format defaultTimestampFormat) {
+        this(context, null, dataSource, defaultTimestampFormat);
+    }
+
+    @Override
+    protected MemberShape getMemberShape() {
+        return memberShape;
+    }
+
+    @Override
+    protected boolean requiresNumericEpochSecondsInPayload() {
+        return true;
     }
 
     @Override

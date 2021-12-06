@@ -5,12 +5,12 @@ import { toHex } from "@aws-sdk/util-hex-encoding";
 import { SHA256_HEADER, UNSIGNED_PAYLOAD } from "./constants";
 
 /**
- * @internal
+ * @private
  */
-export async function getPayloadHash(
+export const getPayloadHash = async (
   { headers, body }: HttpRequest,
   hashConstructor: HashConstructor
-): Promise<string> {
+): Promise<string> => {
   for (const headerName of Object.keys(headers)) {
     if (headerName.toLowerCase() === SHA256_HEADER) {
       return headers[headerName];
@@ -29,4 +29,4 @@ export async function getPayloadHash(
   // body is unsignable. Attempt to send the request with an unsigned payload,
   // which may or may not be accepted by the service.
   return UNSIGNED_PAYLOAD;
-}
+};

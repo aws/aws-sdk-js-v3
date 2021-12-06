@@ -3,6 +3,130 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.40.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.39.0...v3.40.0) (2021-11-05)
+
+
+### Bug Fixes
+
+* **config-resolver:** resolve region first from regionHash ([#2969](https://github.com/aws/aws-sdk-js-v3/issues/2969)) ([55f4e85](https://github.com/aws/aws-sdk-js-v3/commit/55f4e855dd0ff8dd671dea6753410d042d55e8f3))
+* **node-config-provider:** move booleanSelector util to platform agnostic package ([#2992](https://github.com/aws/aws-sdk-js-v3/issues/2992)) ([2909c7b](https://github.com/aws/aws-sdk-js-v3/commit/2909c7bf636d78f82aa980588fb44bd17f78e001))
+
+
+### Features
+
+* **clients:** populate variants in endpoints hashes ([#2974](https://github.com/aws/aws-sdk-js-v3/issues/2974)) ([0dd68ef](https://github.com/aws/aws-sdk-js-v3/commit/0dd68ef8b04ea0e96e43b05a9a10221e433fdf86))
+* **config-resolver:** resolve hostname from variants ([#2980](https://github.com/aws/aws-sdk-js-v3/issues/2980)) ([447580b](https://github.com/aws/aws-sdk-js-v3/commit/447580bc9f59d35e407dfffc9e31ff15c66b80ce))
+* **config-resolver:** use real region in configuration ([#2986](https://github.com/aws/aws-sdk-js-v3/issues/2986)) ([af5b00e](https://github.com/aws/aws-sdk-js-v3/commit/af5b00ead1f1e9770ea2a9e81f6a7724a7e1be9f))
+
+
+
+
+
+# [3.39.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.38.0...v3.39.0) (2021-10-29)
+
+
+### Bug Fixes
+
+* **config-resolver:** get signingRegion from regionRegex if not present for FIPS ([#2936](https://github.com/aws/aws-sdk-js-v3/issues/2936)) ([79bbc43](https://github.com/aws/aws-sdk-js-v3/commit/79bbc433f2a0f18ad7d8f89d9deabcab7d26ae50))
+
+
+
+
+
+# [3.38.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.37.0...v3.38.0) (2021-10-22)
+
+**Note:** Version bump only for package @aws-sdk/config-resolver
+
+
+
+
+
+# [3.37.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.36.1...v3.37.0) (2021-10-15)
+
+**Note:** Version bump only for package @aws-sdk/config-resolver
+
+
+
+
+
+# [3.36.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.35.0...v3.36.0) (2021-10-08)
+
+
+### Features
+
+* publish files in dist-* only ([#2873](https://github.com/aws/aws-sdk-js-v3/issues/2873)) ([53b4243](https://github.com/aws/aws-sdk-js-v3/commit/53b4243b066f25ff2412d5f0dea1036054b2df32))
+
+
+
+
+
+# [3.35.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.34.0...v3.35.0) (2021-10-04)
+
+**Note:** Version bump only for package @aws-sdk/config-resolver
+
+
+
+
+
+# [3.34.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.33.0...v3.34.0) (2021-09-24)
+
+
+### Features
+
+* **non-clients:** remove comments from transpiled JS files ([#2813](https://github.com/aws/aws-sdk-js-v3/issues/2813)) ([e6fc7f3](https://github.com/aws/aws-sdk-js-v3/commit/e6fc7f3e0fa74785590ac19e7ed143c916bb9b6e))
+
+
+
+
+
+# [3.33.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.32.0...v3.33.0) (2021-09-21)
+
+**Note:** Version bump only for package @aws-sdk/config-resolver
+
+
+
+
+
+# [3.32.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.31.0...v3.32.0) (2021-09-17)
+
+**Note:** Version bump only for package @aws-sdk/config-resolver
+
+
+
+
+
+# [3.30.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.29.0...v3.30.0) (2021-09-07)
+
+**Note:** Version bump only for package @aws-sdk/config-resolver
+
+
+
+
+
+# [3.29.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.28.0...v3.29.0) (2021-09-02)
+
+**Note:** Version bump only for package @aws-sdk/config-resolver
+
+
+
+
+
+# [3.28.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.27.0...v3.28.0) (2021-08-27)
+
+
+### Bug Fixes
+
+* **config-resolver:** add options for utility functions ([#2712](https://github.com/aws/aws-sdk-js-v3/issues/2712)) ([56ab50e](https://github.com/aws/aws-sdk-js-v3/commit/56ab50ec7765ffa3884bc3fb302a2c32ff56807b))
+
+
+### Features
+
+* **config-resolver:** add getRegionInfo helper functions ([#2701](https://github.com/aws/aws-sdk-js-v3/issues/2701)) ([7c6a790](https://github.com/aws/aws-sdk-js-v3/commit/7c6a7901f222273f7e82f169eaaf23b08c803596))
+
+
+
+
+
 # [3.27.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.26.0...v3.27.0) (2021-08-19)
 
 **Note:** Version bump only for package @aws-sdk/config-resolver

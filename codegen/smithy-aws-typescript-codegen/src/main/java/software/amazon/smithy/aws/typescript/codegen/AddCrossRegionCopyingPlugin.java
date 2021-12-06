@@ -18,43 +18,41 @@ package software.amazon.smithy.aws.typescript.codegen;
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
-import software.amazon.smithy.utils.ListUtils;
+import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SetUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 @SmithyInternalApi
 public class AddCrossRegionCopyingPlugin implements TypeScriptIntegration {
-    private static final Set<String> SHARED_PRESIGNED_URL_OPERATIONS = SetUtils.of(
-        "CopyDBClusterSnapshot",
-        "CreateDBCluster"
-    );
-    private static final Set<String> RDS_PRESIGNED_URL_OPERATIONS = SetUtils.of(
-        "CopyDBSnapshot",
-        "CreateDBInstanceReadReplica",
-        "StartDBInstanceAutomatedBackupsReplication"
+    private static final Map<String, Set<String>> PRESIGNED_URL_OPERATIONS_MAP = MapUtils.of(
+        "RDS", SetUtils.of(
+            "CopyDBClusterSnapshot",
+            "CreateDBCluster",
+            "CopyDBSnapshot",
+            "CreateDBInstanceReadReplica",
+            "StartDBInstanceAutomatedBackupsReplication"),
+        "DocDB", SetUtils.of("CopyDBClusterSnapshot"),
+        "Neptune", SetUtils.of("CopyDBClusterSnapshot", "CreateDBCluster")
     );
 
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
-        return ListUtils.of(
-            RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.RDS_MIDDLEWARE.dependency, "CrossRegionPresignedUrl",
-                        HAS_MIDDLEWARE)
-                .operationPredicate((m, s, o) -> RDS_PRESIGNED_URL_OPERATIONS.contains(o.getId().getName(s))
-                        && testServiceId(s, "RDS"))
-                .build(),
-            RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.RDS_MIDDLEWARE.dependency, "CrossRegionPresignedUrl",
-                        HAS_MIDDLEWARE)
-                .operationPredicate((m, s, o) -> SHARED_PRESIGNED_URL_OPERATIONS.contains(o.getId().getName(s))
-                        && (testServiceId(s, "RDS") || testServiceId(s, "DocDB")  || testServiceId(s, "Neptune")))
-                .build()
-        );
+        return PRESIGNED_URL_OPERATIONS_MAP.entrySet().stream().map((entry) -> {
+            String serviceId = entry.getKey();
+            Set<String> commands = entry.getValue();
+            return RuntimeClientPlugin.builder()
+                    .withConventions(AwsDependency.RDS_MIDDLEWARE.dependency, "CrossRegionPresignedUrl", HAS_MIDDLEWARE)
+                    .operationPredicate(
+                            (m, s, o) -> commands.contains(o.getId().getName(s)) && testServiceId(s, serviceId))
+                    .build();
+        }).collect(Collectors.toList());
     }
 
     private static boolean testServiceId(Shape serviceShape, String expectedId) {

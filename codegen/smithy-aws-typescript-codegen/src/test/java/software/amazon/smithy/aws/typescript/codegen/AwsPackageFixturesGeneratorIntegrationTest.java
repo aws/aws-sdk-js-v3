@@ -10,6 +10,7 @@ import software.amazon.smithy.build.MockManifest;
 import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.node.Node;
+import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.TypeScriptCodegenPlugin;
 import software.amazon.smithy.typescript.codegen.TypeScriptServerCodegenPlugin;
 
@@ -35,8 +36,6 @@ public class AwsPackageFixturesGeneratorIntegrationTest {
         new TypeScriptCodegenPlugin().execute(context);
 
         assertTrue(manifest.hasFile("LICENSE"));
-        assertTrue(manifest.hasFile(".gitignore"));
-        assertTrue(manifest.hasFile(".npmignore"));
         assertTrue(manifest.hasFile("README.md"));
 
         String readme = manifest.getFileString("README.md").get();
@@ -69,7 +68,6 @@ public class AwsPackageFixturesGeneratorIntegrationTest {
 
         assertTrue(manifest.hasFile("LICENSE"));
         assertTrue(manifest.hasFile(".gitignore"));
-        assertTrue(manifest.hasFile(".npmignore"));
         assertFalse(manifest.hasFile("README.md"));
     }
 
@@ -96,7 +94,6 @@ public class AwsPackageFixturesGeneratorIntegrationTest {
 
         assertTrue(manifest.hasFile("LICENSE"));
         assertTrue(manifest.hasFile(".gitignore"));
-        assertTrue(manifest.hasFile(".npmignore"));
         assertFalse(manifest.hasFile("README.md"));
     }
 }

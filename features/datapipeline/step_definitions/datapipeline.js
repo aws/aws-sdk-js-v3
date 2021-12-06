@@ -1,7 +1,7 @@
-const { DataPipeline } = require("../../../clients/client-data-pipeline");
 const { Before, Given } = require("cucumber");
 
 Before({ tags: "@datapipeline" }, function (scenario, callback) {
+  const { DataPipeline } = require("../../../clients/client-data-pipeline");
   this.service = new DataPipeline({});
   callback();
 });

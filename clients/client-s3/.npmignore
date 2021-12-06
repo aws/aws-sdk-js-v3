@@ -1,6 +1,0 @@
-/coverage/
-/docs/
-/e2e/
-tsconfig.test.json
-*.tsbuildinfo
-jest.config.js

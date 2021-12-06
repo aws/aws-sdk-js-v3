@@ -2,9 +2,9 @@
 import { ReadableStream } from "web-streams-polyfill";
 
 import { byteLength } from "../bytelength";
+import { RawDataPart as DataPart } from "../Upload";
 import { getChunkStream as chunkFromReadable } from "./getChunkStream";
 import { getDataReadableStream } from "./getDataReadableStream";
-import { RawDataPart as DataPart } from "../Upload";
 
 describe("chunkFromReadable.name", () => {
   // larger than the 5mb min chunk size
@@ -27,7 +27,7 @@ describe("chunkFromReadable.name", () => {
   ): Promise<DataPart[]> => {
     const stream = getStreamOfUnknownlength(streamYieldSize, streamYieldCount);
     const chunks: DataPart[] = [];
-    const chunker = chunkFromReadable<ReadableStream>(stream, partsize, getDataReadableStream);
+    const chunker = chunkFromReadable<ReadableStream>(stream, partsize, getDataReadableStream as any);
 
     for await (const chunk of chunker) {
       chunks.push(chunk);
@@ -36,7 +36,7 @@ describe("chunkFromReadable.name", () => {
   };
 
   it("should a single chunk if the stream is smaller than partsize", async (done) => {
-    let chunks = await getChunks(34, 2, 100);
+    const chunks = await getChunks(34, 2, 100);
 
     expect(chunks.length).toBe(1);
     expect(byteLength(chunks[0].data)).toEqual(68);
@@ -47,7 +47,7 @@ describe("chunkFromReadable.name", () => {
   });
 
   it("should return chunks of a specific size", async (done) => {
-    let chunks = await getChunks(58, 1, 20);
+    const chunks = await getChunks(58, 1, 20);
 
     expect(chunks.length).toBe(3);
     expect(byteLength(chunks[0].data)).toEqual(20);
@@ -65,7 +65,7 @@ describe("chunkFromReadable.name", () => {
   });
 
   it("should properly chunk a large stream of unknown size", async (done) => {
-    let chunks = await getChunks(_6MB / 2, 21, _6MB);
+    const chunks = await getChunks(_6MB / 2, 21, _6MB);
 
     expect(chunks.length).toEqual(11);
     for (let index = 0; index < 10; index++) {

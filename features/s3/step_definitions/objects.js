@@ -1,14 +1,9 @@
-const { S3, GetObjectCommand, PutObjectCommand } = require("../../../clients/client-s3");
-const { streamCollector } = require("../../../packages/node-http-handler");
-const { toUtf8 } = require("../../../packages/util-utf8-node");
-const { Md5 } = require("../../../packages/md5-js");
-
-const { S3RequestPresigner } = require("../../../packages/s3-request-presigner");
-const { createRequest } = require("../../../packages/util-create-request");
-const { formatUrl } = require("../../../packages/util-format-url");
-const { Given, Then, When } = require("cucumber");
+const { Before, Given, Then, When } = require("cucumber");
 
 function getSignedUrl(client, command, params, callback) {
+  const { S3RequestPresigner } = require("../../../packages/s3-request-presigner");
+  const { createRequest } = require("../../../packages/util-create-request");
+  const { formatUrl } = require("../../../packages/util-format-url");
   const signer = new S3RequestPresigner({ ...client.config });
   createRequest(client, new command(params))
     .then((request) => {
@@ -26,6 +21,20 @@ function getSignedUrl(client, command, params, callback) {
       callback(err);
     });
 }
+
+Before({ tags: "@objects" }, function (scenario, callback) {
+  const { S3, GetObjectCommand, PutObjectCommand } = require("../../../clients/client-s3");
+  const { streamCollector } = require("../../../packages/node-http-handler");
+  const { toUtf8 } = require("../../../packages/util-utf8-node");
+  const { Md5 } = require("../../../packages/md5-js");
+  this.S3 = S3;
+  this.GetObjectCommand = GetObjectCommand;
+  this.PutObjectCommand = PutObjectCommand;
+  this.streamCollector = streamCollector;
+  this.toUtf8 = toUtf8;
+  this.Md5 = Md5;
+  callback();
+});
 
 When("I put {string} to the key {string}", function (data, key, next) {
   const params = {
@@ -72,15 +81,15 @@ When("I put {string} to the key {string} with ContentLength {int}", function (co
     Body: contents,
     ContentLength: parseInt(contentLength),
   };
-  this.s3nochecksums = new S3({
+  this.s3nochecksums = new this.S3({
     computeChecksums: false,
   });
   this.request("s3nochecksums", "putObject", params, next);
 });
 
 Then("the object {string} should contain {string}", function (key, contents, next) {
-  streamCollector(this.data.Body).then((body) => {
-    this.assert.equal(toUtf8(body), contents);
+  this.streamCollector(this.data.Body).then((body) => {
+    this.assert.equal(this.toUtf8(body), contents);
     next();
   });
 });
@@ -177,7 +186,7 @@ When("I get a pre-signed URL to GET the key {string}", function (key, callback) 
   const world = this;
   getSignedUrl(
     this.s3,
-    GetObjectCommand,
+    this.GetObjectCommand,
     {
       Bucket: this.sharedBucket,
       Key: key,
@@ -210,7 +219,7 @@ Given("I get a pre-signed URL to PUT the key {string} with data {string}", funct
     Key: key,
   };
   if (body) params.Body = body;
-  getSignedUrl(this.s3, PutObjectCommand, params, function (err, url) {
+  getSignedUrl(this.s3, this.PutObjectCommand, params, function (err, url) {
     world.signedUrl = url;
     callback();
   });
@@ -410,15 +419,15 @@ Then("I make an unauthenticated request to read object {string}", function (key,
 });
 
 Given("I generate the MD5 checksum of {string}", function (data, next) {
-  const hash = new Md5();
+  const hash = new this.Md5();
   hash.update(data);
   this.sentContentMD5 = hash.digest().toString();
   next();
 });
 
 Then("the MD5 checksum of the response data should equal the generated checksum", function (next) {
-  const hash = new Md5();
-  streamCollector(this.data.Body).then((body) => {
+  const hash = new this.Md5();
+  this.streamCollector(this.data.Body).then((body) => {
     hash.update(body);
     this.assert.equal(hash.digest(), this.sentContentMD5);
     next();

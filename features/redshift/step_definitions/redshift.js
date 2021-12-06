@@ -1,7 +1,7 @@
-const { Redshift } = require("../../../clients/client-redshift");
 const { Before, Given } = require("cucumber");
 
 Before({ tags: "@redshift" }, function (scenario, callback) {
+  const { Redshift } = require("../../../clients/client-redshift");
   this.service = new Redshift({});
   callback();
 });

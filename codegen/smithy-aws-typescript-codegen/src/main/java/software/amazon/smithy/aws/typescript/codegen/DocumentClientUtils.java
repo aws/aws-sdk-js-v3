@@ -38,6 +38,7 @@ final class DocumentClientUtils {
     static final String CLIENT_CONFIG_NAME = getResolvedConfigTypeName(CLIENT_NAME);
     static final String CLIENT_COMMANDS_FOLDER = "commands";
     static final String CLIENT_UTILS_FILE = "utils";
+    static final String DOC_CLIENT_PREFIX = "doc-client-";
 
     static final String CLIENT_TRANSLATE_CONFIG_KEY = "translateConfig";
     static final String CLIENT_TRANSLATE_CONFIG_TYPE = "TranslateConfig";

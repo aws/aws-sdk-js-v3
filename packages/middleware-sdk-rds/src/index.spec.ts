@@ -32,16 +32,16 @@ describe("middleware-sdk-rds", () => {
     expect(middlewareOutput.input.TargetDBSnapshotIdentifier).toEqual(params.TargetDBSnapshotIdentifier);
     expect(middlewareOutput.input.KmsKeyId).toEqual(params.KmsKeyId);
     const presignedUrl = middlewareOutput.input.PreSignedUrl;
-    expect(presignedUrl).toMatch(/https%3A%2F%2Frds\.src\-region\.amazonaws\.com%2F%3F/);
-    expect(presignedUrl).toMatch(/Action%3DCopyDBSnapshot/);
-    expect(presignedUrl).toMatch(/Version%3D2014\-10\-31/);
-    expect(presignedUrl).toMatch(/X\-Amz\-Security\-Token%3Dsession/);
-    expect(presignedUrl).toMatch(/X\-Amz\-Algorithm%3DAWS4\-HMAC\-SHA256/);
-    expect(presignedUrl).toMatch(/X\-Amz\-SignedHeaders%3Dhost/);
-    expect(presignedUrl).toMatch(/X\-Amz\-Credential%3D/);
-    expect(presignedUrl).toMatch(/X\-Amz\-Date%3D/);
-    expect(presignedUrl).toMatch(/X-Amz-Expires%3D([\d]+)/);
-    expect(presignedUrl).toMatch(/X-Amz-Signature%3D000000/);
+    expect(presignedUrl).toMatch(/https\:\/\/rds\.src\-region\.amazonaws\.com\/\?/);
+    expect(presignedUrl).toMatch(/Action\=CopyDBSnapshot/);
+    expect(presignedUrl).toMatch(/Version\=2014\-10\-31/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Security\-Token\=session/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Algorithm\=AWS4\-HMAC\-SHA256/);
+    expect(presignedUrl).toMatch(/X\-Amz\-SignedHeaders\=host/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Credential\=/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Date\=/);
+    expect(presignedUrl).toMatch(/X-Amz-Expires=([\d]+)/);
+    expect(presignedUrl).toMatch(/X-Amz-Signature=000000/);
   });
 
   it("should build CreateDBInstanceReadReplica cross origin presigned url correctly ", async () => {
@@ -57,16 +57,16 @@ describe("middleware-sdk-rds", () => {
     expect(middlewareOutput.input.DBInstanceIdentifier).toEqual(params.DBInstanceIdentifier);
     expect(middlewareOutput.input.KmsKeyId).toEqual(params.KmsKeyId);
     const presignedUrl = middlewareOutput.input.PreSignedUrl;
-    expect(presignedUrl).toMatch(/https%3A%2F%2Frds\.src\-region\.amazonaws\.com%2F%3F/);
-    expect(presignedUrl).toMatch(/Action%3DCreateDBInstanceReadReplica/);
-    expect(presignedUrl).toMatch(/Version%3D2014\-10\-31/);
-    expect(presignedUrl).toMatch(/X\-Amz\-Security\-Token%3Dsession/);
-    expect(presignedUrl).toMatch(/X\-Amz\-Algorithm%3DAWS4\-HMAC\-SHA256/);
-    expect(presignedUrl).toMatch(/X\-Amz\-SignedHeaders%3Dhost/);
-    expect(presignedUrl).toMatch(/X\-Amz\-Credential%3D/);
-    expect(presignedUrl).toMatch(/X\-Amz\-Date%3D/);
-    expect(presignedUrl).toMatch(/X-Amz-Expires%3D([\d]+)/);
-    expect(presignedUrl).toMatch(/X-Amz-Signature%3D000000/);
+    expect(presignedUrl).toMatch(/https\:\/\/rds\.src\-region\.amazonaws\.com\/\?/);
+    expect(presignedUrl).toMatch(/Action\=CreateDBInstanceReadReplica/);
+    expect(presignedUrl).toMatch(/Version\=2014\-10\-31/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Security\-Token\=session/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Algorithm\=AWS4\-HMAC\-SHA256/);
+    expect(presignedUrl).toMatch(/X\-Amz\-SignedHeaders\=host/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Credential\=/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Date\=/);
+    expect(presignedUrl).toMatch(/X-Amz-Expires=([\d]+)/);
+    expect(presignedUrl).toMatch(/X-Amz-Signature=000000/);
   });
 
   it("should build CreateDBCluster cross origin presigned url correctly ", async () => {
@@ -82,16 +82,16 @@ describe("middleware-sdk-rds", () => {
     expect(middlewareOutput.input.DBClusterIdentifier).toEqual(params.DBClusterIdentifier);
     expect(middlewareOutput.input.KmsKeyId).toEqual(params.KmsKeyId);
     const presignedUrl = middlewareOutput.input.PreSignedUrl;
-    expect(presignedUrl).toMatch(/https%3A%2F%2Frds\.src\-region\.amazonaws\.com%2F%3F/);
-    expect(presignedUrl).toMatch(/Action%3DCreateDBCluster/);
-    expect(presignedUrl).toMatch(/Version%3D2014\-10\-31/);
-    expect(presignedUrl).toMatch(/X\-Amz\-Security\-Token%3Dsession/);
-    expect(presignedUrl).toMatch(/X\-Amz\-Algorithm%3DAWS4\-HMAC\-SHA256/);
-    expect(presignedUrl).toMatch(/X\-Amz\-SignedHeaders%3Dhost/);
-    expect(presignedUrl).toMatch(/X\-Amz\-Credential%3D/);
-    expect(presignedUrl).toMatch(/X\-Amz\-Date%3D/);
-    expect(presignedUrl).toMatch(/X-Amz-Expires%3D([\d]+)/);
-    expect(presignedUrl).toMatch(/X-Amz-Signature%3D000000/);
+    expect(presignedUrl).toMatch(/https\:\/\/rds\.src\-region\.amazonaws\.com\/\?/);
+    expect(presignedUrl).toMatch(/Action\=CreateDBCluster/);
+    expect(presignedUrl).toMatch(/Version\=2014\-10\-31/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Security\-Token\=session/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Algorithm\=AWS4\-HMAC\-SHA256/);
+    expect(presignedUrl).toMatch(/X\-Amz\-SignedHeaders\=host/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Credential\=/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Date\=/);
+    expect(presignedUrl).toMatch(/X-Amz-Expires=([\d]+)/);
+    expect(presignedUrl).toMatch(/X-Amz-Signature=000000/);
   });
 
   it("should build CopyDBClusterSnapshot cross origin presigned url correctly ", async () => {
@@ -107,16 +107,39 @@ describe("middleware-sdk-rds", () => {
     expect(middlewareOutput.input.TargetDBClusterSnapshotIdentifier).toEqual(params.TargetDBClusterSnapshotIdentifier);
     expect(middlewareOutput.input.KmsKeyId).toEqual(params.KmsKeyId);
     const presignedUrl = middlewareOutput.input.PreSignedUrl;
-    expect(presignedUrl).toMatch(/https%3A%2F%2Frds\.src\-region\.amazonaws\.com%2F%3F/);
-    expect(presignedUrl).toMatch(/Action%3DCopyDBClusterSnapshot/);
-    expect(presignedUrl).toMatch(/Version%3D2014\-10\-31/);
-    expect(presignedUrl).toMatch(/X\-Amz\-Security\-Token%3Dsession/);
-    expect(presignedUrl).toMatch(/X\-Amz\-Algorithm%3DAWS4\-HMAC\-SHA256/);
-    expect(presignedUrl).toMatch(/X\-Amz\-SignedHeaders%3Dhost/);
-    expect(presignedUrl).toMatch(/X\-Amz\-Credential%3D/);
-    expect(presignedUrl).toMatch(/X\-Amz\-Date%3D/);
-    expect(presignedUrl).toMatch(/X-Amz-Expires%3D([\d]+)/);
-    expect(presignedUrl).toMatch(/X-Amz-Signature%3D000000/);
+    expect(presignedUrl).toMatch(/https\:\/\/rds\.src\-region\.amazonaws\.com\/\?/);
+    expect(presignedUrl).toMatch(/Action\=CopyDBClusterSnapshot/);
+    expect(presignedUrl).toMatch(/Version\=2014\-10\-31/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Security\-Token\=session/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Algorithm\=AWS4\-HMAC\-SHA256/);
+    expect(presignedUrl).toMatch(/X\-Amz\-SignedHeaders\=host/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Credential\=/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Date\=/);
+    expect(presignedUrl).toMatch(/X-Amz-Expires=([\d]+)/);
+    expect(presignedUrl).toMatch(/X-Amz-Signature=000000/);
+  });
+
+  it("should build StartDBInstanceAutomatedBackupsReplication cross origin presigned url correctly ", async () => {
+    const params = {
+      SourceDBInstanceArn: arn,
+      KmsKeyId: "000-111",
+    };
+    await handler({ input: params });
+    expect(nextHandler.mock.calls.length).toBe(1);
+    const middlewareOutput = nextHandler.mock.calls[0][0];
+    expect(middlewareOutput.input.SourceDBInstanceArn).toEqual(params.SourceDBInstanceArn);
+    expect(middlewareOutput.input.KmsKeyId).toEqual(params.KmsKeyId);
+    const presignedUrl = middlewareOutput.input.PreSignedUrl;
+    expect(presignedUrl).toMatch(/https\:\/\/rds\.src\-region\.amazonaws\.com\/\?/);
+    expect(presignedUrl).toMatch(/Action\=StartDBInstanceAutomatedBackupsReplication/);
+    expect(presignedUrl).toMatch(/Version\=2014\-10\-31/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Security\-Token\=session/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Algorithm\=AWS4\-HMAC\-SHA256/);
+    expect(presignedUrl).toMatch(/X\-Amz\-SignedHeaders\=host/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Credential\=/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Date\=/);
+    expect(presignedUrl).toMatch(/X-Amz-Expires=([\d]+)/);
+    expect(presignedUrl).toMatch(/X-Amz-Signature=000000/);
   });
 
   it("should not generate PreSignedUrl if source identifier is not ARN", async () => {

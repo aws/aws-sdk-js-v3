@@ -9,6 +9,7 @@ import software.amazon.smithy.build.MockManifest;
 import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.node.Node;
+import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.TypeScriptCodegenPlugin;
 
 public class AddAwsAuthPluginTest {
@@ -37,18 +38,18 @@ public class AddAwsAuthPluginTest {
                 containsString(AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName));
 
         // Check config interface fields
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("credentialDefaultProvider?"));
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), not(containsString("signingName")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("credentialDefaultProvider?"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), not(containsString("signingName")));
 
         // Check config files
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(),
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(),
                 containsString("decorateDefaultCredentialProvider"));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("Credential is missing"));
-        assertThat(manifest.getFileString("runtimeConfig.shared.ts").get(), not(containsString("signingName:")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("Credential is missing"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.shared.ts").get(), not(containsString("signingName:")));
 
         // Check the config resolution and middleware plugin
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("resolveAwsAuthConfig"));
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("getAwsAuthPlugin"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("resolveAwsAuthConfig"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("getAwsAuthPlugin"));
     }
 
     @Test
@@ -76,18 +77,18 @@ public class AddAwsAuthPluginTest {
                 containsString(AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName));
 
         // Check config interface fields
-        assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), containsString("credentialDefaultProvider?"));
-        assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), containsString("signingName?"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("credentialDefaultProvider?"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("signingName?"));
 
         // Check config files
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(),
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(),
                 containsString("decorateDefaultCredentialProvider"));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("Credential is missing"));
-        assertThat(manifest.getFileString("runtimeConfig.shared.ts").get(), containsString("signingName:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("Credential is missing"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.shared.ts").get(), containsString("signingName:"));
 
         // Check the config resolution and middleware plugin
-        assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), containsString("resolveSigV4AuthConfig"));
-        assertThat(manifest.getFileString("SsdkExampleSigV4Client.ts").get(), containsString("getSigV4AuthPlugin"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("resolveSigV4AuthConfig"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("getSigV4AuthPlugin"));
     }
 
     @Test
@@ -115,17 +116,17 @@ public class AddAwsAuthPluginTest {
                 not(containsString(AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName)));
 
         // Check config interface fields
-        assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), not(containsString("credentialDefaultProvider?")));
-        assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), not(containsString("signingName?")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), not(containsString("credentialDefaultProvider?")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), not(containsString("signingName?")));
 
         // Check config files
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(),
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(),
                 not(containsString("decorateDefaultCredentialProvider")));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), not(containsString("Credential is missing")));
-        assertThat(manifest.getFileString("runtimeConfig.shared.ts").get(), not(containsString("signingName:")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), not(containsString("Credential is missing")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.shared.ts").get(), not(containsString("signingName:")));
 
         // Check the config resolution and middleware plugin
-        assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), not(containsString("resolveSigV4AuthConfig")));
-        assertThat(manifest.getFileString("SsdkExampleClient.ts").get(), not(containsString("resolveAwsV4AuthConfig")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), not(containsString("resolveSigV4AuthConfig")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), not(containsString("resolveAwsV4AuthConfig")));
     }
 }

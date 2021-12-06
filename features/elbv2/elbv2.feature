@@ -1,5 +1,5 @@
 # language: en
-@elbv2
+@elasticloadbalancingv2
 Feature: 
 
   I want to use Elastic Load Balancing v2

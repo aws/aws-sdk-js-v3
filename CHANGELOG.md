@@ -3,6 +3,343 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.44.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.43.0...v3.44.0) (2021-12-02)
+
+
+### Bug Fixes
+
+* **client-databrew:** omit retry headers ([#3076](https://github.com/aws/aws-sdk-js-v3/issues/3076)) ([9b6995c](https://github.com/aws/aws-sdk-js-v3/commit/9b6995c61d84fec2dc2948fcf34d3e750b95d144))
+
+
+### Features
+
+* **clients:** update clients as of 2021/11/30 ([#3077](https://github.com/aws/aws-sdk-js-v3/issues/3077)) ([2bdba30](https://github.com/aws/aws-sdk-js-v3/commit/2bdba30963e550728ba2903d57daa1e666a29d71))
+* **clients:** update clients as of 2021/12/01 ([#3078](https://github.com/aws/aws-sdk-js-v3/issues/3078)) ([9c44188](https://github.com/aws/aws-sdk-js-v3/commit/9c44188265ea484d55c50848d7daae5571007ce0))
+
+
+
+
+
+# [3.43.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.42.0...v3.43.0) (2021-11-29)
+
+
+### Bug Fixes
+
+* **codegen:** use specific smithy-cli version in protocol-test-codegen ([#3054](https://github.com/aws/aws-sdk-js-v3/issues/3054)) ([ba14b3c](https://github.com/aws/aws-sdk-js-v3/commit/ba14b3c0566c40a05c6d99ea169398cca588b32f))
+
+
+### Features
+
+* **clients:** update clients as of 11/28/2021 ([#3072](https://github.com/aws/aws-sdk-js-v3/issues/3072)) ([2ad1622](https://github.com/aws/aws-sdk-js-v3/commit/2ad1622ba8586b926fe508055211803bb29e3976))
+* **lib-dynamodb:** add pagination ([#3069](https://github.com/aws/aws-sdk-js-v3/issues/3069)) ([51480df](https://github.com/aws/aws-sdk-js-v3/commit/51480df99b38d0f4893f4c6cd7020b9a6135eee9))
+
+
+
+
+
+# [3.42.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.41.0...v3.42.0) (2021-11-19)
+
+
+### Bug Fixes
+
+* **client-kendra:** change incorrectly modeled DocumentAttributeValue to structure ([#3040](https://github.com/aws/aws-sdk-js-v3/issues/3040)) ([e497f38](https://github.com/aws/aws-sdk-js-v3/commit/e497f38810458847a016e910c1418e4f31939e66))
+* **clients:** merge default variants by comparing tags ([#3044](https://github.com/aws/aws-sdk-js-v3/issues/3044)) ([d65a310](https://github.com/aws/aws-sdk-js-v3/commit/d65a310ed5a471e72633a18ae6f3c98390e20783))
+* **lib-storage:** add events polyfill ([#3017](https://github.com/aws/aws-sdk-js-v3/issues/3017)) ([fff5e2a](https://github.com/aws/aws-sdk-js-v3/commit/fff5e2a3e2f5c1e0f3b22ea1f3b6cc28cd2658f0))
+* **middleware-sdk-ec2:** remove double encoding of presigned url ([#3022](https://github.com/aws/aws-sdk-js-v3/issues/3022)) ([7cf73ea](https://github.com/aws/aws-sdk-js-v3/commit/7cf73eac3103b0a0ad7c0d84c04882f07a576245))
+* **middleware-sdk-s3-control:** do not validate for FIPS in S3 Outposts ([#3027](https://github.com/aws/aws-sdk-js-v3/issues/3027)) ([b30d338](https://github.com/aws/aws-sdk-js-v3/commit/b30d338c6c0e4843c1d622c7eb59f4e64f78956b))
+
+
+### Features
+
+* **clients:** update clients as of 11/18/2021 ([#3039](https://github.com/aws/aws-sdk-js-v3/issues/3039)) ([d2b2c45](https://github.com/aws/aws-sdk-js-v3/commit/d2b2c453315fc7bff798c1fb97c792e59274b4d6))
+
+
+
+
+
+# [3.41.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.40.1...v3.41.0) (2021-11-11)
+
+
+### Bug Fixes
+
+* **codegen:** use specific Smithy version ([#3011](https://github.com/aws/aws-sdk-js-v3/issues/3011)) ([6cdee41](https://github.com/aws/aws-sdk-js-v3/commit/6cdee414fe8f753e8381095c7281b323154598a9))
+* **credential-provider-web-identity:** exclude node.js code from browser bundle ([#3005](https://github.com/aws/aws-sdk-js-v3/issues/3005)) ([7ba033a](https://github.com/aws/aws-sdk-js-v3/commit/7ba033a37058c6697edb004180dc046a2298e9aa))
+* **credential-providers:** exclude node.js files for web ([#3006](https://github.com/aws/aws-sdk-js-v3/issues/3006)) ([a890fd7](https://github.com/aws/aws-sdk-js-v3/commit/a890fd791143cdccf249b648c45ed89bc8bb3e70))
+* **polly-request-presigner:** add missing polly dependency ([#3010](https://github.com/aws/aws-sdk-js-v3/issues/3010)) ([c2873e7](https://github.com/aws/aws-sdk-js-v3/commit/c2873e7eebdba9c9b36df685dfe588f70bd657a7))
+* **signature-v4-crt:** notify this package is node.js only ([#3009](https://github.com/aws/aws-sdk-js-v3/issues/3009)) ([39e758c](https://github.com/aws/aws-sdk-js-v3/commit/39e758cc986aec660c119c6e8aa14a704d141a4c))
+* **smithy-client:** remove capturing groups from date regex ([#3008](https://github.com/aws/aws-sdk-js-v3/issues/3008)) ([3bc91c0](https://github.com/aws/aws-sdk-js-v3/commit/3bc91c0eb21ed802a27361ad92789b936cb47803))
+
+
+### Features
+
+* **clients:** update clients as of 2021/11/11 ([#3015](https://github.com/aws/aws-sdk-js-v3/issues/3015)) ([3d82c4e](https://github.com/aws/aws-sdk-js-v3/commit/3d82c4e3c4d174533f46ce35495cf5cffabdb35a))
+* **karma-credential-loader:** mark package as private ([#3016](https://github.com/aws/aws-sdk-js-v3/issues/3016)) ([f13cac0](https://github.com/aws/aws-sdk-js-v3/commit/f13cac09b896b6d179930a4387738e7838cc9016))
+
+
+
+
+
+## [3.40.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.40.0...v3.40.1) (2021-11-08)
+
+
+### Bug Fixes
+
+* **middleware-bucket-endpoint:** remove dualstack from hostname before processing ([#3003](https://github.com/aws/aws-sdk-js-v3/issues/3003)) ([d7aa2c3](https://github.com/aws/aws-sdk-js-v3/commit/d7aa2c329c62a9c2957631502bfe8da7fda86a4f))
+
+
+
+
+
+# [3.40.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.39.0...v3.40.0) (2021-11-05)
+
+
+### Bug Fixes
+
+* **config-resolver:** resolve region first from regionHash ([#2969](https://github.com/aws/aws-sdk-js-v3/issues/2969)) ([55f4e85](https://github.com/aws/aws-sdk-js-v3/commit/55f4e855dd0ff8dd671dea6753410d042d55e8f3))
+* **node-config-provider:** move booleanSelector util to platform agnostic package ([#2992](https://github.com/aws/aws-sdk-js-v3/issues/2992)) ([2909c7b](https://github.com/aws/aws-sdk-js-v3/commit/2909c7bf636d78f82aa980588fb44bd17f78e001))
+
+
+### Features
+
+* **client-nimble:** change StudioComponentConfiguration from union to structure ([#2971](https://github.com/aws/aws-sdk-js-v3/issues/2971)) ([049533d](https://github.com/aws/aws-sdk-js-v3/commit/049533d9ad85fc0a884e4b9c5b9b72a4fdc63587))
+* **client-nimble:** update model as of 11/02/2021 ([#2976](https://github.com/aws/aws-sdk-js-v3/issues/2976)) ([47d2a6c](https://github.com/aws/aws-sdk-js-v3/commit/47d2a6c10033b4a52f19db58d85549e40e325d2e))
+* **client-s3-control:** support FIPS in S3 Outposts Control Plane ([#2985](https://github.com/aws/aws-sdk-js-v3/issues/2985)) ([41d3762](https://github.com/aws/aws-sdk-js-v3/commit/41d376238d2f6c011e7ddbb383367d2393a14c71))
+* **clients:** populate variants in endpoints hashes ([#2974](https://github.com/aws/aws-sdk-js-v3/issues/2974)) ([0dd68ef](https://github.com/aws/aws-sdk-js-v3/commit/0dd68ef8b04ea0e96e43b05a9a10221e433fdf86))
+* **clients:** update clients as of 2021/11/05 ([#2994](https://github.com/aws/aws-sdk-js-v3/issues/2994)) ([f5ecc31](https://github.com/aws/aws-sdk-js-v3/commit/f5ecc3147035a1f3d2d74cfed147999927ea8256))
+* **config-resolver:** resolve hostname from variants ([#2980](https://github.com/aws/aws-sdk-js-v3/issues/2980)) ([447580b](https://github.com/aws/aws-sdk-js-v3/commit/447580bc9f59d35e407dfffc9e31ff15c66b80ce))
+* **config-resolver:** use real region in configuration ([#2986](https://github.com/aws/aws-sdk-js-v3/issues/2986)) ([af5b00e](https://github.com/aws/aws-sdk-js-v3/commit/af5b00ead1f1e9770ea2a9e81f6a7724a7e1be9f))
+* **karma-credential-loader:** mark package as private ([#2959](https://github.com/aws/aws-sdk-js-v3/issues/2959)) ([a9ad7f6](https://github.com/aws/aws-sdk-js-v3/commit/a9ad7f628e5e243ed6427b82c42f2c40109cd41b))
+
+
+
+
+
+# [3.39.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.38.0...v3.39.0) (2021-10-29)
+
+
+### Bug Fixes
+
+* **ci:** generate and build generic client from private folder ([#2954](https://github.com/aws/aws-sdk-js-v3/issues/2954)) ([044a3ac](https://github.com/aws/aws-sdk-js-v3/commit/044a3ac1f50d4bb352acb343a663f5f5fca0380f))
+* **config-resolver:** get signingRegion from regionRegex if not present for FIPS ([#2936](https://github.com/aws/aws-sdk-js-v3/issues/2936)) ([79bbc43](https://github.com/aws/aws-sdk-js-v3/commit/79bbc433f2a0f18ad7d8f89d9deabcab7d26ae50))
+* **node-config-provider:** allow undefined for booleanSelector obj keys ([#2945](https://github.com/aws/aws-sdk-js-v3/issues/2945)) ([1bd56b6](https://github.com/aws/aws-sdk-js-v3/commit/1bd56b66b76de5728987fcf9657654523c290c5f))
+
+
+### Features
+
+* **clients:** update clients as of 2021/10/28 ([#2955](https://github.com/aws/aws-sdk-js-v3/issues/2955)) ([378d161](https://github.com/aws/aws-sdk-js-v3/commit/378d16166de49b06263291001986715d9533cadf))
+* **node-config-provider:** add utility booleanSelector ([#2941](https://github.com/aws/aws-sdk-js-v3/issues/2941)) ([538d717](https://github.com/aws/aws-sdk-js-v3/commit/538d717f9fc77d63b86e7de026453e4eb274934d))
+* **private:** add generic client aws-echo-service ([#2950](https://github.com/aws/aws-sdk-js-v3/issues/2950)) ([e606543](https://github.com/aws/aws-sdk-js-v3/commit/e6065437ed3b804ea0fa9b0bf79769a014a84e6f))
+
+
+
+
+
+# [3.38.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.37.0...v3.38.0) (2021-10-22)
+
+
+### Features
+
+* **client-documentation-generator:** rename package ([#2916](https://github.com/aws/aws-sdk-js-v3/issues/2916)) ([1a80bfd](https://github.com/aws/aws-sdk-js-v3/commit/1a80bfd2dfc583001ddb4a21b6432eaaad699aa7))
+* **clients:** export folder from index.ts ([#2912](https://github.com/aws/aws-sdk-js-v3/issues/2912)) ([183b46d](https://github.com/aws/aws-sdk-js-v3/commit/183b46dde7f5613128038bf1c076f3c0b693203b))
+* **clients:** update clients as of 2021/10/22 ([#2924](https://github.com/aws/aws-sdk-js-v3/issues/2924)) ([4d79819](https://github.com/aws/aws-sdk-js-v3/commit/4d798196e652f8cfdc1c155a46ac6b6aa31b2656))
+
+
+
+
+
+# [3.37.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.36.1...v3.37.0) (2021-10-15)
+
+
+### Features
+
+* **clients:** update clients as of 10/15/2021 ([#2902](https://github.com/aws/aws-sdk-js-v3/issues/2902)) ([2730b54](https://github.com/aws/aws-sdk-js-v3/commit/2730b5424377944a5a2ad5e1ad7d3ca4135dae1c))
+* **codegen:** enable SSDK validation protocol tests ([#2884](https://github.com/aws/aws-sdk-js-v3/issues/2884)) ([c23cbc4](https://github.com/aws/aws-sdk-js-v3/commit/c23cbc468247746f597d7ec5827e119478549ed6))
+
+
+
+
+
+## [3.36.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.36.0...v3.36.1) (2021-10-12)
+
+
+### Bug Fixes
+
+* **clients:** emitDeclarationOnly in tsconfig.types.json ([#2893](https://github.com/aws/aws-sdk-js-v3/issues/2893)) ([6dc3d56](https://github.com/aws/aws-sdk-js-v3/commit/6dc3d56c20809c90cbdc4dd48627eeebc64af99d))
+* **scripts:** do not destructure function parameter ([#2891](https://github.com/aws/aws-sdk-js-v3/issues/2891)) ([6dd0af8](https://github.com/aws/aws-sdk-js-v3/commit/6dd0af82243c175e1b5fc400f2a1893a095895ee))
+
+
+
+
+
+# [3.36.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.35.0...v3.36.0) (2021-10-08)
+
+
+### Bug Fixes
+
+* **client-opsworks:** intermittent integ tests failures ([#2865](https://github.com/aws/aws-sdk-js-v3/issues/2865)) ([10d64df](https://github.com/aws/aws-sdk-js-v3/commit/10d64dfd65f73a95dcdb0d198556403e151cb670))
+
+
+### Features
+
+* **clients:** update clients as of 10/07/2021 ([#2879](https://github.com/aws/aws-sdk-js-v3/issues/2879)) ([1f4441e](https://github.com/aws/aws-sdk-js-v3/commit/1f4441e46b63ae6ff01067780b26d49916c267a0))
+* publish files in dist-* only ([#2873](https://github.com/aws/aws-sdk-js-v3/issues/2873)) ([53b4243](https://github.com/aws/aws-sdk-js-v3/commit/53b4243b066f25ff2412d5f0dea1036054b2df32))
+* **codegen:** test non-AWS client builds ([#2876](https://github.com/aws/aws-sdk-js-v3/issues/2876)) ([d9012cc](https://github.com/aws/aws-sdk-js-v3/commit/d9012ccd2ab8fbe7c62a0d8aa94cfbcdecfd07f0))
+* **codegen:** ts-ignore packageInfo imports in codegen ([#2875](https://github.com/aws/aws-sdk-js-v3/issues/2875)) ([99d9267](https://github.com/aws/aws-sdk-js-v3/commit/99d926762193e83a354edec6e9de2b0543449704))
+* **tsconfig:** remove sourceMap ([#2867](https://github.com/aws/aws-sdk-js-v3/issues/2867)) ([d25f526](https://github.com/aws/aws-sdk-js-v3/commit/d25f526627a02a2ca28675fecce66c76b6c97966))
+
+
+
+
+
+# [3.35.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.34.0...v3.35.0) (2021-10-04)
+
+
+### Bug Fixes
+
+* **client-cognito-identity:** import client from new location in src ([#2858](https://github.com/aws/aws-sdk-js-v3/issues/2858)) ([c8cb449](https://github.com/aws/aws-sdk-js-v3/commit/c8cb4499c6ad19e2b194860d548753f637671f8c))
+* **client-documentation-generator:** read files from src folder ([#2863](https://github.com/aws/aws-sdk-js-v3/issues/2863)) ([95c2903](https://github.com/aws/aws-sdk-js-v3/commit/95c29032ba8f6f3791067a90af211944eaec307c))
+* eslint SSDK protocol tests ([#2854](https://github.com/aws/aws-sdk-js-v3/issues/2854)) ([1e2a316](https://github.com/aws/aws-sdk-js-v3/commit/1e2a3169924915a9b717886e7484ed04765a538b))
+* **client-s3:** use member xmlname if applicable ([#2835](https://github.com/aws/aws-sdk-js-v3/issues/2835)) ([7e634cf](https://github.com/aws/aws-sdk-js-v3/commit/7e634cfab78d0a82864f828c4c8c10c9d0cccc97))
+* **scripts:** overwrite test folder for protocol_tests ([#2853](https://github.com/aws/aws-sdk-js-v3/issues/2853)) ([5df7d12](https://github.com/aws/aws-sdk-js-v3/commit/5df7d124c4f9825db95c065008d4fd1becf5e23a))
+* **scripts:** run downlevel-dts script in parallel ([#2837](https://github.com/aws/aws-sdk-js-v3/issues/2837)) ([0f8c0a2](https://github.com/aws/aws-sdk-js-v3/commit/0f8c0a2c5dc1409bf99cfc7289ad4946a283fb7d))
+
+
+### Features
+
+* **clients:** eslint --fix using esprint ([#2849](https://github.com/aws/aws-sdk-js-v3/issues/2849)) ([94d0a2d](https://github.com/aws/aws-sdk-js-v3/commit/94d0a2d8a0579ee0a742337937ad05735cfbc1ba))
+* **clients:** move source files to 'src' folder ([#2845](https://github.com/aws/aws-sdk-js-v3/issues/2845)) ([e0025cd](https://github.com/aws/aws-sdk-js-v3/commit/e0025cddbba244a41ddf1fd1adb761142e15c22d))
+* **codegen:** move source files to 'src' folder ([#2844](https://github.com/aws/aws-sdk-js-v3/issues/2844)) ([cfcdeb6](https://github.com/aws/aws-sdk-js-v3/commit/cfcdeb6554a7ca8c05b6a341c4577caf409dc020))
+* **scripts:** use esprint to eslint --fix clients source code ([#2846](https://github.com/aws/aws-sdk-js-v3/issues/2846)) ([65922ea](https://github.com/aws/aws-sdk-js-v3/commit/65922ea3d3990de8a7c1e68dfa8983cbfcb54b26))
+
+
+
+
+
+# [3.34.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.33.0...v3.34.0) (2021-09-24)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** missing dependency with esbuild ([#2814](https://github.com/aws/aws-sdk-js-v3/issues/2814)) ([d5924e9](https://github.com/aws/aws-sdk-js-v3/commit/d5924e94eb3bc06bf4ee35f2a6819eb7983e2e15))
+
+
+### Features
+
+* **clients:** remove comments from transpiled JS files ([#2817](https://github.com/aws/aws-sdk-js-v3/issues/2817)) ([d01420b](https://github.com/aws/aws-sdk-js-v3/commit/d01420b247966c8ec84c1dd0a1b42512ede10c90))
+* **clients:** update clients as of 09/24/2021 ([#2826](https://github.com/aws/aws-sdk-js-v3/issues/2826)) ([845ca6e](https://github.com/aws/aws-sdk-js-v3/commit/845ca6e1f77c27d76ced3d309e0bf28e3f2b517f))
+* **non-clients:** remove comments from transpiled JS files ([#2813](https://github.com/aws/aws-sdk-js-v3/issues/2813)) ([e6fc7f3](https://github.com/aws/aws-sdk-js-v3/commit/e6fc7f3e0fa74785590ac19e7ed143c916bb9b6e))
+
+
+
+
+
+# [3.33.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.32.0...v3.33.0) (2021-09-21)
+
+
+### Features
+
+* **client-s3:** support generating endpoints from multi-region access point ([#2796](https://github.com/aws/aws-sdk-js-v3/issues/2796)) ([c1bed9d](https://github.com/aws/aws-sdk-js-v3/commit/c1bed9d5c54ea3afbfe1883877b452b0b54a69fa)), closes [#2759](https://github.com/aws/aws-sdk-js-v3/issues/2759)
+
+
+
+
+
+# [3.32.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.31.0...v3.32.0) (2021-09-17)
+
+
+### Bug Fixes
+
+* **base64:** validate base64 strings ([#2779](https://github.com/aws/aws-sdk-js-v3/issues/2779)) ([2b336a3](https://github.com/aws/aws-sdk-js-v3/commit/2b336a3c26cc09cc39ecc12d662f4cb6f513ba36))
+
+
+### Features
+
+* **clients:** update clients as of 09/17/2021 ([#2795](https://github.com/aws/aws-sdk-js-v3/issues/2795)) ([45aee9d](https://github.com/aws/aws-sdk-js-v3/commit/45aee9dd8a87578a2b5a9e0c5345a0ab0a482e80))
+
+
+
+
+
+# [3.31.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.30.0...v3.31.0) (2021-09-11)
+
+
+### Bug Fixes
+
+* **client-s3:** remove int validation of object size type ([#2775](https://github.com/aws/aws-sdk-js-v3/issues/2775)) ([5f2f70b](https://github.com/aws/aws-sdk-js-v3/commit/5f2f70b0d306c59dd23822505d62b80aaa25cd55))
+* **lib-dynamodb:** add util-dynamodb to dependencies ([#2768](https://github.com/aws/aws-sdk-js-v3/issues/2768)) ([b09ba9a](https://github.com/aws/aws-sdk-js-v3/commit/b09ba9ac2069062156659b119a25c0c57077f402))
+* **middleware-sdk-rds:** stop throw when source id key is optional ([#2770](https://github.com/aws/aws-sdk-js-v3/issues/2770)) ([299cbbb](https://github.com/aws/aws-sdk-js-v3/commit/299cbbbef934380cdf56c668cc8cd7eebb7f73e5))
+* **s3-request-presigner:** inject hostname with custom port ([#2773](https://github.com/aws/aws-sdk-js-v3/issues/2773)) ([3fe226b](https://github.com/aws/aws-sdk-js-v3/commit/3fe226b2dd1ff152d2c0b5f9bbdb9a2261e584d3))
+
+
+### Features
+
+* **clients:** update clients as of 09/10/2021 ([#2776](https://github.com/aws/aws-sdk-js-v3/issues/2776)) ([3f49ae7](https://github.com/aws/aws-sdk-js-v3/commit/3f49ae758688f73d5ce16ee21ac597a113199bff))
+* **codegen:** assert sets have no duplicates ([#2764](https://github.com/aws/aws-sdk-js-v3/issues/2764)) ([aa62fc3](https://github.com/aws/aws-sdk-js-v3/commit/aa62fc3eda48e9a57753cea6fc5896b65f2dbe3b))
+* **codegen:** reject null in non-sparse collections ([#2771](https://github.com/aws/aws-sdk-js-v3/issues/2771)) ([dcf644f](https://github.com/aws/aws-sdk-js-v3/commit/dcf644f51733dd9ad0d89c8d9de9876743dcf69e))
+* **smithy-client:** support strict union parsing ([#2746](https://github.com/aws/aws-sdk-js-v3/issues/2746)) ([1159680](https://github.com/aws/aws-sdk-js-v3/commit/1159680b399625e247a57ac121483787249ed933))
+
+
+
+
+
+# [3.30.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.29.0...v3.30.0) (2021-09-07)
+
+
+### Bug Fixes
+
+* **client-s3:** revert MRAP customizations ([#2759](https://github.com/aws/aws-sdk-js-v3/issues/2759)) ([cfb3fff](https://github.com/aws/aws-sdk-js-v3/commit/cfb3fff268eb393ece2ea50956a6f8610ec51c40))
+
+
+### Features
+
+* **smithy-client:** support strict timestamp parsing ([#2737](https://github.com/aws/aws-sdk-js-v3/issues/2737)) ([c244678](https://github.com/aws/aws-sdk-js-v3/commit/c244678b7a50fafc6cc44a100f7787d5b8dea2c6))
+
+
+
+
+
+# [3.29.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.28.0...v3.29.0) (2021-09-02)
+
+
+### Bug Fixes
+
+* **middleware-sdk-rds:** double encoding the presigned url ([#2711](https://github.com/aws/aws-sdk-js-v3/issues/2711)) ([8a271be](https://github.com/aws/aws-sdk-js-v3/commit/8a271be6ac94080010aa4c3567b6770a2eee5547))
+* **parse:** reject numeric strings with non-numbers ([#2729](https://github.com/aws/aws-sdk-js-v3/issues/2729)) ([afeccd7](https://github.com/aws/aws-sdk-js-v3/commit/afeccd746a1f6095a7de510988a01df90072e1d7))
+
+
+### Features
+
+* **clients:** update clients as of 09/02/2021 ([#2744](https://github.com/aws/aws-sdk-js-v3/issues/2744)) ([19f061f](https://github.com/aws/aws-sdk-js-v3/commit/19f061fa189539c8e64563e5337ac640450c17ab))
+* **s3:** support generating endpoints from multi-region access point ([#2742](https://github.com/aws/aws-sdk-js-v3/issues/2742)) ([49da47b](https://github.com/aws/aws-sdk-js-v3/commit/49da47b4dfde0f2c68052409aaf808eddcf4e157))
+* **smithy-client:** add parse utils for sized numbers ([#2710](https://github.com/aws/aws-sdk-js-v3/issues/2710)) ([c1a7dd5](https://github.com/aws/aws-sdk-js-v3/commit/c1a7dd53ef786256c842d64c4eaccb4284e8be4f))
+
+
+
+
+
+# [3.28.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.27.0...v3.28.0) (2021-08-27)
+
+
+### Bug Fixes
+
+* **clients:** use optional chaining while processing runtime config ([#2690](https://github.com/aws/aws-sdk-js-v3/issues/2690)) ([18469ce](https://github.com/aws/aws-sdk-js-v3/commit/18469cefc27840ba00d516265ebd976f10240496))
+* **config-resolver:** add options for utility functions ([#2712](https://github.com/aws/aws-sdk-js-v3/issues/2712)) ([56ab50e](https://github.com/aws/aws-sdk-js-v3/commit/56ab50ec7765ffa3884bc3fb302a2c32ff56807b))
+* **property-provider:** do not make extra provider calls when concurrent ([#2716](https://github.com/aws/aws-sdk-js-v3/issues/2716)) ([f9aa15e](https://github.com/aws/aws-sdk-js-v3/commit/f9aa15e1ce0f677f9eb469c3084ff591a1b08ba4))
+
+
+### Features
+
+* **clients:** allow setting path prefix from custom endpoints ([#2722](https://github.com/aws/aws-sdk-js-v3/issues/2722)) ([990ba2f](https://github.com/aws/aws-sdk-js-v3/commit/990ba2fe1c03cf10c3cb345cee4d137af7095f3d))
+* **clients:** modular endpoints resolution ([#2704](https://github.com/aws/aws-sdk-js-v3/issues/2704)) ([88de69b](https://github.com/aws/aws-sdk-js-v3/commit/88de69ba28aaedfc7f13fa165044ef8cae023bbe))
+* **clients:** update clients as of 08/27/2021 ([#2723](https://github.com/aws/aws-sdk-js-v3/issues/2723)) ([b9d88c4](https://github.com/aws/aws-sdk-js-v3/commit/b9d88c45898f272a08dc3155a00efd5f792d417f))
+* **codegen:** support malformed request tests ([#2695](https://github.com/aws/aws-sdk-js-v3/issues/2695)) ([705de4e](https://github.com/aws/aws-sdk-js-v3/commit/705de4e2463f41a50c347a5e8b2a5ddf39fbef19))
+* **config-resolver:** add getRegionInfo helper functions ([#2701](https://github.com/aws/aws-sdk-js-v3/issues/2701)) ([7c6a790](https://github.com/aws/aws-sdk-js-v3/commit/7c6a7901f222273f7e82f169eaaf23b08c803596))
+* **smithy-client:** stricter parsing of request/response bodies ([#2713](https://github.com/aws/aws-sdk-js-v3/issues/2713)) ([0c74892](https://github.com/aws/aws-sdk-js-v3/commit/0c74892b3cbf1e288a4d5648a49f672ee48f2643))
+
+
+
+
+
 # [3.27.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.26.0...v3.27.0) (2021-08-19)
 
 

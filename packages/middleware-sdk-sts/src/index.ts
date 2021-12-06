@@ -2,6 +2,7 @@ import { AwsAuthInputConfig, AwsAuthResolvedConfig, resolveAwsAuthConfig } from 
 import { Client, Credentials, HashConstructor, Pluggable, Provider, RegionInfoProvider } from "@aws-sdk/types";
 
 export interface StsAuthInputConfig extends AwsAuthInputConfig {}
+
 interface PreviouslyResolved {
   credentialDefaultProvider: (input: any) => Provider<Credentials>;
   region: string | Provider<string>;
@@ -9,7 +10,10 @@ interface PreviouslyResolved {
   signingName?: string;
   serviceId: string;
   sha256: HashConstructor;
+  useFipsEndpoint: Provider<boolean>;
+  useDualstackEndpoint: Provider<boolean>;
 }
+
 export interface StsAuthResolvedConfig extends AwsAuthResolvedConfig {
   /**
    * Reference to STSClient class constructor.

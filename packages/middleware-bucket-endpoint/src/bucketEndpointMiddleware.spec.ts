@@ -34,6 +34,8 @@ describe("bucketEndpointMiddleware", () => {
       .fn()
       .mockResolvedValue({ hostname: "foo.us-foo-2.amazonaws.com", partition: "aws-foo", signingRegion: mockRegion }),
     useArnRegion: jest.fn().mockResolvedValue(false),
+    useFipsEndpoint: () => Promise.resolve(false),
+    useDualstackEndpoint: () => Promise.resolve(false),
   };
 
   afterEach(() => {
@@ -65,6 +67,7 @@ describe("bucketEndpointMiddleware", () => {
         baseHostname: requestInput.hostname,
         clientRegion: mockRegion,
         accelerateEndpoint: false,
+        fipsEndpoint: false,
         dualstackEndpoint: false,
         pathStyleEndpoint: false,
         tlsCompatible: true,
@@ -79,7 +82,7 @@ describe("bucketEndpointMiddleware", () => {
         resolveBucketEndpointConfig({
           ...previouslyResolvedConfig,
           useAccelerateEndpoint: true,
-          useDualstackEndpoint: true,
+          useDualstackEndpoint: () => Promise.resolve(true),
           forcePathStyle: true,
           isCustomEndpoint: true,
         })
@@ -93,6 +96,7 @@ describe("bucketEndpointMiddleware", () => {
         clientRegion: mockRegion,
         accelerateEndpoint: true,
         dualstackEndpoint: true,
+        fipsEndpoint: false,
         pathStyleEndpoint: true,
         tlsCompatible: false,
         isCustomEndpoint: true,
@@ -127,6 +131,7 @@ describe("bucketEndpointMiddleware", () => {
         baseHostname: requestInput.hostname,
         clientRegion: mockRegion,
         accelerateEndpoint: false,
+        fipsEndpoint: false,
         dualstackEndpoint: false,
         pathStyleEndpoint: false,
         tlsCompatible: true,
@@ -134,6 +139,7 @@ describe("bucketEndpointMiddleware", () => {
         clientSigningRegion: mockRegion,
         useArnRegion: false,
         isCustomEndpoint: false,
+        disableMultiregionAccessPoints: false,
       });
       expect(previouslyResolvedConfig.region).toBeCalled();
       expect(previouslyResolvedConfig.regionInfoProvider).toBeCalled();

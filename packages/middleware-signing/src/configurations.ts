@@ -1,6 +1,7 @@
 import { memoize } from "@aws-sdk/property-provider";
-import { SignatureV4 } from "@aws-sdk/signature-v4";
+import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/signature-v4";
 import { Credentials, HashConstructor, Provider, RegionInfo, RegionInfoProvider, RequestSigner } from "@aws-sdk/types";
+import { options } from "yargs";
 
 // 5 minutes buffer time the refresh the credential before it really expires
 const CREDENTIAL_EXPIRE_WINDOW = 300000;
@@ -35,6 +36,13 @@ export interface AwsAuthInputConfig {
    * can be different to the region in the endpoint.
    */
   signingRegion?: string;
+
+  /**
+   * The injectable SigV4-compatible signer class constructor. If not supplied,
+   * regular SignatureV4 constructor will be used.
+   * @private
+   */
+  signerConstructor?: new (options: SignatureV4Init & SignatureV4CryptoInit) => RequestSigner;
 }
 
 export interface SigV4AuthInputConfig {
@@ -66,6 +74,8 @@ interface PreviouslyResolved {
   signingName?: string;
   serviceId: string;
   sha256: HashConstructor;
+  useFipsEndpoint: Provider<boolean>;
+  useDualstackEndpoint: Provider<boolean>;
 }
 
 interface SigV4PreviouslyResolved {
@@ -111,7 +121,16 @@ export const resolveAwsAuthConfig = <T>(
     //construct a provider inferring signing from region.
     signer = () =>
       normalizeProvider(input.region)()
-        .then(async (region) => [(await input.regionInfoProvider(region)) || {}, region] as [RegionInfo, string])
+        .then(
+          async (region) =>
+            [
+              (await input.regionInfoProvider(region, {
+                useFipsEndpoint: await input.useFipsEndpoint(),
+                useDualstackEndpoint: await input.useDualstackEndpoint(),
+              })) || {},
+              region,
+            ] as [RegionInfo, string]
+        )
         .then(([regionInfo, region]) => {
           const { signingRegion, signingService } = regionInfo;
           //update client's singing region and signing service config if they are resolved.
@@ -121,13 +140,16 @@ export const resolveAwsAuthConfig = <T>(
           //user supplied signingName -> endpoints.json inferred (credential scope -> model arnNamespace) -> model service id
           input.signingName = input.signingName || signingService || input.serviceId;
 
-          return new SignatureV4({
+          const params: SignatureV4Init & SignatureV4CryptoInit = {
+            ...input,
             credentials: normalizedCreds,
             region: input.signingRegion,
             service: input.signingName,
             sha256,
             uriEscapePath: signingEscapePath,
-          });
+          };
+          const signerConstructor = input.signerConstructor || SignatureV4;
+          return new signerConstructor(params);
         });
   }
 
@@ -153,13 +175,15 @@ export const resolveSigV4AuthConfig = <T>(
     //if signer is supplied by user, normalize it to a function returning a promise for signer.
     signer = normalizeProvider(input.signer);
   } else {
-    signer = normalizeProvider(new SignatureV4({
-      credentials: normalizedCreds,
-      region: input.region,
-      service: input.signingName,
-      sha256,
-      uriEscapePath: signingEscapePath,
-    }));
+    signer = normalizeProvider(
+      new SignatureV4({
+        credentials: normalizedCreds,
+        region: input.region,
+        service: input.signingName,
+        sha256,
+        uriEscapePath: signingEscapePath,
+      })
+    );
   }
 
   return {

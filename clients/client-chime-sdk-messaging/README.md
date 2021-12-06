@@ -10,7 +10,8 @@ AWS SDK for JavaScript ChimeSDKMessaging Client for Node.js, Browser and React N
 <p>The Amazon Chime SDK Messaging APIs in this section allow software developers to send
 and receive messages in custom messaging applications. These APIs depend on the frameworks
 provided by the Amazon Chime SDK Identity APIs. For more information about the messaging
-APIs, see .</p>
+APIs, see <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging">Amazon Chime SDK messaging</a>
+</p>
 
 ## Installing
 
@@ -27,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ChimeSDKMessagingClient` and
-the commands you need, for example `BatchCreateChannelMembershipCommand`:
+the commands you need, for example `AssociateChannelFlowCommand`:
 
 ```js
 // ES5 example
-const { ChimeSDKMessagingClient, BatchCreateChannelMembershipCommand } = require("@aws-sdk/client-chime-sdk-messaging");
+const { ChimeSDKMessagingClient, AssociateChannelFlowCommand } = require("@aws-sdk/client-chime-sdk-messaging");
 ```
 
 ```ts
 // ES6+ example
-import { ChimeSDKMessagingClient, BatchCreateChannelMembershipCommand } from "@aws-sdk/client-chime-sdk-messaging";
+import { ChimeSDKMessagingClient, AssociateChannelFlowCommand } from "@aws-sdk/client-chime-sdk-messaging";
 ```
 
 ### Usage
@@ -55,7 +56,7 @@ const client = new ChimeSDKMessagingClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchCreateChannelMembershipCommand(params);
+const command = new AssociateChannelFlowCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +135,7 @@ const client = new AWS.ChimeSDKMessaging({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchCreateChannelMembership(params);
+  const data = await client.associateChannelFlow(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +143,7 @@ try {
 
 // Promises.
 client
-  .batchCreateChannelMembership(params)
+  .associateChannelFlow(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +152,7 @@ client
   });
 
 // callbacks.
-client.batchCreateChannelMembership(params, (err, data) => {
+client.associateChannelFlow(params, (err, data) => {
   // proccess err and data.
 });
 ```

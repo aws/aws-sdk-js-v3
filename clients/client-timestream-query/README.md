@@ -7,9 +7,10 @@
 
 AWS SDK for JavaScript TimestreamQuery Client for Node.js, Browser and React Native.
 
-<p>
+<fullname>Amazon Timestream Query
+</fullname>
 
-</p>
+<p></p>
 
 ## Installing
 

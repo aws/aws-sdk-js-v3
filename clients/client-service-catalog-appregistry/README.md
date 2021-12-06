@@ -7,7 +7,7 @@
 
 AWS SDK for JavaScript ServiceCatalogAppRegistry Client for Node.js, Browser and React Native.
 
-<p> AWS Service Catalog AppRegistry enables organizations to understand the application context of their AWS resources. AppRegistry provides a repository of your applications, their resources, and the application metadata that you use within your enterprise.</p>
+<p> Amazon Web Services Service Catalog AppRegistry enables organizations to understand the application context of their Amazon Web Services resources. AppRegistry provides a repository of your applications, their resources, and the application metadata that you use within your enterprise.</p>
 
 ## Installing
 

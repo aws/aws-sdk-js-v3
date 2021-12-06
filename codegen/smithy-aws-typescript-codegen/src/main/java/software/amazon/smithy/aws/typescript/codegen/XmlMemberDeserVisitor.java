@@ -24,6 +24,7 @@ import software.amazon.smithy.model.shapes.DoubleShape;
 import software.amazon.smithy.model.shapes.FloatShape;
 import software.amazon.smithy.model.shapes.IntegerShape;
 import software.amazon.smithy.model.shapes.LongShape;
+import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShortShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
@@ -47,8 +48,23 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 @SmithyInternalApi
 final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
 
+    private final MemberShape memberShape;
+
     XmlMemberDeserVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
+        this(context, null, dataSource, defaultTimestampFormat);
+    }
+
+    XmlMemberDeserVisitor(GenerationContext context,
+                          MemberShape memberShape,
+                          String dataSource,
+                          Format defaultTimestampFormat) {
         super(context, dataSource, defaultTimestampFormat);
+        this.memberShape = memberShape;
+    }
+
+    @Override
+    protected MemberShape getMemberShape() {
+        return memberShape;
     }
 
     @Override
@@ -59,27 +75,26 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
 
     @Override
     public String byteShape(ByteShape shape) {
-        return deserializeInt();
+        getContext().getWriter().addImport("strictParseByte", "__strictParseByte", "@aws-sdk/smithy-client");
+        return "__strictParseByte(" + getDataSource() + ") as number";
     }
 
     @Override
     public String shortShape(ShortShape shape) {
-        return deserializeInt();
+        getContext().getWriter().addImport("strictParseShort", "__strictParseShort", "@aws-sdk/smithy-client");
+        return "__strictParseShort(" + getDataSource() + ") as number";
     }
 
     @Override
     public String integerShape(IntegerShape shape) {
-        return deserializeInt();
+        getContext().getWriter().addImport("strictParseInt32", "__strictParseInt32", "@aws-sdk/smithy-client");
+        return "__strictParseInt32(" + getDataSource() + ") as number";
     }
 
     @Override
     public String longShape(LongShape shape) {
-        return deserializeInt();
-    }
-
-    private String deserializeInt() {
-        getContext().getWriter().addImport("strictParseInt", "__strictParseInt", "@aws-sdk/smithy-client");
-        return "__strictParseInt(" + getDataSource() + ") as number";
+        getContext().getWriter().addImport("strictParseLong", "__strictParseLong", "@aws-sdk/smithy-client");
+        return "__strictParseLong(" + getDataSource() + ") as number";
     }
 
     @Override

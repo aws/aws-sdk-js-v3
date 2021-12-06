@@ -12,6 +12,7 @@ import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeId;
+import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.TypeScriptCodegenPlugin;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 
@@ -26,13 +27,14 @@ public class AwsServiceIdIntegrationTest {
         Shape service = model.expectShape((ShapeId.from("smithy.example#OriginalName")));
         AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
         TypeScriptSettings settings = new TypeScriptSettings();
+        settings.setService(ShapeId.from("smithy.example#OriginalName"));
         SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model, settings);
         SymbolProvider decorated = integration.decorateSymbolProvider(settings, model, provider);
         Symbol symbol = decorated.toSymbol(service);
 
         assertThat(symbol.getName(), equalTo("NotSameClient"));
-        assertThat(symbol.getNamespace(), equalTo("./NotSameClient"));
-        assertThat(symbol.getDefinitionFile(), equalTo("NotSameClient.ts"));
+        assertThat(symbol.getNamespace(), equalTo("./" + CodegenUtils.SOURCE_FOLDER + "/NotSameClient"));
+        assertThat(symbol.getDefinitionFile(), equalTo("./" + CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts"));
     }
 
     @Test
@@ -50,8 +52,9 @@ public class AwsServiceIdIntegrationTest {
         Symbol symbol = decorated.toSymbol(service);
 
         assertThat(symbol.getName(), equalTo("FirstNotCapitalizedClient"));
-        assertThat(symbol.getNamespace(), equalTo("./FirstNotCapitalizedClient"));
-        assertThat(symbol.getDefinitionFile(), equalTo("FirstNotCapitalizedClient.ts"));
+        assertThat(symbol.getNamespace(), equalTo("./" + CodegenUtils.SOURCE_FOLDER + "/FirstNotCapitalizedClient"));
+        assertThat(symbol.getDefinitionFile(),
+            equalTo("./" + CodegenUtils.SOURCE_FOLDER + "/FirstNotCapitalizedClient.ts"));
     }
 
     @Test
@@ -69,7 +72,8 @@ public class AwsServiceIdIntegrationTest {
         Symbol symbol = decorated.toSymbol(service);
 
         assertThat(symbol.getName(), equalTo("RestNotCapitalizedClient"));
-        assertThat(symbol.getNamespace(), equalTo("./RestNotCapitalizedClient"));
-        assertThat(symbol.getDefinitionFile(), equalTo("RestNotCapitalizedClient.ts"));
+        assertThat(symbol.getNamespace(), equalTo("./" + CodegenUtils.SOURCE_FOLDER + "/RestNotCapitalizedClient"));
+        assertThat(symbol.getDefinitionFile(),
+            equalTo("./" + CodegenUtils.SOURCE_FOLDER + "/RestNotCapitalizedClient.ts"));
     }
 }

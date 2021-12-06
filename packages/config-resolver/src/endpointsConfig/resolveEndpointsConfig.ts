@@ -1,7 +1,8 @@
 import { Endpoint, Provider, RegionInfoProvider, UrlParser } from "@aws-sdk/types";
 
-import { getEndpointFromRegion } from "./getEndpointFromRegion";
-import { normalizeEndpoint } from "./normalizeEndpoint";
+import { getEndpointFromRegion } from "./utils/getEndpointFromRegion";
+import { normalizeBoolean } from "./utils/normalizeBoolean";
+import { normalizeEndpoint } from "./utils/normalizeEndpoint";
 
 export interface EndpointsInputConfig {
   /**
@@ -13,17 +14,23 @@ export interface EndpointsInputConfig {
    * Whether TLS is enabled for requests.
    */
   tls?: boolean;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | Provider<boolean>;
 }
 
 interface PreviouslyResolved {
   regionInfoProvider: RegionInfoProvider;
   urlParser: UrlParser;
   region: Provider<string>;
+  useFipsEndpoint: Provider<boolean>;
 }
 
 export interface EndpointsResolvedConfig extends Required<EndpointsInputConfig> {
   /**
-   * Resolved value for input {@link EndpointsResolvedConfig.endpoint}
+   * Resolved value for input {@link EndpointsInputConfig.endpoint}
    */
   endpoint: Provider<Endpoint>;
 
@@ -32,15 +39,25 @@ export interface EndpointsResolvedConfig extends Required<EndpointsInputConfig> 
    * @internal
    */
   isCustomEndpoint: boolean;
+
+  /**
+   * Resolved value for input {@link EndpointsInputConfig.useDualstackEndpoint}
+   */
+  useDualstackEndpoint: Provider<boolean>;
 }
 
 export const resolveEndpointsConfig = <T>(
   input: T & EndpointsInputConfig & PreviouslyResolved
-): T & EndpointsResolvedConfig => ({
-  ...input,
-  tls: input.tls ?? true,
-  endpoint: input.endpoint
-    ? normalizeEndpoint({ ...input, endpoint: input.endpoint })
-    : () => getEndpointFromRegion(input),
-  isCustomEndpoint: input.endpoint ? true : false,
-});
+): T & EndpointsResolvedConfig => {
+  const useDualstackEndpoint = normalizeBoolean(input.useDualstackEndpoint!);
+  const { endpoint, useFipsEndpoint } = input;
+  return {
+    ...input,
+    tls: input.tls ?? true,
+    endpoint: endpoint
+      ? normalizeEndpoint({ ...input, endpoint })
+      : () => getEndpointFromRegion({ ...input, useDualstackEndpoint, useFipsEndpoint }),
+    isCustomEndpoint: endpoint ? true : false,
+    useDualstackEndpoint,
+  };
+};

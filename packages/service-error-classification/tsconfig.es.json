@@ -1,11 +1,10 @@
 {
   "compilerOptions": {
-    "noUnusedLocals": true,
+    "baseUrl": ".",
     "lib": ["es5", "es2015.collection", "es2015.iterable"],
-    "declarationDir": "./dist/types",
-    "rootDir": "./src",
-    "outDir": "./dist/es",
-    "baseUrl": "."
+    "noUnusedLocals": true,
+    "outDir": "dist-es",
+    "rootDir": "src"
   },
   "extends": "../../tsconfig.es.json",
   "include": ["src/"]

@@ -45,16 +45,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AppStreamClient` and
-the commands you need, for example `AssociateFleetCommand`:
+the commands you need, for example `AssociateApplicationFleetCommand`:
 
 ```js
 // ES5 example
-const { AppStreamClient, AssociateFleetCommand } = require("@aws-sdk/client-appstream");
+const { AppStreamClient, AssociateApplicationFleetCommand } = require("@aws-sdk/client-appstream");
 ```
 
 ```ts
 // ES6+ example
-import { AppStreamClient, AssociateFleetCommand } from "@aws-sdk/client-appstream";
+import { AppStreamClient, AssociateApplicationFleetCommand } from "@aws-sdk/client-appstream";
 ```
 
 ### Usage
@@ -73,7 +73,7 @@ const client = new AppStreamClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateFleetCommand(params);
+const command = new AssociateApplicationFleetCommand(params);
 ```
 
 #### Async/await
@@ -152,7 +152,7 @@ const client = new AWS.AppStream({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateFleet(params);
+  const data = await client.associateApplicationFleet(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -160,7 +160,7 @@ try {
 
 // Promises.
 client
-  .associateFleet(params)
+  .associateApplicationFleet(params)
   .then((data) => {
     // process data.
   })
@@ -169,7 +169,7 @@ client
   });
 
 // callbacks.
-client.associateFleet(params, (err, data) => {
+client.associateApplicationFleet(params, (err, data) => {
   // proccess err and data.
 });
 ```

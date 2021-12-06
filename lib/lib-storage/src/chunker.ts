@@ -1,11 +1,11 @@
-import { Readable } from "stream";
 import { Buffer } from "buffer";
+import { Readable } from "stream";
 
-import { BodyDataTypes } from "./types";
 import { getChunkBuffer } from "./chunks/getChunkBuffer";
 import { getChunkStream } from "./chunks/getChunkStream";
-import { getDataReadableStream } from "./chunks/getDataReadableStream";
 import { getDataReadable } from "./chunks/getDataReadable";
+import { getDataReadableStream } from "./chunks/getDataReadableStream";
+import { BodyDataTypes } from "./types";
 
 export const getChunk = (data: BodyDataTypes, partSize: number) => {
   if (data instanceof Buffer) {

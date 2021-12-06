@@ -1,10 +1,12 @@
+const webpack = require("webpack");
+
 module.exports = function (config) {
   config.set({
     basePath: "",
     frameworks: ["mocha", "chai"],
-    files: ["e2e/**/*.ispec.ts"],
+    files: ["test/e2e/**/*.ispec.ts"],
     preprocessors: {
-      "e2e/**/*.ispec.ts": ["webpack", "sourcemap", "credentials", "env"],
+      "test/e2e/**/*.ispec.ts": ["webpack", "sourcemap", "credentials", "env"],
     },
     webpackMiddleware: {
       stats: "minimal",
@@ -33,6 +35,7 @@ module.exports = function (config) {
           },
         ],
       },
+      plugins: [new webpack.NormalModuleReplacementPlugin(/\.\/runtimeConfig$/, "./runtimeConfig.browser")],
       devtool: "inline-source-map",
     },
     envPreprocessor: ["AWS_SMOKE_TEST_REGION", "AWS_SMOKE_TEST_IDENTITY_POOL_ID"],

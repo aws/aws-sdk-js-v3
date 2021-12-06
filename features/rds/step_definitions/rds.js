@@ -1,8 +1,8 @@
 const jmespath = require("jmespath");
-const { RDS } = require("../../../clients/client-rds");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@rds" }, function (scenario, callback) {
+  const { RDS } = require("../../../clients/client-rds");
   this.service = new RDS({});
   callback();
 });

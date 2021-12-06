@@ -1,15 +1,16 @@
 {
   "name": "@aws-sdk/lib-storage",
-  "version": "3.27.0",
+  "version": "3.44.0",
   "description": "Storage higher order operation",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/es/index.js",
-  "types": "./dist/types/index.d.ts",
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
   "scripts": {
+    "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
-    "build": "yarn build:es && yarn build:cjs",
-    "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
+    "build:types": "tsc -p tsconfig.types.json",
+    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
     "test": "jest"
   },
   "engines": {
@@ -21,8 +22,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "buffer": "^5.6.0",
-    "stream-browserify": "^3.0.0",
+    "buffer": "5.6.0",
+    "events": "3.3.0",
+    "stream-browserify": "3.0.0",
     "tslib": "^2.3.0"
   },
   "peerDependencies": {
@@ -30,8 +32,8 @@
     "@aws-sdk/client-s3": "^3.0.0"
   },
   "devDependencies": {
-    "@aws-sdk/abort-controller": "3.25.0",
-    "@aws-sdk/client-s3": "3.27.0",
+    "@aws-sdk/abort-controller": "3.40.0",
+    "@aws-sdk/client-s3": "3.44.0",
     "@types/jest": "^26.0.4",
     "@types/node": "^14.11.2",
     "jasmine-core": "^3.6.0",
@@ -42,23 +44,27 @@
     "karma-spec-reporter": "^0.0.32",
     "karma-typescript": "^5.2.0",
     "ts-jest": "^26.4.1",
-    "typescript": "~4.3.2",
+    "typescript": "~4.3.5",
     "web-streams-polyfill": "^3.0.0"
   },
   "typesVersions": {
     "<4.0": {
-      "dist/types/*": [
-        "dist/types/ts3.4/*"
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
       ]
     }
   },
   "browser": {
+    "fs": false,
     "stream": "stream-browserify",
     "./runtimeConfig": "./src/runtimeConfig.browser"
   },
   "react-native": {
     "./runtimeConfig": "./src/runtimeConfig.native"
   },
+  "files": [
+    "dist-*"
+  ],
   "homepage": "https://github.com/trivikr/aws-sdk-js-v3/tree/main/lib/lib-storage",
   "repository": {
     "type": "git",

@@ -7,9 +7,9 @@
 
 AWS SDK for JavaScript LakeFormation Client for Node.js, Browser and React Native.
 
-<fullname>AWS Lake Formation</fullname>
+<fullname>Lake Formation</fullname>
 
-<p>Defines the public endpoint for the AWS Lake Formation service.</p>
+<p>Defines the public endpoint for the Lake Formation service.</p>
 
 ## Installing
 

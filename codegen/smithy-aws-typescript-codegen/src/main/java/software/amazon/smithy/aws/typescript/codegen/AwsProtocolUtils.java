@@ -298,7 +298,12 @@ final class AwsProtocolUtils {
         if (testCase.getId().equals("QueryCustomizedError")) {
             return true;
         }
-        if (testCase.getId().equals("RestJsonNoInputAndOutput")) {
+        // TODO: Remove when server protocol tests are fixed in
+        // https://github.com/aws/aws-sdk-js-v3/issues/3058
+        // TODO: Move to filter specific to server protocol tests if added in
+        // https://github.com/awslabs/smithy-typescript/issues/470
+        if (testCase.getId().equals("RestJsonTestPayloadStructure")
+            || testCase.getId().equals("RestJsonHttpWithHeadersButNoPayload")) {
             return true;
         }
         return false;
@@ -310,51 +315,25 @@ final class AwsProtocolUtils {
             HttpMalformedRequestTestCase testCase,
             TypeScriptSettings settings
     ) {
-        //TODO: underflow/overflow not rejected yet
-        if (testCase.hasTag("underflow/overflow")) {
+        // Handling overflow/underflow of longs in JS is extraordinarily tricky.
+        // Numbers are actually all 62-bit floats, and so any integral number is
+        // limited to 53 bits. In typical JS fashion, a value outside of this
+        // range just kinda silently bumbles on in some third state between valid
+        // and invalid. Infuriatingly, there doesn't seem to be a consistent way
+        // to detect this. We could *try* to do bounds checking, but the constants
+        // we use wouldn't necessarily work, so it could work in some environments
+        // but not others.
+        if (operation.getId().getName().equals("MalformedLong") && testCase.hasTag("underflow/overflow")) {
             return true;
         }
 
-        //TODO: float truncation not rejected yet
-        if (testCase.hasTag("float_truncation")) {
-            return true;
-        }
-
-        // TODO: handle timestamps
-        if (testCase.hasTag("timestamp")) {
-            return true;
-        }
-
-        if (!testCase.getId().matches("^RestJsonBody\\w+MalformedValueRejected.*")) {
-            //TODO: trailing characters in untyped contexts not rejected yet
-            if (testCase.hasTag("trailing_chars") || testCase.hasTag("hex")) {
-                return true;
-            }
-        }
-
-        //TODO: request serialization does not verify that the request is an object
-        if (testCase.hasTag("technically_valid_json_body")) {
-            return true;
-        }
-        //TODO: we don't do any union validation
-        if (testCase.getId().startsWith("RestJsonMalformedUnion")) {
-            return true;
-        }
-        //TODO: we don't do any set validation
-        if (testCase.getId().startsWith("RestJsonMalformedSet")) {
-            return true;
-        }
-        //TODO: we don't do any list validation
-        if (testCase.getId().startsWith("RestJsonBodyMalformedList")) {
-            return true;
-        }
         //TODO: we don't validate map values
         if (testCase.getId().equals("RestJsonBodyMalformedMapNullValue")) {
             return true;
         }
-        //TODO: Buffer.from isn't decoding base64 strictly.
-        if (testCase.getId().equals("RestJsonBodyMalformedBlobInvalidBase64_case1")
-            || testCase.getId().equals("RestJsonBodyMalformedBlobInvalidBase64_case2")) {
+
+        //TODO: reenable when the SSDK uses RE2 and not built-in regex for pattern constraints
+        if (testCase.getId().equals("RestJsonMalformedPatternReDOSString")) {
             return true;
         }
 

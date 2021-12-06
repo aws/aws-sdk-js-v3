@@ -25,17 +25,18 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("software.amazon.smithy:smithy-model:[1.11.0, 1.12.0[")
+        classpath("software.amazon.smithy:smithy-model:${rootProject.extra["smithyVersion"]}")
     }
 }
 
 dependencies {
-    api("software.amazon.smithy:smithy-aws-cloudformation-traits:[1.11.0, 1.12.0[")
-    api("software.amazon.smithy:smithy-aws-traits:[1.11.0, 1.12.0[")
-    api("software.amazon.smithy:smithy-waiters:[1.11.0, 1.12.0[")
-    api("software.amazon.smithy:smithy-aws-iam-traits:[1.11.0, 1.12.0[")
-    api("software.amazon.smithy:smithy-protocol-test-traits:[1.11.0, 1.12.0[")
-    api("software.amazon.smithy.typescript:smithy-typescript-codegen:0.5.0")
+    api("software.amazon.smithy:smithy-aws-cloudformation-traits:${rootProject.extra["smithyVersion"]}")
+    api("software.amazon.smithy:smithy-aws-traits:${rootProject.extra["smithyVersion"]}")
+    api("software.amazon.smithy:smithy-waiters:${rootProject.extra["smithyVersion"]}")
+    api("software.amazon.smithy:smithy-aws-iam-traits:${rootProject.extra["smithyVersion"]}")
+    api("software.amazon.smithy:smithy-protocol-test-traits:${rootProject.extra["smithyVersion"]}")
+    api("software.amazon.smithy:smithy-model:${rootProject.extra["smithyVersion"]}")
+    api("software.amazon.smithy.typescript:smithy-typescript-codegen:0.8.0")
 }
 
 tasks.register("set-aws-sdk-versions") {

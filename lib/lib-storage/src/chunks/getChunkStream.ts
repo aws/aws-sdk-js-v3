@@ -1,5 +1,6 @@
-import { RawDataPart } from "../Upload";
 import { Buffer } from "buffer";
+
+import { RawDataPart } from "../Upload";
 
 interface Buffers {
   chunks: Buffer[];

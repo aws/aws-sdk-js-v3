@@ -8,30 +8,14 @@ const getOverwritableDirectories = (subDirectories, packageName) => {
     "@aws-sdk/client-sts": ["defaultRoleAssumers.ts", "defaultStsRoleAssumers.ts", "defaultRoleAssumers.spec.ts"],
   };
   const overwritableDirectories = [
-    "commands",
-    "models",
-    "protocols",
-    "pagination",
-    "tests",
-    "waiters",
+    "src", // contains all source files
     "LICENCE",
-    "runtimeConfig.ts",
-    "runtimeConfig.browser.ts",
-    "runtimeConfig.shared.ts",
-    "runtimeConfig.native.ts",
-    "index.ts",
-    "endpoints.ts",
     "README.md",
   ];
   return subDirectories.filter((subDirectory) => {
-    const isBareBoneClient =
-      subDirectory.endsWith("Client.ts") && subDirectories.indexOf(subDirectory.replace("Client.ts", ".ts")) >= 0;
-    const isAggregateClient =
-      subDirectory.endsWith(".ts") && subDirectories.indexOf(subDirectory.replace(".ts", "Client.ts")) >= 0;
     return (
-      isBareBoneClient ||
-      isAggregateClient ||
       overwritableDirectories.indexOf(subDirectory) >= 0 ||
+      (packageName.startsWith("@aws-sdk/aws-") && subDirectory === "test") ||
       additionalGeneratedFiles[packageName]?.indexOf(subDirectory) >= 0
     );
   });
@@ -57,8 +41,8 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
         // dev dependencies that won't be overwritten in codegen
         merged[name] = { ...toContent[name], ...merged[name] };
       }
-      if (name === "dependencies" || name === "devDependencies") {
-        // Sort dependencies as done by lerna
+      if (name === "scripts" || name === "dependencies" || name === "devDependencies") {
+        // Sort by keys to make sure the order is stable
         merged[name] = Object.fromEntries(Object.entries(merged[name]).sort());
       }
     } else if (name.indexOf("@aws-sdk/") === 0) {
@@ -184,11 +168,11 @@ const copyServerTests = async (sourceDir, destinationDir) => {
         const destManifest = existsSync(destSubPath) ? JSON.parse(readFileSync(destSubPath).toString()) : {};
         const mergedManifest = {
           ...mergeManifest(packageManifest, destManifest),
-          homepage: `https://github.com/aws/aws-sdk-js-v3/tree/main/protocol_tests/${testName}`,
+          homepage: `https://github.com/aws/aws-sdk-js-v3/tree/main/private/${testName}`,
           repository: {
             type: "git",
             url: "https://github.com/aws/aws-sdk-js-v3.git",
-            directory: `protocol_tests/${testName}`,
+            directory: `private/${testName}`,
           },
         };
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));

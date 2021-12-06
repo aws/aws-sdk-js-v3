@@ -38,6 +38,19 @@ codegen/sdk-codegen/smithy-build.json
 
 coverage
 dist
+dist-*
 
 /verdaccio/*
 !/verdaccio/config.yaml
+
+*.tsbuildinfo
+
+codegen/.project
+codegen/.classpath
+codegen/.settings/
+codegen/*/.project
+codegen/*/.classpath
+codegen/*/.settings/
+codegen/*/bin
+
+benchmark/size/raw
