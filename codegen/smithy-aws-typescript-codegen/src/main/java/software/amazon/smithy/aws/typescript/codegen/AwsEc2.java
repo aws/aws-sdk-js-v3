@@ -97,9 +97,13 @@ final class AwsEc2 extends HttpRpcProtocolGenerator {
                        + "  output: $T,\n"
                        + "  data: any\n"
                        + "): string => {", "};", responseType, () -> {
+            // Default a 503 status code to the Unavailable code.
+            writer.openBlock("if (output.statusCode == 503) {", "}", () -> writer.write("return 'Unavailable';"));
+
             // Attempt to fetch the error code from the specific location.
-            String errorCodeLocation = getErrorBodyLocation(context, "data") + ".Code";
-            writer.openBlock("if ($L !== undefined) {", "}", errorCodeLocation, () -> {
+            String errorBodyLocation = getErrorBodyLocation(context, "data");
+            String errorCodeLocation = errorBodyLocation + ".Code";
+            writer.openBlock("if ($L !== undefined && $L !== undefined) {", "}", errorBodyLocation, errorCodeLocation, () -> {
                 writer.write("return $L;", errorCodeLocation);
             });
 
