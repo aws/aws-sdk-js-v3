@@ -1,7 +1,7 @@
-# @aws-sdk/util-rds
+# @aws-sdk/rds-signer
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/util-rds/latest.svg)](https://www.npmjs.com/package/@aws-sdk/util-rds)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/util-rds.svg)](https://www.npmjs.com/package/@aws-sdk/util-rds)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/rds-signer/latest.svg)](https://www.npmjs.com/package/@aws-sdk/rds-signer)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/rds-signer.svg)](https://www.npmjs.com/package/@aws-sdk/rds-signer)
 
 ## Description
 
@@ -10,7 +10,7 @@ This package provides utilities for interacting with RDS.
 ## Installation
 
 ```js
-npm install @aws-sdk/util-rds
+npm install @aws-sdk/rds-signer
 ```
 
 ## Getting Started
@@ -18,7 +18,7 @@ npm install @aws-sdk/util-rds
 ### Import
 
 ```js
-import { Signer } from "@aws-sdk/util-rds";
+import { Signer } from "@aws-sdk/rds-signer";
 ```
 
 ### Generate Authentication Token for RDS IAM Authentication

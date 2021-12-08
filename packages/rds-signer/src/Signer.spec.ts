@@ -10,22 +10,22 @@ jest.mock("@aws-sdk/signature-v4", () => {
   };
 });
 
-jest.mock("@aws-sdk/credential-provider-node");
-
-import { defaultProvider } from "@aws-sdk/credential-provider-node";
-
 jest.mock("@aws-sdk/util-format-url");
 
 import { formatUrl } from "@aws-sdk/util-format-url";
 
-import { Signer, SignerInit } from "./Signer";
+import { Signer, SignerConfig } from "./Signer";
 
-describe("lib-rds Signer", () => {
-  const minimalParams: SignerInit = {
+describe("rds-signer", () => {
+  const minimalParams: SignerConfig = {
     region: "us-foo-1",
     username: "testuser",
     hostname: "https://testhost",
     port: 5432,
+    credentials: {
+      accessKeyId: "xyz",
+      secretAccessKey: "123",
+    },
   };
 
   beforeAll(() => {
@@ -43,17 +43,15 @@ describe("lib-rds Signer", () => {
     expect(SignatureV4.mock.calls[0][0].service).toEqual("rds-db");
     //@ts-ignore
     expect(SignatureV4.mock.calls[0][0].region).toEqual("us-foo-1");
-    //@ts-ignore
-    expect(defaultProvider).toBeCalledTimes(1);
   });
 
   it("should use supplied credentials if present", async () => {
     const signer = new Signer({
+      ...minimalParams,
       credentials: {
         accessKeyId: "123",
         secretAccessKey: "xyz",
       },
-      ...minimalParams,
     });
     await signer.getAuthToken();
     //@ts-ignore
@@ -61,8 +59,6 @@ describe("lib-rds Signer", () => {
       accessKeyId: "123",
       secretAccessKey: "xyz",
     });
-    //@ts-ignore
-    expect(defaultProvider).not.toBeCalled();
   });
 
   it("should call SigV4 presign with a valid HttpRequest", async () => {
