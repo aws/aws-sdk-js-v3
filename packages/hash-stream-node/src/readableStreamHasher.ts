@@ -9,13 +9,13 @@ export const readableStreamHasher: StreamHasher<Readable> = (hashCtor: HashConst
     const hashCalculator = new HashCalculator(hash);
 
     readableStream.pipe(hashCalculator);
-    readableStream.on("error", (err: any) => {
+    readableStream.on("error", (err: Error) => {
       // if the source errors, the destination stream needs to manually end
       hashCalculator.end();
       reject(err);
     });
     hashCalculator.on("error", reject);
-    hashCalculator.on("finish", function (this: HashCalculator) {
+    hashCalculator.on("finish", () => {
       hash.digest().then(resolve).catch(reject);
     });
   });
