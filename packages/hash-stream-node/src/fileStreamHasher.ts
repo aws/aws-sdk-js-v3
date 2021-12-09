@@ -4,11 +4,11 @@ import { Readable } from "stream";
 
 import { HashCalculator } from "./hash-calculator";
 
-export const fileStreamHasher: StreamHasher<Readable> = function fileStreamHasher(
+export const fileStreamHasher: StreamHasher<Readable> = (
   hashCtor: HashConstructor,
   fileStream: Readable
-): Promise<Uint8Array> {
-  return new Promise((resolve, reject) => {
+): Promise<Uint8Array> =>
+  new Promise((resolve, reject) => {
     if (!isReadStream(fileStream)) {
       reject(new Error("Unable to calculate hash for non-file streams."));
       return;
@@ -33,7 +33,6 @@ export const fileStreamHasher: StreamHasher<Readable> = function fileStreamHashe
       hash.digest().then(resolve).catch(reject);
     });
   });
-};
 
 function isReadStream(stream: Readable): stream is ReadStream {
   return typeof (stream as ReadStream).path === "string";
