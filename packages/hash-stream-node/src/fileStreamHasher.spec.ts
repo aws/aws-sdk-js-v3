@@ -5,7 +5,7 @@ import { tmpdir } from "os";
 import { join } from "path";
 import { Readable } from "stream";
 
-import { fileStreamHasher } from "./index";
+import { fileStreamHasher } from "./fileStreamHasher";
 
 function createTemporaryFile(contents: string): string {
   const folder = mkdtempSync(join(tmpdir(), "sha256-stream-node-"));
