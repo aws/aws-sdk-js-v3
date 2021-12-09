@@ -34,6 +34,4 @@ export const fileStreamHasher: StreamHasher<Readable> = (
     });
   });
 
-function isReadStream(stream: Readable): stream is ReadStream {
-  return typeof (stream as ReadStream).path === "string";
-}
+const isReadStream = (stream: Readable): stream is ReadStream => typeof (stream as ReadStream).path === "string";
