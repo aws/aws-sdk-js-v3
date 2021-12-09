@@ -90,6 +90,10 @@ subprojects {
             useJUnitPlatform()
         }
 
+        tasks.withType<JavaExec> {
+            jvmArgs = ['-Xms4g', '-Xmx4g']
+        }
+
         // Apply junit 5 and hamcrest test dependencies to all java projects.
         dependencies {
             testImplementation("org.junit.jupiter:junit-jupiter-api:5.4.0")
