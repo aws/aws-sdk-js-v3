@@ -43,7 +43,7 @@ ${packagesToTest.map((package) => package[0]).join("\n")}`);
       "run",
       "test:e2e",
       "--scope",
-      `'{${packagesToTest.map((package) => package[1]).join(",")}}'`, // https://github.com/lerna/lerna/issues/1846#issuecomment-451172783
+      `'{${packagesToTest.map((package) => `${package[1]},`).join()}}'`, // https://github.com/lerna/lerna/issues/1846#issuecomment-451172783
       "--concurrency",
       "1",
     ],
