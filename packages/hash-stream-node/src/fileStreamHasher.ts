@@ -2,7 +2,7 @@ import { HashConstructor, StreamHasher } from "@aws-sdk/types";
 import { createReadStream, ReadStream } from "fs";
 import { Readable } from "stream";
 
-import { HashCalculator } from "./hash-calculator";
+import { HashCalculator } from "./HashCalculator";
 
 export const fileStreamHasher: StreamHasher<Readable> = (
   hashCtor: HashConstructor,

@@ -1,4 +1,4 @@
-import { HashCalculator } from "./hash-calculator";
+import { HashCalculator } from "./HashCalculator";
 
 function createMockHash(): {
   updates: Buffer[];
