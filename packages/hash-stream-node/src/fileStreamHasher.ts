@@ -4,10 +4,7 @@ import { Readable } from "stream";
 
 import { HashCalculator } from "./HashCalculator";
 
-export const fileStreamHasher: StreamHasher<Readable> = (
-  hashCtor: HashConstructor,
-  fileStream: Readable
-): Promise<Uint8Array> =>
+export const fileStreamHasher: StreamHasher<Readable> = (hashCtor: HashConstructor, fileStream: Readable) =>
   new Promise((resolve, reject) => {
     if (!isReadStream(fileStream)) {
       reject(new Error("Unable to calculate hash for non-file streams."));
