@@ -91,7 +91,7 @@ subprojects {
         }
 
         tasks.withType<JavaExec> {
-            jvmArgs = ['-Xms4g', '-Xmx4g']
+            jvmArgs = listOf<String>("-Xms4g", "-Xmx4g")
         }
 
         // Apply junit 5 and hamcrest test dependencies to all java projects.
