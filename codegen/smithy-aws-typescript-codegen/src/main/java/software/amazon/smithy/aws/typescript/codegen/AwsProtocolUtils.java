@@ -314,6 +314,12 @@ final class AwsProtocolUtils {
             return true;
         }
 
+        // TODO: remove when there's a decision on behavior for list of timestamps.
+        // https://github.com/awslabs/smithy/issues/1015
+        if (testCase.getId().equals("RestJsonInputAndOutputWithTimestampHeaders")) {
+            return true;
+        }
+
         return false;
     }
 
