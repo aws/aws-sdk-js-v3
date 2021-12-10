@@ -52,9 +52,8 @@ describe(readableStreamHasher.name, () => {
     const hashPromise = readableStreamHasher(mockHashCtor, readableStream);
 
     // @ts-ignore Property '_readableState' does not exist on type 'Readable'.
-    const { pipes } = readableStream._readableState;
-    expect(pipes.length).toEqual(1);
-    expect(pipes[0]).toBeInstanceOf(MockHashCalculator);
+    const { pipesCount } = readableStream._readableState;
+    expect(pipesCount).toEqual(1);
 
     const mockDataChunks = ["Hello", "World"];
     setTimeout(() => {
