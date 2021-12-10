@@ -3,12 +3,12 @@ import { Readable } from "stream";
 
 import { HashCalculator } from "./HashCalculator";
 
-export const readableStreamHasher: StreamHasher<Readable> = (hashCtor: HashConstructor, readableStream: Readable) =>
-  new Promise((resolve, reject) => {
-    const hash = new hashCtor();
-    const hashCalculator = new HashCalculator(hash);
+export const readableStreamHasher: StreamHasher<Readable> = (hashCtor: HashConstructor, readableStream: Readable) => {
+  const hash = new hashCtor();
+  const hashCalculator = new HashCalculator(hash);
+  readableStream.pipe(hashCalculator);
 
-    readableStream.pipe(hashCalculator);
+  return new Promise((resolve, reject) => {
     readableStream.on("error", (err: Error) => {
       // if the source errors, the destination stream needs to manually end
       hashCalculator.end();
@@ -19,3 +19,4 @@ export const readableStreamHasher: StreamHasher<Readable> = (hashCtor: HashConst
       hash.digest().then(resolve).catch(reject);
     });
   });
+};
