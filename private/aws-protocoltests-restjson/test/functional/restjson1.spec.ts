@@ -2958,6 +2958,38 @@ it("RestJsonInputAndOutputWithStringHeaders:Request", async () => {
 });
 
 /**
+ * Tests requests with string list header bindings that require quoting
+ */
+it("RestJsonInputAndOutputWithQuotedStringHeaders:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new InputAndOutputWithHeadersCommand({
+    headerStringList: ["b,c", '"def"', "a"],
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/InputAndOutputWithHeaders");
+
+    expect(r.headers["x-stringlist"]).toBeDefined();
+    expect(r.headers["x-stringlist"]).toBe('"b,c",""def"",a');
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
  * Tests requests with numeric header bindings
  */
 it("RestJsonInputAndOutputWithNumericHeaders:Request", async () => {
@@ -3085,7 +3117,7 @@ it("RestJsonInputAndOutputWithTimestampHeaders:Request", async () => {
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
     expect(r.headers["x-timestamplist"]).toBeDefined();
-    expect(r.headers["x-timestamplist"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT");
+    expect(r.headers["x-timestamplist"]).toBe('"Mon, 16 Dec 2019 23:48:18 GMT", "Mon, 16 Dec 2019 23:48:18 GMT"');
 
     expect(r.body).toBeFalsy();
   }
@@ -3275,6 +3307,39 @@ it("RestJsonInputAndOutputWithStringHeaders:Response", async () => {
 });
 
 /**
+ * Tests responses with string list header bindings that require quoting
+ */
+it("RestJsonInputAndOutputWithQuotedStringHeaders:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, {
+      "x-stringlist": '"b,c",""def"",a',
+    }),
+  });
+
+  const params: any = {};
+  const command = new InputAndOutputWithHeadersCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      headerStringList: ["a", "b,c", '"def"'],
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Tests responses with numeric header bindings
  */
 it("RestJsonInputAndOutputWithNumericHeaders:Response", async () => {
@@ -3377,7 +3442,7 @@ it("RestJsonInputAndOutputWithTimestampHeaders:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, {
-      "x-timestamplist": "Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT",
+      "x-timestamplist": '"Mon, 16 Dec 2019 23:48:18 GMT", "Mon, 16 Dec 2019 23:48:18 GMT"',
     }),
   });
 
@@ -7722,8 +7787,6 @@ it.skip("RestJsonTestPayloadStructure:Request", async () => {
   });
 
   const command = new TestPayloadStructureCommand({
-    testId: "t-12345",
-
     payloadConfig: {
       data: 25,
     } as any,
@@ -7782,6 +7845,8 @@ it.skip("RestJsonHttpWithHeadersButNoPayload:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
+    expect(r.headers["x-amz-test-id"]).toBeDefined();
+    expect(r.headers["x-amz-test-id"]).toBe("t-12345");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
