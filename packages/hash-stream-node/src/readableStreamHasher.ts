@@ -1,15 +1,23 @@
 import { HashConstructor, StreamHasher } from "@aws-sdk/types";
+import { createReadStream, ReadStream } from "fs";
 import { Readable } from "stream";
 
 import { HashCalculator } from "./HashCalculator";
 
 export const readableStreamHasher: StreamHasher<Readable> = (hashCtor: HashConstructor, readableStream: Readable) => {
+  const streamToPipe = isFileStream(readableStream)
+    ? createReadStream(readableStream.path, {
+        start: (readableStream as any).start,
+        end: (readableStream as any).end,
+      })
+    : readableStream;
+
   const hash = new hashCtor();
   const hashCalculator = new HashCalculator(hash);
-  readableStream.pipe(hashCalculator);
+  streamToPipe.pipe(hashCalculator);
 
   return new Promise((resolve, reject) => {
-    readableStream.on("error", (err: Error) => {
+    streamToPipe.on("error", (err: Error) => {
       // if the source errors, the destination stream needs to manually end
       hashCalculator.end();
       reject(err);
@@ -20,3 +28,5 @@ export const readableStreamHasher: StreamHasher<Readable> = (hashCtor: HashConst
     });
   });
 };
+
+const isFileStream = (stream: Readable): stream is ReadStream => typeof (stream as ReadStream).path === "string";
