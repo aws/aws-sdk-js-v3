@@ -52,7 +52,7 @@ export async function* paginateGetLogEvents(
     }
     yield page;
     token = page.nextForwardToken;
-    hasNext = !!token;
+    hasNext = !!token && token.slice(1) !== page.nextBackwardToken?.slice(1);
   }
   // @ts-ignore
   return undefined;
