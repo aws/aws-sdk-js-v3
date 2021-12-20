@@ -97,7 +97,7 @@
     "lint-staged": "^10.0.1",
     "mocha": "^8.0.1",
     "prettier": "2.3.0",
-    "puppeteer": "^5.1.0",
+    "puppeteer": "^13.0.0",
     "strip-comments": "2.0.1",
     "ts-jest": "^26.4.1",
     "ts-loader": "^7.0.5",
