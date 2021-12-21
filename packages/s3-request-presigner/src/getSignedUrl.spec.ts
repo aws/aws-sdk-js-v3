@@ -134,7 +134,7 @@ describe("getSignedUrl", () => {
       expect(mockPresign.mock.calls[0][0].headers[header]).toBeUndefined();
     }
   );
-  
+
   it("should presign request with MRAP ARN", async () => {
     const mockPresigned = "a presigned url";
     mockPresign.mockReturnValue(mockPresigned);
