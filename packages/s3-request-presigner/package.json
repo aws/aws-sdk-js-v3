@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/s3-request-presigner",
-  "version": "3.44.0",
+  "version": "3.45.0",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -18,9 +18,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/middleware-sdk-s3": "3.41.0",
+    "@aws-sdk/middleware-sdk-s3": "3.45.0",
     "@aws-sdk/protocol-http": "3.40.0",
-    "@aws-sdk/signature-v4": "3.40.0",
+    "@aws-sdk/signature-v4": "3.45.0",
     "@aws-sdk/smithy-client": "3.41.0",
     "@aws-sdk/types": "3.40.0",
     "@aws-sdk/util-create-request": "3.41.0",
@@ -28,7 +28,7 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-s3": "3.44.0",
+    "@aws-sdk/client-s3": "3.45.0",
     "@aws-sdk/hash-node": "3.40.0",
     "@types/jest": "^26.0.4",
     "@types/node": "^12.0.2",

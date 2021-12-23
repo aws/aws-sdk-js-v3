@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-protocoltests-json-10",
   "description": "@aws-sdk/aws-protocoltests-json-10 client",
-  "version": "3.41.0",
+  "version": "3.45.0",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.json",
@@ -21,7 +21,7 @@
   "dependencies": {
     "@aws-crypto/sha256-browser": "2.0.0",
     "@aws-crypto/sha256-js": "2.0.0",
-    "@aws-sdk/config-resolver": "3.40.0",
+    "@aws-sdk/config-resolver": "3.45.0",
     "@aws-sdk/fetch-http-handler": "3.40.0",
     "@aws-sdk/hash-node": "3.40.0",
     "@aws-sdk/invalid-dependency": "3.40.0",

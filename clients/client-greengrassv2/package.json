@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-greengrassv2",
   "description": "AWS SDK for JavaScript Greengrassv2 Client for Node.js, Browser and React Native",
-  "version": "3.43.0",
+  "version": "3.45.0",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.json",
@@ -21,9 +21,9 @@
   "dependencies": {
     "@aws-crypto/sha256-browser": "2.0.0",
     "@aws-crypto/sha256-js": "2.0.0",
-    "@aws-sdk/client-sts": "3.43.0",
-    "@aws-sdk/config-resolver": "3.40.0",
-    "@aws-sdk/credential-provider-node": "3.41.0",
+    "@aws-sdk/client-sts": "3.45.0",
+    "@aws-sdk/config-resolver": "3.45.0",
+    "@aws-sdk/credential-provider-node": "3.45.0",
     "@aws-sdk/fetch-http-handler": "3.40.0",
     "@aws-sdk/hash-node": "3.40.0",
     "@aws-sdk/invalid-dependency": "3.40.0",
@@ -32,7 +32,7 @@
     "@aws-sdk/middleware-logger": "3.40.0",
     "@aws-sdk/middleware-retry": "3.40.0",
     "@aws-sdk/middleware-serde": "3.40.0",
-    "@aws-sdk/middleware-signing": "3.40.0",
+    "@aws-sdk/middleware-signing": "3.45.0",
     "@aws-sdk/middleware-stack": "3.40.0",
     "@aws-sdk/middleware-user-agent": "3.40.0",
     "@aws-sdk/node-config-provider": "3.40.0",
