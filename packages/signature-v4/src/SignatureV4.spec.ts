@@ -709,21 +709,26 @@ describe("SignatureV4", () => {
   });
 
   describe("ambient Date usage", () => {
-    const knownDate = new Date("1999-12-31T23:59:59.999Z");
+    let dateSpy;
+    const mockDate = new Date();
 
     beforeEach(() => {
-      Date.now = jest.fn().mockReturnValue(knownDate) as any;
+      dateSpy = jest.spyOn(global, "Date").mockImplementation(() => mockDate as unknown as string);
+    });
+
+    afterEach(() => {
+      expect(dateSpy).toHaveBeenCalledTimes(1);
+      jest.clearAllMocks();
     });
 
     it("should use the current date for presigning if no signing date was supplied", async () => {
-      const date = new Date();
       const { query } = await signer.presign(minimalRequest);
-      expect((query as any)[AMZ_DATE_QUERY_PARAM]).toBe(iso8601(date).replace(/[\-:]/g, ""));
+      expect((query as any)[AMZ_DATE_QUERY_PARAM]).toBe(iso8601(mockDate).replace(/[\-:]/g, ""));
     });
 
     it("should use the current date for signing if no signing date supplied", async () => {
       const { headers } = await signer.sign(minimalRequest);
-      expect(headers[AMZ_DATE_HEADER]).toBe(iso8601(new Date()).replace(/[\-:]/g, ""));
+      expect(headers[AMZ_DATE_HEADER]).toBe(iso8601(mockDate).replace(/[\-:]/g, ""));
     });
   });
 });
