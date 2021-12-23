@@ -24,6 +24,7 @@ const partitionHash: PartitionHash = {
       "ap-south-1",
       "ap-southeast-1",
       "ap-southeast-2",
+      "ap-southeast-3",
       "aws-global",
       "ca-central-1",
       "eu-central-1",

@@ -56,6 +56,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateOutpostCommand,
+  UpdateOutpostCommandInput,
+  UpdateOutpostCommandOutput,
+} from "./commands/UpdateOutpostCommand";
+import {
   UpdateSiteAddressCommand,
   UpdateSiteAddressCommandInput,
   UpdateSiteAddressCommandOutput,
@@ -630,6 +635,40 @@ export class Outposts extends OutpostsClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Updates an Outpost.
+   *     </p>
+   */
+  public updateOutpost(
+    args: UpdateOutpostCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateOutpostCommandOutput>;
+  public updateOutpost(
+    args: UpdateOutpostCommandInput,
+    cb: (err: any, data?: UpdateOutpostCommandOutput) => void
+  ): void;
+  public updateOutpost(
+    args: UpdateOutpostCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateOutpostCommandOutput) => void
+  ): void;
+  public updateOutpost(
+    args: UpdateOutpostCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateOutpostCommandOutput) => void),
+    cb?: (err: any, data?: UpdateOutpostCommandOutput) => void
+  ): Promise<UpdateOutpostCommandOutput> | void {
+    const command = new UpdateOutpostCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

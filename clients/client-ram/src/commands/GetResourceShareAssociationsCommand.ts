@@ -24,7 +24,7 @@ export interface GetResourceShareAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets the resources or principals for the resource shares that you own.</p>
+ * <p>Retrieves the resource and principal associations for resource shares that you own.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

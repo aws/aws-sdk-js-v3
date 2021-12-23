@@ -14,6 +14,7 @@ export * from "./GetFeedbackCommand";
 export * from "./GetSampleDataCommand";
 export * from "./ListAlertsCommand";
 export * from "./ListAnomalyDetectorsCommand";
+export * from "./ListAnomalyGroupRelatedMetricsCommand";
 export * from "./ListAnomalyGroupSummariesCommand";
 export * from "./ListAnomalyGroupTimeSeriesCommand";
 export * from "./ListMetricSetsCommand";

@@ -23,6 +23,10 @@ export interface ListStudioMembersCommandOutput extends ListStudioMembersRespons
 
 /**
  * <p>Get all users in a given studio membership.</p>
+ *         <note>
+ *             <p>
+ *                <code>ListStudioMembers</code> only returns admin members.</p>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

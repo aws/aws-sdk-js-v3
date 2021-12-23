@@ -1,7 +1,7 @@
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
- * <p>You do not have access to perform this operation on this resource.</p>
+ * <p>You don't have access to perform this operation on this resource.</p>
  */
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
@@ -27,25 +27,28 @@ export enum AuthenticationType {
 }
 
 /**
- * <p>A <code>LambdaAuthorizerConfig</code> holds configuration on how to authorize AppSync
- *          API access when using the <code>AWS_LAMBDA</code> authorizer mode. Be aware that an AppSync
- *          API may have only one Lambda authorizer configured at a time.</p>
+ * <p>A <code>LambdaAuthorizerConfig</code> specifies how to authorize AppSync
+ *          API access when using the <code>AWS_LAMBDA</code> authorizer mode. Be aware that an AppSync API can have only one Lambda authorizer configured at a
+ *          time.</p>
  */
 export interface LambdaAuthorizerConfig {
   /**
    * <p>The number of seconds a response should be cached for. The default is 5 minutes (300
-   *          seconds). The Lambda function can override this by returning a <code>ttlOverride</code> key
-   *          in its response. A value of 0 disables caching of responses.</p>
+   *          seconds). The Lambda function can override this by returning a
+   *             <code>ttlOverride</code> key in its response. A value of 0 disables caching of
+   *          responses.</p>
    */
   authorizerResultTtlInSeconds?: number;
 
   /**
-   * <p>The ARN of the Lambda function to be called for authorization. This may be a standard
-   *          Lambda ARN, a version ARN (<code>.../v3</code>) or alias ARN. </p>
+   * <p>The Amazon Resource Name (ARN) of the Lambda function to be called for
+   *          authorization. This can be a standard Lambda ARN, a version ARN
+   *             (<code>.../v3</code>), or an alias ARN. </p>
    *          <p>
-   *             <i>Note</i>: This Lambda function must have the following resource-based
-   *          policy assigned to it. When configuring Lambda authorizers in the Console, this is done for
-   *          you. To do so with the Amazon Web Services CLI, run the following:</p>
+   *             <b>Note</b>: This Lambda function must have the
+   *          following resource-based policy assigned to it. When configuring Lambda
+   *          authorizers in the console, this is done for you. To use the Command Line Interface
+   *             (CLI), run the following:</p>
    *          <p>
    *             <code>aws lambda add-permission --function-name
    *             "arn:aws:lambda:us-east-2:111122223333:function:my-function" --statement-id "appsync"
@@ -71,30 +74,30 @@ export namespace LambdaAuthorizerConfig {
 }
 
 /**
- * <p>Describes an OpenID Connect configuration.</p>
+ * <p>Describes an OpenID Connect (OIDC) configuration.</p>
  */
 export interface OpenIDConnectConfig {
   /**
-   * <p>The issuer for the OpenID Connect configuration. The issuer returned by discovery must
-   *          exactly match the value of <code>iss</code> in the ID token.</p>
+   * <p>The issuer for the OIDC configuration. The issuer returned by discovery must exactly
+   *          match the value of <code>iss</code> in the ID token.</p>
    */
   issuer: string | undefined;
 
   /**
-   * <p>The client identifier of the Relying party at the OpenID identity provider. This
-   *          identifier is typically obtained when the Relying party is registered with the OpenID
-   *          identity provider. You can specify a regular expression so the AppSync can
+   * <p>The client identifier of the relying party at the OpenID identity provider. This
+   *          identifier is typically obtained when the relying party is registered with the OpenID
+   *          identity provider. You can specify a regular expression so that AppSync can
    *          validate against multiple client identifiers at a time.</p>
    */
   clientId?: string;
 
   /**
-   * <p>The number of milliseconds a token is valid after being issued to a user.</p>
+   * <p>The number of milliseconds that a token is valid after it's issued to a user.</p>
    */
   iatTTL?: number;
 
   /**
-   * <p>The number of milliseconds a token is valid after being authenticated.</p>
+   * <p>The number of milliseconds that a token is valid after being authenticated.</p>
    */
   authTTL?: number;
 }
@@ -143,13 +146,13 @@ export namespace CognitoUserPoolConfig {
  */
 export interface AdditionalAuthenticationProvider {
   /**
-   * <p>The authentication type: API key, Identity and Access Management, OIDC, Amazon Cognito user
-   *          pools, or Amazon Web Services Lambda.</p>
+   * <p>The authentication type: API key, Identity and Access Management (IAM), OpenID
+   *          Connect (OIDC), Amazon Cognito user pools, or Lambda.</p>
    */
   authenticationType?: AuthenticationType | string;
 
   /**
-   * <p>The OpenID Connect configuration.</p>
+   * <p>The OIDC configuration.</p>
    */
   openIDConnectConfig?: OpenIDConnectConfig;
 
@@ -159,7 +162,7 @@ export interface AdditionalAuthenticationProvider {
   userPoolConfig?: CognitoUserPoolConfig;
 
   /**
-   * <p>Configuration for Amazon Web Services Lambda function authorization.</p>
+   * <p>Configuration for Lambda function authorization.</p>
    */
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
 }
@@ -169,6 +172,63 @@ export namespace AdditionalAuthenticationProvider {
    * @internal
    */
   export const filterSensitiveLog = (obj: AdditionalAuthenticationProvider): any => ({
+    ...obj,
+  });
+}
+
+export enum AssociationStatus {
+  Failed = "FAILED",
+  Processing = "PROCESSING",
+  Success = "SUCCESS",
+}
+
+/**
+ * <p>Describes an <code>ApiAssociation</code> object.</p>
+ */
+export interface ApiAssociation {
+  /**
+   * <p>The domain name.</p>
+   */
+  domainName?: string;
+
+  /**
+   * <p>The API ID.</p>
+   */
+  apiId?: string;
+
+  /**
+   * <p>Identifies the status of an association.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>PROCESSING</b>: The API association is being
+   *                created. You cannot modify association requests during processing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>SUCCESS</b>: The API association was successful.
+   *                You can modify associations after success.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>FAILED</b>: The API association has failed. You
+   *                can modify associations after failure.</p>
+   *             </li>
+   *          </ul>
+   */
+  associationStatus?: AssociationStatus | string;
+
+  /**
+   * <p>Details about the last deployment status.</p>
+   */
+  deploymentDetail?: string;
+}
+
+export namespace ApiAssociation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ApiAssociation): any => ({
     ...obj,
   });
 }
@@ -210,7 +270,7 @@ export enum ApiCacheType {
 export interface ApiCache {
   /**
    * <p>TTL in seconds for cache entries.</p>
-   *          <p>Valid values are between 1 and 3600 seconds.</p>
+   *          <p>Valid values are 1–3,600 seconds.</p>
    */
   ttl?: number;
 
@@ -232,13 +292,13 @@ export interface ApiCache {
   apiCachingBehavior?: ApiCachingBehavior | string;
 
   /**
-   * <p>Transit encryption flag when connecting to cache. This setting cannot be updated after
+   * <p>Transit encryption flag when connecting to cache. You cannot update this setting after
    *          creation.</p>
    */
   transitEncryptionEnabled?: boolean;
 
   /**
-   * <p>At rest encryption flag for cache. This setting cannot be updated after creation.</p>
+   * <p>At-rest encryption flag for cache. You cannot update this setting after creation.</p>
    */
   atRestEncryptionEnabled?: boolean;
 
@@ -367,10 +427,10 @@ export namespace ApiCache {
  *          <p>Customers invoke AppSync GraphQL API operations with API keys as an
  *          identity mechanism. There are two key versions:</p>
  *          <p>
- *             <b>da1</b>: This version was introduced at launch in November
- *          2017. These keys always expire after 7 days. Key expiration is managed by Amazon DynamoDB
- *          TTL. The keys ceased to be valid after February 21, 2018 and should not be used after that
- *          date.</p>
+ *             <b>da1</b>: We introduced this version at launch in November
+ *          2017. These keys always expire after 7 days. Amazon DynamoDB TTL manages key
+ *          expiration. These keys ceased to be valid after February 21, 2018, and they should no
+ *          longer be used.</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -390,15 +450,15 @@ export namespace ApiCache {
  *                   <code>DeleteApiKey</code> deletes the item from the table.</p>
  *             </li>
  *             <li>
- *                <p>Expiration is stored in Amazon DynamoDB as milliseconds. This results in a bug
- *                where keys are not automatically deleted because DynamoDB expects the TTL to be
- *                stored in seconds. As a one-time action, we will delete these keys from the table
- *                after February 21, 2018.</p>
+ *                <p>Expiration is stored in DynamoDB as milliseconds. This results in a
+ *                bug where keys are not automatically deleted because DynamoDB expects the
+ *                TTL to be stored in seconds. As a one-time action, we deleted these keys from the
+ *                table on February 21, 2018.</p>
  *             </li>
  *          </ul>
  *          <p>
- *             <b>da2</b>: This version was introduced in February 2018 when
- *          AppSync added support to extend key expiration.</p>
+ *             <b>da2</b>: We introduced this version in February 2018 when
+ *             AppSync added support to extend key expiration.</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -414,21 +474,21 @@ export namespace ApiCache {
  *                <p>
  *                   <code>UpdateApiKey</code> returns the expiration time and and deletion time in
  *                seconds and accepts a user-provided expiration time in seconds. Expired API keys are
- *                kept for 60 days after the expiration time. Key expiration time can be updated while
- *                the key is not deleted. </p>
+ *                kept for 60 days after the expiration time. You can update the key expiration time as
+ *                long as the key isn't deleted.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <code>DeleteApiKey</code> deletes the item from the table.</p>
  *             </li>
  *             <li>
- *                <p>Expiration is stored in Amazon DynamoDB as seconds. After the expiration time,
- *                using the key to authenticate will fail. But the key can be reinstated before
- *                deletion.</p>
+ *                <p>Expiration is stored in DynamoDB as seconds. After the expiration
+ *                time, using the key to authenticate will fail. However, you can reinstate the key
+ *                before deletion.</p>
  *             </li>
  *             <li>
- *                <p>Deletion is stored in Amazon DynamoDB as seconds. The key will be deleted after
- *                deletion time. </p>
+ *                <p>Deletion is stored in DynamoDB as seconds. The key is deleted after
+ *                deletion time.</p>
  *             </li>
  *          </ul>
  */
@@ -520,68 +580,46 @@ export namespace ApiLimitExceededException {
   });
 }
 
-export enum AuthorizationType {
-  AWS_IAM = "AWS_IAM",
-}
-
-/**
- * <p>The Identity and Access Management configuration.</p>
- */
-export interface AwsIamConfig {
+export interface AssociateApiRequest {
   /**
-   * <p>The signing region for Identity and Access Management authorization.</p>
+   * <p>The domain name.</p>
    */
-  signingRegion?: string;
+  domainName: string | undefined;
 
   /**
-   * <p>The signing service name for Identity and Access Management authorization.</p>
+   * <p>The API ID.</p>
    */
-  signingServiceName?: string;
+  apiId: string | undefined;
 }
 
-export namespace AwsIamConfig {
+export namespace AssociateApiRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AwsIamConfig): any => ({
+  export const filterSensitiveLog = (obj: AssociateApiRequest): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>The authorization config in case the HTTP endpoint requires authorization.</p>
- */
-export interface AuthorizationConfig {
+export interface AssociateApiResponse {
   /**
-   * <p>The authorization type required by the HTTP endpoint.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>AWS_IAM</b>: The authorization type is
-   *                Sigv4.</p>
-   *             </li>
-   *          </ul>
+   * <p>The <code>ApiAssociation</code> object.</p>
    */
-  authorizationType: AuthorizationType | string | undefined;
-
-  /**
-   * <p>The Identity and Access Management settings.</p>
-   */
-  awsIamConfig?: AwsIamConfig;
+  apiAssociation?: ApiAssociation;
 }
 
-export namespace AuthorizationConfig {
+export namespace AssociateApiResponse {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AuthorizationConfig): any => ({
+  export const filterSensitiveLog = (obj: AssociateApiResponse): any => ({
     ...obj,
   });
 }
 
 /**
  * <p>The request is not well formed. For example, a value is invalid or a required field is
- *          missing. Check the field values, and then try again. </p>
+ *          missing. Check the field values, and then try again.</p>
  */
 export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
@@ -599,8 +637,104 @@ export namespace BadRequestException {
 }
 
 /**
+ * <p>An internal AppSync error occurred. Try your request again.</p>
+ */
+export interface InternalFailureException extends __SmithyException, $MetadataBearer {
+  name: "InternalFailureException";
+  $fault: "server";
+  message?: string;
+}
+
+export namespace InternalFailureException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The resource specified in the request was not found. Check the resource, and then try
+ *          again.</p>
+ */
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
+  name: "NotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
+    ...obj,
+  });
+}
+
+export enum AuthorizationType {
+  AWS_IAM = "AWS_IAM",
+}
+
+/**
+ * <p>The Identity and Access Management (IAM) configuration.</p>
+ */
+export interface AwsIamConfig {
+  /**
+   * <p>The signing Amazon Web Services Region for IAM authorization.</p>
+   */
+  signingRegion?: string;
+
+  /**
+   * <p>The signing service name for IAM authorization.</p>
+   */
+  signingServiceName?: string;
+}
+
+export namespace AwsIamConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsIamConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The authorization configuration in case the HTTP endpoint requires authorization.</p>
+ */
+export interface AuthorizationConfig {
+  /**
+   * <p>The authorization type that the HTTP endpoint requires.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>AWS_IAM</b>: The authorization type is Signature
+   *                Version 4 (SigV4).</p>
+   *             </li>
+   *          </ul>
+   */
+  authorizationType: AuthorizationType | string | undefined;
+
+  /**
+   * <p>The Identity and Access Management (IAM) settings.</p>
+   */
+  awsIamConfig?: AwsIamConfig;
+}
+
+export namespace AuthorizationConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuthorizationConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Another modification is in progress at this time and it must complete before you can
- *          make your change. </p>
+ *          make your change.</p>
  */
 export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
@@ -622,24 +756,24 @@ export namespace ConcurrentModificationException {
  */
 export interface CreateApiCacheRequest {
   /**
-   * <p>The GraphQL API Id.</p>
+   * <p>The GraphQL API ID.</p>
    */
   apiId: string | undefined;
 
   /**
    * <p>TTL in seconds for cache entries.</p>
-   *          <p>Valid values are between 1 and 3600 seconds.</p>
+   *          <p>Valid values are 1–3,600 seconds.</p>
    */
   ttl: number | undefined;
 
   /**
-   * <p>Transit encryption flag when connecting to cache. This setting cannot be updated after
+   * <p>Transit encryption flag when connecting to cache. You cannot update this setting after
    *          creation.</p>
    */
   transitEncryptionEnabled?: boolean;
 
   /**
-   * <p>At rest encryption flag for cache. This setting cannot be updated after creation.</p>
+   * <p>At-rest encryption flag for cache. You cannot update this setting after creation.</p>
    */
   atRestEncryptionEnabled?: boolean;
 
@@ -768,44 +902,7 @@ export namespace CreateApiCacheResponse {
 }
 
 /**
- * <p>An internal AppSync error occurred. Try your request again.</p>
- */
-export interface InternalFailureException extends __SmithyException, $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
-  message?: string;
-}
-
-export namespace InternalFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The resource specified in the request was not found. Check the resource, and then try
- *          again.</p>
- */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>You are not authorized to perform this operation.</p>
+ * <p>You aren't authorized to perform this operation.</p>
  */
 export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
   name: "UnauthorizedException";
@@ -834,9 +931,9 @@ export interface CreateApiKeyRequest {
   description?: string;
 
   /**
-   * <p>The time from creation time after which the API key expires. The date is represented as
-   *          seconds since the epoch, rounded down to the nearest hour. The default value for this
-   *          parameter is 7 days from creation time. For more information, see .</p>
+   * <p>From the creation time, the time after which the API key expires. The date is
+   *          represented as seconds since the epoch, rounded down to the nearest hour. The default value
+   *          for this parameter is 7 days from creation time. For more information, see .</p>
    */
   expires?: number;
 }
@@ -889,7 +986,7 @@ export namespace LimitExceededException {
  */
 export interface DeltaSyncConfig {
   /**
-   * <p>The number of minutes an Item is stored in the datasource.</p>
+   * <p>The number of minutes that an Item is stored in the data source.</p>
    */
   baseTableTTL?: number;
 
@@ -899,7 +996,8 @@ export interface DeltaSyncConfig {
   deltaSyncTableName?: string;
 
   /**
-   * <p>The number of minutes a Delta Sync log entry is stored in the Delta Sync table.</p>
+   * <p>The number of minutes that a Delta Sync log entry is stored in the Delta Sync
+   *          table.</p>
    */
   deltaSyncTableTTL?: number;
 }
@@ -933,7 +1031,7 @@ export interface DynamodbDataSourceConfig {
   useCallerCredentials?: boolean;
 
   /**
-   * <p>The <code>DeltaSyncConfig</code> for a versioned datasource.</p>
+   * <p>The <code>DeltaSyncConfig</code> for a versioned data source.</p>
    */
   deltaSyncConfig?: DeltaSyncConfig;
 
@@ -984,15 +1082,15 @@ export namespace ElasticsearchDataSourceConfig {
  */
 export interface HttpDataSourceConfig {
   /**
-   * <p>The HTTP URL endpoint. You can either specify the domain name or IP, and port
-   *          combination, and the URL scheme must be HTTP or HTTPS. If the port is not specified,
+   * <p>The HTTP URL endpoint. You can specify either the domain name or IP, and port
+   *          combination, and the URL scheme must be HTTP or HTTPS. If you don't specify the port,
    *             AppSync uses the default port 80 for the HTTP endpoint and port 443 for
    *          HTTPS endpoints.</p>
    */
   endpoint?: string;
 
   /**
-   * <p>The authorization config in case the HTTP endpoint requires authorization.</p>
+   * <p>The authorization configuration in case the HTTP endpoint requires authorization.</p>
    */
   authorizationConfig?: AuthorizationConfig;
 }
@@ -1007,11 +1105,11 @@ export namespace HttpDataSourceConfig {
 }
 
 /**
- * <p>Describes an Amazon Web Services Lambda data source configuration.</p>
+ * <p>Describes an Lambda data source configuration.</p>
  */
 export interface LambdaDataSourceConfig {
   /**
-   * <p>The ARN for the Lambda function.</p>
+   * <p>The Amazon Resource Name (ARN) for the Lambda function.</p>
    */
   lambdaFunctionArn: string | undefined;
 }
@@ -1050,16 +1148,16 @@ export namespace OpenSearchServiceDataSourceConfig {
 }
 
 /**
- * <p>The Amazon RDS HTTP endpoint configuration.</p>
+ * <p>The Amazon Relational Database Service (Amazon RDS) HTTP endpoint configuration.</p>
  */
 export interface RdsHttpEndpointConfig {
   /**
-   * <p>Amazon Web Services Region for RDS HTTP endpoint.</p>
+   * <p>Amazon Web Services Region for Amazon RDS HTTP endpoint.</p>
    */
   awsRegion?: string;
 
   /**
-   * <p>Amazon RDS cluster ARN.</p>
+   * <p>Amazon RDS cluster Amazon Resource Name (ARN).</p>
    */
   dbClusterIdentifier?: string;
 
@@ -1074,7 +1172,8 @@ export interface RdsHttpEndpointConfig {
   schema?: string;
 
   /**
-   * <p>Amazon Web Services secret store ARN for database credentials.</p>
+   * <p>Amazon Web Services secret store Amazon Resource Name (ARN) for database
+   *          credentials.</p>
    */
   awsSecretStoreArn?: string;
 }
@@ -1102,7 +1201,8 @@ export interface RelationalDatabaseDataSourceConfig {
    *             <li>
    *                <p>
    *                   <b>RDS_HTTP_ENDPOINT</b>: The relational database
-   *                source type is an Amazon RDS HTTP endpoint.</p>
+   *                source type is an Amazon Relational Database Service (Amazon RDS) HTTP
+   *                endpoint.</p>
    *             </li>
    *          </ul>
    */
@@ -1155,8 +1255,8 @@ export interface CreateDataSourceRequest {
   type: DataSourceType | string | undefined;
 
   /**
-   * <p>The Identity and Access Management service role ARN for the data source. The system assumes this
-   *          role when accessing the data source.</p>
+   * <p>The Identity and Access Management (IAM) service role Amazon Resource Name (ARN)
+   *          for the data source. The system assumes this role when accessing the data source.</p>
    */
   serviceRoleArn?: string;
 
@@ -1166,7 +1266,7 @@ export interface CreateDataSourceRequest {
   dynamodbConfig?: DynamodbDataSourceConfig;
 
   /**
-   * <p>Amazon Web Services Lambda settings.</p>
+   * <p>Lambda settings.</p>
    */
   lambdaConfig?: LambdaDataSourceConfig;
 
@@ -1207,7 +1307,7 @@ export namespace CreateDataSourceRequest {
  */
 export interface DataSource {
   /**
-   * <p>The data source ARN.</p>
+   * <p>The data source Amazon Resource Name (ARN).</p>
    */
   dataSourceArn?: string;
 
@@ -1226,12 +1326,11 @@ export interface DataSource {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>AWS_LAMBDA</b>: The data source is an Amazon Web Services Lambda function.</p>
+   *                   <b>AWS_LAMBDA</b>: The data source is an Lambda function.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>AMAZON_DYNAMODB</b>: The data source is an Amazon
-   *                DynamoDB table.</p>
+   *                   <b>AMAZON_DYNAMODB</b>: The data source is an Amazon DynamoDB table.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1245,10 +1344,10 @@ export interface DataSource {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>NONE</b>: There is no data source. This type is
-   *                used when you wish to invoke a GraphQL operation without connecting to a data source,
-   *                such as performing data transformation with resolvers or triggering a subscription to
-   *                be invoked from a mutation.</p>
+   *                   <b>NONE</b>: There is no data source. Use this type
+   *                when you want to invoke a GraphQL operation without connecting to a data source, such
+   *                as when you're performing data transformation with resolvers or invoking a
+   *                subscription from a mutation.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1265,18 +1364,18 @@ export interface DataSource {
   type?: DataSourceType | string;
 
   /**
-   * <p>The Identity and Access Management service role ARN for the data source. The system assumes this
-   *          role when accessing the data source.</p>
+   * <p>The Identity and Access Management (IAM) service role Amazon Resource Name (ARN)
+   *          for the data source. The system assumes this role when accessing the data source.</p>
    */
   serviceRoleArn?: string;
 
   /**
-   * <p>Amazon DynamoDB settings.</p>
+   * <p>DynamoDB settings.</p>
    */
   dynamodbConfig?: DynamodbDataSourceConfig;
 
   /**
-   * <p>Amazon Web Services Lambda settings.</p>
+   * <p>Lambda settings.</p>
    */
   lambdaConfig?: LambdaDataSourceConfig;
 
@@ -1326,6 +1425,91 @@ export namespace CreateDataSourceResponse {
   });
 }
 
+export interface CreateDomainNameRequest {
+  /**
+   * <p>The domain name.</p>
+   */
+  domainName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager
+   *             (ACM) certificate or an Identity and Access Management (IAM)
+   *          server certificate.</p>
+   */
+  certificateArn: string | undefined;
+
+  /**
+   * <p>A description of the <code>DomainName</code>.</p>
+   */
+  description?: string;
+}
+
+export namespace CreateDomainNameRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateDomainNameRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a configuration for a custom domain.</p>
+ */
+export interface DomainNameConfig {
+  /**
+   * <p>The domain name.</p>
+   */
+  domainName?: string;
+
+  /**
+   * <p>A description of the <code>DomainName</code> configuration.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager
+   *             (ACM) certificate or an Identity and Access Management (IAM)
+   *          server certificate.</p>
+   */
+  certificateArn?: string;
+
+  /**
+   * <p>The domain name that AppSync provides.</p>
+   */
+  appsyncDomainName?: string;
+
+  /**
+   * <p>The ID of your Amazon Route 53 hosted zone.</p>
+   */
+  hostedZoneId?: string;
+}
+
+export namespace DomainNameConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DomainNameConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateDomainNameResponse {
+  /**
+   * <p>The configuration for the <code>DomainName</code>.</p>
+   */
+  domainNameConfig?: DomainNameConfig;
+}
+
+export namespace CreateDomainNameResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateDomainNameResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum ConflictDetectionType {
   NONE = "NONE",
   VERSION = "VERSION",
@@ -1339,12 +1523,13 @@ export enum ConflictHandlerType {
 }
 
 /**
- * <p>The <code>LambdaConflictHandlerConfig</code> object when configuring LAMBDA as the
- *          Conflict Handler.</p>
+ * <p>The <code>LambdaConflictHandlerConfig</code> object when configuring <code>LAMBDA</code>
+ *          as the Conflict Handler.</p>
  */
 export interface LambdaConflictHandlerConfig {
   /**
-   * <p>The Arn for the Lambda function to use as the Conflict Handler.</p>
+   * <p>The Amazon Resource Name (ARN) for the Lambda function to use as the
+   *          Conflict Handler.</p>
    */
   lambdaConflictHandlerArn?: string;
 }
@@ -1360,8 +1545,8 @@ export namespace LambdaConflictHandlerConfig {
 
 /**
  * <p>Describes a Sync configuration for a resolver.</p>
- *          <p>Contains information on which Conflict Detection as well as Resolution strategy should
- *          be performed when the resolver is invoked.</p>
+ *          <p>Specifies which Conflict Detection strategy and Resolution strategy to use when the
+ *          resolver is invoked.</p>
  */
 export interface SyncConfig {
   /**
@@ -1370,7 +1555,7 @@ export interface SyncConfig {
    *             <li>
    *                <p>
    *                   <b>OPTIMISTIC_CONCURRENCY</b>: Resolve conflicts by
-   *                rejecting mutations when versions do not match the latest version at the
+   *                rejecting mutations when versions don't match the latest version at the
    *                server.</p>
    *             </li>
    *             <li>
@@ -1380,8 +1565,8 @@ export interface SyncConfig {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>LAMBDA</b>: Resolve conflicts with a Lambda
-   *                function supplied in the LambdaConflictHandlerConfig.</p>
+   *                   <b>LAMBDA</b>: Resolve conflicts with an Lambda function supplied in the
+   *                <code>LambdaConflictHandlerConfig</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -1397,7 +1582,7 @@ export interface SyncConfig {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>NONE</b>: Do not detect conflicts when executing
+   *                   <b>NONE</b>: Do not detect conflicts when invoking
    *                this resolver.</p>
    *             </li>
    *          </ul>
@@ -1405,8 +1590,8 @@ export interface SyncConfig {
   conflictDetection?: ConflictDetectionType | string;
 
   /**
-   * <p>The <code>LambdaConflictHandlerConfig</code> when configuring LAMBDA as the Conflict
-   *          Handler.</p>
+   * <p>The <code>LambdaConflictHandlerConfig</code> when configuring <code>LAMBDA</code> as the
+   *          Conflict Handler.</p>
    */
   lambdaConflictHandlerConfig?: LambdaConflictHandlerConfig;
 }
@@ -1449,20 +1634,20 @@ export interface CreateFunctionRequest {
   requestMappingTemplate?: string;
 
   /**
-   * <p>The <code>Function</code> response mapping template. </p>
+   * <p>The <code>Function</code> response mapping template.</p>
    */
   responseMappingTemplate?: string;
 
   /**
-   * <p>The <code>version</code> of the request mapping template. Currently the supported value
-   *          is 2018-05-29. </p>
+   * <p>The <code>version</code> of the request mapping template. Currently, the supported value
+   *          is 2018-05-29.</p>
    */
   functionVersion: string | undefined;
 
   /**
    * <p>Describes a Sync configuration for a resolver.</p>
-   *          <p>Contains information on which Conflict Detection as well as Resolution strategy should
-   *          be performed when the resolver is invoked.</p>
+   *          <p>Specifies which Conflict Detection strategy and Resolution strategy to use when the
+   *          resolver is invoked.</p>
    */
   syncConfig?: SyncConfig;
 }
@@ -1477,7 +1662,7 @@ export namespace CreateFunctionRequest {
 }
 
 /**
- * <p>A function is a reusable entity. Multiple functions can be used to compose the resolver
+ * <p>A function is a reusable entity. You can use multiple functions to compose the resolver
  *          logic.</p>
  */
 export interface FunctionConfiguration {
@@ -1487,7 +1672,7 @@ export interface FunctionConfiguration {
   functionId?: string;
 
   /**
-   * <p>The ARN of the <code>Function</code> object.</p>
+   * <p>The Amazon Resource Name (ARN) of the <code>Function</code> object.</p>
    */
   functionArn?: string;
 
@@ -1518,15 +1703,15 @@ export interface FunctionConfiguration {
   responseMappingTemplate?: string;
 
   /**
-   * <p>The version of the request mapping template. Currently only the 2018-05-29 version of
+   * <p>The version of the request mapping template. Currently, only the 2018-05-29 version of
    *          the template is supported.</p>
    */
   functionVersion?: string;
 
   /**
    * <p>Describes a Sync configuration for a resolver.</p>
-   *          <p>Contains information on which Conflict Detection as well as Resolution strategy should
-   *          be performed when the resolver is invoked.</p>
+   *          <p>Specifies which Conflict Detection strategy and Resolution strategy to use when the
+   *          resolver is invoked.</p>
    */
   syncConfig?: SyncConfig;
 }
@@ -1563,11 +1748,11 @@ export enum FieldLogLevel {
 }
 
 /**
- * <p>The CloudWatch Logs configuration.</p>
+ * <p>The Amazon CloudWatch Logs configuration.</p>
  */
 export interface LogConfig {
   /**
-   * <p>The field logging level. Values can be NONE, ERROR, or ALL. </p>
+   * <p>The field logging level. Values can be NONE, ERROR, or ALL.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1610,8 +1795,8 @@ export interface LogConfig {
   fieldLogLevel: FieldLogLevel | string | undefined;
 
   /**
-   * <p>The service role that AppSync will assume to publish to Amazon
-   *          CloudWatch logs in your account. </p>
+   * <p>The service role that AppSync assumes to publish to CloudWatch
+   *          logs in your account.</p>
    */
   cloudWatchLogsRoleArn: string | undefined;
 
@@ -1651,8 +1836,7 @@ export interface UserPoolConfig {
   awsRegion: string | undefined;
 
   /**
-   * <p>The action that you want your GraphQL API to take when a request that uses Amazon
-   *          Cognito user pool authentication doesn't match the Amazon Cognito user pool
+   * <p>The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pool authentication doesn't match the Amazon Cognito user pool
    *          configuration.</p>
    */
   defaultAction: DefaultAction | string | undefined;
@@ -1685,8 +1869,8 @@ export interface CreateGraphqlApiRequest {
   logConfig?: LogConfig;
 
   /**
-   * <p>The authentication type: API key, Identity and Access Management, OIDC, Amazon Cognito user
-   *          pools, or Amazon Web Services Lambda.</p>
+   * <p>The authentication type: API key, Identity and Access Management (IAM), OpenID
+   *          Connect (OIDC), Amazon Cognito user pools, or Lambda.</p>
    */
   authenticationType: AuthenticationType | string | undefined;
 
@@ -1696,7 +1880,7 @@ export interface CreateGraphqlApiRequest {
   userPoolConfig?: UserPoolConfig;
 
   /**
-   * <p>The OpenID Connect configuration.</p>
+   * <p>The OIDC configuration.</p>
    */
   openIDConnectConfig?: OpenIDConnectConfig;
 
@@ -1712,13 +1896,13 @@ export interface CreateGraphqlApiRequest {
   additionalAuthenticationProviders?: AdditionalAuthenticationProvider[];
 
   /**
-   * <p>A flag indicating whether to enable X-Ray tracing for the
-   *          <code>GraphqlApi</code>.</p>
+   * <p>A flag indicating whether to use X-Ray tracing for the
+   *             <code>GraphqlApi</code>.</p>
    */
   xrayEnabled?: boolean;
 
   /**
-   * <p>Configuration for Amazon Web Services Lambda function authorization.</p>
+   * <p>Configuration for Lambda function authorization.</p>
    */
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
 }
@@ -1767,7 +1951,7 @@ export interface GraphqlApi {
   openIDConnectConfig?: OpenIDConnectConfig;
 
   /**
-   * <p>The ARN.</p>
+   * <p>The Amazon Resource Name (ARN).</p>
    */
   arn?: string;
 
@@ -1788,19 +1972,19 @@ export interface GraphqlApi {
   additionalAuthenticationProviders?: AdditionalAuthenticationProvider[];
 
   /**
-   * <p>A flag representing whether X-Ray tracing is enabled for this
-   *          <code>GraphqlApi</code>.</p>
+   * <p>A flag indicating whether to use X-Ray tracing for this
+   *             <code>GraphqlApi</code>.</p>
    */
   xrayEnabled?: boolean;
 
   /**
-   * <p>The ARN of the WAF ACL associated with this <code>GraphqlApi</code>,
-   *          if one exists.</p>
+   * <p>The ARN of the WAF access control list (ACL) associated with this
+   *             <code>GraphqlApi</code>, if one exists.</p>
    */
   wafWebAclArn?: string;
 
   /**
-   * <p>Configuration for Amazon Web Services Lambda function authorization.</p>
+   * <p>Configuration for Lambda function authorization.</p>
    */
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
 }
@@ -1831,17 +2015,17 @@ export namespace CreateGraphqlApiResponse {
 }
 
 /**
- * <p>The caching configuration for a resolver that has caching enabled.</p>
+ * <p>The caching configuration for a resolver that has caching activated.</p>
  */
 export interface CachingConfig {
   /**
-   * <p>The TTL in seconds for a resolver that has caching enabled.</p>
-   *          <p>Valid values are between 1 and 3600 seconds.</p>
+   * <p>The TTL in seconds for a resolver that has caching activated.</p>
+   *          <p>Valid values are 1–3,600 seconds.</p>
    */
   ttl?: number;
 
   /**
-   * <p>The caching keys for a resolver that has caching enabled.</p>
+   * <p>The caching keys for a resolver that has caching activated.</p>
    *          <p>Valid values are entries from the <code>$context.arguments</code>,
    *             <code>$context.source</code>, and <code>$context.identity</code> maps.</p>
    */
@@ -1903,17 +2087,18 @@ export interface CreateResolverRequest {
   dataSourceName?: string;
 
   /**
-   * <p>The mapping template to be used for requests.</p>
+   * <p>The mapping template to use for requests.</p>
    *          <p>A resolver uses a request mapping template to convert a GraphQL expression into a format
    *          that a data source can understand. Mapping templates are written in Apache Velocity
    *          Template Language (VTL).</p>
-   *          <p>VTL request mapping templates are optional when using a Lambda data source. For all
-   *          other data sources, VTL request and response mapping templates are required.</p>
+   *          <p>VTL request mapping templates are optional when using an Lambda data
+   *          source. For all other data sources, VTL request and response mapping templates are
+   *          required.</p>
    */
   requestMappingTemplate?: string;
 
   /**
-   * <p>The mapping template to be used for responses from the data source.</p>
+   * <p>The mapping template to use for responses from the data source.</p>
    */
   responseMappingTemplate?: string;
 
@@ -1923,15 +2108,15 @@ export interface CreateResolverRequest {
    *             <li>
    *                <p>
    *                   <b>UNIT</b>: A UNIT resolver type. A UNIT resolver is
-   *                the default resolver type. A UNIT resolver enables you to execute a GraphQL query
-   *                against a single data source.</p>
+   *                the default resolver type. You can use a UNIT resolver to run a GraphQL query against
+   *                a single data source.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>PIPELINE</b>: A PIPELINE resolver type. A PIPELINE
-   *                resolver enables you to execute a series of <code>Function</code> in a serial manner.
-   *                You can use a pipeline resolver to execute a GraphQL query against multiple data
-   *                sources.</p>
+   *                   <b>PIPELINE</b>: A PIPELINE resolver type. You can
+   *                use a PIPELINE resolver to invoke a series of <code>Function</code> objects in a
+   *                serial manner. You can use a pipeline resolver to run a GraphQL query against
+   *                multiple data sources.</p>
    *             </li>
    *          </ul>
    */
@@ -1943,7 +2128,7 @@ export interface CreateResolverRequest {
   pipelineConfig?: PipelineConfig;
 
   /**
-   * <p>The <code>SyncConfig</code> for a resolver attached to a versioned datasource.</p>
+   * <p>The <code>SyncConfig</code> for a resolver attached to a versioned data source.</p>
    */
   syncConfig?: SyncConfig;
 
@@ -1982,7 +2167,7 @@ export interface Resolver {
   dataSourceName?: string;
 
   /**
-   * <p>The resolver ARN.</p>
+   * <p>The resolver Amazon Resource Name (ARN).</p>
    */
   resolverArn?: string;
 
@@ -2002,15 +2187,15 @@ export interface Resolver {
    *             <li>
    *                <p>
    *                   <b>UNIT</b>: A UNIT resolver type. A UNIT resolver is
-   *                the default resolver type. A UNIT resolver enables you to execute a GraphQL query
-   *                against a single data source.</p>
+   *                the default resolver type. You can use a UNIT resolver to run a GraphQL query against
+   *                a single data source.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>PIPELINE</b>: A PIPELINE resolver type. A PIPELINE
-   *                resolver enables you to execute a series of <code>Function</code> in a serial manner.
-   *                You can use a pipeline resolver to execute a GraphQL query against multiple data
-   *                sources.</p>
+   *                   <b>PIPELINE</b>: A PIPELINE resolver type. You can
+   *                use a PIPELINE resolver to invoke a series of <code>Function</code> objects in a
+   *                serial manner. You can use a pipeline resolver to run a GraphQL query against
+   *                multiple data sources.</p>
    *             </li>
    *          </ul>
    */
@@ -2022,7 +2207,7 @@ export interface Resolver {
   pipelineConfig?: PipelineConfig;
 
   /**
-   * <p>The <code>SyncConfig</code> for a resolver attached to a versioned datasource.</p>
+   * <p>The <code>SyncConfig</code> for a resolver attached to a versioned data source.</p>
    */
   syncConfig?: SyncConfig;
 
@@ -2105,7 +2290,7 @@ export interface Type {
   description?: string;
 
   /**
-   * <p>The type ARN.</p>
+   * <p>The type Amazon Resource Name (ARN).</p>
    */
   arn?: string;
 
@@ -2242,6 +2427,33 @@ export namespace DeleteDataSourceResponse {
   });
 }
 
+export interface DeleteDomainNameRequest {
+  /**
+   * <p>The domain name.</p>
+   */
+  domainName: string | undefined;
+}
+
+export namespace DeleteDomainNameRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteDomainNameRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteDomainNameResponse {}
+
+export namespace DeleteDomainNameResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteDomainNameResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteFunctionRequest {
   /**
    * <p>The GraphQL API ID.</p>
@@ -2370,6 +2582,33 @@ export namespace DeleteTypeResponse {
   });
 }
 
+export interface DisassociateApiRequest {
+  /**
+   * <p>The domain name.</p>
+   */
+  domainName: string | undefined;
+}
+
+export namespace DisassociateApiRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateApiRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateApiResponse {}
+
+export namespace DisassociateApiResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateApiResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Represents the input of a <code>FlushApiCache</code> operation.</p>
  */
@@ -2399,6 +2638,38 @@ export namespace FlushApiCacheResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: FlushApiCacheResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetApiAssociationRequest {
+  /**
+   * <p>The domain name.</p>
+   */
+  domainName: string | undefined;
+}
+
+export namespace GetApiAssociationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetApiAssociationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetApiAssociationResponse {
+  /**
+   * <p>The <code>ApiAssociation</code> object.</p>
+   */
+  apiAssociation?: ApiAssociation;
+}
+
+export namespace GetApiAssociationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetApiAssociationResponse): any => ({
     ...obj,
   });
 }
@@ -2474,6 +2745,38 @@ export namespace GetDataSourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetDataSourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDomainNameRequest {
+  /**
+   * <p>The domain name.</p>
+   */
+  domainName: string | undefined;
+}
+
+export namespace GetDomainNameRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDomainNameRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDomainNameResponse {
+  /**
+   * <p>The configuration for the <code>DomainName</code>.</p>
+   */
+  domainNameConfig?: DomainNameConfig;
+}
+
+export namespace GetDomainNameResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDomainNameResponse): any => ({
     ...obj,
   });
 }
@@ -2752,13 +3055,13 @@ export interface ListApiKeysRequest {
   apiId: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can be
-   *          used to return the next set of items in the list.</p>
+   * <p>An identifier that was returned from the previous call to this operation, which you can
+   *          use to return the next set of items in the list.</p>
    */
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results you want the request to return.</p>
+   * <p>The maximum number of results that you want the request to return.</p>
    */
   maxResults?: number;
 }
@@ -2779,8 +3082,8 @@ export interface ListApiKeysResponse {
   apiKeys?: ApiKey[];
 
   /**
-   * <p>An identifier to be passed in the next request to this operation to return the next set
-   *          of items in the list.</p>
+   * <p>An identifier to pass in the next request to this operation to return the next set of
+   *          items in the list.</p>
    */
   nextToken?: string;
 }
@@ -2801,13 +3104,13 @@ export interface ListDataSourcesRequest {
   apiId: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can be
-   *          used to return the next set of items in the list. </p>
+   * <p>An identifier that was returned from the previous call to this operation, which you can
+   *          use to return the next set of items in the list.</p>
    */
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results you want the request to return.</p>
+   * <p>The maximum number of results that you want the request to return.</p>
    */
   maxResults?: number;
 }
@@ -2828,8 +3131,8 @@ export interface ListDataSourcesResponse {
   dataSources?: DataSource[];
 
   /**
-   * <p>An identifier to be passed in the next request to this operation to return the next set
-   *          of items in the list.</p>
+   * <p>An identifier to pass in the next request to this operation to return the next set of
+   *          items in the list.</p>
    */
   nextToken?: string;
 }
@@ -2843,6 +3146,48 @@ export namespace ListDataSourcesResponse {
   });
 }
 
+export interface ListDomainNamesRequest {
+  /**
+   * <p>The API token.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results that you want the request to return.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListDomainNamesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDomainNamesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDomainNamesResponse {
+  /**
+   * <p>Lists configurations for multiple domain names.</p>
+   */
+  domainNameConfigs?: DomainNameConfig[];
+
+  /**
+   * <p>The API token.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListDomainNamesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDomainNamesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListFunctionsRequest {
   /**
    * <p>The GraphQL API ID.</p>
@@ -2850,13 +3195,13 @@ export interface ListFunctionsRequest {
   apiId: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can be
-   *          used to return the next set of items in the list.</p>
+   * <p>An identifier that was returned from the previous call to this operation, which you can
+   *          use to return the next set of items in the list.</p>
    */
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results you want the request to return.</p>
+   * <p>The maximum number of results that you want the request to return.</p>
    */
   maxResults?: number;
 }
@@ -2877,8 +3222,8 @@ export interface ListFunctionsResponse {
   functions?: FunctionConfiguration[];
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can be
-   *          used to return the next set of items in the list.</p>
+   * <p>An identifier that was returned from the previous call to this operation, which you can
+   *          use to return the next set of items in the list.</p>
    */
   nextToken?: string;
 }
@@ -2894,13 +3239,13 @@ export namespace ListFunctionsResponse {
 
 export interface ListGraphqlApisRequest {
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can be
-   *          used to return the next set of items in the list. </p>
+   * <p>An identifier that was returned from the previous call to this operation, which you can
+   *          use to return the next set of items in the list.</p>
    */
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results you want the request to return.</p>
+   * <p>The maximum number of results that you want the request to return.</p>
    */
   maxResults?: number;
 }
@@ -2921,8 +3266,8 @@ export interface ListGraphqlApisResponse {
   graphqlApis?: GraphqlApi[];
 
   /**
-   * <p>An identifier to be passed in the next request to this operation to return the next set
-   *          of items in the list.</p>
+   * <p>An identifier to pass in the next request to this operation to return the next set of
+   *          items in the list.</p>
    */
   nextToken?: string;
 }
@@ -2948,13 +3293,13 @@ export interface ListResolversRequest {
   typeName: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can be
-   *          used to return the next set of items in the list. </p>
+   * <p>An identifier that was returned from the previous call to this operation, which you can
+   *          use to return the next set of items in the list.</p>
    */
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results you want the request to return.</p>
+   * <p>The maximum number of results that you want the request to return.</p>
    */
   maxResults?: number;
 }
@@ -2975,8 +3320,8 @@ export interface ListResolversResponse {
   resolvers?: Resolver[];
 
   /**
-   * <p>An identifier to be passed in the next request to this operation to return the next set
-   *          of items in the list.</p>
+   * <p>An identifier to pass in the next request to this operation to return the next set of
+   *          items in the list.</p>
    */
   nextToken?: string;
 }
@@ -2997,7 +3342,7 @@ export interface ListResolversByFunctionRequest {
   apiId: string | undefined;
 
   /**
-   * <p>The Function ID.</p>
+   * <p>The function ID.</p>
    */
   functionId: string | undefined;
 
@@ -3008,7 +3353,7 @@ export interface ListResolversByFunctionRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results you want the request to return.</p>
+   * <p>The maximum number of results that you want the request to return.</p>
    */
   maxResults?: number;
 }
@@ -3029,7 +3374,7 @@ export interface ListResolversByFunctionResponse {
   resolvers?: Resolver[];
 
   /**
-   * <p>An identifier that can be used to return the next set of items in the list.</p>
+   * <p>An identifier that you can use to return the next set of items in the list.</p>
    */
   nextToken?: string;
 }
@@ -3045,7 +3390,7 @@ export namespace ListResolversByFunctionResponse {
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The <code>GraphqlApi</code> ARN.</p>
+   * <p>The <code>GraphqlApi</code> Amazon Resource Name (ARN).</p>
    */
   resourceArn: string | undefined;
 }
@@ -3087,13 +3432,13 @@ export interface ListTypesRequest {
   format: TypeDefinitionFormat | string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can be
-   *          used to return the next set of items in the list. </p>
+   * <p>An identifier that was returned from the previous call to this operation, which you can
+   *          use to return the next set of items in the list.</p>
    */
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results you want the request to return.</p>
+   * <p>The maximum number of results that you want the request to return.</p>
    */
   maxResults?: number;
 }
@@ -3114,8 +3459,8 @@ export interface ListTypesResponse {
   types?: Type[];
 
   /**
-   * <p>An identifier to be passed in the next request to this operation to return the next set
-   *          of items in the list.</p>
+   * <p>An identifier to pass in the next request to this operation to return the next set of
+   *          items in the list.</p>
    */
   nextToken?: string;
 }
@@ -3169,7 +3514,7 @@ export namespace StartSchemaCreationResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>The <code>GraphqlApi</code> ARN.</p>
+   * <p>The <code>GraphqlApi</code> Amazon Resource Name (ARN).</p>
    */
   resourceArn: string | undefined;
 
@@ -3201,7 +3546,7 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The <code>GraphqlApi</code> ARN.</p>
+   * <p>The <code>GraphqlApi</code> Amazon Resource Name (ARN).</p>
    */
   resourceArn: string | undefined;
 
@@ -3236,13 +3581,13 @@ export namespace UntagResourceResponse {
  */
 export interface UpdateApiCacheRequest {
   /**
-   * <p>The GraphQL API Id.</p>
+   * <p>The GraphQL API ID.</p>
    */
   apiId: string | undefined;
 
   /**
    * <p>TTL in seconds for cache entries.</p>
-   *          <p>Valid values are between 1 and 3600 seconds.</p>
+   *          <p>Valid values are 1–3,600 seconds.</p>
    */
   ttl: number | undefined;
 
@@ -3387,8 +3732,8 @@ export interface UpdateApiKeyRequest {
   description?: string;
 
   /**
-   * <p>The time from update time after which the API key expires. The date is represented as
-   *          seconds since the epoch. For more information, see .</p>
+   * <p>From the update time, the time after which the API key expires. The date is represented
+   *          as seconds since the epoch. For more information, see .</p>
    */
   expires?: number;
 }
@@ -3440,7 +3785,7 @@ export interface UpdateDataSourceRequest {
   type: DataSourceType | string | undefined;
 
   /**
-   * <p>The new service role ARN for the data source.</p>
+   * <p>The new service role Amazon Resource Name (ARN) for the data source.</p>
    */
   serviceRoleArn?: string;
 
@@ -3450,7 +3795,7 @@ export interface UpdateDataSourceRequest {
   dynamodbConfig?: DynamodbDataSourceConfig;
 
   /**
-   * <p>The new Amazon Web Services Lambda configuration.</p>
+   * <p>The new Lambda configuration.</p>
    */
   lambdaConfig?: LambdaDataSourceConfig;
 
@@ -3502,6 +3847,43 @@ export namespace UpdateDataSourceResponse {
   });
 }
 
+export interface UpdateDomainNameRequest {
+  /**
+   * <p>The domain name.</p>
+   */
+  domainName: string | undefined;
+
+  /**
+   * <p>A description of the <code>DomainName</code>.</p>
+   */
+  description?: string;
+}
+
+export namespace UpdateDomainNameRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDomainNameRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDomainNameResponse {
+  /**
+   * <p>The configuration for the <code>DomainName</code>.</p>
+   */
+  domainNameConfig?: DomainNameConfig;
+}
+
+export namespace UpdateDomainNameResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDomainNameResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateFunctionRequest {
   /**
    * <p>The GraphQL API ID.</p>
@@ -3536,20 +3918,20 @@ export interface UpdateFunctionRequest {
   requestMappingTemplate?: string;
 
   /**
-   * <p>The <code>Function</code> request mapping template. </p>
+   * <p>The <code>Function</code> request mapping template.</p>
    */
   responseMappingTemplate?: string;
 
   /**
-   * <p>The <code>version</code> of the request mapping template. Currently the supported value
-   *          is 2018-05-29. </p>
+   * <p>The <code>version</code> of the request mapping template. Currently, the supported value
+   *          is 2018-05-29.</p>
    */
   functionVersion: string | undefined;
 
   /**
    * <p>Describes a Sync configuration for a resolver.</p>
-   *          <p>Contains information on which Conflict Detection as well as Resolution strategy should
-   *          be performed when the resolver is invoked.</p>
+   *          <p>Specifies which Conflict Detection strategy and Resolution strategy to use when the
+   *          resolver is invoked.</p>
    */
   syncConfig?: SyncConfig;
 }
@@ -3601,7 +3983,7 @@ export interface UpdateGraphqlApiRequest {
   authenticationType?: AuthenticationType | string;
 
   /**
-   * <p>The new Amazon Cognito user pool configuration for the <code>GraphqlApi</code>
+   * <p>The new Amazon Cognito user pool configuration for the <code>~GraphqlApi</code>
    *          object.</p>
    */
   userPoolConfig?: UserPoolConfig;
@@ -3618,13 +4000,13 @@ export interface UpdateGraphqlApiRequest {
   additionalAuthenticationProviders?: AdditionalAuthenticationProvider[];
 
   /**
-   * <p>A flag indicating whether to enable X-Ray tracing for the
-   *          <code>GraphqlApi</code>.</p>
+   * <p>A flag indicating whether to use X-Ray tracing for the
+   *             <code>GraphqlApi</code>.</p>
    */
   xrayEnabled?: boolean;
 
   /**
-   * <p>Configuration for Amazon Web Services Lambda function authorization.</p>
+   * <p>Configuration for Lambda function authorization.</p>
    */
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
 }
@@ -3680,8 +4062,9 @@ export interface UpdateResolverRequest {
    *          <p>A resolver uses a request mapping template to convert a GraphQL expression into a format
    *          that a data source can understand. Mapping templates are written in Apache Velocity
    *          Template Language (VTL).</p>
-   *          <p>VTL request mapping templates are optional when using a Lambda data source. For all
-   *          other data sources, VTL request and response mapping templates are required.</p>
+   *          <p>VTL request mapping templates are optional when using an Lambda data
+   *          source. For all other data sources, VTL request and response mapping templates are
+   *          required.</p>
    */
   requestMappingTemplate?: string;
 
@@ -3696,15 +4079,15 @@ export interface UpdateResolverRequest {
    *             <li>
    *                <p>
    *                   <b>UNIT</b>: A UNIT resolver type. A UNIT resolver is
-   *                the default resolver type. A UNIT resolver enables you to execute a GraphQL query
-   *                against a single data source.</p>
+   *                the default resolver type. You can use a UNIT resolver to run a GraphQL query against
+   *                a single data source.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>PIPELINE</b>: A PIPELINE resolver type. A PIPELINE
-   *                resolver enables you to execute a series of <code>Function</code> in a serial manner.
-   *                You can use a pipeline resolver to execute a GraphQL query against multiple data
-   *                sources.</p>
+   *                   <b>PIPELINE</b>: A PIPELINE resolver type. You can
+   *                use a PIPELINE resolver to invoke a series of <code>Function</code> objects in a
+   *                serial manner. You can use a pipeline resolver to run a GraphQL query against
+   *                multiple data sources.</p>
    *             </li>
    *          </ul>
    */
@@ -3716,7 +4099,7 @@ export interface UpdateResolverRequest {
   pipelineConfig?: PipelineConfig;
 
   /**
-   * <p>The <code>SyncConfig</code> for a resolver attached to a versioned datasource.</p>
+   * <p>The <code>SyncConfig</code> for a resolver attached to a versioned data source.</p>
    */
   syncConfig?: SyncConfig;
 

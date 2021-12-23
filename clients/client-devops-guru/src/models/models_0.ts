@@ -1971,6 +1971,7 @@ export enum OrganizationResourceCollectionType {
   AWS_ACCOUNT = "AWS_ACCOUNT",
   AWS_CLOUD_FORMATION = "AWS_CLOUD_FORMATION",
   AWS_SERVICE = "AWS_SERVICE",
+  AWS_TAGS = "AWS_TAGS",
 }
 
 export interface DescribeOrganizationResourceCollectionHealthRequest {
@@ -2150,72 +2151,6 @@ export namespace ServiceHealth {
   });
 }
 
-export interface DescribeOrganizationResourceCollectionHealthResponse {
-  /**
-   * <p>The returned <code>CloudFormationHealthOverview</code> object that contains an
-   * 			<code>InsightHealthOverview</code> object with the requested system health
-   * 			information.</p>
-   */
-  CloudFormation?: CloudFormationHealth[];
-
-  /**
-   * <p>An array of <code>ServiceHealth</code> objects that describes the health of the Amazon Web Services
-   * 			services associated with the resources in the collection.</p>
-   */
-  Service?: ServiceHealth[];
-
-  /**
-   * <p>The name of the organization's account.</p>
-   */
-  Account?: AccountHealth[];
-
-  /**
-   * <p>The pagination token to use to retrieve
-   *    the next page of results for this operation. If there are no more pages, this value is null.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeOrganizationResourceCollectionHealthResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationResourceCollectionHealthResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum ResourceCollectionType {
-  AWS_CLOUD_FORMATION = "AWS_CLOUD_FORMATION",
-  AWS_SERVICE = "AWS_SERVICE",
-  AWS_TAGS = "AWS_TAGS",
-}
-
-export interface DescribeResourceCollectionHealthRequest {
-  /**
-   * <p> An Amazon Web Services resource collection type. This type specifies how analyzed Amazon Web Services resources
-   * 			are defined. The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
-   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
-   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
-   */
-  ResourceCollectionType: ResourceCollectionType | string | undefined;
-
-  /**
-   * <p>The pagination token to use to retrieve
-   *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeResourceCollectionHealthRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResourceCollectionHealthRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about the health of Amazon Web Services resources in your account that are specified by
  *    		an Amazon Web Services tag <i>key</i>. </p>
@@ -2263,6 +2198,109 @@ export namespace TagHealth {
    * @internal
    */
   export const filterSensitiveLog = (obj: TagHealth): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeOrganizationResourceCollectionHealthResponse {
+  /**
+   * <p>The returned <code>CloudFormationHealthOverview</code> object that contains an
+   * 			<code>InsightHealthOverview</code> object with the requested system health
+   * 			information.</p>
+   */
+  CloudFormation?: CloudFormationHealth[];
+
+  /**
+   * <p>An array of <code>ServiceHealth</code> objects that describes the health of the Amazon Web Services
+   * 			services associated with the resources in the collection.</p>
+   */
+  Service?: ServiceHealth[];
+
+  /**
+   * <p>The name of the organization's account.</p>
+   */
+  Account?: AccountHealth[];
+
+  /**
+   * <p>The pagination token to use to retrieve
+   *    the next page of results for this operation. If there are no more pages, this value is null.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
+   *    		tagging, so you can assign the same tag to resources from different services to indicate
+   *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
+   *    		table resource that you assign to an Lambda function. For more information about
+   *    		using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
+   *    			best practices</a> whitepaper. </p>
+   *    	     <p>Each Amazon Web Services tag has two parts. </p>
+   *    	     <ul>
+   *             <li>
+   *    			         <p>A tag <i>key</i> (for example, <code>CostCenter</code>,
+   *    				<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
+   *    				<i>keys</i> are case-sensitive.</p>
+   *    		       </li>
+   *             <li>
+   *    			         <p>An optional field known as a tag <i>value</i> (for example,
+   *    				<code>111122223333</code>, <code>Production</code>, or a team
+   *    				name). Omitting the tag <i>value</i> is the same as using an empty
+   *    				string. Like tag <i>keys</i>, tag <i>values</i> are
+   *    				case-sensitive.</p>
+   *    		       </li>
+   *          </ul>
+   *    	     <p>Together these are known as <i>key</i>-<i>value</i> pairs.</p>
+   *    	     <important>
+   * 		          <p>The string used for a <i>key</i> in a tag that you use to define your resource coverage must begin with the
+   * 			prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
+   * 			<code>Devops-guru-deployment-application</code> or
+   * 			<code>Devops-guru-rds-application</code>. While <i>keys</i> are case-sensitive, the
+   * 			case of <i>key</i> characters don't matter to DevOps Guru. For example, DevOps Guru works with a
+   * 			<i>key</i> named <code>devops-guru-rds</code> and a <i>key</i> named
+   * 			<code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i> pairs in your
+   * 			application might be <code>Devops-Guru-production-application/RDS</code> or
+   * 			<code>Devops-Guru-production-application/containers</code>.</p>
+   * 	        </important>
+   */
+  Tags?: TagHealth[];
+}
+
+export namespace DescribeOrganizationResourceCollectionHealthResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeOrganizationResourceCollectionHealthResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum ResourceCollectionType {
+  AWS_CLOUD_FORMATION = "AWS_CLOUD_FORMATION",
+  AWS_SERVICE = "AWS_SERVICE",
+  AWS_TAGS = "AWS_TAGS",
+}
+
+export interface DescribeResourceCollectionHealthRequest {
+  /**
+   * <p> An Amazon Web Services resource collection type. This type specifies how analyzed Amazon Web Services resources
+   * 			are defined. The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
+   *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
+   *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+   */
+  ResourceCollectionType: ResourceCollectionType | string | undefined;
+
+  /**
+   * <p>The pagination token to use to retrieve
+   *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeResourceCollectionHealthRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeResourceCollectionHealthRequest): any => ({
     ...obj,
   });
 }

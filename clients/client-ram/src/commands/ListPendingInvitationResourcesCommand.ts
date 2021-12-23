@@ -24,8 +24,9 @@ export interface ListPendingInvitationResourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the resources in a resource share that is shared with you but that the invitation is still
- *             pending for.</p>
+ * <p>Lists the resources in a resource share that is shared with you but for which the invitation is
+ *             still <code>PENDING</code>. That means that you haven't accepted or rejected the
+ *             invitation and the invitation hasn't expired.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

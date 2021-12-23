@@ -473,7 +473,7 @@ export interface CreateDatasetRequest {
   /**
    * <p>Description of a Dataset.</p>
    */
-  datasetDescription: string | undefined;
+  datasetDescription?: string;
 
   /**
    * <p>Contact information for a Dataset owner.</p>
@@ -488,7 +488,7 @@ export interface CreateDatasetRequest {
   /**
    * <p>The unique resource identifier for a Dataset.</p>
    */
-  alias: string | undefined;
+  alias?: string;
 
   /**
    * <p>Definition for a schema on a tabular Dataset.</p>
@@ -524,6 +524,11 @@ export namespace CreateDatasetResponse {
   });
 }
 
+export enum ExportFileFormat {
+  DELIMITED_TEXT = "DELIMITED_TEXT",
+  PARQUET = "PARQUET",
+}
+
 /**
  * <p>Structure for the Dataview destination type parameters.</p>
  */
@@ -538,6 +543,13 @@ export interface DataViewDestinationTypeParams {
    *          </ul>
    */
   destinationType: string | undefined;
+
+  /**
+   * Data View Export File Format
+   */
+  s3DestinationExportFileFormat?: ExportFileFormat | string;
+
+  s3DestinationExportFileFormatOptions?: { [key: string]: string };
 }
 
 export namespace DataViewDestinationTypeParams {
@@ -838,6 +850,11 @@ export interface GetChangesetResponse {
    * <p>Time until which the Changeset is active. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   activeUntilTimestamp?: number;
+
+  /**
+   * Milliseconds since UTC epoch
+   */
+  activeFromTimestamp?: number;
 
   /**
    * <p>The unique identifier of the Changeset that is being updated.</p>
@@ -1442,6 +1459,11 @@ export interface ChangesetSummary {
   activeUntilTimestamp?: number;
 
   /**
+   * Milliseconds since UTC epoch
+   */
+  activeFromTimestamp?: number;
+
+  /**
    * <p>The unique identifier of the Changeset that is updated.</p>
    */
   updatesChangesetId?: string;
@@ -1870,7 +1892,7 @@ export interface UpdateDatasetRequest {
   /**
    * <p>The unique resource identifier for a Dataset.</p>
    */
-  alias: string | undefined;
+  alias?: string;
 
   /**
    * <p>Definition for a schema on a tabular Dataset.</p>

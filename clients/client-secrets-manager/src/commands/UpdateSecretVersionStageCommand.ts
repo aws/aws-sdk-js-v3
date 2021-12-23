@@ -22,14 +22,13 @@ export interface UpdateSecretVersionStageCommandInput extends UpdateSecretVersio
 export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersionStageResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the staging labels attached to a version of a secret. Staging labels are used to
- *       track a version as it progresses through the secret rotation process. You can attach a staging
- *       label to only one version of a secret at a time. If a staging label to be added is already
- *       attached to another version, then it is moved--removed from the other version first and
- *       then attached to this one. For more information about staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label">Staging
- *         Labels</a> in the <i>Amazon Web Services Secrets Manager User Guide</i>. </p>
+ * <p>Modifies the staging labels attached to a version of a secret. Secrets Manager uses staging labels to
+ *       track a version as it progresses through the secret rotation process. Each staging label can be
+ *       attached to only one version at a time. To add a staging label to a version when it is already
+ *       attached to another version, Secrets Manager first removes it from the other version first and
+ *       then attaches it to this one. For more information about versions and staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version">Concepts: Version</a>. </p>
  *          <p>The staging labels that you specify in the <code>VersionStage</code> parameter are added
- *       to the existing list of staging labels--they don't replace it.</p>
+ *       to the existing list of staging labels for the version. </p>
  *          <p>You can move the <code>AWSCURRENT</code> staging label to this version by including it in this
  *       call.</p>
  *          <note>
@@ -38,27 +37,6 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  *          </note>
  *          <p>If this action results in the last label being removed from a version, then the version is
  *       considered to be 'deprecated' and can be deleted by Secrets Manager.</p>
- *          <p>
- *             <b>Minimum permissions</b>
- *          </p>
- *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
- *             <li>
- *                <p>secretsmanager:UpdateSecretVersionStage</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Related operations</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>To get the list of staging labels that are currently associated with a version of a
- *           secret, use <code>
- *                      <a>DescribeSecret</a>
- *                   </code> and examine the
- *             <code>SecretVersionsToStages</code> response value. </p>
- *             </li>
- *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

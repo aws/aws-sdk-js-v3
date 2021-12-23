@@ -165,65 +165,23 @@ import { SecretsManagerClient } from "./SecretsManagerClient";
  *       account and delivers log files to an Amazon S3 bucket. By using information that's collected
  *       by Amazon Web Services CloudTrail, you can determine the requests successfully made to Secrets Manager, who made the
  *       request, when it was made, and so on. For more about Amazon Web Services Secrets Manager and support for Amazon Web Services
- *       CloudTrail, see <a href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/monitoring.html#monitoring_cloudtrail">Logging
+ *       CloudTrail, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/monitoring.html#monitoring_cloudtrail">Logging
  *         Amazon Web Services Secrets Manager Events with Amazon Web Services CloudTrail</a> in the <i>Amazon Web Services Secrets Manager User Guide</i>.
  *       To learn more about CloudTrail, including enabling it and find your log files, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">Amazon Web Services CloudTrail User Guide</a>.</p>
  */
 export class SecretsManager extends SecretsManagerClient {
   /**
-   * <p>Disables automatic scheduled rotation and cancels the rotation of a secret if currently in
-   *       progress.</p>
-   *          <p>To re-enable scheduled rotation, call <a>RotateSecret</a> with
-   *         <code>AutomaticallyRotateAfterDays</code> set to a value greater than 0. This immediately
-   *       rotates your secret and then enables the automatic schedule.</p>
+   * <p>Turns off automatic rotation, and if a rotation is currently in
+   *       progress, cancels the rotation.</p>
+   *          <p>To turn on automatic rotation again, call <a>RotateSecret</a>.</p>
    *          <note>
-   *             <p>If you cancel a rotation while in progress, it can leave the <code>VersionStage</code>
+   *             <p>If you cancel a rotation in progress, it can leave the <code>VersionStage</code>
    *         labels in an unexpected state. Depending on the step of the rotation in progress, you might
    *         need to remove the staging label <code>AWSPENDING</code> from the partially created version, specified
-   *         by the <code>VersionId</code> response value. You should also evaluate the partially rotated
-   *         new version to see if it should be deleted, which you can do by removing all staging labels
-   *         from the new version <code>VersionStage</code> field.</p>
+   *         by the <code>VersionId</code> response value. We recommend you also evaluate the partially rotated
+   *         new version to see if it should be deleted. You can delete a version by removing all staging labels
+   *         from it.</p>
    *          </note>
-   *          <p>To successfully start a rotation, the staging label <code>AWSPENDING</code> must be in one of the
-   *       following states:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Not attached to any version at all</p>
-   *             </li>
-   *             <li>
-   *                <p>Attached to the same version as the staging label <code>AWSCURRENT</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>If the staging label <code>AWSPENDING</code> attached to a different version than the version with
-   *       <code>AWSCURRENT</code> then the attempt to rotate fails.</p>
-   *
-   *          <p>
-   *             <b>Minimum permissions</b>
-   *          </p>
-   *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>secretsmanager:CancelRotateSecret</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Related operations</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>To configure rotation for a secret or to manually trigger a rotation, use <a>RotateSecret</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To get the rotation configuration details for a secret, use <a>DescribeSecret</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To list all of the currently available secrets, use <a>ListSecrets</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To list all of the versions currently associated with a secret, use <a>ListSecretVersionIds</a>.</p>
-   *             </li>
-   *          </ul>
    */
   public cancelRotateSecret(
     args: CancelRotateSecretCommandInput,
@@ -255,94 +213,26 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Creates a new secret. A secret in Secrets Manager consists of both the protected secret data and the
+   * <p>Creates a new secret. A <i>secret</i> is a set of credentials, such as a
+   *       user name and password, that you store in an encrypted form in Secrets Manager. The secret also
+   *       includes the connection information to access a database or other service, which Secrets Manager
+   *       doesn't encrypt. A secret in Secrets Manager consists of both the protected secret data and the
    *       important information needed to manage the secret.</p>
-   *          <p>Secrets Manager stores the encrypted secret data in one of a collection of "versions"
-   *       associated with the secret. Each version contains a copy of the encrypted secret data. Each
-   *       version is associated with one or more "staging labels" that identify where the version is in
-   *       the rotation cycle. The <code>SecretVersionsToStages</code> field of the secret contains the
-   *       mapping of staging labels to the active versions of the secret. Versions without a staging
-   *       label are considered deprecated and not included in the list.</p>
-   *          <p>You provide the secret data to be encrypted by putting text in either the
-   *         <code>SecretString</code> parameter or binary data in the <code>SecretBinary</code>
-   *       parameter, but not both. If you include <code>SecretString</code> or <code>SecretBinary</code>
-   *       then Secrets Manager also creates an initial secret version and automatically attaches the staging
-   *       label <code>AWSCURRENT</code> to the new version.</p>
-   *          <note>
-   *             <ul>
-   *                <li>
-   *                   <p>If you call an operation to encrypt or decrypt the <code>SecretString</code>
-   *           or <code>SecretBinary</code> for a secret in the same account as the calling user and that
-   *           secret doesn't specify a Amazon Web Services KMS encryption key, Secrets Manager uses the account's default
-   *           Amazon Web Services managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>. If this key
-   *           doesn't already exist in your account then Secrets Manager creates it for you automatically. All
-   *           users and roles in the same Amazon Web Services account automatically have access to use the default CMK.
-   *           Note that if an Secrets Manager API call results in Amazon Web Services creating the account's
-   *           Amazon Web Services-managed CMK, it can result in a one-time significant delay in returning the
-   *           result.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If the secret resides in a different Amazon Web Services account from the credentials calling an API that
-   *           requires encryption or decryption of the secret value then you must create and use a custom
-   *           Amazon Web Services KMS CMK because you can't access the default CMK for the account using credentials
-   *           from a different Amazon Web Services account. Store the ARN of the CMK in the secret when you create the
-   *           secret or when you update it by including it in the <code>KMSKeyId</code>. If you call an
-   *           API that must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code>
-   *           using credentials from a different account then the Amazon Web Services KMS key policy must grant cross-account
-   *           access to that other account's user or role for both the kms:GenerateDataKey and
-   *           kms:Decrypt operations.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
-   *          <p> </p>
-   *          <p>
-   *             <b>Minimum permissions</b>
-   *          </p>
-   *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>secretsmanager:CreateSecret</p>
-   *             </li>
-   *             <li>
-   *                <p>kms:GenerateDataKey - needed only if you use a customer-managed Amazon Web Services KMS key to encrypt
-   *           the secret. You do not need this permission to use the account default Amazon Web Services managed CMK
-   *           for Secrets Manager.</p>
-   *             </li>
-   *             <li>
-   *                <p>kms:Decrypt - needed only if you use a customer-managed Amazon Web Services KMS key to encrypt the
-   *           secret. You do not need this permission to use the account default Amazon Web Services managed CMK for
-   *           Secrets Manager.</p>
-   *             </li>
-   *             <li>
-   *                <p>secretsmanager:TagResource - needed only if you include the <code>Tags</code>
-   *           parameter. </p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Related operations</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>To delete a secret, use <a>DeleteSecret</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To modify an existing secret, use <a>UpdateSecret</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To create a new version of a secret, use <a>PutSecretValue</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To retrieve the encrypted secure string and secure binary values, use <a>GetSecretValue</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To retrieve all other details for a secret, use <a>DescribeSecret</a>. This
-   *           does not include the encrypted secure string and secure binary values.</p>
-   *             </li>
-   *             <li>
-   *                <p>To retrieve the list of secret versions associated with the current secret, use <a>DescribeSecret</a> and examine the <code>SecretVersionsToStages</code> response
-   *           value.</p>
-   *             </li>
-   *          </ul>
+   *          <p>For information about creating a secret in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html">Create a secret</a>.</p>
+   *          <p>To create a secret, you can provide the secret value to be encrypted in either the
+   *       <code>SecretString</code> parameter or the <code>SecretBinary</code> parameter, but not both.
+   *       If you include <code>SecretString</code> or <code>SecretBinary</code>
+   *       then Secrets Manager creates an initial secret version and automatically attaches the staging
+   *       label <code>AWSCURRENT</code> to it.</p>
+   *          <p>If you don't specify an KMS encryption key, Secrets Manager uses the Amazon Web Services managed key
+   *       <code>aws/secretsmanager</code>. If this key
+   *       doesn't already exist in your account, then Secrets Manager creates it for you automatically. All
+   *       users and roles in the Amazon Web Services account automatically have access to use <code>aws/secretsmanager</code>.
+   *       Creating <code>aws/secretsmanager</code> can result in a one-time significant delay in returning the
+   *       result.</p>
+   *          <p>If the secret is in a different Amazon Web Services account from the credentials calling the API, then
+   *       you can't use <code>aws/secretsmanager</code> to encrypt the secret, and you must create
+   *       and use a customer managed KMS key. </p>
    */
   public createSecret(
     args: CreateSecretCommandInput,
@@ -371,30 +261,8 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Deletes the resource-based permission policy attached to the secret.</p>
-   *          <p>
-   *             <b>Minimum permissions</b>
-   *          </p>
-   *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>secretsmanager:DeleteResourcePolicy</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Related operations</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>To attach a resource policy to a secret, use <a>PutResourcePolicy</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To retrieve the current resource-based policy attached to a secret, use <a>GetResourcePolicy</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To list all of the currently available secrets, use <a>ListSecrets</a>.</p>
-   *             </li>
-   *          </ul>
+   * <p>Deletes the resource-based permission policy attached to the secret. To attach a policy to
+   *       a secret, use <a>PutResourcePolicy</a>.</p>
    */
   public deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -426,52 +294,19 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Deletes an entire secret and all of the versions. You can optionally include a recovery
-   *       window during which you can restore the secret. If you don't specify a recovery window value,
-   *       the operation defaults to 30 days. Secrets Manager attaches a <code>DeletionDate</code> stamp to
+   * <p>Deletes a secret and all of its versions. You can specify a recovery
+   *       window during which you can restore the secret. The minimum recovery window is 7 days.
+   *       The default recovery window is 30 days. Secrets Manager attaches a <code>DeletionDate</code> stamp to
    *       the secret that specifies the end of the recovery window. At the end of the recovery window,
    *       Secrets Manager deletes the secret permanently.</p>
+   *          <p>For information about deleting a secret in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_delete-secret.html">https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_delete-secret.html</a>. </p>
+   *          <p>Secrets Manager performs the permanent secret deletion at the end of the waiting period as a
+   *         background task with low priority. There is no guarantee of a specific time after the
+   *         recovery window for the permanent delete to occur.</p>
    *          <p>At any time before recovery window ends, you can use <a>RestoreSecret</a> to
    *       remove the <code>DeletionDate</code> and cancel the deletion of the secret.</p>
-   *          <p>You cannot access the encrypted secret information in any secret scheduled for deletion.
-   *       If you need to access that information, you must cancel the deletion with <a>RestoreSecret</a> and then retrieve the information.</p>
-   *          <note>
-   *             <ul>
-   *                <li>
-   *                   <p>There is no explicit operation to delete a version of a secret. Instead, remove all
-   *             staging labels from the <code>VersionStage</code> field of a version. That marks the
-   *             version as deprecated and allows Secrets Manager to delete it as needed. Versions without any
-   *             staging labels do not show up in <a>ListSecretVersionIds</a> unless you
-   *             specify <code>IncludeDeprecated</code>.</p>
-   *                </li>
-   *                <li>
-   *                   <p>The permanent secret deletion at the end of the waiting period is performed as a
-   *             background task with low priority. There is no guarantee of a specific time after the
-   *             recovery window for the actual delete operation to occur.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
-   *          <p>
-   *             <b>Minimum permissions</b>
-   *          </p>
-   *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>secretsmanager:DeleteSecret</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Related operations</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>To create a secret, use <a>CreateSecret</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To cancel deletion of a version of a secret before the recovery window has expired,
-   *           use <a>RestoreSecret</a>.</p>
-   *             </li>
-   *          </ul>
+   *          <p>In a secret scheduled for deletion, you cannot access the encrypted secret value.
+   *       To access that information, first cancel the deletion with <a>RestoreSecret</a> and then retrieve the information.</p>
    */
   public deleteSecret(
     args: DeleteSecretCommandInput,
@@ -500,34 +335,8 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Retrieves the details of a secret. It does not include the encrypted fields. Secrets
-   *       Manager only returns fields populated with a value in the response. </p>
-   *          <p>
-   *             <b>Minimum permissions</b>
-   *          </p>
-   *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>secretsmanager:DescribeSecret</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Related operations</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>To create a secret, use <a>CreateSecret</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To modify a secret, use <a>UpdateSecret</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To retrieve the encrypted secret information in a version of the secret, use <a>GetSecretValue</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To list all of the secrets in the Amazon Web Services account, use <a>ListSecrets</a>.</p>
-   *             </li>
-   *          </ul>
+   * <p>Retrieves the details of a secret. It does not include the encrypted secret value. Secrets Manager
+   *       only returns fields that have a value in the response. </p>
    */
   public describeSecret(
     args: DescribeSecretCommandInput,
@@ -559,19 +368,9 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Generates a random password of the specified complexity. This operation is intended for
-   *       use in the Lambda rotation function. Per best practice, we recommend that you specify the
+   * <p>Generates a random password. We recommend that you specify the
    *       maximum length and include every character type that the system you are generating a password
    *       for can support.</p>
-   *          <p>
-   *             <b>Minimum permissions</b>
-   *          </p>
-   *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>secretsmanager:GetRandomPassword</p>
-   *             </li>
-   *          </ul>
    */
   public getRandomPassword(
     args: GetRandomPasswordCommandInput,
@@ -603,33 +402,10 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Retrieves the JSON text of the resource-based policy document attached to the specified
-   *       secret. The JSON request string input and response output displays formatted code
-   *       with white space and line breaks for better readability. Submit your input as a single line
-   *       JSON string.</p>
-   *          <p>
-   *             <b>Minimum permissions</b>
-   *          </p>
-   *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>secretsmanager:GetResourcePolicy</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Related operations</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>To attach a resource policy to a secret, use <a>PutResourcePolicy</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To delete the resource-based policy attached to a secret, use <a>DeleteResourcePolicy</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To list all of the currently available secrets, use <a>ListSecrets</a>.</p>
-   *             </li>
-   *          </ul>
+   * <p>Retrieves the JSON text of the resource-based policy document attached to the
+   *       secret. For more information about permissions policies attached to a secret, see
+   *       <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-policies.html">Permissions
+   *         policies attached to a secret</a>.</p>
    */
   public getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -664,31 +440,10 @@ export class SecretsManager extends SecretsManagerClient {
    * <p>Retrieves the contents of the encrypted fields <code>SecretString</code> or
    *         <code>SecretBinary</code> from the specified version of a secret, whichever contains
    *       content.</p>
-   *          <p>
-   *             <b>Minimum permissions</b>
-   *          </p>
-   *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>secretsmanager:GetSecretValue</p>
-   *             </li>
-   *             <li>
-   *                <p>kms:Decrypt - required only if you use a customer-managed Amazon Web Services KMS key to encrypt the
-   *           secret. You do not need this permission to use the account's default Amazon Web Services managed CMK for
-   *           Secrets Manager.</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Related operations</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>To create a new version of the secret with different encrypted information, use <a>PutSecretValue</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To retrieve the non-encrypted details for the secret, use <a>DescribeSecret</a>.</p>
-   *             </li>
-   *          </ul>
+   *          <p>For information about retrieving the secret value in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html">Retrieve secrets</a>. </p>
+   *          <p>To run this command, you must have <code>secretsmanager:GetSecretValue</code> permissions.
+   *       If the secret is encrypted using a customer-managed key instead of the Amazon Web Services managed key
+   *       <code>aws/secretsmanager</code>, then you also need <code>kms:Decrypt</code> permissions for that key.</p>
    */
   public getSecretValue(
     args: GetSecretValueCommandInput,
@@ -720,36 +475,17 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Lists all of the secrets that are stored by Secrets Manager in the Amazon Web Services account. To list the
-   *       versions currently stored for a specific secret, use <a>ListSecretVersionIds</a>.
-   *       The encrypted fields <code>SecretString</code> and <code>SecretBinary</code> are not included
-   *       in the output. To get that information, call the <a>GetSecretValue</a>
-   *       operation.</p>
-   *          <note>
-   *             <p>Always check the <code>NextToken</code> response parameter
-   *     when calling any of the <code>List*</code> operations. These operations can occasionally return
-   *     an empty or shorter than expected list of results even when there more results become available.
-   *     When this happens, the <code>NextToken</code> response parameter contains a value to pass to the
-   *     next call to the same API to request the next part of the list.</p>
-   *          </note>
+   * <p>Lists the secrets that are stored by Secrets Manager in the Amazon Web Services account. </p>
+   *          <p>To list the versions of a secret, use <a>ListSecretVersionIds</a>.</p>
+   *          <p>To get the secret value from <code>SecretString</code> or <code>SecretBinary</code>,
+   *       call <a>GetSecretValue</a>.</p>
+   *          <p>For information about finding secrets in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_search-secret.html">Enhanced search capabilities
+   *       for secrets in Secrets Manager</a>.</p>
    *          <p>
    *             <b>Minimum
    *         permissions</b>
    *          </p>
-   *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>secretsmanager:ListSecrets</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Related operations</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>To list the versions attached to a secret, use <a>ListSecretVersionIds</a>.</p>
-   *             </li>
-   *          </ul>
+   *          <p>To run this command, you must have <code>secretsmanager:ListSecrets</code> permissions.</p>
    */
   public listSecrets(args: ListSecretsCommandInput, options?: __HttpHandlerOptions): Promise<ListSecretsCommandOutput>;
   public listSecrets(args: ListSecretsCommandInput, cb: (err: any, data?: ListSecretsCommandOutput) => void): void;
@@ -775,35 +511,16 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Lists all of the versions attached to the specified secret. The output does not include
-   *       the <code>SecretString</code> or <code>SecretBinary</code> fields. By default, the list
-   *       includes only versions that have at least one staging label in <code>VersionStage</code>
-   *       attached.</p>
-   *          <note>
-   *             <p>Always check the <code>NextToken</code> response parameter
-   *     when calling any of the <code>List*</code> operations. These operations can occasionally return
-   *     an empty or shorter than expected list of results even when there more results become available.
-   *     When this happens, the <code>NextToken</code> response parameter contains a value to pass to the
-   *     next call to the same API to request the next part of the list.</p>
-   *          </note>
+   * <p>Lists the versions for a secret. </p>
+   *          <p>To list the secrets in the account, use <a>ListSecrets</a>.</p>
+   *          <p>To get the secret value from <code>SecretString</code> or <code>SecretBinary</code>,
+   *       call <a>GetSecretValue</a>.</p>
+   *
    *          <p>
    *             <b>Minimum
    *       permissions</b>
    *          </p>
-   *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>secretsmanager:ListSecretVersionIds</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Related operations</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>To list the secrets in an account, use <a>ListSecrets</a>.</p>
-   *             </li>
-   *          </ul>
+   *          <p>To run this command, you must have <code>secretsmanager:ListSecretVersionIds</code> permissions.</p>
    */
   public listSecretVersionIds(
     args: ListSecretVersionIdsCommandInput,
@@ -835,38 +552,11 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Attaches the contents of the specified resource-based permission policy to a secret. A
-   *       resource-based policy is optional. Alternatively, you can use IAM identity-based policies
-   *       that specify the secret's Amazon Resource Name (ARN) in the policy statement's
-   *         <code>Resources</code> element. You can also use a combination of both identity-based and
-   *       resource-based policies. The affected users and roles receive the permissions that are
-   *       permitted by all of the relevant policies. For more information, see <a href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html">Using Resource-Based
-   *         Policies for Amazon Web Services Secrets Manager</a>. For the complete description of the Amazon Web Services policy syntax and
-   *       grammar, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON
-   *         Policy Reference</a> in the <i>IAM User Guide</i>.</p>
-   *          <p>
-   *             <b>Minimum permissions</b>
+   * <p>Attaches a resource-based permission policy to a secret. A resource-based policy is
+   *       optional. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication and access control for Secrets Manager</a>
    *          </p>
-   *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>secretsmanager:PutResourcePolicy</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Related operations</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>To retrieve the resource policy attached to a secret, use <a>GetResourcePolicy</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To delete the resource-based policy attached to a secret, use <a>DeleteResourcePolicy</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To list all of the currently available secrets, use <a>ListSecrets</a>.</p>
-   *             </li>
-   *          </ul>
+   *          <p>For information about attaching a policy in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html">Attach a
+   *       permissions policy to a secret</a>.</p>
    */
   public putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -898,95 +588,27 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Stores a new encrypted secret value in the specified secret. To do this, the operation
-   *       creates a new version and attaches it to the secret. The version can contain a new
-   *         <code>SecretString</code> value or a new <code>SecretBinary</code> value. You can also
-   *       specify the staging labels that are initially attached to the new version.</p>
+   * <p>Creates a new version with a new encrypted secret value and attaches it to the secret. The
+   *       version can contain a new <code>SecretString</code> value or a new <code>SecretBinary</code> value. </p>
    *          <p>We recommend you avoid calling <code>PutSecretValue</code> at a sustained rate of more than
    *       once every 10 minutes. When you update the secret value, Secrets Manager creates a new version
    *       of the secret. Secrets Manager removes outdated versions when there are more than 100, but it does not
    *       remove versions created less than 24 hours ago. If you call <code>PutSecretValue</code> more
    *       than once every 10 minutes, you create more versions than Secrets Manager removes, and you will reach
    *       the quota for secret versions.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If this operation creates the first version for the secret then Secrets Manager
-   *           automatically attaches the staging label <code>AWSCURRENT</code> to the new version.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you do not specify a value for VersionStages then Secrets Manager automatically
-   *           moves the staging label <code>AWSCURRENT</code> to this new version.</p>
-   *             </li>
-   *             <li>
-   *                <p>If this operation moves the staging label <code>AWSCURRENT</code> from another version to this
-   *           version, then Secrets Manager also automatically moves the staging label <code>AWSPREVIOUS</code> to
-   *           the version that <code>AWSCURRENT</code> was removed from.</p>
-   *             </li>
-   *             <li>
-   *                <p>This operation is idempotent. If a version with a <code>VersionId</code> with the same
-   *           value as the <code>ClientRequestToken</code> parameter already exists and you specify the
-   *           same secret data, the operation succeeds but does nothing. However, if the secret data is
-   *           different, then the operation fails because you cannot modify an existing version; you can
-   *           only create new ones.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <ul>
-   *                <li>
-   *                   <p>If you call an operation to encrypt or decrypt the <code>SecretString</code>
-   *           or <code>SecretBinary</code> for a secret in the same account as the calling user and that
-   *           secret doesn't specify a Amazon Web Services KMS encryption key, Secrets Manager uses the account's default
-   *           Amazon Web Services managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>. If this key
-   *           doesn't already exist in your account then Secrets Manager creates it for you automatically. All
-   *           users and roles in the same Amazon Web Services account automatically have access to use the default CMK.
-   *           Note that if an Secrets Manager API call results in Amazon Web Services creating the account's
-   *           Amazon Web Services-managed CMK, it can result in a one-time significant delay in returning the
-   *           result.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If the secret resides in a different Amazon Web Services account from the credentials calling an API that
-   *           requires encryption or decryption of the secret value then you must create and use a custom
-   *           Amazon Web Services KMS CMK because you can't access the default CMK for the account using credentials
-   *           from a different Amazon Web Services account. Store the ARN of the CMK in the secret when you create the
-   *           secret or when you update it by including it in the <code>KMSKeyId</code>. If you call an
-   *           API that must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code>
-   *           using credentials from a different account then the Amazon Web Services KMS key policy must grant cross-account
-   *           access to that other account's user or role for both the kms:GenerateDataKey and
-   *           kms:Decrypt operations.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
-   *          <p>
-   *             <b>Minimum permissions</b>
-   *          </p>
-   *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>secretsmanager:PutSecretValue</p>
-   *             </li>
-   *             <li>
-   *                <p>kms:GenerateDataKey - needed only if you use a customer-managed Amazon Web Services KMS key to encrypt
-   *           the secret. You do not need this permission to use the account's default Amazon Web Services managed CMK
-   *           for Secrets Manager.</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Related operations</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>To retrieve the encrypted value you store in the version of a secret, use <a>GetSecretValue</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To create a secret, use <a>CreateSecret</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To get the details for a secret, use <a>DescribeSecret</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To list the versions attached to a secret, use <a>ListSecretVersionIds</a>.</p>
-   *             </li>
-   *          </ul>
+   *          <p>You can specify the staging labels to attach to the new version in <code>VersionStages</code>.
+   *       If you don't include <code>VersionStages</code>, then Secrets Manager automatically
+   *       moves the staging label <code>AWSCURRENT</code> to this version. If this operation creates
+   *       the first version for the secret, then Secrets Manager
+   *         automatically attaches the staging label <code>AWSCURRENT</code> to it .</p>
+   *          <p>If this operation moves the staging label <code>AWSCURRENT</code> from another version to this
+   *       version, then Secrets Manager also automatically moves the staging label <code>AWSPREVIOUS</code> to
+   *       the version that <code>AWSCURRENT</code> was removed from.</p>
+   *          <p>This operation is idempotent. If a version with a <code>VersionId</code> with the same
+   *       value as the <code>ClientRequestToken</code> parameter already exists, and you specify the
+   *       same secret data, the operation succeeds but does nothing. However, if the secret data is
+   *       different, then the operation fails because you can't modify an existing version; you can
+   *       only create new ones.</p>
    */
   public putSecretValue(
     args: PutSecretValueCommandInput,
@@ -1018,7 +640,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Remove regions from replication.</p>
+   * <p>For a secret that is replicated to other Regions, deletes the secret replicas from the Regions you specify.</p>
    */
   public removeRegionsFromReplication(
     args: RemoveRegionsFromReplicationCommandInput,
@@ -1050,8 +672,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Converts an existing secret to a multi-Region secret and begins replication the secret to a
-   *       list of new regions. </p>
+   * <p>Replicates the secret to a new Regions. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create-manage-multi-region-secrets.html">Multi-Region secrets</a>.</p>
    */
   public replicateSecretToRegions(
     args: ReplicateSecretToRegionsCommandInput,
@@ -1084,24 +705,7 @@ export class SecretsManager extends SecretsManagerClient {
 
   /**
    * <p>Cancels the scheduled deletion of a secret by removing the <code>DeletedDate</code> time
-   *       stamp. This makes the secret accessible to query once again.</p>
-   *          <p>
-   *             <b>Minimum permissions</b>
-   *          </p>
-   *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>secretsmanager:RestoreSecret</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Related operations</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>To delete a secret, use <a>DeleteSecret</a>.</p>
-   *             </li>
-   *          </ul>
+   *       stamp. You can access a secret again after it has been restored.</p>
    */
   public restoreSecret(
     args: RestoreSecretCommandInput,
@@ -1133,68 +737,25 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Configures and starts the asynchronous process of rotating this secret. If you include the
-   *       configuration parameters, the operation sets those values for the secret and then immediately
-   *       starts a rotation. If you do not include the configuration parameters, the operation starts a
-   *       rotation with the values already stored in the secret. After the rotation completes, the
-   *       protected service and its clients all use the new version of the secret. </p>
-   *          <p>This required configuration information includes the ARN of an Amazon Web Services Lambda function and
-   *       optionally, the time between scheduled rotations. The Lambda rotation function creates a new
-   *       version of the secret and creates or updates the credentials on the protected service to
-   *       match. After testing the new credentials, the function marks the new secret with the staging
-   *       label <code>AWSCURRENT</code> so that your clients all immediately begin to use the new version. For more
-   *       information about rotating secrets and how to configure a Lambda function to rotate the
-   *       secrets for your protected service, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotating Secrets in Amazon Web Services Secrets Manager</a> in the
-   *         <i>Amazon Web Services Secrets Manager User Guide</i>.</p>
-   *          <p>Secrets Manager schedules the next rotation when the previous
-   *     one completes. Secrets Manager schedules the date by adding the rotation interval (number of days) to the
-   *     actual date of the last rotation. The service chooses the hour within that 24-hour date window
-   *     randomly. The minute is also chosen somewhat randomly, but weighted towards the top of the hour
-   *     and influenced by a variety of factors that help distribute load.</p>
-   *          <p>The
-   *       rotation function must end with the versions of the secret in one of two states:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The <code>AWSPENDING</code> and <code>AWSCURRENT</code> staging labels are attached to the same version of
-   *           the secret, or</p>
-   *             </li>
-   *             <li>
-   *                <p>The <code>AWSPENDING</code> staging label is not attached to any version of the secret.</p>
-   *             </li>
-   *          </ul>
+   * <p>Configures and starts the asynchronous process of rotating the secret.</p>
+   *          <p>If you include the
+   *       configuration parameters, the operation sets the values for the secret and then immediately
+   *       starts a rotation. If you don't include the configuration parameters, the operation starts a
+   *       rotation with the values already stored in the secret. For more information about rotation,
+   *       see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotate secrets</a>.</p>
+   *          <p>To configure rotation, you include the ARN of an Amazon Web Services Lambda function and the schedule
+   *       for the rotation. The Lambda rotation function creates a new
+   *       version of the secret and creates or updates the credentials on the database or service to
+   *       match. After testing the new credentials, the function marks the new secret version with the staging
+   *       label <code>AWSCURRENT</code>. Then anyone who retrieves the secret gets the new version. For more
+   *       information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html">How rotation works</a>.</p>
+   *          <p>When rotation is successful, the <code>AWSPENDING</code> staging label might be attached to the same
+   *       version as the <code>AWSCURRENT</code> version, or it might not be attached to any version.</p>
    *          <p>If the <code>AWSPENDING</code> staging label is present but not attached to the same version as
-   *       <code>AWSCURRENT</code> then any later invocation of <code>RotateSecret</code> assumes that a previous
+   *       <code>AWSCURRENT</code>, then any later invocation of <code>RotateSecret</code> assumes that a previous
    *       rotation request is still in progress and returns an error.</p>
-   *          <p>
-   *             <b>Minimum permissions</b>
-   *          </p>
-   *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>secretsmanager:RotateSecret</p>
-   *             </li>
-   *             <li>
-   *                <p>lambda:InvokeFunction (on the function specified in the secret's metadata)</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Related operations</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>To list the secrets in your account, use <a>ListSecrets</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To get the details for a version of a secret, use <a>DescribeSecret</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To create a new version of a secret, use <a>CreateSecret</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To attach staging labels to or remove staging labels from a version of a secret, use
-   *             <a>UpdateSecretVersionStage</a>.</p>
-   *             </li>
-   *          </ul>
+   *          <p>To run this command, you must have <code>secretsmanager:RotateSecret</code> permissions and
+   *       <code>lambda:InvokeFunction</code> permissions on the function specified in the secret's metadata.</p>
    */
   public rotateSecret(
     args: RotateSecretCommandInput,
@@ -1223,7 +784,8 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Removes the secret from replication and promotes the secret to a regional secret in the replica Region.</p>
+   * <p>Removes the link between the replica secret and the primary secret and promotes the replica to a primary secret in the replica Region.</p>
+   *          <p>You must call this operation from the Region in which you want to promote the replica to a primary secret.</p>
    */
   public stopReplicationToReplica(
     args: StopReplicationToReplicaCommandInput,
@@ -1255,20 +817,18 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Attaches one or more tags, each consisting of a key name and a value, to the specified
-   *       secret. Tags are part of the secret's overall metadata, and are not associated with any
-   *       specific version of the secret. This operation only appends tags to the existing list of tags.
-   *       To remove tags, you must use <a>UntagResource</a>.</p>
-   *          <p>The following basic restrictions apply to tags:</p>
+   * <p>Attaches tags to a secret. Tags consist of a key name and a value. Tags are part of the
+   *       secret's metadata. They are not associated with specific versions of the secret. This operation appends tags to the existing list of tags.</p>
+   *             <p>The following restrictions apply to tags:</p>
    *         <ul>
    *             <li>
-   *                <p>Maximum number of tags per secret—50</p>
+   *                <p>Maximum number of tags per secret: 50</p>
    *             </li>
    *             <li>
-   *                <p>Maximum key length—127 Unicode characters in UTF-8</p>
+   *                <p>Maximum key length: 127 Unicode characters in UTF-8</p>
    *             </li>
    *             <li>
-   *                <p>Maximum value length—255 Unicode characters in UTF-8</p>
+   *                <p>Maximum value length: 255 Unicode characters in UTF-8</p>
    *             </li>
    *             <li>
    *                <p>Tag keys and values are case sensitive.</p>
@@ -1280,37 +840,18 @@ export class SecretsManager extends SecretsManagerClient {
    *             </li>
    *             <li>
    *                <p>If you use your tagging schema across multiple services and resources,
-   *               remember other services might have restrictions on allowed characters. Generally
+   *               other services might have restrictions on allowed characters. Generally
    *               allowed characters: letters, spaces, and numbers representable in UTF-8, plus the
    *               following special characters: + - = . _ : / @.</p>
    *             </li>
    *          </ul>
+   *
    *          <important>
    *             <p>If you use tags as part of your security strategy, then adding or removing a tag can
    *         change permissions. If successfully completing this operation would result in you losing
    *         your permissions for this secret, then the operation is blocked and returns an Access Denied
    *         error.</p>
    *          </important>
-   *          <p>
-   *             <b>Minimum permissions</b>
-   *          </p>
-   *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>secretsmanager:TagResource</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Related operations</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>To remove one or more tags from the collection attached to a secret, use <a>UntagResource</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To view the list of tags attached to a secret, use <a>DescribeSecret</a>.</p>
-   *             </li>
-   *          </ul>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -1336,7 +877,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Removes one or more tags from the specified secret.</p>
+   * <p>Removes specific tags from a secret.</p>
    *          <p>This operation is idempotent. If a requested tag is not attached to the secret, no error
    *       is returned and the secret metadata is unchanged.</p>
    *          <important>
@@ -1345,26 +886,6 @@ export class SecretsManager extends SecretsManagerClient {
    *         permissions for this secret, then the operation is blocked and returns an Access Denied
    *         error.</p>
    *          </important>
-   *          <p>
-   *             <b>Minimum permissions</b>
-   *          </p>
-   *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>secretsmanager:UntagResource</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Related operations</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>To add one or more tags to the collection attached to a secret, use <a>TagResource</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To view the list of tags attached to a secret, use <a>DescribeSecret</a>.</p>
-   *             </li>
-   *          </ul>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1396,10 +917,8 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Modifies many of the details of the specified secret. </p>
-   *          <p>To change the secret value, you can also use <a>PutSecretValue</a>.</p>
-   *          <p>To change the rotation configuration of a secret, use <a>RotateSecret</a>
-   *       instead.</p>
+   * <p>Modifies the details of a secret, including metadata and the secret value. To change the secret value, you can also use <a>PutSecretValue</a>.</p>
+   *          <p>To change the rotation configuration of a secret, use <a>RotateSecret</a> instead.</p>
    *
    *          <p>We recommend you avoid calling <code>UpdateSecret</code> at a sustained rate of more than
    *       once every 10 minutes. When you call <code>UpdateSecret</code> to update the secret value, Secrets Manager creates a new version
@@ -1407,85 +926,23 @@ export class SecretsManager extends SecretsManagerClient {
    *       remove versions created less than 24 hours ago. If you update the secret value more
    *       than once every 10 minutes, you create more versions than Secrets Manager removes, and you will reach
    *       the quota for secret versions.</p>
-   *          <note>
-   *             <p>The Secrets Manager console uses only the <code>SecretString</code> parameter and therefore limits
-   *         you to encrypting and storing only a text string. To encrypt and store binary data as part
-   *         of the version of a secret, you must use either the Amazon Web Services CLI or one of the Amazon Web Services
-   *         SDKs.</p>
-   *          </note>
-   *          <ul>
-   *             <li>
-   *                <p>If a version with a <code>VersionId</code> with the same value as the
-   *             <code>ClientRequestToken</code> parameter already exists, the operation results in an
-   *           error. You cannot modify an existing version, you can only create a new version.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you include <code>SecretString</code> or <code>SecretBinary</code> to create a new
-   *           secret version, Secrets Manager automatically attaches the staging label <code>AWSCURRENT</code> to the new
-   *           version. </p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <ul>
-   *                <li>
-   *                   <p>If you call an operation to encrypt or decrypt the <code>SecretString</code>
-   *           or <code>SecretBinary</code> for a secret in the same account as the calling user and that
-   *           secret doesn't specify a Amazon Web Services KMS encryption key, Secrets Manager uses the account's default
-   *           Amazon Web Services managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>. If this key
-   *           doesn't already exist in your account then Secrets Manager creates it for you automatically. All
-   *           users and roles in the same Amazon Web Services account automatically have access to use the default CMK.
-   *           Note that if an Secrets Manager API call results in Amazon Web Services creating the account's
-   *           Amazon Web Services-managed CMK, it can result in a one-time significant delay in returning the
-   *           result.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If the secret resides in a different Amazon Web Services account from the credentials calling an API that
-   *           requires encryption or decryption of the secret value then you must create and use a custom
-   *           Amazon Web Services KMS CMK because you can't access the default CMK for the account using credentials
-   *           from a different Amazon Web Services account. Store the ARN of the CMK in the secret when you create the
-   *           secret or when you update it by including it in the <code>KMSKeyId</code>. If you call an
-   *           API that must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code>
-   *           using credentials from a different account then the Amazon Web Services KMS key policy must grant cross-account
-   *           access to that other account's user or role for both the kms:GenerateDataKey and
-   *           kms:Decrypt operations.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
-   *          <p>
-   *             <b>Minimum permissions</b>
-   *          </p>
-   *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>secretsmanager:UpdateSecret</p>
-   *             </li>
-   *             <li>
-   *                <p>kms:GenerateDataKey - needed only if you use a custom Amazon Web Services KMS key to encrypt the secret.
-   *           You do not need this permission to use the account's Amazon Web Services managed CMK for
-   *           Secrets Manager.</p>
-   *             </li>
-   *             <li>
-   *                <p>kms:Decrypt - needed only if you use a custom Amazon Web Services KMS key to encrypt the secret. You do
-   *           not need this permission to use the account's Amazon Web Services managed CMK for Secrets Manager.</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Related operations</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>To create a new secret, use <a>CreateSecret</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To add only a new version to an existing secret, use <a>PutSecretValue</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To get the details for a secret, use <a>DescribeSecret</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To list the versions contained in a secret, use <a>ListSecretVersionIds</a>.</p>
-   *             </li>
-   *          </ul>
+   *          <p>If you include <code>SecretString</code> or <code>SecretBinary</code> to create a new
+   *       secret version, Secrets Manager automatically attaches the staging label <code>AWSCURRENT</code> to the new
+   *       version. </p>
+   *          <p>If you call this operation with a <code>VersionId</code> that matches an existing version's
+   *       <code>ClientRequestToken</code>, the operation results in an error. You can't modify an existing
+   *       version, you can only create a new version. To remove a version, remove all staging labels from it. See
+   *     <a>UpdateSecretVersionStage</a>.</p>
+   *          <p>If you don't specify an KMS encryption key, Secrets Manager uses the Amazon Web Services managed key
+   *       <code>aws/secretsmanager</code>. If this key doesn't already exist in your account, then Secrets Manager
+   *       creates it for you automatically. All users and roles in the Amazon Web Services account automatically have access
+   *       to use <code>aws/secretsmanager</code>. Creating <code>aws/secretsmanager</code> can result in a one-time
+   *       significant delay in returning the result.  </p>
+   *          <p>If the secret is in a different Amazon Web Services account from the credentials calling the API, then you can't
+   *       use <code>aws/secretsmanager</code> to encrypt the secret, and you must create and use a customer managed key. </p>
+   *
+   *          <p>To run this command, you must have <code>secretsmanager:UpdateSecret</code> permissions. If you use a
+   *       customer managed key, you must also have <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions .</p>
    */
   public updateSecret(
     args: UpdateSecretCommandInput,
@@ -1514,14 +971,13 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Modifies the staging labels attached to a version of a secret. Staging labels are used to
-   *       track a version as it progresses through the secret rotation process. You can attach a staging
-   *       label to only one version of a secret at a time. If a staging label to be added is already
-   *       attached to another version, then it is moved--removed from the other version first and
-   *       then attached to this one. For more information about staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label">Staging
-   *         Labels</a> in the <i>Amazon Web Services Secrets Manager User Guide</i>. </p>
+   * <p>Modifies the staging labels attached to a version of a secret. Secrets Manager uses staging labels to
+   *       track a version as it progresses through the secret rotation process. Each staging label can be
+   *       attached to only one version at a time. To add a staging label to a version when it is already
+   *       attached to another version, Secrets Manager first removes it from the other version first and
+   *       then attaches it to this one. For more information about versions and staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version">Concepts: Version</a>. </p>
    *          <p>The staging labels that you specify in the <code>VersionStage</code> parameter are added
-   *       to the existing list of staging labels--they don't replace it.</p>
+   *       to the existing list of staging labels for the version. </p>
    *          <p>You can move the <code>AWSCURRENT</code> staging label to this version by including it in this
    *       call.</p>
    *          <note>
@@ -1530,27 +986,6 @@ export class SecretsManager extends SecretsManagerClient {
    *          </note>
    *          <p>If this action results in the last label being removed from a version, then the version is
    *       considered to be 'deprecated' and can be deleted by Secrets Manager.</p>
-   *          <p>
-   *             <b>Minimum permissions</b>
-   *          </p>
-   *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>secretsmanager:UpdateSecretVersionStage</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <b>Related operations</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>To get the list of staging labels that are currently associated with a version of a
-   *           secret, use <code>
-   *                      <a>DescribeSecret</a>
-   *                   </code> and examine the
-   *             <code>SecretVersionsToStages</code> response value. </p>
-   *             </li>
-   *          </ul>
    */
   public updateSecretVersionStage(
     args: UpdateSecretVersionStageCommandInput,
@@ -1582,39 +1017,19 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Validates that the resource policy does not grant a wide range of IAM principals access to
-   *       your secret. The JSON request string input and response output displays formatted code
-   *       with white space and line breaks for better readability. Submit your input as a single line
-   *       JSON string. A resource-based policy is optional for secrets.</p>
-   *          <p>The API performs three checks when validating the secret:</p>
+   * <p>Validates that a resource policy does not grant a wide range of principals access to
+   *       your secret. A resource-based policy is optional for secrets.</p>
+   *          <p>The API performs three checks when validating the policy:</p>
    *          <ul>
    *             <li>
-   *                <p>Sends a call to <a href="https://aws.amazon.com/blogs/security/protect-sensitive-data-in-the-cloud-with-automated-reasoning-zelkova/">Zelkova</a>, an automated reasoning engine, to ensure your Resource Policy does not
-   *           allow broad access to your secret.</p>
+   *                <p>Sends a call to <a href="https://aws.amazon.com/blogs/security/protect-sensitive-data-in-the-cloud-with-automated-reasoning-zelkova/">Zelkova</a>, an automated reasoning engine, to ensure your resource policy does not
+   *           allow broad access to your secret, for example policies that use a wildcard for the principal.</p>
    *             </li>
    *             <li>
    *                <p>Checks for correct syntax in a policy.</p>
    *             </li>
    *             <li>
    *                <p>Verifies the policy does not lock out a caller.</p>
-   *             </li>
-   *          </ul>
-   *
-   *
-   *          <p>
-   *             <b>Minimum Permissions</b>
-   *          </p>
-   *          <p>You must have the permissions required to access the following APIs:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>secretsmanager:PutResourcePolicy</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>secretsmanager:ValidateResourcePolicy</code>
-   *                </p>
    *             </li>
    *          </ul>
    */

@@ -2,11 +2,13 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  LazyJsonString as __LazyJsonString,
   parseEpochTimestamp as __parseEpochTimestamp,
   strictParseInt32 as __strictParseInt32,
 } from "@aws-sdk/smithy-client";
@@ -17,7 +19,13 @@ import {
   SerdeContext as __SerdeContext,
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
+import { AcceptAttachmentCommandInput, AcceptAttachmentCommandOutput } from "../commands/AcceptAttachmentCommand";
+import {
+  AssociateConnectPeerCommandInput,
+  AssociateConnectPeerCommandOutput,
+} from "../commands/AssociateConnectPeerCommand";
 import {
   AssociateCustomerGatewayCommandInput,
   AssociateCustomerGatewayCommandOutput,
@@ -27,7 +35,13 @@ import {
   AssociateTransitGatewayConnectPeerCommandInput,
   AssociateTransitGatewayConnectPeerCommandOutput,
 } from "../commands/AssociateTransitGatewayConnectPeerCommand";
+import {
+  CreateConnectAttachmentCommandInput,
+  CreateConnectAttachmentCommandOutput,
+} from "../commands/CreateConnectAttachmentCommand";
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "../commands/CreateConnectionCommand";
+import { CreateConnectPeerCommandInput, CreateConnectPeerCommandOutput } from "../commands/CreateConnectPeerCommand";
+import { CreateCoreNetworkCommandInput, CreateCoreNetworkCommandOutput } from "../commands/CreateCoreNetworkCommand";
 import { CreateDeviceCommandInput, CreateDeviceCommandOutput } from "../commands/CreateDeviceCommand";
 import {
   CreateGlobalNetworkCommandInput,
@@ -35,13 +49,32 @@ import {
 } from "../commands/CreateGlobalNetworkCommand";
 import { CreateLinkCommandInput, CreateLinkCommandOutput } from "../commands/CreateLinkCommand";
 import { CreateSiteCommandInput, CreateSiteCommandOutput } from "../commands/CreateSiteCommand";
+import {
+  CreateSiteToSiteVpnAttachmentCommandInput,
+  CreateSiteToSiteVpnAttachmentCommandOutput,
+} from "../commands/CreateSiteToSiteVpnAttachmentCommand";
+import {
+  CreateVpcAttachmentCommandInput,
+  CreateVpcAttachmentCommandOutput,
+} from "../commands/CreateVpcAttachmentCommand";
+import { DeleteAttachmentCommandInput, DeleteAttachmentCommandOutput } from "../commands/DeleteAttachmentCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "../commands/DeleteConnectionCommand";
+import { DeleteConnectPeerCommandInput, DeleteConnectPeerCommandOutput } from "../commands/DeleteConnectPeerCommand";
+import { DeleteCoreNetworkCommandInput, DeleteCoreNetworkCommandOutput } from "../commands/DeleteCoreNetworkCommand";
+import {
+  DeleteCoreNetworkPolicyVersionCommandInput,
+  DeleteCoreNetworkPolicyVersionCommandOutput,
+} from "../commands/DeleteCoreNetworkPolicyVersionCommand";
 import { DeleteDeviceCommandInput, DeleteDeviceCommandOutput } from "../commands/DeleteDeviceCommand";
 import {
   DeleteGlobalNetworkCommandInput,
   DeleteGlobalNetworkCommandOutput,
 } from "../commands/DeleteGlobalNetworkCommand";
 import { DeleteLinkCommandInput, DeleteLinkCommandOutput } from "../commands/DeleteLinkCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
 import { DeleteSiteCommandInput, DeleteSiteCommandOutput } from "../commands/DeleteSiteCommand";
 import {
   DeregisterTransitGatewayCommandInput,
@@ -52,6 +85,10 @@ import {
   DescribeGlobalNetworksCommandOutput,
 } from "../commands/DescribeGlobalNetworksCommand";
 import {
+  DisassociateConnectPeerCommandInput,
+  DisassociateConnectPeerCommandOutput,
+} from "../commands/DisassociateConnectPeerCommand";
+import {
   DisassociateCustomerGatewayCommandInput,
   DisassociateCustomerGatewayCommandOutput,
 } from "../commands/DisassociateCustomerGatewayCommand";
@@ -60,7 +97,29 @@ import {
   DisassociateTransitGatewayConnectPeerCommandInput,
   DisassociateTransitGatewayConnectPeerCommandOutput,
 } from "../commands/DisassociateTransitGatewayConnectPeerCommand";
+import {
+  ExecuteCoreNetworkChangeSetCommandInput,
+  ExecuteCoreNetworkChangeSetCommandOutput,
+} from "../commands/ExecuteCoreNetworkChangeSetCommand";
+import {
+  GetConnectAttachmentCommandInput,
+  GetConnectAttachmentCommandOutput,
+} from "../commands/GetConnectAttachmentCommand";
 import { GetConnectionsCommandInput, GetConnectionsCommandOutput } from "../commands/GetConnectionsCommand";
+import {
+  GetConnectPeerAssociationsCommandInput,
+  GetConnectPeerAssociationsCommandOutput,
+} from "../commands/GetConnectPeerAssociationsCommand";
+import { GetConnectPeerCommandInput, GetConnectPeerCommandOutput } from "../commands/GetConnectPeerCommand";
+import {
+  GetCoreNetworkChangeSetCommandInput,
+  GetCoreNetworkChangeSetCommandOutput,
+} from "../commands/GetCoreNetworkChangeSetCommand";
+import { GetCoreNetworkCommandInput, GetCoreNetworkCommandOutput } from "../commands/GetCoreNetworkCommand";
+import {
+  GetCoreNetworkPolicyCommandInput,
+  GetCoreNetworkPolicyCommandOutput,
+} from "../commands/GetCoreNetworkPolicyCommand";
 import {
   GetCustomerGatewayAssociationsCommandInput,
   GetCustomerGatewayAssociationsCommandOutput,
@@ -88,8 +147,13 @@ import {
   GetNetworkTelemetryCommandInput,
   GetNetworkTelemetryCommandOutput,
 } from "../commands/GetNetworkTelemetryCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import { GetRouteAnalysisCommandInput, GetRouteAnalysisCommandOutput } from "../commands/GetRouteAnalysisCommand";
 import { GetSitesCommandInput, GetSitesCommandOutput } from "../commands/GetSitesCommand";
+import {
+  GetSiteToSiteVpnAttachmentCommandInput,
+  GetSiteToSiteVpnAttachmentCommandOutput,
+} from "../commands/GetSiteToSiteVpnAttachmentCommand";
 import {
   GetTransitGatewayConnectPeerAssociationsCommandInput,
   GetTransitGatewayConnectPeerAssociationsCommandOutput,
@@ -98,18 +162,37 @@ import {
   GetTransitGatewayRegistrationsCommandInput,
   GetTransitGatewayRegistrationsCommandOutput,
 } from "../commands/GetTransitGatewayRegistrationsCommand";
+import { GetVpcAttachmentCommandInput, GetVpcAttachmentCommandOutput } from "../commands/GetVpcAttachmentCommand";
+import { ListAttachmentsCommandInput, ListAttachmentsCommandOutput } from "../commands/ListAttachmentsCommand";
+import { ListConnectPeersCommandInput, ListConnectPeersCommandOutput } from "../commands/ListConnectPeersCommand";
+import {
+  ListCoreNetworkPolicyVersionsCommandInput,
+  ListCoreNetworkPolicyVersionsCommandOutput,
+} from "../commands/ListCoreNetworkPolicyVersionsCommand";
+import { ListCoreNetworksCommandInput, ListCoreNetworksCommandOutput } from "../commands/ListCoreNetworksCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import {
+  PutCoreNetworkPolicyCommandInput,
+  PutCoreNetworkPolicyCommandOutput,
+} from "../commands/PutCoreNetworkPolicyCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
+import {
   RegisterTransitGatewayCommandInput,
   RegisterTransitGatewayCommandOutput,
 } from "../commands/RegisterTransitGatewayCommand";
+import { RejectAttachmentCommandInput, RejectAttachmentCommandOutput } from "../commands/RejectAttachmentCommand";
+import {
+  RestoreCoreNetworkPolicyVersionCommandInput,
+  RestoreCoreNetworkPolicyVersionCommandOutput,
+} from "../commands/RestoreCoreNetworkPolicyVersionCommand";
 import { StartRouteAnalysisCommandInput, StartRouteAnalysisCommandOutput } from "../commands/StartRouteAnalysisCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "../commands/UpdateConnectionCommand";
+import { UpdateCoreNetworkCommandInput, UpdateCoreNetworkCommandOutput } from "../commands/UpdateCoreNetworkCommand";
 import { UpdateDeviceCommandInput, UpdateDeviceCommandOutput } from "../commands/UpdateDeviceCommand";
 import {
   UpdateGlobalNetworkCommandInput,
@@ -122,12 +205,36 @@ import {
 } from "../commands/UpdateNetworkResourceMetadataCommand";
 import { UpdateSiteCommandInput, UpdateSiteCommandOutput } from "../commands/UpdateSiteCommand";
 import {
+  UpdateVpcAttachmentCommandInput,
+  UpdateVpcAttachmentCommandOutput,
+} from "../commands/UpdateVpcAttachmentCommand";
+import {
   AccessDeniedException,
+  Attachment,
   AWSLocation,
   Bandwidth,
+  BgpOptions,
   ConflictException,
+  ConnectAttachment,
+  ConnectAttachmentOptions,
   Connection,
   ConnectionHealth,
+  ConnectPeer,
+  ConnectPeerAssociation,
+  ConnectPeerBgpConfiguration,
+  ConnectPeerConfiguration,
+  ConnectPeerSummary,
+  CoreNetwork,
+  CoreNetworkChange,
+  CoreNetworkChangeValues,
+  CoreNetworkEdge,
+  CoreNetworkPolicy,
+  CoreNetworkPolicyError,
+  CoreNetworkPolicyException,
+  CoreNetworkPolicyVersion,
+  CoreNetworkSegment,
+  CoreNetworkSegmentEdgeIdentifier,
+  CoreNetworkSummary,
   CustomerGatewayAssociation,
   Device,
   GlobalNetwork,
@@ -142,6 +249,7 @@ import {
   NetworkRouteDestination,
   NetworkTelemetry,
   PathComponent,
+  ProposedSegmentChange,
   Relationship,
   ResourceNotFoundException,
   RouteAnalysis,
@@ -154,6 +262,7 @@ import {
   RouteType,
   ServiceQuotaExceededException,
   Site,
+  SiteToSiteVpnAttachment,
   Tag,
   ThrottlingException,
   TransitGatewayConnectPeerAssociation,
@@ -161,7 +270,75 @@ import {
   TransitGatewayRegistrationStateReason,
   ValidationException,
   ValidationExceptionField,
+  VpcAttachment,
+  VpcOptions,
 } from "../models/models_0";
+
+export const serializeAws_restJson1AcceptAttachmentCommand = async (
+  input: AcceptAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/attachments/{AttachmentId}/accept";
+  if (input.AttachmentId !== undefined) {
+    const labelValue: string = input.AttachmentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AttachmentId.");
+    }
+    resolvedPath = resolvedPath.replace("{AttachmentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AttachmentId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1AssociateConnectPeerCommand = async (
+  input: AssociateConnectPeerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/global-networks/{GlobalNetworkId}/connect-peer-associations";
+  if (input.GlobalNetworkId !== undefined) {
+    const labelValue: string = input.GlobalNetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: GlobalNetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{GlobalNetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ConnectPeerId !== undefined && input.ConnectPeerId !== null && { ConnectPeerId: input.ConnectPeerId }),
+    ...(input.DeviceId !== undefined && input.DeviceId !== null && { DeviceId: input.DeviceId }),
+    ...(input.LinkId !== undefined && input.LinkId !== null && { LinkId: input.LinkId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1AssociateCustomerGatewayCommand = async (
   input: AssociateCustomerGatewayCommandInput,
@@ -277,6 +454,38 @@ export const serializeAws_restJson1AssociateTransitGatewayConnectPeerCommand = a
   });
 };
 
+export const serializeAws_restJson1CreateConnectAttachmentCommand = async (
+  input: CreateConnectAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connect-attachments";
+  let body: any;
+  body = JSON.stringify({
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.CoreNetworkId !== undefined && input.CoreNetworkId !== null && { CoreNetworkId: input.CoreNetworkId }),
+    ...(input.EdgeLocation !== undefined && input.EdgeLocation !== null && { EdgeLocation: input.EdgeLocation }),
+    ...(input.Options !== undefined &&
+      input.Options !== null && { Options: serializeAws_restJson1ConnectAttachmentOptions(input.Options, context) }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.TransportAttachmentId !== undefined &&
+      input.TransportAttachmentId !== null && { TransportAttachmentId: input.TransportAttachmentId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1CreateConnectionCommand = async (
   input: CreateConnectionCommandInput,
   context: __SerdeContext
@@ -306,6 +515,74 @@ export const serializeAws_restJson1CreateConnectionCommand = async (
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.DeviceId !== undefined && input.DeviceId !== null && { DeviceId: input.DeviceId }),
     ...(input.LinkId !== undefined && input.LinkId !== null && { LinkId: input.LinkId }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateConnectPeerCommand = async (
+  input: CreateConnectPeerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connect-peers";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.BgpOptions !== undefined &&
+      input.BgpOptions !== null && { BgpOptions: serializeAws_restJson1BgpOptions(input.BgpOptions, context) }),
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.ConnectAttachmentId !== undefined &&
+      input.ConnectAttachmentId !== null && { ConnectAttachmentId: input.ConnectAttachmentId }),
+    ...(input.CoreNetworkAddress !== undefined &&
+      input.CoreNetworkAddress !== null && { CoreNetworkAddress: input.CoreNetworkAddress }),
+    ...(input.InsideCidrBlocks !== undefined &&
+      input.InsideCidrBlocks !== null && {
+        InsideCidrBlocks: serializeAws_restJson1ConstrainedStringList(input.InsideCidrBlocks, context),
+      }),
+    ...(input.PeerAddress !== undefined && input.PeerAddress !== null && { PeerAddress: input.PeerAddress }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateCoreNetworkCommand = async (
+  input: CreateCoreNetworkCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/core-networks";
+  let body: any;
+  body = JSON.stringify({
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.GlobalNetworkId !== undefined &&
+      input.GlobalNetworkId !== null && { GlobalNetworkId: input.GlobalNetworkId }),
+    ...(input.PolicyDocument !== undefined &&
+      input.PolicyDocument !== null && { PolicyDocument: input.PolicyDocument }),
     ...(input.Tags !== undefined &&
       input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
@@ -471,6 +748,97 @@ export const serializeAws_restJson1CreateSiteCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateSiteToSiteVpnAttachmentCommand = async (
+  input: CreateSiteToSiteVpnAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/site-to-site-vpn-attachments";
+  let body: any;
+  body = JSON.stringify({
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.CoreNetworkId !== undefined && input.CoreNetworkId !== null && { CoreNetworkId: input.CoreNetworkId }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.VpnConnectionArn !== undefined &&
+      input.VpnConnectionArn !== null && { VpnConnectionArn: input.VpnConnectionArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateVpcAttachmentCommand = async (
+  input: CreateVpcAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vpc-attachments";
+  let body: any;
+  body = JSON.stringify({
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.CoreNetworkId !== undefined && input.CoreNetworkId !== null && { CoreNetworkId: input.CoreNetworkId }),
+    ...(input.Options !== undefined &&
+      input.Options !== null && { Options: serializeAws_restJson1VpcOptions(input.Options, context) }),
+    ...(input.SubnetArns !== undefined &&
+      input.SubnetArns !== null && { SubnetArns: serializeAws_restJson1SubnetArnList(input.SubnetArns, context) }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.VpcArn !== undefined && input.VpcArn !== null && { VpcArn: input.VpcArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteAttachmentCommand = async (
+  input: DeleteAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/attachments/{AttachmentId}";
+  if (input.AttachmentId !== undefined) {
+    const labelValue: string = input.AttachmentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AttachmentId.");
+    }
+    resolvedPath = resolvedPath.replace("{AttachmentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AttachmentId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
@@ -497,6 +865,103 @@ export const serializeAws_restJson1DeleteConnectionCommand = async (
     resolvedPath = resolvedPath.replace("{ConnectionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ConnectionId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteConnectPeerCommand = async (
+  input: DeleteConnectPeerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connect-peers/{ConnectPeerId}";
+  if (input.ConnectPeerId !== undefined) {
+    const labelValue: string = input.ConnectPeerId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ConnectPeerId.");
+    }
+    resolvedPath = resolvedPath.replace("{ConnectPeerId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ConnectPeerId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteCoreNetworkCommand = async (
+  input: DeleteCoreNetworkCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/core-networks/{CoreNetworkId}";
+  if (input.CoreNetworkId !== undefined) {
+    const labelValue: string = input.CoreNetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CoreNetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{CoreNetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CoreNetworkId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteCoreNetworkPolicyVersionCommand = async (
+  input: DeleteCoreNetworkPolicyVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/core-networks/{CoreNetworkId}/core-network-policy-versions/{PolicyVersionId}";
+  if (input.CoreNetworkId !== undefined) {
+    const labelValue: string = input.CoreNetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CoreNetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{CoreNetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CoreNetworkId.");
+  }
+  if (input.PolicyVersionId !== undefined) {
+    const labelValue: string = input.PolicyVersionId.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PolicyVersionId.");
+    }
+    resolvedPath = resolvedPath.replace("{PolicyVersionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PolicyVersionId.");
   }
   let body: any;
   return new __HttpRequest({
@@ -617,6 +1082,35 @@ export const serializeAws_restJson1DeleteLinkCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource-policy/{ResourceArn}";
+  if (input.ResourceArn !== undefined) {
+    const labelValue: string = input.ResourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceArn.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteSiteCommand = async (
   input: DeleteSiteCommandInput,
   context: __SerdeContext
@@ -718,6 +1212,45 @@ export const serializeAws_restJson1DescribeGlobalNetworksCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DisassociateConnectPeerCommand = async (
+  input: DisassociateConnectPeerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/global-networks/{GlobalNetworkId}/connect-peer-associations/{ConnectPeerId}";
+  if (input.GlobalNetworkId !== undefined) {
+    const labelValue: string = input.GlobalNetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: GlobalNetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{GlobalNetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
+  }
+  if (input.ConnectPeerId !== undefined) {
+    const labelValue: string = input.ConnectPeerId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ConnectPeerId.");
+    }
+    resolvedPath = resolvedPath.replace("{ConnectPeerId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ConnectPeerId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -835,6 +1368,74 @@ export const serializeAws_restJson1DisassociateTransitGatewayConnectPeerCommand 
   });
 };
 
+export const serializeAws_restJson1ExecuteCoreNetworkChangeSetCommand = async (
+  input: ExecuteCoreNetworkChangeSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/core-networks/{CoreNetworkId}/core-network-change-sets/{PolicyVersionId}/execute";
+  if (input.CoreNetworkId !== undefined) {
+    const labelValue: string = input.CoreNetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CoreNetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{CoreNetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CoreNetworkId.");
+  }
+  if (input.PolicyVersionId !== undefined) {
+    const labelValue: string = input.PolicyVersionId.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PolicyVersionId.");
+    }
+    resolvedPath = resolvedPath.replace("{PolicyVersionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PolicyVersionId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetConnectAttachmentCommand = async (
+  input: GetConnectAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connect-attachments/{AttachmentId}";
+  if (input.AttachmentId !== undefined) {
+    const labelValue: string = input.AttachmentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AttachmentId.");
+    }
+    resolvedPath = resolvedPath.replace("{AttachmentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AttachmentId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetConnectionsCommand = async (
   input: GetConnectionsCommandInput,
   context: __SerdeContext
@@ -860,6 +1461,181 @@ export const serializeAws_restJson1GetConnectionsCommand = async (
     ...(input.DeviceId !== undefined && { deviceId: input.DeviceId }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetConnectPeerCommand = async (
+  input: GetConnectPeerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connect-peers/{ConnectPeerId}";
+  if (input.ConnectPeerId !== undefined) {
+    const labelValue: string = input.ConnectPeerId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ConnectPeerId.");
+    }
+    resolvedPath = resolvedPath.replace("{ConnectPeerId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ConnectPeerId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetConnectPeerAssociationsCommand = async (
+  input: GetConnectPeerAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/global-networks/{GlobalNetworkId}/connect-peer-associations";
+  if (input.GlobalNetworkId !== undefined) {
+    const labelValue: string = input.GlobalNetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: GlobalNetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{GlobalNetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
+  }
+  const query: any = {
+    ...(input.ConnectPeerIds !== undefined && {
+      connectPeerIds: (input.ConnectPeerIds || []).map((_entry) => _entry as any),
+    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetCoreNetworkCommand = async (
+  input: GetCoreNetworkCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/core-networks/{CoreNetworkId}";
+  if (input.CoreNetworkId !== undefined) {
+    const labelValue: string = input.CoreNetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CoreNetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{CoreNetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CoreNetworkId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetCoreNetworkChangeSetCommand = async (
+  input: GetCoreNetworkChangeSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/core-networks/{CoreNetworkId}/core-network-change-sets/{PolicyVersionId}";
+  if (input.CoreNetworkId !== undefined) {
+    const labelValue: string = input.CoreNetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CoreNetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{CoreNetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CoreNetworkId.");
+  }
+  if (input.PolicyVersionId !== undefined) {
+    const labelValue: string = input.PolicyVersionId.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PolicyVersionId.");
+    }
+    resolvedPath = resolvedPath.replace("{PolicyVersionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PolicyVersionId.");
+  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetCoreNetworkPolicyCommand = async (
+  input: GetCoreNetworkPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/core-networks/{CoreNetworkId}/core-network-policy";
+  if (input.CoreNetworkId !== undefined) {
+    const labelValue: string = input.CoreNetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CoreNetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{CoreNetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CoreNetworkId.");
+  }
+  const query: any = {
+    ...(input.PolicyVersionId !== undefined && { policyVersionId: input.PolicyVersionId.toString() }),
+    ...(input.Alias !== undefined && { alias: input.Alias }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1079,6 +1855,7 @@ export const serializeAws_restJson1GetNetworkResourceRelationshipsCommand = asyn
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
   const query: any = {
+    ...(input.CoreNetworkId !== undefined && { coreNetworkId: input.CoreNetworkId }),
     ...(input.RegisteredGatewayArn !== undefined && { registeredGatewayArn: input.RegisteredGatewayArn }),
     ...(input.AwsRegion !== undefined && { awsRegion: input.AwsRegion }),
     ...(input.AccountId !== undefined && { accountId: input.AccountId }),
@@ -1119,6 +1896,7 @@ export const serializeAws_restJson1GetNetworkResourcesCommand = async (
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
   const query: any = {
+    ...(input.CoreNetworkId !== undefined && { coreNetworkId: input.CoreNetworkId }),
     ...(input.RegisteredGatewayArn !== undefined && { registeredGatewayArn: input.RegisteredGatewayArn }),
     ...(input.AwsRegion !== undefined && { awsRegion: input.AwsRegion }),
     ...(input.AccountId !== undefined && { accountId: input.AccountId }),
@@ -1168,15 +1946,15 @@ export const serializeAws_restJson1GetNetworkRoutesCommand = async (
       }),
     ...(input.ExactCidrMatches !== undefined &&
       input.ExactCidrMatches !== null && {
-        ExactCidrMatches: serializeAws_restJson1StringList(input.ExactCidrMatches, context),
+        ExactCidrMatches: serializeAws_restJson1ConstrainedStringList(input.ExactCidrMatches, context),
       }),
     ...(input.LongestPrefixMatches !== undefined &&
       input.LongestPrefixMatches !== null && {
-        LongestPrefixMatches: serializeAws_restJson1StringList(input.LongestPrefixMatches, context),
+        LongestPrefixMatches: serializeAws_restJson1ConstrainedStringList(input.LongestPrefixMatches, context),
       }),
     ...(input.PrefixListIds !== undefined &&
       input.PrefixListIds !== null && {
-        PrefixListIds: serializeAws_restJson1StringList(input.PrefixListIds, context),
+        PrefixListIds: serializeAws_restJson1ConstrainedStringList(input.PrefixListIds, context),
       }),
     ...(input.RouteTableIdentifier !== undefined &&
       input.RouteTableIdentifier !== null && {
@@ -1186,11 +1964,11 @@ export const serializeAws_restJson1GetNetworkRoutesCommand = async (
       input.States !== null && { States: serializeAws_restJson1RouteStateList(input.States, context) }),
     ...(input.SubnetOfMatches !== undefined &&
       input.SubnetOfMatches !== null && {
-        SubnetOfMatches: serializeAws_restJson1StringList(input.SubnetOfMatches, context),
+        SubnetOfMatches: serializeAws_restJson1ConstrainedStringList(input.SubnetOfMatches, context),
       }),
     ...(input.SupernetOfMatches !== undefined &&
       input.SupernetOfMatches !== null && {
-        SupernetOfMatches: serializeAws_restJson1StringList(input.SupernetOfMatches, context),
+        SupernetOfMatches: serializeAws_restJson1ConstrainedStringList(input.SupernetOfMatches, context),
       }),
     ...(input.Types !== undefined &&
       input.Types !== null && { Types: serializeAws_restJson1RouteTypeList(input.Types, context) }),
@@ -1225,6 +2003,7 @@ export const serializeAws_restJson1GetNetworkTelemetryCommand = async (
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
   const query: any = {
+    ...(input.CoreNetworkId !== undefined && { coreNetworkId: input.CoreNetworkId }),
     ...(input.RegisteredGatewayArn !== undefined && { registeredGatewayArn: input.RegisteredGatewayArn }),
     ...(input.AwsRegion !== undefined && { awsRegion: input.AwsRegion }),
     ...(input.AccountId !== undefined && { accountId: input.AccountId }),
@@ -1242,6 +2021,35 @@ export const serializeAws_restJson1GetNetworkTelemetryCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetResourcePolicyCommand = async (
+  input: GetResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource-policy/{ResourceArn}";
+  if (input.ResourceArn !== undefined) {
+    const labelValue: string = input.ResourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceArn.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -1316,6 +2124,36 @@ export const serializeAws_restJson1GetSitesCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetSiteToSiteVpnAttachmentCommand = async (
+  input: GetSiteToSiteVpnAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/site-to-site-vpn-attachments/{AttachmentId}";
+  if (input.AttachmentId !== undefined) {
+    const labelValue: string = input.AttachmentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AttachmentId.");
+    }
+    resolvedPath = resolvedPath.replace("{AttachmentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AttachmentId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -1396,6 +2234,148 @@ export const serializeAws_restJson1GetTransitGatewayRegistrationsCommand = async
   });
 };
 
+export const serializeAws_restJson1GetVpcAttachmentCommand = async (
+  input: GetVpcAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vpc-attachments/{AttachmentId}";
+  if (input.AttachmentId !== undefined) {
+    const labelValue: string = input.AttachmentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AttachmentId.");
+    }
+    resolvedPath = resolvedPath.replace("{AttachmentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AttachmentId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListAttachmentsCommand = async (
+  input: ListAttachmentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/attachments";
+  const query: any = {
+    ...(input.CoreNetworkId !== undefined && { coreNetworkId: input.CoreNetworkId }),
+    ...(input.AttachmentType !== undefined && { attachmentType: input.AttachmentType }),
+    ...(input.EdgeLocation !== undefined && { edgeLocation: input.EdgeLocation }),
+    ...(input.State !== undefined && { state: input.State }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListConnectPeersCommand = async (
+  input: ListConnectPeersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connect-peers";
+  const query: any = {
+    ...(input.CoreNetworkId !== undefined && { coreNetworkId: input.CoreNetworkId }),
+    ...(input.ConnectAttachmentId !== undefined && { connectAttachmentId: input.ConnectAttachmentId }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListCoreNetworkPolicyVersionsCommand = async (
+  input: ListCoreNetworkPolicyVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/core-networks/{CoreNetworkId}/core-network-policy-versions";
+  if (input.CoreNetworkId !== undefined) {
+    const labelValue: string = input.CoreNetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CoreNetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{CoreNetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CoreNetworkId.");
+  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListCoreNetworksCommand = async (
+  input: ListCoreNetworksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/core-networks";
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
@@ -1418,6 +2398,81 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutCoreNetworkPolicyCommand = async (
+  input: PutCoreNetworkPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/core-networks/{CoreNetworkId}/core-network-policy";
+  if (input.CoreNetworkId !== undefined) {
+    const labelValue: string = input.CoreNetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CoreNetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{CoreNetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CoreNetworkId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.LatestVersionId !== undefined &&
+      input.LatestVersionId !== null && { LatestVersionId: input.LatestVersionId }),
+    ...(input.PolicyDocument !== undefined &&
+      input.PolicyDocument !== null && { PolicyDocument: __LazyJsonString.fromObject(input.PolicyDocument) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource-policy/{ResourceArn}";
+  if (input.ResourceArn !== undefined) {
+    const labelValue: string = input.ResourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.PolicyDocument !== undefined &&
+      input.PolicyDocument !== null && { PolicyDocument: __LazyJsonString.fromObject(input.PolicyDocument) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -1449,6 +2504,74 @@ export const serializeAws_restJson1RegisterTransitGatewayCommand = async (
     ...(input.TransitGatewayArn !== undefined &&
       input.TransitGatewayArn !== null && { TransitGatewayArn: input.TransitGatewayArn }),
   });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1RejectAttachmentCommand = async (
+  input: RejectAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/attachments/{AttachmentId}/reject";
+  if (input.AttachmentId !== undefined) {
+    const labelValue: string = input.AttachmentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AttachmentId.");
+    }
+    resolvedPath = resolvedPath.replace("{AttachmentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AttachmentId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1RestoreCoreNetworkPolicyVersionCommand = async (
+  input: RestoreCoreNetworkPolicyVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/core-networks/{CoreNetworkId}/core-network-policy-versions/{PolicyVersionId}/restore";
+  if (input.CoreNetworkId !== undefined) {
+    const labelValue: string = input.CoreNetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CoreNetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{CoreNetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CoreNetworkId.");
+  }
+  if (input.PolicyVersionId !== undefined) {
+    const labelValue: string = input.PolicyVersionId.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PolicyVersionId.");
+    }
+    resolvedPath = resolvedPath.replace("{PolicyVersionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PolicyVersionId.");
+  }
+  let body: any;
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1607,6 +2730,40 @@ export const serializeAws_restJson1UpdateConnectionCommand = async (
       input.ConnectedLinkId !== null && { ConnectedLinkId: input.ConnectedLinkId }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.LinkId !== undefined && input.LinkId !== null && { LinkId: input.LinkId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateCoreNetworkCommand = async (
+  input: UpdateCoreNetworkCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/core-networks/{CoreNetworkId}";
+  if (input.CoreNetworkId !== undefined) {
+    const labelValue: string = input.CoreNetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CoreNetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{CoreNetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CoreNetworkId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
   });
   return new __HttpRequest({
     protocol,
@@ -1845,6 +3002,250 @@ export const serializeAws_restJson1UpdateSiteCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+export const serializeAws_restJson1UpdateVpcAttachmentCommand = async (
+  input: UpdateVpcAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vpc-attachments/{AttachmentId}";
+  if (input.AttachmentId !== undefined) {
+    const labelValue: string = input.AttachmentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AttachmentId.");
+    }
+    resolvedPath = resolvedPath.replace("{AttachmentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AttachmentId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AddSubnetArns !== undefined &&
+      input.AddSubnetArns !== null && {
+        AddSubnetArns: serializeAws_restJson1SubnetArnList(input.AddSubnetArns, context),
+      }),
+    ...(input.Options !== undefined &&
+      input.Options !== null && { Options: serializeAws_restJson1VpcOptions(input.Options, context) }),
+    ...(input.RemoveSubnetArns !== undefined &&
+      input.RemoveSubnetArns !== null && {
+        RemoveSubnetArns: serializeAws_restJson1SubnetArnList(input.RemoveSubnetArns, context),
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const deserializeAws_restJson1AcceptAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AcceptAttachmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AcceptAttachmentCommandError(output, context);
+  }
+  const contents: AcceptAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Attachment: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Attachment !== undefined && data.Attachment !== null) {
+    contents.Attachment = deserializeAws_restJson1Attachment(data.Attachment, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AcceptAttachmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AcceptAttachmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1AssociateConnectPeerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateConnectPeerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AssociateConnectPeerCommandError(output, context);
+  }
+  const contents: AssociateConnectPeerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ConnectPeerAssociation: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ConnectPeerAssociation !== undefined && data.ConnectPeerAssociation !== null) {
+    contents.ConnectPeerAssociation = deserializeAws_restJson1ConnectPeerAssociation(
+      data.ConnectPeerAssociation,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AssociateConnectPeerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateConnectPeerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.networkmanager#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1AssociateCustomerGatewayCommand = async (
@@ -2162,6 +3563,101 @@ const deserializeAws_restJson1AssociateTransitGatewayConnectPeerCommandError = a
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1CreateConnectAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConnectAttachmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateConnectAttachmentCommandError(output, context);
+  }
+  const contents: CreateConnectAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ConnectAttachment: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ConnectAttachment !== undefined && data.ConnectAttachment !== null) {
+    contents.ConnectAttachment = deserializeAws_restJson1ConnectAttachment(data.ConnectAttachment, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateConnectAttachmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConnectAttachmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1CreateConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2204,6 +3700,204 @@ const deserializeAws_restJson1CreateConnectionCommandError = async (
     case "com.amazonaws.networkmanager#ConflictException":
       response = {
         ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.networkmanager#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateConnectPeerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConnectPeerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateConnectPeerCommandError(output, context);
+  }
+  const contents: CreateConnectPeerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ConnectPeer: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ConnectPeer !== undefined && data.ConnectPeer !== null) {
+    contents.ConnectPeer = deserializeAws_restJson1ConnectPeer(data.ConnectPeer, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateConnectPeerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConnectPeerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateCoreNetworkCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCoreNetworkCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateCoreNetworkCommandError(output, context);
+  }
+  const contents: CreateCoreNetworkCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CoreNetwork: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CoreNetwork !== undefined && data.CoreNetwork !== null) {
+    contents.CoreNetwork = deserializeAws_restJson1CoreNetwork(data.CoreNetwork, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateCoreNetworkCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCoreNetworkCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CoreNetworkPolicyException":
+    case "com.amazonaws.networkmanager#CoreNetworkPolicyException":
+      response = {
+        ...(await deserializeAws_restJson1CoreNetworkPolicyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2661,6 +4355,294 @@ const deserializeAws_restJson1CreateSiteCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1CreateSiteToSiteVpnAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSiteToSiteVpnAttachmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateSiteToSiteVpnAttachmentCommandError(output, context);
+  }
+  const contents: CreateSiteToSiteVpnAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    SiteToSiteVpnAttachment: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.SiteToSiteVpnAttachment !== undefined && data.SiteToSiteVpnAttachment !== null) {
+    contents.SiteToSiteVpnAttachment = deserializeAws_restJson1SiteToSiteVpnAttachment(
+      data.SiteToSiteVpnAttachment,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateSiteToSiteVpnAttachmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSiteToSiteVpnAttachmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateVpcAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVpcAttachmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateVpcAttachmentCommandError(output, context);
+  }
+  const contents: CreateVpcAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    VpcAttachment: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.VpcAttachment !== undefined && data.VpcAttachment !== null) {
+    contents.VpcAttachment = deserializeAws_restJson1VpcAttachment(data.VpcAttachment, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateVpcAttachmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVpcAttachmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAttachmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteAttachmentCommandError(output, context);
+  }
+  const contents: DeleteAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Attachment: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Attachment !== undefined && data.Attachment !== null) {
+    contents.Attachment = deserializeAws_restJson1Attachment(data.Attachment, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteAttachmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAttachmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2683,6 +4665,291 @@ const deserializeAws_restJson1DeleteConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteConnectPeerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConnectPeerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteConnectPeerCommandError(output, context);
+  }
+  const contents: DeleteConnectPeerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ConnectPeer: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ConnectPeer !== undefined && data.ConnectPeer !== null) {
+    contents.ConnectPeer = deserializeAws_restJson1ConnectPeer(data.ConnectPeer, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteConnectPeerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConnectPeerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteCoreNetworkCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCoreNetworkCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteCoreNetworkCommandError(output, context);
+  }
+  const contents: DeleteCoreNetworkCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CoreNetwork: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CoreNetwork !== undefined && data.CoreNetwork !== null) {
+    contents.CoreNetwork = deserializeAws_restJson1CoreNetwork(data.CoreNetwork, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteCoreNetworkCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCoreNetworkCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteCoreNetworkPolicyVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCoreNetworkPolicyVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteCoreNetworkPolicyVersionCommandError(output, context);
+  }
+  const contents: DeleteCoreNetworkPolicyVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CoreNetworkPolicy: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CoreNetworkPolicy !== undefined && data.CoreNetworkPolicy !== null) {
+    contents.CoreNetworkPolicy = deserializeAws_restJson1CoreNetworkPolicy(data.CoreNetworkPolicy, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteCoreNetworkPolicyVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCoreNetworkPolicyVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3041,6 +5308,89 @@ const deserializeAws_restJson1DeleteLinkCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteResourcePolicyCommandError(output, context);
+  }
+  const contents: DeleteResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteSiteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3272,6 +5622,104 @@ const deserializeAws_restJson1DescribeGlobalNetworksCommandError = async (
     case "com.amazonaws.networkmanager#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DisassociateConnectPeerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateConnectPeerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisassociateConnectPeerCommandError(output, context);
+  }
+  const contents: DisassociateConnectPeerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ConnectPeerAssociation: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ConnectPeerAssociation !== undefined && data.ConnectPeerAssociation !== null) {
+    contents.ConnectPeerAssociation = deserializeAws_restJson1ConnectPeerAssociation(
+      data.ConnectPeerAssociation,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DisassociateConnectPeerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateConnectPeerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3616,6 +6064,184 @@ const deserializeAws_restJson1DisassociateTransitGatewayConnectPeerCommandError 
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ExecuteCoreNetworkChangeSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExecuteCoreNetworkChangeSetCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ExecuteCoreNetworkChangeSetCommandError(output, context);
+  }
+  const contents: ExecuteCoreNetworkChangeSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ExecuteCoreNetworkChangeSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExecuteCoreNetworkChangeSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetConnectAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConnectAttachmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetConnectAttachmentCommandError(output, context);
+  }
+  const contents: GetConnectAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ConnectAttachment: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ConnectAttachment !== undefined && data.ConnectAttachment !== null) {
+    contents.ConnectAttachment = deserializeAws_restJson1ConnectAttachment(data.ConnectAttachment, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetConnectAttachmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConnectAttachmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetConnectionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3642,6 +6268,460 @@ const deserializeAws_restJson1GetConnectionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetConnectPeerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConnectPeerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetConnectPeerCommandError(output, context);
+  }
+  const contents: GetConnectPeerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ConnectPeer: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ConnectPeer !== undefined && data.ConnectPeer !== null) {
+    contents.ConnectPeer = deserializeAws_restJson1ConnectPeer(data.ConnectPeer, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetConnectPeerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConnectPeerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetConnectPeerAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConnectPeerAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetConnectPeerAssociationsCommandError(output, context);
+  }
+  const contents: GetConnectPeerAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ConnectPeerAssociations: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ConnectPeerAssociations !== undefined && data.ConnectPeerAssociations !== null) {
+    contents.ConnectPeerAssociations = deserializeAws_restJson1ConnectPeerAssociationList(
+      data.ConnectPeerAssociations,
+      context
+    );
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetConnectPeerAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConnectPeerAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetCoreNetworkCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCoreNetworkCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetCoreNetworkCommandError(output, context);
+  }
+  const contents: GetCoreNetworkCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CoreNetwork: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CoreNetwork !== undefined && data.CoreNetwork !== null) {
+    contents.CoreNetwork = deserializeAws_restJson1CoreNetwork(data.CoreNetwork, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetCoreNetworkCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCoreNetworkCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetCoreNetworkChangeSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCoreNetworkChangeSetCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetCoreNetworkChangeSetCommandError(output, context);
+  }
+  const contents: GetCoreNetworkChangeSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CoreNetworkChanges: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CoreNetworkChanges !== undefined && data.CoreNetworkChanges !== null) {
+    contents.CoreNetworkChanges = deserializeAws_restJson1CoreNetworkChangeList(data.CoreNetworkChanges, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetCoreNetworkChangeSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCoreNetworkChangeSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetCoreNetworkPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCoreNetworkPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetCoreNetworkPolicyCommandError(output, context);
+  }
+  const contents: GetCoreNetworkPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CoreNetworkPolicy: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CoreNetworkPolicy !== undefined && data.CoreNetworkPolicy !== null) {
+    contents.CoreNetworkPolicy = deserializeAws_restJson1CoreNetworkPolicy(data.CoreNetworkPolicy, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetCoreNetworkPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCoreNetworkPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4359,12 +7439,19 @@ export const deserializeAws_restJson1GetNetworkRoutesCommand = async (
   }
   const contents: GetNetworkRoutesCommandOutput = {
     $metadata: deserializeMetadata(output),
+    CoreNetworkSegmentEdge: undefined,
     NetworkRoutes: undefined,
     RouteTableArn: undefined,
     RouteTableTimestamp: undefined,
     RouteTableType: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CoreNetworkSegmentEdge !== undefined && data.CoreNetworkSegmentEdge !== null) {
+    contents.CoreNetworkSegmentEdge = deserializeAws_restJson1CoreNetworkSegmentEdgeIdentifier(
+      data.CoreNetworkSegmentEdge,
+      context
+    );
+  }
   if (data.NetworkRoutes !== undefined && data.NetworkRoutes !== null) {
     contents.NetworkRoutes = deserializeAws_restJson1NetworkRouteList(data.NetworkRoutes, context);
   }
@@ -4540,6 +7627,85 @@ const deserializeAws_restJson1GetNetworkTelemetryCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetResourcePolicyCommandError(output, context);
+  }
+  const contents: GetResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    PolicyDocument: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.PolicyDocument !== undefined && data.PolicyDocument !== null) {
+    contents.PolicyDocument = new __LazyJsonString(data.PolicyDocument);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetRouteAnalysisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4653,6 +7819,96 @@ const deserializeAws_restJson1GetSitesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSitesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetSiteToSiteVpnAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSiteToSiteVpnAttachmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetSiteToSiteVpnAttachmentCommandError(output, context);
+  }
+  const contents: GetSiteToSiteVpnAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    SiteToSiteVpnAttachment: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.SiteToSiteVpnAttachment !== undefined && data.SiteToSiteVpnAttachment !== null) {
+    contents.SiteToSiteVpnAttachment = deserializeAws_restJson1SiteToSiteVpnAttachment(
+      data.SiteToSiteVpnAttachment,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetSiteToSiteVpnAttachmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSiteToSiteVpnAttachmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4914,6 +8170,436 @@ const deserializeAws_restJson1GetTransitGatewayRegistrationsCommandError = async
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetVpcAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVpcAttachmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetVpcAttachmentCommandError(output, context);
+  }
+  const contents: GetVpcAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    VpcAttachment: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.VpcAttachment !== undefined && data.VpcAttachment !== null) {
+    contents.VpcAttachment = deserializeAws_restJson1VpcAttachment(data.VpcAttachment, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetVpcAttachmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVpcAttachmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListAttachmentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAttachmentsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAttachmentsCommandError(output, context);
+  }
+  const contents: ListAttachmentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Attachments: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Attachments !== undefined && data.Attachments !== null) {
+    contents.Attachments = deserializeAws_restJson1AttachmentList(data.Attachments, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAttachmentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAttachmentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListConnectPeersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConnectPeersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListConnectPeersCommandError(output, context);
+  }
+  const contents: ListConnectPeersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ConnectPeers: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ConnectPeers !== undefined && data.ConnectPeers !== null) {
+    contents.ConnectPeers = deserializeAws_restJson1ConnectPeerSummaryList(data.ConnectPeers, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListConnectPeersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConnectPeersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListCoreNetworkPolicyVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCoreNetworkPolicyVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListCoreNetworkPolicyVersionsCommandError(output, context);
+  }
+  const contents: ListCoreNetworkPolicyVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CoreNetworkPolicyVersions: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CoreNetworkPolicyVersions !== undefined && data.CoreNetworkPolicyVersions !== null) {
+    contents.CoreNetworkPolicyVersions = deserializeAws_restJson1CoreNetworkPolicyVersionList(
+      data.CoreNetworkPolicyVersions,
+      context
+    );
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListCoreNetworkPolicyVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCoreNetworkPolicyVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListCoreNetworksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCoreNetworksCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListCoreNetworksCommandError(output, context);
+  }
+  const contents: ListCoreNetworksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CoreNetworks: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CoreNetworks !== undefined && data.CoreNetworks !== null) {
+    contents.CoreNetworks = deserializeAws_restJson1CoreNetworkSummaryList(data.CoreNetworks, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListCoreNetworksCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCoreNetworksCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5001,6 +8687,200 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1PutCoreNetworkPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutCoreNetworkPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutCoreNetworkPolicyCommandError(output, context);
+  }
+  const contents: PutCoreNetworkPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CoreNetworkPolicy: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CoreNetworkPolicy !== undefined && data.CoreNetworkPolicy !== null) {
+    contents.CoreNetworkPolicy = deserializeAws_restJson1CoreNetworkPolicy(data.CoreNetworkPolicy, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutCoreNetworkPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutCoreNetworkPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CoreNetworkPolicyException":
+    case "com.amazonaws.networkmanager#CoreNetworkPolicyException":
+      response = {
+        ...(await deserializeAws_restJson1CoreNetworkPolicyExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutResourcePolicyCommandError(output, context);
+  }
+  const contents: PutResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.networkmanager#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1RegisterTransitGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5026,6 +8906,196 @@ const deserializeAws_restJson1RegisterTransitGatewayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterTransitGatewayCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1RejectAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RejectAttachmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1RejectAttachmentCommandError(output, context);
+  }
+  const contents: RejectAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Attachment: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Attachment !== undefined && data.Attachment !== null) {
+    contents.Attachment = deserializeAws_restJson1Attachment(data.Attachment, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1RejectAttachmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RejectAttachmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1RestoreCoreNetworkPolicyVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreCoreNetworkPolicyVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1RestoreCoreNetworkPolicyVersionCommandError(output, context);
+  }
+  const contents: RestoreCoreNetworkPolicyVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CoreNetworkPolicy: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CoreNetworkPolicy !== undefined && data.CoreNetworkPolicy !== null) {
+    contents.CoreNetworkPolicy = deserializeAws_restJson1CoreNetworkPolicy(data.CoreNetworkPolicy, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1RestoreCoreNetworkPolicyVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreCoreNetworkPolicyVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -5406,6 +9476,101 @@ const deserializeAws_restJson1UpdateConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateCoreNetworkCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCoreNetworkCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateCoreNetworkCommandError(output, context);
+  }
+  const contents: UpdateCoreNetworkCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CoreNetwork: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CoreNetwork !== undefined && data.CoreNetwork !== null) {
+    contents.CoreNetwork = deserializeAws_restJson1CoreNetwork(data.CoreNetwork, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateCoreNetworkCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCoreNetworkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -5966,6 +10131,101 @@ const deserializeAws_restJson1UpdateSiteCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateVpcAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVpcAttachmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateVpcAttachmentCommandError(output, context);
+  }
+  const contents: UpdateVpcAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    VpcAttachment: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.VpcAttachment !== undefined && data.VpcAttachment !== null) {
+    contents.VpcAttachment = deserializeAws_restJson1VpcAttachment(data.VpcAttachment, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateVpcAttachmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVpcAttachmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.networkmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.networkmanager#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.networkmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkmanager#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.networkmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -6004,6 +10264,27 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   }
   if (data.ResourceType !== undefined && data.ResourceType !== null) {
     contents.ResourceType = __expectString(data.ResourceType);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1CoreNetworkPolicyExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CoreNetworkPolicyException> => {
+  const contents: CoreNetworkPolicyException = {
+    name: "CoreNetworkPolicyException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Errors: undefined,
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Errors !== undefined && data.Errors !== null) {
+    contents.Errors = deserializeAws_restJson1CoreNetworkPolicyErrorList(data.Errors, context);
+  }
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -6151,6 +10432,43 @@ const serializeAws_restJson1Bandwidth = (input: Bandwidth, context: __SerdeConte
   };
 };
 
+const serializeAws_restJson1BgpOptions = (input: BgpOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.PeerAsn !== undefined && input.PeerAsn !== null && { PeerAsn: input.PeerAsn }),
+  };
+};
+
+const serializeAws_restJson1ConnectAttachmentOptions = (
+  input: ConnectAttachmentOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Protocol !== undefined && input.Protocol !== null && { Protocol: input.Protocol }),
+  };
+};
+
+const serializeAws_restJson1ConstrainedStringList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1CoreNetworkSegmentEdgeIdentifier = (
+  input: CoreNetworkSegmentEdgeIdentifier,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CoreNetworkId !== undefined && input.CoreNetworkId !== null && { CoreNetworkId: input.CoreNetworkId }),
+    ...(input.EdgeLocation !== undefined && input.EdgeLocation !== null && { EdgeLocation: input.EdgeLocation }),
+    ...(input.SegmentName !== undefined && input.SegmentName !== null && { SegmentName: input.SegmentName }),
+  };
+};
+
 const serializeAws_restJson1FilterMap = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -6221,6 +10539,13 @@ const serializeAws_restJson1RouteStateList = (input: (RouteState | string)[], co
 
 const serializeAws_restJson1RouteTableIdentifier = (input: RouteTableIdentifier, context: __SerdeContext): any => {
   return {
+    ...(input.CoreNetworkSegmentEdge !== undefined &&
+      input.CoreNetworkSegmentEdge !== null && {
+        CoreNetworkSegmentEdge: serializeAws_restJson1CoreNetworkSegmentEdgeIdentifier(
+          input.CoreNetworkSegmentEdge,
+          context
+        ),
+      }),
     ...(input.TransitGatewayRouteTableArn !== undefined &&
       input.TransitGatewayRouteTableArn !== null && { TransitGatewayRouteTableArn: input.TransitGatewayRouteTableArn }),
   };
@@ -6237,7 +10562,7 @@ const serializeAws_restJson1RouteTypeList = (input: (RouteType | string)[], cont
     });
 };
 
-const serializeAws_restJson1StringList = (input: string[], context: __SerdeContext): any => {
+const serializeAws_restJson1SubnetArnList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6266,6 +10591,54 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
     });
 };
 
+const serializeAws_restJson1VpcOptions = (input: VpcOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Ipv6Support !== undefined && input.Ipv6Support !== null && { Ipv6Support: input.Ipv6Support }),
+  };
+};
+
+const deserializeAws_restJson1Attachment = (output: any, context: __SerdeContext): Attachment => {
+  return {
+    AttachmentId: __expectString(output.AttachmentId),
+    AttachmentPolicyRuleNumber: __expectInt32(output.AttachmentPolicyRuleNumber),
+    AttachmentType: __expectString(output.AttachmentType),
+    CoreNetworkArn: __expectString(output.CoreNetworkArn),
+    CoreNetworkId: __expectString(output.CoreNetworkId),
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
+        : undefined,
+    EdgeLocation: __expectString(output.EdgeLocation),
+    OwnerAccountId: __expectString(output.OwnerAccountId),
+    ProposedSegmentChange:
+      output.ProposedSegmentChange !== undefined && output.ProposedSegmentChange !== null
+        ? deserializeAws_restJson1ProposedSegmentChange(output.ProposedSegmentChange, context)
+        : undefined,
+    ResourceArn: __expectString(output.ResourceArn),
+    SegmentName: __expectString(output.SegmentName),
+    State: __expectString(output.State),
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagList(output.Tags, context)
+        : undefined,
+    UpdatedAt:
+      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AttachmentList = (output: any, context: __SerdeContext): Attachment[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Attachment(entry, context);
+    });
+};
+
 const deserializeAws_restJson1AWSLocation = (output: any, context: __SerdeContext): AWSLocation => {
   return {
     SubnetArn: __expectString(output.SubnetArn),
@@ -6277,6 +10650,29 @@ const deserializeAws_restJson1Bandwidth = (output: any, context: __SerdeContext)
   return {
     DownloadSpeed: __expectInt32(output.DownloadSpeed),
     UploadSpeed: __expectInt32(output.UploadSpeed),
+  } as any;
+};
+
+const deserializeAws_restJson1ConnectAttachment = (output: any, context: __SerdeContext): ConnectAttachment => {
+  return {
+    Attachment:
+      output.Attachment !== undefined && output.Attachment !== null
+        ? deserializeAws_restJson1Attachment(output.Attachment, context)
+        : undefined,
+    Options:
+      output.Options !== undefined && output.Options !== null
+        ? deserializeAws_restJson1ConnectAttachmentOptions(output.Options, context)
+        : undefined,
+    TransportAttachmentId: __expectString(output.TransportAttachmentId),
+  } as any;
+};
+
+const deserializeAws_restJson1ConnectAttachmentOptions = (
+  output: any,
+  context: __SerdeContext
+): ConnectAttachmentOptions => {
+  return {
+    Protocol: __expectString(output.Protocol),
   } as any;
 };
 
@@ -6321,6 +10717,379 @@ const deserializeAws_restJson1ConnectionList = (output: any, context: __SerdeCon
         return null as any;
       }
       return deserializeAws_restJson1Connection(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ConnectPeer = (output: any, context: __SerdeContext): ConnectPeer => {
+  return {
+    Configuration:
+      output.Configuration !== undefined && output.Configuration !== null
+        ? deserializeAws_restJson1ConnectPeerConfiguration(output.Configuration, context)
+        : undefined,
+    ConnectAttachmentId: __expectString(output.ConnectAttachmentId),
+    ConnectPeerId: __expectString(output.ConnectPeerId),
+    CoreNetworkId: __expectString(output.CoreNetworkId),
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
+        : undefined,
+    EdgeLocation: __expectString(output.EdgeLocation),
+    State: __expectString(output.State),
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagList(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ConnectPeerAssociation = (
+  output: any,
+  context: __SerdeContext
+): ConnectPeerAssociation => {
+  return {
+    ConnectPeerId: __expectString(output.ConnectPeerId),
+    DeviceId: __expectString(output.DeviceId),
+    GlobalNetworkId: __expectString(output.GlobalNetworkId),
+    LinkId: __expectString(output.LinkId),
+    State: __expectString(output.State),
+  } as any;
+};
+
+const deserializeAws_restJson1ConnectPeerAssociationList = (
+  output: any,
+  context: __SerdeContext
+): ConnectPeerAssociation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ConnectPeerAssociation(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ConnectPeerBgpConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ConnectPeerBgpConfiguration => {
+  return {
+    CoreNetworkAddress: __expectString(output.CoreNetworkAddress),
+    CoreNetworkAsn: __expectLong(output.CoreNetworkAsn),
+    PeerAddress: __expectString(output.PeerAddress),
+    PeerAsn: __expectLong(output.PeerAsn),
+  } as any;
+};
+
+const deserializeAws_restJson1ConnectPeerBgpConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): ConnectPeerBgpConfiguration[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ConnectPeerBgpConfiguration(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ConnectPeerConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ConnectPeerConfiguration => {
+  return {
+    BgpConfigurations:
+      output.BgpConfigurations !== undefined && output.BgpConfigurations !== null
+        ? deserializeAws_restJson1ConnectPeerBgpConfigurationList(output.BgpConfigurations, context)
+        : undefined,
+    CoreNetworkAddress: __expectString(output.CoreNetworkAddress),
+    InsideCidrBlocks:
+      output.InsideCidrBlocks !== undefined && output.InsideCidrBlocks !== null
+        ? deserializeAws_restJson1ConstrainedStringList(output.InsideCidrBlocks, context)
+        : undefined,
+    PeerAddress: __expectString(output.PeerAddress),
+    Protocol: __expectString(output.Protocol),
+  } as any;
+};
+
+const deserializeAws_restJson1ConnectPeerSummary = (output: any, context: __SerdeContext): ConnectPeerSummary => {
+  return {
+    ConnectAttachmentId: __expectString(output.ConnectAttachmentId),
+    ConnectPeerId: __expectString(output.ConnectPeerId),
+    ConnectPeerState: __expectString(output.ConnectPeerState),
+    CoreNetworkId: __expectString(output.CoreNetworkId),
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
+        : undefined,
+    EdgeLocation: __expectString(output.EdgeLocation),
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagList(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ConnectPeerSummaryList = (output: any, context: __SerdeContext): ConnectPeerSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ConnectPeerSummary(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ConstrainedStringList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1CoreNetwork = (output: any, context: __SerdeContext): CoreNetwork => {
+  return {
+    CoreNetworkArn: __expectString(output.CoreNetworkArn),
+    CoreNetworkId: __expectString(output.CoreNetworkId),
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
+        : undefined,
+    Description: __expectString(output.Description),
+    Edges:
+      output.Edges !== undefined && output.Edges !== null
+        ? deserializeAws_restJson1CoreNetworkEdgeList(output.Edges, context)
+        : undefined,
+    GlobalNetworkId: __expectString(output.GlobalNetworkId),
+    Segments:
+      output.Segments !== undefined && output.Segments !== null
+        ? deserializeAws_restJson1CoreNetworkSegmentList(output.Segments, context)
+        : undefined,
+    State: __expectString(output.State),
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagList(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CoreNetworkChange = (output: any, context: __SerdeContext): CoreNetworkChange => {
+  return {
+    Action: __expectString(output.Action),
+    Identifier: __expectString(output.Identifier),
+    NewValues:
+      output.NewValues !== undefined && output.NewValues !== null
+        ? deserializeAws_restJson1CoreNetworkChangeValues(output.NewValues, context)
+        : undefined,
+    PreviousValues:
+      output.PreviousValues !== undefined && output.PreviousValues !== null
+        ? deserializeAws_restJson1CoreNetworkChangeValues(output.PreviousValues, context)
+        : undefined,
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1CoreNetworkChangeList = (output: any, context: __SerdeContext): CoreNetworkChange[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CoreNetworkChange(entry, context);
+    });
+};
+
+const deserializeAws_restJson1CoreNetworkChangeValues = (
+  output: any,
+  context: __SerdeContext
+): CoreNetworkChangeValues => {
+  return {
+    Asn: __expectLong(output.Asn),
+    Cidr: __expectString(output.Cidr),
+    DestinationIdentifier: __expectString(output.DestinationIdentifier),
+    EdgeLocations:
+      output.EdgeLocations !== undefined && output.EdgeLocations !== null
+        ? deserializeAws_restJson1ExternalRegionCodeList(output.EdgeLocations, context)
+        : undefined,
+    InsideCidrBlocks:
+      output.InsideCidrBlocks !== undefined && output.InsideCidrBlocks !== null
+        ? deserializeAws_restJson1ConstrainedStringList(output.InsideCidrBlocks, context)
+        : undefined,
+    SegmentName: __expectString(output.SegmentName),
+    SharedSegments:
+      output.SharedSegments !== undefined && output.SharedSegments !== null
+        ? deserializeAws_restJson1ConstrainedStringList(output.SharedSegments, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CoreNetworkEdge = (output: any, context: __SerdeContext): CoreNetworkEdge => {
+  return {
+    Asn: __expectLong(output.Asn),
+    EdgeLocation: __expectString(output.EdgeLocation),
+    InsideCidrBlocks:
+      output.InsideCidrBlocks !== undefined && output.InsideCidrBlocks !== null
+        ? deserializeAws_restJson1ConstrainedStringList(output.InsideCidrBlocks, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CoreNetworkEdgeList = (output: any, context: __SerdeContext): CoreNetworkEdge[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CoreNetworkEdge(entry, context);
+    });
+};
+
+const deserializeAws_restJson1CoreNetworkPolicy = (output: any, context: __SerdeContext): CoreNetworkPolicy => {
+  return {
+    Alias: __expectString(output.Alias),
+    ChangeSetState: __expectString(output.ChangeSetState),
+    CoreNetworkId: __expectString(output.CoreNetworkId),
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
+        : undefined,
+    Description: __expectString(output.Description),
+    PolicyDocument:
+      output.PolicyDocument !== undefined && output.PolicyDocument !== null
+        ? new __LazyJsonString(output.PolicyDocument)
+        : undefined,
+    PolicyErrors:
+      output.PolicyErrors !== undefined && output.PolicyErrors !== null
+        ? deserializeAws_restJson1CoreNetworkPolicyErrorList(output.PolicyErrors, context)
+        : undefined,
+    PolicyVersionId: __expectInt32(output.PolicyVersionId),
+  } as any;
+};
+
+const deserializeAws_restJson1CoreNetworkPolicyError = (
+  output: any,
+  context: __SerdeContext
+): CoreNetworkPolicyError => {
+  return {
+    ErrorCode: __expectString(output.ErrorCode),
+    Message: __expectString(output.Message),
+    Path: __expectString(output.Path),
+  } as any;
+};
+
+const deserializeAws_restJson1CoreNetworkPolicyErrorList = (
+  output: any,
+  context: __SerdeContext
+): CoreNetworkPolicyError[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CoreNetworkPolicyError(entry, context);
+    });
+};
+
+const deserializeAws_restJson1CoreNetworkPolicyVersion = (
+  output: any,
+  context: __SerdeContext
+): CoreNetworkPolicyVersion => {
+  return {
+    Alias: __expectString(output.Alias),
+    ChangeSetState: __expectString(output.ChangeSetState),
+    CoreNetworkId: __expectString(output.CoreNetworkId),
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
+        : undefined,
+    Description: __expectString(output.Description),
+    PolicyVersionId: __expectInt32(output.PolicyVersionId),
+  } as any;
+};
+
+const deserializeAws_restJson1CoreNetworkPolicyVersionList = (
+  output: any,
+  context: __SerdeContext
+): CoreNetworkPolicyVersion[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CoreNetworkPolicyVersion(entry, context);
+    });
+};
+
+const deserializeAws_restJson1CoreNetworkSegment = (output: any, context: __SerdeContext): CoreNetworkSegment => {
+  return {
+    EdgeLocations:
+      output.EdgeLocations !== undefined && output.EdgeLocations !== null
+        ? deserializeAws_restJson1ExternalRegionCodeList(output.EdgeLocations, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    SharedSegments:
+      output.SharedSegments !== undefined && output.SharedSegments !== null
+        ? deserializeAws_restJson1ConstrainedStringList(output.SharedSegments, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CoreNetworkSegmentEdgeIdentifier = (
+  output: any,
+  context: __SerdeContext
+): CoreNetworkSegmentEdgeIdentifier => {
+  return {
+    CoreNetworkId: __expectString(output.CoreNetworkId),
+    EdgeLocation: __expectString(output.EdgeLocation),
+    SegmentName: __expectString(output.SegmentName),
+  } as any;
+};
+
+const deserializeAws_restJson1CoreNetworkSegmentList = (output: any, context: __SerdeContext): CoreNetworkSegment[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CoreNetworkSegment(entry, context);
+    });
+};
+
+const deserializeAws_restJson1CoreNetworkSummary = (output: any, context: __SerdeContext): CoreNetworkSummary => {
+  return {
+    CoreNetworkArn: __expectString(output.CoreNetworkArn),
+    CoreNetworkId: __expectString(output.CoreNetworkId),
+    Description: __expectString(output.Description),
+    GlobalNetworkId: __expectString(output.GlobalNetworkId),
+    OwnerAccountId: __expectString(output.OwnerAccountId),
+    State: __expectString(output.State),
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagList(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CoreNetworkSummaryList = (output: any, context: __SerdeContext): CoreNetworkSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CoreNetworkSummary(entry, context);
     });
 };
 
@@ -6406,6 +11175,17 @@ const deserializeAws_restJson1ExceptionContextMap = (
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1ExternalRegionCodeList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_restJson1GlobalNetwork = (output: any, context: __SerdeContext): GlobalNetwork => {
@@ -6504,6 +11284,7 @@ const deserializeAws_restJson1NetworkResource = (output: any, context: __SerdeCo
   return {
     AccountId: __expectString(output.AccountId),
     AwsRegion: __expectString(output.AwsRegion),
+    CoreNetworkId: __expectString(output.CoreNetworkId),
     Definition: __expectString(output.Definition),
     DefinitionTimestamp:
       output.DefinitionTimestamp !== undefined && output.DefinitionTimestamp !== null
@@ -6603,8 +11384,11 @@ const deserializeAws_restJson1NetworkRouteDestination = (
   context: __SerdeContext
 ): NetworkRouteDestination => {
   return {
+    CoreNetworkAttachmentId: __expectString(output.CoreNetworkAttachmentId),
+    EdgeLocation: __expectString(output.EdgeLocation),
     ResourceId: __expectString(output.ResourceId),
     ResourceType: __expectString(output.ResourceType),
+    SegmentName: __expectString(output.SegmentName),
     TransitGatewayAttachmentId: __expectString(output.TransitGatewayAttachmentId),
   } as any;
 };
@@ -6639,6 +11423,7 @@ const deserializeAws_restJson1NetworkTelemetry = (output: any, context: __SerdeC
     AccountId: __expectString(output.AccountId),
     Address: __expectString(output.Address),
     AwsRegion: __expectString(output.AwsRegion),
+    CoreNetworkId: __expectString(output.CoreNetworkId),
     Health:
       output.Health !== undefined && output.Health !== null
         ? deserializeAws_restJson1ConnectionHealth(output.Health, context)
@@ -6681,6 +11466,17 @@ const deserializeAws_restJson1PathComponentList = (output: any, context: __Serde
       }
       return deserializeAws_restJson1PathComponent(entry, context);
     });
+};
+
+const deserializeAws_restJson1ProposedSegmentChange = (output: any, context: __SerdeContext): ProposedSegmentChange => {
+  return {
+    AttachmentPolicyRuleNumber: __expectInt32(output.AttachmentPolicyRuleNumber),
+    SegmentName: __expectString(output.SegmentName),
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagList(output.Tags, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1ReasonContextMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -6815,6 +11611,30 @@ const deserializeAws_restJson1SiteList = (output: any, context: __SerdeContext):
     });
 };
 
+const deserializeAws_restJson1SiteToSiteVpnAttachment = (
+  output: any,
+  context: __SerdeContext
+): SiteToSiteVpnAttachment => {
+  return {
+    Attachment:
+      output.Attachment !== undefined && output.Attachment !== null
+        ? deserializeAws_restJson1Attachment(output.Attachment, context)
+        : undefined,
+    VpnConnectionArn: __expectString(output.VpnConnectionArn),
+  } as any;
+};
+
+const deserializeAws_restJson1SubnetArnList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
@@ -6920,6 +11740,29 @@ const deserializeAws_restJson1ValidationExceptionFieldList = (
       }
       return deserializeAws_restJson1ValidationExceptionField(entry, context);
     });
+};
+
+const deserializeAws_restJson1VpcAttachment = (output: any, context: __SerdeContext): VpcAttachment => {
+  return {
+    Attachment:
+      output.Attachment !== undefined && output.Attachment !== null
+        ? deserializeAws_restJson1Attachment(output.Attachment, context)
+        : undefined,
+    Options:
+      output.Options !== undefined && output.Options !== null
+        ? deserializeAws_restJson1VpcOptions(output.Options, context)
+        : undefined,
+    SubnetArns:
+      output.SubnetArns !== undefined && output.SubnetArns !== null
+        ? deserializeAws_restJson1SubnetArnList(output.SubnetArns, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VpcOptions = (output: any, context: __SerdeContext): VpcOptions => {
+  return {
+    Ipv6Support: __expectBoolean(output.Ipv6Support),
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

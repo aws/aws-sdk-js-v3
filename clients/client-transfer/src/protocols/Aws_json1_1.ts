@@ -3447,6 +3447,10 @@ const serializeAws_json1_1CreateServerRequest = (input: CreateServerRequest, con
     ...(input.IdentityProviderType !== undefined &&
       input.IdentityProviderType !== null && { IdentityProviderType: input.IdentityProviderType }),
     ...(input.LoggingRole !== undefined && input.LoggingRole !== null && { LoggingRole: input.LoggingRole }),
+    ...(input.ProtocolDetails !== undefined &&
+      input.ProtocolDetails !== null && {
+        ProtocolDetails: serializeAws_json1_1ProtocolDetails(input.ProtocolDetails, context),
+      }),
     ...(input.Protocols !== undefined &&
       input.Protocols !== null && { Protocols: serializeAws_json1_1Protocols(input.Protocols, context) }),
     ...(input.SecurityPolicyName !== undefined &&
@@ -3753,6 +3757,8 @@ const serializeAws_json1_1PosixProfile = (input: PosixProfile, context: __SerdeC
 const serializeAws_json1_1ProtocolDetails = (input: ProtocolDetails, context: __SerdeContext): any => {
   return {
     ...(input.PassiveIp !== undefined && input.PassiveIp !== null && { PassiveIp: input.PassiveIp }),
+    ...(input.TlsSessionResumptionMode !== undefined &&
+      input.TlsSessionResumptionMode !== null && { TlsSessionResumptionMode: input.TlsSessionResumptionMode }),
   };
 };
 
@@ -4700,6 +4706,7 @@ const deserializeAws_json1_1PosixProfile = (output: any, context: __SerdeContext
 const deserializeAws_json1_1ProtocolDetails = (output: any, context: __SerdeContext): ProtocolDetails => {
   return {
     PassiveIp: __expectString(output.PassiveIp),
+    TlsSessionResumptionMode: __expectString(output.TlsSessionResumptionMode),
   } as any;
 };
 

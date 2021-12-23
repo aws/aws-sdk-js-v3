@@ -23,6 +23,10 @@ import {
 import { CreateAgentCommandInput, CreateAgentCommandOutput } from "../commands/CreateAgentCommand";
 import { CreateLocationEfsCommandInput, CreateLocationEfsCommandOutput } from "../commands/CreateLocationEfsCommand";
 import {
+  CreateLocationFsxLustreCommandInput,
+  CreateLocationFsxLustreCommandOutput,
+} from "../commands/CreateLocationFsxLustreCommand";
+import {
   CreateLocationFsxWindowsCommandInput,
   CreateLocationFsxWindowsCommandOutput,
 } from "../commands/CreateLocationFsxWindowsCommand";
@@ -43,6 +47,10 @@ import {
   DescribeLocationEfsCommandInput,
   DescribeLocationEfsCommandOutput,
 } from "../commands/DescribeLocationEfsCommand";
+import {
+  DescribeLocationFsxLustreCommandInput,
+  DescribeLocationFsxLustreCommandOutput,
+} from "../commands/DescribeLocationFsxLustreCommand";
 import {
   DescribeLocationFsxWindowsCommandInput,
   DescribeLocationFsxWindowsCommandOutput,
@@ -101,6 +109,8 @@ import {
   CreateAgentResponse,
   CreateLocationEfsRequest,
   CreateLocationEfsResponse,
+  CreateLocationFsxLustreRequest,
+  CreateLocationFsxLustreResponse,
   CreateLocationFsxWindowsRequest,
   CreateLocationFsxWindowsResponse,
   CreateLocationHdfsRequest,
@@ -125,6 +135,8 @@ import {
   DescribeAgentResponse,
   DescribeLocationEfsRequest,
   DescribeLocationEfsResponse,
+  DescribeLocationFsxLustreRequest,
+  DescribeLocationFsxLustreResponse,
   DescribeLocationFsxWindowsRequest,
   DescribeLocationFsxWindowsResponse,
   DescribeLocationHdfsRequest,
@@ -229,6 +241,19 @@ export const serializeAws_json1_1CreateLocationEfsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateLocationEfsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateLocationFsxLustreCommand = async (
+  input: CreateLocationFsxLustreCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "FmrsService.CreateLocationFsxLustre",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateLocationFsxLustreRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -385,6 +410,19 @@ export const serializeAws_json1_1DescribeLocationEfsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeLocationEfsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeLocationFsxLustreCommand = async (
+  input: DescribeLocationFsxLustreCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "FmrsService.DescribeLocationFsxLustre",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeLocationFsxLustreRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -832,6 +870,68 @@ const deserializeAws_json1_1CreateLocationEfsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLocationEfsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateLocationFsxLustreCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocationFsxLustreCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateLocationFsxLustreCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateLocationFsxLustreResponse(data, context);
+  const response: CreateLocationFsxLustreCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateLocationFsxLustreCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocationFsxLustreCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1576,6 +1676,68 @@ const deserializeAws_json1_1DescribeLocationEfsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLocationEfsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeLocationFsxLustreCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLocationFsxLustreCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeLocationFsxLustreCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeLocationFsxLustreResponse(data, context);
+  const response: DescribeLocationFsxLustreCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeLocationFsxLustreCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLocationFsxLustreCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3125,6 +3287,23 @@ const serializeAws_json1_1CreateLocationEfsRequest = (
   };
 };
 
+const serializeAws_json1_1CreateLocationFsxLustreRequest = (
+  input: CreateLocationFsxLustreRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FsxFilesystemArn !== undefined &&
+      input.FsxFilesystemArn !== null && { FsxFilesystemArn: input.FsxFilesystemArn }),
+    ...(input.SecurityGroupArns !== undefined &&
+      input.SecurityGroupArns !== null && {
+        SecurityGroupArns: serializeAws_json1_1Ec2SecurityGroupArnList(input.SecurityGroupArns, context),
+      }),
+    ...(input.Subdirectory !== undefined && input.Subdirectory !== null && { Subdirectory: input.Subdirectory }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_json1_1InputTagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateLocationFsxWindowsRequest = (
   input: CreateLocationFsxWindowsRequest,
   context: __SerdeContext
@@ -3303,6 +3482,15 @@ const serializeAws_json1_1DescribeAgentRequest = (input: DescribeAgentRequest, c
 
 const serializeAws_json1_1DescribeLocationEfsRequest = (
   input: DescribeLocationEfsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LocationArn !== undefined && input.LocationArn !== null && { LocationArn: input.LocationArn }),
+  };
+};
+
+const serializeAws_json1_1DescribeLocationFsxLustreRequest = (
+  input: DescribeLocationFsxLustreRequest,
   context: __SerdeContext
 ): any => {
   return {
@@ -3856,6 +4044,15 @@ const deserializeAws_json1_1CreateLocationEfsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateLocationFsxLustreResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateLocationFsxLustreResponse => {
+  return {
+    LocationArn: __expectString(output.LocationArn),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateLocationFsxWindowsResponse = (
   output: any,
   context: __SerdeContext
@@ -3964,6 +4161,24 @@ const deserializeAws_json1_1DescribeLocationEfsResponse = (
         : undefined,
     LocationArn: __expectString(output.LocationArn),
     LocationUri: __expectString(output.LocationUri),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeLocationFsxLustreResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeLocationFsxLustreResponse => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    LocationArn: __expectString(output.LocationArn),
+    LocationUri: __expectString(output.LocationUri),
+    SecurityGroupArns:
+      output.SecurityGroupArns !== undefined && output.SecurityGroupArns !== null
+        ? deserializeAws_json1_1Ec2SecurityGroupArnList(output.SecurityGroupArns, context)
+        : undefined,
   } as any;
 };
 

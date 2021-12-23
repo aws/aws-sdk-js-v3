@@ -43,6 +43,10 @@ export interface BatchEvaluateGeofencesCommandOutput extends BatchEvaluateGeofen
  *             <p>The last geofence that a device was observed within is tracked for 30 days after
  *                 the most recent device position update.</p>
  *         </note>
+ *         <note>
+ *             <p>Geofence evaluation uses the given device position. It does not account for the
+ *                 optional <code>Accuracy</code> of a <code>DevicePositionUpdate</code>.</p>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

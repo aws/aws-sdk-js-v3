@@ -49,6 +49,11 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import { AcceptAttachmentCommandInput, AcceptAttachmentCommandOutput } from "./commands/AcceptAttachmentCommand";
+import {
+  AssociateConnectPeerCommandInput,
+  AssociateConnectPeerCommandOutput,
+} from "./commands/AssociateConnectPeerCommand";
 import {
   AssociateCustomerGatewayCommandInput,
   AssociateCustomerGatewayCommandOutput,
@@ -58,7 +63,13 @@ import {
   AssociateTransitGatewayConnectPeerCommandInput,
   AssociateTransitGatewayConnectPeerCommandOutput,
 } from "./commands/AssociateTransitGatewayConnectPeerCommand";
+import {
+  CreateConnectAttachmentCommandInput,
+  CreateConnectAttachmentCommandOutput,
+} from "./commands/CreateConnectAttachmentCommand";
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
+import { CreateConnectPeerCommandInput, CreateConnectPeerCommandOutput } from "./commands/CreateConnectPeerCommand";
+import { CreateCoreNetworkCommandInput, CreateCoreNetworkCommandOutput } from "./commands/CreateCoreNetworkCommand";
 import { CreateDeviceCommandInput, CreateDeviceCommandOutput } from "./commands/CreateDeviceCommand";
 import {
   CreateGlobalNetworkCommandInput,
@@ -66,13 +77,32 @@ import {
 } from "./commands/CreateGlobalNetworkCommand";
 import { CreateLinkCommandInput, CreateLinkCommandOutput } from "./commands/CreateLinkCommand";
 import { CreateSiteCommandInput, CreateSiteCommandOutput } from "./commands/CreateSiteCommand";
+import {
+  CreateSiteToSiteVpnAttachmentCommandInput,
+  CreateSiteToSiteVpnAttachmentCommandOutput,
+} from "./commands/CreateSiteToSiteVpnAttachmentCommand";
+import {
+  CreateVpcAttachmentCommandInput,
+  CreateVpcAttachmentCommandOutput,
+} from "./commands/CreateVpcAttachmentCommand";
+import { DeleteAttachmentCommandInput, DeleteAttachmentCommandOutput } from "./commands/DeleteAttachmentCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
+import { DeleteConnectPeerCommandInput, DeleteConnectPeerCommandOutput } from "./commands/DeleteConnectPeerCommand";
+import { DeleteCoreNetworkCommandInput, DeleteCoreNetworkCommandOutput } from "./commands/DeleteCoreNetworkCommand";
+import {
+  DeleteCoreNetworkPolicyVersionCommandInput,
+  DeleteCoreNetworkPolicyVersionCommandOutput,
+} from "./commands/DeleteCoreNetworkPolicyVersionCommand";
 import { DeleteDeviceCommandInput, DeleteDeviceCommandOutput } from "./commands/DeleteDeviceCommand";
 import {
   DeleteGlobalNetworkCommandInput,
   DeleteGlobalNetworkCommandOutput,
 } from "./commands/DeleteGlobalNetworkCommand";
 import { DeleteLinkCommandInput, DeleteLinkCommandOutput } from "./commands/DeleteLinkCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
 import { DeleteSiteCommandInput, DeleteSiteCommandOutput } from "./commands/DeleteSiteCommand";
 import {
   DeregisterTransitGatewayCommandInput,
@@ -83,6 +113,10 @@ import {
   DescribeGlobalNetworksCommandOutput,
 } from "./commands/DescribeGlobalNetworksCommand";
 import {
+  DisassociateConnectPeerCommandInput,
+  DisassociateConnectPeerCommandOutput,
+} from "./commands/DisassociateConnectPeerCommand";
+import {
   DisassociateCustomerGatewayCommandInput,
   DisassociateCustomerGatewayCommandOutput,
 } from "./commands/DisassociateCustomerGatewayCommand";
@@ -91,7 +125,29 @@ import {
   DisassociateTransitGatewayConnectPeerCommandInput,
   DisassociateTransitGatewayConnectPeerCommandOutput,
 } from "./commands/DisassociateTransitGatewayConnectPeerCommand";
+import {
+  ExecuteCoreNetworkChangeSetCommandInput,
+  ExecuteCoreNetworkChangeSetCommandOutput,
+} from "./commands/ExecuteCoreNetworkChangeSetCommand";
+import {
+  GetConnectAttachmentCommandInput,
+  GetConnectAttachmentCommandOutput,
+} from "./commands/GetConnectAttachmentCommand";
 import { GetConnectionsCommandInput, GetConnectionsCommandOutput } from "./commands/GetConnectionsCommand";
+import {
+  GetConnectPeerAssociationsCommandInput,
+  GetConnectPeerAssociationsCommandOutput,
+} from "./commands/GetConnectPeerAssociationsCommand";
+import { GetConnectPeerCommandInput, GetConnectPeerCommandOutput } from "./commands/GetConnectPeerCommand";
+import {
+  GetCoreNetworkChangeSetCommandInput,
+  GetCoreNetworkChangeSetCommandOutput,
+} from "./commands/GetCoreNetworkChangeSetCommand";
+import { GetCoreNetworkCommandInput, GetCoreNetworkCommandOutput } from "./commands/GetCoreNetworkCommand";
+import {
+  GetCoreNetworkPolicyCommandInput,
+  GetCoreNetworkPolicyCommandOutput,
+} from "./commands/GetCoreNetworkPolicyCommand";
 import {
   GetCustomerGatewayAssociationsCommandInput,
   GetCustomerGatewayAssociationsCommandOutput,
@@ -119,8 +175,13 @@ import {
   GetNetworkTelemetryCommandInput,
   GetNetworkTelemetryCommandOutput,
 } from "./commands/GetNetworkTelemetryCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import { GetRouteAnalysisCommandInput, GetRouteAnalysisCommandOutput } from "./commands/GetRouteAnalysisCommand";
 import { GetSitesCommandInput, GetSitesCommandOutput } from "./commands/GetSitesCommand";
+import {
+  GetSiteToSiteVpnAttachmentCommandInput,
+  GetSiteToSiteVpnAttachmentCommandOutput,
+} from "./commands/GetSiteToSiteVpnAttachmentCommand";
 import {
   GetTransitGatewayConnectPeerAssociationsCommandInput,
   GetTransitGatewayConnectPeerAssociationsCommandOutput,
@@ -129,18 +190,37 @@ import {
   GetTransitGatewayRegistrationsCommandInput,
   GetTransitGatewayRegistrationsCommandOutput,
 } from "./commands/GetTransitGatewayRegistrationsCommand";
+import { GetVpcAttachmentCommandInput, GetVpcAttachmentCommandOutput } from "./commands/GetVpcAttachmentCommand";
+import { ListAttachmentsCommandInput, ListAttachmentsCommandOutput } from "./commands/ListAttachmentsCommand";
+import { ListConnectPeersCommandInput, ListConnectPeersCommandOutput } from "./commands/ListConnectPeersCommand";
+import {
+  ListCoreNetworkPolicyVersionsCommandInput,
+  ListCoreNetworkPolicyVersionsCommandOutput,
+} from "./commands/ListCoreNetworkPolicyVersionsCommand";
+import { ListCoreNetworksCommandInput, ListCoreNetworksCommandOutput } from "./commands/ListCoreNetworksCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  PutCoreNetworkPolicyCommandInput,
+  PutCoreNetworkPolicyCommandOutput,
+} from "./commands/PutCoreNetworkPolicyCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
+import {
   RegisterTransitGatewayCommandInput,
   RegisterTransitGatewayCommandOutput,
 } from "./commands/RegisterTransitGatewayCommand";
+import { RejectAttachmentCommandInput, RejectAttachmentCommandOutput } from "./commands/RejectAttachmentCommand";
+import {
+  RestoreCoreNetworkPolicyVersionCommandInput,
+  RestoreCoreNetworkPolicyVersionCommandOutput,
+} from "./commands/RestoreCoreNetworkPolicyVersionCommand";
 import { StartRouteAnalysisCommandInput, StartRouteAnalysisCommandOutput } from "./commands/StartRouteAnalysisCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
+import { UpdateCoreNetworkCommandInput, UpdateCoreNetworkCommandOutput } from "./commands/UpdateCoreNetworkCommand";
 import { UpdateDeviceCommandInput, UpdateDeviceCommandOutput } from "./commands/UpdateDeviceCommand";
 import {
   UpdateGlobalNetworkCommandInput,
@@ -152,28 +232,52 @@ import {
   UpdateNetworkResourceMetadataCommandOutput,
 } from "./commands/UpdateNetworkResourceMetadataCommand";
 import { UpdateSiteCommandInput, UpdateSiteCommandOutput } from "./commands/UpdateSiteCommand";
+import {
+  UpdateVpcAttachmentCommandInput,
+  UpdateVpcAttachmentCommandOutput,
+} from "./commands/UpdateVpcAttachmentCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | AcceptAttachmentCommandInput
+  | AssociateConnectPeerCommandInput
   | AssociateCustomerGatewayCommandInput
   | AssociateLinkCommandInput
   | AssociateTransitGatewayConnectPeerCommandInput
+  | CreateConnectAttachmentCommandInput
+  | CreateConnectPeerCommandInput
   | CreateConnectionCommandInput
+  | CreateCoreNetworkCommandInput
   | CreateDeviceCommandInput
   | CreateGlobalNetworkCommandInput
   | CreateLinkCommandInput
   | CreateSiteCommandInput
+  | CreateSiteToSiteVpnAttachmentCommandInput
+  | CreateVpcAttachmentCommandInput
+  | DeleteAttachmentCommandInput
+  | DeleteConnectPeerCommandInput
   | DeleteConnectionCommandInput
+  | DeleteCoreNetworkCommandInput
+  | DeleteCoreNetworkPolicyVersionCommandInput
   | DeleteDeviceCommandInput
   | DeleteGlobalNetworkCommandInput
   | DeleteLinkCommandInput
+  | DeleteResourcePolicyCommandInput
   | DeleteSiteCommandInput
   | DeregisterTransitGatewayCommandInput
   | DescribeGlobalNetworksCommandInput
+  | DisassociateConnectPeerCommandInput
   | DisassociateCustomerGatewayCommandInput
   | DisassociateLinkCommandInput
   | DisassociateTransitGatewayConnectPeerCommandInput
+  | ExecuteCoreNetworkChangeSetCommandInput
+  | GetConnectAttachmentCommandInput
+  | GetConnectPeerAssociationsCommandInput
+  | GetConnectPeerCommandInput
   | GetConnectionsCommandInput
+  | GetCoreNetworkChangeSetCommandInput
+  | GetCoreNetworkCommandInput
+  | GetCoreNetworkPolicyCommandInput
   | GetCustomerGatewayAssociationsCommandInput
   | GetDevicesCommandInput
   | GetLinkAssociationsCommandInput
@@ -183,42 +287,75 @@ export type ServiceInputTypes =
   | GetNetworkResourcesCommandInput
   | GetNetworkRoutesCommandInput
   | GetNetworkTelemetryCommandInput
+  | GetResourcePolicyCommandInput
   | GetRouteAnalysisCommandInput
+  | GetSiteToSiteVpnAttachmentCommandInput
   | GetSitesCommandInput
   | GetTransitGatewayConnectPeerAssociationsCommandInput
   | GetTransitGatewayRegistrationsCommandInput
+  | GetVpcAttachmentCommandInput
+  | ListAttachmentsCommandInput
+  | ListConnectPeersCommandInput
+  | ListCoreNetworkPolicyVersionsCommandInput
+  | ListCoreNetworksCommandInput
   | ListTagsForResourceCommandInput
+  | PutCoreNetworkPolicyCommandInput
+  | PutResourcePolicyCommandInput
   | RegisterTransitGatewayCommandInput
+  | RejectAttachmentCommandInput
+  | RestoreCoreNetworkPolicyVersionCommandInput
   | StartRouteAnalysisCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateConnectionCommandInput
+  | UpdateCoreNetworkCommandInput
   | UpdateDeviceCommandInput
   | UpdateGlobalNetworkCommandInput
   | UpdateLinkCommandInput
   | UpdateNetworkResourceMetadataCommandInput
-  | UpdateSiteCommandInput;
+  | UpdateSiteCommandInput
+  | UpdateVpcAttachmentCommandInput;
 
 export type ServiceOutputTypes =
+  | AcceptAttachmentCommandOutput
+  | AssociateConnectPeerCommandOutput
   | AssociateCustomerGatewayCommandOutput
   | AssociateLinkCommandOutput
   | AssociateTransitGatewayConnectPeerCommandOutput
+  | CreateConnectAttachmentCommandOutput
+  | CreateConnectPeerCommandOutput
   | CreateConnectionCommandOutput
+  | CreateCoreNetworkCommandOutput
   | CreateDeviceCommandOutput
   | CreateGlobalNetworkCommandOutput
   | CreateLinkCommandOutput
   | CreateSiteCommandOutput
+  | CreateSiteToSiteVpnAttachmentCommandOutput
+  | CreateVpcAttachmentCommandOutput
+  | DeleteAttachmentCommandOutput
+  | DeleteConnectPeerCommandOutput
   | DeleteConnectionCommandOutput
+  | DeleteCoreNetworkCommandOutput
+  | DeleteCoreNetworkPolicyVersionCommandOutput
   | DeleteDeviceCommandOutput
   | DeleteGlobalNetworkCommandOutput
   | DeleteLinkCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DeleteSiteCommandOutput
   | DeregisterTransitGatewayCommandOutput
   | DescribeGlobalNetworksCommandOutput
+  | DisassociateConnectPeerCommandOutput
   | DisassociateCustomerGatewayCommandOutput
   | DisassociateLinkCommandOutput
   | DisassociateTransitGatewayConnectPeerCommandOutput
+  | ExecuteCoreNetworkChangeSetCommandOutput
+  | GetConnectAttachmentCommandOutput
+  | GetConnectPeerAssociationsCommandOutput
+  | GetConnectPeerCommandOutput
   | GetConnectionsCommandOutput
+  | GetCoreNetworkChangeSetCommandOutput
+  | GetCoreNetworkCommandOutput
+  | GetCoreNetworkPolicyCommandOutput
   | GetCustomerGatewayAssociationsCommandOutput
   | GetDevicesCommandOutput
   | GetLinkAssociationsCommandOutput
@@ -228,21 +365,34 @@ export type ServiceOutputTypes =
   | GetNetworkResourcesCommandOutput
   | GetNetworkRoutesCommandOutput
   | GetNetworkTelemetryCommandOutput
+  | GetResourcePolicyCommandOutput
   | GetRouteAnalysisCommandOutput
+  | GetSiteToSiteVpnAttachmentCommandOutput
   | GetSitesCommandOutput
   | GetTransitGatewayConnectPeerAssociationsCommandOutput
   | GetTransitGatewayRegistrationsCommandOutput
+  | GetVpcAttachmentCommandOutput
+  | ListAttachmentsCommandOutput
+  | ListConnectPeersCommandOutput
+  | ListCoreNetworkPolicyVersionsCommandOutput
+  | ListCoreNetworksCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutCoreNetworkPolicyCommandOutput
+  | PutResourcePolicyCommandOutput
   | RegisterTransitGatewayCommandOutput
+  | RejectAttachmentCommandOutput
+  | RestoreCoreNetworkPolicyVersionCommandOutput
   | StartRouteAnalysisCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateConnectionCommandOutput
+  | UpdateCoreNetworkCommandOutput
   | UpdateDeviceCommandOutput
   | UpdateGlobalNetworkCommandOutput
   | UpdateLinkCommandOutput
   | UpdateNetworkResourceMetadataCommandOutput
-  | UpdateSiteCommandOutput;
+  | UpdateSiteCommandOutput
+  | UpdateVpcAttachmentCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

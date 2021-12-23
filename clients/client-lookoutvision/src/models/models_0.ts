@@ -22,6 +22,7 @@ export namespace AccessDeniedException {
 export enum ResourceType {
   DATASET = "DATASET",
   MODEL = "MODEL",
+  MODEL_PACKAGE_JOB = "MODEL_PACKAGE_JOB",
   PROJECT = "PROJECT",
   TRIAL = "TRIAL",
 }
@@ -147,11 +148,14 @@ export interface CreateDatasetRequest {
 
   /**
    * <p>ClientToken is an idempotency token that ensures a call to <code>CreateDataset</code>
-   *       completes only once.  You choose the value to pass. For example, An issue,
-   *       such as an network outage, might prevent you from getting a response from <code>CreateDataset</code>.
+   *       completes only once.  You choose the value to pass. For example, An issue might prevent you
+   *       from getting a response from <code>CreateDataset</code>.
    *       In this case, safely retry your call
-   *        to <code>CreateDataset</code> by using the same <code>ClientToken</code> parameter value. An error occurs
-   *        if the other input parameters are not the same as in the first request. Using a different
+   *        to <code>CreateDataset</code> by using the same <code>ClientToken</code> parameter value.</p>
+   *          <p>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using inserts a value for you.
+   *          This prevents retries after a network error from making multiple dataset creation requests. You'll need to
+   *          provide your own value for other use cases. </p>
+   *          <p>An error occurs if the other input parameters are not the same as in the first request. Using a different
    *        value for <code>ClientToken</code> is considered a new call to <code>CreateDataset</code>. An idempotency
    *        token is active for 8 hours.
    *     </p>
@@ -182,7 +186,8 @@ export enum DatasetStatus {
 }
 
 /**
- * <p>Sumary information for an Amazon Lookout for Vision dataset.</p>
+ * <p>Summary information for an Amazon Lookout for Vision dataset. For more information,
+ *       see <a>DescribeDataset</a> and <a>ProjectDescription</a>.</p>
  */
 export interface DatasetMetadata {
   /**
@@ -370,16 +375,18 @@ export namespace ValidationException {
 }
 
 /**
- * <p>Information about the location training output.</p>
+ * <p>Information about the location of training output or the output of a model packaging job.</p>
  */
 export interface S3Location {
   /**
-   * <p>The S3 bucket that contains the training output.</p>
+   * <p>The S3 bucket that contains the training or model packaging job output. If you are training a model,
+   *          the bucket must in your AWS account. If you use an S3 bucket for a model packaging job,
+   *       the S3 bucket must be in the same AWS Region and AWS account in which you use AWS IoT Greengrass.</p>
    */
   Bucket: string | undefined;
 
   /**
-   * <p>The path of the folder, within the S3 bucket, that contains the training output.</p>
+   * <p>The path of the folder, within the S3 bucket, that contains the output.</p>
    */
   Prefix?: string;
 }
@@ -449,11 +456,14 @@ export interface CreateModelRequest {
 
   /**
    * <p>ClientToken is an idempotency token that ensures a call to <code>CreateModel</code>
-   *       completes only once.  You choose the value to pass. For example, An issue,
-   *       such as an network outage, might prevent you from getting a response from <code>CreateModel</code>.
+   *       completes only once.  You choose the value to pass. For example, An issue
+   *       might prevent you from getting a response from <code>CreateModel</code>.
    *       In this case, safely retry your call
-   *        to <code>CreateModel</code> by using the same <code>ClientToken</code> parameter value. An error occurs
-   *        if the other input parameters are not the same as in the first request. Using a different
+   *        to <code>CreateModel</code> by using the same <code>ClientToken</code> parameter value. </p>
+   *          <p>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using inserts a value for you.
+   *             This prevents retries after a network error from starting multiple training jobs. You'll need to
+   *             provide your own value for other use cases. </p>
+   *         <p>An error occurs if the other input parameters are not the same as in the first request. Using a different
    *        value for <code>ClientToken</code> is considered a new call to <code>CreateModel</code>. An idempotency
    *        token is active for 8 hours.</p>
    */
@@ -465,7 +475,7 @@ export interface CreateModelRequest {
   OutputConfig: OutputConfig | undefined;
 
   /**
-   * <p>The identifier for your AWS Key Management Service (AWS KMS) customer master key (CMK).
+   * <p>The identifier for your AWS KMS key.
    *          The key is used to encrypt training and test images copied into the service for model training. Your
    *          source images are unaffected.
    *          If this parameter is not specified, the copied images are encrypted by a key that AWS owns and manages.</p>
@@ -601,10 +611,14 @@ export interface CreateProjectRequest {
 
   /**
    * <p>ClientToken is an idempotency token that ensures a call to <code>CreateProject</code>
-   *       completes only once.  You choose the value to pass. For example, An issue,
-   *       such as an network outage, might prevent you from getting a response from <code>CreateProject</code>.
+   *       completes only once.  You choose the value to pass. For example, An issue might prevent you from
+   *       getting a response from <code>CreateProject</code>.
    *       In this case, safely retry your call
-   *        to <code>CreateProject</code> by using the same <code>ClientToken</code> parameter value. An error occurs
+   *        to <code>CreateProject</code> by using the same <code>ClientToken</code> parameter value. </p>
+   *          <p>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using inserts a value for you.
+   *           This prevents retries after a network error from making multiple project creation requests. You'll need to
+   *            provide your own value for other use cases. </p>
+   *          <p>An error occurs
    *        if the other input parameters are not the same as in the first request. Using a different
    *        value for <code>ClientToken</code> is considered a new call to <code>CreateProject</code>. An idempotency
    *        token is active for 8 hours.</p>
@@ -736,7 +750,7 @@ export interface DatasetDescription {
   StatusMessage?: string;
 
   /**
-   * <p></p>
+   * <p>Statistics about the images in a dataset.</p>
    */
   ImageStats?: DatasetImageStats;
 }
@@ -765,11 +779,13 @@ export interface DeleteDatasetRequest {
 
   /**
    * <p>ClientToken is an idempotency token that ensures a call to <code>DeleteDataset</code>
-   *       completes only once.  You choose the value to pass. For example, An issue,
-   *       such as an network outage, might prevent you from getting a response from <code>DeleteDataset</code>.
+   *       completes only once.  You choose the value to pass. For example, An issue might prevent you from getting a response from <code>DeleteDataset</code>.
    *       In this case, safely retry your call
-   *        to <code>DeleteDataset</code> by using the same <code>ClientToken</code> parameter value. An error occurs
-   *        if the other input parameters are not the same as in the first request. Using a different
+   *        to <code>DeleteDataset</code> by using the same <code>ClientToken</code> parameter value. </p>
+   *          <p>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using inserts a value for you.
+   *                  This prevents retries after a network error from making multiple deletetion requests. You'll need to
+   *                  provide your own value for other use cases. </p>
+   *          <p>An error occurs if the other input parameters are not the same as in the first request. Using a different
    *        value for <code>ClientToken</code> is considered a new call to <code>DeleteDataset</code>. An idempotency
    *        token is active for 8 hours.</p>
    */
@@ -809,11 +825,15 @@ export interface DeleteModelRequest {
 
   /**
    * <p>ClientToken is an idempotency token that ensures a call to <code>DeleteModel</code>
-   *       completes only once.  You choose the value to pass. For example, An issue,
-   *       such as an network outage, might prevent you from getting a response from <code>DeleteModel</code>.
+   *       completes only once.  You choose the value to pass. For example, an issue might prevent
+   *       you from getting a response from <code>DeleteModel</code>.
    *       In this case, safely retry your call
-   *        to <code>DeleteModel</code> by using the same <code>ClientToken</code> parameter value. An error occurs
-   *        if the other input parameters are not the same as in the first request. Using a different
+   *        to <code>DeleteModel</code> by using the same <code>ClientToken</code> parameter value.</p>
+   *          <p>If you don't supply a value for ClientToken, the AWS SDK you are using inserts a value for you.
+   *          This prevents retries after a network error from making multiple model deletion requests. You'll need to
+   *          provide your own value for other use cases. </p>
+   *
+   *          <p>An error occurs if the other input parameters are not the same as in the first request. Using a different
    *        value for <code>ClientToken</code> is considered a new call to <code>DeleteModel</code>. An idempotency
    *        token is active for 8 hours.</p>
    */
@@ -853,11 +873,14 @@ export interface DeleteProjectRequest {
 
   /**
    * <p>ClientToken is an idempotency token that ensures a call to <code>DeleteProject</code>
-   *          completes only once.  You choose the value to pass. For example, An issue,
-   *          such as an network outage, might prevent you from getting a response from <code>DeleteProject</code>.
+   *          completes only once.  You choose the value to pass. For example, An issue
+   *          might prevent you from getting a response from <code>DeleteProject</code>.
    *          In this case, safely retry your call
-   *          to <code>DeleteProject</code> by using the same <code>ClientToken</code> parameter value. An error occurs
-   *          if the other input parameters are not the same as in the first request. Using a different
+   *          to <code>DeleteProject</code> by using the same <code>ClientToken</code> parameter value. </p>
+   *          <p>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using inserts a value for you.
+   *          This prevents retries after a network error from making multiple project deletion requests. You'll need to
+   *          provide your own value for other use cases. </p>
+   *          <p>An error occurs if the other input parameters are not the same as in the first request. Using a different
    *          value for <code>ClientToken</code> is considered a new call to <code>DeleteProject</code>. An idempotency
    *          token is active for 8 hours.</p>
    */
@@ -1062,6 +1085,368 @@ export namespace DescribeModelResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeModelResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeModelPackagingJobRequest {
+  /**
+   * <p>The name of the project that contains the model packaging job that you want to describe.
+   * </p>
+   */
+  ProjectName: string | undefined;
+
+  /**
+   * <p>The job name for the model packaging job.
+   *
+   * </p>
+   */
+  JobName: string | undefined;
+}
+
+export namespace DescribeModelPackagingJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeModelPackagingJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum TargetDevice {
+  JETSON_XAVIER = "jetson_xavier",
+}
+
+export enum TargetPlatformAccelerator {
+  NVIDIA = "NVIDIA",
+}
+
+export enum TargetPlatformArch {
+  ARM64 = "ARM64",
+  X86_64 = "X86_64",
+}
+
+export enum TargetPlatformOs {
+  LINUX = "LINUX",
+}
+
+/**
+ * <p>The platform on which a model runs on an AWS IoT Greengrass core device.</p>
+ */
+export interface TargetPlatform {
+  /**
+   * <p>The target operating system for the model. Linux is the only operating system
+   *          that is currently supported.
+   *       </p>
+   */
+  Os: TargetPlatformOs | string | undefined;
+
+  /**
+   * <p>The target architecture for the model. The currently supported architectures are
+   *          X86_64 (64-bit version of the x86 instruction set) and ARM_64 (ARMv8 64-bit CPU).
+   *       </p>
+   */
+  Arch: TargetPlatformArch | string | undefined;
+
+  /**
+   * <p>The target accelerator for the model. NVIDIA (Nvidia graphics processing unit)
+   *          is the only accelerator that is currently supported. You must also specify the <code>gpu-code</code>, <code>trt-ver</code>,
+   *          and <code>cuda-ver</code> compiler options.
+   *
+   *       </p>
+   */
+  Accelerator: TargetPlatformAccelerator | string | undefined;
+}
+
+export namespace TargetPlatform {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TargetPlatform): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration information for the AWS IoT Greengrass component created in a model packaging job.
+ *    For more information, see <a>StartModelPackagingJob</a>.
+ * </p>
+ *          <note>
+ *             <p>You can't specify a component with the same <code>ComponentName</code> and <code>Componentversion</code> as
+ *       an existing component with the same component name and component version.</p>
+ *          </note>
+ */
+export interface GreengrassConfiguration {
+  /**
+   * <p>Additional compiler options for the Greengrass component. Currently,
+   *    only NVIDIA Graphics Processing Units (GPU) are supported.</p>
+   *
+   *
+   *          <p>For more information, see
+   *       <i>Compiler options</i> in the  Amazon Lookout for Vision Developer Guide. </p>
+   */
+  CompilerOptions: string | undefined;
+
+  /**
+   * <p>The target device for the model. Currently the only supported value is <code>jetson_xavier</code>.
+   *       If you specify <code>TargetDevice</code>, you can't specify
+   *       <code>TargetPlatform</code>.
+   *
+   * </p>
+   */
+  TargetDevice?: TargetDevice | string;
+
+  /**
+   * <p>The target platform for the model. If you specify <code>TargetPlatform</code>, you can't specify
+   *          <code>TargetDevice</code>.
+   *       </p>
+   */
+  TargetPlatform?: TargetPlatform;
+
+  /**
+   * <p>
+   *          An S3 location in which Lookout for Vision stores the component artifacts.
+   *       </p>
+   */
+  S3OutputLocation: S3Location | undefined;
+
+  /**
+   * <p>
+   *    A name for the AWS IoT Greengrass component.
+   * </p>
+   */
+  ComponentName: string | undefined;
+
+  /**
+   * <p>A Version for the AWS IoT Greengrass component. If you don't provide a
+   *       value, a default value of <code>
+   *                <i>Model Version</i>.0.0</code> is used.
+   * </p>
+   */
+  ComponentVersion?: string;
+
+  /**
+   * <p>
+   *    A description for the AWS IoT Greengrass component.
+   * </p>
+   */
+  ComponentDescription?: string;
+
+  /**
+   * <p>
+   *    A set of tags (key-value pairs) that you want to attach to the AWS IoT Greengrass component.
+   * </p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace GreengrassConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GreengrassConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ * Configuration information for a Amazon Lookout for Vision model packaging job. For more information,
+ * see <a>StartModelPackagingJob</a>.
+ * </p>
+ */
+export interface ModelPackagingConfiguration {
+  /**
+   * <p>
+   * Configuration information for the AWS IoT Greengrass component in a model packaging job.
+   * </p>
+   */
+  Greengrass: GreengrassConfiguration | undefined;
+}
+
+export namespace ModelPackagingConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelPackagingConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the AWS IoT Greengrass component created by a model packaging job.
+ *
+ * </p>
+ */
+export interface GreengrassOutputDetails {
+  /**
+   * <p>
+   * The Amazon Resource Name (ARN) of the component.
+   * </p>
+   */
+  ComponentVersionArn?: string;
+
+  /**
+   * <p>
+   * The name of the component.
+   * </p>
+   */
+  ComponentName?: string;
+
+  /**
+   * <p>
+   * The version of the component.
+   * </p>
+   */
+  ComponentVersion?: string;
+}
+
+export namespace GreengrassOutputDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GreengrassOutputDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ * Information about the output from a model packaging job.
+ * </p>
+ */
+export interface ModelPackagingOutputDetails {
+  /**
+   * <p>
+   * Information about the AWS IoT Greengrass component in a model packaging job.
+   * </p>
+   */
+  Greengrass?: GreengrassOutputDetails;
+}
+
+export namespace ModelPackagingOutputDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelPackagingOutputDetails): any => ({
+    ...obj,
+  });
+}
+
+export enum ModelPackagingJobStatus {
+  CREATED = "CREATED",
+  FAILED = "FAILED",
+  RUNNING = "RUNNING",
+  SUCCEEDED = "SUCCEEDED",
+}
+
+/**
+ * <p>
+ * Information about a model packaging job. For more information, see
+ * <a>DescribeModelPackagingJob</a>.
+ * </p>
+ */
+export interface ModelPackagingDescription {
+  /**
+   * <p>
+   * The name of the model packaging job.
+   * </p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>The name of the project that's associated with a model that's in the model package.
+   *
+   * </p>
+   */
+  ProjectName?: string;
+
+  /**
+   * <p>The version of the model used in the model packaging job.
+   *
+   * </p>
+   */
+  ModelVersion?: string;
+
+  /**
+   * <p>
+   * The configuration information used in the model packaging job.
+   * </p>
+   */
+  ModelPackagingConfiguration?: ModelPackagingConfiguration;
+
+  /**
+   * <p>The description for the model packaging job.
+   *
+   * </p>
+   */
+  ModelPackagingJobDescription?: string;
+
+  /**
+   * <p>The AWS service used to package the job. Currently Lookout for Vision can package
+   * jobs with AWS IoT Greengrass.
+   * </p>
+   */
+  ModelPackagingMethod?: string;
+
+  /**
+   * <p>Information about the output of the model packaging job. For more information,
+   *    see <a>DescribeModelPackagingJob</a>.
+   * </p>
+   */
+  ModelPackagingOutputDetails?: ModelPackagingOutputDetails;
+
+  /**
+   * <p>
+   * The status of the model packaging job.
+   * </p>
+   */
+  Status?: ModelPackagingJobStatus | string;
+
+  /**
+   * <p>
+   * The status message for the model packaging job.
+   * </p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>
+   *    The Unix timestamp for the time and date that the model packaging job was created.
+   * </p>
+   */
+  CreationTimestamp?: Date;
+
+  /**
+   * <p>
+   *    The Unix timestamp for the time and date that the model packaging job was last updated.
+   * </p>
+   */
+  LastUpdatedTimestamp?: Date;
+}
+
+export namespace ModelPackagingDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelPackagingDescription): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeModelPackagingJobResponse {
+  /**
+   * <p>The description of the model packaging job.
+   * </p>
+   */
+  ModelPackagingDescription?: ModelPackagingDescription;
+}
+
+export namespace DescribeModelPackagingJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeModelPackagingJobResponse): any => ({
     ...obj,
   });
 }
@@ -1316,6 +1701,138 @@ export namespace ListDatasetEntriesResponse {
   });
 }
 
+export interface ListModelPackagingJobsRequest {
+  /**
+   * <p>
+   * The name of the project for which you want to list the model packaging jobs.
+   * </p>
+   */
+  ProjectName: string | undefined;
+
+  /**
+   * <p>If the previous response was incomplete (because there is more
+   *       results to retrieve), Amazon Lookout for Vision returns a pagination token in the response. You can use this pagination
+   *       token to retrieve the next set of results. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per paginated call. The largest value you can specify is 100.
+   *       If you specify a value greater than 100, a ValidationException
+   *       error occurs. The default value is 100. </p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListModelPackagingJobsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListModelPackagingJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *    Metadata for a model packaging job. For more information, see <a>ListModelPackagingJobs</a>.
+ * </p>
+ */
+export interface ModelPackagingJobMetadata {
+  /**
+   * <p>
+   * The name of the model packaging job.
+   * </p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>
+   * The project that contains the model that is in the model package.
+   * </p>
+   */
+  ProjectName?: string;
+
+  /**
+   * <p>
+   * The version of the model that is in the model package.
+   * </p>
+   */
+  ModelVersion?: string;
+
+  /**
+   * <p>
+   * The description for the model packaging job.
+   * </p>
+   */
+  ModelPackagingJobDescription?: string;
+
+  /**
+   * <p>
+   * The AWS service used to package the job. Currently Lookout for Vision can package
+   *       jobs with AWS IoT Greengrass.
+   * </p>
+   */
+  ModelPackagingMethod?: string;
+
+  /**
+   * <p>The status of the model packaging job.
+   * </p>
+   */
+  Status?: ModelPackagingJobStatus | string;
+
+  /**
+   * <p>The status message for the model packaging job.
+   * </p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The Unix timestamp for the time and date that the model packaging job was created.</p>
+   */
+  CreationTimestamp?: Date;
+
+  /**
+   * <p>The Unix timestamp for the time and date that the model packaging job was last updated.</p>
+   */
+  LastUpdatedTimestamp?: Date;
+}
+
+export namespace ModelPackagingJobMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelPackagingJobMetadata): any => ({
+    ...obj,
+  });
+}
+
+export interface ListModelPackagingJobsResponse {
+  /**
+   * <p>
+   * A list of the model packaging jobs created for the specified Amazon Lookout for Vision project.
+   * </p>
+   */
+  ModelPackagingJobs?: ModelPackagingJobMetadata[];
+
+  /**
+   * <p>If the previous response was incomplete (because there is more
+   *    results to retrieve), Amazon Lookout for Vision returns a pagination token in the response. You can use this pagination
+   *    token to retrieve the next set of results.
+   * </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListModelPackagingJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListModelPackagingJobsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListModelsRequest {
   /**
    * <p>The name of the project that contains the model versions that you want to list.</p>
@@ -1460,7 +1977,7 @@ export interface StartModelRequest {
 
   /**
    * <p>The minimum number of inference units to use. A single
-   *          inference unit represents 1 hour of processing and can support up to 5 Transaction Pers Second (TPS).
+   *          inference unit represents 1 hour of processing.
    *          Use a higher number to increase the TPS throughput of your model. You are charged for the number
    *          of inference units that you use.
    *       </p>
@@ -1469,11 +1986,15 @@ export interface StartModelRequest {
 
   /**
    * <p>ClientToken is an idempotency token that ensures a call to <code>StartModel</code>
-   *          completes only once.  You choose the value to pass. For example, An issue,
-   *          such as an network outage, might prevent you from getting a response from <code>StartModel</code>.
+   *          completes only once.  You choose the value to pass. For example, An issue might prevent
+   *          you from getting a response from <code>StartModel</code>.
    *          In this case, safely retry your call
-   *          to <code>StartModel</code> by using the same <code>ClientToken</code> parameter value. An error occurs
-   *          if the other input parameters are not the same as in the first request. Using a different
+   *          to <code>StartModel</code> by using the same <code>ClientToken</code> parameter value. </p>
+   *          <p>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using inserts a value for you.
+   *          This prevents retries after a network error from making multiple start requests. You'll need to
+   *          provide your own value for other use cases. </p>
+   *
+   *          <p>An error occurs if the other input parameters are not the same as in the first request. Using a different
    *          value for <code>ClientToken</code> is considered a new call to <code>StartModel</code>. An idempotency
    *          token is active for 8 hours.
    *       </p>
@@ -1514,6 +2035,85 @@ export namespace StartModelResponse {
   });
 }
 
+export interface StartModelPackagingJobRequest {
+  /**
+   * <p>
+   * The name of the project which contains the version of the model that you want to package.
+   * </p>
+   */
+  ProjectName: string | undefined;
+
+  /**
+   * <p>
+   * The version of the model within the project that you want to package.
+   * </p>
+   */
+  ModelVersion: string | undefined;
+
+  /**
+   * <p>A name for the model packaging job. If you don't supply a value, the service creates
+   *    a job name for you.
+   * </p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>The configuration for the model packaging job.
+   * </p>
+   */
+  Configuration: ModelPackagingConfiguration | undefined;
+
+  /**
+   * <p>A description for the model packaging job.
+   * </p>
+   */
+  Description?: string;
+
+  /**
+   * <p>ClientToken is an idempotency token that ensures a call to <code>StartModelPackagingJob</code>
+   *       completes only once.  You choose the value to pass. For example, An issue might prevent you
+   *       from getting a response from <code>StartModelPackagingJob</code>.
+   *       In this case, safely retry your call
+   *       to <code>StartModelPackagingJob</code> by using the same <code>ClientToken</code> parameter value.</p>
+   *          <p>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using inserts a value for you.
+   *       This prevents retries after a network error from making multiple dataset creation requests. You'll need to
+   *       provide your own value for other use cases. </p>
+   *          <p>An error occurs if the other input parameters are not the same as in the first request. Using a different
+   *       value for <code>ClientToken</code> is considered a new call to <code>StartModelPackagingJob</code>. An idempotency
+   *       token is active for 8 hours.
+   *    </p>
+   */
+  ClientToken?: string;
+}
+
+export namespace StartModelPackagingJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartModelPackagingJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartModelPackagingJobResponse {
+  /**
+   * <p>The job name for the model packaging job. If you don't supply a job name in the <code>JobName</code> input parameter,
+   *    the service creates a job name for you.
+   *
+   * </p>
+   */
+  JobName?: string;
+}
+
+export namespace StartModelPackagingJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartModelPackagingJobResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface StopModelRequest {
   /**
    * <p>The name of the project that contains the model that you want to stop.</p>
@@ -1527,11 +2127,14 @@ export interface StopModelRequest {
 
   /**
    * <p>ClientToken is an idempotency token that ensures a call to <code>StopModel</code>
-   *          completes only once.  You choose the value to pass. For example, An issue,
-   *          such as an network outage, might prevent you from getting a response from <code>StopModel</code>.
+   *          completes only once.  You choose the value to pass. For example, An issue
+   *          might prevent you from getting a response from <code>StopModel</code>.
    *          In this case, safely retry your call
-   *          to <code>StopModel</code> by using the same <code>ClientToken</code> parameter value. An error occurs
-   *          if the other input parameters are not the same as in the first request. Using a different
+   *          to <code>StopModel</code> by using the same <code>ClientToken</code> parameter value.</p>
+   *          <p>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using inserts a value for you.
+   *          This prevents retries after a network error from making multiple stop requests. You'll need to
+   *          provide your own value for other use cases. </p>
+   *          <p>An error occurs if the other input parameters are not the same as in the first request. Using a different
    *          value for <code>ClientToken</code> is considered a new call to <code>StopModel</code>. An idempotency
    *          token is active for 8 hours.
    *
@@ -1650,10 +2253,14 @@ export interface UpdateDatasetEntriesRequest {
 
   /**
    * <p>ClientToken is an idempotency token that ensures a call to <code>UpdateDatasetEntries</code>
-   *          completes only once.  You choose the value to pass. For example, An issue,
-   *          such as an network outage, might prevent you from getting a response from <code>UpdateDatasetEntries</code>.
+   *          completes only once.  You choose the value to pass. For example, An issue
+   *          might prevent you from getting a response from <code>UpdateDatasetEntries</code>.
    *          In this case, safely retry your call
-   *          to <code>UpdateDatasetEntries</code> by using the same <code>ClientToken</code> parameter value. An error occurs
+   *          to <code>UpdateDatasetEntries</code> by using the same <code>ClientToken</code> parameter value.</p>
+   *          <p>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using inserts a value for you.
+   *          This prevents retries after a network error from making multiple updates with the same dataset entries. You'll need to
+   *          provide your own value for other use cases. </p>
+   *          <p>An error occurs
    *          if the other input parameters are not the same as in the first request. Using a different
    *          value for <code>ClientToken</code> is considered a new call to <code>UpdateDatasetEntries</code>. An idempotency
    *          token is active for 8 hours.

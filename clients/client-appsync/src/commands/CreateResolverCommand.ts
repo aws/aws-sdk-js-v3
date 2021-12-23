@@ -23,7 +23,7 @@ export interface CreateResolverCommandOutput extends CreateResolverResponse, __M
 
 /**
  * <p>Creates a <code>Resolver</code> object.</p>
- *          <p>A resolver converts incoming requests into a format that a data source can understand
+ *          <p>A resolver converts incoming requests into a format that a data source can understand,
  *          and converts the data source's responses into GraphQL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

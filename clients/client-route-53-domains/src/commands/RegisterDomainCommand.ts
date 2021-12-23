@@ -37,14 +37,17 @@ export interface RegisterDomainCommandOutput extends RegisterDomainResponse, __M
  *             <li>
  *                <p>Optionally enables privacy protection, so WHOIS queries return contact information either for Amazon Registrar
  * 					(for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you don't enable privacy
- * 					protection, WHOIS queries return the information that you entered for the registrant, admin, and tech contacts.</p>
- *             </li>
+ * 					protection, WHOIS queries return the information that you entered for the administrative, registrant, and technical contacts.</p>
+ * 					          <note>
+ * 						            <p>You must specify the same privacy setting for the administrative, registrant, and technical contacts.</p>
+ * 					          </note>
+ * 				        </li>
  *             <li>
  *                <p>If registration is successful, returns an operation ID that you can use to track the progress and
  * 					completion of the action. If the request is not completed successfully, the domain registrant is notified by email.</p>
  *             </li>
  *             <li>
- *                <p>Charges your AWS account an amount based on the top-level domain. For more information, see
+ *                <p>Charges your Amazon Web Services account an amount based on the top-level domain. For more information, see
  * 					<a href="http://aws.amazon.com/route53/pricing/">Amazon Route 53 Pricing</a>.</p>
  *             </li>
  *          </ul>

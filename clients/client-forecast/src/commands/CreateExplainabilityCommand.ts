@@ -92,7 +92,7 @@ export interface CreateExplainabilityCommandOutput extends CreateExplainabilityR
  *             <b>CreateExplainability with a Forecast ARN</b>
  *          </p>
  *         <note>
- *             <p>You can specify a maximum of 50 time series and 1500 time points.</p>
+ *             <p>You can specify a maximum of 50 time series and 500 time points.</p>
  *         </note>
  *         <p>The following parameters are required when providing a Predictor ARN:</p>
  *         <ul>

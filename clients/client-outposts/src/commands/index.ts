@@ -17,6 +17,7 @@ export * from "./ListSitesCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
+export * from "./UpdateOutpostCommand";
 export * from "./UpdateSiteAddressCommand";
 export * from "./UpdateSiteCommand";
 export * from "./UpdateSiteRackPhysicalPropertiesCommand";

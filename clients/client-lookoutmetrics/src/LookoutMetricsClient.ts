@@ -87,6 +87,10 @@ import {
   ListAnomalyDetectorsCommandOutput,
 } from "./commands/ListAnomalyDetectorsCommand";
 import {
+  ListAnomalyGroupRelatedMetricsCommandInput,
+  ListAnomalyGroupRelatedMetricsCommandOutput,
+} from "./commands/ListAnomalyGroupRelatedMetricsCommand";
+import {
   ListAnomalyGroupSummariesCommandInput,
   ListAnomalyGroupSummariesCommandOutput,
 } from "./commands/ListAnomalyGroupSummariesCommand";
@@ -126,6 +130,7 @@ export type ServiceInputTypes =
   | GetSampleDataCommandInput
   | ListAlertsCommandInput
   | ListAnomalyDetectorsCommandInput
+  | ListAnomalyGroupRelatedMetricsCommandInput
   | ListAnomalyGroupSummariesCommandInput
   | ListAnomalyGroupTimeSeriesCommandInput
   | ListMetricSetsCommandInput
@@ -153,6 +158,7 @@ export type ServiceOutputTypes =
   | GetSampleDataCommandOutput
   | ListAlertsCommandOutput
   | ListAnomalyDetectorsCommandOutput
+  | ListAnomalyGroupRelatedMetricsCommandOutput
   | ListAnomalyGroupSummariesCommandOutput
   | ListAnomalyGroupTimeSeriesCommandOutput
   | ListMetricSetsCommandOutput

@@ -296,7 +296,7 @@ export class Rekognition extends RekognitionClient {
    *       supported. The image must be formatted as a PNG or JPEG file. </p>
    *          <p>In response, the operation returns an array of face matches ordered by similarity score
    *       in descending order. For each face match, the response provides a bounding box of the face,
-   *       facial landmarks, pose details (pitch, role, and yaw), quality (brightness and sharpness), and
+   *       facial landmarks, pose details (pitch, roll, and yaw), quality (brightness and sharpness), and
    *       confidence value (indicating the level of confidence that the bounding box contains a face).
    *       The response also provides a similarity score, which indicates how closely the faces match. </p>
    *
@@ -1354,7 +1354,7 @@ export class Rekognition extends RekognitionClient {
    *          <p>The <code>DetectText</code> operation returns text in an array of <a>TextDetection</a> elements, <code>TextDetections</code>. Each
    *         <code>TextDetection</code> element provides information about a single word or line of text
    *       that was detected in the image. </p>
-   *          <p>A word is one or more ISO basic latin script characters that are not separated by spaces.
+   *          <p>A word is one or more script characters that are not separated by spaces.
    *         <code>DetectText</code> can detect up to 100 words in an image.</p>
    *          <p>A line is a string of equally spaced words. A line isn't necessarily a complete
    *       sentence. For example, a driver's license number is detected as a line. A line ends when there

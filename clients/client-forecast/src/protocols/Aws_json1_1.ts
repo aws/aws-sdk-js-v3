@@ -5373,6 +5373,10 @@ const deserializeAws_json1_1DescribeAutoPredictorResponse = (
       output.ExplainabilityInfo !== undefined && output.ExplainabilityInfo !== null
         ? deserializeAws_json1_1ExplainabilityInfo(output.ExplainabilityInfo, context)
         : undefined,
+    ForecastDimensions:
+      output.ForecastDimensions !== undefined && output.ForecastDimensions !== null
+        ? deserializeAws_json1_1ForecastDimensions(output.ForecastDimensions, context)
+        : undefined,
     ForecastFrequency: __expectString(output.ForecastFrequency),
     ForecastHorizon: __expectInt32(output.ForecastHorizon),
     ForecastTypes:

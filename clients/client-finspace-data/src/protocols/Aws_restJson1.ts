@@ -973,6 +973,7 @@ export const deserializeAws_restJson1GetChangesetCommand = async (
   }
   const contents: GetChangesetCommandOutput = {
     $metadata: deserializeMetadata(output),
+    activeFromTimestamp: undefined,
     activeUntilTimestamp: undefined,
     changeType: undefined,
     changesetArn: undefined,
@@ -987,6 +988,9 @@ export const deserializeAws_restJson1GetChangesetCommand = async (
     updatesChangesetId: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.activeFromTimestamp !== undefined && data.activeFromTimestamp !== null) {
+    contents.activeFromTimestamp = __expectLong(data.activeFromTimestamp);
+  }
   if (data.activeUntilTimestamp !== undefined && data.activeUntilTimestamp !== null) {
     contents.activeUntilTimestamp = __expectLong(data.activeUntilTimestamp);
   }
@@ -2174,6 +2178,17 @@ const serializeAws_restJson1DataViewDestinationTypeParams = (
   return {
     ...(input.destinationType !== undefined &&
       input.destinationType !== null && { destinationType: input.destinationType }),
+    ...(input.s3DestinationExportFileFormat !== undefined &&
+      input.s3DestinationExportFileFormat !== null && {
+        s3DestinationExportFileFormat: input.s3DestinationExportFileFormat,
+      }),
+    ...(input.s3DestinationExportFileFormatOptions !== undefined &&
+      input.s3DestinationExportFileFormatOptions !== null && {
+        s3DestinationExportFileFormatOptions: serializeAws_restJson1S3DestinationFormatOptions(
+          input.s3DestinationExportFileFormatOptions,
+          context
+        ),
+      }),
   };
 };
 
@@ -2226,6 +2241,21 @@ const serializeAws_restJson1ResourcePermissionsList = (input: ResourcePermission
       }
       return serializeAws_restJson1ResourcePermission(entry, context);
     });
+};
+
+const serializeAws_restJson1S3DestinationFormatOptions = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_restJson1SchemaDefinition = (input: SchemaDefinition, context: __SerdeContext): any => {
@@ -2291,6 +2321,7 @@ const deserializeAws_restJson1ChangesetList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1ChangesetSummary = (output: any, context: __SerdeContext): ChangesetSummary => {
   return {
+    activeFromTimestamp: __expectLong(output.activeFromTimestamp),
     activeUntilTimestamp: __expectLong(output.activeUntilTimestamp),
     changeType: __expectString(output.changeType),
     changesetArn: __expectString(output.changesetArn),
@@ -2399,6 +2430,11 @@ const deserializeAws_restJson1DataViewDestinationTypeParams = (
 ): DataViewDestinationTypeParams => {
   return {
     destinationType: __expectString(output.destinationType),
+    s3DestinationExportFileFormat: __expectString(output.s3DestinationExportFileFormat),
+    s3DestinationExportFileFormatOptions:
+      output.s3DestinationExportFileFormatOptions !== undefined && output.s3DestinationExportFileFormatOptions !== null
+        ? deserializeAws_restJson1S3DestinationFormatOptions(output.s3DestinationExportFileFormatOptions, context)
+        : undefined,
   } as any;
 };
 
@@ -2470,6 +2506,21 @@ const deserializeAws_restJson1PartitionColumnList = (output: any, context: __Ser
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_restJson1S3DestinationFormatOptions = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1SchemaDefinition = (output: any, context: __SerdeContext): SchemaDefinition => {

@@ -25,6 +25,7 @@ export enum RelationshipType {
   ROUTE_OR_MODE = "ROUTE_OR_MODE",
   STRENGTH = "STRENGTH",
   SYSTEM_ORGAN_SITE = "SYSTEM_ORGAN_SITE",
+  TEST_UNIT = "TEST_UNIT",
   TEST_UNITS = "TEST_UNITS",
   TEST_VALUE = "TEST_VALUE",
   WITH_DOSAGE = "WITH_DOSAGE",
@@ -47,7 +48,7 @@ export interface Trait {
   Name?: AttributeName | string;
 
   /**
-   * <p> The level of confidence that Amazon Comprehend Medical has in the accuracy of this trait.</p>
+   * <p> The level of confidence that Comprehend Medical; has in the accuracy of this trait.</p>
    */
   Score?: number;
 }
@@ -71,12 +72,15 @@ export enum EntitySubType {
   DIRECTION = "DIRECTION",
   DOSAGE = "DOSAGE",
   DURATION = "DURATION",
+  DX_NAME = "DX_NAME",
   EMAIL = "EMAIL",
   FORM = "FORM",
   FREQUENCY = "FREQUENCY",
   GENERIC_NAME = "GENERIC_NAME",
+  ID = "ID",
   IDENTIFIER = "IDENTIFIER",
   NAME = "NAME",
+  PHONE_OR_FAX = "PHONE_OR_FAX",
   PROCEDURE_NAME = "PROCEDURE_NAME",
   PROFESSION = "PROFESSION",
   QUALITY = "QUALITY",
@@ -86,6 +90,7 @@ export enum EntitySubType {
   STRENGTH = "STRENGTH",
   SYSTEM_ORGAN_SITE = "SYSTEM_ORGAN_SITE",
   TEST_NAME = "TEST_NAME",
+  TEST_UNIT = "TEST_UNIT",
   TEST_UNITS = "TEST_UNITS",
   TEST_VALUE = "TEST_VALUE",
   TIME_EXPRESSION = "TIME_EXPRESSION",
@@ -111,13 +116,13 @@ export interface Attribute {
   Type?: EntitySubType | string;
 
   /**
-   * <p> The level of confidence that Amazon Comprehend Medical has that the segment of text is correctly recognized
+   * <p> The level of confidence that Comprehend Medical; has that the segment of text is correctly recognized
    *       as an attribute. </p>
    */
   Score?: number;
 
   /**
-   * <p> The level of confidence that Amazon Comprehend Medical has that this attribute is correctly related to this
+   * <p> The level of confidence that Comprehend Medical; has that this attribute is correctly related to this
    *       entity. </p>
    */
   RelationshipScore?: number;
@@ -172,9 +177,32 @@ export namespace Attribute {
   });
 }
 
+/**
+ * <p>
+ *       The number of characters in the input text to be analyzed.
+ *     </p>
+ */
+export interface Characters {
+  /**
+   * <p>
+   *       The number of characters present in the input text document as processed by Comprehend Medical.
+   *     </p>
+   */
+  OriginalTextCharacters?: number;
+}
+
+export namespace Characters {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Characters): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeEntitiesDetectionV2JobRequest {
   /**
-   * <p>The identifier that Amazon Comprehend Medical generated for the job. The
+   * <p>The identifier that Comprehend Medical; generated for the job. The
    *         <code>StartEntitiesDetectionV2Job</code> operation returns this identifier in its
    *       response.</p>
    */
@@ -245,7 +273,7 @@ export interface OutputDataConfig {
   S3Bucket: string | undefined;
 
   /**
-   * <p>The path to the output data files in the S3 bucket. Amazon Comprehend Medical creates an output directory
+   * <p>The path to the output data files in the S3 bucket. Comprehend Medical; creates an output directory
    *       using the job ID so that the output from one job does not overwrite the output of
    *       another.</p>
    */
@@ -320,7 +348,7 @@ export interface ComprehendMedicalAsyncJobProperties {
   LanguageCode?: LanguageCode | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that gives Amazon Comprehend Medical read access to your input data.</p>
+   * <p>The Amazon Resource Name (ARN) that gives Comprehend Medical; read access to your input data.</p>
    */
   DataAccessRoleArn?: string;
 
@@ -478,7 +506,7 @@ export namespace DescribeICD10CMInferenceJobResponse {
 
 export interface DescribePHIDetectionJobRequest {
   /**
-   * <p>The identifier that Amazon Comprehend Medical generated for the job. The <code>StartPHIDetectionJob</code>
+   * <p>The identifier that Comprehend Medical; generated for the job. The <code>StartPHIDetectionJob</code>
    *       operation returns this identifier in its response.</p>
    */
   JobId: string | undefined;
@@ -542,6 +570,40 @@ export namespace DescribeRxNormInferenceJobResponse {
   });
 }
 
+export interface DescribeSNOMEDCTInferenceJobRequest {
+  /**
+   * <p>
+   *       The identifier that Amazon Comprehend Medical generated for the job. The StartSNOMEDCTInferenceJob operation returns this identifier in its response.
+   *     </p>
+   */
+  JobId: string | undefined;
+}
+
+export namespace DescribeSNOMEDCTInferenceJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeSNOMEDCTInferenceJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeSNOMEDCTInferenceJobResponse {
+  /**
+   * <p>Provides information about a detection job.</p>
+   */
+  ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties;
+}
+
+export namespace DescribeSNOMEDCTInferenceJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeSNOMEDCTInferenceJobResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DetectEntitiesRequest {
   /**
    * <p> A UTF-8 text string containing the clinical content being examined for entities. Each
@@ -582,7 +644,7 @@ export interface Entity {
   EndOffset?: number;
 
   /**
-   * <p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the detection.</p>
+   * <p>The level of confidence that Comprehend Medical; has in the accuracy of the detection.</p>
    */
   Score?: number;
 
@@ -622,11 +684,11 @@ export namespace Entity {
 }
 
 /**
- * <p> An attribute that we extracted, but were unable to relate to an entity. </p>
+ * <p> An attribute that was extracted, but Comprehend Medical; was unable to relate to an entity. </p>
  */
 export interface UnmappedAttribute {
   /**
-   * <p> The type of the attribute, could be one of the following values: "MEDICATION",
+   * <p> The type of the unmapped attribute, could be one of the following values: "MEDICATION",
    *       "MEDICAL_CONDITION", "ANATOMY", "TEST_AND_TREATMENT_PROCEDURE" or
    *       "PROTECTED_HEALTH_INFORMATION". </p>
    */
@@ -651,7 +713,7 @@ export interface DetectEntitiesResponse {
   /**
    * <p> The collection of medical entities extracted from the input text and their associated
    *       information. For each entity, the response provides the entity text, the entity category,
-   *       where the entity text begins and ends, and the level of confidence that Amazon Comprehend Medical has in the
+   *       where the entity text begins and ends, and the level of confidence that Comprehend Medical; has in the
    *       detection and analysis. Attributes and traits of the entity are also returned.</p>
    */
   Entities: Entity[] | undefined;
@@ -705,7 +767,7 @@ export namespace InvalidEncodingException {
 }
 
 /**
- * <p> The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request.
+ * <p> The Comprehend Medical; service is temporarily unavailable. Please wait and then retry your request.
  *     </p>
  */
 export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
@@ -817,7 +879,7 @@ export interface DetectPHIResponse {
   /**
    * <p> The collection of PHI entities extracted from the input text and their associated
    *       information. For each entity, the response provides the entity text, the entity category,
-   *       where the entity text begins and ends, and the level of confidence that Amazon Comprehend Medical has in its
+   *       where the entity text begins and ends, and the level of confidence that Comprehend Medical; has in its
    *       detection. </p>
    */
   Entities: Entity[] | undefined;
@@ -891,7 +953,7 @@ export interface ICD10CMTrait {
   Name?: ICD10CMTraitName | string;
 
   /**
-   * <p>The level of confidence that Amazon Comprehend Medical has that the segment of text is correctly recognized
+   * <p>The level of confidence that Comprehend Medical; has that the segment of text is correctly recognized
    *       as a trait.</p>
    */
   Score?: number;
@@ -1410,6 +1472,391 @@ export namespace InferRxNormResponse {
   });
 }
 
+export interface InferSNOMEDCTRequest {
+  /**
+   * <p>
+   *       The input text to be analyzed using InferSNOMEDCT. The text should be a string with 1 to 10000 characters.
+   *     </p>
+   */
+  Text: string | undefined;
+}
+
+export namespace InferSNOMEDCTRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InferSNOMEDCTRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum SNOMEDCTEntityCategory {
+  ANATOMY = "ANATOMY",
+  MEDICAL_CONDITION = "MEDICAL_CONDITION",
+  TEST_TREATMENT_PROCEDURE = "TEST_TREATMENT_PROCEDURE",
+}
+
+export enum SNOMEDCTRelationshipType {
+  ACUITY = "ACUITY",
+  DIRECTION = "DIRECTION",
+  QUALITY = "QUALITY",
+  SYSTEM_ORGAN_SITE = "SYSTEM_ORGAN_SITE",
+  TEST_UNITS = "TEST_UNITS",
+  TEST_VALUE = "TEST_VALUE",
+}
+
+/**
+ * <p>
+ *       The SNOMED-CT concepts that the entity could refer to, along with a score indicating the likelihood of the match.
+ *     </p>
+ */
+export interface SNOMEDCTConcept {
+  /**
+   * <p>
+   *       The description of the SNOMED-CT concept.
+   *     </p>
+   */
+  Description?: string;
+
+  /**
+   * <p>
+   *       The numeric ID for the SNOMED-CT concept.
+   *     </p>
+   */
+  Code?: string;
+
+  /**
+   * <p>
+   *       The level of confidence Comprehend Medical has that the entity should be linked to the identified SNOMED-CT concept.
+   *     </p>
+   */
+  Score?: number;
+}
+
+export namespace SNOMEDCTConcept {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SNOMEDCTConcept): any => ({
+    ...obj,
+  });
+}
+
+export enum SNOMEDCTTraitName {
+  DIAGNOSIS = "DIAGNOSIS",
+  NEGATION = "NEGATION",
+  SIGN = "SIGN",
+  SYMPTOM = "SYMPTOM",
+}
+
+/**
+ * <p>
+ *       Contextual information for an entity.
+ *     </p>
+ */
+export interface SNOMEDCTTrait {
+  /**
+   * <p>
+   *       The name or contextual description of a detected trait.
+   *     </p>
+   */
+  Name?: SNOMEDCTTraitName | string;
+
+  /**
+   * <p>
+   *       The level of confidence that Comprehend Medical has in the accuracy of a detected trait.
+   *     </p>
+   */
+  Score?: number;
+}
+
+export namespace SNOMEDCTTrait {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SNOMEDCTTrait): any => ({
+    ...obj,
+  });
+}
+
+export enum SNOMEDCTAttributeType {
+  ACUITY = "ACUITY",
+  DIRECTION = "DIRECTION",
+  QUALITY = "QUALITY",
+  SYSTEM_ORGAN_SITE = "SYSTEM_ORGAN_SITE",
+  TEST_UNIT = "TEST_UNIT",
+  TEST_VALUE = "TEST_VALUE",
+}
+
+/**
+ * <p>
+ *       The extracted attributes that relate to an entity. An extracted segment of the text that is an attribute of an entity, or otherwise related to an entity, such as the dosage of a medication taken.
+ *     </p>
+ */
+export interface SNOMEDCTAttribute {
+  /**
+   * <p>
+   *       The category of the detected attribute. Possible categories include MEDICAL_CONDITION, ANATOMY, and TEST_TREATMENT_PROCEDURE.
+   *     </p>
+   */
+  Category?: SNOMEDCTEntityCategory | string;
+
+  /**
+   * <p>
+   *       The type of attribute. Possible types include DX_NAME, ACUITY, DIRECTION, SYSTEM_ORGAN_SITE,TEST_NAME, TEST_VALUE, TEST_UNIT, PROCEDURE_NAME, and TREATMENT_NAME.
+   *     </p>
+   */
+  Type?: SNOMEDCTAttributeType | string;
+
+  /**
+   * <p>
+   *       The level of confidence that Comprehend Medical has that the segment of text is correctly recognized as an attribute.
+   *     </p>
+   */
+  Score?: number;
+
+  /**
+   * <p>
+   *       The level of confidence that Comprehend Medical has that this attribute is correctly related to this entity.
+   *     </p>
+   */
+  RelationshipScore?: number;
+
+  /**
+   * <p>
+   *       The type of relationship that exists between the entity and the related attribute.
+   *     </p>
+   */
+  RelationshipType?: SNOMEDCTRelationshipType | string;
+
+  /**
+   * <p>
+   *       The numeric identifier for this attribute. This is a monotonically increasing id unique within this response rather than a global unique identifier.
+   *     </p>
+   */
+  Id?: number;
+
+  /**
+   * <p>
+   *       The 0-based character offset in the input text that shows where the attribute begins. The offset returns the UTF-8 code point in the string.
+   *     </p>
+   */
+  BeginOffset?: number;
+
+  /**
+   * <p>
+   *       The 0-based character offset in the input text that shows where the attribute ends. The offset returns the UTF-8 code point in the string.
+   *     </p>
+   */
+  EndOffset?: number;
+
+  /**
+   * <p>
+   *       The segment of input text extracted as this attribute.
+   *     </p>
+   */
+  Text?: string;
+
+  /**
+   * <p>
+   *       Contextual information for an attribute. Examples include signs, symptoms, diagnosis, and negation.
+   *     </p>
+   */
+  Traits?: SNOMEDCTTrait[];
+
+  /**
+   * <p>
+   *       The SNOMED-CT concepts specific to an attribute, along with a score indicating the likelihood of the match.
+   *     </p>
+   */
+  SNOMEDCTConcepts?: SNOMEDCTConcept[];
+}
+
+export namespace SNOMEDCTAttribute {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SNOMEDCTAttribute): any => ({
+    ...obj,
+  });
+}
+
+export enum SNOMEDCTEntityType {
+  DX_NAME = "DX_NAME",
+  PROCEDURE_NAME = "PROCEDURE_NAME",
+  TEST_NAME = "TEST_NAME",
+  TREATMENT_NAME = "TREATMENT_NAME",
+}
+
+/**
+ * <p>
+ *       The collection of medical entities extracted from the input text and their associated information. For each entity, the response provides the entity text, the entity category, where the entity text begins and ends, and the level of confidence that Comprehend Medical has in the detection and analysis. Attributes and traits of the entity are also returned.
+ *     </p>
+ */
+export interface SNOMEDCTEntity {
+  /**
+   * <p>
+   *       The numeric identifier for the entity. This is a monotonically increasing id unique within this response rather than a global unique identifier.
+   *     </p>
+   */
+  Id?: number;
+
+  /**
+   * <p>
+   *       The segment of input text extracted as this entity.
+   *     </p>
+   */
+  Text?: string;
+
+  /**
+   * <p>
+   *       The category of the detected entity. Possible categories are MEDICAL_CONDITION, ANATOMY, or TEST_TREATMENT_PROCEDURE.
+   *     </p>
+   */
+  Category?: SNOMEDCTEntityCategory | string;
+
+  /**
+   * <p>
+   *       Describes the specific type of entity with category of entities. Possible types include DX_NAME, ACUITY, DIRECTION, SYSTEM_ORGAN_SITE, TEST_NAME, TEST_VALUE, TEST_UNIT, PROCEDURE_NAME, or TREATMENT_NAME.
+   *     </p>
+   */
+  Type?: SNOMEDCTEntityType | string;
+
+  /**
+   * <p>
+   *       The level of confidence that Comprehend Medical has in the accuracy of the detected entity.
+   *     </p>
+   */
+  Score?: number;
+
+  /**
+   * <p>
+   *       The 0-based character offset in the input text that shows where the entity begins. The offset returns the UTF-8 code point in the string.
+   *     </p>
+   */
+  BeginOffset?: number;
+
+  /**
+   * <p>
+   *       The 0-based character offset in the input text that shows where the entity ends. The offset returns the UTF-8 code point in the string.
+   *     </p>
+   */
+  EndOffset?: number;
+
+  /**
+   * <p>
+   *       An extracted segment of the text that is an attribute of an entity, or otherwise related to an entity, such as the dosage of a medication taken.
+   *     </p>
+   */
+  Attributes?: SNOMEDCTAttribute[];
+
+  /**
+   * <p>
+   *       Contextual information for the entity.
+   *     </p>
+   */
+  Traits?: SNOMEDCTTrait[];
+
+  /**
+   * <p>
+   *       The SNOMED concepts that the entity could refer to, along with a score indicating the likelihood of the match.
+   *     </p>
+   */
+  SNOMEDCTConcepts?: SNOMEDCTConcept[];
+}
+
+export namespace SNOMEDCTEntity {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SNOMEDCTEntity): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *       The information about the revision of the SNOMED-CT ontology in the response. Specifically, the details include the SNOMED-CT edition, language, and version date.
+ *     </p>
+ */
+export interface SNOMEDCTDetails {
+  /**
+   * <p>
+   *       The edition of SNOMED-CT used. The edition used for the InferSNOMEDCT editions is the US edition.
+   *     </p>
+   */
+  Edition?: string;
+
+  /**
+   * <p>
+   *       The language used in the SNOMED-CT ontology. All Amazon Comprehend Medical operations are US English (en).
+   *     </p>
+   */
+  Language?: string;
+
+  /**
+   * <p>
+   *       The version date of the SNOMED-CT ontology used.
+   *     </p>
+   */
+  VersionDate?: string;
+}
+
+export namespace SNOMEDCTDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SNOMEDCTDetails): any => ({
+    ...obj,
+  });
+}
+
+export interface InferSNOMEDCTResponse {
+  /**
+   * <p>
+   *       The collection of medical concept entities extracted from the input text and their associated information. For each entity, the response provides the entity text, the entity category, where the entity text begins and ends, and the level of confidence that Comprehend Medical has in the detection and analysis. Attributes and traits of the entity are also returned.
+   *     </p>
+   */
+  Entities: SNOMEDCTEntity[] | undefined;
+
+  /**
+   * <p>
+   *       If the result of the request is truncated, the pagination token can be used to fetch the next page of entities.
+   *     </p>
+   */
+  PaginationToken?: string;
+
+  /**
+   * <p>
+   *       The version of the model used to analyze the documents, in the format n.n.n You can use this information to track the model used for a particular batch of documents.
+   *     </p>
+   */
+  ModelVersion?: string;
+
+  /**
+   * <p>
+   *       The details of the SNOMED-CT revision, including the edition, language, and version date.
+   *     </p>
+   */
+  SNOMEDCTDetails?: SNOMEDCTDetails;
+
+  /**
+   * <p>
+   *       The number of characters in the input request documentation.
+   *     </p>
+   */
+  Characters?: Characters;
+}
+
+export namespace InferSNOMEDCTResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InferSNOMEDCTResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Provides information for filtering a list of detection jobs.</p>
  */
@@ -1660,20 +2107,75 @@ export namespace ListRxNormInferenceJobsResponse {
   });
 }
 
+export interface ListSNOMEDCTInferenceJobsRequest {
+  /**
+   * <p>Provides information for filtering a list of detection jobs.</p>
+   */
+  Filter?: ComprehendMedicalAsyncJobFilter;
+
+  /**
+   * <p>
+   *       Identifies the next page of InferSNOMEDCT results to return.
+   *     </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>
+   *       The maximum number of results to return in each page. The default is 100.
+   *     </p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListSNOMEDCTInferenceJobsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSNOMEDCTInferenceJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSNOMEDCTInferenceJobsResponse {
+  /**
+   * <p>
+   *       A list containing the properties of each job that is returned.
+   *     </p>
+   */
+  ComprehendMedicalAsyncJobPropertiesList?: ComprehendMedicalAsyncJobProperties[];
+
+  /**
+   * <p>
+   *       Identifies the next page of results to return.
+   *     </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSNOMEDCTInferenceJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSNOMEDCTInferenceJobsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface StartEntitiesDetectionV2JobRequest {
   /**
-   * <p>Specifies the format and location of the input data for the job.</p>
+   * <p>The input configuration that specifies the format and location of the input data for the job.</p>
    */
   InputDataConfig: InputDataConfig | undefined;
 
   /**
-   * <p>Specifies where to send the output files.</p>
+   * <p>The output configuration that specifies where to send the output files.</p>
    */
   OutputDataConfig: OutputDataConfig | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
-   *       grants Amazon Comprehend Medical read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med"> Role-Based Permissions Required for Asynchronous Operations</a>.</p>
+   *       grants Comprehend Medical; read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med"> Role-Based Permissions Required for Asynchronous Operations</a>.</p>
    */
   DataAccessRoleArn: string | undefined;
 
@@ -1683,8 +2185,8 @@ export interface StartEntitiesDetectionV2JobRequest {
   JobName?: string;
 
   /**
-   * <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical
-   *       generates one.</p>
+   * <p>A unique identifier for the request. If you don't set the client request token, Comprehend Medical;
+   *       generates one for you.</p>
    */
   ClientRequestToken?: string;
 
@@ -1695,7 +2197,7 @@ export interface StartEntitiesDetectionV2JobRequest {
   KMSKey?: string;
 
   /**
-   * <p>The language of the input documents. All documents must be in the same language.</p>
+   * <p>The language of the input documents. All documents must be in the same language. Comprehend Medical; processes files in US English (en).</p>
    */
   LanguageCode: LanguageCode | string | undefined;
 }
@@ -1739,7 +2241,7 @@ export interface StartICD10CMInferenceJobRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
-   *       grants Amazon Comprehend Medical read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med"> Role-Based Permissions Required for Asynchronous Operations</a>.</p>
+   *       grants Comprehend Medical; read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med"> Role-Based Permissions Required for Asynchronous Operations</a>.</p>
    */
   DataAccessRoleArn: string | undefined;
 
@@ -1749,7 +2251,7 @@ export interface StartICD10CMInferenceJobRequest {
   JobName?: string;
 
   /**
-   * <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical
+   * <p>A unique identifier for the request. If you don't set the client request token, Comprehend Medical;
    *       generates one.</p>
    */
   ClientRequestToken?: string;
@@ -1805,7 +2307,7 @@ export interface StartPHIDetectionJobRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
-   *       grants Amazon Comprehend Medical read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med"> Role-Based Permissions Required for Asynchronous Operations</a>.</p>
+   *       grants Comprehend Medical; read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med"> Role-Based Permissions Required for Asynchronous Operations</a>.</p>
    */
   DataAccessRoleArn: string | undefined;
 
@@ -1815,7 +2317,7 @@ export interface StartPHIDetectionJobRequest {
   JobName?: string;
 
   /**
-   * <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical
+   * <p>A unique identifier for the request. If you don't set the client request token, Comprehend Medical;
    *       generates one.</p>
    */
   ClientRequestToken?: string;
@@ -1871,7 +2373,7 @@ export interface StartRxNormInferenceJobRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
-   *       grants Amazon Comprehend Medical read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med"> Role-Based Permissions Required for Asynchronous Operations</a>.</p>
+   *       grants Comprehend Medical; read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med"> Role-Based Permissions Required for Asynchronous Operations</a>.</p>
    */
   DataAccessRoleArn: string | undefined;
 
@@ -1881,7 +2383,7 @@ export interface StartRxNormInferenceJobRequest {
   JobName?: string;
 
   /**
-   * <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical
+   * <p>A unique identifier for the request. If you don't set the client request token, Comprehend Medical;
    *       generates one.</p>
    */
   ClientRequestToken?: string;
@@ -1919,6 +2421,81 @@ export namespace StartRxNormInferenceJobResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: StartRxNormInferenceJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StartSNOMEDCTInferenceJobRequest {
+  /**
+   * <p>The input properties for an entities detection job. This includes the name of the S3
+   *       bucket and the path to the files to be analyzed. </p>
+   */
+  InputDataConfig: InputDataConfig | undefined;
+
+  /**
+   * <p>The output properties for a detection job.</p>
+   */
+  OutputDataConfig: OutputDataConfig | undefined;
+
+  /**
+   * <p>
+   *       The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend Medical read access to your input data.
+   *     </p>
+   */
+  DataAccessRoleArn: string | undefined;
+
+  /**
+   * <p>
+   *       The user generated name the asynchronous InferSNOMEDCT job.
+   *     </p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>
+   *       A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical generates one.
+   *     </p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>
+   *       An AWS Key Management Service key used to encrypt your output files. If you do not specify a key, the files are written in plain text.
+   *     </p>
+   */
+  KMSKey?: string;
+
+  /**
+   * <p>
+   *       The language of the input documents. All documents must be in the same language.
+   *     </p>
+   */
+  LanguageCode: LanguageCode | string | undefined;
+}
+
+export namespace StartSNOMEDCTInferenceJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartSNOMEDCTInferenceJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartSNOMEDCTInferenceJobResponse {
+  /**
+   * <p>
+   *       The identifier generated for the job. To get the status of a job, use this identifier with the StartSNOMEDCTInferenceJob operation.
+   *     </p>
+   */
+  JobId?: string;
+}
+
+export namespace StartSNOMEDCTInferenceJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartSNOMEDCTInferenceJobResponse): any => ({
     ...obj,
   });
 }
@@ -2049,6 +2626,42 @@ export namespace StopRxNormInferenceJobResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: StopRxNormInferenceJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StopSNOMEDCTInferenceJobRequest {
+  /**
+   * <p>
+   *       The job id of the asynchronous InferSNOMEDCT job to be stopped.
+   *     </p>
+   */
+  JobId: string | undefined;
+}
+
+export namespace StopSNOMEDCTInferenceJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopSNOMEDCTInferenceJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopSNOMEDCTInferenceJobResponse {
+  /**
+   * <p>
+   *       The identifier generated for the job. To get the status of job, use this identifier with the DescribeSNOMEDCTInferenceJob operation.
+   *     </p>
+   */
+  JobId?: string;
+}
+
+export namespace StopSNOMEDCTInferenceJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopSNOMEDCTInferenceJobResponse): any => ({
     ...obj,
   });
 }

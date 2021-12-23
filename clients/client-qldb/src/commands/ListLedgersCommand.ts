@@ -22,7 +22,7 @@ export interface ListLedgersCommandInput extends ListLedgersRequest {}
 export interface ListLedgersCommandOutput extends ListLedgersResponse, __MetadataBearer {}
 
 /**
- * <p>Returns an array of ledger summaries that are associated with the current account
+ * <p>Returns an array of ledger summaries that are associated with the current Amazon Web Services account
  *          and Region.</p>
  *          <p>This action returns a maximum of 100 items and is paginated so that you can
  *          retrieve all the items by calling <code>ListLedgers</code> multiple times.</p>

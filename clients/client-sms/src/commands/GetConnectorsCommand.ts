@@ -22,7 +22,7 @@ export interface GetConnectorsCommandInput extends GetConnectorsRequest {}
 export interface GetConnectorsCommandOutput extends GetConnectorsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the connectors registered with the AWS SMS.</p>
+ * <p>Describes the connectors registered with the Server Migration Service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

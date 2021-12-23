@@ -185,11 +185,18 @@ import {
   AwsApiGatewayV2ApiDetails,
   AwsApiGatewayV2RouteSettings,
   AwsApiGatewayV2StageDetails,
+  AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails,
   AwsAutoScalingAutoScalingGroupDetails,
+  AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails,
+  AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails,
+  AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails,
+  AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification,
+  AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails,
   AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails,
   AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails,
   AwsAutoScalingLaunchConfigurationDetails,
   AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails,
+  AwsAutoScalingLaunchConfigurationMetadataOptions,
   AwsCertificateManagerCertificateDetails,
   AwsCertificateManagerCertificateDomainValidationOption,
   AwsCertificateManagerCertificateExtendedKeyUsage,
@@ -377,6 +384,10 @@ import {
   AwsLambdaFunctionTracingConfig,
   AwsLambdaFunctionVpcConfig,
   AwsLambdaLayerVersionDetails,
+  AwsNetworkFirewallFirewallDetails,
+  AwsNetworkFirewallFirewallPolicyDetails,
+  AwsNetworkFirewallFirewallSubnetMappingsDetails,
+  AwsNetworkFirewallRuleGroupDetails,
   AwsOpenSearchServiceDomainClusterConfigDetails,
   AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails,
   AwsOpenSearchServiceDomainDetails,
@@ -394,20 +405,67 @@ import {
   AwsRdsDbClusterSnapshotDetails,
   AwsRdsDbDomainMembership,
   AwsRdsDbInstanceAssociatedRole,
-  AwsRdsDbInstanceDetails,
   AwsRdsDbInstanceEndpoint,
   AwsRdsDbInstanceVpcSecurityGroup,
   AwsRdsDbOptionGroupMembership,
   AwsRdsDbParameterGroup,
+  AwsRdsDbSubnetGroup,
+  AwsRdsDbSubnetGroupSubnet,
+  AwsRdsDbSubnetGroupSubnetAvailabilityZone,
+  AwsRdsPendingCloudWatchLogsExports,
+  CidrBlockAssociation,
+  City,
+  Country,
+  DnsRequestAction,
+  FirewallPolicyDetails,
+  FirewallPolicyStatefulRuleGroupReferencesDetails,
+  FirewallPolicyStatelessCustomActionsDetails,
+  FirewallPolicyStatelessRuleGroupReferencesDetails,
+  GeoLocation,
+  IcmpTypeCode,
+  InternalException,
+  InvalidAccessException,
+  InvalidInputException,
+  IpOrganizationDetails,
+  Ipv6CidrBlockAssociation,
+  LimitExceededException,
+  LoadBalancerState,
+  NetworkConnectionAction,
+  PortProbeAction,
+  PortProbeDetail,
+  PortRangeFromTo,
+  ResourceNotFoundException,
+  RuleGroupDetails,
+  RuleGroupSource,
+  RuleGroupSourceCustomActionsDetails,
+  RuleGroupSourceListDetails,
+  RuleGroupSourceStatefulRulesDetails,
+  RuleGroupSourceStatefulRulesHeaderDetails,
+  RuleGroupSourceStatefulRulesOptionsDetails,
+  RuleGroupSourceStatelessRuleDefinition,
+  RuleGroupSourceStatelessRuleMatchAttributes,
+  RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts,
+  RuleGroupSourceStatelessRuleMatchAttributesDestinations,
+  RuleGroupSourceStatelessRuleMatchAttributesSourcePorts,
+  RuleGroupSourceStatelessRuleMatchAttributesSources,
+  RuleGroupSourceStatelessRuleMatchAttributesTcpFlags,
+  RuleGroupSourceStatelessRulesAndCustomActionsDetails,
+  RuleGroupSourceStatelessRulesDetails,
+  RuleGroupVariables,
+  RuleGroupVariablesIpSetsDetails,
+  RuleGroupVariablesPortSetsDetails,
+  StatelessCustomActionDefinition,
+  StatelessCustomPublishMetricAction,
+  StatelessCustomPublishMetricActionDimension,
+} from "../models/models_0";
+import {
+  _Record,
+  AwsRdsDbInstanceDetails,
   AwsRdsDbPendingModifiedValues,
   AwsRdsDbProcessorFeature,
   AwsRdsDbSnapshotDetails,
   AwsRdsDbStatusInfo,
-  AwsRdsDbSubnetGroup,
-  AwsRdsDbSubnetGroupSubnet,
-  AwsRdsDbSubnetGroupSubnetAvailabilityZone,
   AwsRdsEventSubscriptionDetails,
-  AwsRdsPendingCloudWatchLogsExports,
   AwsRedshiftClusterClusterNode,
   AwsRedshiftClusterClusterParameterGroup,
   AwsRedshiftClusterClusterParameterStatus,
@@ -434,34 +492,14 @@ import {
   AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails,
   AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails,
   AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails,
+  AwsS3BucketBucketVersioningConfiguration,
+  AwsS3BucketDetails,
   AwsS3BucketLoggingConfiguration,
+  AwsS3BucketNotificationConfiguration,
+  AwsS3BucketNotificationConfigurationDetail,
   AwsS3BucketNotificationConfigurationFilter,
   AwsS3BucketNotificationConfigurationS3KeyFilter,
   AwsS3BucketNotificationConfigurationS3KeyFilterRule,
-  CidrBlockAssociation,
-  City,
-  Country,
-  DnsRequestAction,
-  GeoLocation,
-  IcmpTypeCode,
-  InternalException,
-  InvalidAccessException,
-  InvalidInputException,
-  IpOrganizationDetails,
-  Ipv6CidrBlockAssociation,
-  LimitExceededException,
-  LoadBalancerState,
-  NetworkConnectionAction,
-  PortProbeAction,
-  PortProbeDetail,
-  PortRangeFromTo,
-  ResourceNotFoundException,
-} from "../models/models_0";
-import {
-  _Record,
-  AwsS3BucketDetails,
-  AwsS3BucketNotificationConfiguration,
-  AwsS3BucketNotificationConfigurationDetail,
   AwsS3BucketServerSideEncryptionByDefault,
   AwsS3BucketServerSideEncryptionConfiguration,
   AwsS3BucketServerSideEncryptionRule,
@@ -544,6 +582,7 @@ import {
   SortCriterion,
   Standard,
   StandardsControl,
+  StandardsStatusReason,
   StandardsSubscription,
   StandardsSubscriptionRequest,
   StatusReason,
@@ -7388,11 +7427,41 @@ const serializeAws_restJson1AwsApiGatewayV2StageDetails = (
   };
 };
 
+const serializeAws_restJson1AwsAutoScalingAutoScalingGroupAvailabilityZonesList = (
+  input: AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails(entry, context);
+    });
+};
+
+const serializeAws_restJson1AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails = (
+  input: AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
 const serializeAws_restJson1AwsAutoScalingAutoScalingGroupDetails = (
   input: AwsAutoScalingAutoScalingGroupDetails,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AvailabilityZones !== undefined &&
+      input.AvailabilityZones !== null && {
+        AvailabilityZones: serializeAws_restJson1AwsAutoScalingAutoScalingGroupAvailabilityZonesList(
+          input.AvailabilityZones,
+          context
+        ),
+      }),
     ...(input.CreatedTime !== undefined && input.CreatedTime !== null && { CreatedTime: input.CreatedTime }),
     ...(input.HealthCheckGracePeriod !== undefined &&
       input.HealthCheckGracePeriod !== null && { HealthCheckGracePeriod: input.HealthCheckGracePeriod }),
@@ -7404,6 +7473,122 @@ const serializeAws_restJson1AwsAutoScalingAutoScalingGroupDetails = (
       input.LoadBalancerNames !== null && {
         LoadBalancerNames: serializeAws_restJson1StringList(input.LoadBalancerNames, context),
       }),
+    ...(input.MixedInstancesPolicy !== undefined &&
+      input.MixedInstancesPolicy !== null && {
+        MixedInstancesPolicy: serializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails(
+          input.MixedInstancesPolicy,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails = (
+  input: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InstancesDistribution !== undefined &&
+      input.InstancesDistribution !== null && {
+        InstancesDistribution:
+          serializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails(
+            input.InstancesDistribution,
+            context
+          ),
+      }),
+    ...(input.LaunchTemplate !== undefined &&
+      input.LaunchTemplate !== null && {
+        LaunchTemplate: serializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails(
+          input.LaunchTemplate,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails = (
+  input: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.OnDemandAllocationStrategy !== undefined &&
+      input.OnDemandAllocationStrategy !== null && { OnDemandAllocationStrategy: input.OnDemandAllocationStrategy }),
+    ...(input.OnDemandBaseCapacity !== undefined &&
+      input.OnDemandBaseCapacity !== null && { OnDemandBaseCapacity: input.OnDemandBaseCapacity }),
+    ...(input.OnDemandPercentageAboveBaseCapacity !== undefined &&
+      input.OnDemandPercentageAboveBaseCapacity !== null && {
+        OnDemandPercentageAboveBaseCapacity: input.OnDemandPercentageAboveBaseCapacity,
+      }),
+    ...(input.SpotAllocationStrategy !== undefined &&
+      input.SpotAllocationStrategy !== null && { SpotAllocationStrategy: input.SpotAllocationStrategy }),
+    ...(input.SpotInstancePools !== undefined &&
+      input.SpotInstancePools !== null && { SpotInstancePools: input.SpotInstancePools }),
+    ...(input.SpotMaxPrice !== undefined && input.SpotMaxPrice !== null && { SpotMaxPrice: input.SpotMaxPrice }),
+  };
+};
+
+const serializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails = (
+  input: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LaunchTemplateSpecification !== undefined &&
+      input.LaunchTemplateSpecification !== null && {
+        LaunchTemplateSpecification:
+          serializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification(
+            input.LaunchTemplateSpecification,
+            context
+          ),
+      }),
+    ...(input.Overrides !== undefined &&
+      input.Overrides !== null && {
+        Overrides: serializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList(
+          input.Overrides,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification =
+  (
+    input: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification,
+    context: __SerdeContext
+  ): any => {
+    return {
+      ...(input.LaunchTemplateId !== undefined &&
+        input.LaunchTemplateId !== null && { LaunchTemplateId: input.LaunchTemplateId }),
+      ...(input.LaunchTemplateName !== undefined &&
+        input.LaunchTemplateName !== null && { LaunchTemplateName: input.LaunchTemplateName }),
+      ...(input.Version !== undefined && input.Version !== null && { Version: input.Version }),
+    };
+  };
+
+const serializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList = (
+  input: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails(
+        entry,
+        context
+      );
+    });
+};
+
+const serializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails = (
+  input: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InstanceType !== undefined && input.InstanceType !== null && { InstanceType: input.InstanceType }),
+    ...(input.WeightedCapacity !== undefined &&
+      input.WeightedCapacity !== null && { WeightedCapacity: input.WeightedCapacity }),
   };
 };
 
@@ -7491,6 +7676,13 @@ const serializeAws_restJson1AwsAutoScalingLaunchConfigurationDetails = (
     ...(input.KeyName !== undefined && input.KeyName !== null && { KeyName: input.KeyName }),
     ...(input.LaunchConfigurationName !== undefined &&
       input.LaunchConfigurationName !== null && { LaunchConfigurationName: input.LaunchConfigurationName }),
+    ...(input.MetadataOptions !== undefined &&
+      input.MetadataOptions !== null && {
+        MetadataOptions: serializeAws_restJson1AwsAutoScalingLaunchConfigurationMetadataOptions(
+          input.MetadataOptions,
+          context
+        ),
+      }),
     ...(input.PlacementTenancy !== undefined &&
       input.PlacementTenancy !== null && { PlacementTenancy: input.PlacementTenancy }),
     ...(input.RamdiskId !== undefined && input.RamdiskId !== null && { RamdiskId: input.RamdiskId }),
@@ -7509,6 +7701,18 @@ const serializeAws_restJson1AwsAutoScalingLaunchConfigurationInstanceMonitoringD
 ): any => {
   return {
     ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+  };
+};
+
+const serializeAws_restJson1AwsAutoScalingLaunchConfigurationMetadataOptions = (
+  input: AwsAutoScalingLaunchConfigurationMetadataOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.HttpEndpoint !== undefined && input.HttpEndpoint !== null && { HttpEndpoint: input.HttpEndpoint }),
+    ...(input.HttpPutResponseHopLimit !== undefined &&
+      input.HttpPutResponseHopLimit !== null && { HttpPutResponseHopLimit: input.HttpPutResponseHopLimit }),
+    ...(input.HttpTokens !== undefined && input.HttpTokens !== null && { HttpTokens: input.HttpTokens }),
   };
 };
 
@@ -11910,6 +12114,94 @@ const serializeAws_restJson1AwsLambdaLayerVersionDetails = (
   };
 };
 
+const serializeAws_restJson1AwsNetworkFirewallFirewallDetails = (
+  input: AwsNetworkFirewallFirewallDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeleteProtection !== undefined &&
+      input.DeleteProtection !== null && { DeleteProtection: input.DeleteProtection }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.FirewallArn !== undefined && input.FirewallArn !== null && { FirewallArn: input.FirewallArn }),
+    ...(input.FirewallId !== undefined && input.FirewallId !== null && { FirewallId: input.FirewallId }),
+    ...(input.FirewallName !== undefined && input.FirewallName !== null && { FirewallName: input.FirewallName }),
+    ...(input.FirewallPolicyArn !== undefined &&
+      input.FirewallPolicyArn !== null && { FirewallPolicyArn: input.FirewallPolicyArn }),
+    ...(input.FirewallPolicyChangeProtection !== undefined &&
+      input.FirewallPolicyChangeProtection !== null && {
+        FirewallPolicyChangeProtection: input.FirewallPolicyChangeProtection,
+      }),
+    ...(input.SubnetChangeProtection !== undefined &&
+      input.SubnetChangeProtection !== null && { SubnetChangeProtection: input.SubnetChangeProtection }),
+    ...(input.SubnetMappings !== undefined &&
+      input.SubnetMappings !== null && {
+        SubnetMappings: serializeAws_restJson1AwsNetworkFirewallFirewallSubnetMappingsList(
+          input.SubnetMappings,
+          context
+        ),
+      }),
+    ...(input.VpcId !== undefined && input.VpcId !== null && { VpcId: input.VpcId }),
+  };
+};
+
+const serializeAws_restJson1AwsNetworkFirewallFirewallPolicyDetails = (
+  input: AwsNetworkFirewallFirewallPolicyDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.FirewallPolicy !== undefined &&
+      input.FirewallPolicy !== null && {
+        FirewallPolicy: serializeAws_restJson1FirewallPolicyDetails(input.FirewallPolicy, context),
+      }),
+    ...(input.FirewallPolicyArn !== undefined &&
+      input.FirewallPolicyArn !== null && { FirewallPolicyArn: input.FirewallPolicyArn }),
+    ...(input.FirewallPolicyId !== undefined &&
+      input.FirewallPolicyId !== null && { FirewallPolicyId: input.FirewallPolicyId }),
+    ...(input.FirewallPolicyName !== undefined &&
+      input.FirewallPolicyName !== null && { FirewallPolicyName: input.FirewallPolicyName }),
+  };
+};
+
+const serializeAws_restJson1AwsNetworkFirewallFirewallSubnetMappingsDetails = (
+  input: AwsNetworkFirewallFirewallSubnetMappingsDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
+  };
+};
+
+const serializeAws_restJson1AwsNetworkFirewallFirewallSubnetMappingsList = (
+  input: AwsNetworkFirewallFirewallSubnetMappingsDetails[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AwsNetworkFirewallFirewallSubnetMappingsDetails(entry, context);
+    });
+};
+
+const serializeAws_restJson1AwsNetworkFirewallRuleGroupDetails = (
+  input: AwsNetworkFirewallRuleGroupDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Capacity !== undefined && input.Capacity !== null && { Capacity: input.Capacity }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.RuleGroup !== undefined &&
+      input.RuleGroup !== null && { RuleGroup: serializeAws_restJson1RuleGroupDetails(input.RuleGroup, context) }),
+    ...(input.RuleGroupArn !== undefined && input.RuleGroupArn !== null && { RuleGroupArn: input.RuleGroupArn }),
+    ...(input.RuleGroupId !== undefined && input.RuleGroupId !== null && { RuleGroupId: input.RuleGroupId }),
+    ...(input.RuleGroupName !== undefined && input.RuleGroupName !== null && { RuleGroupName: input.RuleGroupName }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+  };
+};
+
 const serializeAws_restJson1AwsOpenSearchServiceDomainClusterConfigDetails = (
   input: AwsOpenSearchServiceDomainClusterConfigDetails,
   context: __SerdeContext
@@ -13551,6 +13843,17 @@ const serializeAws_restJson1AwsS3BucketBucketLifecycleConfigurationRulesTransiti
     });
 };
 
+const serializeAws_restJson1AwsS3BucketBucketVersioningConfiguration = (
+  input: AwsS3BucketBucketVersioningConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IsMfaDeleteEnabled !== undefined &&
+      input.IsMfaDeleteEnabled !== null && { IsMfaDeleteEnabled: input.IsMfaDeleteEnabled }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+  };
+};
+
 const serializeAws_restJson1AwsS3BucketDetails = (input: AwsS3BucketDetails, context: __SerdeContext): any => {
   return {
     ...(input.AccessControlList !== undefined &&
@@ -13573,6 +13876,13 @@ const serializeAws_restJson1AwsS3BucketDetails = (input: AwsS3BucketDetails, con
       input.BucketNotificationConfiguration !== null && {
         BucketNotificationConfiguration: serializeAws_restJson1AwsS3BucketNotificationConfiguration(
           input.BucketNotificationConfiguration,
+          context
+        ),
+      }),
+    ...(input.BucketVersioningConfiguration !== undefined &&
+      input.BucketVersioningConfiguration !== null && {
+        BucketVersioningConfiguration: serializeAws_restJson1AwsS3BucketBucketVersioningConfiguration(
+          input.BucketVersioningConfiguration,
           context
         ),
       }),
@@ -14954,6 +15264,117 @@ const serializeAws_restJson1FindingProviderSeverity = (
   };
 };
 
+const serializeAws_restJson1FirewallPolicyDetails = (input: FirewallPolicyDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.StatefulRuleGroupReferences !== undefined &&
+      input.StatefulRuleGroupReferences !== null && {
+        StatefulRuleGroupReferences: serializeAws_restJson1FirewallPolicyStatefulRuleGroupReferencesList(
+          input.StatefulRuleGroupReferences,
+          context
+        ),
+      }),
+    ...(input.StatelessCustomActions !== undefined &&
+      input.StatelessCustomActions !== null && {
+        StatelessCustomActions: serializeAws_restJson1FirewallPolicyStatelessCustomActionsList(
+          input.StatelessCustomActions,
+          context
+        ),
+      }),
+    ...(input.StatelessDefaultActions !== undefined &&
+      input.StatelessDefaultActions !== null && {
+        StatelessDefaultActions: serializeAws_restJson1NonEmptyStringList(input.StatelessDefaultActions, context),
+      }),
+    ...(input.StatelessFragmentDefaultActions !== undefined &&
+      input.StatelessFragmentDefaultActions !== null && {
+        StatelessFragmentDefaultActions: serializeAws_restJson1NonEmptyStringList(
+          input.StatelessFragmentDefaultActions,
+          context
+        ),
+      }),
+    ...(input.StatelessRuleGroupReferences !== undefined &&
+      input.StatelessRuleGroupReferences !== null && {
+        StatelessRuleGroupReferences: serializeAws_restJson1FirewallPolicyStatelessRuleGroupReferencesList(
+          input.StatelessRuleGroupReferences,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_restJson1FirewallPolicyStatefulRuleGroupReferencesDetails = (
+  input: FirewallPolicyStatefulRuleGroupReferencesDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+  };
+};
+
+const serializeAws_restJson1FirewallPolicyStatefulRuleGroupReferencesList = (
+  input: FirewallPolicyStatefulRuleGroupReferencesDetails[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1FirewallPolicyStatefulRuleGroupReferencesDetails(entry, context);
+    });
+};
+
+const serializeAws_restJson1FirewallPolicyStatelessCustomActionsDetails = (
+  input: FirewallPolicyStatelessCustomActionsDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ActionDefinition !== undefined &&
+      input.ActionDefinition !== null && {
+        ActionDefinition: serializeAws_restJson1StatelessCustomActionDefinition(input.ActionDefinition, context),
+      }),
+    ...(input.ActionName !== undefined && input.ActionName !== null && { ActionName: input.ActionName }),
+  };
+};
+
+const serializeAws_restJson1FirewallPolicyStatelessCustomActionsList = (
+  input: FirewallPolicyStatelessCustomActionsDetails[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1FirewallPolicyStatelessCustomActionsDetails(entry, context);
+    });
+};
+
+const serializeAws_restJson1FirewallPolicyStatelessRuleGroupReferencesDetails = (
+  input: FirewallPolicyStatelessRuleGroupReferencesDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Priority !== undefined && input.Priority !== null && { Priority: input.Priority }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+  };
+};
+
+const serializeAws_restJson1FirewallPolicyStatelessRuleGroupReferencesList = (
+  input: FirewallPolicyStatelessRuleGroupReferencesDetails[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1FirewallPolicyStatelessRuleGroupReferencesDetails(entry, context);
+    });
+};
+
 const serializeAws_restJson1GeoLocation = (input: GeoLocation, context: __SerdeContext): any => {
   return {
     ...(input.Lat !== undefined && input.Lat !== null && { Lat: __serializeFloat(input.Lat) }),
@@ -15635,6 +16056,27 @@ const serializeAws_restJson1ResourceDetails = (input: ResourceDetails, context: 
       input.AwsLambdaLayerVersion !== null && {
         AwsLambdaLayerVersion: serializeAws_restJson1AwsLambdaLayerVersionDetails(input.AwsLambdaLayerVersion, context),
       }),
+    ...(input.AwsNetworkFirewallFirewall !== undefined &&
+      input.AwsNetworkFirewallFirewall !== null && {
+        AwsNetworkFirewallFirewall: serializeAws_restJson1AwsNetworkFirewallFirewallDetails(
+          input.AwsNetworkFirewallFirewall,
+          context
+        ),
+      }),
+    ...(input.AwsNetworkFirewallFirewallPolicy !== undefined &&
+      input.AwsNetworkFirewallFirewallPolicy !== null && {
+        AwsNetworkFirewallFirewallPolicy: serializeAws_restJson1AwsNetworkFirewallFirewallPolicyDetails(
+          input.AwsNetworkFirewallFirewallPolicy,
+          context
+        ),
+      }),
+    ...(input.AwsNetworkFirewallRuleGroup !== undefined &&
+      input.AwsNetworkFirewallRuleGroup !== null && {
+        AwsNetworkFirewallRuleGroup: serializeAws_restJson1AwsNetworkFirewallRuleGroupDetails(
+          input.AwsNetworkFirewallRuleGroup,
+          context
+        ),
+      }),
     ...(input.AwsOpenSearchServiceDomain !== undefined &&
       input.AwsOpenSearchServiceDomain !== null && {
         AwsOpenSearchServiceDomain: serializeAws_restJson1AwsOpenSearchServiceDomainDetails(
@@ -15744,6 +16186,444 @@ const serializeAws_restJson1ResourceList = (input: Resource[], context: __SerdeC
       }
       return serializeAws_restJson1Resource(entry, context);
     });
+};
+
+const serializeAws_restJson1RuleGroupDetails = (input: RuleGroupDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.RuleVariables !== undefined &&
+      input.RuleVariables !== null && {
+        RuleVariables: serializeAws_restJson1RuleGroupVariables(input.RuleVariables, context),
+      }),
+    ...(input.RulesSource !== undefined &&
+      input.RulesSource !== null && { RulesSource: serializeAws_restJson1RuleGroupSource(input.RulesSource, context) }),
+  };
+};
+
+const serializeAws_restJson1RuleGroupSource = (input: RuleGroupSource, context: __SerdeContext): any => {
+  return {
+    ...(input.RulesSourceList !== undefined &&
+      input.RulesSourceList !== null && {
+        RulesSourceList: serializeAws_restJson1RuleGroupSourceListDetails(input.RulesSourceList, context),
+      }),
+    ...(input.RulesString !== undefined && input.RulesString !== null && { RulesString: input.RulesString }),
+    ...(input.StatefulRules !== undefined &&
+      input.StatefulRules !== null && {
+        StatefulRules: serializeAws_restJson1RuleGroupSourceStatefulRulesList(input.StatefulRules, context),
+      }),
+    ...(input.StatelessRulesAndCustomActions !== undefined &&
+      input.StatelessRulesAndCustomActions !== null && {
+        StatelessRulesAndCustomActions: serializeAws_restJson1RuleGroupSourceStatelessRulesAndCustomActionsDetails(
+          input.StatelessRulesAndCustomActions,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_restJson1RuleGroupSourceCustomActionsDetails = (
+  input: RuleGroupSourceCustomActionsDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ActionDefinition !== undefined &&
+      input.ActionDefinition !== null && {
+        ActionDefinition: serializeAws_restJson1StatelessCustomActionDefinition(input.ActionDefinition, context),
+      }),
+    ...(input.ActionName !== undefined && input.ActionName !== null && { ActionName: input.ActionName }),
+  };
+};
+
+const serializeAws_restJson1RuleGroupSourceCustomActionsList = (
+  input: RuleGroupSourceCustomActionsDetails[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1RuleGroupSourceCustomActionsDetails(entry, context);
+    });
+};
+
+const serializeAws_restJson1RuleGroupSourceListDetails = (
+  input: RuleGroupSourceListDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GeneratedRulesType !== undefined &&
+      input.GeneratedRulesType !== null && { GeneratedRulesType: input.GeneratedRulesType }),
+    ...(input.TargetTypes !== undefined &&
+      input.TargetTypes !== null && {
+        TargetTypes: serializeAws_restJson1NonEmptyStringList(input.TargetTypes, context),
+      }),
+    ...(input.Targets !== undefined &&
+      input.Targets !== null && { Targets: serializeAws_restJson1NonEmptyStringList(input.Targets, context) }),
+  };
+};
+
+const serializeAws_restJson1RuleGroupSourceStatefulRulesDetails = (
+  input: RuleGroupSourceStatefulRulesDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Action !== undefined && input.Action !== null && { Action: input.Action }),
+    ...(input.Header !== undefined &&
+      input.Header !== null && {
+        Header: serializeAws_restJson1RuleGroupSourceStatefulRulesHeaderDetails(input.Header, context),
+      }),
+    ...(input.RuleOptions !== undefined &&
+      input.RuleOptions !== null && {
+        RuleOptions: serializeAws_restJson1RuleGroupSourceStatefulRulesOptionsList(input.RuleOptions, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1RuleGroupSourceStatefulRulesHeaderDetails = (
+  input: RuleGroupSourceStatefulRulesHeaderDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Destination !== undefined && input.Destination !== null && { Destination: input.Destination }),
+    ...(input.DestinationPort !== undefined &&
+      input.DestinationPort !== null && { DestinationPort: input.DestinationPort }),
+    ...(input.Direction !== undefined && input.Direction !== null && { Direction: input.Direction }),
+    ...(input.Protocol !== undefined && input.Protocol !== null && { Protocol: input.Protocol }),
+    ...(input.Source !== undefined && input.Source !== null && { Source: input.Source }),
+    ...(input.SourcePort !== undefined && input.SourcePort !== null && { SourcePort: input.SourcePort }),
+  };
+};
+
+const serializeAws_restJson1RuleGroupSourceStatefulRulesList = (
+  input: RuleGroupSourceStatefulRulesDetails[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1RuleGroupSourceStatefulRulesDetails(entry, context);
+    });
+};
+
+const serializeAws_restJson1RuleGroupSourceStatefulRulesOptionsDetails = (
+  input: RuleGroupSourceStatefulRulesOptionsDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Keyword !== undefined && input.Keyword !== null && { Keyword: input.Keyword }),
+    ...(input.Settings !== undefined &&
+      input.Settings !== null && {
+        Settings: serializeAws_restJson1RuleGroupSourceStatefulRulesRuleOptionsSettingsList(input.Settings, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1RuleGroupSourceStatefulRulesOptionsList = (
+  input: RuleGroupSourceStatefulRulesOptionsDetails[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1RuleGroupSourceStatefulRulesOptionsDetails(entry, context);
+    });
+};
+
+const serializeAws_restJson1RuleGroupSourceStatefulRulesRuleOptionsSettingsList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1RuleGroupSourceStatelessRuleDefinition = (
+  input: RuleGroupSourceStatelessRuleDefinition,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Actions !== undefined &&
+      input.Actions !== null && { Actions: serializeAws_restJson1NonEmptyStringList(input.Actions, context) }),
+    ...(input.MatchAttributes !== undefined &&
+      input.MatchAttributes !== null && {
+        MatchAttributes: serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributes(
+          input.MatchAttributes,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributes = (
+  input: RuleGroupSourceStatelessRuleMatchAttributes,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DestinationPorts !== undefined &&
+      input.DestinationPorts !== null && {
+        DestinationPorts: serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsList(
+          input.DestinationPorts,
+          context
+        ),
+      }),
+    ...(input.Destinations !== undefined &&
+      input.Destinations !== null && {
+        Destinations: serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesDestinationsList(
+          input.Destinations,
+          context
+        ),
+      }),
+    ...(input.Protocols !== undefined &&
+      input.Protocols !== null && {
+        Protocols: serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesProtocolsList(
+          input.Protocols,
+          context
+        ),
+      }),
+    ...(input.SourcePorts !== undefined &&
+      input.SourcePorts !== null && {
+        SourcePorts: serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesSourcePortsList(
+          input.SourcePorts,
+          context
+        ),
+      }),
+    ...(input.Sources !== undefined &&
+      input.Sources !== null && {
+        Sources: serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesSourcesList(input.Sources, context),
+      }),
+    ...(input.TcpFlags !== undefined &&
+      input.TcpFlags !== null && {
+        TcpFlags: serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList(
+          input.TcpFlags,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts = (
+  input: RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FromPort !== undefined && input.FromPort !== null && { FromPort: input.FromPort }),
+    ...(input.ToPort !== undefined && input.ToPort !== null && { ToPort: input.ToPort }),
+  };
+};
+
+const serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsList = (
+  input: RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts(entry, context);
+    });
+};
+
+const serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesDestinations = (
+  input: RuleGroupSourceStatelessRuleMatchAttributesDestinations,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AddressDefinition !== undefined &&
+      input.AddressDefinition !== null && { AddressDefinition: input.AddressDefinition }),
+  };
+};
+
+const serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesDestinationsList = (
+  input: RuleGroupSourceStatelessRuleMatchAttributesDestinations[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesDestinations(entry, context);
+    });
+};
+
+const serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesProtocolsList = (
+  input: number[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesSourcePorts = (
+  input: RuleGroupSourceStatelessRuleMatchAttributesSourcePorts,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FromPort !== undefined && input.FromPort !== null && { FromPort: input.FromPort }),
+    ...(input.ToPort !== undefined && input.ToPort !== null && { ToPort: input.ToPort }),
+  };
+};
+
+const serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesSourcePortsList = (
+  input: RuleGroupSourceStatelessRuleMatchAttributesSourcePorts[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesSourcePorts(entry, context);
+    });
+};
+
+const serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesSources = (
+  input: RuleGroupSourceStatelessRuleMatchAttributesSources,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AddressDefinition !== undefined &&
+      input.AddressDefinition !== null && { AddressDefinition: input.AddressDefinition }),
+  };
+};
+
+const serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesSourcesList = (
+  input: RuleGroupSourceStatelessRuleMatchAttributesSources[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesSources(entry, context);
+    });
+};
+
+const serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesTcpFlags = (
+  input: RuleGroupSourceStatelessRuleMatchAttributesTcpFlags,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Flags !== undefined &&
+      input.Flags !== null && { Flags: serializeAws_restJson1NonEmptyStringList(input.Flags, context) }),
+    ...(input.Masks !== undefined &&
+      input.Masks !== null && { Masks: serializeAws_restJson1NonEmptyStringList(input.Masks, context) }),
+  };
+};
+
+const serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList = (
+  input: RuleGroupSourceStatelessRuleMatchAttributesTcpFlags[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesTcpFlags(entry, context);
+    });
+};
+
+const serializeAws_restJson1RuleGroupSourceStatelessRulesAndCustomActionsDetails = (
+  input: RuleGroupSourceStatelessRulesAndCustomActionsDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CustomActions !== undefined &&
+      input.CustomActions !== null && {
+        CustomActions: serializeAws_restJson1RuleGroupSourceCustomActionsList(input.CustomActions, context),
+      }),
+    ...(input.StatelessRules !== undefined &&
+      input.StatelessRules !== null && {
+        StatelessRules: serializeAws_restJson1RuleGroupSourceStatelessRulesList(input.StatelessRules, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1RuleGroupSourceStatelessRulesDetails = (
+  input: RuleGroupSourceStatelessRulesDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Priority !== undefined && input.Priority !== null && { Priority: input.Priority }),
+    ...(input.RuleDefinition !== undefined &&
+      input.RuleDefinition !== null && {
+        RuleDefinition: serializeAws_restJson1RuleGroupSourceStatelessRuleDefinition(input.RuleDefinition, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1RuleGroupSourceStatelessRulesList = (
+  input: RuleGroupSourceStatelessRulesDetails[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1RuleGroupSourceStatelessRulesDetails(entry, context);
+    });
+};
+
+const serializeAws_restJson1RuleGroupVariables = (input: RuleGroupVariables, context: __SerdeContext): any => {
+  return {
+    ...(input.IpSets !== undefined &&
+      input.IpSets !== null && {
+        IpSets: serializeAws_restJson1RuleGroupVariablesIpSetsDetails(input.IpSets, context),
+      }),
+    ...(input.PortSets !== undefined &&
+      input.PortSets !== null && {
+        PortSets: serializeAws_restJson1RuleGroupVariablesPortSetsDetails(input.PortSets, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1RuleGroupVariablesIpSetsDetails = (
+  input: RuleGroupVariablesIpSetsDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Definition !== undefined &&
+      input.Definition !== null && { Definition: serializeAws_restJson1NonEmptyStringList(input.Definition, context) }),
+  };
+};
+
+const serializeAws_restJson1RuleGroupVariablesPortSetsDetails = (
+  input: RuleGroupVariablesPortSetsDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Definition !== undefined &&
+      input.Definition !== null && { Definition: serializeAws_restJson1NonEmptyStringList(input.Definition, context) }),
+  };
 };
 
 const serializeAws_restJson1SecurityGroups = (input: string[], context: __SerdeContext): any => {
@@ -15914,6 +16794,56 @@ const serializeAws_restJson1StandardsSubscriptionRequests = (
         return null as any;
       }
       return serializeAws_restJson1StandardsSubscriptionRequest(entry, context);
+    });
+};
+
+const serializeAws_restJson1StatelessCustomActionDefinition = (
+  input: StatelessCustomActionDefinition,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PublishMetricAction !== undefined &&
+      input.PublishMetricAction !== null && {
+        PublishMetricAction: serializeAws_restJson1StatelessCustomPublishMetricAction(
+          input.PublishMetricAction,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_restJson1StatelessCustomPublishMetricAction = (
+  input: StatelessCustomPublishMetricAction,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Dimensions !== undefined &&
+      input.Dimensions !== null && {
+        Dimensions: serializeAws_restJson1StatelessCustomPublishMetricActionDimensionsList(input.Dimensions, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1StatelessCustomPublishMetricActionDimension = (
+  input: StatelessCustomPublishMetricActionDimension,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1StatelessCustomPublishMetricActionDimensionsList = (
+  input: StatelessCustomPublishMetricActionDimension[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1StatelessCustomPublishMetricActionDimension(entry, context);
     });
 };
 
@@ -16471,11 +17401,38 @@ const deserializeAws_restJson1AwsApiGatewayV2StageDetails = (
   } as any;
 };
 
+const deserializeAws_restJson1AwsAutoScalingAutoScalingGroupAvailabilityZonesList = (
+  output: any,
+  context: __SerdeContext
+): AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails(entry, context);
+    });
+};
+
+const deserializeAws_restJson1AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails => {
+  return {
+    Value: __expectString(output.Value),
+  } as any;
+};
+
 const deserializeAws_restJson1AwsAutoScalingAutoScalingGroupDetails = (
   output: any,
   context: __SerdeContext
 ): AwsAutoScalingAutoScalingGroupDetails => {
   return {
+    AvailabilityZones:
+      output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
+        ? deserializeAws_restJson1AwsAutoScalingAutoScalingGroupAvailabilityZonesList(output.AvailabilityZones, context)
+        : undefined,
     CreatedTime: __expectString(output.CreatedTime),
     HealthCheckGracePeriod: __expectInt32(output.HealthCheckGracePeriod),
     HealthCheckType: __expectString(output.HealthCheckType),
@@ -16484,6 +17441,110 @@ const deserializeAws_restJson1AwsAutoScalingAutoScalingGroupDetails = (
       output.LoadBalancerNames !== undefined && output.LoadBalancerNames !== null
         ? deserializeAws_restJson1StringList(output.LoadBalancerNames, context)
         : undefined,
+    MixedInstancesPolicy:
+      output.MixedInstancesPolicy !== undefined && output.MixedInstancesPolicy !== null
+        ? deserializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails(
+            output.MixedInstancesPolicy,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails => {
+  return {
+    InstancesDistribution:
+      output.InstancesDistribution !== undefined && output.InstancesDistribution !== null
+        ? deserializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails(
+            output.InstancesDistribution,
+            context
+          )
+        : undefined,
+    LaunchTemplate:
+      output.LaunchTemplate !== undefined && output.LaunchTemplate !== null
+        ? deserializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails(
+            output.LaunchTemplate,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails => {
+  return {
+    OnDemandAllocationStrategy: __expectString(output.OnDemandAllocationStrategy),
+    OnDemandBaseCapacity: __expectInt32(output.OnDemandBaseCapacity),
+    OnDemandPercentageAboveBaseCapacity: __expectInt32(output.OnDemandPercentageAboveBaseCapacity),
+    SpotAllocationStrategy: __expectString(output.SpotAllocationStrategy),
+    SpotInstancePools: __expectInt32(output.SpotInstancePools),
+    SpotMaxPrice: __expectString(output.SpotMaxPrice),
+  } as any;
+};
+
+const deserializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails => {
+  return {
+    LaunchTemplateSpecification:
+      output.LaunchTemplateSpecification !== undefined && output.LaunchTemplateSpecification !== null
+        ? deserializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification(
+            output.LaunchTemplateSpecification,
+            context
+          )
+        : undefined,
+    Overrides:
+      output.Overrides !== undefined && output.Overrides !== null
+        ? deserializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList(
+            output.Overrides,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification =
+  (
+    output: any,
+    context: __SerdeContext
+  ): AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification => {
+    return {
+      LaunchTemplateId: __expectString(output.LaunchTemplateId),
+      LaunchTemplateName: __expectString(output.LaunchTemplateName),
+      Version: __expectString(output.Version),
+    } as any;
+  };
+
+const deserializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList = (
+  output: any,
+  context: __SerdeContext
+): AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails(
+        entry,
+        context
+      );
+    });
+};
+
+const deserializeAws_restJson1AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails => {
+  return {
+    InstanceType: __expectString(output.InstanceType),
+    WeightedCapacity: __expectString(output.WeightedCapacity),
   } as any;
 };
 
@@ -16563,6 +17624,10 @@ const deserializeAws_restJson1AwsAutoScalingLaunchConfigurationDetails = (
     KernelId: __expectString(output.KernelId),
     KeyName: __expectString(output.KeyName),
     LaunchConfigurationName: __expectString(output.LaunchConfigurationName),
+    MetadataOptions:
+      output.MetadataOptions !== undefined && output.MetadataOptions !== null
+        ? deserializeAws_restJson1AwsAutoScalingLaunchConfigurationMetadataOptions(output.MetadataOptions, context)
+        : undefined,
     PlacementTenancy: __expectString(output.PlacementTenancy),
     RamdiskId: __expectString(output.RamdiskId),
     SecurityGroups:
@@ -16580,6 +17645,17 @@ const deserializeAws_restJson1AwsAutoScalingLaunchConfigurationInstanceMonitorin
 ): AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails => {
   return {
     Enabled: __expectBoolean(output.Enabled),
+  } as any;
+};
+
+const deserializeAws_restJson1AwsAutoScalingLaunchConfigurationMetadataOptions = (
+  output: any,
+  context: __SerdeContext
+): AwsAutoScalingLaunchConfigurationMetadataOptions => {
+  return {
+    HttpEndpoint: __expectString(output.HttpEndpoint),
+    HttpPutResponseHopLimit: __expectInt32(output.HttpPutResponseHopLimit),
+    HttpTokens: __expectString(output.HttpTokens),
   } as any;
 };
 
@@ -20699,6 +21775,84 @@ const deserializeAws_restJson1AwsLambdaLayerVersionDetails = (
   } as any;
 };
 
+const deserializeAws_restJson1AwsNetworkFirewallFirewallDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsNetworkFirewallFirewallDetails => {
+  return {
+    DeleteProtection: __expectBoolean(output.DeleteProtection),
+    Description: __expectString(output.Description),
+    FirewallArn: __expectString(output.FirewallArn),
+    FirewallId: __expectString(output.FirewallId),
+    FirewallName: __expectString(output.FirewallName),
+    FirewallPolicyArn: __expectString(output.FirewallPolicyArn),
+    FirewallPolicyChangeProtection: __expectBoolean(output.FirewallPolicyChangeProtection),
+    SubnetChangeProtection: __expectBoolean(output.SubnetChangeProtection),
+    SubnetMappings:
+      output.SubnetMappings !== undefined && output.SubnetMappings !== null
+        ? deserializeAws_restJson1AwsNetworkFirewallFirewallSubnetMappingsList(output.SubnetMappings, context)
+        : undefined,
+    VpcId: __expectString(output.VpcId),
+  } as any;
+};
+
+const deserializeAws_restJson1AwsNetworkFirewallFirewallPolicyDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsNetworkFirewallFirewallPolicyDetails => {
+  return {
+    Description: __expectString(output.Description),
+    FirewallPolicy:
+      output.FirewallPolicy !== undefined && output.FirewallPolicy !== null
+        ? deserializeAws_restJson1FirewallPolicyDetails(output.FirewallPolicy, context)
+        : undefined,
+    FirewallPolicyArn: __expectString(output.FirewallPolicyArn),
+    FirewallPolicyId: __expectString(output.FirewallPolicyId),
+    FirewallPolicyName: __expectString(output.FirewallPolicyName),
+  } as any;
+};
+
+const deserializeAws_restJson1AwsNetworkFirewallFirewallSubnetMappingsDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsNetworkFirewallFirewallSubnetMappingsDetails => {
+  return {
+    SubnetId: __expectString(output.SubnetId),
+  } as any;
+};
+
+const deserializeAws_restJson1AwsNetworkFirewallFirewallSubnetMappingsList = (
+  output: any,
+  context: __SerdeContext
+): AwsNetworkFirewallFirewallSubnetMappingsDetails[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AwsNetworkFirewallFirewallSubnetMappingsDetails(entry, context);
+    });
+};
+
+const deserializeAws_restJson1AwsNetworkFirewallRuleGroupDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsNetworkFirewallRuleGroupDetails => {
+  return {
+    Capacity: __expectInt32(output.Capacity),
+    Description: __expectString(output.Description),
+    RuleGroup:
+      output.RuleGroup !== undefined && output.RuleGroup !== null
+        ? deserializeAws_restJson1RuleGroupDetails(output.RuleGroup, context)
+        : undefined,
+    RuleGroupArn: __expectString(output.RuleGroupArn),
+    RuleGroupId: __expectString(output.RuleGroupId),
+    RuleGroupName: __expectString(output.RuleGroupName),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
 const deserializeAws_restJson1AwsOpenSearchServiceDomainClusterConfigDetails = (
   output: any,
   context: __SerdeContext
@@ -22097,6 +23251,16 @@ const deserializeAws_restJson1AwsS3BucketBucketLifecycleConfigurationRulesTransi
     });
 };
 
+const deserializeAws_restJson1AwsS3BucketBucketVersioningConfiguration = (
+  output: any,
+  context: __SerdeContext
+): AwsS3BucketBucketVersioningConfiguration => {
+  return {
+    IsMfaDeleteEnabled: __expectBoolean(output.IsMfaDeleteEnabled),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
 const deserializeAws_restJson1AwsS3BucketDetails = (output: any, context: __SerdeContext): AwsS3BucketDetails => {
   return {
     AccessControlList: __expectString(output.AccessControlList),
@@ -22114,6 +23278,13 @@ const deserializeAws_restJson1AwsS3BucketDetails = (output: any, context: __Serd
     BucketNotificationConfiguration:
       output.BucketNotificationConfiguration !== undefined && output.BucketNotificationConfiguration !== null
         ? deserializeAws_restJson1AwsS3BucketNotificationConfiguration(output.BucketNotificationConfiguration, context)
+        : undefined,
+    BucketVersioningConfiguration:
+      output.BucketVersioningConfiguration !== undefined && output.BucketVersioningConfiguration !== null
+        ? deserializeAws_restJson1AwsS3BucketBucketVersioningConfiguration(
+            output.BucketVersioningConfiguration,
+            context
+          )
         : undefined,
     BucketWebsiteConfiguration:
       output.BucketWebsiteConfiguration !== undefined && output.BucketWebsiteConfiguration !== null
@@ -23496,6 +24667,111 @@ const deserializeAws_restJson1FindingProviderSeverity = (
   } as any;
 };
 
+const deserializeAws_restJson1FirewallPolicyDetails = (output: any, context: __SerdeContext): FirewallPolicyDetails => {
+  return {
+    StatefulRuleGroupReferences:
+      output.StatefulRuleGroupReferences !== undefined && output.StatefulRuleGroupReferences !== null
+        ? deserializeAws_restJson1FirewallPolicyStatefulRuleGroupReferencesList(
+            output.StatefulRuleGroupReferences,
+            context
+          )
+        : undefined,
+    StatelessCustomActions:
+      output.StatelessCustomActions !== undefined && output.StatelessCustomActions !== null
+        ? deserializeAws_restJson1FirewallPolicyStatelessCustomActionsList(output.StatelessCustomActions, context)
+        : undefined,
+    StatelessDefaultActions:
+      output.StatelessDefaultActions !== undefined && output.StatelessDefaultActions !== null
+        ? deserializeAws_restJson1NonEmptyStringList(output.StatelessDefaultActions, context)
+        : undefined,
+    StatelessFragmentDefaultActions:
+      output.StatelessFragmentDefaultActions !== undefined && output.StatelessFragmentDefaultActions !== null
+        ? deserializeAws_restJson1NonEmptyStringList(output.StatelessFragmentDefaultActions, context)
+        : undefined,
+    StatelessRuleGroupReferences:
+      output.StatelessRuleGroupReferences !== undefined && output.StatelessRuleGroupReferences !== null
+        ? deserializeAws_restJson1FirewallPolicyStatelessRuleGroupReferencesList(
+            output.StatelessRuleGroupReferences,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FirewallPolicyStatefulRuleGroupReferencesDetails = (
+  output: any,
+  context: __SerdeContext
+): FirewallPolicyStatefulRuleGroupReferencesDetails => {
+  return {
+    ResourceArn: __expectString(output.ResourceArn),
+  } as any;
+};
+
+const deserializeAws_restJson1FirewallPolicyStatefulRuleGroupReferencesList = (
+  output: any,
+  context: __SerdeContext
+): FirewallPolicyStatefulRuleGroupReferencesDetails[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FirewallPolicyStatefulRuleGroupReferencesDetails(entry, context);
+    });
+};
+
+const deserializeAws_restJson1FirewallPolicyStatelessCustomActionsDetails = (
+  output: any,
+  context: __SerdeContext
+): FirewallPolicyStatelessCustomActionsDetails => {
+  return {
+    ActionDefinition:
+      output.ActionDefinition !== undefined && output.ActionDefinition !== null
+        ? deserializeAws_restJson1StatelessCustomActionDefinition(output.ActionDefinition, context)
+        : undefined,
+    ActionName: __expectString(output.ActionName),
+  } as any;
+};
+
+const deserializeAws_restJson1FirewallPolicyStatelessCustomActionsList = (
+  output: any,
+  context: __SerdeContext
+): FirewallPolicyStatelessCustomActionsDetails[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FirewallPolicyStatelessCustomActionsDetails(entry, context);
+    });
+};
+
+const deserializeAws_restJson1FirewallPolicyStatelessRuleGroupReferencesDetails = (
+  output: any,
+  context: __SerdeContext
+): FirewallPolicyStatelessRuleGroupReferencesDetails => {
+  return {
+    Priority: __expectInt32(output.Priority),
+    ResourceArn: __expectString(output.ResourceArn),
+  } as any;
+};
+
+const deserializeAws_restJson1FirewallPolicyStatelessRuleGroupReferencesList = (
+  output: any,
+  context: __SerdeContext
+): FirewallPolicyStatelessRuleGroupReferencesDetails[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FirewallPolicyStatelessRuleGroupReferencesDetails(entry, context);
+    });
+};
+
 const deserializeAws_restJson1GeoLocation = (output: any, context: __SerdeContext): GeoLocation => {
   return {
     Lat: __limitedParseDouble(output.Lat),
@@ -24362,6 +25638,21 @@ const deserializeAws_restJson1ResourceDetails = (output: any, context: __SerdeCo
       output.AwsLambdaLayerVersion !== undefined && output.AwsLambdaLayerVersion !== null
         ? deserializeAws_restJson1AwsLambdaLayerVersionDetails(output.AwsLambdaLayerVersion, context)
         : undefined,
+    AwsNetworkFirewallFirewall:
+      output.AwsNetworkFirewallFirewall !== undefined && output.AwsNetworkFirewallFirewall !== null
+        ? deserializeAws_restJson1AwsNetworkFirewallFirewallDetails(output.AwsNetworkFirewallFirewall, context)
+        : undefined,
+    AwsNetworkFirewallFirewallPolicy:
+      output.AwsNetworkFirewallFirewallPolicy !== undefined && output.AwsNetworkFirewallFirewallPolicy !== null
+        ? deserializeAws_restJson1AwsNetworkFirewallFirewallPolicyDetails(
+            output.AwsNetworkFirewallFirewallPolicy,
+            context
+          )
+        : undefined,
+    AwsNetworkFirewallRuleGroup:
+      output.AwsNetworkFirewallRuleGroup !== undefined && output.AwsNetworkFirewallRuleGroup !== null
+        ? deserializeAws_restJson1AwsNetworkFirewallRuleGroupDetails(output.AwsNetworkFirewallRuleGroup, context)
+        : undefined,
     AwsOpenSearchServiceDomain:
       output.AwsOpenSearchServiceDomain !== undefined && output.AwsOpenSearchServiceDomain !== null
         ? deserializeAws_restJson1AwsOpenSearchServiceDomainDetails(output.AwsOpenSearchServiceDomain, context)
@@ -24472,6 +25763,445 @@ const deserializeAws_restJson1ResultList = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1Result(entry, context);
     });
+};
+
+const deserializeAws_restJson1RuleGroupDetails = (output: any, context: __SerdeContext): RuleGroupDetails => {
+  return {
+    RuleVariables:
+      output.RuleVariables !== undefined && output.RuleVariables !== null
+        ? deserializeAws_restJson1RuleGroupVariables(output.RuleVariables, context)
+        : undefined,
+    RulesSource:
+      output.RulesSource !== undefined && output.RulesSource !== null
+        ? deserializeAws_restJson1RuleGroupSource(output.RulesSource, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupSource = (output: any, context: __SerdeContext): RuleGroupSource => {
+  return {
+    RulesSourceList:
+      output.RulesSourceList !== undefined && output.RulesSourceList !== null
+        ? deserializeAws_restJson1RuleGroupSourceListDetails(output.RulesSourceList, context)
+        : undefined,
+    RulesString: __expectString(output.RulesString),
+    StatefulRules:
+      output.StatefulRules !== undefined && output.StatefulRules !== null
+        ? deserializeAws_restJson1RuleGroupSourceStatefulRulesList(output.StatefulRules, context)
+        : undefined,
+    StatelessRulesAndCustomActions:
+      output.StatelessRulesAndCustomActions !== undefined && output.StatelessRulesAndCustomActions !== null
+        ? deserializeAws_restJson1RuleGroupSourceStatelessRulesAndCustomActionsDetails(
+            output.StatelessRulesAndCustomActions,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupSourceCustomActionsDetails = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceCustomActionsDetails => {
+  return {
+    ActionDefinition:
+      output.ActionDefinition !== undefined && output.ActionDefinition !== null
+        ? deserializeAws_restJson1StatelessCustomActionDefinition(output.ActionDefinition, context)
+        : undefined,
+    ActionName: __expectString(output.ActionName),
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupSourceCustomActionsList = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceCustomActionsDetails[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RuleGroupSourceCustomActionsDetails(entry, context);
+    });
+};
+
+const deserializeAws_restJson1RuleGroupSourceListDetails = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceListDetails => {
+  return {
+    GeneratedRulesType: __expectString(output.GeneratedRulesType),
+    TargetTypes:
+      output.TargetTypes !== undefined && output.TargetTypes !== null
+        ? deserializeAws_restJson1NonEmptyStringList(output.TargetTypes, context)
+        : undefined,
+    Targets:
+      output.Targets !== undefined && output.Targets !== null
+        ? deserializeAws_restJson1NonEmptyStringList(output.Targets, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatefulRulesDetails = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatefulRulesDetails => {
+  return {
+    Action: __expectString(output.Action),
+    Header:
+      output.Header !== undefined && output.Header !== null
+        ? deserializeAws_restJson1RuleGroupSourceStatefulRulesHeaderDetails(output.Header, context)
+        : undefined,
+    RuleOptions:
+      output.RuleOptions !== undefined && output.RuleOptions !== null
+        ? deserializeAws_restJson1RuleGroupSourceStatefulRulesOptionsList(output.RuleOptions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatefulRulesHeaderDetails = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatefulRulesHeaderDetails => {
+  return {
+    Destination: __expectString(output.Destination),
+    DestinationPort: __expectString(output.DestinationPort),
+    Direction: __expectString(output.Direction),
+    Protocol: __expectString(output.Protocol),
+    Source: __expectString(output.Source),
+    SourcePort: __expectString(output.SourcePort),
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatefulRulesList = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatefulRulesDetails[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RuleGroupSourceStatefulRulesDetails(entry, context);
+    });
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatefulRulesOptionsDetails = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatefulRulesOptionsDetails => {
+  return {
+    Keyword: __expectString(output.Keyword),
+    Settings:
+      output.Settings !== undefined && output.Settings !== null
+        ? deserializeAws_restJson1RuleGroupSourceStatefulRulesRuleOptionsSettingsList(output.Settings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatefulRulesOptionsList = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatefulRulesOptionsDetails[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RuleGroupSourceStatefulRulesOptionsDetails(entry, context);
+    });
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatefulRulesRuleOptionsSettingsList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatelessRuleDefinition = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatelessRuleDefinition => {
+  return {
+    Actions:
+      output.Actions !== undefined && output.Actions !== null
+        ? deserializeAws_restJson1NonEmptyStringList(output.Actions, context)
+        : undefined,
+    MatchAttributes:
+      output.MatchAttributes !== undefined && output.MatchAttributes !== null
+        ? deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributes(output.MatchAttributes, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributes = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatelessRuleMatchAttributes => {
+  return {
+    DestinationPorts:
+      output.DestinationPorts !== undefined && output.DestinationPorts !== null
+        ? deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsList(
+            output.DestinationPorts,
+            context
+          )
+        : undefined,
+    Destinations:
+      output.Destinations !== undefined && output.Destinations !== null
+        ? deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesDestinationsList(
+            output.Destinations,
+            context
+          )
+        : undefined,
+    Protocols:
+      output.Protocols !== undefined && output.Protocols !== null
+        ? deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesProtocolsList(output.Protocols, context)
+        : undefined,
+    SourcePorts:
+      output.SourcePorts !== undefined && output.SourcePorts !== null
+        ? deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesSourcePortsList(
+            output.SourcePorts,
+            context
+          )
+        : undefined,
+    Sources:
+      output.Sources !== undefined && output.Sources !== null
+        ? deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesSourcesList(output.Sources, context)
+        : undefined,
+    TcpFlags:
+      output.TcpFlags !== undefined && output.TcpFlags !== null
+        ? deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList(output.TcpFlags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts => {
+  return {
+    FromPort: __expectInt32(output.FromPort),
+    ToPort: __expectInt32(output.ToPort),
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsList = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts(entry, context);
+    });
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesDestinations = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatelessRuleMatchAttributesDestinations => {
+  return {
+    AddressDefinition: __expectString(output.AddressDefinition),
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesDestinationsList = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatelessRuleMatchAttributesDestinations[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesDestinations(entry, context);
+    });
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesProtocolsList = (
+  output: any,
+  context: __SerdeContext
+): number[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectInt32(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesSourcePorts = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatelessRuleMatchAttributesSourcePorts => {
+  return {
+    FromPort: __expectInt32(output.FromPort),
+    ToPort: __expectInt32(output.ToPort),
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesSourcePortsList = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatelessRuleMatchAttributesSourcePorts[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesSourcePorts(entry, context);
+    });
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesSources = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatelessRuleMatchAttributesSources => {
+  return {
+    AddressDefinition: __expectString(output.AddressDefinition),
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesSourcesList = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatelessRuleMatchAttributesSources[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesSources(entry, context);
+    });
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesTcpFlags = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatelessRuleMatchAttributesTcpFlags => {
+  return {
+    Flags:
+      output.Flags !== undefined && output.Flags !== null
+        ? deserializeAws_restJson1NonEmptyStringList(output.Flags, context)
+        : undefined,
+    Masks:
+      output.Masks !== undefined && output.Masks !== null
+        ? deserializeAws_restJson1NonEmptyStringList(output.Masks, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatelessRuleMatchAttributesTcpFlags[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RuleGroupSourceStatelessRuleMatchAttributesTcpFlags(entry, context);
+    });
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatelessRulesAndCustomActionsDetails = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatelessRulesAndCustomActionsDetails => {
+  return {
+    CustomActions:
+      output.CustomActions !== undefined && output.CustomActions !== null
+        ? deserializeAws_restJson1RuleGroupSourceCustomActionsList(output.CustomActions, context)
+        : undefined,
+    StatelessRules:
+      output.StatelessRules !== undefined && output.StatelessRules !== null
+        ? deserializeAws_restJson1RuleGroupSourceStatelessRulesList(output.StatelessRules, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatelessRulesDetails = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatelessRulesDetails => {
+  return {
+    Priority: __expectInt32(output.Priority),
+    RuleDefinition:
+      output.RuleDefinition !== undefined && output.RuleDefinition !== null
+        ? deserializeAws_restJson1RuleGroupSourceStatelessRuleDefinition(output.RuleDefinition, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupSourceStatelessRulesList = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupSourceStatelessRulesDetails[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RuleGroupSourceStatelessRulesDetails(entry, context);
+    });
+};
+
+const deserializeAws_restJson1RuleGroupVariables = (output: any, context: __SerdeContext): RuleGroupVariables => {
+  return {
+    IpSets:
+      output.IpSets !== undefined && output.IpSets !== null
+        ? deserializeAws_restJson1RuleGroupVariablesIpSetsDetails(output.IpSets, context)
+        : undefined,
+    PortSets:
+      output.PortSets !== undefined && output.PortSets !== null
+        ? deserializeAws_restJson1RuleGroupVariablesPortSetsDetails(output.PortSets, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupVariablesIpSetsDetails = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupVariablesIpSetsDetails => {
+  return {
+    Definition:
+      output.Definition !== undefined && output.Definition !== null
+        ? deserializeAws_restJson1NonEmptyStringList(output.Definition, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupVariablesPortSetsDetails = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupVariablesPortSetsDetails => {
+  return {
+    Definition:
+      output.Definition !== undefined && output.Definition !== null
+        ? deserializeAws_restJson1NonEmptyStringList(output.Definition, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1SecurityGroups = (output: any, context: __SerdeContext): string[] => {
@@ -24637,6 +26367,12 @@ const deserializeAws_restJson1StandardsInputParameterMap = (
   }, {});
 };
 
+const deserializeAws_restJson1StandardsStatusReason = (output: any, context: __SerdeContext): StandardsStatusReason => {
+  return {
+    StatusReasonCode: __expectString(output.StatusReasonCode),
+  } as any;
+};
+
 const deserializeAws_restJson1StandardsSubscription = (output: any, context: __SerdeContext): StandardsSubscription => {
   return {
     StandardsArn: __expectString(output.StandardsArn),
@@ -24645,6 +26381,10 @@ const deserializeAws_restJson1StandardsSubscription = (output: any, context: __S
         ? deserializeAws_restJson1StandardsInputParameterMap(output.StandardsInput, context)
         : undefined,
     StandardsStatus: __expectString(output.StandardsStatus),
+    StandardsStatusReason:
+      output.StandardsStatusReason !== undefined && output.StandardsStatusReason !== null
+        ? deserializeAws_restJson1StandardsStatusReason(output.StandardsStatusReason, context)
+        : undefined,
     StandardsSubscriptionArn: __expectString(output.StandardsSubscriptionArn),
   } as any;
 };
@@ -24660,6 +26400,53 @@ const deserializeAws_restJson1StandardsSubscriptions = (
         return null as any;
       }
       return deserializeAws_restJson1StandardsSubscription(entry, context);
+    });
+};
+
+const deserializeAws_restJson1StatelessCustomActionDefinition = (
+  output: any,
+  context: __SerdeContext
+): StatelessCustomActionDefinition => {
+  return {
+    PublishMetricAction:
+      output.PublishMetricAction !== undefined && output.PublishMetricAction !== null
+        ? deserializeAws_restJson1StatelessCustomPublishMetricAction(output.PublishMetricAction, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1StatelessCustomPublishMetricAction = (
+  output: any,
+  context: __SerdeContext
+): StatelessCustomPublishMetricAction => {
+  return {
+    Dimensions:
+      output.Dimensions !== undefined && output.Dimensions !== null
+        ? deserializeAws_restJson1StatelessCustomPublishMetricActionDimensionsList(output.Dimensions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1StatelessCustomPublishMetricActionDimension = (
+  output: any,
+  context: __SerdeContext
+): StatelessCustomPublishMetricActionDimension => {
+  return {
+    Value: __expectString(output.Value),
+  } as any;
+};
+
+const deserializeAws_restJson1StatelessCustomPublishMetricActionDimensionsList = (
+  output: any,
+  context: __SerdeContext
+): StatelessCustomPublishMetricActionDimension[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1StatelessCustomPublishMetricActionDimension(entry, context);
     });
 };
 

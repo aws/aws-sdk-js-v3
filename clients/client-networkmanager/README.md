@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `NetworkManagerClient` and
-the commands you need, for example `AssociateCustomerGatewayCommand`:
+the commands you need, for example `AcceptAttachmentCommand`:
 
 ```js
 // ES5 example
-const { NetworkManagerClient, AssociateCustomerGatewayCommand } = require("@aws-sdk/client-networkmanager");
+const { NetworkManagerClient, AcceptAttachmentCommand } = require("@aws-sdk/client-networkmanager");
 ```
 
 ```ts
 // ES6+ example
-import { NetworkManagerClient, AssociateCustomerGatewayCommand } from "@aws-sdk/client-networkmanager";
+import { NetworkManagerClient, AcceptAttachmentCommand } from "@aws-sdk/client-networkmanager";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new NetworkManagerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateCustomerGatewayCommand(params);
+const command = new AcceptAttachmentCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.NetworkManager({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateCustomerGateway(params);
+  const data = await client.acceptAttachment(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .associateCustomerGateway(params)
+  .acceptAttachment(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.associateCustomerGateway(params, (err, data) => {
+client.acceptAttachment(params, (err, data) => {
   // proccess err and data.
 });
 ```

@@ -22,7 +22,7 @@ export interface DeleteExplainabilityExportCommandInput extends DeleteExplainabi
 export interface DeleteExplainabilityExportCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an Explainability export job.</p>
+ * <p>Deletes an Explainability export.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

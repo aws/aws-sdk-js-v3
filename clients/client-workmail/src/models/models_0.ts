@@ -968,6 +968,33 @@ export namespace DeleteAliasResponse {
   });
 }
 
+export interface DeleteEmailMonitoringConfigurationRequest {
+  /**
+   * <p>The ID of the organization from which the email monitoring configuration is deleted.</p>
+   */
+  OrganizationId: string | undefined;
+}
+
+export namespace DeleteEmailMonitoringConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteEmailMonitoringConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteEmailMonitoringConfigurationResponse {}
+
+export namespace DeleteEmailMonitoringConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteEmailMonitoringConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteGroupRequest {
   /**
    * <p>The organization that contains the group.</p>
@@ -1363,6 +1390,61 @@ export namespace MailDomainInUseException {
    * @internal
    */
   export const filterSensitiveLog = (obj: MailDomainInUseException): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeEmailMonitoringConfigurationRequest {
+  /**
+   * <p>The ID of the organization for which the email monitoring configuration is described.</p>
+   */
+  OrganizationId: string | undefined;
+}
+
+export namespace DescribeEmailMonitoringConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeEmailMonitoringConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeEmailMonitoringConfigurationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Role associated with the email monitoring configuration.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudWatch Log group associated with the email monitoring configuration.</p>
+   */
+  LogGroupArn?: string;
+}
+
+export namespace DescribeEmailMonitoringConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeEmailMonitoringConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The resource cannot be found.</p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
 }
@@ -2343,24 +2425,6 @@ export namespace GetMobileDeviceAccessOverrideResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetMobileDeviceAccessOverrideResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The resource cannot be found.</p>
- */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
 }
@@ -3642,6 +3706,43 @@ export namespace PutAccessControlRuleResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: PutAccessControlRuleResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutEmailMonitoringConfigurationRequest {
+  /**
+   * <p>The ID of the organization for which the email monitoring configuration is set.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Role associated with the email monitoring configuration.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudWatch Log group associated with the email monitoring configuration.</p>
+   */
+  LogGroupArn: string | undefined;
+}
+
+export namespace PutEmailMonitoringConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutEmailMonitoringConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutEmailMonitoringConfigurationResponse {}
+
+export namespace PutEmailMonitoringConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutEmailMonitoringConfigurationResponse): any => ({
     ...obj,
   });
 }

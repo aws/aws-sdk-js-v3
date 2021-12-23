@@ -12,6 +12,7 @@ export * from "./waitForInstanceRunning";
 export * from "./waitForInstanceStatusOk";
 export * from "./waitForInstanceStopped";
 export * from "./waitForInstanceTerminated";
+export * from "./waitForInternetGatewayExists";
 export * from "./waitForKeyPairExists";
 export * from "./waitForNatGatewayAvailable";
 export * from "./waitForNetworkInterfaceAvailable";

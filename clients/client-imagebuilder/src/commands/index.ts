@@ -25,6 +25,7 @@ export * from "./GetImageRecipeCommand";
 export * from "./GetImageRecipePolicyCommand";
 export * from "./GetInfrastructureConfigurationCommand";
 export * from "./ImportComponentCommand";
+export * from "./ImportVmImageCommand";
 export * from "./ListComponentBuildVersionsCommand";
 export * from "./ListComponentsCommand";
 export * from "./ListContainerRecipesCommand";

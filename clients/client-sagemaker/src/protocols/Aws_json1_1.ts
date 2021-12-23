@@ -18312,6 +18312,7 @@ const serializeAws_json1_1AutoMLChannel = (input: AutoMLChannel, context: __Serd
   return {
     ...(input.CompressionType !== undefined &&
       input.CompressionType !== null && { CompressionType: input.CompressionType }),
+    ...(input.ContentType !== undefined && input.ContentType !== null && { ContentType: input.ContentType }),
     ...(input.DataSource !== undefined &&
       input.DataSource !== null && { DataSource: serializeAws_json1_1AutoMLDataSource(input.DataSource, context) }),
     ...(input.TargetAttributeName !== undefined &&
@@ -26766,6 +26767,7 @@ const deserializeAws_json1_1AutoMLCandidateStep = (output: any, context: __Serde
 const deserializeAws_json1_1AutoMLChannel = (output: any, context: __SerdeContext): AutoMLChannel => {
   return {
     CompressionType: __expectString(output.CompressionType),
+    ContentType: __expectString(output.ContentType),
     DataSource:
       output.DataSource !== undefined && output.DataSource !== null
         ? deserializeAws_json1_1AutoMLDataSource(output.DataSource, context)
@@ -34380,6 +34382,7 @@ const deserializeAws_json1_1PipelineExecution = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1PipelineExecutionStep = (output: any, context: __SerdeContext): PipelineExecutionStep => {
   return {
+    AttemptCount: __expectInt32(output.AttemptCount),
     CacheHitResult:
       output.CacheHitResult !== undefined && output.CacheHitResult !== null
         ? deserializeAws_json1_1CacheHitResult(output.CacheHitResult, context)

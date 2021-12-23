@@ -71,6 +71,11 @@ import {
   DescribeRuleGroupCommandOutput,
 } from "./commands/DescribeRuleGroupCommand";
 import {
+  DescribeRuleGroupMetadataCommand,
+  DescribeRuleGroupMetadataCommandInput,
+  DescribeRuleGroupMetadataCommandOutput,
+} from "./commands/DescribeRuleGroupMetadataCommand";
+import {
   DisassociateSubnetsCommand,
   DisassociateSubnetsCommandInput,
   DisassociateSubnetsCommandOutput,
@@ -704,6 +709,41 @@ export class NetworkFirewall extends NetworkFirewallClient {
   }
 
   /**
+   * <p>High-level information about a rule group, returned by operations like create and describe.
+   *          You can use the information provided in the metadata to retrieve and manage a rule group.
+   *          You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>.
+   *       </p>
+   */
+  public describeRuleGroupMetadata(
+    args: DescribeRuleGroupMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRuleGroupMetadataCommandOutput>;
+  public describeRuleGroupMetadata(
+    args: DescribeRuleGroupMetadataCommandInput,
+    cb: (err: any, data?: DescribeRuleGroupMetadataCommandOutput) => void
+  ): void;
+  public describeRuleGroupMetadata(
+    args: DescribeRuleGroupMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRuleGroupMetadataCommandOutput) => void
+  ): void;
+  public describeRuleGroupMetadata(
+    args: DescribeRuleGroupMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRuleGroupMetadataCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRuleGroupMetadataCommandOutput) => void
+  ): Promise<DescribeRuleGroupMetadataCommandOutput> | void {
+    const command = new DescribeRuleGroupMetadataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Removes the specified subnet associations from the firewall. This removes the
    *           firewall endpoints from the subnets and removes any network filtering protections that the endpoints
    *           were providing.
@@ -1095,7 +1135,9 @@ export class NetworkFirewall extends NetworkFirewallClient {
   }
 
   /**
-   * <p></p>
+   * <p>Modifies the flag, <code>ChangeProtection</code>, which indicates whether it
+   *          is possible to change the firewall. If the flag is set to <code>TRUE</code>, the firewall is protected
+   *          from changes. This setting helps protect against accidentally changing a firewall that's in use.</p>
    */
   public updateFirewallPolicyChangeProtection(
     args: UpdateFirewallPolicyChangeProtectionCommandInput,

@@ -3181,6 +3181,13 @@ export interface AuthorizerDescription {
    * <p>Specifies whether IoT validates the token signature in an authorization request.</p>
    */
   signingDisabled?: boolean;
+
+  /**
+   * <p>When <code>true</code>, the result from the authorizer’s Lambda function is
+   * 	  cached for the time specified in <code>refreshAfterInSeconds</code>. The cached
+   * 	  result is used while the device reuses the same HTTP connection.</p>
+   */
+  enableCachingForHttp?: boolean;
 }
 
 export namespace AuthorizerDescription {
@@ -3820,6 +3827,15 @@ export interface CreateAuthorizerRequest {
    * <p>Specifies whether IoT validates the token signature in an authorization request.</p>
    */
   signingDisabled?: boolean;
+
+  /**
+   * <p>When <code>true</code>, the result from the authorizer’s Lambda function is
+   * 	  cached for clients that use persistent HTTP connections. The results are cached for the time
+   * 	  specified by the Lambda function in <code>refreshAfterInSeconds</code>. This value
+   *      does not affect authorization of clients that use MQTT connections.</p>
+   *          <p>The default value is <code>false</code>.</p>
+   */
+  enableCachingForHttp?: boolean;
 }
 
 export namespace CreateAuthorizerRequest {

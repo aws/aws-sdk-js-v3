@@ -29,12 +29,12 @@ export namespace AccessLogSettings {
  */
 export interface ThrottleSettings {
   /**
-   * <p>The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.</p>
+   * <p>The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.</p>
    */
   burstLimit?: number;
 
   /**
-   * <p>The API request steady-state rate limit.</p>
+   * <p>The API target request rate limit.</p>
    */
   rateLimit?: number;
 }
@@ -2905,7 +2905,7 @@ export enum QuotaPeriodType {
  */
 export interface QuotaSettings {
   /**
-   * <p>The maximum number of requests that can be made in a given time period.</p>
+   * <p>The target maximum number of requests that can be made in a given time period.</p>
    */
   limit?: number;
 
@@ -2974,7 +2974,10 @@ export namespace CreateUsagePlanRequest {
 }
 
 /**
- * <p>Represents a usage plan than can specify who can assess associated API stages with specified request limits and quotas.</p>
+ * <p>Represents a usage plan used to specify who can assess associated API stages. Optionally, target request rate and quota limits can be set.
+ *       In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs.
+ *       Consider using <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html">AWS Budgets</a> to monitor costs
+ *       and <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF</a> to manage API requests.</p>
  *       <div class="remarks">
  *         <p>In a usage plan, you associate an API by specifying the API's Id and a stage name of the specified API. You add plan customers by adding API keys to the plan. </p>
  *       </div>
@@ -3004,12 +3007,12 @@ export interface UsagePlan {
   apiStages?: ApiStage[];
 
   /**
-   * <p>The request throttle limits of a usage plan.</p>
+   * <p>Map containing method level throttling information for API stage in a usage plan.</p>
    */
   throttle?: ThrottleSettings;
 
   /**
-   * <p>The maximum number of permitted requests per a given unit time interval.</p>
+   * <p>The target maximum number of permitted requests per a given unit time interval.</p>
    */
   quota?: QuotaSettings;
 

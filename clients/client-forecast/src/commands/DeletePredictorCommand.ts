@@ -22,9 +22,8 @@ export interface DeletePredictorCommandInput extends DeletePredictorRequest {}
 export interface DeletePredictorCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a predictor created using the <a>CreatePredictor</a> operation. You can
- *       delete only predictor that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
- *       To get the status, use the <a>DescribePredictor</a> operation.</p>
+ * <p>Deletes a predictor created using the <a>DescribePredictor</a> or <a>CreatePredictor</a> operations. You can delete only predictor that have a status of
+ *         <code>ACTIVE</code> or <code>CREATE_FAILED</code>. To get the status, use the <a>DescribePredictor</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -173,10 +173,13 @@ import {
   SharedFileSystemConfiguration,
   StreamConfiguration,
   StreamConfigurationCreate,
+  StreamConfigurationSessionStorage,
   StreamingImage,
   StreamingImageEncryptionConfiguration,
   StreamingInstanceType,
   StreamingSession,
+  StreamingSessionStorageMode,
+  StreamingSessionStorageRoot,
   StreamingSessionStream,
   Studio,
   StudioComponent,
@@ -7338,10 +7341,26 @@ const serializeAws_restJson1StreamConfigurationCreate = (
       input.maxStoppedSessionLengthInMinutes !== null && {
         maxStoppedSessionLengthInMinutes: input.maxStoppedSessionLengthInMinutes,
       }),
+    ...(input.sessionStorage !== undefined &&
+      input.sessionStorage !== null && {
+        sessionStorage: serializeAws_restJson1StreamConfigurationSessionStorage(input.sessionStorage, context),
+      }),
     ...(input.streamingImageIds !== undefined &&
       input.streamingImageIds !== null && {
         streamingImageIds: serializeAws_restJson1StreamingImageIdList(input.streamingImageIds, context),
       }),
+  };
+};
+
+const serializeAws_restJson1StreamConfigurationSessionStorage = (
+  input: StreamConfigurationSessionStorage,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.mode !== undefined &&
+      input.mode !== null && { mode: serializeAws_restJson1StreamingSessionStorageModeList(input.mode, context) }),
+    ...(input.root !== undefined &&
+      input.root !== null && { root: serializeAws_restJson1StreamingSessionStorageRoot(input.root, context) }),
   };
 };
 
@@ -7368,6 +7387,30 @@ const serializeAws_restJson1StreamingInstanceTypeList = (
       }
       return entry;
     });
+};
+
+const serializeAws_restJson1StreamingSessionStorageModeList = (
+  input: (StreamingSessionStorageMode | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1StreamingSessionStorageRoot = (
+  input: StreamingSessionStorageRoot,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.linux !== undefined && input.linux !== null && { linux: input.linux }),
+    ...(input.windows !== undefined && input.windows !== null && { windows: input.windows }),
+  };
 };
 
 const serializeAws_restJson1StudioComponentConfiguration = (
@@ -7854,9 +7897,29 @@ const deserializeAws_restJson1StreamConfiguration = (output: any, context: __Ser
         : undefined,
     maxSessionLengthInMinutes: __expectInt32(output.maxSessionLengthInMinutes),
     maxStoppedSessionLengthInMinutes: __expectInt32(output.maxStoppedSessionLengthInMinutes),
+    sessionStorage:
+      output.sessionStorage !== undefined && output.sessionStorage !== null
+        ? deserializeAws_restJson1StreamConfigurationSessionStorage(output.sessionStorage, context)
+        : undefined,
     streamingImageIds:
       output.streamingImageIds !== undefined && output.streamingImageIds !== null
         ? deserializeAws_restJson1StreamingImageIdList(output.streamingImageIds, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1StreamConfigurationSessionStorage = (
+  output: any,
+  context: __SerdeContext
+): StreamConfigurationSessionStorage => {
+  return {
+    mode:
+      output.mode !== undefined && output.mode !== null
+        ? deserializeAws_restJson1StreamingSessionStorageModeList(output.mode, context)
+        : undefined,
+    root:
+      output.root !== undefined && output.root !== null
+        ? deserializeAws_restJson1StreamingSessionStorageRoot(output.root, context)
         : undefined,
   } as any;
 };
@@ -7989,6 +8052,30 @@ const deserializeAws_restJson1StreamingSessionList = (output: any, context: __Se
       }
       return deserializeAws_restJson1StreamingSession(entry, context);
     });
+};
+
+const deserializeAws_restJson1StreamingSessionStorageModeList = (
+  output: any,
+  context: __SerdeContext
+): (StreamingSessionStorageMode | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1StreamingSessionStorageRoot = (
+  output: any,
+  context: __SerdeContext
+): StreamingSessionStorageRoot => {
+  return {
+    linux: __expectString(output.linux),
+    windows: __expectString(output.windows),
+  } as any;
 };
 
 const deserializeAws_restJson1StreamingSessionStream = (

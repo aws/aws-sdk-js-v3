@@ -24,7 +24,10 @@ export interface AssociateResourceSharePermissionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Associates a permission with a resource share.</p>
+ * <p>Adds or replaces the RAM permission for a resource type included in a resource share. You can
+ *             have exactly one permission associated with each resource type in the resource share. You can add
+ *             a new RAM permission only if there are currently no resources of that resource type
+ *             currently in the resource share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

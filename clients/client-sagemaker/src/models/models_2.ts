@@ -9767,6 +9767,7 @@ export interface PipelineExecutionStep {
    */
   CacheHitResult?: CacheHitResult;
 
+  AttemptCount?: number;
   /**
    * <p>The reason why the step failed execution. This is only returned if the step failed its execution.</p>
    */

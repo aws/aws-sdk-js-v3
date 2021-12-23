@@ -223,6 +223,12 @@ export namespace AmiDistributionConfiguration {
   });
 }
 
+export enum BuildType {
+  IMPORT = "IMPORT",
+  SCHEDULED = "SCHEDULED",
+  USER_INITIATED = "USER_INITIATED",
+}
+
 /**
  * <p>You have exceeded the permitted request rate for the specific operation.</p>
  */
@@ -248,7 +254,9 @@ export interface CancelImageCreationRequest {
   imageBuildVersionArn: string | undefined;
 
   /**
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
    */
   clientToken?: string;
 }
@@ -269,7 +277,7 @@ export interface CancelImageCreationResponse {
   requestId?: string;
 
   /**
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>The idempotency token that was used for this request.</p>
    */
   clientToken?: string;
 
@@ -1552,6 +1560,66 @@ export namespace LaunchTemplateConfiguration {
   });
 }
 
+export enum DiskImageFormat {
+  RAW = "RAW",
+  VHD = "VHD",
+  VMDK = "VMDK",
+}
+
+/**
+ * <p>Properties that configure export from your build instance
+ * 			to a compatible file format for your VM.</p>
+ */
+export interface S3ExportConfiguration {
+  /**
+   * <p>The name of the role that grants VM Import/Export permission to
+   * 			export images to your S3 bucket.</p>
+   */
+  roleName: string | undefined;
+
+  /**
+   * <p>Export the updated image to one of the following supported disk
+   * 			image formats:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <b>Virtual Hard Disk (VHD)</b> –
+   * 					Compatible with Citrix Xen and Microsoft Hyper-V virtualization products.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <b>Stream-optimized ESX Virtual Machine Disk
+   * 					(VMDK)</b> – Compatible with VMware ESX and
+   * 					VMware vSphere versions 4, 5, and 6.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <b>Raw</b> – Raw format.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  diskImageFormat: DiskImageFormat | string | undefined;
+
+  /**
+   * <p>The S3 bucket in which to store the output disk images for your VM.</p>
+   */
+  s3Bucket: string | undefined;
+
+  /**
+   * <p>The Amazon S3 path for the bucket where the output disk images for your VM are stored.</p>
+   */
+  s3Prefix?: string;
+}
+
+export namespace S3ExportConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3ExportConfiguration): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p> Defines the settings for a specific Region.</p>
  */
@@ -1583,6 +1651,12 @@ export interface Distribution {
    * 			for specified accounts.</p>
    */
   launchTemplateConfigurations?: LaunchTemplateConfiguration[];
+
+  /**
+   * <p>Configure export settings to deliver disk images created from your image build,
+   * 			using a file format that is compatible with your VMs in that Region.</p>
+   */
+  s3ExportConfiguration?: S3ExportConfiguration;
 }
 
 export namespace Distribution {
@@ -1658,11 +1732,14 @@ export namespace CreateDistributionConfigurationResponse {
 }
 
 /**
- * <p>Image tests configuration.</p>
+ * <p>Configure image tests for your pipeline build. Tests run after building
+ * 			the image, to verify that the AMI or container image is valid before
+ * 			distributing it.</p>
  */
 export interface ImageTestsConfiguration {
   /**
-   * <p>Defines if tests should be executed when building this image.</p>
+   * <p>Determines if tests should run after building the image. Image Builder defaults
+   * 			to enable tests to run following the image build, before image distribution.</p>
    */
   imageTestsEnabled?: boolean;
 
@@ -2077,12 +2154,12 @@ export namespace InstanceMetadataOptions {
  */
 export interface S3Logs {
   /**
-   * <p>The Amazon S3 bucket in which to store the logs.</p>
+   * <p>The S3 bucket in which to store the logs.</p>
    */
   s3BucketName?: string;
 
   /**
-   * <p>The Amazon S3 path in which to store the logs.</p>
+   * <p>The Amazon S3 path to the bucket where the logs are stored.</p>
    */
   s3KeyPrefix?: string;
 }
@@ -2167,7 +2244,12 @@ export interface CreateInfrastructureConfigurationRequest {
   terminateInstanceOnFailure?: boolean;
 
   /**
-   * <p>The SNS topic on which to send image build events.</p>
+   * <p>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event notifications.</p>
+   * 		       <note>
+   * 			         <p>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys
+   * 				from other accounts. The key that is used to encrypt the SNS topic must reside in the
+   * 				account that the Image Builder service runs under.</p>
+   * 		       </note>
    */
   snsTopicArn?: string;
 
@@ -3007,7 +3089,12 @@ export interface InfrastructureConfiguration {
   terminateInstanceOnFailure?: boolean;
 
   /**
-   * <p>The SNS topic Amazon Resource Name (ARN) of the infrastructure configuration.</p>
+   * <p>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event notifications.</p>
+   * 		       <note>
+   * 			         <p>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys
+   * 				from other accounts. The key that is used to encrypt the SNS topic must reside in the
+   * 				account that the Image Builder service runs under.</p>
+   * 		       </note>
    */
   snsTopicArn?: string;
 
@@ -3201,6 +3288,29 @@ export interface Image {
    * <p>The tags of the image.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>Indicates the type of build that created this image. The build can be initiated
+   * 			in the following ways:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <b>USER_INITIATED</b> – A manual
+   * 					pipeline build request.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <b>SCHEDULED</b> – A pipeline build
+   * 					initiated by a cron expression in the Image Builder pipeline, or from EventBridge.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <b>IMPORT</b> – A VM import created
+   * 					the image to use as the base image for the recipe.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  buildType?: BuildType | string;
 }
 
 export namespace Image {
@@ -3641,6 +3751,102 @@ export namespace ImportComponentResponse {
   });
 }
 
+export interface ImportVmImageRequest {
+  /**
+   * <p>The name of the base image that is created by the import process.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The semantic version to attach to the base image that was created during the
+   * 			import process. This version follows the semantic version syntax.</p>
+   * 		       <note>
+   * 			         <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
+   * 	You can assign values for the first three, and can filter on all of them.</p>
+   * 			         <p>
+   *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
+   * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
+   * 	build number to the fourth node.</p>
+   * 			         <p>
+   *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
+   * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
+   * 	a date, such as 2021.01.01.</p>
+   * 		       </note>
+   */
+  semanticVersion: string | undefined;
+
+  /**
+   * <p>The description for the base image that is created by the import process.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The operating system platform for the imported VM.</p>
+   */
+  platform: Platform | string | undefined;
+
+  /**
+   * <p>The operating system version for the imported VM.</p>
+   */
+  osVersion?: string;
+
+  /**
+   * <p>The <code>importTaskId</code> (API) or <code>ImportTaskId</code> (CLI) from the
+   * 			Amazon EC2 VM import process. Image Builder retrieves information from the import process to pull
+   * 			in the AMI that is created from the VM source as the base image for your recipe.</p>
+   */
+  vmImportTaskId: string | undefined;
+
+  /**
+   * <p>Tags that are attached to the import resources.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
+   */
+  clientToken?: string;
+}
+
+export namespace ImportVmImageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportVmImageRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ImportVmImageResponse {
+  /**
+   * <p>The request ID that uniquely identifies this request.</p>
+   */
+  requestId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AMI that was created during the VM
+   * 			import process. This AMI is used as the base image for the recipe that
+   * 			imported the VM.</p>
+   */
+  imageArn?: string;
+
+  /**
+   * <p>The idempotency token that was used for this request.</p>
+   */
+  clientToken?: string;
+}
+
+export namespace ImportVmImageResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportVmImageResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>You have provided an invalid pagination token in your request.</p>
  */
@@ -4076,6 +4282,29 @@ export interface ImageSummary {
    * <p>The tags of the image.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>Indicates the type of build that created this image. The build can be initiated
+   * 			in the following ways:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <b>USER_INITIATED</b> – A manual
+   * 					pipeline build request.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <b>SCHEDULED</b> – A pipeline build
+   * 					initiated by a cron expression in the Image Builder pipeline, or from EventBridge.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <b>IMPORT</b> – A VM import created
+   * 					the image to use as the base image for the recipe.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  buildType?: BuildType | string;
 }
 
 export namespace ImageSummary {
@@ -4628,6 +4857,29 @@ export interface ImageVersion {
    * <p>The date on which this specific version of the Image Builder image was created.</p>
    */
   dateCreated?: string;
+
+  /**
+   * <p>Indicates the type of build that created this image. The build can be initiated
+   * 			in the following ways:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <b>USER_INITIATED</b> – A manual
+   * 					pipeline build request.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <b>SCHEDULED</b> – A pipeline build
+   * 					initiated by a cron expression in the Image Builder pipeline, or from EventBridge.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <b>IMPORT</b> – A VM import created
+   * 					the image to use as the base image for the recipe.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  buildType?: BuildType | string;
 }
 
 export namespace ImageVersion {
@@ -5346,7 +5598,12 @@ export interface UpdateInfrastructureConfigurationRequest {
   terminateInstanceOnFailure?: boolean;
 
   /**
-   * <p>The SNS topic on which to send image build events.</p>
+   * <p>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event notifications.</p>
+   * 		       <note>
+   * 			         <p>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys
+   * 				from other accounts. The key that is used to encrypt the SNS topic must reside in the
+   * 				account that the Image Builder service runs under.</p>
+   * 		       </note>
    */
   snsTopicArn?: string;
 

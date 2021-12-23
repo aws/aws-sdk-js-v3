@@ -6577,8 +6577,16 @@ const serializeAws_restJson1ChannelMembershipPreferences = (
 const serializeAws_restJson1ChannelMessageCallback = (input: ChannelMessageCallback, context: __SerdeContext): any => {
   return {
     ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
+    ...(input.MessageAttributes !== undefined &&
+      input.MessageAttributes !== null && {
+        MessageAttributes: serializeAws_restJson1MessageAttributeMap(input.MessageAttributes, context),
+      }),
     ...(input.MessageId !== undefined && input.MessageId !== null && { MessageId: input.MessageId }),
     ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
+    ...(input.PushNotification !== undefined &&
+      input.PushNotification !== null && {
+        PushNotification: serializeAws_restJson1PushNotificationConfiguration(input.PushNotification, context),
+      }),
   };
 };
 

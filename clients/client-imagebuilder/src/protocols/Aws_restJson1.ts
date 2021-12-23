@@ -82,6 +82,7 @@ import {
   GetInfrastructureConfigurationCommandOutput,
 } from "../commands/GetInfrastructureConfigurationCommand";
 import { ImportComponentCommandInput, ImportComponentCommandOutput } from "../commands/ImportComponentCommand";
+import { ImportVmImageCommandInput, ImportVmImageCommandOutput } from "../commands/ImportVmImageCommand";
 import {
   ListComponentBuildVersionsCommandInput,
   ListComponentBuildVersionsCommandOutput,
@@ -195,6 +196,7 @@ import {
   ResourceDependencyException,
   ResourceInUseException,
   ResourceNotFoundException,
+  S3ExportConfiguration,
   S3Logs,
   Schedule,
   ServiceException,
@@ -1002,6 +1004,39 @@ export const serializeAws_restJson1ImportComponentCommand = async (
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
     ...(input.type !== undefined && input.type !== null && { type: input.type }),
     ...(input.uri !== undefined && input.uri !== null && { uri: input.uri }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ImportVmImageCommand = async (
+  input: ImportVmImageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ImportVmImage";
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.osVersion !== undefined && input.osVersion !== null && { osVersion: input.osVersion }),
+    ...(input.platform !== undefined && input.platform !== null && { platform: input.platform }),
+    ...(input.semanticVersion !== undefined &&
+      input.semanticVersion !== null && { semanticVersion: input.semanticVersion }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.vmImportTaskId !== undefined &&
+      input.vmImportTaskId !== null && { vmImportTaskId: input.vmImportTaskId }),
   });
   return new __HttpRequest({
     protocol,
@@ -4757,6 +4792,85 @@ const deserializeAws_restJson1ImportComponentCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ImportVmImageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportVmImageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ImportVmImageCommandError(output, context);
+  }
+  const contents: ImportVmImageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    clientToken: undefined,
+    imageArn: undefined,
+    requestId: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.clientToken !== undefined && data.clientToken !== null) {
+    contents.clientToken = __expectString(data.clientToken);
+  }
+  if (data.imageArn !== undefined && data.imageArn !== null) {
+    contents.imageArn = __expectString(data.imageArn);
+  }
+  if (data.requestId !== undefined && data.requestId !== null) {
+    contents.requestId = __expectString(data.requestId);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ImportVmImageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportVmImageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListComponentBuildVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7603,6 +7717,10 @@ const serializeAws_restJson1Distribution = (input: Distribution, context: __Serd
         ),
       }),
     ...(input.region !== undefined && input.region !== null && { region: input.region }),
+    ...(input.s3ExportConfiguration !== undefined &&
+      input.s3ExportConfiguration !== null && {
+        s3ExportConfiguration: serializeAws_restJson1S3ExportConfiguration(input.s3ExportConfiguration, context),
+      }),
   };
 };
 
@@ -7843,6 +7961,16 @@ const serializeAws_restJson1ResourceTagMap = (input: { [key: string]: string }, 
       [key]: value,
     };
   }, {});
+};
+
+const serializeAws_restJson1S3ExportConfiguration = (input: S3ExportConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.diskImageFormat !== undefined &&
+      input.diskImageFormat !== null && { diskImageFormat: input.diskImageFormat }),
+    ...(input.roleName !== undefined && input.roleName !== null && { roleName: input.roleName }),
+    ...(input.s3Bucket !== undefined && input.s3Bucket !== null && { s3Bucket: input.s3Bucket }),
+    ...(input.s3Prefix !== undefined && input.s3Prefix !== null && { s3Prefix: input.s3Prefix }),
+  };
 };
 
 const serializeAws_restJson1S3Logs = (input: S3Logs, context: __SerdeContext): any => {
@@ -8305,6 +8433,10 @@ const deserializeAws_restJson1Distribution = (output: any, context: __SerdeConte
         ? deserializeAws_restJson1LicenseConfigurationArnList(output.licenseConfigurationArns, context)
         : undefined,
     region: __expectString(output.region),
+    s3ExportConfiguration:
+      output.s3ExportConfiguration !== undefined && output.s3ExportConfiguration !== null
+        ? deserializeAws_restJson1S3ExportConfiguration(output.s3ExportConfiguration, context)
+        : undefined,
   } as any;
 };
 
@@ -8395,6 +8527,7 @@ const deserializeAws_restJson1EbsInstanceBlockDeviceSpecification = (
 const deserializeAws_restJson1Image = (output: any, context: __SerdeContext): Image => {
   return {
     arn: __expectString(output.arn),
+    buildType: __expectString(output.buildType),
     containerRecipe:
       output.containerRecipe !== undefined && output.containerRecipe !== null
         ? deserializeAws_restJson1ContainerRecipe(output.containerRecipe, context)
@@ -8566,6 +8699,7 @@ const deserializeAws_restJson1ImageState = (output: any, context: __SerdeContext
 const deserializeAws_restJson1ImageSummary = (output: any, context: __SerdeContext): ImageSummary => {
   return {
     arn: __expectString(output.arn),
+    buildType: __expectString(output.buildType),
     dateCreated: __expectString(output.dateCreated),
     name: __expectString(output.name),
     osVersion: __expectString(output.osVersion),
@@ -8612,6 +8746,7 @@ const deserializeAws_restJson1ImageTestsConfiguration = (
 const deserializeAws_restJson1ImageVersion = (output: any, context: __SerdeContext): ImageVersion => {
   return {
     arn: __expectString(output.arn),
+    buildType: __expectString(output.buildType),
     dateCreated: __expectString(output.dateCreated),
     name: __expectString(output.name),
     osVersion: __expectString(output.osVersion),
@@ -8911,6 +9046,15 @@ const deserializeAws_restJson1ResourceTagMap = (output: any, context: __SerdeCon
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1S3ExportConfiguration = (output: any, context: __SerdeContext): S3ExportConfiguration => {
+  return {
+    diskImageFormat: __expectString(output.diskImageFormat),
+    roleName: __expectString(output.roleName),
+    s3Bucket: __expectString(output.s3Bucket),
+    s3Prefix: __expectString(output.s3Prefix),
+  } as any;
 };
 
 const deserializeAws_restJson1S3Logs = (output: any, context: __SerdeContext): S3Logs => {

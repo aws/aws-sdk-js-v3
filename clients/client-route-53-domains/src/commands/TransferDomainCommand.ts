@@ -33,7 +33,7 @@ export interface TransferDomainCommandOutput extends TransferDomainResponse, __M
  * 				Domain to Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
  *             </li>
  *             <li>
- *                <p>For information about how to transfer a domain from one AWS account to another, see
+ *                <p>For information about how to transfer a domain from one Amazon Web Services account to another, see
  * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.
  * 				</p>
  * 			         </li>

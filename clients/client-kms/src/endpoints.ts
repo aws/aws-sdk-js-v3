@@ -98,6 +98,18 @@ const regionHash: RegionHash = {
       },
     ],
   },
+  "ap-southeast-3": {
+    variants: [
+      {
+        hostname: "kms.ap-southeast-3.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "kms-fips.ap-southeast-3.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "ca-central-1": {
     variants: [
       {
@@ -335,6 +347,7 @@ const partitionHash: PartitionHash = {
       "ap-southeast-1-fips",
       "ap-southeast-2",
       "ap-southeast-2-fips",
+      "ap-southeast-3",
       "ap-southeast-3-fips",
       "ca-central-1",
       "ca-central-1-fips",

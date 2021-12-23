@@ -65,6 +65,11 @@ import {
   ListAnomalyDetectorsCommandOutput,
 } from "./commands/ListAnomalyDetectorsCommand";
 import {
+  ListAnomalyGroupRelatedMetricsCommand,
+  ListAnomalyGroupRelatedMetricsCommandInput,
+  ListAnomalyGroupRelatedMetricsCommandOutput,
+} from "./commands/ListAnomalyGroupRelatedMetricsCommand";
+import {
   ListAnomalyGroupSummariesCommand,
   ListAnomalyGroupSummariesCommandInput,
   ListAnomalyGroupSummariesCommandOutput,
@@ -598,6 +603,39 @@ export class LookoutMetrics extends LookoutMetricsClient {
     cb?: (err: any, data?: ListAnomalyDetectorsCommandOutput) => void
   ): Promise<ListAnomalyDetectorsCommandOutput> | void {
     const command = new ListAnomalyDetectorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of measures that are potential causes or effects of an
+   *             anomaly group.</p>
+   */
+  public listAnomalyGroupRelatedMetrics(
+    args: ListAnomalyGroupRelatedMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAnomalyGroupRelatedMetricsCommandOutput>;
+  public listAnomalyGroupRelatedMetrics(
+    args: ListAnomalyGroupRelatedMetricsCommandInput,
+    cb: (err: any, data?: ListAnomalyGroupRelatedMetricsCommandOutput) => void
+  ): void;
+  public listAnomalyGroupRelatedMetrics(
+    args: ListAnomalyGroupRelatedMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAnomalyGroupRelatedMetricsCommandOutput) => void
+  ): void;
+  public listAnomalyGroupRelatedMetrics(
+    args: ListAnomalyGroupRelatedMetricsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAnomalyGroupRelatedMetricsCommandOutput) => void),
+    cb?: (err: any, data?: ListAnomalyGroupRelatedMetricsCommandOutput) => void
+  ): Promise<ListAnomalyGroupRelatedMetricsCommandOutput> | void {
+    const command = new ListAnomalyGroupRelatedMetricsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

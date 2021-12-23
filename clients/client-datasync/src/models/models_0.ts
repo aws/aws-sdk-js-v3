@@ -343,9 +343,57 @@ export namespace CreateLocationEfsResponse {
   });
 }
 
+export interface CreateLocationFsxLustreRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the FSx for Lustre file system.</p>
+   */
+  FsxFilesystemArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the security groups that are used to configure the FSx for Lustre file system.</p>
+   */
+  SecurityGroupArns: string[] | undefined;
+
+  /**
+   * <p>A subdirectory in the location's path. This subdirectory in the FSx for Lustre file system is used to read data from the FSx for Lustre source location or write data to the FSx for Lustre  destination.</p>
+   */
+  Subdirectory?: string;
+
+  /**
+   * <p>The key-value pair that represents a tag that you want to add to the resource. The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.</p>
+   */
+  Tags?: TagListEntry[];
+}
+
+export namespace CreateLocationFsxLustreRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLocationFsxLustreRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateLocationFsxLustreResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the FSx for Lustre file system location that's
+   *       created. </p>
+   */
+  LocationArn?: string;
+}
+
+export namespace CreateLocationFsxLustreResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLocationFsxLustreResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateLocationFsxWindowsRequest {
   /**
-   * <p>A subdirectory in the location’s path. This subdirectory in the Amazon FSx for Windows
+   * <p>A subdirectory in the location's path. This subdirectory in the Amazon FSx for Windows
    *       File Server file system is used to read data from the Amazon FSx for Windows File Server
    *       source location or write data to the FSx for Windows File Server destination.</p>
    */
@@ -357,7 +405,7 @@ export interface CreateLocationFsxWindowsRequest {
   FsxFilesystemArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the security groups that are to use to configure the
+   * <p>The Amazon Resource Names (ARNs) of the security groups that are used to configure the
    *       FSx for Windows File Server file system.</p>
    */
   SecurityGroupArns: string[] | undefined;
@@ -1851,6 +1899,53 @@ export namespace DescribeLocationEfsResponse {
   });
 }
 
+export interface DescribeLocationFsxLustreRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the FSx for Lustre location to describe. </p>
+   */
+  LocationArn: string | undefined;
+}
+
+export namespace DescribeLocationFsxLustreRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeLocationFsxLustreRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLocationFsxLustreResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the FSx for Lustre location that was described.</p>
+   */
+  LocationArn?: string;
+
+  /**
+   * <p>The URI of the FSx for Lustre location that was described.</p>
+   */
+  LocationUri?: string;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the security groups that are configured for the FSx for Lustre file system.</p>
+   */
+  SecurityGroupArns?: string[];
+
+  /**
+   * <p>The time that the FSx for Lustre location was created.</p>
+   */
+  CreationTime?: Date;
+}
+
+export namespace DescribeLocationFsxLustreResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeLocationFsxLustreResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeLocationFsxWindowsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for Windows File Server location to
@@ -2792,7 +2887,7 @@ export interface LocationListEntry {
   LocationArn?: string;
 
   /**
-   * <p>Represents a list of URLs of a location. <code>LocationUri</code> returns an array that
+   * <p>Represents a list of URIs of a location. <code>LocationUri</code> returns an array that
    *       contains a list of locations when the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListLocations.html">ListLocations</a> operation is
    *       called.</p>
    *          <p>Format: <code>TYPE://GLOBAL_ID/SUBDIR</code>.</p>

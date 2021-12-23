@@ -20,7 +20,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
 
 /**
  * <p>Deletes the specified application. Optionally deletes the launched stack associated with
- *             the application and all AWS SMS replication jobs for servers in the application.</p>
+ *             the application and all Server Migration Service replication jobs for servers in the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

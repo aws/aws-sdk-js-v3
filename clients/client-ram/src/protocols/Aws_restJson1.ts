@@ -119,6 +119,7 @@ import {
   TagFilter,
   TagLimitExceededException,
   TagPolicyViolationException,
+  ThrottlingException,
   UnknownResourceException,
 } from "../models/models_0";
 
@@ -545,6 +546,8 @@ export const serializeAws_restJson1ListPendingInvitationResourcesCommand = async
   body = JSON.stringify({
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.resourceRegionScope !== undefined &&
+      input.resourceRegionScope !== null && { resourceRegionScope: input.resourceRegionScope }),
     ...(input.resourceShareInvitationArn !== undefined &&
       input.resourceShareInvitationArn !== null && { resourceShareInvitationArn: input.resourceShareInvitationArn }),
   });
@@ -640,6 +643,8 @@ export const serializeAws_restJson1ListResourcesCommand = async (
         resourceArns: serializeAws_restJson1ResourceArnList(input.resourceArns, context),
       }),
     ...(input.resourceOwner !== undefined && input.resourceOwner !== null && { resourceOwner: input.resourceOwner }),
+    ...(input.resourceRegionScope !== undefined &&
+      input.resourceRegionScope !== null && { resourceRegionScope: input.resourceRegionScope }),
     ...(input.resourceShareArns !== undefined &&
       input.resourceShareArns !== null && {
         resourceShareArns: serializeAws_restJson1ResourceShareArnList(input.resourceShareArns, context),
@@ -698,6 +703,8 @@ export const serializeAws_restJson1ListResourceTypesCommand = async (
   body = JSON.stringify({
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.resourceRegionScope !== undefined &&
+      input.resourceRegionScope !== null && { resourceRegionScope: input.resourceRegionScope }),
   });
   return new __HttpRequest({
     protocol,
@@ -1089,6 +1096,14 @@ const deserializeAws_restJson1AssociateResourceShareCommandError = async (
     case "com.amazonaws.ram#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.ram#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3829,6 +3844,23 @@ const deserializeAws_restJson1TagPolicyViolationExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1ThrottlingExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ThrottlingException> => {
+  const contents: ThrottlingException = {
+    name: "ThrottlingException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1UnknownResourceExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4010,6 +4042,7 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     resourceGroupArn: __expectString(output.resourceGroupArn),
+    resourceRegionScope: __expectString(output.resourceRegionScope),
     resourceShareArn: __expectString(output.resourceShareArn),
     status: __expectString(output.status),
     statusMessage: __expectString(output.statusMessage),
@@ -4202,6 +4235,7 @@ const deserializeAws_restJson1ServiceNameAndResourceType = (
   context: __SerdeContext
 ): ServiceNameAndResourceType => {
   return {
+    resourceRegionScope: __expectString(output.resourceRegionScope),
     resourceType: __expectString(output.resourceType),
     serviceName: __expectString(output.serviceName),
   } as any;

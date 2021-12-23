@@ -19,7 +19,7 @@ export interface LaunchAppCommandInput extends LaunchAppRequest {}
 export interface LaunchAppCommandOutput extends LaunchAppResponse, __MetadataBearer {}
 
 /**
- * <p>Launches the specified application as a stack in AWS CloudFormation.</p>
+ * <p>Launches the specified application as a stack in CloudFormation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

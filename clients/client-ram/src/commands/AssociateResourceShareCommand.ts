@@ -22,7 +22,9 @@ export interface AssociateResourceShareCommandInput extends AssociateResourceSha
 export interface AssociateResourceShareCommandOutput extends AssociateResourceShareResponse, __MetadataBearer {}
 
 /**
- * <p>Associates the specified resource share with the specified principals and resources.</p>
+ * <p>Adds the specified list of principals and list of resources to a resource share. Principals that
+ *             already have access to this resource share immediately receive access to the added resources.
+ *             Newly added principals immediately receive access to the resources shared in this resource share. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

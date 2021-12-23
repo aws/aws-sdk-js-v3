@@ -22,7 +22,7 @@ export interface ImportAppCatalogCommandInput extends ImportAppCatalogRequest {}
 export interface ImportAppCatalogCommandOutput extends ImportAppCatalogResponse, __MetadataBearer {}
 
 /**
- * <p>Allows application import from AWS Migration Hub.</p>
+ * <p>Allows application import from Migration Hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

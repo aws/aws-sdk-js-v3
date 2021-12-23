@@ -378,6 +378,26 @@ export namespace BatchDeleteGeofenceResponse {
 }
 
 /**
+ * <p>Defines the level of certainty of the position.</p>
+ */
+export interface PositionalAccuracy {
+  /**
+   * <p>Estimated maximum distance, in meters, between the measured position and the true
+   *             position of a device, along the Earth's surface.</p>
+   */
+  Horizontal: number | undefined;
+}
+
+export namespace PositionalAccuracy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PositionalAccuracy): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Contains the position update details for a device.</p>
  */
 export interface DevicePositionUpdate {
@@ -398,6 +418,20 @@ export interface DevicePositionUpdate {
    *                 <code>[X or longitude, Y or latitude]</code>.</p>
    */
   Position: number[] | undefined;
+
+  /**
+   * <p>The accuracy of the device position.</p>
+   */
+  Accuracy?: PositionalAccuracy;
+
+  /**
+   * <p>Associates one of more properties with the position update. A property is a key-value
+   *             pair stored with the position update and added to any geofence event the update may
+   *             trigger.</p>
+   *         <p>Format: <code>"key" : "value"</code>
+   *          </p>
+   */
+  PositionProperties?: { [key: string]: string };
 }
 
 export namespace DevicePositionUpdate {
@@ -407,6 +441,7 @@ export namespace DevicePositionUpdate {
   export const filterSensitiveLog = (obj: DevicePositionUpdate): any => ({
     ...obj,
     ...(obj.Position && { Position: SENSITIVE_STRING }),
+    ...(obj.PositionProperties && { PositionProperties: SENSITIVE_STRING }),
   });
 }
 
@@ -538,6 +573,16 @@ export interface DevicePosition {
    * <p>The last known device position.</p>
    */
   Position: number[] | undefined;
+
+  /**
+   * <p>The accuracy of the device position.</p>
+   */
+  Accuracy?: PositionalAccuracy;
+
+  /**
+   * <p>The properties associated with the position.</p>
+   */
+  PositionProperties?: { [key: string]: string };
 }
 
 export namespace DevicePosition {
@@ -547,6 +592,7 @@ export namespace DevicePosition {
   export const filterSensitiveLog = (obj: DevicePosition): any => ({
     ...obj,
     ...(obj.Position && { Position: SENSITIVE_STRING }),
+    ...(obj.PositionProperties && { PositionProperties: SENSITIVE_STRING }),
   });
 }
 
@@ -1497,11 +1543,12 @@ export interface CreateGeofenceCollectionRequest {
   CollectionName: string | undefined;
 
   /**
-   * <p>Specifies the pricing plan for the geofence collection.</p>
+   * <p>Optionally specifies the pricing plan for the geofence collection. Defaults to
+   *             <code>RequestBasedUsage</code>.</p>
    *         <p>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing
    *             page</a>.</p>
    */
-  PricingPlan: PricingPlan | string | undefined;
+  PricingPlan?: PricingPlan | string;
 
   /**
    * <p>Specifies the data provider for the geofence collection.</p>
@@ -1709,10 +1756,11 @@ export interface CreateMapRequest {
   Configuration: MapConfiguration | undefined;
 
   /**
-   * <p>Specifies the pricing plan for your map resource.</p>
+   * <p>Optionally specifies the pricing plan for the map resource. Defaults to
+   *             <code>RequestBasedUsage</code>.</p>
    *         <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
    */
-  PricingPlan: PricingPlan | string | undefined;
+  PricingPlan?: PricingPlan | string;
 
   /**
    * <p>An optional description for the map resource.</p>
@@ -1895,10 +1943,11 @@ export interface CreatePlaceIndexRequest {
   DataSource: string | undefined;
 
   /**
-   * <p>Specifies the pricing plan for your place index resource.</p>
+   * <p>Optionally specifies the pricing plan for the place index resource. Defaults to
+   *          <code>RequestBasedUsage</code>.</p>
    *          <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
    */
-  PricingPlan: PricingPlan | string | undefined;
+  PricingPlan?: PricingPlan | string;
 
   /**
    * <p>The optional description for the place index resource.</p>
@@ -2029,10 +2078,11 @@ export interface CreateRouteCalculatorRequest {
   DataSource: string | undefined;
 
   /**
-   * <p>Specifies the pricing plan for your route calculator resource.</p>
+   * <p>Optionally specifies the pricing plan for the route calculator resource. Defaults to
+   *             <code>RequestBasedUsage</code>.</p>
    *         <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
    */
-  PricingPlan: PricingPlan | string | undefined;
+  PricingPlan?: PricingPlan | string;
 
   /**
    * <p>The optional description for the route calculator resource.</p>
@@ -2152,10 +2202,11 @@ export interface CreateTrackerRequest {
   TrackerName: string | undefined;
 
   /**
-   * <p>Specifies the pricing plan for the tracker resource.</p>
+   * <p>Optionally specifies the pricing plan for the tracker resource. Defaults to
+   *             <code>RequestBasedUsage</code>.</p>
    *          <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
    */
-  PricingPlan: PricingPlan | string | undefined;
+  PricingPlan?: PricingPlan | string;
 
   /**
    * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.</p>
@@ -2233,6 +2284,17 @@ export interface CreateTrackerRequest {
    *                     ignored. Location updates within this area are neither evaluated against linked geofence collections, nor stored.
    *                     This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through.
    *                     Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>AccuracyBased</code> - If the device has moved less than the measured accuracy,
+   *                     location updates are ignored. For example, if two consecutive updates from a device
+   *                     have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device
+   *                     has moved less than 15 m. Ignored location updates are neither evaluated against
+   *                     linked geofence collections, nor stored. This can reduce the effects of GPS noise
+   *                     when displaying device trajectories on a map, and can help control your costs by reducing the
+   *                     number of geofence evaluations.
    *                 </p>
    *             </li>
    *          </ul>
@@ -3549,6 +3611,16 @@ export interface GetDevicePositionResponse {
    * <p>The last known device position.</p>
    */
   Position: number[] | undefined;
+
+  /**
+   * <p>The accuracy of the device position.</p>
+   */
+  Accuracy?: PositionalAccuracy;
+
+  /**
+   * <p>The properties associated with the position.</p>
+   */
+  PositionProperties?: { [key: string]: string };
 }
 
 export namespace GetDevicePositionResponse {
@@ -3558,6 +3630,7 @@ export namespace GetDevicePositionResponse {
   export const filterSensitiveLog = (obj: GetDevicePositionResponse): any => ({
     ...obj,
     ...(obj.Position && { Position: SENSITIVE_STRING }),
+    ...(obj.PositionProperties && { PositionProperties: SENSITIVE_STRING }),
   });
 }
 
@@ -3939,6 +4012,16 @@ export interface ListDevicePositionsResponseEntry {
    * <p>The last known device position. Empty if no positions currently stored.</p>
    */
   Position: number[] | undefined;
+
+  /**
+   * <p>The accuracy of the device position.</p>
+   */
+  Accuracy?: PositionalAccuracy;
+
+  /**
+   * <p>The properties associated with the position.</p>
+   */
+  PositionProperties?: { [key: string]: string };
 }
 
 export namespace ListDevicePositionsResponseEntry {
@@ -3948,6 +4031,7 @@ export namespace ListDevicePositionsResponseEntry {
   export const filterSensitiveLog = (obj: ListDevicePositionsResponseEntry): any => ({
     ...obj,
     ...(obj.Position && { Position: SENSITIVE_STRING }),
+    ...(obj.PositionProperties && { PositionProperties: SENSITIVE_STRING }),
   });
 }
 
@@ -4808,6 +4892,206 @@ export namespace SearchPlaceIndexForPositionResponse {
   });
 }
 
+export interface SearchPlaceIndexForSuggestionsRequest {
+  /**
+   * <p>The name of the place index resource you want to use for the search.</p>
+   */
+  IndexName: string | undefined;
+
+  /**
+   * <p>The free-form partial text to use to generate place suggestions. For example,
+   *          <code>eiffel tow</code>.</p>
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>An optional parameter that indicates a preference for place suggestions that are closer to a specified position.</p>
+   *          <p>
+   *          If provided, this parameter must contain a pair of numbers. The first number represents the X coordinate, or longitude;
+   *            the second number represents the Y coordinate, or latitude.</p>
+   *          <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with
+   *             longitude <code>-123.1174</code> and
+   *             latitude <code>49.2847</code>.</p>
+   *          <note>
+   *             <p>
+   *                <code>BiasPosition</code> and <code>FilterBBox</code> are mutually exclusive. Specifying both options results in an error.
+   *          </p>
+   *          </note>
+   */
+  BiasPosition?: number[];
+
+  /**
+   * <p>An optional parameter that limits the search results by returning only suggestions within a specified bounding box.</p>
+   *          <p>
+   *          If provided, this parameter must contain a total of four consecutive numbers in two pairs.
+   *          The first pair of numbers represents the X and Y coordinates (longitude and latitude, respectively)
+   *          of the southwest corner of the bounding box; the second pair of numbers represents the X and Y coordinates (longitude and latitude, respectively)
+   *          of the northeast corner of the bounding box.</p>
+   *          <p>For example, <code>[-12.7935, -37.4835, -12.0684, -36.9542]</code> represents
+   *          a bounding box where the southwest corner has longitude <code>-12.7935</code> and latitude <code>-37.4835</code>,
+   *          and the northeast corner has longitude <code>-12.0684</code> and latitude <code>-36.9542</code>.</p>
+   *          <note>
+   *             <p>
+   *                <code>FilterBBox</code> and <code>BiasPosition</code> are mutually exclusive. Specifying both options results in an error.
+   *          </p>
+   *          </note>
+   */
+  FilterBBox?: number[];
+
+  /**
+   * <p>An optional parameter that limits the search results by returning only suggestions within the provided list of countries.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Use the <a href="https://www.iso.org/iso-3166-country-codes.html">ISO 3166</a> 3-digit
+   *             country code. For example, Australia uses three upper-case characters:
+   *             <code>AUS</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  FilterCountries?: string[];
+
+  /**
+   * <p>An optional parameter. The maximum number of results returned per request. </p>
+   *          <p>The default: <code>5</code>
+   *          </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
+   *          <code>en</code> for English.</p>
+   *          <p>This setting affects the languages used in the results. It does not change which
+   *          results are returned. If the language is not specified, or not supported for a
+   *          particular result, the partner automatically chooses a language for the result.</p>
+   *          <p>Used only when the partner selected is Here.</p>
+   */
+  Language?: string;
+}
+
+export namespace SearchPlaceIndexForSuggestionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchPlaceIndexForSuggestionsRequest): any => ({
+    ...obj,
+    ...(obj.Text && { Text: SENSITIVE_STRING }),
+    ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
+    ...(obj.FilterBBox && { FilterBBox: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>Contains a place suggestion resulting from a place suggestion query that is run on a place index resource.</p>
+ */
+export interface SearchForSuggestionsResult {
+  /**
+   * <p>The text of the place suggestion, typically formatted as an address string.</p>
+   */
+  Text: string | undefined;
+}
+
+export namespace SearchForSuggestionsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchForSuggestionsResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A summary of the request sent by using <code>SearchPlaceIndexForSuggestions</code>.</p>
+ */
+export interface SearchPlaceIndexForSuggestionsSummary {
+  /**
+   * <p>The free-form partial text input specified in the request.</p>
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>Contains the coordinates for the optional bias position specified in the request.</p>
+   *          <p>This parameter contains a pair of numbers. The first number represents the X
+   *          coordinate, or longitude; the second number represents the Y coordinate, or latitude.</p>
+   *          <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with
+   *          longitude <code>-123.1174</code> and latitude <code>49.2847</code>.</p>
+   */
+  BiasPosition?: number[];
+
+  /**
+   * <p>Contains the coordinates for the optional bounding box specified in the request.</p>
+   */
+  FilterBBox?: number[];
+
+  /**
+   * <p>Contains the optional country filter specified in the request.</p>
+   */
+  FilterCountries?: string[];
+
+  /**
+   * <p>Contains the optional result count limit specified in the request.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The geospatial data provider attached to the place index resource specified in the request.
+   *          Values can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Esri</p>
+   *             </li>
+   *             <li>
+   *                <p>Here</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   */
+  DataSource: string | undefined;
+
+  /**
+   * <p>The preferred language used to return results. Matches the language in the request.
+   *          The value is a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
+   *          <code>en</code> for English.</p>
+   */
+  Language?: string;
+}
+
+export namespace SearchPlaceIndexForSuggestionsSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchPlaceIndexForSuggestionsSummary): any => ({
+    ...obj,
+    ...(obj.Text && { Text: SENSITIVE_STRING }),
+    ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
+    ...(obj.FilterBBox && { FilterBBox: SENSITIVE_STRING }),
+  });
+}
+
+export interface SearchPlaceIndexForSuggestionsResponse {
+  /**
+   * <p>Contains a summary of the request. Echoes the input values for <code>BiasPosition</code>,
+   *          <code>FilterBBox</code>, <code>FilterCountries</code>, <code>Language</code>, <code>MaxResults</code>,
+   *          and <code>Text</code>. Also includes the <code>DataSource</code> of the place index.
+   *       </p>
+   */
+  Summary: SearchPlaceIndexForSuggestionsSummary | undefined;
+
+  /**
+   * <p>A list of place suggestions that best match the search text.</p>
+   */
+  Results: SearchForSuggestionsResult[] | undefined;
+}
+
+export namespace SearchPlaceIndexForSuggestionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchPlaceIndexForSuggestionsResponse): any => ({
+    ...obj,
+    ...(obj.Summary && { Summary: SearchPlaceIndexForSuggestionsSummary.filterSensitiveLog(obj.Summary) }),
+  });
+}
+
 export interface SearchPlaceIndexForTextRequest {
   /**
    * <p>The name of the place index resource you want to use for the search.</p>
@@ -4947,6 +5231,10 @@ export interface SearchPlaceIndexForTextSummary {
 
   /**
    * <p>Contains the coordinates for the optional bias position specified in the request.</p>
+   *          <p>This parameter contains a pair of numbers. The first number represents the X
+   *          coordinate, or longitude; the second number represents the Y coordinate, or latitude.</p>
+   *          <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with
+   *          longitude <code>-123.1174</code> and latitude <code>49.2847</code>.</p>
    */
   BiasPosition?: number[];
 
@@ -5217,8 +5505,19 @@ export interface UpdateTrackerRequest {
    *                 <p>
    *                     <code>DistanceBased</code> - If the device has moved less than 30 m (98.4 ft), location updates are
    *                     ignored. Location updates within this distance are neither evaluated against linked geofence collections, nor stored.
-   *                     This helps control costs by reducing the number of geofence evaluations and device positions to retrieve.
-   *                     Distance-based filtering can also reduce the jitter effect when displaying device trajectory on a map.
+   *                     This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through.
+   *                     Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>AccuracyBased</code> - If the device has moved less than the measured accuracy,
+   *                     location updates are ignored. For example, if two consecutive updates from a device
+   *                     have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device
+   *                     has moved less than 15 m. Ignored location updates are neither evaluated against
+   *                     linked geofence collections, nor stored. This helps educe the effects of GPS noise
+   *                     when displaying device trajectories on a map, and can help control costs by reducing the
+   *                     number of geofence evaluations.
    *                 </p>
    *             </li>
    *          </ul>

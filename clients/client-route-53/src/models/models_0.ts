@@ -265,6 +265,7 @@ export type CloudWatchRegion =
   | "ap-south-1"
   | "ap-southeast-1"
   | "ap-southeast-2"
+  | "ap-southeast-3"
   | "ca-central-1"
   | "cn-north-1"
   | "cn-northwest-1"
@@ -281,6 +282,7 @@ export type CloudWatchRegion =
   | "us-gov-east-1"
   | "us-gov-west-1"
   | "us-iso-east-1"
+  | "us-iso-west-1"
   | "us-isob-east-1"
   | "us-west-1"
   | "us-west-2";
@@ -717,6 +719,7 @@ export type VPCRegion =
   | "ap-south-1"
   | "ap-southeast-1"
   | "ap-southeast-2"
+  | "ap-southeast-3"
   | "ca-central-1"
   | "cn-north-1"
   | "eu-central-1"
@@ -732,12 +735,15 @@ export type VPCRegion =
   | "us-gov-east-1"
   | "us-gov-west-1"
   | "us-iso-east-1"
+  | "us-iso-west-1"
   | "us-isob-east-1"
   | "us-west-1"
   | "us-west-2";
 
 /**
  * <p>(Private hosted zones only) A complex type that contains information about an Amazon VPC.</p>
+ * 		       <p>If you associate a private hosted zone with an Amazon VPC when you make a <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html">CreateHostedZone</a> request, the following parameters are also
+ * 			required.</p>
  */
 export interface VPC {
   /**
@@ -1063,6 +1069,7 @@ export type ResourceRecordSetRegion =
   | "ap-south-1"
   | "ap-southeast-1"
   | "ap-southeast-2"
+  | "ap-southeast-3"
   | "ca-central-1"
   | "cn-north-1"
   | "cn-northwest-1"
@@ -2633,7 +2640,10 @@ export interface CreateHostedZoneRequest {
 
   /**
    * <p>(Private hosted zones only) A complex type that contains information about the Amazon VPC that you're associating with this hosted zone.</p>
-   * 		       <p>You can specify only one Amazon VPC when you create a private hosted zone. To associate additional Amazon VPCs with the hosted zone,
+   * 		       <p>You can specify only one Amazon VPC when you create a private hosted zone. If you are associating a VPC with a hosted zone with this request,
+   * 			the paramaters
+   * 			<code>VPCId</code> and <code>VPCRegion</code> are also required.</p>
+   * 		       <p>To associate additional Amazon VPCs with the hosted zone,
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_AssociateVPCWithHostedZone.html">AssociateVPCWithHostedZone</a>
    * 			after you create a hosted zone.</p>
    */
@@ -2949,11 +2959,11 @@ export interface CreateKeySigningKeyRequest {
   HostedZoneId: string | undefined;
 
   /**
-   * <p>The Amazon resource name (ARN) for a customer managed customer master key (CMK) in Key Management Service (KMS).
+   * <p>The Amazon resource name (ARN) for a customer managed key in Key Management Service (KMS).
    * 			The <code>KeyManagementServiceArn</code> must be unique for each key-signing key (KSK) in a single hosted zone.
    * 			To see an example of <code>KeyManagementServiceArn</code> that grants the correct permissions for DNSSEC,
    * 			scroll down to <b>Example</b>. </p>
-   * 		       <p>You must configure the customer managed CMK as follows:</p>
+   * 		       <p>You must configure the customer managed customer managed key as follows:</p>
    * 		       <dl>
    *             <dt>Status</dt>
    *             <dd>
@@ -2992,7 +3002,7 @@ export interface CreateKeySigningKeyRequest {
    *                </ul>
    * 				        </dd>
    *          </dl>
-   * 		       <p>For more information about working with a customer managed CMK in KMS, see
+   * 		       <p>For more information about working with a customer managed key in KMS, see
    * 			<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">Key Management Service concepts</a>.</p>
    */
   KeyManagementServiceArn: string | undefined;
@@ -3031,9 +3041,9 @@ export interface KeySigningKey {
   Name?: string;
 
   /**
-   * <p>The Amazon resource name (ARN) used to identify the customer managed customer master key (CMK) in Key Management Service (KMS).
+   * <p>The Amazon resource name (ARN) used to identify the customer managed key in Key Management Service (KMS).
    * 			The <code>KmsArn</code> must be unique for each key-signing key (KSK) in a single hosted zone.</p>
-   * 		       <p>You must configure the CMK as follows:</p>
+   * 		       <p>You must configure the customer managed key as follows:</p>
    * 		       <dl>
    *             <dt>Status</dt>
    *             <dd>
@@ -3072,7 +3082,7 @@ export interface KeySigningKey {
    *                </ul>
    * 				        </dd>
    *          </dl>
-   * 		       <p>For more information about working with the customer managed CMK in KMS, see
+   * 		       <p>For more information about working with the customer managed key in KMS, see
    * 			<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">Key Management Service concepts</a>.</p>
    */
   KmsArn?: string;
@@ -3156,8 +3166,8 @@ export interface KeySigningKey {
    *             <dt>ACTION_NEEDED</dt>
    *             <dd>
    *                <p>There is a problem with the KSK that requires you to take action to resolve.
-   * 				For example, the customer managed customer master key (CMK) might have been deleted, or the
-   * 				permissions for the customer managed CMK might have been changed.</p>
+   * 					For example, the customer managed key might have been deleted, or the
+   * 					permissions for the customer managed key might have been changed.</p>
    *             </dd>
    *             <dt>INTERNAL_FAILURE</dt>
    *             <dd>
@@ -3263,7 +3273,7 @@ export namespace InvalidKeySigningKeyName {
 }
 
 /**
- * <p>You've already created a key-signing key (KSK) with this name or with the same customer managed customer master key (CMK) ARN.</p>
+ * <p>You've already created a key-signing key (KSK) with this name or with the same customer managed key ARN.</p>
  */
 export interface KeySigningKeyAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "KeySigningKeyAlreadyExists";
@@ -5025,8 +5035,8 @@ export interface DNSSECStatus {
    *             <dt>ACTION_NEEDED</dt>
    *             <dd>
    *                <p>There is a problem with signing in the hosted zone that requires you to take action to resolve.
-   * 					For example, the customer managed customer master key (CMK) might have been deleted, or the
-   * 					permissions for the customer managed CMK might have been changed.</p>
+   * 					For example, the customer managed key might have been deleted, or the
+   * 					permissions for the customer managed key might have been changed.</p>
    *             </dd>
    *             <dt>INTERNAL_FAILURE</dt>
    *             <dd>
@@ -7798,8 +7808,8 @@ export interface UpdateHealthCheckRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>LastKnownStatus</code>: Route 53 uses the status of the health check from the last time CloudWatch had sufficient data
-   * 				to determine the alarm state. For new health checks that have no last known status, the default status for the health check is healthy.</p>
+   *                   <code>LastKnownStatus</code>: By default, Route 53 uses the status of the health check from the last time CloudWatch had sufficient data
+   * 				to determine the alarm state. For new health checks that have no last known status, the status for the health check is healthy.</p>
    *             </li>
    *          </ul>
    */

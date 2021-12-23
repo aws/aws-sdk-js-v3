@@ -25,7 +25,7 @@ export interface CreateAutoPredictorCommandOutput extends CreateAutoPredictorRes
  * <p>Creates an Amazon Forecast predictor.</p>
  *         <p>Amazon Forecast creates predictors with AutoPredictor, which involves applying the
  *             optimal combination of algorithms to each time series in your datasets. You can use
- *             CreateAutoPredictor to create new predictors or upgrade/retrain existing
+ *             <a>CreateAutoPredictor</a> to create new predictors or upgrade/retrain existing
  *             predictors.</p>
  *         <p>
  *             <b>Creating new predictors</b>

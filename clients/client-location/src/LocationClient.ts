@@ -155,6 +155,10 @@ import {
   SearchPlaceIndexForPositionCommandOutput,
 } from "./commands/SearchPlaceIndexForPositionCommand";
 import {
+  SearchPlaceIndexForSuggestionsCommandInput,
+  SearchPlaceIndexForSuggestionsCommandOutput,
+} from "./commands/SearchPlaceIndexForSuggestionsCommand";
+import {
   SearchPlaceIndexForTextCommandInput,
   SearchPlaceIndexForTextCommandOutput,
 } from "./commands/SearchPlaceIndexForTextCommand";
@@ -216,6 +220,7 @@ export type ServiceInputTypes =
   | ListTrackersCommandInput
   | PutGeofenceCommandInput
   | SearchPlaceIndexForPositionCommandInput
+  | SearchPlaceIndexForSuggestionsCommandInput
   | SearchPlaceIndexForTextCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -268,6 +273,7 @@ export type ServiceOutputTypes =
   | ListTrackersCommandOutput
   | PutGeofenceCommandOutput
   | SearchPlaceIndexForPositionCommandOutput
+  | SearchPlaceIndexForSuggestionsCommandOutput
   | SearchPlaceIndexForTextCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

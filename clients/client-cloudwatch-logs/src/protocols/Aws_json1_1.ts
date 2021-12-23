@@ -3176,6 +3176,14 @@ const deserializeAws_json1_1PutQueryDefinitionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "LimitExceededException":
+    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
       response = {
@@ -4307,6 +4315,7 @@ const serializeAws_json1_1PutDestinationPolicyRequest = (
     ...(input.accessPolicy !== undefined && input.accessPolicy !== null && { accessPolicy: input.accessPolicy }),
     ...(input.destinationName !== undefined &&
       input.destinationName !== null && { destinationName: input.destinationName }),
+    ...(input.forceUpdate !== undefined && input.forceUpdate !== null && { forceUpdate: input.forceUpdate }),
   };
 };
 
