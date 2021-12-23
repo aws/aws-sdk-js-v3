@@ -25,9 +25,7 @@ export type ScanCommandInput = Omit<
 };
 
 export type ScanCommandOutput = Omit<__ScanCommandOutput, "Items" | "LastEvaluatedKey"> & {
-  Items?: {
-    [key: string]: NativeAttributeValue;
-  }[];
+  Items?: { [key: string]: NativeAttributeValue }[];
   LastEvaluatedKey?: { [key: string]: NativeAttributeValue };
 };
 
