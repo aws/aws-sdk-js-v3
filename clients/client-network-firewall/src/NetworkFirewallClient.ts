@@ -85,6 +85,10 @@ import {
 } from "./commands/DescribeResourcePolicyCommand";
 import { DescribeRuleGroupCommandInput, DescribeRuleGroupCommandOutput } from "./commands/DescribeRuleGroupCommand";
 import {
+  DescribeRuleGroupMetadataCommandInput,
+  DescribeRuleGroupMetadataCommandOutput,
+} from "./commands/DescribeRuleGroupMetadataCommand";
+import {
   DisassociateSubnetsCommandInput,
   DisassociateSubnetsCommandOutput,
 } from "./commands/DisassociateSubnetsCommand";
@@ -143,6 +147,7 @@ export type ServiceInputTypes =
   | DescribeLoggingConfigurationCommandInput
   | DescribeResourcePolicyCommandInput
   | DescribeRuleGroupCommandInput
+  | DescribeRuleGroupMetadataCommandInput
   | DisassociateSubnetsCommandInput
   | ListFirewallPoliciesCommandInput
   | ListFirewallsCommandInput
@@ -174,6 +179,7 @@ export type ServiceOutputTypes =
   | DescribeLoggingConfigurationCommandOutput
   | DescribeResourcePolicyCommandOutput
   | DescribeRuleGroupCommandOutput
+  | DescribeRuleGroupMetadataCommandOutput
   | DisassociateSubnetsCommandOutput
   | ListFirewallPoliciesCommandOutput
   | ListFirewallsCommandOutput

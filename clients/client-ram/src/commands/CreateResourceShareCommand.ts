@@ -22,9 +22,9 @@ export interface CreateResourceShareCommandInput extends CreateResourceShareRequ
 export interface CreateResourceShareCommandOutput extends CreateResourceShareResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a resource share. You must provide a list of the Amazon Resource Names (ARNs) for the
- *             resources you want to share. You must also specify who you want to share the resources
- *             with, and the permissions that you grant them.</p>
+ * <p>Creates a resource share. You can provide a list of the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> for the resources that you
+ *             want to share, a list of principals you want to share the resources with, and the
+ *             permissions to grant those principals.</p>
  *         <note>
  *             <p>Sharing a resource makes it available for use by principals outside of the
  *                 Amazon Web Services account that created the resource. Sharing doesn't change any permissions or

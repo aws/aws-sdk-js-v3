@@ -24,8 +24,7 @@ export interface DescribePredictorCommandOutput extends DescribePredictorRespons
 /**
  * <note>
  *             <p> This operation is only valid for legacy predictors created with CreatePredictor. If you
- *         are not using a legacy predictor, use DescribeAutoPredictor.</p>
- *             <p>To upgrade a legacy predictor to AutoPredictor, see Upgrading to AutoPredictor.</p>
+ *         are not using a legacy predictor, use <a>DescribeAutoPredictor</a>.</p>
  *          </note>
  *          <p>Describes a predictor created using the <a>CreatePredictor</a>
  *       operation.</p>

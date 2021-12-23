@@ -22,7 +22,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes one or more tags from the specified secret.</p>
+ * <p>Removes specific tags from a secret.</p>
  *          <p>This operation is idempotent. If a requested tag is not attached to the secret, no error
  *       is returned and the secret metadata is unchanged.</p>
  *          <important>
@@ -31,26 +31,6 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  *         permissions for this secret, then the operation is blocked and returns an Access Denied
  *         error.</p>
  *          </important>
- *          <p>
- *             <b>Minimum permissions</b>
- *          </p>
- *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
- *             <li>
- *                <p>secretsmanager:UntagResource</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Related operations</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>To add one or more tags to the collection attached to a secret, use <a>TagResource</a>.</p>
- *             </li>
- *             <li>
- *                <p>To view the list of tags attached to a secret, use <a>DescribeSecret</a>.</p>
- *             </li>
- *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

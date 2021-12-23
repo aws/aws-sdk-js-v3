@@ -28,19 +28,12 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Resource shares that were created by attaching a policy to a resource are visible only
- *             to the resource share owner, and the resource share cannot be modified in RAM.</p>
- *
- *         <p>Use this API action to promote the resource share. When you promote the resource
- *             share, it becomes:</p>
- *         <ul>
- *             <li>
- *                 <p>Visible to all principals that it is shared with.</p>
- *             </li>
- *             <li>
- *                 <p>Modifiable in RAM.</p>
- *             </li>
- *          </ul>
+ * <p>When you attach a resource-based permission policy to a resource, it automatically
+ *             creates a resource share. However, resource shares created this way are visible only to the resource share
+ *             owner, and the resource share can't be modified in RAM.</p>
+ *         <p>You can use this operation to promote the resource share to a full RAM resource share. When you promote
+ *             a resource share, you can then manage the resource share in RAM and it becomes visible to all of the
+ *             principals you shared it with.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

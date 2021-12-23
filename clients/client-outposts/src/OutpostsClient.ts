@@ -74,6 +74,7 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateOutpostCommandInput, UpdateOutpostCommandOutput } from "./commands/UpdateOutpostCommand";
 import { UpdateSiteAddressCommandInput, UpdateSiteAddressCommandOutput } from "./commands/UpdateSiteAddressCommand";
 import { UpdateSiteCommandInput, UpdateSiteCommandOutput } from "./commands/UpdateSiteCommand";
 import {
@@ -102,6 +103,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateOutpostCommandInput
   | UpdateSiteAddressCommandInput
   | UpdateSiteCommandInput
   | UpdateSiteRackPhysicalPropertiesCommandInput;
@@ -126,6 +128,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateOutpostCommandOutput
   | UpdateSiteAddressCommandOutput
   | UpdateSiteCommandOutput
   | UpdateSiteRackPhysicalPropertiesCommandOutput;

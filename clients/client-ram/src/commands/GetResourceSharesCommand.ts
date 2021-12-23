@@ -22,7 +22,7 @@ export interface GetResourceSharesCommandInput extends GetResourceSharesRequest 
 export interface GetResourceSharesCommandOutput extends GetResourceSharesResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the resource shares that you own or the resource shares that are shared with you.</p>
+ * <p>Retrieves details about the resource shares that you own or that are shared with you.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

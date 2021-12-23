@@ -54,7 +54,6 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  *                <p>For organization accounts that already have Security Hub enabled, Security Hub does not make any other changes to those accounts. It does not change their enabled standards or controls.</p>
  *             </li>
  *          </ul>
- *
  *          <p>A permissions policy is added that permits the administrator account to view the findings
  *          generated in the member account.</p>
  *          <p>To remove the association between the administrator and member accounts, use the <code>DisassociateFromMasterAccount</code> or <code>DisassociateMembers</code> operation.</p>

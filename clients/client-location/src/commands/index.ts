@@ -40,6 +40,7 @@ export * from "./ListTrackerConsumersCommand";
 export * from "./ListTrackersCommand";
 export * from "./PutGeofenceCommand";
 export * from "./SearchPlaceIndexForPositionCommand";
+export * from "./SearchPlaceIndexForSuggestionsCommand";
 export * from "./SearchPlaceIndexForTextCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";

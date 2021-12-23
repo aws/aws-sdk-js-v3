@@ -65,11 +65,16 @@ import {
   DescribeRxNormInferenceJobCommandInput,
   DescribeRxNormInferenceJobCommandOutput,
 } from "./commands/DescribeRxNormInferenceJobCommand";
+import {
+  DescribeSNOMEDCTInferenceJobCommandInput,
+  DescribeSNOMEDCTInferenceJobCommandOutput,
+} from "./commands/DescribeSNOMEDCTInferenceJobCommand";
 import { DetectEntitiesCommandInput, DetectEntitiesCommandOutput } from "./commands/DetectEntitiesCommand";
 import { DetectEntitiesV2CommandInput, DetectEntitiesV2CommandOutput } from "./commands/DetectEntitiesV2Command";
 import { DetectPHICommandInput, DetectPHICommandOutput } from "./commands/DetectPHICommand";
 import { InferICD10CMCommandInput, InferICD10CMCommandOutput } from "./commands/InferICD10CMCommand";
 import { InferRxNormCommandInput, InferRxNormCommandOutput } from "./commands/InferRxNormCommand";
+import { InferSNOMEDCTCommandInput, InferSNOMEDCTCommandOutput } from "./commands/InferSNOMEDCTCommand";
 import {
   ListEntitiesDetectionV2JobsCommandInput,
   ListEntitiesDetectionV2JobsCommandOutput,
@@ -87,6 +92,10 @@ import {
   ListRxNormInferenceJobsCommandOutput,
 } from "./commands/ListRxNormInferenceJobsCommand";
 import {
+  ListSNOMEDCTInferenceJobsCommandInput,
+  ListSNOMEDCTInferenceJobsCommandOutput,
+} from "./commands/ListSNOMEDCTInferenceJobsCommand";
+import {
   StartEntitiesDetectionV2JobCommandInput,
   StartEntitiesDetectionV2JobCommandOutput,
 } from "./commands/StartEntitiesDetectionV2JobCommand";
@@ -103,6 +112,10 @@ import {
   StartRxNormInferenceJobCommandOutput,
 } from "./commands/StartRxNormInferenceJobCommand";
 import {
+  StartSNOMEDCTInferenceJobCommandInput,
+  StartSNOMEDCTInferenceJobCommandOutput,
+} from "./commands/StartSNOMEDCTInferenceJobCommand";
+import {
   StopEntitiesDetectionV2JobCommandInput,
   StopEntitiesDetectionV2JobCommandOutput,
 } from "./commands/StopEntitiesDetectionV2JobCommand";
@@ -118,6 +131,10 @@ import {
   StopRxNormInferenceJobCommandInput,
   StopRxNormInferenceJobCommandOutput,
 } from "./commands/StopRxNormInferenceJobCommand";
+import {
+  StopSNOMEDCTInferenceJobCommandInput,
+  StopSNOMEDCTInferenceJobCommandOutput,
+} from "./commands/StopSNOMEDCTInferenceJobCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -125,46 +142,56 @@ export type ServiceInputTypes =
   | DescribeICD10CMInferenceJobCommandInput
   | DescribePHIDetectionJobCommandInput
   | DescribeRxNormInferenceJobCommandInput
+  | DescribeSNOMEDCTInferenceJobCommandInput
   | DetectEntitiesCommandInput
   | DetectEntitiesV2CommandInput
   | DetectPHICommandInput
   | InferICD10CMCommandInput
   | InferRxNormCommandInput
+  | InferSNOMEDCTCommandInput
   | ListEntitiesDetectionV2JobsCommandInput
   | ListICD10CMInferenceJobsCommandInput
   | ListPHIDetectionJobsCommandInput
   | ListRxNormInferenceJobsCommandInput
+  | ListSNOMEDCTInferenceJobsCommandInput
   | StartEntitiesDetectionV2JobCommandInput
   | StartICD10CMInferenceJobCommandInput
   | StartPHIDetectionJobCommandInput
   | StartRxNormInferenceJobCommandInput
+  | StartSNOMEDCTInferenceJobCommandInput
   | StopEntitiesDetectionV2JobCommandInput
   | StopICD10CMInferenceJobCommandInput
   | StopPHIDetectionJobCommandInput
-  | StopRxNormInferenceJobCommandInput;
+  | StopRxNormInferenceJobCommandInput
+  | StopSNOMEDCTInferenceJobCommandInput;
 
 export type ServiceOutputTypes =
   | DescribeEntitiesDetectionV2JobCommandOutput
   | DescribeICD10CMInferenceJobCommandOutput
   | DescribePHIDetectionJobCommandOutput
   | DescribeRxNormInferenceJobCommandOutput
+  | DescribeSNOMEDCTInferenceJobCommandOutput
   | DetectEntitiesCommandOutput
   | DetectEntitiesV2CommandOutput
   | DetectPHICommandOutput
   | InferICD10CMCommandOutput
   | InferRxNormCommandOutput
+  | InferSNOMEDCTCommandOutput
   | ListEntitiesDetectionV2JobsCommandOutput
   | ListICD10CMInferenceJobsCommandOutput
   | ListPHIDetectionJobsCommandOutput
   | ListRxNormInferenceJobsCommandOutput
+  | ListSNOMEDCTInferenceJobsCommandOutput
   | StartEntitiesDetectionV2JobCommandOutput
   | StartICD10CMInferenceJobCommandOutput
   | StartPHIDetectionJobCommandOutput
   | StartRxNormInferenceJobCommandOutput
+  | StartSNOMEDCTInferenceJobCommandOutput
   | StopEntitiesDetectionV2JobCommandOutput
   | StopICD10CMInferenceJobCommandOutput
   | StopPHIDetectionJobCommandOutput
-  | StopRxNormInferenceJobCommandOutput;
+  | StopRxNormInferenceJobCommandOutput
+  | StopSNOMEDCTInferenceJobCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -315,7 +342,7 @@ type ComprehendMedicalClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface ComprehendMedicalClientResolvedConfig extends ComprehendMedicalClientResolvedConfigType {}
 
 /**
- * <p> Amazon Comprehend Medical extracts structured information from unstructured clinical text. Use these actions
+ * <p> Comprehend Medical; extracts structured information from unstructured clinical text. Use these actions
  *       to gain insight in your documents. </p>
  */
 export class ComprehendMedicalClient extends __Client<

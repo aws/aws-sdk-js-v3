@@ -22,34 +22,8 @@ export interface DescribeSecretCommandInput extends DescribeSecretRequest {}
 export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the details of a secret. It does not include the encrypted fields. Secrets
- *       Manager only returns fields populated with a value in the response. </p>
- *          <p>
- *             <b>Minimum permissions</b>
- *          </p>
- *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
- *             <li>
- *                <p>secretsmanager:DescribeSecret</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Related operations</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>To create a secret, use <a>CreateSecret</a>.</p>
- *             </li>
- *             <li>
- *                <p>To modify a secret, use <a>UpdateSecret</a>.</p>
- *             </li>
- *             <li>
- *                <p>To retrieve the encrypted secret information in a version of the secret, use <a>GetSecretValue</a>.</p>
- *             </li>
- *             <li>
- *                <p>To list all of the secrets in the Amazon Web Services account, use <a>ListSecrets</a>.</p>
- *             </li>
- *          </ul>
+ * <p>Retrieves the details of a secret. It does not include the encrypted secret value. Secrets Manager
+ *       only returns fields that have a value in the response. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

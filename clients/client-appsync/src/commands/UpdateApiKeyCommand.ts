@@ -22,7 +22,7 @@ export interface UpdateApiKeyCommandInput extends UpdateApiKeyRequest {}
 export interface UpdateApiKeyCommandOutput extends UpdateApiKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an API key. The key can be updated while it is not deleted.</p>
+ * <p>Updates an API key. You can update the key as long as it's not deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

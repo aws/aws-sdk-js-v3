@@ -23,7 +23,7 @@ export interface EnableDomainAutoRenewCommandOutput extends EnableDomainAutoRene
 
 /**
  * <p>This operation configures Amazon Route 53 to automatically renew the specified domain before the domain registration expires.
- * 			The cost of renewing your domain registration is billed to your AWS account.</p>
+ * 			The cost of renewing your domain registration is billed to your Amazon Web Services account.</p>
  * 		       <p>The period during which you can renew a domain name varies by TLD. For a list of TLDs and their renewal policies, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains That You Can Register with Amazon Route 53</a>
  * 			in the <i>Amazon Route 53 Developer Guide</i>. Route 53 requires that you renew before the end of the renewal period

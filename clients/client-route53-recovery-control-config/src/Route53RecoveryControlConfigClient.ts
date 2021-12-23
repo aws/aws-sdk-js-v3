@@ -84,6 +84,12 @@ import {
   ListRoutingControlsCommandOutput,
 } from "./commands/ListRoutingControlsCommand";
 import { ListSafetyRulesCommandInput, ListSafetyRulesCommandOutput } from "./commands/ListSafetyRulesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateControlPanelCommandInput, UpdateControlPanelCommandOutput } from "./commands/UpdateControlPanelCommand";
 import {
   UpdateRoutingControlCommandInput,
@@ -110,6 +116,9 @@ export type ServiceInputTypes =
   | ListControlPanelsCommandInput
   | ListRoutingControlsCommandInput
   | ListSafetyRulesCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateControlPanelCommandInput
   | UpdateRoutingControlCommandInput
   | UpdateSafetyRuleCommandInput;
@@ -132,6 +141,9 @@ export type ServiceOutputTypes =
   | ListControlPanelsCommandOutput
   | ListRoutingControlsCommandOutput
   | ListSafetyRulesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateControlPanelCommandOutput
   | UpdateRoutingControlCommandOutput
   | UpdateSafetyRuleCommandOutput;

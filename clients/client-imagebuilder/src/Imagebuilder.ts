@@ -124,6 +124,11 @@ import {
   ImportComponentCommandOutput,
 } from "./commands/ImportComponentCommand";
 import {
+  ImportVmImageCommand,
+  ImportVmImageCommandInput,
+  ImportVmImageCommandOutput,
+} from "./commands/ImportVmImageCommand";
+import {
   ListComponentBuildVersionsCommand,
   ListComponentBuildVersionsCommandInput,
   ListComponentBuildVersionsCommandOutput,
@@ -1095,6 +1100,46 @@ export class Imagebuilder extends ImagebuilderClient {
     cb?: (err: any, data?: ImportComponentCommandOutput) => void
   ): Promise<ImportComponentCommandOutput> | void {
     const command = new ImportComponentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>When you export your virtual machine (VM) from its virtualization environment,
+   * 			that process creates a set of one or more disk container files that act as
+   * 			snapshots of your VM’s environment, settings, and data. The Amazon EC2 API
+   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html">ImportImage</a>
+   * 			action uses those files to import your VM and create an AMI. To import using the
+   * 			CLI command, see <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html">import-image</a>
+   * 		       </p>
+   * 		       <p>You can reference the task ID from the VM import to pull in the AMI that
+   * 			the import created as the base image for your Image Builder recipe.</p>
+   */
+  public importVmImage(
+    args: ImportVmImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportVmImageCommandOutput>;
+  public importVmImage(
+    args: ImportVmImageCommandInput,
+    cb: (err: any, data?: ImportVmImageCommandOutput) => void
+  ): void;
+  public importVmImage(
+    args: ImportVmImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportVmImageCommandOutput) => void
+  ): void;
+  public importVmImage(
+    args: ImportVmImageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportVmImageCommandOutput) => void),
+    cb?: (err: any, data?: ImportVmImageCommandOutput) => void
+  ): Promise<ImportVmImageCommandOutput> | void {
+    const command = new ImportVmImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

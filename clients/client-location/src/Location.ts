@@ -183,6 +183,11 @@ import {
   SearchPlaceIndexForPositionCommandOutput,
 } from "./commands/SearchPlaceIndexForPositionCommand";
 import {
+  SearchPlaceIndexForSuggestionsCommand,
+  SearchPlaceIndexForSuggestionsCommandInput,
+  SearchPlaceIndexForSuggestionsCommandOutput,
+} from "./commands/SearchPlaceIndexForSuggestionsCommand";
+import {
   SearchPlaceIndexForTextCommand,
   SearchPlaceIndexForTextCommandInput,
   SearchPlaceIndexForTextCommandOutput,
@@ -347,6 +352,10 @@ export class Location extends LocationClient {
    *             <p>The last geofence that a device was observed within is tracked for 30 days after
    *                 the most recent device position update.</p>
    *         </note>
+   *         <note>
+   *             <p>Geofence evaluation uses the given device position. It does not account for the
+   *                 optional <code>Accuracy</code> of a <code>DevicePositionUpdate</code>.</p>
+   *         </note>
    */
   public batchEvaluateGeofences(
     args: BatchEvaluateGeofencesCommandInput,
@@ -450,9 +459,17 @@ export class Location extends LocationClient {
    *            <p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker.
    *                When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections,
    *                and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than
-   *                every 30 seconds, only one update per 30 seconds is stored for each unique device ID.
-   *                When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence
-   *                collections only if the device has moved more than 30 m (98.4 ft).</p>
+   *                every 30 seconds, only one update per 30 seconds is stored for each unique device ID.</p>
+   *             <p>When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence
+   *                 collections only if the device has moved more than 30 m (98.4 ft).</p>
+   *             <p>When <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering,
+   *                 location data is stored and evaluated against linked geofence collections only if the
+   *                 device has moved more than the measured accuracy. For example, if two consecutive
+   *                 updates from a device have a horizontal accuracy of 5 m and 10 m, the second update
+   *                 is neither stored or evaluated if the device has moved less than 15 m. If
+   *                 <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, Amazon Location
+   *                 uses the default value <code>{ "Horizontal": 0}</code> when accuracy is not provided on
+   *                 a <code>DevicePositionUpdate</code>.</p>
    *          </note>
    */
   public batchUpdateDevicePosition(
@@ -607,7 +624,8 @@ export class Location extends LocationClient {
   /**
    * <p>Creates a place index resource in your AWS account. Use a place index resource to
    *             geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation,
-   *             and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation.</p>
+   *             and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and
+   *             enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p>
    */
   public createPlaceIndex(
     args: CreatePlaceIndexCommandInput,
@@ -1624,6 +1642,47 @@ export class Location extends LocationClient {
     cb?: (err: any, data?: SearchPlaceIndexForPositionCommandOutput) => void
   ): Promise<SearchPlaceIndexForPositionCommandOutput> | void {
     const command = new SearchPlaceIndexForPositionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Generates suggestions for addresses and points of interest based on partial or
+   *          misspelled free-form text. This operation is also known as autocomplete, autosuggest,
+   *          or fuzzy matching.</p>
+   *          <p>Optional parameters let you narrow your search results by bounding box or
+   *          country, or bias your search toward a specific position on the globe.</p>
+   *          <note>
+   *             <p>You can search for suggested place names near a specified position by using <code>BiasPosition</code>, or
+   *             filter results within a bounding box by using <code>FilterBBox</code>. These parameters are mutually exclusive;
+   *             using both <code>BiasPosition</code> and <code>FilterBBox</code> in the same command returns an error.</p>
+   *          </note>
+   */
+  public searchPlaceIndexForSuggestions(
+    args: SearchPlaceIndexForSuggestionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchPlaceIndexForSuggestionsCommandOutput>;
+  public searchPlaceIndexForSuggestions(
+    args: SearchPlaceIndexForSuggestionsCommandInput,
+    cb: (err: any, data?: SearchPlaceIndexForSuggestionsCommandOutput) => void
+  ): void;
+  public searchPlaceIndexForSuggestions(
+    args: SearchPlaceIndexForSuggestionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchPlaceIndexForSuggestionsCommandOutput) => void
+  ): void;
+  public searchPlaceIndexForSuggestions(
+    args: SearchPlaceIndexForSuggestionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchPlaceIndexForSuggestionsCommandOutput) => void),
+    cb?: (err: any, data?: SearchPlaceIndexForSuggestionsCommandOutput) => void
+  ): Promise<SearchPlaceIndexForSuggestionsCommandOutput> | void {
+    const command = new SearchPlaceIndexForSuggestionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

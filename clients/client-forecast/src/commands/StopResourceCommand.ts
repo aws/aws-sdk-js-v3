@@ -23,9 +23,9 @@ export interface StopResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops a resource.</p>
- *          <p>The resource undergoes the following states:
- *          <code>CREATE_STOPPING</code> and <code>CREATE_STOPPED</code>. You cannot resume
- *          a resource once it has been stopped.</p>
+ *          <p>The resource undergoes the following states: <code>CREATE_STOPPING</code> and
+ *             <code>CREATE_STOPPED</code>. You cannot resume a resource once it has been
+ *          stopped.</p>
  *          <p>This operation can be applied to the following resources (and their corresponding child
  *          resources):</p>
  *          <ul>
@@ -43,6 +43,12 @@ export interface StopResourceCommandOutput extends __MetadataBearer {}
  *             </li>
  *             <li>
  *                <p>Predictor Backtest Export Job</p>
+ *             </li>
+ *             <li>
+ *                <p>Explainability Job</p>
+ *             </li>
+ *             <li>
+ *                <p>Explainability Export Job</p>
  *             </li>
  *          </ul>
  * @example

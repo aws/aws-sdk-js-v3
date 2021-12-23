@@ -1,6 +1,16 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  AcceptAttachmentCommand,
+  AcceptAttachmentCommandInput,
+  AcceptAttachmentCommandOutput,
+} from "./commands/AcceptAttachmentCommand";
+import {
+  AssociateConnectPeerCommand,
+  AssociateConnectPeerCommandInput,
+  AssociateConnectPeerCommandOutput,
+} from "./commands/AssociateConnectPeerCommand";
+import {
   AssociateCustomerGatewayCommand,
   AssociateCustomerGatewayCommandInput,
   AssociateCustomerGatewayCommandOutput,
@@ -16,10 +26,25 @@ import {
   AssociateTransitGatewayConnectPeerCommandOutput,
 } from "./commands/AssociateTransitGatewayConnectPeerCommand";
 import {
+  CreateConnectAttachmentCommand,
+  CreateConnectAttachmentCommandInput,
+  CreateConnectAttachmentCommandOutput,
+} from "./commands/CreateConnectAttachmentCommand";
+import {
   CreateConnectionCommand,
   CreateConnectionCommandInput,
   CreateConnectionCommandOutput,
 } from "./commands/CreateConnectionCommand";
+import {
+  CreateConnectPeerCommand,
+  CreateConnectPeerCommandInput,
+  CreateConnectPeerCommandOutput,
+} from "./commands/CreateConnectPeerCommand";
+import {
+  CreateCoreNetworkCommand,
+  CreateCoreNetworkCommandInput,
+  CreateCoreNetworkCommandOutput,
+} from "./commands/CreateCoreNetworkCommand";
 import {
   CreateDeviceCommand,
   CreateDeviceCommandInput,
@@ -33,10 +58,40 @@ import {
 import { CreateLinkCommand, CreateLinkCommandInput, CreateLinkCommandOutput } from "./commands/CreateLinkCommand";
 import { CreateSiteCommand, CreateSiteCommandInput, CreateSiteCommandOutput } from "./commands/CreateSiteCommand";
 import {
+  CreateSiteToSiteVpnAttachmentCommand,
+  CreateSiteToSiteVpnAttachmentCommandInput,
+  CreateSiteToSiteVpnAttachmentCommandOutput,
+} from "./commands/CreateSiteToSiteVpnAttachmentCommand";
+import {
+  CreateVpcAttachmentCommand,
+  CreateVpcAttachmentCommandInput,
+  CreateVpcAttachmentCommandOutput,
+} from "./commands/CreateVpcAttachmentCommand";
+import {
+  DeleteAttachmentCommand,
+  DeleteAttachmentCommandInput,
+  DeleteAttachmentCommandOutput,
+} from "./commands/DeleteAttachmentCommand";
+import {
   DeleteConnectionCommand,
   DeleteConnectionCommandInput,
   DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand";
+import {
+  DeleteConnectPeerCommand,
+  DeleteConnectPeerCommandInput,
+  DeleteConnectPeerCommandOutput,
+} from "./commands/DeleteConnectPeerCommand";
+import {
+  DeleteCoreNetworkCommand,
+  DeleteCoreNetworkCommandInput,
+  DeleteCoreNetworkCommandOutput,
+} from "./commands/DeleteCoreNetworkCommand";
+import {
+  DeleteCoreNetworkPolicyVersionCommand,
+  DeleteCoreNetworkPolicyVersionCommandInput,
+  DeleteCoreNetworkPolicyVersionCommandOutput,
+} from "./commands/DeleteCoreNetworkPolicyVersionCommand";
 import {
   DeleteDeviceCommand,
   DeleteDeviceCommandInput,
@@ -48,6 +103,11 @@ import {
   DeleteGlobalNetworkCommandOutput,
 } from "./commands/DeleteGlobalNetworkCommand";
 import { DeleteLinkCommand, DeleteLinkCommandInput, DeleteLinkCommandOutput } from "./commands/DeleteLinkCommand";
+import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
 import { DeleteSiteCommand, DeleteSiteCommandInput, DeleteSiteCommandOutput } from "./commands/DeleteSiteCommand";
 import {
   DeregisterTransitGatewayCommand,
@@ -59,6 +119,11 @@ import {
   DescribeGlobalNetworksCommandInput,
   DescribeGlobalNetworksCommandOutput,
 } from "./commands/DescribeGlobalNetworksCommand";
+import {
+  DisassociateConnectPeerCommand,
+  DisassociateConnectPeerCommandInput,
+  DisassociateConnectPeerCommandOutput,
+} from "./commands/DisassociateConnectPeerCommand";
 import {
   DisassociateCustomerGatewayCommand,
   DisassociateCustomerGatewayCommandInput,
@@ -75,10 +140,45 @@ import {
   DisassociateTransitGatewayConnectPeerCommandOutput,
 } from "./commands/DisassociateTransitGatewayConnectPeerCommand";
 import {
+  ExecuteCoreNetworkChangeSetCommand,
+  ExecuteCoreNetworkChangeSetCommandInput,
+  ExecuteCoreNetworkChangeSetCommandOutput,
+} from "./commands/ExecuteCoreNetworkChangeSetCommand";
+import {
+  GetConnectAttachmentCommand,
+  GetConnectAttachmentCommandInput,
+  GetConnectAttachmentCommandOutput,
+} from "./commands/GetConnectAttachmentCommand";
+import {
   GetConnectionsCommand,
   GetConnectionsCommandInput,
   GetConnectionsCommandOutput,
 } from "./commands/GetConnectionsCommand";
+import {
+  GetConnectPeerAssociationsCommand,
+  GetConnectPeerAssociationsCommandInput,
+  GetConnectPeerAssociationsCommandOutput,
+} from "./commands/GetConnectPeerAssociationsCommand";
+import {
+  GetConnectPeerCommand,
+  GetConnectPeerCommandInput,
+  GetConnectPeerCommandOutput,
+} from "./commands/GetConnectPeerCommand";
+import {
+  GetCoreNetworkChangeSetCommand,
+  GetCoreNetworkChangeSetCommandInput,
+  GetCoreNetworkChangeSetCommandOutput,
+} from "./commands/GetCoreNetworkChangeSetCommand";
+import {
+  GetCoreNetworkCommand,
+  GetCoreNetworkCommandInput,
+  GetCoreNetworkCommandOutput,
+} from "./commands/GetCoreNetworkCommand";
+import {
+  GetCoreNetworkPolicyCommand,
+  GetCoreNetworkPolicyCommandInput,
+  GetCoreNetworkPolicyCommandOutput,
+} from "./commands/GetCoreNetworkPolicyCommand";
 import {
   GetCustomerGatewayAssociationsCommand,
   GetCustomerGatewayAssociationsCommandInput,
@@ -117,11 +217,21 @@ import {
   GetNetworkTelemetryCommandOutput,
 } from "./commands/GetNetworkTelemetryCommand";
 import {
+  GetResourcePolicyCommand,
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import {
   GetRouteAnalysisCommand,
   GetRouteAnalysisCommandInput,
   GetRouteAnalysisCommandOutput,
 } from "./commands/GetRouteAnalysisCommand";
 import { GetSitesCommand, GetSitesCommandInput, GetSitesCommandOutput } from "./commands/GetSitesCommand";
+import {
+  GetSiteToSiteVpnAttachmentCommand,
+  GetSiteToSiteVpnAttachmentCommandInput,
+  GetSiteToSiteVpnAttachmentCommandOutput,
+} from "./commands/GetSiteToSiteVpnAttachmentCommand";
 import {
   GetTransitGatewayConnectPeerAssociationsCommand,
   GetTransitGatewayConnectPeerAssociationsCommandInput,
@@ -133,15 +243,60 @@ import {
   GetTransitGatewayRegistrationsCommandOutput,
 } from "./commands/GetTransitGatewayRegistrationsCommand";
 import {
+  GetVpcAttachmentCommand,
+  GetVpcAttachmentCommandInput,
+  GetVpcAttachmentCommandOutput,
+} from "./commands/GetVpcAttachmentCommand";
+import {
+  ListAttachmentsCommand,
+  ListAttachmentsCommandInput,
+  ListAttachmentsCommandOutput,
+} from "./commands/ListAttachmentsCommand";
+import {
+  ListConnectPeersCommand,
+  ListConnectPeersCommandInput,
+  ListConnectPeersCommandOutput,
+} from "./commands/ListConnectPeersCommand";
+import {
+  ListCoreNetworkPolicyVersionsCommand,
+  ListCoreNetworkPolicyVersionsCommandInput,
+  ListCoreNetworkPolicyVersionsCommandOutput,
+} from "./commands/ListCoreNetworkPolicyVersionsCommand";
+import {
+  ListCoreNetworksCommand,
+  ListCoreNetworksCommandInput,
+  ListCoreNetworksCommandOutput,
+} from "./commands/ListCoreNetworksCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  PutCoreNetworkPolicyCommand,
+  PutCoreNetworkPolicyCommandInput,
+  PutCoreNetworkPolicyCommandOutput,
+} from "./commands/PutCoreNetworkPolicyCommand";
+import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
+import {
   RegisterTransitGatewayCommand,
   RegisterTransitGatewayCommandInput,
   RegisterTransitGatewayCommandOutput,
 } from "./commands/RegisterTransitGatewayCommand";
+import {
+  RejectAttachmentCommand,
+  RejectAttachmentCommandInput,
+  RejectAttachmentCommandOutput,
+} from "./commands/RejectAttachmentCommand";
+import {
+  RestoreCoreNetworkPolicyVersionCommand,
+  RestoreCoreNetworkPolicyVersionCommandInput,
+  RestoreCoreNetworkPolicyVersionCommandOutput,
+} from "./commands/RestoreCoreNetworkPolicyVersionCommand";
 import {
   StartRouteAnalysisCommand,
   StartRouteAnalysisCommandInput,
@@ -159,6 +314,11 @@ import {
   UpdateConnectionCommandOutput,
 } from "./commands/UpdateConnectionCommand";
 import {
+  UpdateCoreNetworkCommand,
+  UpdateCoreNetworkCommandInput,
+  UpdateCoreNetworkCommandOutput,
+} from "./commands/UpdateCoreNetworkCommand";
+import {
   UpdateDeviceCommand,
   UpdateDeviceCommandInput,
   UpdateDeviceCommandOutput,
@@ -175,6 +335,11 @@ import {
   UpdateNetworkResourceMetadataCommandOutput,
 } from "./commands/UpdateNetworkResourceMetadataCommand";
 import { UpdateSiteCommand, UpdateSiteCommandInput, UpdateSiteCommandOutput } from "./commands/UpdateSiteCommand";
+import {
+  UpdateVpcAttachmentCommand,
+  UpdateVpcAttachmentCommandInput,
+  UpdateVpcAttachmentCommandOutput,
+} from "./commands/UpdateVpcAttachmentCommand";
 import { NetworkManagerClient } from "./NetworkManagerClient";
 
 /**
@@ -182,6 +347,75 @@ import { NetworkManagerClient } from "./NetworkManagerClient";
  *             Amazon Web Services and on-premises networks that are built around transit gateways.</p>
  */
 export class NetworkManager extends NetworkManagerClient {
+  /**
+   * <p>Accepts a core network attachment request. </p>
+   *          <p>Once the attachment request is accepted by a core network owner, the attachment is
+   *          created and connected to a core network.</p>
+   */
+  public acceptAttachment(
+    args: AcceptAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptAttachmentCommandOutput>;
+  public acceptAttachment(
+    args: AcceptAttachmentCommandInput,
+    cb: (err: any, data?: AcceptAttachmentCommandOutput) => void
+  ): void;
+  public acceptAttachment(
+    args: AcceptAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptAttachmentCommandOutput) => void
+  ): void;
+  public acceptAttachment(
+    args: AcceptAttachmentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: AcceptAttachmentCommandOutput) => void
+  ): Promise<AcceptAttachmentCommandOutput> | void {
+    const command = new AcceptAttachmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates a core network Connect peer with a device and optionally, with a link. </p>
+   *          <p>If you specify a link, it must be associated with the specified device. You can only
+   *          associate core network Connect peers that have been created on a core network Connect
+   *          attachment on a core network. </p>
+   */
+  public associateConnectPeer(
+    args: AssociateConnectPeerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateConnectPeerCommandOutput>;
+  public associateConnectPeer(
+    args: AssociateConnectPeerCommandInput,
+    cb: (err: any, data?: AssociateConnectPeerCommandOutput) => void
+  ): void;
+  public associateConnectPeer(
+    args: AssociateConnectPeerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateConnectPeerCommandOutput) => void
+  ): void;
+  public associateConnectPeer(
+    args: AssociateConnectPeerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateConnectPeerCommandOutput) => void),
+    cb?: (err: any, data?: AssociateConnectPeerCommandOutput) => void
+  ): Promise<AssociateConnectPeerCommandOutput> | void {
+    const command = new AssociateConnectPeerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Associates a customer gateway with a device and optionally, with a link. If you
    *             specify a link, it must be associated with the specified device. </p>
@@ -291,6 +525,41 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * <p>Creates a core network Connect attachment from a specified core network attachment. </p>
+   *          <p>A core network Connect attachment is a GRE-based tunnel attachment that you can use to
+   *          establish a connection between a core network and an appliance. A core network Connect
+   *          attachment uses an existing VPC attachment as the underlying transport mechanism.</p>
+   */
+  public createConnectAttachment(
+    args: CreateConnectAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConnectAttachmentCommandOutput>;
+  public createConnectAttachment(
+    args: CreateConnectAttachmentCommandInput,
+    cb: (err: any, data?: CreateConnectAttachmentCommandOutput) => void
+  ): void;
+  public createConnectAttachment(
+    args: CreateConnectAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConnectAttachmentCommandOutput) => void
+  ): void;
+  public createConnectAttachment(
+    args: CreateConnectAttachmentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConnectAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: CreateConnectAttachmentCommandOutput) => void
+  ): Promise<CreateConnectAttachmentCommandOutput> | void {
+    const command = new CreateConnectAttachmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a connection between two devices. The devices can be a physical or virtual appliance that connects to a third-party appliance in a VPC, or a physical appliance that connects to another physical appliance in an on-premises network.</p>
    */
   public createConnection(
@@ -312,6 +581,71 @@ export class NetworkManager extends NetworkManagerClient {
     cb?: (err: any, data?: CreateConnectionCommandOutput) => void
   ): Promise<CreateConnectionCommandOutput> | void {
     const command = new CreateConnectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a core network connect peer for a specified core network connect attachment between a core network and an appliance.
+   *          The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p>
+   */
+  public createConnectPeer(
+    args: CreateConnectPeerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConnectPeerCommandOutput>;
+  public createConnectPeer(
+    args: CreateConnectPeerCommandInput,
+    cb: (err: any, data?: CreateConnectPeerCommandOutput) => void
+  ): void;
+  public createConnectPeer(
+    args: CreateConnectPeerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConnectPeerCommandOutput) => void
+  ): void;
+  public createConnectPeer(
+    args: CreateConnectPeerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConnectPeerCommandOutput) => void),
+    cb?: (err: any, data?: CreateConnectPeerCommandOutput) => void
+  ): Promise<CreateConnectPeerCommandOutput> | void {
+    const command = new CreateConnectPeerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a core network as part of your global network, and optionally, with a core network policy.</p>
+   */
+  public createCoreNetwork(
+    args: CreateCoreNetworkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCoreNetworkCommandOutput>;
+  public createCoreNetwork(
+    args: CreateCoreNetworkCommandInput,
+    cb: (err: any, data?: CreateCoreNetworkCommandOutput) => void
+  ): void;
+  public createCoreNetwork(
+    args: CreateCoreNetworkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCoreNetworkCommandOutput) => void
+  ): void;
+  public createCoreNetwork(
+    args: CreateCoreNetworkCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCoreNetworkCommandOutput) => void),
+    cb?: (err: any, data?: CreateCoreNetworkCommandOutput) => void
+  ): Promise<CreateCoreNetworkCommandOutput> | void {
+    const command = new CreateCoreNetworkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -437,6 +771,102 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * <p>Creates a site-to-site VPN attachment on an edge location of a core network.</p>
+   */
+  public createSiteToSiteVpnAttachment(
+    args: CreateSiteToSiteVpnAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSiteToSiteVpnAttachmentCommandOutput>;
+  public createSiteToSiteVpnAttachment(
+    args: CreateSiteToSiteVpnAttachmentCommandInput,
+    cb: (err: any, data?: CreateSiteToSiteVpnAttachmentCommandOutput) => void
+  ): void;
+  public createSiteToSiteVpnAttachment(
+    args: CreateSiteToSiteVpnAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSiteToSiteVpnAttachmentCommandOutput) => void
+  ): void;
+  public createSiteToSiteVpnAttachment(
+    args: CreateSiteToSiteVpnAttachmentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSiteToSiteVpnAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: CreateSiteToSiteVpnAttachmentCommandOutput) => void
+  ): Promise<CreateSiteToSiteVpnAttachmentCommandOutput> | void {
+    const command = new CreateSiteToSiteVpnAttachmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a VPC attachment on an edge location of a core network.</p>
+   */
+  public createVpcAttachment(
+    args: CreateVpcAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVpcAttachmentCommandOutput>;
+  public createVpcAttachment(
+    args: CreateVpcAttachmentCommandInput,
+    cb: (err: any, data?: CreateVpcAttachmentCommandOutput) => void
+  ): void;
+  public createVpcAttachment(
+    args: CreateVpcAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVpcAttachmentCommandOutput) => void
+  ): void;
+  public createVpcAttachment(
+    args: CreateVpcAttachmentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpcAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: CreateVpcAttachmentCommandOutput) => void
+  ): Promise<CreateVpcAttachmentCommandOutput> | void {
+    const command = new CreateVpcAttachmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an attachment. Supports all attachment types.</p>
+   */
+  public deleteAttachment(
+    args: DeleteAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAttachmentCommandOutput>;
+  public deleteAttachment(
+    args: DeleteAttachmentCommandInput,
+    cb: (err: any, data?: DeleteAttachmentCommandOutput) => void
+  ): void;
+  public deleteAttachment(
+    args: DeleteAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAttachmentCommandOutput) => void
+  ): void;
+  public deleteAttachment(
+    args: DeleteAttachmentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAttachmentCommandOutput) => void
+  ): Promise<DeleteAttachmentCommandOutput> | void {
+    const command = new DeleteAttachmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified connection in your global network.</p>
    */
   public deleteConnection(
@@ -458,6 +888,102 @@ export class NetworkManager extends NetworkManagerClient {
     cb?: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): Promise<DeleteConnectionCommandOutput> | void {
     const command = new DeleteConnectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a Connect peer.</p>
+   */
+  public deleteConnectPeer(
+    args: DeleteConnectPeerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConnectPeerCommandOutput>;
+  public deleteConnectPeer(
+    args: DeleteConnectPeerCommandInput,
+    cb: (err: any, data?: DeleteConnectPeerCommandOutput) => void
+  ): void;
+  public deleteConnectPeer(
+    args: DeleteConnectPeerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConnectPeerCommandOutput) => void
+  ): void;
+  public deleteConnectPeer(
+    args: DeleteConnectPeerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConnectPeerCommandOutput) => void),
+    cb?: (err: any, data?: DeleteConnectPeerCommandOutput) => void
+  ): Promise<DeleteConnectPeerCommandOutput> | void {
+    const command = new DeleteConnectPeerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a core network along with all core network policies. This can only be done if there are no attachments on a core network.</p>
+   */
+  public deleteCoreNetwork(
+    args: DeleteCoreNetworkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCoreNetworkCommandOutput>;
+  public deleteCoreNetwork(
+    args: DeleteCoreNetworkCommandInput,
+    cb: (err: any, data?: DeleteCoreNetworkCommandOutput) => void
+  ): void;
+  public deleteCoreNetwork(
+    args: DeleteCoreNetworkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCoreNetworkCommandOutput) => void
+  ): void;
+  public deleteCoreNetwork(
+    args: DeleteCoreNetworkCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCoreNetworkCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCoreNetworkCommandOutput) => void
+  ): Promise<DeleteCoreNetworkCommandOutput> | void {
+    const command = new DeleteCoreNetworkCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a policy version from a core network. You can't delete the current LIVE policy.</p>
+   */
+  public deleteCoreNetworkPolicyVersion(
+    args: DeleteCoreNetworkPolicyVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCoreNetworkPolicyVersionCommandOutput>;
+  public deleteCoreNetworkPolicyVersion(
+    args: DeleteCoreNetworkPolicyVersionCommandInput,
+    cb: (err: any, data?: DeleteCoreNetworkPolicyVersionCommandOutput) => void
+  ): void;
+  public deleteCoreNetworkPolicyVersion(
+    args: DeleteCoreNetworkPolicyVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCoreNetworkPolicyVersionCommandOutput) => void
+  ): void;
+  public deleteCoreNetworkPolicyVersion(
+    args: DeleteCoreNetworkPolicyVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCoreNetworkPolicyVersionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCoreNetworkPolicyVersionCommandOutput) => void
+  ): Promise<DeleteCoreNetworkPolicyVersionCommandOutput> | void {
+    const command = new DeleteCoreNetworkPolicyVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -559,6 +1085,38 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * <p>Deletes a resource policy for the specified resource. This revokes the access of the principals specified in the resource policy.</p>
+   */
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): Promise<DeleteResourcePolicyCommandOutput> | void {
+    const command = new DeleteResourcePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes an existing site. The site cannot be associated with any device or link.</p>
    */
   public deleteSite(args: DeleteSiteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSiteCommandOutput>;
@@ -642,6 +1200,38 @@ export class NetworkManager extends NetworkManagerClient {
     cb?: (err: any, data?: DescribeGlobalNetworksCommandOutput) => void
   ): Promise<DescribeGlobalNetworksCommandOutput> | void {
     const command = new DescribeGlobalNetworksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disassociates a core network Connect peer from a device and a link. </p>
+   */
+  public disassociateConnectPeer(
+    args: DisassociateConnectPeerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateConnectPeerCommandOutput>;
+  public disassociateConnectPeer(
+    args: DisassociateConnectPeerCommandInput,
+    cb: (err: any, data?: DisassociateConnectPeerCommandOutput) => void
+  ): void;
+  public disassociateConnectPeer(
+    args: DisassociateConnectPeerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateConnectPeerCommandOutput) => void
+  ): void;
+  public disassociateConnectPeer(
+    args: DisassociateConnectPeerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateConnectPeerCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateConnectPeerCommandOutput) => void
+  ): Promise<DisassociateConnectPeerCommandOutput> | void {
+    const command = new DisassociateConnectPeerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -752,6 +1342,70 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * <p>Executes a change set on your core network. Deploys changes globally based on the policy submitted..</p>
+   */
+  public executeCoreNetworkChangeSet(
+    args: ExecuteCoreNetworkChangeSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExecuteCoreNetworkChangeSetCommandOutput>;
+  public executeCoreNetworkChangeSet(
+    args: ExecuteCoreNetworkChangeSetCommandInput,
+    cb: (err: any, data?: ExecuteCoreNetworkChangeSetCommandOutput) => void
+  ): void;
+  public executeCoreNetworkChangeSet(
+    args: ExecuteCoreNetworkChangeSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExecuteCoreNetworkChangeSetCommandOutput) => void
+  ): void;
+  public executeCoreNetworkChangeSet(
+    args: ExecuteCoreNetworkChangeSetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExecuteCoreNetworkChangeSetCommandOutput) => void),
+    cb?: (err: any, data?: ExecuteCoreNetworkChangeSetCommandOutput) => void
+  ): Promise<ExecuteCoreNetworkChangeSetCommandOutput> | void {
+    const command = new ExecuteCoreNetworkChangeSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about a core network Connect attachment.</p>
+   */
+  public getConnectAttachment(
+    args: GetConnectAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectAttachmentCommandOutput>;
+  public getConnectAttachment(
+    args: GetConnectAttachmentCommandInput,
+    cb: (err: any, data?: GetConnectAttachmentCommandOutput) => void
+  ): void;
+  public getConnectAttachment(
+    args: GetConnectAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConnectAttachmentCommandOutput) => void
+  ): void;
+  public getConnectAttachment(
+    args: GetConnectAttachmentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: GetConnectAttachmentCommandOutput) => void
+  ): Promise<GetConnectAttachmentCommandOutput> | void {
+    const command = new GetConnectAttachmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets information about one or more of your connections in a global network.</p>
    */
   public getConnections(
@@ -773,6 +1427,166 @@ export class NetworkManager extends NetworkManagerClient {
     cb?: (err: any, data?: GetConnectionsCommandOutput) => void
   ): Promise<GetConnectionsCommandOutput> | void {
     const command = new GetConnectionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about a core network Connect peer.</p>
+   */
+  public getConnectPeer(
+    args: GetConnectPeerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectPeerCommandOutput>;
+  public getConnectPeer(
+    args: GetConnectPeerCommandInput,
+    cb: (err: any, data?: GetConnectPeerCommandOutput) => void
+  ): void;
+  public getConnectPeer(
+    args: GetConnectPeerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConnectPeerCommandOutput) => void
+  ): void;
+  public getConnectPeer(
+    args: GetConnectPeerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectPeerCommandOutput) => void),
+    cb?: (err: any, data?: GetConnectPeerCommandOutput) => void
+  ): Promise<GetConnectPeerCommandOutput> | void {
+    const command = new GetConnectPeerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about a core network Connect peer associations.</p>
+   */
+  public getConnectPeerAssociations(
+    args: GetConnectPeerAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectPeerAssociationsCommandOutput>;
+  public getConnectPeerAssociations(
+    args: GetConnectPeerAssociationsCommandInput,
+    cb: (err: any, data?: GetConnectPeerAssociationsCommandOutput) => void
+  ): void;
+  public getConnectPeerAssociations(
+    args: GetConnectPeerAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConnectPeerAssociationsCommandOutput) => void
+  ): void;
+  public getConnectPeerAssociations(
+    args: GetConnectPeerAssociationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectPeerAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: GetConnectPeerAssociationsCommandOutput) => void
+  ): Promise<GetConnectPeerAssociationsCommandOutput> | void {
+    const command = new GetConnectPeerAssociationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about a core network. By default it returns the LIVE policy.</p>
+   */
+  public getCoreNetwork(
+    args: GetCoreNetworkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCoreNetworkCommandOutput>;
+  public getCoreNetwork(
+    args: GetCoreNetworkCommandInput,
+    cb: (err: any, data?: GetCoreNetworkCommandOutput) => void
+  ): void;
+  public getCoreNetwork(
+    args: GetCoreNetworkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCoreNetworkCommandOutput) => void
+  ): void;
+  public getCoreNetwork(
+    args: GetCoreNetworkCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCoreNetworkCommandOutput) => void),
+    cb?: (err: any, data?: GetCoreNetworkCommandOutput) => void
+  ): Promise<GetCoreNetworkCommandOutput> | void {
+    const command = new GetCoreNetworkCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a change set between the LIVE core network policy and a submitted policy.</p>
+   */
+  public getCoreNetworkChangeSet(
+    args: GetCoreNetworkChangeSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCoreNetworkChangeSetCommandOutput>;
+  public getCoreNetworkChangeSet(
+    args: GetCoreNetworkChangeSetCommandInput,
+    cb: (err: any, data?: GetCoreNetworkChangeSetCommandOutput) => void
+  ): void;
+  public getCoreNetworkChangeSet(
+    args: GetCoreNetworkChangeSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCoreNetworkChangeSetCommandOutput) => void
+  ): void;
+  public getCoreNetworkChangeSet(
+    args: GetCoreNetworkChangeSetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCoreNetworkChangeSetCommandOutput) => void),
+    cb?: (err: any, data?: GetCoreNetworkChangeSetCommandOutput) => void
+  ): Promise<GetCoreNetworkChangeSetCommandOutput> | void {
+    const command = new GetCoreNetworkChangeSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets details about a core network policy. You can get details about your current live policy or any previous policy version.</p>
+   */
+  public getCoreNetworkPolicy(
+    args: GetCoreNetworkPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCoreNetworkPolicyCommandOutput>;
+  public getCoreNetworkPolicy(
+    args: GetCoreNetworkPolicyCommandInput,
+    cb: (err: any, data?: GetCoreNetworkPolicyCommandOutput) => void
+  ): void;
+  public getCoreNetworkPolicy(
+    args: GetCoreNetworkPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCoreNetworkPolicyCommandOutput) => void
+  ): void;
+  public getCoreNetworkPolicy(
+    args: GetCoreNetworkPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCoreNetworkPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetCoreNetworkPolicyCommandOutput) => void
+  ): Promise<GetCoreNetworkPolicyCommandOutput> | void {
+    const command = new GetCoreNetworkPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1064,6 +1878,38 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * <p>Returns information about a resource policy.</p>
+   */
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): Promise<GetResourcePolicyCommandOutput> | void {
+    const command = new GetResourcePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets information about the specified route analysis.</p>
    */
   public getRouteAnalysis(
@@ -1111,6 +1957,38 @@ export class NetworkManager extends NetworkManagerClient {
     cb?: (err: any, data?: GetSitesCommandOutput) => void
   ): Promise<GetSitesCommandOutput> | void {
     const command = new GetSitesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about a site-to-site VPN attachment.</p>
+   */
+  public getSiteToSiteVpnAttachment(
+    args: GetSiteToSiteVpnAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSiteToSiteVpnAttachmentCommandOutput>;
+  public getSiteToSiteVpnAttachment(
+    args: GetSiteToSiteVpnAttachmentCommandInput,
+    cb: (err: any, data?: GetSiteToSiteVpnAttachmentCommandOutput) => void
+  ): void;
+  public getSiteToSiteVpnAttachment(
+    args: GetSiteToSiteVpnAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSiteToSiteVpnAttachmentCommandOutput) => void
+  ): void;
+  public getSiteToSiteVpnAttachment(
+    args: GetSiteToSiteVpnAttachmentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSiteToSiteVpnAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: GetSiteToSiteVpnAttachmentCommandOutput) => void
+  ): Promise<GetSiteToSiteVpnAttachmentCommandOutput> | void {
+    const command = new GetSiteToSiteVpnAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1189,6 +2067,166 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * <p>Returns information about a VPC attachment.</p>
+   */
+  public getVpcAttachment(
+    args: GetVpcAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVpcAttachmentCommandOutput>;
+  public getVpcAttachment(
+    args: GetVpcAttachmentCommandInput,
+    cb: (err: any, data?: GetVpcAttachmentCommandOutput) => void
+  ): void;
+  public getVpcAttachment(
+    args: GetVpcAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVpcAttachmentCommandOutput) => void
+  ): void;
+  public getVpcAttachment(
+    args: GetVpcAttachmentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVpcAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: GetVpcAttachmentCommandOutput) => void
+  ): Promise<GetVpcAttachmentCommandOutput> | void {
+    const command = new GetVpcAttachmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of core network attachments.</p>
+   */
+  public listAttachments(
+    args: ListAttachmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAttachmentsCommandOutput>;
+  public listAttachments(
+    args: ListAttachmentsCommandInput,
+    cb: (err: any, data?: ListAttachmentsCommandOutput) => void
+  ): void;
+  public listAttachments(
+    args: ListAttachmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAttachmentsCommandOutput) => void
+  ): void;
+  public listAttachments(
+    args: ListAttachmentsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAttachmentsCommandOutput) => void),
+    cb?: (err: any, data?: ListAttachmentsCommandOutput) => void
+  ): Promise<ListAttachmentsCommandOutput> | void {
+    const command = new ListAttachmentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of core network Connect peers.</p>
+   */
+  public listConnectPeers(
+    args: ListConnectPeersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConnectPeersCommandOutput>;
+  public listConnectPeers(
+    args: ListConnectPeersCommandInput,
+    cb: (err: any, data?: ListConnectPeersCommandOutput) => void
+  ): void;
+  public listConnectPeers(
+    args: ListConnectPeersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConnectPeersCommandOutput) => void
+  ): void;
+  public listConnectPeers(
+    args: ListConnectPeersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConnectPeersCommandOutput) => void),
+    cb?: (err: any, data?: ListConnectPeersCommandOutput) => void
+  ): Promise<ListConnectPeersCommandOutput> | void {
+    const command = new ListConnectPeersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of core network policy versions.</p>
+   */
+  public listCoreNetworkPolicyVersions(
+    args: ListCoreNetworkPolicyVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCoreNetworkPolicyVersionsCommandOutput>;
+  public listCoreNetworkPolicyVersions(
+    args: ListCoreNetworkPolicyVersionsCommandInput,
+    cb: (err: any, data?: ListCoreNetworkPolicyVersionsCommandOutput) => void
+  ): void;
+  public listCoreNetworkPolicyVersions(
+    args: ListCoreNetworkPolicyVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCoreNetworkPolicyVersionsCommandOutput) => void
+  ): void;
+  public listCoreNetworkPolicyVersions(
+    args: ListCoreNetworkPolicyVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCoreNetworkPolicyVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListCoreNetworkPolicyVersionsCommandOutput) => void
+  ): Promise<ListCoreNetworkPolicyVersionsCommandOutput> | void {
+    const command = new ListCoreNetworkPolicyVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of owned and shared core networks.</p>
+   */
+  public listCoreNetworks(
+    args: ListCoreNetworksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCoreNetworksCommandOutput>;
+  public listCoreNetworks(
+    args: ListCoreNetworksCommandInput,
+    cb: (err: any, data?: ListCoreNetworksCommandOutput) => void
+  ): void;
+  public listCoreNetworks(
+    args: ListCoreNetworksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCoreNetworksCommandOutput) => void
+  ): void;
+  public listCoreNetworks(
+    args: ListCoreNetworksCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCoreNetworksCommandOutput) => void),
+    cb?: (err: any, data?: ListCoreNetworksCommandOutput) => void
+  ): Promise<ListCoreNetworksCommandOutput> | void {
+    const command = new ListCoreNetworksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the tags for a specified resource.</p>
    */
   public listTagsForResource(
@@ -1210,6 +2248,70 @@ export class NetworkManager extends NetworkManagerClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new, immutable version of a core network policy. A subsequent change set is created showing the differences between the LIVE policy and the submitted policy.</p>
+   */
+  public putCoreNetworkPolicy(
+    args: PutCoreNetworkPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutCoreNetworkPolicyCommandOutput>;
+  public putCoreNetworkPolicy(
+    args: PutCoreNetworkPolicyCommandInput,
+    cb: (err: any, data?: PutCoreNetworkPolicyCommandOutput) => void
+  ): void;
+  public putCoreNetworkPolicy(
+    args: PutCoreNetworkPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutCoreNetworkPolicyCommandOutput) => void
+  ): void;
+  public putCoreNetworkPolicy(
+    args: PutCoreNetworkPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutCoreNetworkPolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutCoreNetworkPolicyCommandOutput) => void
+  ): Promise<PutCoreNetworkPolicyCommandOutput> | void {
+    const command = new PutCoreNetworkPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates or updates a resource policy.</p>
+   */
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): Promise<PutResourcePolicyCommandOutput> | void {
+    const command = new PutResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1244,6 +2346,70 @@ export class NetworkManager extends NetworkManagerClient {
     cb?: (err: any, data?: RegisterTransitGatewayCommandOutput) => void
   ): Promise<RegisterTransitGatewayCommandOutput> | void {
     const command = new RegisterTransitGatewayCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Rejects a core network attachment request.</p>
+   */
+  public rejectAttachment(
+    args: RejectAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RejectAttachmentCommandOutput>;
+  public rejectAttachment(
+    args: RejectAttachmentCommandInput,
+    cb: (err: any, data?: RejectAttachmentCommandOutput) => void
+  ): void;
+  public rejectAttachment(
+    args: RejectAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RejectAttachmentCommandOutput) => void
+  ): void;
+  public rejectAttachment(
+    args: RejectAttachmentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: RejectAttachmentCommandOutput) => void
+  ): Promise<RejectAttachmentCommandOutput> | void {
+    const command = new RejectAttachmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Restores a previous policy version as a new, immutable version of a core network policy. A subsequent change set is created showing the differences between the LIVE policy and restored policy.</p>
+   */
+  public restoreCoreNetworkPolicyVersion(
+    args: RestoreCoreNetworkPolicyVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreCoreNetworkPolicyVersionCommandOutput>;
+  public restoreCoreNetworkPolicyVersion(
+    args: RestoreCoreNetworkPolicyVersionCommandInput,
+    cb: (err: any, data?: RestoreCoreNetworkPolicyVersionCommandOutput) => void
+  ): void;
+  public restoreCoreNetworkPolicyVersion(
+    args: RestoreCoreNetworkPolicyVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestoreCoreNetworkPolicyVersionCommandOutput) => void
+  ): void;
+  public restoreCoreNetworkPolicyVersion(
+    args: RestoreCoreNetworkPolicyVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreCoreNetworkPolicyVersionCommandOutput) => void),
+    cb?: (err: any, data?: RestoreCoreNetworkPolicyVersionCommandOutput) => void
+  ): Promise<RestoreCoreNetworkPolicyVersionCommandOutput> | void {
+    const command = new RestoreCoreNetworkPolicyVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1368,6 +2534,38 @@ export class NetworkManager extends NetworkManagerClient {
     cb?: (err: any, data?: UpdateConnectionCommandOutput) => void
   ): Promise<UpdateConnectionCommandOutput> | void {
     const command = new UpdateConnectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the description of a core network.</p>
+   */
+  public updateCoreNetwork(
+    args: UpdateCoreNetworkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCoreNetworkCommandOutput>;
+  public updateCoreNetwork(
+    args: UpdateCoreNetworkCommandInput,
+    cb: (err: any, data?: UpdateCoreNetworkCommandOutput) => void
+  ): void;
+  public updateCoreNetwork(
+    args: UpdateCoreNetworkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCoreNetworkCommandOutput) => void
+  ): void;
+  public updateCoreNetwork(
+    args: UpdateCoreNetworkCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCoreNetworkCommandOutput) => void),
+    cb?: (err: any, data?: UpdateCoreNetworkCommandOutput) => void
+  ): Promise<UpdateCoreNetworkCommandOutput> | void {
+    const command = new UpdateCoreNetworkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1517,6 +2715,38 @@ export class NetworkManager extends NetworkManagerClient {
     cb?: (err: any, data?: UpdateSiteCommandOutput) => void
   ): Promise<UpdateSiteCommandOutput> | void {
     const command = new UpdateSiteCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a VPC attachment.</p>
+   */
+  public updateVpcAttachment(
+    args: UpdateVpcAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVpcAttachmentCommandOutput>;
+  public updateVpcAttachment(
+    args: UpdateVpcAttachmentCommandInput,
+    cb: (err: any, data?: UpdateVpcAttachmentCommandOutput) => void
+  ): void;
+  public updateVpcAttachment(
+    args: UpdateVpcAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVpcAttachmentCommandOutput) => void
+  ): void;
+  public updateVpcAttachment(
+    args: UpdateVpcAttachmentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVpcAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: UpdateVpcAttachmentCommandOutput) => void
+  ): Promise<UpdateVpcAttachmentCommandOutput> | void {
+    const command = new UpdateVpcAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

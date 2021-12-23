@@ -51,6 +51,12 @@ import {
   ListRoutingControlsCommandOutput,
 } from "../commands/ListRoutingControlsCommand";
 import { ListSafetyRulesCommandInput, ListSafetyRulesCommandOutput } from "../commands/ListSafetyRulesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateControlPanelCommandInput, UpdateControlPanelCommandOutput } from "../commands/UpdateControlPanelCommand";
 import {
   UpdateRoutingControlCommandInput,
@@ -92,6 +98,8 @@ export const serializeAws_restJson1CreateClusterCommand = async (
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.ClusterName !== undefined && input.ClusterName !== null && { ClusterName: input.ClusterName }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1__mapOf__stringMin0Max256PatternS(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -119,6 +127,8 @@ export const serializeAws_restJson1CreateControlPanelCommand = async (
     ...(input.ClusterArn !== undefined && input.ClusterArn !== null && { ClusterArn: input.ClusterArn }),
     ...(input.ControlPanelName !== undefined &&
       input.ControlPanelName !== null && { ControlPanelName: input.ControlPanelName }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1__mapOf__stringMin0Max256PatternS(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -178,6 +188,8 @@ export const serializeAws_restJson1CreateSafetyRuleCommand = async (
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.GatingRule !== undefined &&
       input.GatingRule !== null && { GatingRule: serializeAws_restJson1NewGatingRule(input.GatingRule, context) }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1__mapOf__stringMin0Max256PatternS(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -567,6 +579,100 @@ export const serializeAws_restJson1ListSafetyRulesCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
+  if (input.ResourceArn !== undefined) {
+    const labelValue: string = input.ResourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceArn.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
+  if (input.ResourceArn !== undefined) {
+    const labelValue: string = input.ResourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1__mapOf__stringMin0Max256PatternS(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
+  if (input.ResourceArn !== undefined) {
+    const labelValue: string = input.ResourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceArn.");
+  }
+  const query: any = {
+    ...(input.TagKeys !== undefined && { TagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
     headers,
     path: resolvedPath,
     query,
@@ -1741,7 +1847,7 @@ export const deserializeAws_restJson1ListAssociatedRoute53HealthChecksCommand = 
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.HealthCheckIds !== undefined && data.HealthCheckIds !== null) {
-    contents.HealthCheckIds = deserializeAws_restJson1__listOf__string(data.HealthCheckIds, context);
+    contents.HealthCheckIds = deserializeAws_restJson1__listOf__stringMax36PatternS(data.HealthCheckIds, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -2166,6 +2272,211 @@ const deserializeAws_restJson1ListSafetyRulesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+  }
+  const contents: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Tags: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Tags !== undefined && data.Tags !== null) {
+    contents.Tags = deserializeAws_restJson1__mapOf__stringMin0Max256PatternS(data.Tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1TagResourceCommandError(output, context);
+  }
+  const contents: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+  }
+  const contents: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.route53recoverycontrolconfig#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.route53recoverycontrolconfig#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.route53recoverycontrolconfig#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateControlPanelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2550,7 +2861,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1__listOf__string = (input: string[], context: __SerdeContext): any => {
+const serializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09 = (
+  input: string[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2559,6 +2873,21 @@ const serializeAws_restJson1__listOf__string = (input: string[], context: __Serd
       }
       return entry;
     });
+};
+
+const serializeAws_restJson1__mapOf__stringMin0Max256PatternS = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_restJson1AssertionRuleUpdate = (input: AssertionRuleUpdate, context: __SerdeContext): any => {
@@ -2581,7 +2910,10 @@ const serializeAws_restJson1NewAssertionRule = (input: NewAssertionRule, context
   return {
     ...(input.AssertedControls !== undefined &&
       input.AssertedControls !== null && {
-        AssertedControls: serializeAws_restJson1__listOf__string(input.AssertedControls, context),
+        AssertedControls: serializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(
+          input.AssertedControls,
+          context
+        ),
       }),
     ...(input.ControlPanelArn !== undefined &&
       input.ControlPanelArn !== null && { ControlPanelArn: input.ControlPanelArn }),
@@ -2598,14 +2930,14 @@ const serializeAws_restJson1NewGatingRule = (input: NewGatingRule, context: __Se
       input.ControlPanelArn !== null && { ControlPanelArn: input.ControlPanelArn }),
     ...(input.GatingControls !== undefined &&
       input.GatingControls !== null && {
-        GatingControls: serializeAws_restJson1__listOf__string(input.GatingControls, context),
+        GatingControls: serializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(input.GatingControls, context),
       }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.RuleConfig !== undefined &&
       input.RuleConfig !== null && { RuleConfig: serializeAws_restJson1RuleConfig(input.RuleConfig, context) }),
     ...(input.TargetControls !== undefined &&
       input.TargetControls !== null && {
-        TargetControls: serializeAws_restJson1__listOf__string(input.TargetControls, context),
+        TargetControls: serializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(input.TargetControls, context),
       }),
     ...(input.WaitPeriodMs !== undefined && input.WaitPeriodMs !== null && { WaitPeriodMs: input.WaitPeriodMs }),
   };
@@ -2619,7 +2951,21 @@ const serializeAws_restJson1RuleConfig = (input: RuleConfig, context: __SerdeCon
   };
 };
 
-const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
+const deserializeAws_restJson1__listOf__stringMax36PatternS = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09 = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2685,11 +3031,26 @@ const deserializeAws_restJson1__listOfRule = (output: any, context: __SerdeConte
     });
 };
 
+const deserializeAws_restJson1__mapOf__stringMin0Max256PatternS = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
+};
+
 const deserializeAws_restJson1AssertionRule = (output: any, context: __SerdeContext): AssertionRule => {
   return {
     AssertedControls:
       output.AssertedControls !== undefined && output.AssertedControls !== null
-        ? deserializeAws_restJson1__listOf__string(output.AssertedControls, context)
+        ? deserializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(output.AssertedControls, context)
         : undefined,
     ControlPanelArn: __expectString(output.ControlPanelArn),
     Name: __expectString(output.Name),
@@ -2738,7 +3099,7 @@ const deserializeAws_restJson1GatingRule = (output: any, context: __SerdeContext
     ControlPanelArn: __expectString(output.ControlPanelArn),
     GatingControls:
       output.GatingControls !== undefined && output.GatingControls !== null
-        ? deserializeAws_restJson1__listOf__string(output.GatingControls, context)
+        ? deserializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(output.GatingControls, context)
         : undefined,
     Name: __expectString(output.Name),
     RuleConfig:
@@ -2749,7 +3110,7 @@ const deserializeAws_restJson1GatingRule = (output: any, context: __SerdeContext
     Status: __expectString(output.Status),
     TargetControls:
       output.TargetControls !== undefined && output.TargetControls !== null
-        ? deserializeAws_restJson1__listOf__string(output.TargetControls, context)
+        ? deserializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(output.TargetControls, context)
         : undefined,
     WaitPeriodMs: __expectInt32(output.WaitPeriodMs),
   } as any;

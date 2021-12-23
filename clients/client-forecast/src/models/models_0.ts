@@ -36,7 +36,7 @@ export interface AdditionalDataset {
    *         <p>
    *             <b>Holidays</b>
    *          </p>
-   *         <p>To enable Holidays, specify a country with one of the following two-letter country
+   *         <p>To enable Holidays, set <code>CountryCode</code> to one of the following two-letter country
    *             codes:</p>
    *         <ul>
    *             <li>
@@ -420,14 +420,16 @@ export enum OptimizationMetric {
 }
 
 /**
- * <p>The optional metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
+ * <p>The optional metadata that you apply to a resource to help you categorize and organize
+ *       them. Each tag consists of a key and an optional value, both of which you define.</p>
  *          <p>The following basic restrictions apply to tags:</p>
  *          <ul>
  *             <li>
  *                <p>Maximum number of tags per resource - 50.</p>
  *             </li>
  *             <li>
- *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
+ *                <p>For each resource, each tag key must be unique, and each tag key can have only one
+ *           value.</p>
  *             </li>
  *             <li>
  *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
@@ -436,24 +438,34 @@ export enum OptimizationMetric {
  *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
  *             </li>
  *             <li>
- *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
+ *                <p>If your tagging schema is used across multiple services and resources, remember that
+ *           other services may have restrictions on allowed characters. Generally allowed characters
+ *           are: letters, numbers, and spaces representable in UTF-8, and the following characters: +
+ *           - = . _ : / @.</p>
  *             </li>
  *             <li>
  *                <p>Tag keys and values are case sensitive.</p>
  *             </li>
  *             <li>
- *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p>
+ *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
+ *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+ *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
+ *           its prefix but the key does not, then Forecast considers it to be a user tag and will
+ *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
+ *           not count against your tags per resource limit.</p>
  *             </li>
  *          </ul>
  */
 export interface Tag {
   /**
-   * <p>One part of a key-value pair that makes up a tag. A <code>key</code> is a general label that acts like a category for more specific tag values.</p>
+   * <p>One part of a key-value pair that makes up a tag. A <code>key</code> is a general label
+   *       that acts like a category for more specific tag values.</p>
    */
   Key: string | undefined;
 
   /**
-   * <p>The optional part of a key-value pair that makes up a tag. A <code>value</code> acts as a descriptor within a tag category (key).</p>
+   * <p>The optional part of a key-value pair that makes up a tag. A <code>value</code> acts as a
+   *       descriptor within a tag category (key).</p>
    */
   Value: string | undefined;
 }
@@ -536,7 +548,11 @@ export interface CreateAutoPredictorRequest {
    */
   OptimizationMetric?: OptimizationMetric | string;
 
+  /**
+   * <p>Create an Explainability resource for the predictor.</p>
+   */
   ExplainPredictor?: boolean;
+
   /**
    * <p>Optional metadata to help you categorize and organize your predictors. Each tag
    *             consists of a key and an optional value, both of which you define. Tag keys and values
@@ -743,7 +759,7 @@ export namespace SchemaAttribute {
 }
 
 /**
- * <p>Defines the fields of a dataset. You specify this object in the <a>CreateDataset</a> request.</p>
+ * <p>Defines the fields of a dataset.</p>
  */
 export interface Schema {
   /**
@@ -807,14 +823,16 @@ export interface CreateDatasetRequest {
   EncryptionConfig?: EncryptionConfig;
 
   /**
-   * <p>The optional metadata that you apply to the dataset to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
+   * <p>The optional metadata that you apply to the dataset to help you categorize and organize
+   *       them. Each tag consists of a key and an optional value, both of which you define.</p>
    *          <p>The following basic restrictions apply to tags:</p>
    *          <ul>
    *             <li>
    *                <p>Maximum number of tags per resource - 50.</p>
    *             </li>
    *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only one
+   *           value.</p>
    *             </li>
    *             <li>
    *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
@@ -823,13 +841,21 @@ export interface CreateDatasetRequest {
    *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
+   *                <p>If your tagging schema is used across multiple services and resources, remember that
+   *           other services may have restrictions on allowed characters. Generally allowed characters
+   *           are: letters, numbers, and spaces representable in UTF-8, and the following characters: +
+   *           - = . _ : / @.</p>
    *             </li>
    *             <li>
    *                <p>Tag keys and values are case sensitive.</p>
    *             </li>
    *             <li>
-   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
+   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
+   *           its prefix but the key does not, then Forecast considers it to be a user tag and will
+   *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
+   *           not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
    */
@@ -887,14 +913,17 @@ export interface CreateDatasetGroupRequest {
   DatasetArns?: string[];
 
   /**
-   * <p>The optional metadata that you apply to the dataset group to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
+   * <p>The optional metadata that you apply to the dataset group to help you categorize and
+   *       organize them. Each tag consists of a key and an optional value, both of which you
+   *       define.</p>
    *          <p>The following basic restrictions apply to tags:</p>
    *          <ul>
    *             <li>
    *                <p>Maximum number of tags per resource - 50.</p>
    *             </li>
    *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only one
+   *           value.</p>
    *             </li>
    *             <li>
    *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
@@ -903,13 +932,21 @@ export interface CreateDatasetGroupRequest {
    *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
+   *                <p>If your tagging schema is used across multiple services and resources, remember that
+   *           other services may have restrictions on allowed characters. Generally allowed characters
+   *           are: letters, numbers, and spaces representable in UTF-8, and the following characters: +
+   *           - = . _ : / @.</p>
    *             </li>
    *             <li>
    *                <p>Tag keys and values are case sensitive.</p>
    *             </li>
    *             <li>
-   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
+   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
+   *           its prefix but the key does not, then Forecast considers it to be a user tag and will
+   *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
+   *           not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
    */
@@ -978,13 +1015,12 @@ export namespace S3Config {
 }
 
 /**
- * <p>The source of your training data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
- *       access the data and, optionally, an AWS Key Management Service (KMS) key. This object is submitted in the
- *       <a>CreateDatasetImportJob</a> request.</p>
+ * <p>The source of your data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
+ *       access the data and, optionally, an AWS Key Management Service (KMS) key.</p>
  */
 export interface DataSource {
   /**
-   * <p>The path to the training data stored in an Amazon Simple Storage Service (Amazon S3) bucket along with the
+   * <p>The path to the data stored in an Amazon Simple Storage Service (Amazon S3) bucket along with the
    *       credentials to access the data.</p>
    */
   S3Config: S3Config | undefined;
@@ -1075,14 +1111,17 @@ export interface CreateDatasetImportJobRequest {
   GeolocationFormat?: string;
 
   /**
-   * <p>The optional metadata that you apply to the dataset import job to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
+   * <p>The optional metadata that you apply to the dataset import job to help you categorize and
+   *       organize them. Each tag consists of a key and an optional value, both of which you
+   *       define.</p>
    *          <p>The following basic restrictions apply to tags:</p>
    *          <ul>
    *             <li>
    *                <p>Maximum number of tags per resource - 50.</p>
    *             </li>
    *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only one
+   *           value.</p>
    *             </li>
    *             <li>
    *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
@@ -1091,13 +1130,21 @@ export interface CreateDatasetImportJobRequest {
    *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
+   *                <p>If your tagging schema is used across multiple services and resources, remember that
+   *           other services may have restrictions on allowed characters. Generally allowed characters
+   *           are: letters, numbers, and spaces representable in UTF-8, and the following characters: +
+   *           - = . _ : / @.</p>
    *             </li>
    *             <li>
    *                <p>Tag keys and values are case sensitive.</p>
    *             </li>
    *             <li>
-   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
+   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
+   *           its prefix but the key does not, then Forecast considers it to be a user tag and will
+   *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
+   *           not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
    */
@@ -1198,14 +1245,13 @@ export interface CreateExplainabilityRequest {
   ExplainabilityConfig: ExplainabilityConfig | undefined;
 
   /**
-   * <p>The source of your training data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
-   *       access the data and, optionally, an AWS Key Management Service (KMS) key. This object is submitted in the
-   *       <a>CreateDatasetImportJob</a> request.</p>
+   * <p>The source of your data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
+   *       access the data and, optionally, an AWS Key Management Service (KMS) key.</p>
    */
   DataSource?: DataSource;
 
   /**
-   * <p>Defines the fields of a dataset. You specify this object in the <a>CreateDataset</a> request.</p>
+   * <p>Defines the fields of a dataset.</p>
    */
   Schema?: Schema;
 
@@ -1217,12 +1263,14 @@ export interface CreateExplainabilityRequest {
   /**
    * <p>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, define the first
    *             point for the Explainability.</p>
+   *         <p>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example: 2015-01-01T20:00:00)</p>
    */
   StartDateTime?: string;
 
   /**
    * <p>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, define the last
    *             time point for the Explainability.</p>
+   *         <p>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example: 2015-01-01T20:00:00)</p>
    */
   EndDateTime?: string;
 
@@ -1411,14 +1459,16 @@ export interface CreateForecastRequest {
   ForecastTypes?: string[];
 
   /**
-   * <p>The optional metadata that you apply to the forecast to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
+   * <p>The optional metadata that you apply to the forecast to help you categorize and organize
+   *       them. Each tag consists of a key and an optional value, both of which you define.</p>
    *          <p>The following basic restrictions apply to tags:</p>
    *          <ul>
    *             <li>
    *                <p>Maximum number of tags per resource - 50.</p>
    *             </li>
    *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only one
+   *           value.</p>
    *             </li>
    *             <li>
    *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
@@ -1427,13 +1477,21 @@ export interface CreateForecastRequest {
    *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
+   *                <p>If your tagging schema is used across multiple services and resources, remember that
+   *           other services may have restrictions on allowed characters. Generally allowed characters
+   *           are: letters, numbers, and spaces representable in UTF-8, and the following characters: +
+   *           - = . _ : / @.</p>
    *             </li>
    *             <li>
    *                <p>Tag keys and values are case sensitive.</p>
    *             </li>
    *             <li>
-   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
+   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
+   *           its prefix but the key does not, then Forecast considers it to be a user tag and will
+   *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
+   *           not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
    */
@@ -1487,14 +1545,17 @@ export interface CreateForecastExportJobRequest {
   Destination: DataDestination | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the forecast export job to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
+   * <p>The optional metadata that you apply to the forecast export job to help you categorize and
+   *       organize them. Each tag consists of a key and an optional value, both of which you
+   *       define.</p>
    *          <p>The following basic restrictions apply to tags:</p>
    *          <ul>
    *             <li>
    *                <p>Maximum number of tags per resource - 50.</p>
    *             </li>
    *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only one
+   *           value.</p>
    *             </li>
    *             <li>
    *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
@@ -1503,13 +1564,21 @@ export interface CreateForecastExportJobRequest {
    *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
+   *                <p>If your tagging schema is used across multiple services and resources, remember that
+   *           other services may have restrictions on allowed characters. Generally allowed characters
+   *           are: letters, numbers, and spaces representable in UTF-8, and the following characters: +
+   *           - = . _ : / @.</p>
    *             </li>
    *             <li>
    *                <p>Tag keys and values are case sensitive.</p>
    *             </li>
    *             <li>
-   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
+   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
+   *           its prefix but the key does not, then Forecast considers it to be a user tag and will
+   *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
+   *           not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
    */
@@ -1586,10 +1655,10 @@ export enum FeaturizationMethodName {
 }
 
 /**
- * <p>Provides information about the method that featurizes (transforms) a dataset field.
- *       The method is part of the <code>FeaturizationPipeline</code> of the
- *       <a>Featurization</a> object. </p>
- *          <p>The following is an example of how you specify a <code>FeaturizationMethod</code> object.</p>
+ * <p>Provides information about the method that featurizes (transforms) a dataset field. The
+ *       method is part of the <code>FeaturizationPipeline</code> of the <a>Featurization</a> object. </p>
+ *          <p>The following is an example of how you specify a <code>FeaturizationMethod</code>
+ *       object.</p>
  *          <p>
  *             <code>{</code>
  *          </p>
@@ -1597,7 +1666,8 @@ export enum FeaturizationMethodName {
  *             <code>"FeaturizationMethodName": "filling",</code>
  *          </p>
  *          <p>
- *             <code>"FeaturizationMethodParameters": {"aggregation": "sum", "middlefill": "zero", "backfill": "zero"}</code>
+ *             <code>"FeaturizationMethodParameters": {"aggregation": "sum", "middlefill": "zero",
+ *         "backfill": "zero"}</code>
  *          </p>
  *          <p>
  *             <code>}</code>
@@ -1610,14 +1680,17 @@ export interface FeaturizationMethod {
   FeaturizationMethodName: FeaturizationMethodName | string | undefined;
 
   /**
-   * <p>The method parameters (key-value pairs), which are a map of override parameters. Specify these parameters to override the default values.
-   *       Related Time Series attributes do not accept aggregation parameters.</p>
-   *          <p>The following list shows the parameters and their valid values for the "filling" featurization method for a <b>Target Time Series</b> dataset. Bold signifies the default
-   *       value.</p>
+   * <p>The method parameters (key-value pairs), which are a map of override parameters. Specify
+   *       these parameters to override the default values. Related Time Series attributes do not accept
+   *       aggregation parameters.</p>
+   *          <p>The following list shows the parameters and their valid values for the "filling"
+   *       featurization method for a <b>Target Time Series</b> dataset. Bold
+   *       signifies the default value.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>aggregation</code>: <b>sum</b>, <code>avg</code>, <code>first</code>, <code>min</code>, <code>max</code>
+   *                   <code>aggregation</code>: <b>sum</b>, <code>avg</code>,
+   *             <code>first</code>, <code>min</code>, <code>max</code>
    *                </p>
    *             </li>
    *             <li>
@@ -1627,12 +1700,16 @@ export interface FeaturizationMethod {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>middlefill</code>: <b>zero</b>, <code>nan</code> (not a number), <code>value</code>, <code>median</code>, <code>mean</code>, <code>min</code>, <code>max</code>
+   *                   <code>middlefill</code>: <b>zero</b>, <code>nan</code> (not
+   *           a number), <code>value</code>, <code>median</code>, <code>mean</code>, <code>min</code>,
+   *             <code>max</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>backfill</code>: <b>zero</b>, <code>nan</code>, <code>value</code>, <code>median</code>, <code>mean</code>, <code>min</code>, <code>max</code>
+   *                   <code>backfill</code>: <b>zero</b>, <code>nan</code>,
+   *             <code>value</code>, <code>median</code>, <code>mean</code>, <code>min</code>,
+   *             <code>max</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -1641,17 +1718,20 @@ export interface FeaturizationMethod {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>middlefill</code>: <code>zero</code>, <code>value</code>, <code>median</code>, <code>mean</code>, <code>min</code>, <code>max</code>
+   *                   <code>middlefill</code>: <code>zero</code>, <code>value</code>, <code>median</code>,
+   *             <code>mean</code>, <code>min</code>, <code>max</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>backfill</code>: <code>zero</code>, <code>value</code>, <code>median</code>, <code>mean</code>, <code>min</code>, <code>max</code>
+   *                   <code>backfill</code>: <code>zero</code>, <code>value</code>, <code>median</code>,
+   *             <code>mean</code>, <code>min</code>, <code>max</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>futurefill</code>: <code>zero</code>, <code>value</code>, <code>median</code>, <code>mean</code>, <code>min</code>, <code>max</code>
+   *                   <code>futurefill</code>: <code>zero</code>, <code>value</code>, <code>median</code>,
+   *             <code>mean</code>, <code>min</code>, <code>max</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -1673,8 +1753,12 @@ export namespace FeaturizationMethod {
 }
 
 /**
- * <p>Provides featurization (transformation) information for a dataset field. This object
- *       is part of the <a>FeaturizationConfig</a> object.</p>
+ * <note>
+ *             <p>This object belongs to the <a>CreatePredictor</a> operation. If you created
+ *         your predictor with <a>CreateAutoPredictor</a>, see <a>AttributeConfig</a>.</p>
+ *          </note>
+ *          <p>Provides featurization (transformation) information for a dataset field. This object is
+ *       part of the <a>FeaturizationConfig</a> object.</p>
  *          <p>For example:</p>
  *          <p>
  *             <code>{</code>
@@ -1690,7 +1774,8 @@ export namespace FeaturizationMethod {
  *             <code>"FeaturizationMethodName": "filling",</code>
  *          </p>
  *          <p>
- *             <code>"FeaturizationMethodParameters": {"aggregation": "avg", "backfill": "nan"}</code>
+ *             <code>"FeaturizationMethodParameters": {"aggregation": "avg", "backfill":
+ *       "nan"}</code>
  *          </p>
  *          <p>
  *             <code>} ]</code>
@@ -1701,11 +1786,11 @@ export namespace FeaturizationMethod {
  */
 export interface Featurization {
   /**
-   * <p>The name of the schema attribute that specifies the data field to be featurized. Amazon Forecast supports the target field of
-   *       the <code>TARGET_TIME_SERIES</code> and the <code>RELATED_TIME_SERIES</code> datasets. For example, for the <code>RETAIL</code> domain, the target is
-   *       <code>demand</code>, and for the <code>CUSTOM</code> domain, the target is
-   *       <code>target_value</code>.
-   *       For more information, see <a>howitworks-missing-values</a>.</p>
+   * <p>The name of the schema attribute that specifies the data field to be featurized. Amazon
+   *       Forecast supports the target field of the <code>TARGET_TIME_SERIES</code> and the
+   *         <code>RELATED_TIME_SERIES</code> datasets. For example, for the <code>RETAIL</code> domain,
+   *       the target is <code>demand</code>, and for the <code>CUSTOM</code> domain, the target is
+   *         <code>target_value</code>. For more information, see <a>howitworks-missing-values</a>.</p>
    */
   AttributeName: string | undefined;
 
@@ -1726,25 +1811,29 @@ export namespace Featurization {
 }
 
 /**
- * <p>In a <a>CreatePredictor</a> operation, the specified algorithm
- *       trains a model using the specified dataset group. You can optionally tell the operation
- *       to modify data fields prior to training a model. These modifications are referred to as
- *       <i>featurization</i>.</p>
- *          <p>You define featurization using the <code>FeaturizationConfig</code> object.
- *       You specify an array of transformations, one for each field that you want to
- *       featurize. You then include the <code>FeaturizationConfig</code> object in your
- *       <code>CreatePredictor</code> request. Amazon Forecast applies the featurization to the
- *       <code>TARGET_TIME_SERIES</code> and <code>RELATED_TIME_SERIES</code> datasets before model training.</p>
- *          <p>You can create multiple featurization configurations. For example, you
- *       might call the <code>CreatePredictor</code> operation twice by specifying different
- *       featurization configurations.</p>
+ * <note>
+ *             <p>This object belongs to the <a>CreatePredictor</a> operation. If you created
+ *         your predictor with <a>CreateAutoPredictor</a>, see <a>AttributeConfig</a>.</p>
+ *          </note>
+ *          <p>In a <a>CreatePredictor</a> operation, the specified algorithm trains a model
+ *       using the specified dataset group. You can optionally tell the operation to modify data fields
+ *       prior to training a model. These modifications are referred to as
+ *         <i>featurization</i>.</p>
+ *          <p>You define featurization using the <code>FeaturizationConfig</code> object. You specify an
+ *       array of transformations, one for each field that you want to featurize. You then include the
+ *         <code>FeaturizationConfig</code> object in your <code>CreatePredictor</code> request.
+ *       Amazon Forecast applies the featurization to the <code>TARGET_TIME_SERIES</code> and
+ *         <code>RELATED_TIME_SERIES</code> datasets before model training.</p>
+ *          <p>You can create multiple featurization configurations. For example, you might call the
+ *         <code>CreatePredictor</code> operation twice by specifying different featurization
+ *       configurations.</p>
  */
 export interface FeaturizationConfig {
   /**
    * <p>The frequency of predictions in a forecast.</p>
    *          <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes),
-   *       15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute).
-   *       For example, "Y" indicates every year and "5min" indicates every five minutes.</p>
+   *       15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example,
+   *       "Y" indicates every year and "5min" indicates every five minutes.</p>
    *          <p>The frequency must be greater than or equal to the TARGET_TIME_SERIES dataset
    *       frequency.</p>
    *          <p>When a RELATED_TIME_SERIES dataset is provided, the frequency must be equal to the
@@ -1753,14 +1842,16 @@ export interface FeaturizationConfig {
   ForecastFrequency: string | undefined;
 
   /**
-   * <p>An array of dimension (field) names that specify how to group the generated forecast.</p>
-   *          <p>For example, suppose that you are generating a forecast for item sales across all of
-   *       your stores, and your dataset contains a <code>store_id</code> field. If you want the sales
-   *       forecast for each item by store, you would specify <code>store_id</code> as the dimension.</p>
+   * <p>An array of dimension (field) names that specify how to group the generated
+   *       forecast.</p>
+   *          <p>For example, suppose that you are generating a forecast for item sales across all of your
+   *       stores, and your dataset contains a <code>store_id</code> field. If you want the sales
+   *       forecast for each item by store, you would specify <code>store_id</code> as the
+   *       dimension.</p>
    *          <p>All forecast dimensions specified in the <code>TARGET_TIME_SERIES</code> dataset don't
-   *       need to be specified in the <code>CreatePredictor</code> request.
-   *       All forecast dimensions specified in the <code>RELATED_TIME_SERIES</code> dataset must
-   *       be specified in the <code>CreatePredictor</code> request.</p>
+   *       need to be specified in the <code>CreatePredictor</code> request. All forecast dimensions
+   *       specified in the <code>RELATED_TIME_SERIES</code> dataset must be specified in the
+   *         <code>CreatePredictor</code> request.</p>
    */
   ForecastDimensions?: string[];
 
@@ -1996,7 +2087,11 @@ export namespace HyperParameterTuningJobConfig {
 }
 
 /**
- * <p>Describes a supplementary feature of a dataset group. This object is part of the <a>InputDataConfig</a> object. Forecast supports the Weather Index and Holidays built-in
+ * <note>
+ *             <p>This object belongs to the <a>CreatePredictor</a> operation. If you created
+ *         your predictor with <a>CreateAutoPredictor</a>, see <a>AdditionalDataset</a>.</p>
+ *          </note>
+ *          <p>Describes a supplementary feature of a dataset group. This object is part of the <a>InputDataConfig</a> object. Forecast supports the Weather Index and Holidays built-in
  *       featurizations.</p>
  *          <p>
  *             <b>Weather Index</b>
@@ -2246,7 +2341,11 @@ export namespace SupplementaryFeature {
 }
 
 /**
- * <p>The data used to train a predictor. The data includes a dataset group and any
+ * <note>
+ *             <p>This object belongs to the <a>CreatePredictor</a> operation. If you created
+ *         your predictor with <a>CreateAutoPredictor</a>, see <a>DataConfig</a>.</p>
+ *          </note>
+ *          <p>The data used to train a predictor. The data includes a dataset group and any
  *       supplementary features. You specify this object in the <a>CreatePredictor</a>
  *       request.</p>
  */
@@ -2425,14 +2524,16 @@ export interface CreatePredictorRequest {
   EncryptionConfig?: EncryptionConfig;
 
   /**
-   * <p>The optional metadata that you apply to the predictor to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
+   * <p>The optional metadata that you apply to the predictor to help you categorize and organize
+   *       them. Each tag consists of a key and an optional value, both of which you define.</p>
    *          <p>The following basic restrictions apply to tags:</p>
    *          <ul>
    *             <li>
    *                <p>Maximum number of tags per resource - 50.</p>
    *             </li>
    *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only one
+   *           value.</p>
    *             </li>
    *             <li>
    *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
@@ -2441,13 +2542,21 @@ export interface CreatePredictorRequest {
    *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
+   *                <p>If your tagging schema is used across multiple services and resources, remember that
+   *           other services may have restrictions on allowed characters. Generally allowed characters
+   *           are: letters, numbers, and spaces representable in UTF-8, and the following characters: +
+   *           - = . _ : / @.</p>
    *             </li>
    *             <li>
    *                <p>Tag keys and values are case sensitive.</p>
    *             </li>
    *             <li>
-   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
+   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
+   *           its prefix but the key does not, then Forecast considers it to be a user tag and will
+   *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
+   *           not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
    */
@@ -2503,9 +2612,9 @@ export interface CreatePredictorBacktestExportJobRequest {
   Destination: DataDestination | undefined;
 
   /**
-   * <p>Optional metadata to help you categorize and organize your backtests. Each tag consists
-   *             of a key and an optional value, both of which you define. Tag keys and values are case
-   *             sensitive.</p>
+   * <p>Optional metadata to help you categorize and organize your backtests. Each tag
+   *             consists of a key and an optional value, both of which you define. Tag keys and values
+   *             are case sensitive.</p>
    *         <p>The following restrictions apply to tags:</p>
    *         <ul>
    *             <li>
@@ -2522,17 +2631,17 @@ export interface CreatePredictorBacktestExportJobRequest {
    *                 <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Accepted characters: all letters and numbers, spaces representable in UTF-8, and +
-   *                     - = . _ : / @. If your tagging schema is used across other services and resources,
-   *                     the character restrictions of those services also apply. </p>
+   *                 <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
+   *                     and + - = . _ : / @. If your tagging schema is used across other services and
+   *                     resources, the character restrictions of those services also apply. </p>
    *             </li>
    *             <li>
    *                 <p>Key prefixes cannot include any upper or lowercase combination of
-   *                     <code>aws:</code> or <code>AWS:</code>. Values can have this prefix. If a tag
-   *                     value has <code>aws</code> as its prefix but the key does not, Forecast considers it
-   *                     to be a user tag and will count against the limit of 50 tags. Tags with only the key
-   *                     prefix of <code>aws</code> do not count against your tags per resource limit. You
-   *                     cannot edit or delete tag keys with this prefix.</p>
+   *                         <code>aws:</code> or <code>AWS:</code>. Values can have this prefix. If a
+   *                     tag value has <code>aws</code> as its prefix but the key does not, Forecast
+   *                     considers it to be a user tag and will count against the limit of 50 tags. Tags
+   *                     with only the key prefix of <code>aws</code> do not count against your tags per
+   *                     resource limit. You cannot edit or delete tag keys with this prefix.</p>
    *             </li>
    *          </ul>
    */
@@ -2743,8 +2852,42 @@ export namespace DescribeAutoPredictorRequest {
   });
 }
 
+/**
+ * <p>Provides information about the Explainability resource.</p>
+ */
 export interface ExplainabilityInfo {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Explainability.</p>
+   */
   ExplainabilityArn?: string;
+
+  /**
+   * <p>The status of the Explainability. States include: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
+   *                     <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
+   *                     <code>DELETE_FAILED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
   Status?: string;
 }
 
@@ -2817,6 +2960,11 @@ export interface DescribeAutoPredictorResponse {
    *             For example, "Y" indicates every year and "5min" indicates every five minutes.</p>
    */
   ForecastFrequency?: string;
+
+  /**
+   * <p>An array of dimension (field) names that specify the attributes used to group your time series.</p>
+   */
+  ForecastDimensions?: string[];
 
   /**
    * <p>An array of the ARNs of the dataset import jobs used to import training data for the
@@ -2921,6 +3069,9 @@ export interface DescribeAutoPredictorResponse {
    */
   OptimizationMetric?: OptimizationMetric | string;
 
+  /**
+   * <p>Provides the status and ARN of the Predictor Explainability.</p>
+   */
   ExplainabilityInfo?: ExplainabilityInfo;
 }
 
@@ -3443,14 +3594,13 @@ export interface DescribeExplainabilityResponse {
   EnableVisualization?: boolean;
 
   /**
-   * <p>The source of your training data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
-   *       access the data and, optionally, an AWS Key Management Service (KMS) key. This object is submitted in the
-   *       <a>CreateDatasetImportJob</a> request.</p>
+   * <p>The source of your data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
+   *       access the data and, optionally, an AWS Key Management Service (KMS) key.</p>
    */
   DataSource?: DataSource;
 
   /**
-   * <p>Defines the fields of a dataset. You specify this object in the <a>CreateDataset</a> request.</p>
+   * <p>Defines the fields of a dataset.</p>
    */
   Schema?: Schema;
 
@@ -4283,7 +4433,7 @@ export interface DescribePredictorBacktestExportJobResponse {
    *             <li>
    *                 <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
-   *                     <code>CREATE_FAILED</code>
+   *                         <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
@@ -4294,7 +4444,7 @@ export interface DescribePredictorBacktestExportJobResponse {
    *             <li>
    *                 <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
-   *                     <code>DELETE_FAILED</code>
+   *                         <code>DELETE_FAILED</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -4307,7 +4457,8 @@ export interface DescribePredictorBacktestExportJobResponse {
   CreationTime?: Date;
 
   /**
-   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   * <p>The last time the resource was modified. The timestamp depends on the status of the
+   *             job:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -5033,7 +5184,7 @@ export interface ListExplainabilitiesRequest {
    *             <li>
    *                 <p>
    *                   <code>Key</code> - The name of the parameter to filter on. Valid values are
-   *                         <code>PredictorArn</code> and <code>Status</code>.</p>
+   *                         <code>ResourceArn</code> and <code>Status</code>.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -5213,7 +5364,7 @@ export interface ListExplainabilityExportsRequest {
    *             <li>
    *                 <p>
    *                   <code>Key</code> - The name of the parameter to filter on. Valid values are
-   *                         <code>PredictorArn</code> and <code>Status</code>.</p>
+   *                         <code>ResourceArn</code> and <code>Status</code>.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -5616,7 +5767,11 @@ export interface ForecastSummary {
    */
   PredictorArn?: string;
 
+  /**
+   * <p>Whether the Forecast was created from an AutoPredictor.</p>
+   */
   CreatedUsingAutoPredictor?: boolean;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group that provided the data used to train
    *       the predictor.</p>
@@ -5728,9 +5883,9 @@ export namespace ListForecastsResponse {
 
 export interface ListPredictorBacktestExportJobsRequest {
   /**
-   * <p>If the result of the previous request was truncated, the response includes a NextToken.
-   *             To retrieve the next set of results, use the token in the next request. Tokens expire after
-   *             24 hours.</p>
+   * <p>If the result of the previous request was truncated, the response includes a
+   *             NextToken. To retrieve the next set of results, use the token in the next request.
+   *             Tokens expire after 24 hours.</p>
    */
   NextToken?: string;
 
@@ -5741,29 +5896,29 @@ export interface ListPredictorBacktestExportJobsRequest {
 
   /**
    * <p>An array of filters. For each filter, provide a condition and a match statement. The
-   *                 condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to
-   *                 include or exclude the predictor backtest export jobs that match the statement from the
-   *                 list. The match statement consists of a key and a value.</p>
-   *             <p>
-   *                 <b>Filter properties</b>
-   *             </p>
-   *             <ul>
+   *             condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to
+   *             include or exclude the predictor backtest export jobs that match the statement from the
+   *             list. The match statement consists of a key and a value.</p>
+   *         <p>
+   *             <b>Filter properties</b>
+   *         </p>
+   *         <ul>
    *             <li>
-   *                     <p>
+   *                 <p>
    *                   <code>Condition</code> - The condition to apply. Valid values are
    *                         <code>IS</code> and <code>IS_NOT</code>. To include the predictor backtest
-   *                         export jobs that match the statement, specify <code>IS</code>. To exclude matching
-   *                         predictor backtest export jobs, specify <code>IS_NOT</code>.</p>
-   *                 </li>
+   *                     export jobs that match the statement, specify <code>IS</code>. To exclude
+   *                     matching predictor backtest export jobs, specify <code>IS_NOT</code>.</p>
+   *             </li>
    *             <li>
-   *                     <p>
+   *                 <p>
    *                   <code>Key</code> - The name of the parameter to filter on. Valid values are
    *                         <code>PredictorArn</code> and <code>Status</code>.</p>
-   *                 </li>
+   *             </li>
    *             <li>
-   *                     <p>
+   *                 <p>
    *                   <code>Value</code> - The value to match.</p>
-   *                 </li>
+   *             </li>
    *          </ul>
    */
   Filters?: Filter[];
@@ -5779,9 +5934,9 @@ export namespace ListPredictorBacktestExportJobsRequest {
 }
 
 /**
- * <p>Provides a summary of the predictor backtest export job properties used in the <a>ListPredictorBacktestExportJobs</a> operation. To get a complete set of properties, call
- *             the <a>DescribePredictorBacktestExportJob</a> operation, and provide the listed
- *             <code>PredictorBacktestExportJobArn</code>.</p>
+ * <p>Provides a summary of the predictor backtest export job properties used in the <a>ListPredictorBacktestExportJobs</a> operation. To get a complete set of
+ *             properties, call the <a>DescribePredictorBacktestExportJob</a> operation, and
+ *             provide the listed <code>PredictorBacktestExportJobArn</code>.</p>
  */
 export interface PredictorBacktestExportJobSummary {
   /**
@@ -5811,7 +5966,7 @@ export interface PredictorBacktestExportJobSummary {
    *             <li>
    *                 <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
-   *                     <code>CREATE_FAILED</code>
+   *                         <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
@@ -5822,7 +5977,7 @@ export interface PredictorBacktestExportJobSummary {
    *             <li>
    *                 <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
-   *                     <code>DELETE_FAILED</code>
+   *                         <code>DELETE_FAILED</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -5840,7 +5995,8 @@ export interface PredictorBacktestExportJobSummary {
   CreationTime?: Date;
 
   /**
-   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   * <p>The last time the resource was modified. The timestamp depends on the status of the
+   *             job:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -5885,8 +6041,8 @@ export interface ListPredictorBacktestExportJobsResponse {
   PredictorBacktestExportJobs?: PredictorBacktestExportJobSummary[];
 
   /**
-   * <p>Returns this token if the response is truncated. To retrieve the next
-   *             set of results, use the token in the next request.</p>
+   * <p>Returns this token if the response is truncated. To retrieve the next set of results,
+   *             use the token in the next request.</p>
    */
   NextToken?: string;
 }
@@ -6094,7 +6250,8 @@ export namespace ListPredictorsResponse {
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are Forecast dataset groups, datasets, dataset import jobs, predictors, forecasts, and forecast export jobs.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags.
+   *     </p>
    */
   ResourceArn: string | undefined;
 }
@@ -6129,8 +6286,9 @@ export interface StopResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to stop. The supported ARNs
    *          are <code>DatasetImportJobArn</code>, <code>PredictorArn</code>,
-   *             <code>PredictorBacktestExportJobArn</code>, <code>ForecastArn</code>, and
-   *             <code>ForecastExportJobArn</code>. </p>
+   *             <code>PredictorBacktestExportJobArn</code>, <code>ForecastArn</code>,
+   *             <code>ForecastExportJobArn</code>, <code>ExplainabilityArn</code>, and
+   *             <code>ExplainabilityExportArn</code>. </p>
    */
   ResourceArn: string | undefined;
 }
@@ -6146,7 +6304,8 @@ export namespace StopResourceRequest {
 
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are Forecast dataset groups, datasets, dataset import jobs, predictors, forecasts, and forecast export jobs.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags.
+   *     </p>
    */
   ResourceArn: string | undefined;
 
@@ -6158,7 +6317,8 @@ export interface TagResourceRequest {
    *                <p>Maximum number of tags per resource - 50.</p>
    *             </li>
    *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only one
+   *           value.</p>
    *             </li>
    *             <li>
    *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
@@ -6167,13 +6327,21 @@ export interface TagResourceRequest {
    *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
+   *                <p>If your tagging schema is used across multiple services and resources, remember that
+   *           other services may have restrictions on allowed characters. Generally allowed characters
+   *           are: letters, numbers, and spaces representable in UTF-8, and the following characters: +
+   *           - = . _ : / @.</p>
    *             </li>
    *             <li>
    *                <p>Tag keys and values are case sensitive.</p>
    *             </li>
    *             <li>
-   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
+   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
+   *           its prefix but the key does not, then Forecast considers it to be a user tag and will
+   *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
+   *           not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
    */
@@ -6203,7 +6371,8 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are Forecast dataset groups, datasets, dataset import jobs, predictors, forecasts, and forecast exports.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags.
+   *     </p>
    */
   ResourceArn: string | undefined;
 

@@ -65,6 +65,7 @@ import {
   CheckDomainTransferabilityCommandInput,
   CheckDomainTransferabilityCommandOutput,
 } from "./commands/CheckDomainTransferabilityCommand";
+import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
 import {
   DeleteTagsForDomainCommandInput,
   DeleteTagsForDomainCommandOutput,
@@ -97,6 +98,7 @@ import {
 import { GetOperationDetailCommandInput, GetOperationDetailCommandOutput } from "./commands/GetOperationDetailCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand";
+import { ListPricesCommandInput, ListPricesCommandOutput } from "./commands/ListPricesCommand";
 import { ListTagsForDomainCommandInput, ListTagsForDomainCommandOutput } from "./commands/ListTagsForDomainCommand";
 import { RegisterDomainCommandInput, RegisterDomainCommandOutput } from "./commands/RegisterDomainCommand";
 import {
@@ -141,6 +143,7 @@ export type ServiceInputTypes =
   | CancelDomainTransferToAnotherAwsAccountCommandInput
   | CheckDomainAvailabilityCommandInput
   | CheckDomainTransferabilityCommandInput
+  | DeleteDomainCommandInput
   | DeleteTagsForDomainCommandInput
   | DisableDomainAutoRenewCommandInput
   | DisableDomainTransferLockCommandInput
@@ -152,6 +155,7 @@ export type ServiceInputTypes =
   | GetOperationDetailCommandInput
   | ListDomainsCommandInput
   | ListOperationsCommandInput
+  | ListPricesCommandInput
   | ListTagsForDomainCommandInput
   | RegisterDomainCommandInput
   | RejectDomainTransferFromAnotherAwsAccountCommandInput
@@ -171,6 +175,7 @@ export type ServiceOutputTypes =
   | CancelDomainTransferToAnotherAwsAccountCommandOutput
   | CheckDomainAvailabilityCommandOutput
   | CheckDomainTransferabilityCommandOutput
+  | DeleteDomainCommandOutput
   | DeleteTagsForDomainCommandOutput
   | DisableDomainAutoRenewCommandOutput
   | DisableDomainTransferLockCommandOutput
@@ -182,6 +187,7 @@ export type ServiceOutputTypes =
   | GetOperationDetailCommandOutput
   | ListDomainsCommandOutput
   | ListOperationsCommandOutput
+  | ListPricesCommandOutput
   | ListTagsForDomainCommandOutput
   | RegisterDomainCommandOutput
   | RejectDomainTransferFromAnotherAwsAccountCommandOutput

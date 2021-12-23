@@ -49,6 +49,10 @@ import {
 } from "../commands/DescribeResourcePolicyCommand";
 import { DescribeRuleGroupCommandInput, DescribeRuleGroupCommandOutput } from "../commands/DescribeRuleGroupCommand";
 import {
+  DescribeRuleGroupMetadataCommandInput,
+  DescribeRuleGroupMetadataCommandOutput,
+} from "../commands/DescribeRuleGroupMetadataCommand";
+import {
   DisassociateSubnetsCommandInput,
   DisassociateSubnetsCommandOutput,
 } from "../commands/DisassociateSubnetsCommand";
@@ -121,6 +125,8 @@ import {
   DescribeLoggingConfigurationResponse,
   DescribeResourcePolicyRequest,
   DescribeResourcePolicyResponse,
+  DescribeRuleGroupMetadataRequest,
+  DescribeRuleGroupMetadataResponse,
   DescribeRuleGroupRequest,
   DescribeRuleGroupResponse,
   Dimension,
@@ -171,6 +177,7 @@ import {
   RuleVariables,
   StatefulEngineOptions,
   StatefulRule,
+  StatefulRuleGroupOverride,
   StatefulRuleGroupReference,
   StatefulRuleOptions,
   StatelessRule,
@@ -383,6 +390,19 @@ export const serializeAws_json1_0DescribeRuleGroupCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeRuleGroupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0DescribeRuleGroupMetadataCommand = async (
+  input: DescribeRuleGroupMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "NetworkFirewall_20201112.DescribeRuleGroupMetadata",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DescribeRuleGroupMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1801,6 +1821,84 @@ const deserializeAws_json1_0DescribeRuleGroupCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_0DescribeRuleGroupMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRuleGroupMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DescribeRuleGroupMetadataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DescribeRuleGroupMetadataResponse(data, context);
+  const response: DescribeRuleGroupMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DescribeRuleGroupMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRuleGroupMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.networkfirewall#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.networkfirewall#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkfirewall#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkfirewall#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_0DisassociateSubnetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2134,6 +2232,14 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.networkfirewall#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
       response = {
@@ -2146,6 +2252,14 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkfirewall#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2282,6 +2396,14 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.networkfirewall#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
       response = {
@@ -2294,6 +2416,14 @@ const deserializeAws_json1_0TagResourceCommandError = async (
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkfirewall#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2344,6 +2474,14 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.networkfirewall#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
       response = {
@@ -2356,6 +2494,14 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.networkfirewall#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3403,6 +3549,17 @@ const serializeAws_json1_0DescribeResourcePolicyRequest = (
   };
 };
 
+const serializeAws_json1_0DescribeRuleGroupMetadataRequest = (
+  input: DescribeRuleGroupMetadataRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.RuleGroupArn !== undefined && input.RuleGroupArn !== null && { RuleGroupArn: input.RuleGroupArn }),
+    ...(input.RuleGroupName !== undefined && input.RuleGroupName !== null && { RuleGroupName: input.RuleGroupName }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+  };
+};
+
 const serializeAws_json1_0DescribeRuleGroupRequest = (
   input: DescribeRuleGroupRequest,
   context: __SerdeContext
@@ -3553,6 +3710,7 @@ const serializeAws_json1_0ListRuleGroupsRequest = (input: ListRuleGroupsRequest,
   return {
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Scope !== undefined && input.Scope !== null && { Scope: input.Scope }),
   };
 };
 
@@ -3832,11 +3990,22 @@ const serializeAws_json1_0StatefulRule = (input: StatefulRule, context: __SerdeC
   };
 };
 
+const serializeAws_json1_0StatefulRuleGroupOverride = (
+  input: StatefulRuleGroupOverride,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Action !== undefined && input.Action !== null && { Action: input.Action }),
+  };
+};
+
 const serializeAws_json1_0StatefulRuleGroupReference = (
   input: StatefulRuleGroupReference,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Override !== undefined &&
+      input.Override !== null && { Override: serializeAws_json1_0StatefulRuleGroupOverride(input.Override, context) }),
     ...(input.Priority !== undefined && input.Priority !== null && { Priority: input.Priority }),
     ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
@@ -4377,6 +4546,23 @@ const deserializeAws_json1_0DescribeResourcePolicyResponse = (
 ): DescribeResourcePolicyResponse => {
   return {
     Policy: __expectString(output.Policy),
+  } as any;
+};
+
+const deserializeAws_json1_0DescribeRuleGroupMetadataResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeRuleGroupMetadataResponse => {
+  return {
+    Capacity: __expectInt32(output.Capacity),
+    Description: __expectString(output.Description),
+    RuleGroupArn: __expectString(output.RuleGroupArn),
+    RuleGroupName: __expectString(output.RuleGroupName),
+    StatefulRuleOptions:
+      output.StatefulRuleOptions !== undefined && output.StatefulRuleOptions !== null
+        ? deserializeAws_json1_0StatefulRuleOptions(output.StatefulRuleOptions, context)
+        : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -5048,11 +5234,24 @@ const deserializeAws_json1_0StatefulRule = (output: any, context: __SerdeContext
   } as any;
 };
 
+const deserializeAws_json1_0StatefulRuleGroupOverride = (
+  output: any,
+  context: __SerdeContext
+): StatefulRuleGroupOverride => {
+  return {
+    Action: __expectString(output.Action),
+  } as any;
+};
+
 const deserializeAws_json1_0StatefulRuleGroupReference = (
   output: any,
   context: __SerdeContext
 ): StatefulRuleGroupReference => {
   return {
+    Override:
+      output.Override !== undefined && output.Override !== null
+        ? deserializeAws_json1_0StatefulRuleGroupOverride(output.Override, context)
+        : undefined,
     Priority: __expectInt32(output.Priority),
     ResourceArn: __expectString(output.ResourceArn),
   } as any;

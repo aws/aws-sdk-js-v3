@@ -98,6 +98,18 @@ const regionHash: RegionHash = {
       },
     ],
   },
+  "ap-southeast-3": {
+    variants: [
+      {
+        hostname: "s3.ap-southeast-3.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "s3.dualstack.ap-southeast-3.amazonaws.com",
+        tags: ["dualstack"],
+      },
+    ],
+  },
   "aws-global": {
     variants: [
       {
@@ -381,6 +393,7 @@ const partitionHash: PartitionHash = {
       "ap-south-1",
       "ap-southeast-1",
       "ap-southeast-2",
+      "ap-southeast-3",
       "aws-global",
       "ca-central-1",
       "eu-central-1",

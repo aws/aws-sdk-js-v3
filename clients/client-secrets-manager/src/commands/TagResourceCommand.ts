@@ -22,20 +22,18 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Attaches one or more tags, each consisting of a key name and a value, to the specified
- *       secret. Tags are part of the secret's overall metadata, and are not associated with any
- *       specific version of the secret. This operation only appends tags to the existing list of tags.
- *       To remove tags, you must use <a>UntagResource</a>.</p>
- *          <p>The following basic restrictions apply to tags:</p>
+ * <p>Attaches tags to a secret. Tags consist of a key name and a value. Tags are part of the
+ *       secret's metadata. They are not associated with specific versions of the secret. This operation appends tags to the existing list of tags.</p>
+ *             <p>The following restrictions apply to tags:</p>
  *         <ul>
  *             <li>
- *                <p>Maximum number of tags per secret—50</p>
+ *                <p>Maximum number of tags per secret: 50</p>
  *             </li>
  *             <li>
- *                <p>Maximum key length—127 Unicode characters in UTF-8</p>
+ *                <p>Maximum key length: 127 Unicode characters in UTF-8</p>
  *             </li>
  *             <li>
- *                <p>Maximum value length—255 Unicode characters in UTF-8</p>
+ *                <p>Maximum value length: 255 Unicode characters in UTF-8</p>
  *             </li>
  *             <li>
  *                <p>Tag keys and values are case sensitive.</p>
@@ -47,37 +45,18 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *             </li>
  *             <li>
  *                <p>If you use your tagging schema across multiple services and resources,
- *               remember other services might have restrictions on allowed characters. Generally
+ *               other services might have restrictions on allowed characters. Generally
  *               allowed characters: letters, spaces, and numbers representable in UTF-8, plus the
  *               following special characters: + - = . _ : / @.</p>
  *             </li>
  *          </ul>
+ *
  *          <important>
  *             <p>If you use tags as part of your security strategy, then adding or removing a tag can
  *         change permissions. If successfully completing this operation would result in you losing
  *         your permissions for this secret, then the operation is blocked and returns an Access Denied
  *         error.</p>
  *          </important>
- *          <p>
- *             <b>Minimum permissions</b>
- *          </p>
- *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
- *             <li>
- *                <p>secretsmanager:TagResource</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Related operations</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>To remove one or more tags from the collection attached to a secret, use <a>UntagResource</a>.</p>
- *             </li>
- *             <li>
- *                <p>To view the list of tags attached to a secret, use <a>DescribeSecret</a>.</p>
- *             </li>
- *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -128,6 +128,10 @@ import {
   SearchPlaceIndexForPositionCommandOutput,
 } from "../commands/SearchPlaceIndexForPositionCommand";
 import {
+  SearchPlaceIndexForSuggestionsCommandInput,
+  SearchPlaceIndexForSuggestionsCommandOutput,
+} from "../commands/SearchPlaceIndexForSuggestionsCommand";
+import {
   SearchPlaceIndexForTextCommandInput,
   SearchPlaceIndexForTextCommandOutput,
 } from "../commands/SearchPlaceIndexForTextCommand";
@@ -176,10 +180,13 @@ import {
   MapConfiguration,
   Place,
   PlaceGeometry,
+  PositionalAccuracy,
   ResourceNotFoundException,
   SearchForPositionResult,
+  SearchForSuggestionsResult,
   SearchForTextResult,
   SearchPlaceIndexForPositionSummary,
+  SearchPlaceIndexForSuggestionsSummary,
   SearchPlaceIndexForTextSummary,
   ServiceQuotaExceededException,
   Step,
@@ -1916,6 +1923,58 @@ export const serializeAws_restJson1SearchPlaceIndexForPositionCommand = async (
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.Position !== undefined &&
       input.Position !== null && { Position: serializeAws_restJson1Position(input.Position, context) }),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "places." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1SearchPlaceIndexForSuggestionsCommand = async (
+  input: SearchPlaceIndexForSuggestionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/places/v0/indexes/{IndexName}/search/suggestions";
+  if (input.IndexName !== undefined) {
+    const labelValue: string = input.IndexName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: IndexName.");
+    }
+    resolvedPath = resolvedPath.replace("{IndexName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: IndexName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.BiasPosition !== undefined &&
+      input.BiasPosition !== null && { BiasPosition: serializeAws_restJson1Position(input.BiasPosition, context) }),
+    ...(input.FilterBBox !== undefined &&
+      input.FilterBBox !== null && { FilterBBox: serializeAws_restJson1BoundingBox(input.FilterBBox, context) }),
+    ...(input.FilterCountries !== undefined &&
+      input.FilterCountries !== null && {
+        FilterCountries: serializeAws_restJson1CountryCodeList(input.FilterCountries, context),
+      }),
+    ...(input.Language !== undefined && input.Language !== null && { Language: input.Language }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.Text !== undefined && input.Text !== null && { Text: input.Text }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -4586,17 +4645,25 @@ export const deserializeAws_restJson1GetDevicePositionCommand = async (
   }
   const contents: GetDevicePositionCommandOutput = {
     $metadata: deserializeMetadata(output),
+    Accuracy: undefined,
     DeviceId: undefined,
     Position: undefined,
+    PositionProperties: undefined,
     ReceivedTime: undefined,
     SampleTime: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Accuracy !== undefined && data.Accuracy !== null) {
+    contents.Accuracy = deserializeAws_restJson1PositionalAccuracy(data.Accuracy, context);
+  }
   if (data.DeviceId !== undefined && data.DeviceId !== null) {
     contents.DeviceId = __expectString(data.DeviceId);
   }
   if (data.Position !== undefined && data.Position !== null) {
     contents.Position = deserializeAws_restJson1Position(data.Position, context);
+  }
+  if (data.PositionProperties !== undefined && data.PositionProperties !== null) {
+    contents.PositionProperties = deserializeAws_restJson1PropertyMap(data.PositionProperties, context);
   }
   if (data.ReceivedTime !== undefined && data.ReceivedTime !== null) {
     contents.ReceivedTime = __expectNonNull(__parseRfc3339DateTime(data.ReceivedTime));
@@ -6187,6 +6254,97 @@ const deserializeAws_restJson1SearchPlaceIndexForPositionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1SearchPlaceIndexForSuggestionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchPlaceIndexForSuggestionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SearchPlaceIndexForSuggestionsCommandError(output, context);
+  }
+  const contents: SearchPlaceIndexForSuggestionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Results: undefined,
+    Summary: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Results !== undefined && data.Results !== null) {
+    contents.Results = deserializeAws_restJson1SearchForSuggestionsResultList(data.Results, context);
+  }
+  if (data.Summary !== undefined && data.Summary !== null) {
+    contents.Summary = deserializeAws_restJson1SearchPlaceIndexForSuggestionsSummary(data.Summary, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1SearchPlaceIndexForSuggestionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchPlaceIndexForSuggestionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.location#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.location#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.location#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.location#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.location#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1SearchPlaceIndexForTextCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7141,9 +7299,15 @@ const serializeAws_restJson1DeviceIdsList = (input: string[], context: __SerdeCo
 
 const serializeAws_restJson1DevicePositionUpdate = (input: DevicePositionUpdate, context: __SerdeContext): any => {
   return {
+    ...(input.Accuracy !== undefined &&
+      input.Accuracy !== null && { Accuracy: serializeAws_restJson1PositionalAccuracy(input.Accuracy, context) }),
     ...(input.DeviceId !== undefined && input.DeviceId !== null && { DeviceId: input.DeviceId }),
     ...(input.Position !== undefined &&
       input.Position !== null && { Position: serializeAws_restJson1Position(input.Position, context) }),
+    ...(input.PositionProperties !== undefined &&
+      input.PositionProperties !== null && {
+        PositionProperties: serializeAws_restJson1PropertyMap(input.PositionProperties, context),
+      }),
     ...(input.SampleTime !== undefined &&
       input.SampleTime !== null && { SampleTime: input.SampleTime.toISOString().split(".")[0] + "Z" }),
   };
@@ -7218,6 +7382,25 @@ const serializeAws_restJson1Position = (input: number[], context: __SerdeContext
       }
       return __serializeFloat(entry);
     });
+};
+
+const serializeAws_restJson1PositionalAccuracy = (input: PositionalAccuracy, context: __SerdeContext): any => {
+  return {
+    ...(input.Horizontal !== undefined &&
+      input.Horizontal !== null && { Horizontal: __serializeFloat(input.Horizontal) }),
+  };
+};
+
+const serializeAws_restJson1PropertyMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
@@ -7521,10 +7704,18 @@ const deserializeAws_restJson1DataSourceConfiguration = (
 
 const deserializeAws_restJson1DevicePosition = (output: any, context: __SerdeContext): DevicePosition => {
   return {
+    Accuracy:
+      output.Accuracy !== undefined && output.Accuracy !== null
+        ? deserializeAws_restJson1PositionalAccuracy(output.Accuracy, context)
+        : undefined,
     DeviceId: __expectString(output.DeviceId),
     Position:
       output.Position !== undefined && output.Position !== null
         ? deserializeAws_restJson1Position(output.Position, context)
+        : undefined,
+    PositionProperties:
+      output.PositionProperties !== undefined && output.PositionProperties !== null
+        ? deserializeAws_restJson1PropertyMap(output.PositionProperties, context)
         : undefined,
     ReceivedTime:
       output.ReceivedTime !== undefined && output.ReceivedTime !== null
@@ -7638,10 +7829,18 @@ const deserializeAws_restJson1ListDevicePositionsResponseEntry = (
   context: __SerdeContext
 ): ListDevicePositionsResponseEntry => {
   return {
+    Accuracy:
+      output.Accuracy !== undefined && output.Accuracy !== null
+        ? deserializeAws_restJson1PositionalAccuracy(output.Accuracy, context)
+        : undefined,
     DeviceId: __expectString(output.DeviceId),
     Position:
       output.Position !== undefined && output.Position !== null
         ? deserializeAws_restJson1Position(output.Position, context)
+        : undefined,
+    PositionProperties:
+      output.PositionProperties !== undefined && output.PositionProperties !== null
+        ? deserializeAws_restJson1PropertyMap(output.PositionProperties, context)
         : undefined,
     SampleTime:
       output.SampleTime !== undefined && output.SampleTime !== null
@@ -7916,6 +8115,24 @@ const deserializeAws_restJson1Position = (output: any, context: __SerdeContext):
     });
 };
 
+const deserializeAws_restJson1PositionalAccuracy = (output: any, context: __SerdeContext): PositionalAccuracy => {
+  return {
+    Horizontal: __limitedParseDouble(output.Horizontal),
+  } as any;
+};
+
+const deserializeAws_restJson1PropertyMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
+};
+
 const deserializeAws_restJson1SearchForPositionResult = (
   output: any,
   context: __SerdeContext
@@ -7940,6 +8157,29 @@ const deserializeAws_restJson1SearchForPositionResultList = (
         return null as any;
       }
       return deserializeAws_restJson1SearchForPositionResult(entry, context);
+    });
+};
+
+const deserializeAws_restJson1SearchForSuggestionsResult = (
+  output: any,
+  context: __SerdeContext
+): SearchForSuggestionsResult => {
+  return {
+    Text: __expectString(output.Text),
+  } as any;
+};
+
+const deserializeAws_restJson1SearchForSuggestionsResultList = (
+  output: any,
+  context: __SerdeContext
+): SearchForSuggestionsResult[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SearchForSuggestionsResult(entry, context);
     });
 };
 
@@ -7980,6 +8220,30 @@ const deserializeAws_restJson1SearchPlaceIndexForPositionSummary = (
       output.Position !== undefined && output.Position !== null
         ? deserializeAws_restJson1Position(output.Position, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SearchPlaceIndexForSuggestionsSummary = (
+  output: any,
+  context: __SerdeContext
+): SearchPlaceIndexForSuggestionsSummary => {
+  return {
+    BiasPosition:
+      output.BiasPosition !== undefined && output.BiasPosition !== null
+        ? deserializeAws_restJson1Position(output.BiasPosition, context)
+        : undefined,
+    DataSource: __expectString(output.DataSource),
+    FilterBBox:
+      output.FilterBBox !== undefined && output.FilterBBox !== null
+        ? deserializeAws_restJson1BoundingBox(output.FilterBBox, context)
+        : undefined,
+    FilterCountries:
+      output.FilterCountries !== undefined && output.FilterCountries !== null
+        ? deserializeAws_restJson1CountryCodeList(output.FilterCountries, context)
+        : undefined,
+    Language: __expectString(output.Language),
+    MaxResults: __expectInt32(output.MaxResults),
+    Text: __expectString(output.Text),
   } as any;
 };
 

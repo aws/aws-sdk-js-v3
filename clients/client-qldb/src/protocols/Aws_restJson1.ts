@@ -310,6 +310,7 @@ export const serializeAws_restJson1ExportJournalToS3Command = async (
       input.InclusiveStartTime !== null && {
         InclusiveStartTime: Math.round(input.InclusiveStartTime.getTime() / 1000),
       }),
+    ...(input.OutputFormat !== undefined && input.OutputFormat !== null && { OutputFormat: input.OutputFormat }),
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
     ...(input.S3ExportConfiguration !== undefined &&
       input.S3ExportConfiguration !== null && {
@@ -2406,6 +2407,7 @@ const deserializeAws_restJson1JournalS3ExportDescription = (
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.InclusiveStartTime)))
         : undefined,
     LedgerName: __expectString(output.LedgerName),
+    OutputFormat: __expectString(output.OutputFormat),
     RoleArn: __expectString(output.RoleArn),
     S3ExportConfiguration:
       output.S3ExportConfiguration !== undefined && output.S3ExportConfiguration !== null

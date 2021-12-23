@@ -22,7 +22,7 @@ export interface ViewBillingCommandInput extends ViewBillingRequest {}
 export interface ViewBillingCommandOutput extends ViewBillingResponse, __MetadataBearer {}
 
 /**
- * <p>Returns all the domain-related billing records for the current AWS account for a specified period</p>
+ * <p>Returns all the domain-related billing records for the current Amazon Web Services account for a specified period</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

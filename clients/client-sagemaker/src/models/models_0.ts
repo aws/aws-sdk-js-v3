@@ -4503,6 +4503,13 @@ export interface AutoMLChannel {
    *          'y'.</p>
    */
   TargetAttributeName: string | undefined;
+
+  /**
+   * <p>The content type of the data from the input source. You can use
+   *             <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>.
+   *          The default value is <code>text/csv;header=present</code>.</p>
+   */
+  ContentType?: string;
 }
 
 export namespace AutoMLChannel {
@@ -5824,6 +5831,7 @@ export enum CompilationJobStatus {
 
 export enum TargetDevice {
   AISAGE = "aisage",
+  AMBA_CV2 = "amba_cv2",
   AMBA_CV22 = "amba_cv22",
   AMBA_CV25 = "amba_cv25",
   COREML = "coreml",

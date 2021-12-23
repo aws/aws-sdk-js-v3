@@ -2473,6 +2473,13 @@ export interface UpdateAuthorizerRequest {
    * <p>The status of the update authorizer request.</p>
    */
   status?: AuthorizerStatus | string;
+
+  /**
+   * <p>When <code>true</code>, the result from the authorizer’s Lambda function is
+   * 	  cached for the time specified in <code>refreshAfterInSeconds</code>. The cached
+   * 	  result is used while the device reuses the same HTTP connection.</p>
+   */
+  enableCachingForHttp?: boolean;
 }
 
 export namespace UpdateAuthorizerRequest {

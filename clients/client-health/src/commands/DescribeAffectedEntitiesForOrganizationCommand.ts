@@ -34,8 +34,8 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
  *          depending on the Amazon Web Services service.</p>
  *          <p>At least one event Amazon Resource Name (ARN) and account ID are required.</p>
  *          <p>Before you can call this operation, you must first enable Health to work with
- *          Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a>
- *          operation from your organization's management account.</p>
+ *          Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> operation from your organization's
+ *          management account.</p>
  *          <note>
  *             <ul>
  *                <li>

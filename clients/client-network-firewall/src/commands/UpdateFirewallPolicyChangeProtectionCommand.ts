@@ -27,7 +27,9 @@ export interface UpdateFirewallPolicyChangeProtectionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p></p>
+ * <p>Modifies the flag, <code>ChangeProtection</code>, which indicates whether it
+ *          is possible to change the firewall. If the flag is set to <code>TRUE</code>, the firewall is protected
+ *          from changes. This setting helps protect against accidentally changing a firewall that's in use.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

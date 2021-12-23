@@ -21,6 +21,11 @@ import {
   DescribeRxNormInferenceJobCommandOutput,
 } from "./commands/DescribeRxNormInferenceJobCommand";
 import {
+  DescribeSNOMEDCTInferenceJobCommand,
+  DescribeSNOMEDCTInferenceJobCommandInput,
+  DescribeSNOMEDCTInferenceJobCommandOutput,
+} from "./commands/DescribeSNOMEDCTInferenceJobCommand";
+import {
   DetectEntitiesCommand,
   DetectEntitiesCommandInput,
   DetectEntitiesCommandOutput,
@@ -37,6 +42,11 @@ import {
   InferICD10CMCommandOutput,
 } from "./commands/InferICD10CMCommand";
 import { InferRxNormCommand, InferRxNormCommandInput, InferRxNormCommandOutput } from "./commands/InferRxNormCommand";
+import {
+  InferSNOMEDCTCommand,
+  InferSNOMEDCTCommandInput,
+  InferSNOMEDCTCommandOutput,
+} from "./commands/InferSNOMEDCTCommand";
 import {
   ListEntitiesDetectionV2JobsCommand,
   ListEntitiesDetectionV2JobsCommandInput,
@@ -58,6 +68,11 @@ import {
   ListRxNormInferenceJobsCommandOutput,
 } from "./commands/ListRxNormInferenceJobsCommand";
 import {
+  ListSNOMEDCTInferenceJobsCommand,
+  ListSNOMEDCTInferenceJobsCommandInput,
+  ListSNOMEDCTInferenceJobsCommandOutput,
+} from "./commands/ListSNOMEDCTInferenceJobsCommand";
+import {
   StartEntitiesDetectionV2JobCommand,
   StartEntitiesDetectionV2JobCommandInput,
   StartEntitiesDetectionV2JobCommandOutput,
@@ -78,6 +93,11 @@ import {
   StartRxNormInferenceJobCommandOutput,
 } from "./commands/StartRxNormInferenceJobCommand";
 import {
+  StartSNOMEDCTInferenceJobCommand,
+  StartSNOMEDCTInferenceJobCommandInput,
+  StartSNOMEDCTInferenceJobCommandOutput,
+} from "./commands/StartSNOMEDCTInferenceJobCommand";
+import {
   StopEntitiesDetectionV2JobCommand,
   StopEntitiesDetectionV2JobCommandInput,
   StopEntitiesDetectionV2JobCommandOutput,
@@ -97,10 +117,15 @@ import {
   StopRxNormInferenceJobCommandInput,
   StopRxNormInferenceJobCommandOutput,
 } from "./commands/StopRxNormInferenceJobCommand";
+import {
+  StopSNOMEDCTInferenceJobCommand,
+  StopSNOMEDCTInferenceJobCommandInput,
+  StopSNOMEDCTInferenceJobCommandOutput,
+} from "./commands/StopSNOMEDCTInferenceJobCommand";
 import { ComprehendMedicalClient } from "./ComprehendMedicalClient";
 
 /**
- * <p> Amazon Comprehend Medical extracts structured information from unstructured clinical text. Use these actions
+ * <p> Comprehend Medical; extracts structured information from unstructured clinical text. Use these actions
  *       to gain insight in your documents. </p>
  */
 export class ComprehendMedical extends ComprehendMedicalClient {
@@ -226,6 +251,40 @@ export class ComprehendMedical extends ComprehendMedicalClient {
     cb?: (err: any, data?: DescribeRxNormInferenceJobCommandOutput) => void
   ): Promise<DescribeRxNormInferenceJobCommandOutput> | void {
     const command = new DescribeRxNormInferenceJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Gets the properties associated with an InferSNOMEDCT job. Use this operation to get the status of an inference job.
+   *     </p>
+   */
+  public describeSNOMEDCTInferenceJob(
+    args: DescribeSNOMEDCTInferenceJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSNOMEDCTInferenceJobCommandOutput>;
+  public describeSNOMEDCTInferenceJob(
+    args: DescribeSNOMEDCTInferenceJobCommandInput,
+    cb: (err: any, data?: DescribeSNOMEDCTInferenceJobCommandOutput) => void
+  ): void;
+  public describeSNOMEDCTInferenceJob(
+    args: DescribeSNOMEDCTInferenceJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSNOMEDCTInferenceJobCommandOutput) => void
+  ): void;
+  public describeSNOMEDCTInferenceJob(
+    args: DescribeSNOMEDCTInferenceJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSNOMEDCTInferenceJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribeSNOMEDCTInferenceJobCommandOutput) => void
+  ): Promise<DescribeSNOMEDCTInferenceJobCommandOutput> | void {
+    const command = new DescribeSNOMEDCTInferenceJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -403,6 +462,39 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * <p>
+   *       InferSNOMEDCT detects possible medical concepts as entities and links them to codes from the Systematized Nomenclature of Medicine, Clinical Terms (SNOMED-CT) ontology</p>
+   */
+  public inferSNOMEDCT(
+    args: InferSNOMEDCTCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InferSNOMEDCTCommandOutput>;
+  public inferSNOMEDCT(
+    args: InferSNOMEDCTCommandInput,
+    cb: (err: any, data?: InferSNOMEDCTCommandOutput) => void
+  ): void;
+  public inferSNOMEDCT(
+    args: InferSNOMEDCTCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InferSNOMEDCTCommandOutput) => void
+  ): void;
+  public inferSNOMEDCT(
+    args: InferSNOMEDCTCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InferSNOMEDCTCommandOutput) => void),
+    cb?: (err: any, data?: InferSNOMEDCTCommandOutput) => void
+  ): Promise<InferSNOMEDCTCommandOutput> | void {
+    const command = new InferSNOMEDCTCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets a list of medical entity detection jobs that you have submitted.</p>
    */
   public listEntitiesDetectionV2Jobs(
@@ -521,6 +613,40 @@ export class ComprehendMedical extends ComprehendMedicalClient {
     cb?: (err: any, data?: ListRxNormInferenceJobsCommandOutput) => void
   ): Promise<ListRxNormInferenceJobsCommandOutput> | void {
     const command = new ListRxNormInferenceJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Gets a list of InferSNOMEDCT jobs a user has submitted.
+   *     </p>
+   */
+  public listSNOMEDCTInferenceJobs(
+    args: ListSNOMEDCTInferenceJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSNOMEDCTInferenceJobsCommandOutput>;
+  public listSNOMEDCTInferenceJobs(
+    args: ListSNOMEDCTInferenceJobsCommandInput,
+    cb: (err: any, data?: ListSNOMEDCTInferenceJobsCommandOutput) => void
+  ): void;
+  public listSNOMEDCTInferenceJobs(
+    args: ListSNOMEDCTInferenceJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSNOMEDCTInferenceJobsCommandOutput) => void
+  ): void;
+  public listSNOMEDCTInferenceJobs(
+    args: ListSNOMEDCTInferenceJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSNOMEDCTInferenceJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListSNOMEDCTInferenceJobsCommandOutput) => void
+  ): Promise<ListSNOMEDCTInferenceJobsCommandOutput> | void {
+    const command = new ListSNOMEDCTInferenceJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -666,6 +792,40 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
+   * <p>
+   *       Starts an asynchronous job to detect medical concepts and link them to the SNOMED-CT ontology. Use the DescribeSNOMEDCTInferenceJob operation to track the status of a job.
+   *     </p>
+   */
+  public startSNOMEDCTInferenceJob(
+    args: StartSNOMEDCTInferenceJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSNOMEDCTInferenceJobCommandOutput>;
+  public startSNOMEDCTInferenceJob(
+    args: StartSNOMEDCTInferenceJobCommandInput,
+    cb: (err: any, data?: StartSNOMEDCTInferenceJobCommandOutput) => void
+  ): void;
+  public startSNOMEDCTInferenceJob(
+    args: StartSNOMEDCTInferenceJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSNOMEDCTInferenceJobCommandOutput) => void
+  ): void;
+  public startSNOMEDCTInferenceJob(
+    args: StartSNOMEDCTInferenceJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSNOMEDCTInferenceJobCommandOutput) => void),
+    cb?: (err: any, data?: StartSNOMEDCTInferenceJobCommandOutput) => void
+  ): Promise<StartSNOMEDCTInferenceJobCommandOutput> | void {
+    const command = new StartSNOMEDCTInferenceJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Stops a medical entities detection job in progress.</p>
    */
   public stopEntitiesDetectionV2Job(
@@ -783,6 +943,40 @@ export class ComprehendMedical extends ComprehendMedicalClient {
     cb?: (err: any, data?: StopRxNormInferenceJobCommandOutput) => void
   ): Promise<StopRxNormInferenceJobCommandOutput> | void {
     const command = new StopRxNormInferenceJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Stops an InferSNOMEDCT inference job in progress.
+   *     </p>
+   */
+  public stopSNOMEDCTInferenceJob(
+    args: StopSNOMEDCTInferenceJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopSNOMEDCTInferenceJobCommandOutput>;
+  public stopSNOMEDCTInferenceJob(
+    args: StopSNOMEDCTInferenceJobCommandInput,
+    cb: (err: any, data?: StopSNOMEDCTInferenceJobCommandOutput) => void
+  ): void;
+  public stopSNOMEDCTInferenceJob(
+    args: StopSNOMEDCTInferenceJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopSNOMEDCTInferenceJobCommandOutput) => void
+  ): void;
+  public stopSNOMEDCTInferenceJob(
+    args: StopSNOMEDCTInferenceJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopSNOMEDCTInferenceJobCommandOutput) => void),
+    cb?: (err: any, data?: StopSNOMEDCTInferenceJobCommandOutput) => void
+  ): Promise<StopSNOMEDCTInferenceJobCommandOutput> | void {
+    const command = new StopSNOMEDCTInferenceJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

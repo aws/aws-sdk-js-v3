@@ -638,10 +638,13 @@ export namespace ComparedFace {
 export enum KnownGenderType {
   Female = "Female",
   Male = "Male",
+  Nonbinary = "Nonbinary",
+  Unlisted = "Unlisted",
 }
 
 /**
- * <p>The known gender identity for the celebrity that matches the provided ID.</p>
+ * <p>The known gender identity for the celebrity that matches the provided ID. The known
+ *       gender identity can be Male, Female, Nonbinary, or Unlisted.</p>
  */
 export interface KnownGender {
   /**
@@ -692,7 +695,8 @@ export interface Celebrity {
   MatchConfidence?: number;
 
   /**
-   * <p>The known gender identity for the celebrity that matches the provided ID.</p>
+   * <p>The known gender identity for the celebrity that matches the provided ID. The known
+   *       gender identity can be Male, Female, Nonbinary, or Unlisted.</p>
    */
   KnownGender?: KnownGender;
 }

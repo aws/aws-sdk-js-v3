@@ -22,8 +22,7 @@ export interface CreateApiKeyCommandInput extends CreateApiKeyRequest {}
 export interface CreateApiKeyCommandOutput extends CreateApiKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a unique key that you can distribute to clients who are executing your
- *          API.</p>
+ * <p>Creates a unique key that you can distribute to clients who invoke your API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -2,6 +2,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { AppSyncClient } from "./AppSyncClient";
 import {
+  AssociateApiCommand,
+  AssociateApiCommandInput,
+  AssociateApiCommandOutput,
+} from "./commands/AssociateApiCommand";
+import {
   CreateApiCacheCommand,
   CreateApiCacheCommandInput,
   CreateApiCacheCommandOutput,
@@ -16,6 +21,11 @@ import {
   CreateDataSourceCommandInput,
   CreateDataSourceCommandOutput,
 } from "./commands/CreateDataSourceCommand";
+import {
+  CreateDomainNameCommand,
+  CreateDomainNameCommandInput,
+  CreateDomainNameCommandOutput,
+} from "./commands/CreateDomainNameCommand";
 import {
   CreateFunctionCommand,
   CreateFunctionCommandInput,
@@ -48,6 +58,11 @@ import {
   DeleteDataSourceCommandOutput,
 } from "./commands/DeleteDataSourceCommand";
 import {
+  DeleteDomainNameCommand,
+  DeleteDomainNameCommandInput,
+  DeleteDomainNameCommandOutput,
+} from "./commands/DeleteDomainNameCommand";
+import {
   DeleteFunctionCommand,
   DeleteFunctionCommandInput,
   DeleteFunctionCommandOutput,
@@ -64,16 +79,31 @@ import {
 } from "./commands/DeleteResolverCommand";
 import { DeleteTypeCommand, DeleteTypeCommandInput, DeleteTypeCommandOutput } from "./commands/DeleteTypeCommand";
 import {
+  DisassociateApiCommand,
+  DisassociateApiCommandInput,
+  DisassociateApiCommandOutput,
+} from "./commands/DisassociateApiCommand";
+import {
   FlushApiCacheCommand,
   FlushApiCacheCommandInput,
   FlushApiCacheCommandOutput,
 } from "./commands/FlushApiCacheCommand";
+import {
+  GetApiAssociationCommand,
+  GetApiAssociationCommandInput,
+  GetApiAssociationCommandOutput,
+} from "./commands/GetApiAssociationCommand";
 import { GetApiCacheCommand, GetApiCacheCommandInput, GetApiCacheCommandOutput } from "./commands/GetApiCacheCommand";
 import {
   GetDataSourceCommand,
   GetDataSourceCommandInput,
   GetDataSourceCommandOutput,
 } from "./commands/GetDataSourceCommand";
+import {
+  GetDomainNameCommand,
+  GetDomainNameCommandInput,
+  GetDomainNameCommandOutput,
+} from "./commands/GetDomainNameCommand";
 import { GetFunctionCommand, GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
 import {
   GetGraphqlApiCommand,
@@ -98,6 +128,11 @@ import {
   ListDataSourcesCommandInput,
   ListDataSourcesCommandOutput,
 } from "./commands/ListDataSourcesCommand";
+import {
+  ListDomainNamesCommand,
+  ListDomainNamesCommandInput,
+  ListDomainNamesCommandOutput,
+} from "./commands/ListDomainNamesCommand";
 import {
   ListFunctionsCommand,
   ListFunctionsCommandInput,
@@ -151,6 +186,11 @@ import {
   UpdateDataSourceCommandOutput,
 } from "./commands/UpdateDataSourceCommand";
 import {
+  UpdateDomainNameCommand,
+  UpdateDomainNameCommandInput,
+  UpdateDomainNameCommandOutput,
+} from "./commands/UpdateDomainNameCommand";
+import {
   UpdateFunctionCommand,
   UpdateFunctionCommandInput,
   UpdateFunctionCommandOutput,
@@ -172,6 +212,35 @@ import { UpdateTypeCommand, UpdateTypeCommandInput, UpdateTypeCommandOutput } fr
  *          sources using GraphQL from your application.</p>
  */
 export class AppSync extends AppSyncClient {
+  /**
+   * <p>Maps an endpoint to your custom domain.</p>
+   */
+  public associateApi(
+    args: AssociateApiCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateApiCommandOutput>;
+  public associateApi(args: AssociateApiCommandInput, cb: (err: any, data?: AssociateApiCommandOutput) => void): void;
+  public associateApi(
+    args: AssociateApiCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateApiCommandOutput) => void
+  ): void;
+  public associateApi(
+    args: AssociateApiCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateApiCommandOutput) => void),
+    cb?: (err: any, data?: AssociateApiCommandOutput) => void
+  ): Promise<AssociateApiCommandOutput> | void {
+    const command = new AssociateApiCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Creates a cache for the GraphQL API.</p>
    */
@@ -205,8 +274,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   * <p>Creates a unique key that you can distribute to clients who are executing your
-   *          API.</p>
+   * <p>Creates a unique key that you can distribute to clients who invoke your API.</p>
    */
   public createApiKey(
     args: CreateApiKeyCommandInput,
@@ -267,8 +335,40 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * <p>Creates a custom <code>DomainName</code> object.</p>
+   */
+  public createDomainName(
+    args: CreateDomainNameCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDomainNameCommandOutput>;
+  public createDomainName(
+    args: CreateDomainNameCommandInput,
+    cb: (err: any, data?: CreateDomainNameCommandOutput) => void
+  ): void;
+  public createDomainName(
+    args: CreateDomainNameCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDomainNameCommandOutput) => void
+  ): void;
+  public createDomainName(
+    args: CreateDomainNameCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDomainNameCommandOutput) => void),
+    cb?: (err: any, data?: CreateDomainNameCommandOutput) => void
+  ): Promise<CreateDomainNameCommandOutput> | void {
+    const command = new CreateDomainNameCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a <code>Function</code> object.</p>
-   *          <p>A function is a reusable entity. Multiple functions can be used to compose the resolver
+   *          <p>A function is a reusable entity. You can use multiple functions to compose the resolver
    *          logic.</p>
    */
   public createFunction(
@@ -334,7 +434,7 @@ export class AppSync extends AppSyncClient {
 
   /**
    * <p>Creates a <code>Resolver</code> object.</p>
-   *          <p>A resolver converts incoming requests into a format that a data source can understand
+   *          <p>A resolver converts incoming requests into a format that a data source can understand,
    *          and converts the data source's responses into GraphQL.</p>
    */
   public createResolver(
@@ -486,6 +586,38 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * <p>Deletes a custom <code>DomainName</code> object.</p>
+   */
+  public deleteDomainName(
+    args: DeleteDomainNameCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDomainNameCommandOutput>;
+  public deleteDomainName(
+    args: DeleteDomainNameCommandInput,
+    cb: (err: any, data?: DeleteDomainNameCommandOutput) => void
+  ): void;
+  public deleteDomainName(
+    args: DeleteDomainNameCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDomainNameCommandOutput) => void
+  ): void;
+  public deleteDomainName(
+    args: DeleteDomainNameCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDomainNameCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDomainNameCommandOutput) => void
+  ): Promise<DeleteDomainNameCommandOutput> | void {
+    const command = new DeleteDomainNameCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a <code>Function</code>.</p>
    */
   public deleteFunction(
@@ -608,6 +740,38 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
+   * <p>Removes an <code>ApiAssociation</code> object from a custom domain.</p>
+   */
+  public disassociateApi(
+    args: DisassociateApiCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateApiCommandOutput>;
+  public disassociateApi(
+    args: DisassociateApiCommandInput,
+    cb: (err: any, data?: DisassociateApiCommandOutput) => void
+  ): void;
+  public disassociateApi(
+    args: DisassociateApiCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateApiCommandOutput) => void
+  ): void;
+  public disassociateApi(
+    args: DisassociateApiCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateApiCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateApiCommandOutput) => void
+  ): Promise<DisassociateApiCommandOutput> | void {
+    const command = new DisassociateApiCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Flushes an <code>ApiCache</code> object.</p>
    */
   public flushApiCache(
@@ -629,6 +793,38 @@ export class AppSync extends AppSyncClient {
     cb?: (err: any, data?: FlushApiCacheCommandOutput) => void
   ): Promise<FlushApiCacheCommandOutput> | void {
     const command = new FlushApiCacheCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves an <code>ApiAssociation</code> object.</p>
+   */
+  public getApiAssociation(
+    args: GetApiAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetApiAssociationCommandOutput>;
+  public getApiAssociation(
+    args: GetApiAssociationCommandInput,
+    cb: (err: any, data?: GetApiAssociationCommandOutput) => void
+  ): void;
+  public getApiAssociation(
+    args: GetApiAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetApiAssociationCommandOutput) => void
+  ): void;
+  public getApiAssociation(
+    args: GetApiAssociationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApiAssociationCommandOutput) => void),
+    cb?: (err: any, data?: GetApiAssociationCommandOutput) => void
+  ): Promise<GetApiAssociationCommandOutput> | void {
+    const command = new GetApiAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -687,6 +883,38 @@ export class AppSync extends AppSyncClient {
     cb?: (err: any, data?: GetDataSourceCommandOutput) => void
   ): Promise<GetDataSourceCommandOutput> | void {
     const command = new GetDataSourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a custom <code>DomainName</code> object.</p>
+   */
+  public getDomainName(
+    args: GetDomainNameCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDomainNameCommandOutput>;
+  public getDomainName(
+    args: GetDomainNameCommandInput,
+    cb: (err: any, data?: GetDomainNameCommandOutput) => void
+  ): void;
+  public getDomainName(
+    args: GetDomainNameCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDomainNameCommandOutput) => void
+  ): void;
+  public getDomainName(
+    args: GetDomainNameCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainNameCommandOutput) => void),
+    cb?: (err: any, data?: GetDomainNameCommandOutput) => void
+  ): Promise<GetDomainNameCommandOutput> | void {
+    const command = new GetDomainNameCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -925,6 +1153,38 @@ export class AppSync extends AppSyncClient {
     cb?: (err: any, data?: ListDataSourcesCommandOutput) => void
   ): Promise<ListDataSourcesCommandOutput> | void {
     const command = new ListDataSourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists multiple custom domain names.</p>
+   */
+  public listDomainNames(
+    args: ListDomainNamesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDomainNamesCommandOutput>;
+  public listDomainNames(
+    args: ListDomainNamesCommandInput,
+    cb: (err: any, data?: ListDomainNamesCommandOutput) => void
+  ): void;
+  public listDomainNames(
+    args: ListDomainNamesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDomainNamesCommandOutput) => void
+  ): void;
+  public listDomainNames(
+    args: ListDomainNamesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDomainNamesCommandOutput) => void),
+    cb?: (err: any, data?: ListDomainNamesCommandOutput) => void
+  ): Promise<ListDomainNamesCommandOutput> | void {
+    const command = new ListDomainNamesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1246,7 +1506,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   * <p>Updates an API key. The key can be updated while it is not deleted.</p>
+   * <p>Updates an API key. You can update the key as long as it's not deleted.</p>
    */
   public updateApiKey(
     args: UpdateApiKeyCommandInput,
@@ -1296,6 +1556,38 @@ export class AppSync extends AppSyncClient {
     cb?: (err: any, data?: UpdateDataSourceCommandOutput) => void
   ): Promise<UpdateDataSourceCommandOutput> | void {
     const command = new UpdateDataSourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a custom <code>DomainName</code> object.</p>
+   */
+  public updateDomainName(
+    args: UpdateDomainNameCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDomainNameCommandOutput>;
+  public updateDomainName(
+    args: UpdateDomainNameCommandInput,
+    cb: (err: any, data?: UpdateDomainNameCommandOutput) => void
+  ): void;
+  public updateDomainName(
+    args: UpdateDomainNameCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDomainNameCommandOutput) => void
+  ): void;
+  public updateDomainName(
+    args: UpdateDomainNameCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDomainNameCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDomainNameCommandOutput) => void
+  ): Promise<UpdateDomainNameCommandOutput> | void {
+    const command = new UpdateDomainNameCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

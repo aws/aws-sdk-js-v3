@@ -170,7 +170,7 @@ export interface AppSummary {
   lastModified?: Date;
 
   /**
-   * <p>The name of the service role in the customer's account used by AWS SMS.</p>
+   * <p>The name of the service role in the customer's account used by Server Migration Service.</p>
    */
   roleName?: string;
 
@@ -266,7 +266,7 @@ export interface SSMValidationParameters {
   scriptType?: ScriptType | string;
 
   /**
-   * <p>The command to run the validation script</p>
+   * <p>The command to run the validation script.</p>
    */
   command?: string;
 
@@ -539,7 +539,7 @@ export interface CreateAppRequest {
   description?: string;
 
   /**
-   * <p>The name of the service role in the customer's account to be used by AWS SMS.</p>
+   * <p>The name of the service role in the customer's account to be used by Server Migration Service.</p>
    */
   roleName?: string;
 
@@ -719,7 +719,7 @@ export interface CreateReplicationJobRequest {
   licenseType?: LicenseType | string;
 
   /**
-   * <p>The name of the IAM role to be used by the AWS SMS.</p>
+   * <p>The name of the IAM role to be used by the Server Migration Service.</p>
    */
   roleName?: string;
 
@@ -1116,12 +1116,12 @@ export namespace GenerateChangeSetResponse {
 
 export interface GenerateTemplateRequest {
   /**
-   * <p>The ID of the application associated with the AWS CloudFormation template.</p>
+   * <p>The ID of the application associated with the CloudFormation template.</p>
    */
   appId?: string;
 
   /**
-   * <p>The format for generating the AWS CloudFormation template.</p>
+   * <p>The format for generating the CloudFormation template.</p>
    */
   templateFormat?: OutputFormat | string;
 }
@@ -1239,7 +1239,7 @@ export interface ServerLaunchConfiguration {
   server?: Server;
 
   /**
-   * <p>The logical ID of the server in the AWS CloudFormation template.</p>
+   * <p>The logical ID of the server in the CloudFormation template.</p>
    */
   logicalId?: string;
 
@@ -1340,7 +1340,7 @@ export interface GetAppLaunchConfigurationResponse {
   appId?: string;
 
   /**
-   * <p>The name of the service role in the customer's account that AWS CloudFormation uses to launch the
+   * <p>The name of the service role in the customer's account that CloudFormation uses to launch the
    *             application.</p>
    */
   roleName?: string;
@@ -2087,7 +2087,7 @@ export interface ReplicationJob {
   licenseType?: LicenseType | string;
 
   /**
-   * <p>The name of the IAM role to be used by AWS SMS.</p>
+   * <p>The name of the IAM role to be used by Server Migration Service.</p>
    */
   roleName?: string;
 
@@ -2307,8 +2307,8 @@ export namespace GetServersResponse {
 export interface ImportAppCatalogRequest {
   /**
    * <p>The name of the service role. If you omit this parameter, we create a service-linked role
-   *             for AWS Migration Hub in your account. Otherwise, the role that you provide must have the <a href="https://docs.aws.amazon.com/migrationhub/latest/ug/new-customer-setup.html#sms-managed">policy
-   *             and trust policy</a> described in the <i>AWS Migration Hub User Guide</i>.</p>
+   *             for Migration Hub in your account. Otherwise, the role that you provide must have the <a href="https://docs.aws.amazon.com/migrationhub/latest/ug/new-customer-setup.html#sms-managed">policy
+   *                 and trust policy</a> described in the <i>Migration Hub User Guide</i>.</p>
    */
   roleName?: string;
 }
@@ -2500,7 +2500,7 @@ export interface PutAppLaunchConfigurationRequest {
   appId?: string;
 
   /**
-   * <p>The name of service role in the customer's account that AWS CloudFormation uses to launch the
+   * <p>The name of service role in the customer's account that CloudFormation uses to launch the
    *             application.</p>
    */
   roleName?: string;
@@ -2810,7 +2810,7 @@ export interface UpdateAppRequest {
   description?: string;
 
   /**
-   * <p>The name of the service role in the customer's account used by AWS SMS.</p>
+   * <p>The name of the service role in the customer's account used by Server Migration Service.</p>
    */
   roleName?: string;
 
@@ -2883,7 +2883,7 @@ export interface UpdateReplicationJobRequest {
   licenseType?: LicenseType | string;
 
   /**
-   * <p>The name of the IAM role to be used by AWS SMS.</p>
+   * <p>The name of the IAM role to be used by Server Migration Service.</p>
    */
   roleName?: string;
 

@@ -23,24 +23,7 @@ export interface RestoreSecretCommandOutput extends RestoreSecretResponse, __Met
 
 /**
  * <p>Cancels the scheduled deletion of a secret by removing the <code>DeletedDate</code> time
- *       stamp. This makes the secret accessible to query once again.</p>
- *          <p>
- *             <b>Minimum permissions</b>
- *          </p>
- *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
- *             <li>
- *                <p>secretsmanager:RestoreSecret</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Related operations</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>To delete a secret, use <a>DeleteSecret</a>.</p>
- *             </li>
- *          </ul>
+ *       stamp. You can access a secret again after it has been restored.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

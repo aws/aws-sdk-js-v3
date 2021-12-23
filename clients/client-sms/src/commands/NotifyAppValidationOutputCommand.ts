@@ -22,7 +22,7 @@ export interface NotifyAppValidationOutputCommandInput extends NotifyAppValidati
 export interface NotifyAppValidationOutputCommandOutput extends NotifyAppValidationOutputResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information to AWS SMS about whether application validation is successful.</p>
+ * <p>Provides information to Server Migration Service about whether application validation is successful.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

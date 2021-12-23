@@ -22,7 +22,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the specified tags from the specified resource share that you own.</p>
+ * <p>Removes the specified tag key and value pairs from the specified resource share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

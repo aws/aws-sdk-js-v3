@@ -26,7 +26,7 @@ export interface DescribeSafetyRuleCommandInput extends DescribeSafetyRuleReques
 export interface DescribeSafetyRuleCommandOutput extends DescribeSafetyRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the safety rules (that is, the assertion rules and gating rules) for the routing controls in a control panel.</p>
+ * <p>Returns information about a safety rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

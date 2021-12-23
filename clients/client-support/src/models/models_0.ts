@@ -340,51 +340,51 @@ export namespace CaseCreationLimitExceeded {
 
 export interface CreateCaseRequest {
   /**
-   * <p>The title of the support case. The title appears in the <b>Subject</b> field on the AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page.</p>
+   * <p>The title of the support case. The title appears in the <b>Subject</b> field on the Amazon Web Services Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page.</p>
    */
   subject: string | undefined;
 
   /**
-   * <p>The code for the AWS service. You can use the <a>DescribeServices</a>
+   * <p>The code for the Amazon Web Services service. You can use the <a>DescribeServices</a>
    *             operation to get the possible <code>serviceCode</code> values.</p>
    */
   serviceCode?: string;
 
   /**
    * <p>A value that indicates the urgency of the case. This value determines the response
-   *             time according to your service level agreement with AWS Support. You can use the <a>DescribeSeverityLevels</a> operation to get the possible values for
+   *             time according to your service level agreement with Amazon Web Services Support. You can use the <a>DescribeSeverityLevels</a> operation to get the possible values for
    *                 <code>severityCode</code>. </p>
    *         <p>For more information, see <a>SeverityLevel</a> and <a href="https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity">Choosing a
-   *                 Severity</a> in the <i>AWS Support User Guide</i>.</p>
+   *                 Severity</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
    *         <note>
-   *             <p>The availability of severity levels depends on the support plan for the AWS
-   *                 account.</p>
+   *             <p>The availability of severity levels depends on the support plan for the
+   *                 Amazon Web Services account.</p>
    *         </note>
    */
   severityCode?: string;
 
   /**
    * <p>The category of problem for the support case. You also use the <a>DescribeServices</a> operation to get the category code for a service. Each
-   *             AWS service defines its own set of category codes.</p>
+   *             Amazon Web Services service defines its own set of category codes.</p>
    */
   categoryCode?: string;
 
   /**
    * <p>The communication body text that describes the issue. This text appears in the
-   *                 <b>Description</b> field on the AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page.</p>
+   *                 <b>Description</b> field on the Amazon Web Services Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page.</p>
    */
   communicationBody: string | undefined;
 
   /**
-   * <p>A list of email addresses that AWS Support copies on case correspondence. AWS Support
-   *             identifies the account that creates the case when you specify your AWS credentials in an
-   *             HTTP POST method or use the <a href="http://aws.amazon.com/tools/">AWS SDKs</a>.
+   * <p>A list of email addresses that Amazon Web Services Support copies on case correspondence. Amazon Web Services Support
+   *             identifies the account that creates the case when you specify your Amazon Web Services credentials in an
+   *             HTTP POST method or use the <a href="http://aws.amazon.com/tools/">Amazon Web Services SDKs</a>.
    *         </p>
    */
   ccEmailAddresses?: string[];
 
   /**
-   * <p>The language in which AWS Support handles the case. You must specify the ISO 639-1
+   * <p>The language in which Amazon Web Services Support handles the case. You must specify the ISO 639-1
    *             code for the <code>language</code> parameter if you want support in that language.
    *             Currently, English ("en") and Japanese ("ja") are supported.</p>
    */
@@ -505,7 +505,7 @@ export interface DescribeCasesRequest {
   caseIdList?: string[];
 
   /**
-   * <p>The ID displayed for a case in the AWS Support Center user interface.</p>
+   * <p>The ID displayed for a case in the Amazon Web Services Support Center user interface.</p>
    */
   displayId?: string;
 
@@ -538,7 +538,7 @@ export interface DescribeCasesRequest {
   maxResults?: number;
 
   /**
-   * <p>The ISO 639-1 code for the language in which AWS provides support. AWS Support
+   * <p>The ISO 639-1 code for the language in which Amazon Web Services provides support. Amazon Web Services Support
    *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
    *             passed explicitly for operations that take them.</p>
    */
@@ -575,14 +575,14 @@ export interface Communication {
   caseId?: string;
 
   /**
-   * <p>The text of the communication between the customer and AWS Support.</p>
+   * <p>The text of the communication between the customer and Amazon Web Services Support.</p>
    */
   body?: string;
 
   /**
    * <p>The identity of the account that submitted, or responded to, the support case.
    *             Customer entries include the role or IAM user as well as the email address. For example,
-   *             "AdminRole (Role) <janedoe@example.com>. Entries from the AWS Support team display
+   *             "AdminRole (Role) <janedoe@example.com>. Entries from the Amazon Web Services Support team display
    *             "Amazon Web Services," and don't show an email address.
    *             </p>
    */
@@ -652,12 +652,12 @@ export namespace RecentCaseCommunications {
  *             <li>
  *                 <p>
  *                     <b>displayId</b> - The identifier for the case on pages
- *                     in the AWS Support Center.</p>
+ *                     in the Amazon Web Services Support Center.</p>
  *             </li>
  *             <li>
  *                 <p>
  *                     <b>language</b> - The ISO 639-1 code for the language
- *                     in which AWS provides support. AWS Support currently supports English ("en") and
+ *                     in which Amazon Web Services provides support. Amazon Web Services Support currently supports English ("en") and
  *                     Japanese ("ja"). Language parameters must be passed explicitly for operations
  *                     that take them.</p>
  *             </li>
@@ -674,7 +674,7 @@ export namespace RecentCaseCommunications {
  *             </li>
  *             <li>
  *                 <p>
- *                     <b>serviceCode</b> - The identifier for the AWS service
+ *                     <b>serviceCode</b> - The identifier for the Amazon Web Services service
  *                     that corresponds to the service code defined in the call to <a>DescribeServices</a>.</p>
  *             </li>
  *             <li>
@@ -686,7 +686,7 @@ export namespace RecentCaseCommunications {
  *             </li>
  *             <li>
  *                 <p>
- *                     <b>status</b> - The status of the case in the AWS Support Center. Valid values:</p>
+ *                     <b>status</b> - The status of the case in the Amazon Web Services Support Center. Valid values:</p>
  *                 <ul>
  *                   <li>
  *                         <p>
@@ -746,13 +746,13 @@ export interface CaseDetails {
   caseId?: string;
 
   /**
-   * <p>The ID displayed for the case in the AWS Support Center. This is a numeric
+   * <p>The ID displayed for the case in the Amazon Web Services Support Center. This is a numeric
    *             string.</p>
    */
   displayId?: string;
 
   /**
-   * <p>The subject line for the case in the AWS Support Center.</p>
+   * <p>The subject line for the case in the Amazon Web Services Support Center.</p>
    */
   subject?: string;
 
@@ -795,7 +795,7 @@ export interface CaseDetails {
   status?: string;
 
   /**
-   * <p>The code for the AWS service. You can get a list of codes and the corresponding
+   * <p>The code for the Amazon Web Services service. You can get a list of codes and the corresponding
    *             service names by calling <a>DescribeServices</a>.</p>
    */
   serviceCode?: string;
@@ -816,12 +816,12 @@ export interface CaseDetails {
   submittedBy?: string;
 
   /**
-   * <p>The time that the case was created in the AWS Support Center.</p>
+   * <p>The time that the case was created in the Amazon Web Services Support Center.</p>
    */
   timeCreated?: string;
 
   /**
-   * <p>The five most recent communications between you and AWS Support Center, including the
+   * <p>The five most recent communications between you and Amazon Web Services Support Center, including the
    *             IDs of any attachments to the communications. Also includes a <code>nextToken</code>
    *             that you can use to retrieve earlier communications.</p>
    */
@@ -833,7 +833,7 @@ export interface CaseDetails {
   ccEmailAddresses?: string[];
 
   /**
-   * <p>The ISO 639-1 code for the language in which AWS provides support. AWS Support
+   * <p>The ISO 639-1 code for the language in which Amazon Web Services provides support. Amazon Web Services Support
    *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
    *             passed explicitly for operations that take them.</p>
    */
@@ -943,12 +943,12 @@ export namespace DescribeCommunicationsResponse {
 
 export interface DescribeServicesRequest {
   /**
-   * <p>A JSON-formatted list of service codes available for AWS services.</p>
+   * <p>A JSON-formatted list of service codes available for Amazon Web Services services.</p>
    */
   serviceCodeList?: string[];
 
   /**
-   * <p>The ISO 639-1 code for the language in which AWS provides support. AWS Support
+   * <p>The ISO 639-1 code for the language in which Amazon Web Services provides support. Amazon Web Services Support
    *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
    *             passed explicitly for operations that take them.</p>
    */
@@ -967,7 +967,7 @@ export namespace DescribeServicesRequest {
 /**
  * <p>A JSON-formatted name/value pair that represents the category name and category code
  *             of the problem, selected from the <a>DescribeServices</a> response for each
- *             AWS service.</p>
+ *             Amazon Web Services service.</p>
  */
 export interface Category {
   /**
@@ -991,18 +991,18 @@ export namespace Category {
 }
 
 /**
- * <p>Information about an AWS service returned by the <a>DescribeServices</a>
+ * <p>Information about an Amazon Web Services service returned by the <a>DescribeServices</a>
  *             operation.</p>
  */
 export interface Service {
   /**
-   * <p>The code for an AWS service returned by the <a>DescribeServices</a>
+   * <p>The code for an Amazon Web Services service returned by the <a>DescribeServices</a>
    *             response. The <code>name</code> element contains the corresponding friendly name.</p>
    */
   code?: string;
 
   /**
-   * <p>The friendly name for an AWS service. The <code>code</code> element contains the
+   * <p>The friendly name for an Amazon Web Services service. The <code>code</code> element contains the
    *             corresponding code.</p>
    */
   name?: string;
@@ -1010,7 +1010,7 @@ export interface Service {
   /**
    * <p>A list of categories that describe the type of support issue a case describes.
    *             Categories consist of a category name and a category code. Category names and codes are
-   *             passed to AWS Support when you call <a>CreateCase</a>.</p>
+   *             passed to Amazon Web Services Support when you call <a>CreateCase</a>.</p>
    */
   categories?: Category[];
 }
@@ -1025,12 +1025,12 @@ export namespace Service {
 }
 
 /**
- * <p>The list of AWS services returned by the <a>DescribeServices</a>
+ * <p>The list of Amazon Web Services services returned by the <a>DescribeServices</a>
  *             operation.</p>
  */
 export interface DescribeServicesResponse {
   /**
-   * <p>A JSON-formatted list of AWS services.</p>
+   * <p>A JSON-formatted list of Amazon Web Services services.</p>
    */
   services?: Service[];
 }
@@ -1046,7 +1046,7 @@ export namespace DescribeServicesResponse {
 
 export interface DescribeSeverityLevelsRequest {
   /**
-   * <p>The ISO 639-1 code for the language in which AWS provides support. AWS Support
+   * <p>The ISO 639-1 code for the language in which Amazon Web Services provides support. Amazon Web Services Support
    *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
    *             passed explicitly for operations that take them.</p>
    */
@@ -1066,7 +1066,7 @@ export namespace DescribeSeverityLevelsRequest {
  * <p>A code and name pair that represents the severity level of a support case. The
  *             available values depend on the support plan for the account. For more information, see
  *                 <a href="https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity">Choosing a
- *                 severity</a> in the <i>AWS Support User Guide</i>.</p>
+ *                 severity</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
  */
 export interface SeverityLevel {
   /**
@@ -1081,7 +1081,7 @@ export interface SeverityLevel {
    * <p>The name of the severity level that corresponds to the severity level code.</p>
    *         <note>
    *             <p>The values returned by the API are different from the values that appear in the
-   *                 AWS Support Center. For example, the API uses the code <code>low</code>, but the name
+   *                 Amazon Web Services Support Center. For example, the API uses the code <code>low</code>, but the name
    *                 appears as General guidance in Support Center. </p>
    *             <p>The following are the API code names and how they appear in the console:</p>
    *             <ul>
@@ -1108,7 +1108,7 @@ export interface SeverityLevel {
    *             </ul>
    *         </note>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity">Choosing a
-   *                 severity</a> in the <i>AWS Support User Guide</i>.</p>
+   *                 severity</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
    */
   name?: string;
 }
@@ -1129,7 +1129,7 @@ export namespace SeverityLevel {
 export interface DescribeSeverityLevelsResponse {
   /**
    * <p>The available severity levels for the support case. Available severity levels are
-   *             defined by your service level agreement with AWS.</p>
+   *             defined by your service level agreement with Amazon Web Services.</p>
    */
   severityLevels?: SeverityLevel[];
 }
@@ -1248,7 +1248,7 @@ export interface DescribeTrustedAdvisorCheckResultRequest {
   checkId: string | undefined;
 
   /**
-   * <p>The ISO 639-1 code for the language in which AWS provides support. AWS Support
+   * <p>The ISO 639-1 code for the language in which Amazon Web Services provides support. Amazon Web Services Support
    *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
    *             passed explicitly for operations that take them.</p>
    */
@@ -1321,7 +1321,7 @@ export interface TrustedAdvisorResourceDetail {
   status: string | undefined;
 
   /**
-   * <p>The AWS Region in which the identified resource is located.</p>
+   * <p>The Amazon Web Services Region in which the identified resource is located.</p>
    */
   region?: string;
 
@@ -1331,7 +1331,7 @@ export interface TrustedAdvisorResourceDetail {
   resourceId: string | undefined;
 
   /**
-   * <p>Specifies whether the AWS resource was ignored by Trusted Advisor because it was
+   * <p>Specifies whether the Amazon Web Services resource was ignored by Trusted Advisor because it was
    *             marked as suppressed by the user.</p>
    */
   isSuppressed?: boolean;
@@ -1355,28 +1355,28 @@ export namespace TrustedAdvisorResourceDetail {
 }
 
 /**
- * <p>Details about AWS resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>.</p>
+ * <p>Details about Amazon Web Services resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>.</p>
  */
 export interface TrustedAdvisorResourcesSummary {
   /**
-   * <p>The number of AWS resources that were analyzed by the Trusted Advisor check.</p>
+   * <p>The number of Amazon Web Services resources that were analyzed by the Trusted Advisor check.</p>
    */
   resourcesProcessed: number | undefined;
 
   /**
-   * <p>The number of AWS resources that were flagged (listed) by the Trusted Advisor
+   * <p>The number of Amazon Web Services resources that were flagged (listed) by the Trusted Advisor
    *             check.</p>
    */
   resourcesFlagged: number | undefined;
 
   /**
-   * <p>The number of AWS resources ignored by Trusted Advisor because information was
+   * <p>The number of Amazon Web Services resources ignored by Trusted Advisor because information was
    *             unavailable.</p>
    */
   resourcesIgnored: number | undefined;
 
   /**
-   * <p>The number of AWS resources ignored by Trusted Advisor because they were marked as
+   * <p>The number of Amazon Web Services resources ignored by Trusted Advisor because they were marked as
    *             suppressed by the user.</p>
    */
   resourcesSuppressed: number | undefined;
@@ -1412,7 +1412,7 @@ export interface TrustedAdvisorCheckResult {
   status: string | undefined;
 
   /**
-   * <p>Details about AWS resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>.</p>
+   * <p>Details about Amazon Web Services resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>.</p>
    */
   resourcesSummary: TrustedAdvisorResourcesSummary | undefined;
 
@@ -1458,7 +1458,7 @@ export namespace DescribeTrustedAdvisorCheckResultResponse {
 
 export interface DescribeTrustedAdvisorChecksRequest {
   /**
-   * <p>The ISO 639-1 code for the language in which AWS provides support. AWS Support
+   * <p>The ISO 639-1 code for the language in which Amazon Web Services provides support. Amazon Web Services Support
    *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
    *             passed explicitly for operations that take them.</p>
    */
@@ -1580,7 +1580,7 @@ export interface TrustedAdvisorCheckSummary {
   hasFlaggedResources?: boolean;
 
   /**
-   * <p>Details about AWS resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>.</p>
+   * <p>Details about Amazon Web Services resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>.</p>
    */
   resourcesSummary: TrustedAdvisorResourcesSummary | undefined;
 

@@ -724,9 +724,13 @@ export interface VoiceSettings {
   voiceId: string | undefined;
 
   /**
-   * <p>Indicates the type of Amazon Polly
-   *          voice that Amazon Lex should use for voice interaction with the user.
-   *       For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Voices in Amazon Polly</a>.</p>
+   * <p>Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more
+   *          information, see the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine">
+   *                <code>engine</code> parameter of the
+   *                <code>SynthesizeSpeech</code> operation</a> in the
+   *                <i>Amazon Polly developer guide</i>.</p>
+   *          <p>If you do not specify a value, the default is
+   *          <code>standard</code>.</p>
    */
   engine?: VoiceEngine | string;
 }
@@ -3676,6 +3680,78 @@ export namespace CreateSlotResponse {
 }
 
 /**
+ * <p>Describes the Amazon S3 bucket name and location for the grammar
+ *          that is the source for the slot type.</p>
+ */
+export interface GrammarSlotTypeSource {
+  /**
+   * <p>The name of the S3 bucket that contains the grammar source.</p>
+   */
+  s3BucketName: string | undefined;
+
+  /**
+   * <p>The path to the grammar in the S3 bucket.</p>
+   */
+  s3ObjectKey: string | undefined;
+
+  /**
+   * <p>The Amazon KMS key required to decrypt the contents of the grammar,
+   *          if any.</p>
+   */
+  kmsKeyArn?: string;
+}
+
+export namespace GrammarSlotTypeSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GrammarSlotTypeSource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Settings requried for a slot type based on a grammar that you
+ *          provide.</p>
+ */
+export interface GrammarSlotTypeSetting {
+  /**
+   * <p>The source of the grammar used to create the slot type.</p>
+   */
+  source?: GrammarSlotTypeSource;
+}
+
+export namespace GrammarSlotTypeSetting {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GrammarSlotTypeSetting): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the external source of the slot type's
+ *          definition.</p>
+ */
+export interface ExternalSourceSetting {
+  /**
+   * <p>Settings required for a slot type based on a grammar that you
+   *          provide.</p>
+   */
+  grammarSlotTypeSetting?: GrammarSlotTypeSetting;
+}
+
+export namespace ExternalSourceSetting {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExternalSourceSetting): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Defines one of the values for a slot type.</p>
  */
 export interface SampleValue {
@@ -3851,7 +3927,7 @@ export interface CreateSlotTypeRequest {
    *          <p>If you don't specify the <code>valueSelectionSetting</code>
    *          parameter, the default is <code>OriginalValue</code>.</p>
    */
-  valueSelectionSetting: SlotValueSelectionSetting | undefined;
+  valueSelectionSetting?: SlotValueSelectionSetting;
 
   /**
    * <p>The built-in slot type used as a parent of this slot type. When you
@@ -3879,6 +3955,12 @@ export interface CreateSlotTypeRequest {
    *          locale. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
+
+  /**
+   * <p>Sets the type of external information used to create the slot
+   *          type.</p>
+   */
+  externalSourceSetting?: ExternalSourceSetting;
 }
 
 export namespace CreateSlotTypeRequest {
@@ -3945,6 +4027,12 @@ export interface CreateSlotTypeResponse {
    *          created.</p>
    */
   creationDateTime?: Date;
+
+  /**
+   * <p>The type of external information used to create the slot
+   *          type.</p>
+   */
+  externalSourceSetting?: ExternalSourceSetting;
 }
 
 export namespace CreateSlotTypeResponse {
@@ -4875,6 +4963,12 @@ export interface DescribeBotLocaleResponse {
    *          have taken place for the locale.</p>
    */
   botLocaleHistoryEvents?: BotLocaleHistoryEvent[];
+
+  /**
+   * <p>Recommended actions to take to resolve an error in the
+   *             <code>failureReasons</code> field.</p>
+   */
+  recommendedActions?: string[];
 }
 
 export namespace DescribeBotLocaleResponse {
@@ -5880,6 +5974,12 @@ export interface DescribeSlotTypeResponse {
    *          updated.</p>
    */
   lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>Provides information about the external source of the slot type's
+   *          definition.</p>
+   */
+  externalSourceSetting?: ExternalSourceSetting;
 }
 
 export namespace DescribeSlotTypeResponse {
@@ -7721,6 +7821,7 @@ export namespace ListSlotsResponse {
 }
 
 export enum SlotTypeFilterName {
+  ExternalSourceType = "ExternalSourceType",
   SlotTypeName = "SlotTypeName",
 }
 
@@ -7853,6 +7954,12 @@ export namespace ListSlotTypesRequest {
   });
 }
 
+export enum SlotTypeCategory {
+  Custom = "Custom",
+  Extended = "Extended",
+  ExternalGrammar = "ExternalGrammar",
+}
+
 /**
  * <p>Provides summary information about a slot type.</p>
  */
@@ -7883,6 +7990,30 @@ export interface SlotTypeSummary {
    *          updated.</p>
    */
   lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>Indicates the type of the slot type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Custom</code> - A slot type that you created using
+   *                custom values. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/custom-slot-types.html">Creating custom slot
+   *                types</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Extended</code> - A slot type created by extending the
+   *                AMAZON.AlphaNumeric built-in slot type. For more information, see
+   *                   <a href="https://docs.aws.amazon.com/lexv2/latest/dg/built-in-slot-alphanumerice.html">AMAZON.AlphaNumeric</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ExternalGrammar</code> - A slot type using a custom
+   *                GRXML grammar to define values. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/building-grxml.html">Using a custom grammar slot type</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  slotTypeCategory?: SlotTypeCategory | string;
 }
 
 export namespace SlotTypeSummary {
@@ -8697,6 +8828,12 @@ export interface UpdateBotLocaleResponse {
    *          updated.</p>
    */
   lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>Recommended actions to take to resolve an error in the
+   *             <code>failureReasons</code> field.</p>
+   */
+  recommendedActions?: string[];
 }
 
 export namespace UpdateBotLocaleResponse {
@@ -9348,7 +9485,7 @@ export interface UpdateSlotTypeRequest {
    * <p>The strategy that Amazon Lex should use when deciding on a value from the
    *          list of slot type values.</p>
    */
-  valueSelectionSetting: SlotValueSelectionSetting | undefined;
+  valueSelectionSetting?: SlotValueSelectionSetting;
 
   /**
    * <p>The new built-in slot type that should be used as the parent of this
@@ -9373,6 +9510,12 @@ export interface UpdateSlotTypeRequest {
    *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
+
+  /**
+   * <p>Provides information about the external source of the slot type's
+   *          definition.</p>
+   */
+  externalSourceSetting?: ExternalSourceSetting;
 }
 
 export namespace UpdateSlotTypeRequest {
@@ -9444,6 +9587,12 @@ export interface UpdateSlotTypeResponse {
    *          updated.</p>
    */
   lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>Provides information about the external source of the slot type's
+   *          definition.</p>
+   */
+  externalSourceSetting?: ExternalSourceSetting;
 }
 
 export namespace UpdateSlotTypeResponse {

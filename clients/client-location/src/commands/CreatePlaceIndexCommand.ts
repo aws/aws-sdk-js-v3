@@ -24,7 +24,8 @@ export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse,
 /**
  * <p>Creates a place index resource in your AWS account. Use a place index resource to
  *             geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation,
- *             and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation.</p>
+ *             and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and
+ *             enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -453,7 +453,9 @@ export enum OrderStatus {
  */
 export interface Order {
   /**
-   * <p> The ID of the Outpost in the order. </p>
+   * <p>
+   *       The ID of the Outpost in the order.
+   *     </p>
    */
   OutpostId?: string;
 
@@ -576,7 +578,9 @@ export interface CreateOutpostInput {
   Description?: string;
 
   /**
-   * <p>The ID of the site.</p>
+   * <p>
+   *       The ID or the Amazon Resource Name (ARN) of the site.
+   *     </p>
    */
   SiteId: string | undefined;
 
@@ -617,7 +621,9 @@ export namespace CreateOutpostInput {
  */
 export interface Outpost {
   /**
-   * <p> The ID of the Outpost. </p>
+   * <p>
+   *       The ID of the Outpost.
+   *     </p>
    */
   OutpostId?: string;
 
@@ -632,7 +638,9 @@ export interface Outpost {
   OutpostArn?: string;
 
   /**
-   * <p>The ID of the site.</p>
+   * <p>
+   *       The ID of the site.
+   *     </p>
    */
   SiteId?: string;
 
@@ -909,7 +917,9 @@ export namespace CreateSiteInput {
  */
 export interface Site {
   /**
-   * <p>The ID of the site.</p>
+   * <p>
+   *       The ID of the site.
+   *     </p>
    */
   SiteId?: string;
 
@@ -1000,7 +1010,7 @@ export namespace CreateSiteOutput {
 export interface DeleteOutpostInput {
   /**
    * <p>
-   *       The ID of the Outpost.
+   *       The ID or the Amazon Resource Name (ARN) of the Outpost.
    *     </p>
    */
   OutpostId: string | undefined;
@@ -1028,7 +1038,9 @@ export namespace DeleteOutpostOutput {
 
 export interface DeleteSiteInput {
   /**
-   * <p>The ID of the site.</p>
+   * <p>
+   *       The ID or the Amazon Resource Name (ARN) of the site.
+   *     </p>
    */
   SiteId: string | undefined;
 }
@@ -1120,7 +1132,7 @@ export namespace GetOrderOutput {
 export interface GetOutpostInput {
   /**
    * <p>
-   *       The ID of the Outpost.
+   *       The ID or the Amazon Resource Name (ARN) of the Outpost.
    *     </p>
    */
   OutpostId: string | undefined;
@@ -1154,7 +1166,7 @@ export namespace GetOutpostOutput {
 export interface GetOutpostInstanceTypesInput {
   /**
    * <p>
-   *       The ID of the Outpost.
+   *       The ID or the Amazon Resource Name (ARN) of the Outpost.
    *     </p>
    */
   OutpostId: string | undefined;
@@ -1233,7 +1245,9 @@ export namespace GetOutpostInstanceTypesOutput {
 
 export interface GetSiteInput {
   /**
-   * <p>The ID of the site.</p>
+   * <p>
+   *       The ID or the Amazon Resource Name (ARN) of the site.
+   *     </p>
    */
   SiteId: string | undefined;
 }
@@ -1265,7 +1279,9 @@ export namespace GetSiteOutput {
 
 export interface GetSiteAddressInput {
   /**
-   * <p>The ID of the site.</p>
+   * <p>
+   *       The ID or the Amazon Resource Name (ARN) of the site.
+   *     </p>
    */
   SiteId: string | undefined;
 
@@ -1286,7 +1302,9 @@ export namespace GetSiteAddressInput {
 
 export interface GetSiteAddressOutput {
   /**
-   * <p>The ID of the site.</p>
+   * <p>
+   *       The ID of the site.
+   *     </p>
    */
   SiteId?: string;
 
@@ -1741,9 +1759,62 @@ export namespace UntagResourceResponse {
   });
 }
 
+export interface UpdateOutpostInput {
+  /**
+   * <p>
+   *       The ID or the Amazon Resource Name (ARN) of the Outpost.
+   *     </p>
+   */
+  OutpostId: string | undefined;
+
+  /**
+   * <p>The name of the Outpost.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the Outpost.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>
+   *       The type of hardware for this Outpost.
+   *     </p>
+   */
+  SupportedHardwareType?: SupportedHardwareType | string;
+}
+
+export namespace UpdateOutpostInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateOutpostInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateOutpostOutput {
+  /**
+   * <p>Information about an Outpost.</p>
+   */
+  Outpost?: Outpost;
+}
+
+export namespace UpdateOutpostOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateOutpostOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateSiteInput {
   /**
-   * <p>The ID of the site.</p>
+   * <p>
+   *       The ID or the Amazon Resource Name (ARN) of the site.
+   *     </p>
    */
   SiteId: string | undefined;
 
@@ -1792,7 +1863,9 @@ export namespace UpdateSiteOutput {
 
 export interface UpdateSiteAddressInput {
   /**
-   * <p>The ID of the site.</p>
+   * <p>
+   *       The ID or the Amazon Resource Name (ARN) of the site.
+   *     </p>
    */
   SiteId: string | undefined;
 
@@ -1847,7 +1920,9 @@ export namespace UpdateSiteAddressOutput {
 
 export interface UpdateSiteRackPhysicalPropertiesInput {
   /**
-   * <p>The ID of the site.</p>
+   * <p>
+   *       The ID or the Amazon Resource Name (ARN) of the site.
+   *     </p>
    */
   SiteId: string | undefined;
 

@@ -72,14 +72,13 @@ import { HealthClient } from "./HealthClient";
  *
  *          <p>The Health API provides programmatic access to the Health information that
  *          appears in the <a href="https://phd.aws.amazon.com/phd/home#/">Personal Health Dashboard</a>. You
- *          can use the API operations to get information about events that might affect your Amazon Web Services
- *          services and resources.</p>
+ *          can use the API operations to get information about events that might affect your Amazon Web Services services and resources.</p>
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>You must have a Business or Enterprise Support plan from <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a> to use the
- *                   Health API. If you call the Health API from an Amazon Web Services account that
- *                   doesn't have a Business or Enterprise Support plan, you receive a
+ *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan from <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a> to use the Health
+ *                   API. If you call the Health API from an Amazon Web Services account that
+ *                   doesn't have a Business, Enterprise On-Ramp, or Enterprise Support plan, you receive a
  *                      <code>SubscriptionRequiredException</code> error.</p>
  *                </li>
  *                <li>
@@ -218,8 +217,8 @@ export class Health extends HealthClient {
    *          depending on the Amazon Web Services service.</p>
    *          <p>At least one event Amazon Resource Name (ARN) and account ID are required.</p>
    *          <p>Before you can call this operation, you must first enable Health to work with
-   *          Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a>
-   *          operation from your organization's management account.</p>
+   *          Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> operation from your organization's
+   *          management account.</p>
    *          <note>
    *             <ul>
    *                <li>
@@ -376,8 +375,8 @@ export class Health extends HealthClient {
 
   /**
    * <p>Returns detailed information about one or more specified events for one or more
-   *          Amazon Web Services accounts in your organization. This information includes standard event data (such as the
-   *          Amazon Web Services Region and service), an event description, and (depending on the event) possible
+   *          Amazon Web Services accounts in your organization. This information includes standard event data (such as
+   *          the Amazon Web Services Region and service), an event description, and (depending on the event) possible
    *          metadata. This operation doesn't return affected entities, such as the resources related to
    *          the event. To return affected entities, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html">DescribeAffectedEntitiesForOrganization</a> operation.</p>
    *          <note>
@@ -397,7 +396,7 @@ export class Health extends HealthClient {
    *             </li>
    *             <li>
    *                <p>To return event details for an event that is specific to an account in your
-   *                organization,  you must specify the <code>awsAccountId</code> parameter in the
+   *                organization, you must specify the <code>awsAccountId</code> parameter in the
    *                request. If you don't specify an account ID, Health returns an error message
    *                because the event is specific to an account in your organization. </p>
    *             </li>
@@ -560,7 +559,7 @@ export class Health extends HealthClient {
    *          operation to find information about the Health event, such as the category, Amazon Web Services
    *          service, and event code. The metadata for each event appears in the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html">EventType</a> object. </p>
    *          <p>If you don't specify a filter criteria, the API operation returns all event types, in no
-   *          particular order.  </p>
+   *          particular order. </p>
    *          <note>
    *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
    *          </note>
@@ -635,16 +634,17 @@ export class Health extends HealthClient {
    * <p>Disables Health from working with Organizations. To call this operation, you must sign
    *          in as an Identity and Access Management (IAM) user, assume an IAM role, or sign in as the root user (not
    *          recommended) in the organization's management account. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html">Aggregating
-   *             Health events</a> in the
-   *             <i>Health User Guide</i>.</p>
-   *          <p>This operation doesn't remove the service-linked role from the management account in your organization. You must use the IAM console, API, or Command Line Interface (CLI) to
-   *          remove the service-linked role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role">Deleting a Service-Linked Role</a> in the
+   *             Health events</a> in the <i>Health User Guide</i>.</p>
+   *          <p>This operation doesn't remove the service-linked role from the management account in your
+   *          organization. You must use the IAM console, API, or Command Line Interface (CLI) to remove the
+   *          service-linked role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role">Deleting a Service-Linked Role</a> in the
    *          <i>IAM User Guide</i>.</p>
    *          <note>
    *             <p>You can also disable the organizational feature by using the Organizations <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html">DisableAWSServiceAccess</a> API operation. After you call this operation,
    *             Health stops aggregating events for all other Amazon Web Services accounts in your organization.
    *             If you call the Health API operations for organizational view, Health returns
-   *             an error. Health continues to aggregate health events for your Amazon Web Services account.</p>
+   *             an error. Health continues to aggregate health events for your
+   *             Amazon Web Services account.</p>
    *          </note>
    */
   public disableHealthServiceAccessForOrganization(
@@ -687,9 +687,9 @@ export class Health extends HealthClient {
    *             <p>To call this operation, you must meet the following requirements:</p>
    *             <ul>
    *                <li>
-   *                   <p>You must have a Business or Enterprise Support plan from <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a> to use the Health
+   *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan from <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a> to use the Health
    *                   API. If you call the Health API from an Amazon Web Services account that doesn't have a
-   *                   Business or Enterprise Support plan, you receive a
+   *                   Business, Enterprise On-Ramp, or Enterprise Support plan, you receive a
    *                      <code>SubscriptionRequiredException</code> error.</p>
    *                </li>
    *                <li>

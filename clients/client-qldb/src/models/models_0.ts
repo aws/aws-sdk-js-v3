@@ -122,8 +122,8 @@ export enum PermissionsMode {
 
 export interface CreateLedgerRequest {
   /**
-   * <p>The name of the ledger that you want to create. The name must be unique among all of
-   *          the ledgers in your account in the current Region.</p>
+   * <p>The name of the ledger that you want to create. The name must be unique among all of the
+   *          ledgers in your Amazon Web Services account in the current Region.</p>
    *          <p>Naming constraints for ledger names are defined in <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming">Quotas in Amazon QLDB</a>
    *          in the <i>Amazon QLDB Developer Guide</i>.</p>
    */
@@ -203,7 +203,7 @@ export interface CreateLedgerRequest {
    *          </ul>
    *          <p>To specify a customer managed KMS key, you can use its key ID, Amazon Resource Name
    *          (ARN), alias name, or alias ARN. When using an alias name, prefix it with
-   *             <code>"alias/"</code>. To specify a key in a different account, you must use the key
+   *             <code>"alias/"</code>. To specify a key in a different Amazon Web Services account, you must use the key
    *          ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -574,6 +574,12 @@ export namespace DescribeJournalS3ExportRequest {
   });
 }
 
+export enum OutputFormat {
+  ION_BINARY = "ION_BINARY",
+  ION_TEXT = "ION_TEXT",
+  JSON = "JSON",
+}
+
 export enum S3ObjectEncryptionType {
   NO_ENCRYPTION = "NO_ENCRYPTION",
   SSE_KMS = "SSE_KMS",
@@ -594,8 +600,8 @@ export interface S3EncryptionConfiguration {
   ObjectEncryptionType: S3ObjectEncryptionType | string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) in Key Management Service
-   *          (KMS). Amazon S3 does not support asymmetric CMKs.</p>
+   * <p>The Amazon Resource Name (ARN) of a symmetric key in Key Management Service (KMS). Amazon S3 does not
+   *          support asymmetric KMS keys.</p>
    *          <p>You must provide a <code>KmsKeyArn</code> if you specify <code>SSE_KMS</code> as the
    *             <code>ObjectEncryptionType</code>.</p>
    *          <p>
@@ -703,13 +709,13 @@ export interface JournalS3ExportDescription {
   Status: ExportStatus | string | undefined;
 
   /**
-   * <p>The inclusive start date and time for the range of journal contents that are specified
+   * <p>The inclusive start date and time for the range of journal contents that was specified
    *          in the original export request.</p>
    */
   InclusiveStartTime: Date | undefined;
 
   /**
-   * <p>The exclusive end date and time for the range of journal contents that are specified in
+   * <p>The exclusive end date and time for the range of journal contents that was specified in
    *          the original export request.</p>
    */
   ExclusiveEndTime: Date | undefined;
@@ -728,12 +734,17 @@ export interface JournalS3ExportDescription {
    *                <p>Write objects into your Amazon Simple Storage Service (Amazon S3) bucket.</p>
    *             </li>
    *             <li>
-   *                <p>(Optional) Use your customer master key (CMK) in Key Management Service (KMS) for server-side
+   *                <p>(Optional) Use your customer managed key in Key Management Service (KMS) for server-side
    *                encryption of your exported data.</p>
    *             </li>
    *          </ul>
    */
   RoleArn: string | undefined;
+
+  /**
+   * <p>The output format of the exported journal data.</p>
+   */
+  OutputFormat?: OutputFormat | string;
 }
 
 export namespace JournalS3ExportDescription {
@@ -943,12 +954,21 @@ export interface ExportJournalToS3Request {
    *                <p>Write objects into your Amazon Simple Storage Service (Amazon S3) bucket.</p>
    *             </li>
    *             <li>
-   *                <p>(Optional) Use your customer master key (CMK) in Key Management Service (KMS) for server-side
+   *                <p>(Optional) Use your customer managed key in Key Management Service (KMS) for server-side
    *                encryption of your exported data.</p>
    *             </li>
    *          </ul>
+   *          <p>To pass a role to QLDB when requesting a journal export, you must have permissions to
+   *          perform the <code>iam:PassRole</code> action on the IAM role resource. This is required for
+   *          all journal export requests.</p>
    */
   RoleArn: string | undefined;
+
+  /**
+   * <p>The output format of your exported journal data. If this parameter is not specified, the
+   *          exported data defaults to <code>ION_TEXT</code> format.</p>
+   */
+  OutputFormat?: OutputFormat | string;
 }
 
 export namespace ExportJournalToS3Request {
@@ -1253,7 +1273,7 @@ export namespace ListJournalS3ExportsRequest {
 export interface ListJournalS3ExportsResponse {
   /**
    * <p>The array of journal export job descriptions for all ledgers that are associated with
-   *          the current account and Region.</p>
+   *          the current Amazon Web Services account and Region.</p>
    */
   JournalS3Exports?: JournalS3ExportDescription[];
 
@@ -1403,7 +1423,7 @@ export namespace LedgerSummary {
 
 export interface ListLedgersResponse {
   /**
-   * <p>The array of ledger summaries that are associated with the current account and
+   * <p>The array of ledger summaries that are associated with the current Amazon Web Services account and
    *          Region.</p>
    */
   Ledgers?: LedgerSummary[];
@@ -1478,6 +1498,9 @@ export interface StreamJournalToKinesisRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a
    *          journal stream to write data records to a Kinesis Data Streams resource.</p>
+   *          <p>To pass a role to QLDB when requesting a journal stream, you must have permissions to
+   *          perform the <code>iam:PassRole</code> action on the IAM role resource. This is required for
+   *          all journal stream requests.</p>
    */
   RoleArn: string | undefined;
 
@@ -1662,7 +1685,7 @@ export interface UpdateLedgerRequest {
    *          </ul>
    *          <p>To specify a customer managed KMS key, you can use its key ID, Amazon Resource Name
    *          (ARN), alias name, or alias ARN. When using an alias name, prefix it with
-   *             <code>"alias/"</code>. To specify a key in a different account, you must use the key
+   *             <code>"alias/"</code>. To specify a key in a different Amazon Web Services account, you must use the key
    *          ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>

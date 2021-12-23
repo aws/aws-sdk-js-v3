@@ -22,7 +22,8 @@ export interface StopReplicationToReplicaCommandInput extends StopReplicationToR
 export interface StopReplicationToReplicaCommandOutput extends StopReplicationToReplicaResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the secret from replication and promotes the secret to a regional secret in the replica Region.</p>
+ * <p>Removes the link between the replica secret and the primary secret and promotes the replica to a primary secret in the replica Region.</p>
+ *          <p>You must call this operation from the Region in which you want to promote the replica to a primary secret.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -22,7 +22,7 @@ export interface GenerateTemplateCommandInput extends GenerateTemplateRequest {}
 export interface GenerateTemplateCommandOutput extends GenerateTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Generates an AWS CloudFormation template based on the current launch configuration and writes it to
+ * <p>Generates an CloudFormation template based on the current launch configuration and writes it to
  *             an Amazon S3 object in the customer’s Amazon S3 bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

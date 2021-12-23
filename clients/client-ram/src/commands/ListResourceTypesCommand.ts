@@ -22,7 +22,7 @@ export interface ListResourceTypesCommandInput extends ListResourceTypesRequest 
 export interface ListResourceTypesCommandOutput extends ListResourceTypesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the shareable resource types supported by RAM.</p>
+ * <p>Lists the resource types that can be shared by RAM.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

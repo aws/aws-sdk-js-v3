@@ -57,9 +57,17 @@ import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/De
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
 import { DescribeModelCommandInput, DescribeModelCommandOutput } from "./commands/DescribeModelCommand";
+import {
+  DescribeModelPackagingJobCommandInput,
+  DescribeModelPackagingJobCommandOutput,
+} from "./commands/DescribeModelPackagingJobCommand";
 import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "./commands/DescribeProjectCommand";
 import { DetectAnomaliesCommandInput, DetectAnomaliesCommandOutput } from "./commands/DetectAnomaliesCommand";
 import { ListDatasetEntriesCommandInput, ListDatasetEntriesCommandOutput } from "./commands/ListDatasetEntriesCommand";
+import {
+  ListModelPackagingJobsCommandInput,
+  ListModelPackagingJobsCommandOutput,
+} from "./commands/ListModelPackagingJobsCommand";
 import { ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
 import {
@@ -67,6 +75,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { StartModelCommandInput, StartModelCommandOutput } from "./commands/StartModelCommand";
+import {
+  StartModelPackagingJobCommandInput,
+  StartModelPackagingJobCommandOutput,
+} from "./commands/StartModelPackagingJobCommand";
 import { StopModelCommandInput, StopModelCommandOutput } from "./commands/StopModelCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -85,13 +97,16 @@ export type ServiceInputTypes =
   | DeleteProjectCommandInput
   | DescribeDatasetCommandInput
   | DescribeModelCommandInput
+  | DescribeModelPackagingJobCommandInput
   | DescribeProjectCommandInput
   | DetectAnomaliesCommandInput
   | ListDatasetEntriesCommandInput
+  | ListModelPackagingJobsCommandInput
   | ListModelsCommandInput
   | ListProjectsCommandInput
   | ListTagsForResourceCommandInput
   | StartModelCommandInput
+  | StartModelPackagingJobCommandInput
   | StopModelCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -106,13 +121,16 @@ export type ServiceOutputTypes =
   | DeleteProjectCommandOutput
   | DescribeDatasetCommandOutput
   | DescribeModelCommandOutput
+  | DescribeModelPackagingJobCommandOutput
   | DescribeProjectCommandOutput
   | DetectAnomaliesCommandOutput
   | ListDatasetEntriesCommandOutput
+  | ListModelPackagingJobsCommandOutput
   | ListModelsCommandOutput
   | ListProjectsCommandOutput
   | ListTagsForResourceCommandOutput
   | StartModelCommandOutput
+  | StartModelPackagingJobCommandOutput
   | StopModelCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

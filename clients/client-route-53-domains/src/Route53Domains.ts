@@ -21,6 +21,11 @@ import {
   CheckDomainTransferabilityCommandOutput,
 } from "./commands/CheckDomainTransferabilityCommand";
 import {
+  DeleteDomainCommand,
+  DeleteDomainCommandInput,
+  DeleteDomainCommandOutput,
+} from "./commands/DeleteDomainCommand";
+import {
   DeleteTagsForDomainCommand,
   DeleteTagsForDomainCommandInput,
   DeleteTagsForDomainCommandOutput,
@@ -71,6 +76,7 @@ import {
   ListOperationsCommandInput,
   ListOperationsCommandOutput,
 } from "./commands/ListOperationsCommand";
+import { ListPricesCommand, ListPricesCommandInput, ListPricesCommandOutput } from "./commands/ListPricesCommand";
 import {
   ListTagsForDomainCommand,
   ListTagsForDomainCommandInput,
@@ -135,9 +141,11 @@ import { Route53DomainsClient } from "./Route53DomainsClient";
  */
 export class Route53Domains extends Route53DomainsClient {
   /**
-   * <p>Accepts the transfer of a domain from another AWS account to the current AWS account. You initiate a transfer between AWS accounts using
-   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.
-   * 		</p>
+   * <p>Accepts the transfer of a domain from another Amazon Web Services account to the
+   * 				currentAmazon Web Services account. You initiate a transfer between Amazon Web Services accounts using <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.</p>
+   * 		       <p>If you use the CLI command at <a href="https://docs.aws.amazon.com/cli/latest/reference/route53domains/accept-domain-transfer-from-another-aws-account.html">accept-domain-transfer-from-another-aws-account</a>, use JSON format as input
+   * 			instead of text because otherwise CLI will throw an error  from domain
+   * 			transfer input that includes single quotes.</p>
    *
    * 		       <p>Use either
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html">ListOperations</a> or
@@ -179,12 +187,12 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
-   * <p>Cancels the transfer of a domain from the current AWS account to another AWS account. You initiate a transfer between AWS accounts using
+   * <p>Cancels the transfer of a domain from the current Amazon Web Services account to another Amazon Web Services account. You initiate a transfer betweenAmazon Web Services accounts using
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.
    * 		</p>
    *
    * 		       <important>
-   * 			         <p>You must cancel the transfer before the other AWS account accepts the transfer using
+   * 			         <p>You must cancel the transfer before the other Amazon Web Services account accepts the transfer using
    * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html">AcceptDomainTransferFromAnotherAwsAccount</a>.</p>
    * 		       </important>
    *
@@ -282,6 +290,53 @@ export class Route53Domains extends Route53DomainsClient {
     cb?: (err: any, data?: CheckDomainTransferabilityCommandOutput) => void
   ): Promise<CheckDomainTransferabilityCommandOutput> | void {
     const command = new CheckDomainTransferabilityCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation deletes the specified domain. This action is permanent. For more information,
+   * 			see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-delete.html">Deleting a domain name registration</a>.</p>
+   * 		       <p>To transfer the domain registration to another registrar, use the transfer process that’s
+   * 			provided by the registrar to which you want to transfer the registration.  Otherwise,
+   * 			the following apply:</p>
+   * 		       <ol>
+   *             <li>
+   *                <p>You can’t get a refund for the cost of a deleted domain registration.</p>
+   *             </li>
+   *             <li>
+   *                <p>The registry for the top-level domain might hold the domain name for a brief time before releasing it for other users to register (varies by registry). </p>
+   *             </li>
+   *             <li>
+   *                <p>When the registration has been deleted, we'll send you a confirmation to the registrant
+   * 				contact. The email will come from
+   * 				<code>noreply@domainnameverification.net</code> or
+   * 				<code>noreply@registrar.amazon.com</code>.</p>
+   *             </li>
+   *          </ol>
+   */
+  public deleteDomain(
+    args: DeleteDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDomainCommandOutput>;
+  public deleteDomain(args: DeleteDomainCommandInput, cb: (err: any, data?: DeleteDomainCommandOutput) => void): void;
+  public deleteDomain(
+    args: DeleteDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDomainCommandOutput) => void
+  ): void;
+  public deleteDomain(
+    args: DeleteDomainCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDomainCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDomainCommandOutput) => void
+  ): Promise<DeleteDomainCommandOutput> | void {
+    const command = new DeleteDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -396,7 +451,7 @@ export class Route53Domains extends Route53DomainsClient {
 
   /**
    * <p>This operation configures Amazon Route 53 to automatically renew the specified domain before the domain registration expires.
-   * 			The cost of renewing your domain registration is billed to your AWS account.</p>
+   * 			The cost of renewing your domain registration is billed to your Amazon Web Services account.</p>
    * 		       <p>The period during which you can renew a domain name varies by TLD. For a list of TLDs and their renewal policies, see
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains That You Can Register with Amazon Route 53</a>
    * 			in the <i>Amazon Route 53 Developer Guide</i>. Route 53 requires that you renew before the end of the renewal period
@@ -500,7 +555,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
-   * <p>This operation returns detailed information about a specified domain that is associated with the current AWS account.
+   * <p>This operation returns detailed information about a specified domain that is associated with the current Amazon Web Services account.
    * 			Contact information for the domain is also returned as part of the output.</p>
    */
   public getDomainDetail(
@@ -597,7 +652,8 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
-   * <p>This operation returns all the domain names registered with Amazon Route 53 for the current AWS account.</p>
+   * <p>This operation returns all the domain names registered with Amazon Route 53 for the current Amazon Web Services account
+   * 			 if no filtering conditions are used.</p>
    */
   public listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
   public listDomains(args: ListDomainsCommandInput, cb: (err: any, data?: ListDomainsCommandOutput) => void): void;
@@ -625,6 +681,7 @@ export class Route53Domains extends Route53DomainsClient {
   /**
    * <p>Returns information about all of the operations that return an operation ID and that have ever been
    * 			performed on domains that were registered by the current account. </p>
+   * 		       <p>This command runs only in the us-east-1 Region.</p>
    */
   public listOperations(
     args: ListOperationsCommandInput,
@@ -645,6 +702,49 @@ export class Route53Domains extends Route53DomainsClient {
     cb?: (err: any, data?: ListOperationsCommandOutput) => void
   ): Promise<ListOperationsCommandOutput> | void {
     const command = new ListOperationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the following prices for either all the TLDs supported by Route 53, or the specified TLD:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>Registration</p>
+   *             </li>
+   *             <li>
+   *                <p>Transfer</p>
+   *             </li>
+   *             <li>
+   *                <p>Owner change</p>
+   *             </li>
+   *             <li>
+   *                <p>Domain renewal</p>
+   *             </li>
+   *             <li>
+   *                <p>Domain restoration</p>
+   *             </li>
+   *          </ul>
+   */
+  public listPrices(args: ListPricesCommandInput, options?: __HttpHandlerOptions): Promise<ListPricesCommandOutput>;
+  public listPrices(args: ListPricesCommandInput, cb: (err: any, data?: ListPricesCommandOutput) => void): void;
+  public listPrices(
+    args: ListPricesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPricesCommandOutput) => void
+  ): void;
+  public listPrices(
+    args: ListPricesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPricesCommandOutput) => void),
+    cb?: (err: any, data?: ListPricesCommandOutput) => void
+  ): Promise<ListPricesCommandOutput> | void {
+    const command = new ListPricesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -704,14 +804,17 @@ export class Route53Domains extends Route53DomainsClient {
    *             <li>
    *                <p>Optionally enables privacy protection, so WHOIS queries return contact information either for Amazon Registrar
    * 					(for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you don't enable privacy
-   * 					protection, WHOIS queries return the information that you entered for the registrant, admin, and tech contacts.</p>
-   *             </li>
+   * 					protection, WHOIS queries return the information that you entered for the administrative, registrant, and technical contacts.</p>
+   * 					          <note>
+   * 						            <p>You must specify the same privacy setting for the administrative, registrant, and technical contacts.</p>
+   * 					          </note>
+   * 				        </li>
    *             <li>
    *                <p>If registration is successful, returns an operation ID that you can use to track the progress and
    * 					completion of the action. If the request is not completed successfully, the domain registrant is notified by email.</p>
    *             </li>
    *             <li>
-   *                <p>Charges your AWS account an amount based on the top-level domain. For more information, see
+   *                <p>Charges your Amazon Web Services account an amount based on the top-level domain. For more information, see
    * 					<a href="http://aws.amazon.com/route53/pricing/">Amazon Route 53 Pricing</a>.</p>
    *             </li>
    *          </ul>
@@ -746,7 +849,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
-   * <p>Rejects the transfer of a domain from another AWS account to the current AWS account. You initiate a transfer between AWS accounts using
+   * <p>Rejects the transfer of a domain from another Amazon Web Services account to the current Amazon Web Services account. You initiate a transfer betweenAmazon Web Services accounts using
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.
    * 		</p>
    *
@@ -790,7 +893,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
-   * <p>This operation renews a domain for the specified number of years. The cost of renewing your domain is billed to your AWS account.</p>
+   * <p>This operation renews a domain for the specified number of years. The cost of renewing your domain is billed to your Amazon Web Services account.</p>
    * 		       <p>We recommend that you renew your domain several weeks before the expiration date. Some TLD registries delete domains before the
    * 			expiration date if you haven't renewed far enough in advance. For more information about renewing domain registration, see
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html">Renewing Registration for a Domain</a>
@@ -896,7 +999,7 @@ export class Route53Domains extends Route53DomainsClient {
    * 				Domain to Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
    *             </li>
    *             <li>
-   *                <p>For information about how to transfer a domain from one AWS account to another, see
+   *                <p>For information about how to transfer a domain from one Amazon Web Services account to another, see
    * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.
    * 				</p>
    * 			         </li>
@@ -950,10 +1053,10 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
-   * <p>Transfers a domain from the current AWS account to another AWS account. Note the following:</p>
+   * <p>Transfers a domain from the current Amazon Web Services account to another Amazon Web Services account. Note the following:</p>
    * 		       <ul>
    *             <li>
-   *                <p>The AWS account that you're transferring the domain to must accept the transfer. If the other account
+   *                <p>The Amazon Web Services account that you're transferring the domain to must accept the transfer. If the other account
    * 				doesn't accept the transfer within 3 days, we cancel the transfer. See
    * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html">AcceptDomainTransferFromAnotherAwsAccount</a>.
    * 				</p>
@@ -971,11 +1074,11 @@ export class Route53Domains extends Route53DomainsClient {
    *          </ul>
    *
    * 		       <important>
-   * 			         <p>When you transfer a domain from one AWS account to another, Route 53 doesn't transfer the hosted zone that is associated
+   * 			         <p>When you transfer a domain from one Amazon Web Services account to another, Route 53 doesn't transfer the hosted zone that is associated
    * 				with the domain. DNS resolution isn't affected if the domain and the hosted zone are owned by separate accounts,
-   * 				so transferring the hosted zone is optional. For information about transferring the hosted zone to another AWS account, see
+   * 				so transferring the hosted zone is optional. For information about transferring the hosted zone to another Amazon Web Services account, see
    * 				<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-migrating.html">Migrating a Hosted Zone to a
-   * 				Different AWS Account</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
+   * 					Different Amazon Web Services Account</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
    * 		       </important>
    *
    * 		       <p>Use either
@@ -1054,7 +1157,10 @@ export class Route53Domains extends Route53DomainsClient {
    * <p>This operation updates the specified domain contact's privacy setting. When privacy protection is enabled,
    * 			contact information such as email address is replaced either with contact information for Amazon Registrar (for .com, .net, and .org
    * 			domains) or with contact information for our registrar associate, Gandi.</p>
-   * 		       <p>This operation affects only the contact information for the specified contact type (registrant, administrator, or tech).
+   * 		       <note>
+   * 			         <p>You must specify the same privacy setting for the administrative, registrant, and technical contacts.</p>
+   * 		       </note>
+   * 		       <p>This operation affects only the contact information for the specified contact type (administrative, registrant, or technical).
    * 			If the request succeeds, Amazon Route 53 returns an operation ID that you can use with
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>
    * 			to track the progress and completion of the action. If the request doesn't complete successfully, the domain registrant will be notified by email.</p>
@@ -1165,7 +1271,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
-   * <p>Returns all the domain-related billing records for the current AWS account for a specified period</p>
+   * <p>Returns all the domain-related billing records for the current Amazon Web Services account for a specified period</p>
    */
   public viewBilling(args: ViewBillingCommandInput, options?: __HttpHandlerOptions): Promise<ViewBillingCommandOutput>;
   public viewBilling(args: ViewBillingCommandInput, cb: (err: any, data?: ViewBillingCommandOutput) => void): void;

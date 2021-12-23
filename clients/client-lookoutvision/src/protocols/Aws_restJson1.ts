@@ -28,9 +28,17 @@ import { DeleteModelCommandInput, DeleteModelCommandOutput } from "../commands/D
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "../commands/DeleteProjectCommand";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "../commands/DescribeDatasetCommand";
 import { DescribeModelCommandInput, DescribeModelCommandOutput } from "../commands/DescribeModelCommand";
+import {
+  DescribeModelPackagingJobCommandInput,
+  DescribeModelPackagingJobCommandOutput,
+} from "../commands/DescribeModelPackagingJobCommand";
 import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "../commands/DescribeProjectCommand";
 import { DetectAnomaliesCommandInput, DetectAnomaliesCommandOutput } from "../commands/DetectAnomaliesCommand";
 import { ListDatasetEntriesCommandInput, ListDatasetEntriesCommandOutput } from "../commands/ListDatasetEntriesCommand";
+import {
+  ListModelPackagingJobsCommandInput,
+  ListModelPackagingJobsCommandOutput,
+} from "../commands/ListModelPackagingJobsCommand";
 import { ListModelsCommandInput, ListModelsCommandOutput } from "../commands/ListModelsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "../commands/ListProjectsCommand";
 import {
@@ -38,6 +46,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { StartModelCommandInput, StartModelCommandOutput } from "../commands/StartModelCommand";
+import {
+  StartModelPackagingJobCommandInput,
+  StartModelPackagingJobCommandOutput,
+} from "../commands/StartModelPackagingJobCommand";
 import { StopModelCommandInput, StopModelCommandOutput } from "../commands/StopModelCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -54,11 +66,17 @@ import {
   DatasetMetadata,
   DatasetSource,
   DetectAnomalyResult,
+  GreengrassConfiguration,
+  GreengrassOutputDetails,
   ImageSource,
   InputS3Object,
   InternalServerException,
   ModelDescription,
   ModelMetadata,
+  ModelPackagingConfiguration,
+  ModelPackagingDescription,
+  ModelPackagingJobMetadata,
+  ModelPackagingOutputDetails,
   ModelPerformance,
   OutputConfig,
   OutputS3Object,
@@ -68,6 +86,7 @@ import {
   S3Location,
   ServiceQuotaExceededException,
   Tag,
+  TargetPlatform,
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
@@ -368,6 +387,45 @@ export const serializeAws_restJson1DescribeModelCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeModelPackagingJobCommand = async (
+  input: DescribeModelPackagingJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-11-20/projects/{ProjectName}/modelpackagingjobs/{JobName}";
+  if (input.ProjectName !== undefined) {
+    const labelValue: string = input.ProjectName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ProjectName.");
+    }
+    resolvedPath = resolvedPath.replace("{ProjectName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ProjectName.");
+  }
+  if (input.JobName !== undefined) {
+    const labelValue: string = input.JobName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: JobName.");
+    }
+    resolvedPath = resolvedPath.replace("{JobName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: JobName.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeProjectCommand = async (
   input: DescribeProjectCommandInput,
   context: __SerdeContext
@@ -481,6 +539,41 @@ export const serializeAws_restJson1ListDatasetEntriesCommand = async (
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.SourceRefContains !== undefined && { sourceRefContains: input.SourceRefContains }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListModelPackagingJobsCommand = async (
+  input: ListModelPackagingJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-11-20/projects/{ProjectName}/modelpackagingjobs";
+  if (input.ProjectName !== undefined) {
+    const labelValue: string = input.ProjectName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ProjectName.");
+    }
+    resolvedPath = resolvedPath.replace("{ProjectName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ProjectName.");
+  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   return new __HttpRequest({
@@ -616,6 +709,48 @@ export const serializeAws_restJson1StartModelCommand = async (
   body = JSON.stringify({
     ...(input.MinInferenceUnits !== undefined &&
       input.MinInferenceUnits !== null && { MinInferenceUnits: input.MinInferenceUnits }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartModelPackagingJobCommand = async (
+  input: StartModelPackagingJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.ClientToken) && { "x-amzn-client-token": input.ClientToken! }),
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-11-20/projects/{ProjectName}/modelpackagingjobs";
+  if (input.ProjectName !== undefined) {
+    const labelValue: string = input.ProjectName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ProjectName.");
+    }
+    resolvedPath = resolvedPath.replace("{ProjectName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ProjectName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Configuration !== undefined &&
+      input.Configuration !== null && {
+        Configuration: serializeAws_restJson1ModelPackagingConfiguration(input.Configuration, context),
+      }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
+    ...(input.ModelVersion !== undefined && input.ModelVersion !== null && { ModelVersion: input.ModelVersion }),
   });
   return new __HttpRequest({
     protocol,
@@ -1562,6 +1697,96 @@ const deserializeAws_restJson1DescribeModelCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeModelPackagingJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeModelPackagingJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeModelPackagingJobCommandError(output, context);
+  }
+  const contents: DescribeModelPackagingJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ModelPackagingDescription: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ModelPackagingDescription !== undefined && data.ModelPackagingDescription !== null) {
+    contents.ModelPackagingDescription = deserializeAws_restJson1ModelPackagingDescription(
+      data.ModelPackagingDescription,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeModelPackagingJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeModelPackagingJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutvision#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.lookoutvision#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutvision#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutvision#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.lookoutvision#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribeProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1798,6 +2023,97 @@ const deserializeAws_restJson1ListDatasetEntriesCommandError = async (
     case "com.amazonaws.lookoutvision#ConflictException":
       response = {
         ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.lookoutvision#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutvision#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutvision#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.lookoutvision#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListModelPackagingJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelPackagingJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListModelPackagingJobsCommandError(output, context);
+  }
+  const contents: ListModelPackagingJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ModelPackagingJobs: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ModelPackagingJobs !== undefined && data.ModelPackagingJobs !== null) {
+    contents.ModelPackagingJobs = deserializeAws_restJson1ModelPackagingJobsList(data.ModelPackagingJobs, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListModelPackagingJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelPackagingJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutvision#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2166,6 +2482,109 @@ const deserializeAws_restJson1StartModelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartModelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutvision#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.lookoutvision#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.lookoutvision#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutvision#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lookoutvision#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutvision#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.lookoutvision#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1StartModelPackagingJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartModelPackagingJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartModelPackagingJobCommandError(output, context);
+  }
+  const contents: StartModelPackagingJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    JobName: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.JobName !== undefined && data.JobName !== null) {
+    contents.JobName = __expectString(data.JobName);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartModelPackagingJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartModelPackagingJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2813,11 +3232,49 @@ const serializeAws_restJson1DatasetSource = (input: DatasetSource, context: __Se
   };
 };
 
+const serializeAws_restJson1GreengrassConfiguration = (
+  input: GreengrassConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CompilerOptions !== undefined &&
+      input.CompilerOptions !== null && { CompilerOptions: input.CompilerOptions }),
+    ...(input.ComponentDescription !== undefined &&
+      input.ComponentDescription !== null && { ComponentDescription: input.ComponentDescription }),
+    ...(input.ComponentName !== undefined && input.ComponentName !== null && { ComponentName: input.ComponentName }),
+    ...(input.ComponentVersion !== undefined &&
+      input.ComponentVersion !== null && { ComponentVersion: input.ComponentVersion }),
+    ...(input.S3OutputLocation !== undefined &&
+      input.S3OutputLocation !== null && {
+        S3OutputLocation: serializeAws_restJson1S3Location(input.S3OutputLocation, context),
+      }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.TargetDevice !== undefined && input.TargetDevice !== null && { TargetDevice: input.TargetDevice }),
+    ...(input.TargetPlatform !== undefined &&
+      input.TargetPlatform !== null && {
+        TargetPlatform: serializeAws_restJson1TargetPlatform(input.TargetPlatform, context),
+      }),
+  };
+};
+
 const serializeAws_restJson1InputS3Object = (input: InputS3Object, context: __SerdeContext): any => {
   return {
     ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
     ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
     ...(input.VersionId !== undefined && input.VersionId !== null && { VersionId: input.VersionId }),
+  };
+};
+
+const serializeAws_restJson1ModelPackagingConfiguration = (
+  input: ModelPackagingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Greengrass !== undefined &&
+      input.Greengrass !== null && {
+        Greengrass: serializeAws_restJson1GreengrassConfiguration(input.Greengrass, context),
+      }),
   };
 };
 
@@ -2851,6 +3308,14 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
       }
       return serializeAws_restJson1Tag(entry, context);
     });
+};
+
+const serializeAws_restJson1TargetPlatform = (input: TargetPlatform, context: __SerdeContext): any => {
+  return {
+    ...(input.Accelerator !== undefined && input.Accelerator !== null && { Accelerator: input.Accelerator }),
+    ...(input.Arch !== undefined && input.Arch !== null && { Arch: input.Arch }),
+    ...(input.Os !== undefined && input.Os !== null && { Os: input.Os }),
+  };
 };
 
 const deserializeAws_restJson1DatasetDescription = (output: any, context: __SerdeContext): DatasetDescription => {
@@ -2928,6 +3393,42 @@ const deserializeAws_restJson1DetectAnomalyResult = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_restJson1GreengrassConfiguration = (
+  output: any,
+  context: __SerdeContext
+): GreengrassConfiguration => {
+  return {
+    CompilerOptions: __expectString(output.CompilerOptions),
+    ComponentDescription: __expectString(output.ComponentDescription),
+    ComponentName: __expectString(output.ComponentName),
+    ComponentVersion: __expectString(output.ComponentVersion),
+    S3OutputLocation:
+      output.S3OutputLocation !== undefined && output.S3OutputLocation !== null
+        ? deserializeAws_restJson1S3Location(output.S3OutputLocation, context)
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagList(output.Tags, context)
+        : undefined,
+    TargetDevice: __expectString(output.TargetDevice),
+    TargetPlatform:
+      output.TargetPlatform !== undefined && output.TargetPlatform !== null
+        ? deserializeAws_restJson1TargetPlatform(output.TargetPlatform, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GreengrassOutputDetails = (
+  output: any,
+  context: __SerdeContext
+): GreengrassOutputDetails => {
+  return {
+    ComponentName: __expectString(output.ComponentName),
+    ComponentVersion: __expectString(output.ComponentVersion),
+    ComponentVersionArn: __expectString(output.ComponentVersionArn),
+  } as any;
+};
+
 const deserializeAws_restJson1ImageSource = (output: any, context: __SerdeContext): ImageSource => {
   return {
     Type: __expectString(output.Type),
@@ -2996,6 +3497,98 @@ const deserializeAws_restJson1ModelMetadataList = (output: any, context: __Serde
       }
       return deserializeAws_restJson1ModelMetadata(entry, context);
     });
+};
+
+const deserializeAws_restJson1ModelPackagingConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ModelPackagingConfiguration => {
+  return {
+    Greengrass:
+      output.Greengrass !== undefined && output.Greengrass !== null
+        ? deserializeAws_restJson1GreengrassConfiguration(output.Greengrass, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ModelPackagingDescription = (
+  output: any,
+  context: __SerdeContext
+): ModelPackagingDescription => {
+  return {
+    CreationTimestamp:
+      output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
+        : undefined,
+    JobName: __expectString(output.JobName),
+    LastUpdatedTimestamp:
+      output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
+        : undefined,
+    ModelPackagingConfiguration:
+      output.ModelPackagingConfiguration !== undefined && output.ModelPackagingConfiguration !== null
+        ? deserializeAws_restJson1ModelPackagingConfiguration(output.ModelPackagingConfiguration, context)
+        : undefined,
+    ModelPackagingJobDescription: __expectString(output.ModelPackagingJobDescription),
+    ModelPackagingMethod: __expectString(output.ModelPackagingMethod),
+    ModelPackagingOutputDetails:
+      output.ModelPackagingOutputDetails !== undefined && output.ModelPackagingOutputDetails !== null
+        ? deserializeAws_restJson1ModelPackagingOutputDetails(output.ModelPackagingOutputDetails, context)
+        : undefined,
+    ModelVersion: __expectString(output.ModelVersion),
+    ProjectName: __expectString(output.ProjectName),
+    Status: __expectString(output.Status),
+    StatusMessage: __expectString(output.StatusMessage),
+  } as any;
+};
+
+const deserializeAws_restJson1ModelPackagingJobMetadata = (
+  output: any,
+  context: __SerdeContext
+): ModelPackagingJobMetadata => {
+  return {
+    CreationTimestamp:
+      output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTimestamp)))
+        : undefined,
+    JobName: __expectString(output.JobName),
+    LastUpdatedTimestamp:
+      output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
+        : undefined,
+    ModelPackagingJobDescription: __expectString(output.ModelPackagingJobDescription),
+    ModelPackagingMethod: __expectString(output.ModelPackagingMethod),
+    ModelVersion: __expectString(output.ModelVersion),
+    ProjectName: __expectString(output.ProjectName),
+    Status: __expectString(output.Status),
+    StatusMessage: __expectString(output.StatusMessage),
+  } as any;
+};
+
+const deserializeAws_restJson1ModelPackagingJobsList = (
+  output: any,
+  context: __SerdeContext
+): ModelPackagingJobMetadata[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ModelPackagingJobMetadata(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ModelPackagingOutputDetails = (
+  output: any,
+  context: __SerdeContext
+): ModelPackagingOutputDetails => {
+  return {
+    Greengrass:
+      output.Greengrass !== undefined && output.Greengrass !== null
+        ? deserializeAws_restJson1GreengrassOutputDetails(output.Greengrass, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1ModelPerformance = (output: any, context: __SerdeContext): ModelPerformance => {
@@ -3082,6 +3675,14 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_restJson1Tag(entry, context);
     });
+};
+
+const deserializeAws_restJson1TargetPlatform = (output: any, context: __SerdeContext): TargetPlatform => {
+  return {
+    Accelerator: __expectString(output.Accelerator),
+    Arch: __expectString(output.Arch),
+    Os: __expectString(output.Os),
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

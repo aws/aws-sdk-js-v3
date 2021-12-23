@@ -25,31 +25,10 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  * <p>Retrieves the contents of the encrypted fields <code>SecretString</code> or
  *         <code>SecretBinary</code> from the specified version of a secret, whichever contains
  *       content.</p>
- *          <p>
- *             <b>Minimum permissions</b>
- *          </p>
- *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
- *             <li>
- *                <p>secretsmanager:GetSecretValue</p>
- *             </li>
- *             <li>
- *                <p>kms:Decrypt - required only if you use a customer-managed Amazon Web Services KMS key to encrypt the
- *           secret. You do not need this permission to use the account's default Amazon Web Services managed CMK for
- *           Secrets Manager.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Related operations</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>To create a new version of the secret with different encrypted information, use <a>PutSecretValue</a>.</p>
- *             </li>
- *             <li>
- *                <p>To retrieve the non-encrypted details for the secret, use <a>DescribeSecret</a>.</p>
- *             </li>
- *          </ul>
+ *          <p>For information about retrieving the secret value in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html">Retrieve secrets</a>. </p>
+ *          <p>To run this command, you must have <code>secretsmanager:GetSecretValue</code> permissions.
+ *       If the secret is encrypted using a customer-managed key instead of the Amazon Web Services managed key
+ *       <code>aws/secretsmanager</code>, then you also need <code>kms:Decrypt</code> permissions for that key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

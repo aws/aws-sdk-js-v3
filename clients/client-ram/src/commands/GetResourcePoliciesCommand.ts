@@ -22,7 +22,8 @@ export interface GetResourcePoliciesCommandInput extends GetResourcePoliciesRequ
 export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the policies for the specified resources that you own and have shared.</p>
+ * <p>Retrieves the resource policies for the specified resources that you own and have
+ *             shared.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
