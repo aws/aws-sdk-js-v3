@@ -30,9 +30,7 @@ export type QueryCommandInput = Omit<
 };
 
 export type QueryCommandOutput = Omit<__QueryCommandOutput, "Items" | "LastEvaluatedKey"> & {
-  Items?: {
-    [key: string]: NativeAttributeValue;
-  }[];
+  Items?: { [key: string]: NativeAttributeValue }[];
   LastEvaluatedKey?: { [key: string]: NativeAttributeValue };
 };
 

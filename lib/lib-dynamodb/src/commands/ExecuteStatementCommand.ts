@@ -15,9 +15,7 @@ export type ExecuteStatementCommandInput = Omit<__ExecuteStatementCommandInput, 
 };
 
 export type ExecuteStatementCommandOutput = Omit<__ExecuteStatementCommandOutput, "Items"> & {
-  Items?: {
-    [key: string]: NativeAttributeValue;
-  }[];
+  Items?: { [key: string]: NativeAttributeValue }[];
 };
 
 /**

@@ -15,29 +15,17 @@ export type BatchGetCommandInput = Omit<__BatchGetItemCommandInput, "RequestItem
   RequestItems:
     | {
         [key: string]: Omit<KeysAndAttributes, "Keys"> & {
-          Keys:
-            | {
-                [key: string]: NativeAttributeValue;
-              }[]
-            | undefined;
+          Keys: { [key: string]: NativeAttributeValue }[] | undefined;
         };
       }
     | undefined;
 };
 
 export type BatchGetCommandOutput = Omit<__BatchGetItemCommandOutput, "Responses" | "UnprocessedKeys"> & {
-  Responses?: {
-    [key: string]: {
-      [key: string]: NativeAttributeValue;
-    }[];
-  };
+  Responses?: { [key: string]: { [key: string]: NativeAttributeValue }[] };
   UnprocessedKeys?: {
     [key: string]: Omit<KeysAndAttributes, "Keys"> & {
-      Keys:
-        | {
-            [key: string]: NativeAttributeValue;
-          }[]
-        | undefined;
+      Keys: { [key: string]: NativeAttributeValue }[] | undefined;
     };
   };
 };
