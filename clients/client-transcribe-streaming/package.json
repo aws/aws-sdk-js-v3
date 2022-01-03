@@ -12,8 +12,6 @@
     "clean:dist": "rimraf ./dist",
     "clean:docs": "rimraf ./docs",
     "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
-    "pretest": "yarn build",
-    "test": "jest --coverage --passWithNoTests",
     "test:integration": "jest --config jest.integ.config.js"
   },
   "main": "./dist-cjs/index.js",
