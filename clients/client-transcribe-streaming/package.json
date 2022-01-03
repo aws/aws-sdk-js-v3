@@ -61,7 +61,6 @@
     "@aws-sdk/service-client-documentation-generator": "3.38.0",
     "@types/node": "^12.7.5",
     "downlevel-dts": "0.7.0",
-    "jest": "^26.1.0",
     "rimraf": "^3.0.0",
     "ts-jest": "^26.4.1",
     "typedoc": "^0.19.2",

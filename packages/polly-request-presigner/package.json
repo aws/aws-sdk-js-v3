@@ -29,7 +29,6 @@
   "devDependencies": {
     "@aws-sdk/hash-node": "3.40.0",
     "@types/node": "^12.0.2",
-    "jest": "^26.1.0",
     "typescript": "~4.3.5"
   },
   "engines": {

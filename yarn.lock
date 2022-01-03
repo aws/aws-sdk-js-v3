@@ -58,12 +58,12 @@
     tslib "^1.11.1"
 
 "@aws-sdk/client-sts@file:clients/client-sts":
-  version "3.43.0"
+  version "3.45.0"
   dependencies:
     "@aws-crypto/sha256-browser" "2.0.0"
     "@aws-crypto/sha256-js" "2.0.0"
-    "@aws-sdk/config-resolver" "3.40.0"
-    "@aws-sdk/credential-provider-node" "3.41.0"
+    "@aws-sdk/config-resolver" "3.45.0"
+    "@aws-sdk/credential-provider-node" "3.45.0"
     "@aws-sdk/fetch-http-handler" "3.40.0"
     "@aws-sdk/hash-node" "3.40.0"
     "@aws-sdk/invalid-dependency" "3.40.0"
@@ -71,9 +71,9 @@
     "@aws-sdk/middleware-host-header" "3.40.0"
     "@aws-sdk/middleware-logger" "3.40.0"
     "@aws-sdk/middleware-retry" "3.40.0"
-    "@aws-sdk/middleware-sdk-sts" "3.40.0"
+    "@aws-sdk/middleware-sdk-sts" "3.45.0"
     "@aws-sdk/middleware-serde" "3.40.0"
-    "@aws-sdk/middleware-signing" "3.40.0"
+    "@aws-sdk/middleware-signing" "3.45.0"
     "@aws-sdk/middleware-stack" "3.40.0"
     "@aws-sdk/middleware-user-agent" "3.40.0"
     "@aws-sdk/node-config-provider" "3.40.0"
@@ -7552,7 +7552,7 @@ jest-worker@^27.0.2:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
-jest@^26.1.0, jest@^26.4.2:
+jest@^26.1.0:
   version "26.6.3"
   resolved "https://registry.yarnpkg.com/jest/-/jest-26.6.3.tgz#40e8fdbe48f00dfa1f0ce8121ca74b88ac9148ef"
   integrity sha512-lGS5PXGAzR4RF7V5+XObhqz2KZIDUA1yD0DG6pBVmy10eh0ZIXQImRuzocsI/N2XZ1GrLFwTS27In2i2jlpq1Q==
