@@ -11,8 +11,7 @@
     "clean": "yarn clean:dist && yarn clean:docs",
     "clean:dist": "rimraf ./dist",
     "clean:docs": "rimraf ./docs",
-    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
-    "test": "jest --coverage --passWithNoTests"
+    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",
