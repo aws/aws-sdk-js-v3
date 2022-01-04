@@ -1,13 +1,11 @@
+import { Decoder, Encoder, EventSigner, FinalizeHandler, FinalizeHandlerArguments, HttpRequest } from "@aws-sdk/types";
 import { once } from "events";
 import { PassThrough, Readable } from "stream";
 
-const mockSingingStream = jest.fn().mockImplementation(() => new PassThrough());
-jest.mock("./EventSigningStream", () => ({
-  EventSigningStream: mockSingingStream,
-}));
-import { Decoder, Encoder, EventSigner, FinalizeHandler, FinalizeHandlerArguments, HttpRequest } from "@aws-sdk/types";
-
+import { EventSigningStream } from "./EventSigningStream";
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
+
+jest.mock("./EventSigningStream");
 
 describe("EventStreamPayloadHandler", () => {
   const mockSigner: EventSigner = {
@@ -18,6 +16,7 @@ describe("EventStreamPayloadHandler", () => {
   const mockNextHandler: FinalizeHandler<any, any> = jest.fn();
 
   beforeEach(() => {
+    (EventSigningStream as unknown as jest.Mock).mockImplementation(() => new PassThrough());
     jest.clearAllMocks();
   });
 
@@ -36,24 +35,24 @@ describe("EventStreamPayloadHandler", () => {
   });
 
   it("should close the request payload if downstream middleware throws", async () => {
-    expect.assertions(2);
-    (mockNextHandler as any).mockImplementationOnce(() => Promise.reject(new Error()));
+    const mockError = new Error("mockError");
+    (mockNextHandler as any).mockImplementationOnce(() => Promise.reject(mockError));
     const handler = new EventStreamPayloadHandler({
       eventSigner: () => Promise.resolve(mockSigner),
       utf8Decoder: mockUtf8Decoder,
       utf8Encoder: mockUtf8encoder,
     });
     const mockRequest = { body: new Readable() } as HttpRequest;
-    let error;
+
     try {
       await handler.handle(mockNextHandler, {
         request: mockRequest,
         input: {},
       });
-    } catch (e) {
-      error = e;
+      fail(`Expected ${mockError} to be thrown.`);
+    } catch (error) {
+      expect(error).toBe(mockError);
     }
-    expect(error instanceof Error).toBe(true);
 
     // Expect stream is closed
     // Ref: should use writableEnded when bumped to Node 13+
@@ -66,23 +65,31 @@ describe("EventStreamPayloadHandler", () => {
   });
 
   it("should call event signer with request signature from signing middleware", async () => {
-    const authorization =
-      "AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=1234567890";
+    const priorSignature = "1234567890";
+    const authorization = `AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=${priorSignature}`;
+
     const mockRequest = {
       body: new PassThrough(),
       headers: { authorization },
     } as any;
+
     const handler = new EventStreamPayloadHandler({
       eventSigner: () => Promise.resolve(mockSigner),
       utf8Decoder: mockUtf8Decoder,
       utf8Encoder: mockUtf8encoder,
     });
+
     await handler.handle(mockNextHandler, {
       request: mockRequest,
       input: {},
     });
-    expect(mockSingingStream.mock.calls.length).toBe(1);
-    expect(mockSingingStream.mock.calls[0][0].priorSignature).toBe("1234567890");
+
+    expect(EventSigningStream).toHaveBeenCalledTimes(1);
+    expect(EventSigningStream).toHaveBeenCalledWith({
+      priorSignature,
+      eventMarshaller: expect.anything(),
+      eventSigner: expect.anything(),
+    });
   });
 
   it("should start piping to request payload through event signer if downstream middleware returns", async () => {
