@@ -62,7 +62,7 @@ describe("EventStreamPayloadHandler", () => {
     });
 
     mockRequest.body.write("This should be allowed to write.");
-    await once(mockRequest.body, "error");
+    return await once(mockRequest.body, "error");
   });
 
   it("should call event signer with request signature from signing middleware", async () => {
