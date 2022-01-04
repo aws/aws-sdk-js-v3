@@ -43,6 +43,7 @@ describe(EventStreamPayloadHandler.name, () => {
   it("should close the request payload if downstream middleware throws", async () => {
     const mockError = new Error("mockError");
     (mockNextHandler as any).mockImplementationOnce(() => Promise.reject(mockError));
+
     const handler = new EventStreamPayloadHandler({
       eventSigner: () => Promise.resolve(mockSigner),
       utf8Decoder: mockUtf8Decoder,
@@ -61,13 +62,7 @@ describe(EventStreamPayloadHandler.name, () => {
     }
 
     // Expect stream is closed
-    // Ref: should use writableEnded when bumped to Node 13+
-    (mockRequest.body as PassThrough).on("error", (err) => {
-      expect(err.message).toEqual("write after end");
-    });
-
-    mockRequest.body.write("This should be allowed to write.");
-    return await once(mockRequest.body, "error");
+    expect(mockRequest.body.writableEnded).toEqual(true);
   });
 
   it("should call event signer with request signature from signing middleware", async () => {
