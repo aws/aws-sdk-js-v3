@@ -19,8 +19,6 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@aws-sdk/types": "3.40.0",
-    "@types/jest": "^26.0.4",
-    "jest": "^26.1.0",
     "typescript": "~4.3.5"
   },
   "engines": {

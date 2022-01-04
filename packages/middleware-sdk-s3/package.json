@@ -32,8 +32,6 @@
   },
   "devDependencies": {
     "@aws-sdk/signature-v4-crt": "3.45.0",
-    "@types/jest": "^26.0.4",
-    "jest": "^26.1.0",
     "typescript": "~4.3.5"
   },
   "peerDependencies": {

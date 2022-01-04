@@ -22,8 +22,6 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.4",
-    "jest": "^26.1.0",
     "typescript": "~4.3.5"
   },
   "typesVersions": {

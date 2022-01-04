@@ -24,8 +24,6 @@
   },
   "devDependencies": {
     "@aws-sdk/util-utf8-node": "3.37.0",
-    "@types/jest": "^26.0.4",
-    "jest": "^26.1.0",
     "typescript": "~4.3.5"
   },
   "engines": {
