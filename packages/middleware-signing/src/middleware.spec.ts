@@ -73,12 +73,12 @@ describe(awsAuthMiddleware.name, () => {
   });
 
   describe("should update systemClockOffset if date header is present", () => {
-    it.each(["date", "Date"])("header[%s]", async (headerName) => {
+    it.each(["date", "Date"])("header '%s'", async (headerName) => {
       const dateHeader = new Date().toString();
       const options = { ...mockOptions };
       const signingHandler = awsAuthMiddleware(options)(mockNext, {});
 
-      const mockResponseWithDateHeader = { response: { headers: { [headerName]: dateHeader } } };
+      const mockResponseWithDateHeader = { response: { headers: { [headerName]: dateHeader }, statusCode: 200 } };
       mockNext.mockResolvedValue(mockResponseWithDateHeader);
 
       const output = await signingHandler(mockSigningHandlerArgs);
@@ -87,6 +87,28 @@ describe(awsAuthMiddleware.name, () => {
       expect(options.systemClockOffset).toBe(mockUpdatedSystemClockOffset);
       expect(getUpdatedSystemClockOffset).toHaveBeenCalledTimes(1);
       expect(getUpdatedSystemClockOffset).toHaveBeenCalledWith(dateHeader, mockSystemClockOffset);
+    });
+
+    it.each(["date", "Date"])("error response with header '%s'", async (headerName) => {
+      const serverTime = new Date().toString();
+      const options = { ...mockOptions };
+      const signingHandler = awsAuthMiddleware(options)(mockNext, {});
+
+      const mockError = Object.assign(new Error("error"), {
+        $response: { statusCode: 400, headers: { [headerName]: serverTime } },
+      });
+      mockNext.mockRejectedValue(mockError);
+
+      try {
+        await signingHandler(mockSigningHandlerArgs);
+        fail(`should throw ${mockError}`);
+      } catch (error) {
+        expect(error).toStrictEqual(mockError);
+      }
+
+      expect(options.systemClockOffset).toBe(mockUpdatedSystemClockOffset);
+      expect(getUpdatedSystemClockOffset).toHaveBeenCalledTimes(1);
+      expect(getUpdatedSystemClockOffset).toHaveBeenCalledWith(serverTime, mockSystemClockOffset);
     });
   });
 

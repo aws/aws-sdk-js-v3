@@ -1,3 +1,4 @@
+import { HttpResponse } from "./http";
 import { MetadataBearer } from "./response";
 
 /**
@@ -45,6 +46,11 @@ export interface SmithyException {
    * Indicates that an error MAY be retried by the client.
    */
   readonly $retryable?: RetryableTrait;
+
+  /**
+   * Reference to low-level HTTP response object.
+   */
+  readonly $response?: HttpResponse;
 }
 
 export type SdkError = Error & Partial<SmithyException> & Partial<MetadataBearer>;

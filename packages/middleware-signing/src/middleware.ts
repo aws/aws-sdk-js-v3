@@ -1,4 +1,4 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import {
   FinalizeHandler,
   FinalizeHandlerArguments,
@@ -29,20 +29,23 @@ export const awsAuthMiddleware =
           signingService: context["signing_service"],
         }),
       }).catch((error) => {
-        if (error.ServerTime) {
-          options.systemClockOffset = getUpdatedSystemClockOffset(error.ServerTime, options.systemClockOffset);
+        const serverTime: string | undefined = error.ServerTime ?? getDateHeader(error.$response);
+        if (serverTime) {
+          options.systemClockOffset = getUpdatedSystemClockOffset(serverTime, options.systemClockOffset);
         }
         throw error;
       });
 
-      const { headers } = output.response as any;
-      const dateHeader = headers && (headers.date || headers.Date);
+      const dateHeader = getDateHeader(output.response);
       if (dateHeader) {
         options.systemClockOffset = getUpdatedSystemClockOffset(dateHeader, options.systemClockOffset);
       }
 
       return output;
     };
+
+const getDateHeader = (response: unknown): string | undefined =>
+  HttpResponse.isInstance(response) ? response.headers?.date ?? response.headers?.Date : undefined;
 
 export const awsAuthMiddlewareOptions: RelativeMiddlewareOptions = {
   name: "awsAuthMiddleware",
