@@ -22,9 +22,7 @@
     "@aws-sdk/types": "3.40.0",
     "tslib": "^2.3.0"
   },
-  "devDependencies": {
-    "typescript": "~4.3.5"
-  },
+  "devDependencies": {},
   "typesVersions": {
     "<4.0": {
       "dist-types/*": [

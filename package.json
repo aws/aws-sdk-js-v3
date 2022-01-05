@@ -50,7 +50,6 @@
   "license": "UNLICENSED",
   "dependencies": {
     "glob": "^7.1.6",
-    "rimraf": "^3.0.2",
     "yargs": "^15.1.0"
   },
   "devDependencies": {
@@ -98,12 +97,14 @@
     "mocha": "^8.0.1",
     "prettier": "2.5.1",
     "puppeteer": "^5.1.0",
+    "rimraf": "3.0.2",
     "strip-comments": "2.0.1",
     "ts-jest": "27.1.2",
     "ts-loader": "^7.0.5",
     "ts-mocha": "8.0.0",
     "ts-node": "^10.4.0",
-    "typedoc-plugin-lerna-packages": "^0.3.1",
+    "typedoc": "0.19.2",
+    "typedoc-plugin-lerna-packages": "0.3.1",
     "typescript": "~4.3.5",
     "verdaccio": "^4.7.2",
     "webpack": "^4.43.0",

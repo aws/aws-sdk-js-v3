@@ -20,9 +20,7 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "devDependencies": {
-    "typescript": "~4.3.5"
-  },
+  "devDependencies": {},
   "typesVersions": {
     "<4.0": {
       "dist-types/*": [

@@ -7,9 +7,7 @@
     "@aws-sdk/types": "3.40.0",
     "tslib": "^2.3.0"
   },
-  "devDependencies": {
-    "typescript": "~4.3.5"
-  },
+  "devDependencies": {},
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",

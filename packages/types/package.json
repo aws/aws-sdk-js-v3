@@ -5,9 +5,7 @@
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "description": "Types for the AWS SDK",
-  "devDependencies": {
-    "typescript": "~4.3.5"
-  },
+  "devDependencies": {},
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
