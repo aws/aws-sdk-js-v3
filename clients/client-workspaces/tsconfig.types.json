@@ -1,10 +1,10 @@
 {
-  "extends": "./tsconfig",
   "compilerOptions": {
-    "removeComments": false,
-    "declaration": true,
-    "declarationDir": "dist-types",
-    "emitDeclarationOnly": true
+    "baseUrl": ".",
+    "rootDir": "src",
+    "declarationDir": "dist-types"
   },
-  "exclude": ["test/**/*", "dist-types/**/*"]
+  "exclude": ["test/**/*", "dist-types/**/*"],
+  "extends": "../../tsconfig.types.json",
+  "include": ["src/"]
 }
