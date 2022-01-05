@@ -1,14 +1,3 @@
 {
-  "exclude": ["**/node_modules/**", "**/*.spec.ts", "**/protocols/*.ts", "**/e2e/*.ts", "**/endpoints.ts"],
-  "excludeNotExported": true,
-  "excludePrivate": true,
-  "hideGenerator": true,
-  "ignoreCompilerErrors": true,
-  "includeDeclarations": true,
-  "stripInternal": true,
-  "readme": "README.md",
-  "mode": "file",
-  "out": "docs",
-  "theme": "minimal",
-  "plugin": ["@aws-sdk/service-client-documentation-generator"]
+  "extends": "../../typedoc.client.json"
 }
