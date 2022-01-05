@@ -34,7 +34,9 @@
     "@aws-sdk/types": "3.40.0",
     "tslib": "^2.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^10.0.0"
+  },
   "types": "./dist-types/index.d.ts",
   "engines": {
     "node": ">= 10.0.0"

@@ -23,7 +23,9 @@
     "@aws-sdk/credential-provider-node": "3.45.0",
     "tslib": "^2.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^10.0.0"
+  },
   "engines": {
     "node": ">= 10.0.0"
   },

@@ -34,6 +34,7 @@
   "devDependencies": {
     "@aws-sdk/abort-controller": "3.40.0",
     "@aws-sdk/client-s3": "3.45.0",
+    "@types/node": "^14.11.2",
     "jasmine-core": "^3.6.0",
     "karma": "^5.2.3",
     "karma-chrome-launcher": "^3.1.0",

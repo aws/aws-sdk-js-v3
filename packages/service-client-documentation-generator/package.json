@@ -23,7 +23,9 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^10.0.0"
+  },
   "typesVersions": {
     "<4.0": {
       "dist-types/*": [

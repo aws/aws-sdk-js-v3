@@ -18,7 +18,9 @@
     "@aws-sdk/is-array-buffer": "3.37.0",
     "tslib": "^2.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^10.0.0"
+  },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
