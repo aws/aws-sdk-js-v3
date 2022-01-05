@@ -37,8 +37,8 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
     if (fromContent[name].constructor.name === "Object") {
       if (name === "devDependencies") {
         // Remove devDeps defined in monorepo root
-        const devDepsDefinedInMonorepoRoot = ["downlevel-dts", "prettier", "typedoc"];
-        devDepsDefinedInMonorepoRoot.forEach((devDep) => delete fromContent[name][devDep]);
+        const devDepsInRoot = ["downlevel-dts", "rimraf", "typedoc", "typescript"];
+        devDepsInRoot.forEach((devDep) => delete fromContent[name][devDep]);
       }
       merged[name] = mergeManifest(fromContent[name], toContent[name]);
       if (name === "scripts" || name === "devDependencies") {
