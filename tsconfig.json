@@ -10,9 +10,9 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@aws-sdk/*": ["packages/*/src"],
-      "@aws-sdk/client-*": ["clients/client-*/"],
-      "@aws-sdk/aws-*": ["private/aws-*/"],
-      "@aws-sdk/lib-*": ["lib/*"]
+      "@aws-sdk/client-*": ["clients/client-*/src"],
+      "@aws-sdk/aws-*": ["private/aws-*/src"],
+      "@aws-sdk/lib-*": ["lib/lib-*/src"]
     },
     "preserveConstEnums": true,
     "removeComments": true,
