@@ -17,9 +17,7 @@
   "license": "Apache-2.0",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
-  "devDependencies": {
-    "typescript": "~4.3.5"
-  },
+  "devDependencies": {},
   "types": "./dist-types/index.d.ts",
   "dependencies": {
     "tslib": "^2.3.0"

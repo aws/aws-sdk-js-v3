@@ -75,8 +75,7 @@
     "@types/mocha": "^8.0.4",
     "@types/node": "^12.7.5",
     "downlevel-dts": "0.7.0",
-    "rimraf": "^3.0.0",
-    "typescript": "~4.3.5"
+    "rimraf": "^3.0.0"
   },
   "engines": {
     "node": ">=12.0.0"
