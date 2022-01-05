@@ -20,18 +20,5 @@
     "target": "es5"
   },
   "include": ["packages/", "lib/"],
-  "exclude": ["node_modules/", "**/*.spec.ts"],
-  "typedocOptions": {
-    "readme": "README.md",
-    "mode": "modules",
-    "out": "docs",
-    "exclude": ["**/node_modules/**", "**/*.spec.ts"],
-    "excludeExternals": true,
-    "name": "AWS SDK for JavaScript v3",
-    "ignoreCompilerErrors": true,
-    "theme": "minimal",
-    "hideGenerator": true,
-    "clientDocs": "clients/{{CLIENT}}/docs",
-    "plugin": ["typedoc-plugin-lerna-packages", "@aws-sdk/core-packages-documentation-generator"]
-  }
+  "exclude": ["node_modules/", "**/*.spec.ts"]
 }
