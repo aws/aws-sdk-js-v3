@@ -5,7 +5,7 @@
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.json",
-    "build:docs": "yarn clean:docs && typedoc ./",
+    "build:docs": "typedoc",
     "build:es": "tsc -p tsconfig.es.json",
     "build:types": "tsc -p tsconfig.types.json",
     "clean": "yarn clean:dist && yarn clean:docs",
