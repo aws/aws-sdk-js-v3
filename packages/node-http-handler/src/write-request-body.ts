@@ -22,6 +22,7 @@ function writeBody(
     // pipe automatically handles end
     body.pipe(httpRequest);
   } else if (body) {
+    // @ts-ignore Argument of type is not assignable
     httpRequest.end(Buffer.from(body));
   } else {
     httpRequest.end();
