@@ -35,6 +35,11 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
   const merged = {};
   for (const name of Object.keys(fromContent)) {
     if (fromContent[name].constructor.name === "Object") {
+      if (name === "devDependencies") {
+        // Remove devDeps defined in monorepo root
+        const devDepsInRoot = ["downlevel-dts", "rimraf", "typedoc", "typescript"];
+        devDepsInRoot.forEach((devDep) => delete fromContent[name][devDep]);
+      }
       merged[name] = mergeManifest(fromContent[name], toContent[name]);
       if (name === "scripts" || name === "devDependencies") {
         // Allow target package.json(toContent) has its own special script or
