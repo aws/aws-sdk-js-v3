@@ -25,9 +25,7 @@
     "@aws-sdk/shared-ini-file-loader": "3.37.0",
     "tslib": "^2.3.0"
   },
-  "devDependencies": {
-    "@types/node": "^10.0.0"
-  },
+  "devDependencies": {},
   "types": "./dist-types/index.d.ts",
   "engines": {
     "node": ">= 10.0.0"

@@ -33,8 +33,7 @@
   "devDependencies": {
     "@aws-sdk/client-dynamodb": "3.45.0",
     "@aws-sdk/smithy-client": "3.41.0",
-    "@aws-sdk/types": "3.40.0",
-    "@types/node": "^14.11.2"
+    "@aws-sdk/types": "3.40.0"
   },
   "typesVersions": {
     "<4.0": {

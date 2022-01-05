@@ -25,8 +25,7 @@
   },
   "devDependencies": {
     "@aws-sdk/util-utf8-browser": "3.37.0",
-    "@aws-sdk/util-utf8-node": "3.37.0",
-    "@types/node": "^10.0.0"
+    "@aws-sdk/util-utf8-node": "3.37.0"
   },
   "browser": {
     "@aws-sdk/util-utf8-node": "@aws-sdk/util-utf8-browser"

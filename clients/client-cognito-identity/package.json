@@ -55,8 +55,7 @@
     "@aws-sdk/client-iam": "3.45.0",
     "@aws-sdk/service-client-documentation-generator": "3.38.0",
     "@types/chai": "^4.2.11",
-    "@types/mocha": "^8.0.4",
-    "@types/node": "^12.7.5"
+    "@types/mocha": "^8.0.4"
   },
   "engines": {
     "node": ">=12.0.0"

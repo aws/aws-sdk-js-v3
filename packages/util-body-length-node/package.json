@@ -10,9 +10,7 @@
     "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
     "test": "jest"
   },
-  "devDependencies": {
-    "@types/node": "^10.0.0"
-  },
+  "devDependencies": {},
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",

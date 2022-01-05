@@ -21,9 +21,7 @@
     "mnemonist": "0.38.3",
     "tslib": "^2.3.0"
   },
-  "devDependencies": {
-    "@types/node": "^10.0.0"
-  },
+  "devDependencies": {},
   "engines": {
     "node": ">= 10.0.0"
   },
