@@ -57,7 +57,6 @@
   "devDependencies": {
     "@aws-sdk/service-client-documentation-generator": "3.38.0",
     "@types/node": "^12.7.5",
-    "downlevel-dts": "0.7.0",
     "rimraf": "^3.0.0"
   },
   "engines": {
