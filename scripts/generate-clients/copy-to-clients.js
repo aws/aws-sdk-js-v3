@@ -129,6 +129,11 @@ const copyToClients = async (sourceDir, destinationDir) => {
           },
         };
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
+      } else if (packageSub === "typedoc.json") {
+        const typedocJson = {
+          extends: "../../typedoc.client.json",
+        };
+        writeFileSync(destSubPath, JSON.stringify(typedocJson, null, 2).concat(`\n`));
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
         copySync(packageSubPath, destSubPath, {
