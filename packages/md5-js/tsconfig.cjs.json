@@ -4,7 +4,6 @@
     "outDir": "dist-cjs",
     "rootDir": "src"
   },
-  "exclude": ["./build/**"],
   "include": ["src/"],
   "extends": "../../tsconfig.cjs.json"
 }
