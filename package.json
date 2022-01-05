@@ -50,7 +50,6 @@
   "license": "UNLICENSED",
   "dependencies": {
     "glob": "^7.1.6",
-    "rimraf": "^3.0.2",
     "yargs": "^15.1.0"
   },
   "devDependencies": {
@@ -98,6 +97,7 @@
     "mocha": "^8.0.1",
     "prettier": "2.5.1",
     "puppeteer": "^5.1.0",
+    "rimraf": "3.0.2",
     "strip-comments": "2.0.1",
     "ts-jest": "27.1.2",
     "ts-loader": "^7.0.5",
