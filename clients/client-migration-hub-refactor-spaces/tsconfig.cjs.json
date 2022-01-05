@@ -1,18 +1,10 @@
 {
   "compilerOptions": {
-    "rootDir": "./src",
-    "alwaysStrict": true,
-    "target": "ES2018",
-    "module": "commonjs",
-    "strict": true,
-    "downlevelIteration": true,
-    "importHelpers": true,
-    "noEmitHelpers": true,
-    "incremental": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "outDir": "dist-cjs",
-    "removeComments": true
+    "baseUrl": ".",
+    "rootDir": "src",
+    "outDir": "dist-cjs"
   },
-  "exclude": ["test/**/*"]
+  "exclude": ["test/**/*"],
+  "extends": "../../tsconfig.cjs.json",
+  "include": ["src/"]
 }
