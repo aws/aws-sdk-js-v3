@@ -1,4 +1,5 @@
 {
   // You need to make sure "tslib" version is compatible with typescript version.
+  // ToDo: update script to test typescript version at root, and also verify that tslib is present.
   "tslib": "^2.3.0"
 }
