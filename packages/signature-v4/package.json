@@ -31,7 +31,7 @@
     "@aws-sdk/util-buffer-from": "3.37.0"
   },
   "engines": {
-    "node": ">= 10.0.0"
+    "node": ">= 12.0.0"
   },
   "typesVersions": {
     "<4.0": {
