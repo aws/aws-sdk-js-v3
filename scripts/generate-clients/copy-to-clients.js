@@ -3,6 +3,8 @@ const { normalize, join } = require("path");
 const { copySync, removeSync } = require("fs-extra");
 const { readdirSync, lstatSync, readFileSync, existsSync, writeFileSync } = require("fs");
 
+const typedocJson = require("./config/typedoc.json");
+
 const getOverwritableDirectories = (subDirectories, packageName) => {
   const additionalGeneratedFiles = {
     "@aws-sdk/client-sts": ["defaultRoleAssumers.ts", "defaultStsRoleAssumers.ts", "defaultRoleAssumers.spec.ts"],
@@ -144,16 +146,15 @@ const copyToClients = async (sourceDir, destinationDir) => {
           },
         };
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
-      } else if (packageSub === "typedoc.json") {
-        const typedocJson = {
-          extends: "../../typedoc.client.json",
-        };
-        writeFileSync(destSubPath, JSON.stringify(typedocJson, null, 2).concat(`\n`));
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
-        if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
-        copySync(packageSubPath, destSubPath, {
-          overwrite: true,
-        });
+        if (packageSub === "typedoc.json") {
+          writeFileSync(destSubPath, JSON.stringify(typedocJson, null, 2).concat(`\n`));
+        } else {
+          if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
+          copySync(packageSubPath, destSubPath, {
+            overwrite: true,
+          });
+        }
       }
     }
   }
