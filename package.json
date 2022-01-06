@@ -24,7 +24,7 @@
     "build:all": "yarn build:crypto-dependencies && lerna run build",
     "build-documentation": "yarn remove-documentation && typedoc",
     "pretest:all": "yarn build:all",
-    "test:all": "node --no-compilation-cache --expose-gc jest --maxWorkers=50% && lerna run test --scope '@aws-sdk/{fetch-http-handler,hash-blob-browser}' && yarn test:versions",
+    "test:all": "jest --maxWorkers=50% && lerna run test --scope '@aws-sdk/{fetch-http-handler,hash-blob-browser}' && yarn test:versions",
     "test:functional": "jest --config tests/functional/jest.config.js",
     "test:integration:legacy": "cucumber-js --fail-fast",
     "test:integration:legacy:since:release": "./tests/integ-legacy/index.js",
