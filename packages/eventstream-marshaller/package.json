@@ -7,7 +7,7 @@
     "build:es": "tsc -p tsconfig.es.json",
     "build:types": "tsc -p tsconfig.types.json",
     "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
-    "test": "jest --coverage"
+    "test": "jest"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
