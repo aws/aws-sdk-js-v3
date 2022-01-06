@@ -1,28 +1,28 @@
-const mockV4Sign = jest.fn();
-const mockPresign = jest.fn();
-const mockV4 = jest.fn().mockReturnValue({
-  presign: mockPresign,
-  sign: mockV4Sign,
-});
-jest.mock("@aws-sdk/signature-v4", () => ({
-  SignatureV4: mockV4,
-}));
-
 import { PollyClient, SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
-
-jest.mock("@aws-sdk/util-format-url", () => ({
-  formatUrl: (url: any) => url,
-}));
-
+import { SignatureV4 } from "@aws-sdk/signature-v4";
 import { RequestPresigningArguments } from "@aws-sdk/types";
+import { formatUrl } from "@aws-sdk/util-format-url";
 
 import { getSignedUrl } from "./getSignedUrls";
 
+jest.mock("@aws-sdk/signature-v4");
+jest.mock("@aws-sdk/util-format-url");
+
 describe("getSignedUrl", () => {
   const clientParams = { region: "us-foo-1" };
+  const mockV4Sign = jest.fn();
+  const mockPresign = jest.fn();
 
   beforeEach(() => {
-    mockPresign.mockReset();
+    (SignatureV4 as jest.Mock).mockReturnValue({
+      presign: mockPresign,
+      sign: mockV4Sign,
+    });
+    (formatUrl as jest.Mock).mockImplementation((url: any) => url);
+  });
+
+  afterEach(() => {
+    jest.resetAllMocks();
   });
 
   it("should call SignatureV4.sign", async () => {
