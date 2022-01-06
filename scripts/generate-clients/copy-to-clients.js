@@ -40,12 +40,22 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
         const devDepsInRoot = ["downlevel-dts", "rimraf", "typedoc", "typescript"];
         devDepsInRoot.forEach((devDep) => delete fromContent[name][devDep]);
       }
+
+      // Replace tsconfig.json with tsconfig.cjs.json in scripts
+      if (name === "scripts") {
+        Object.entries(fromContent[name]).forEach(([key, value]) => {
+          fromContent[name][key] = value.replace("tsconfig.json", "tsconfig.cjs.json");
+        });
+      }
+
       merged[name] = mergeManifest(fromContent[name], toContent[name]);
+
       if (name === "scripts" || name === "devDependencies") {
         // Allow target package.json(toContent) has its own special script or
         // dev dependencies that won't be overwritten in codegen
         merged[name] = { ...toContent[name], ...merged[name] };
       }
+
       if (name === "scripts" || name === "dependencies" || name === "devDependencies") {
         // Sort by keys to make sure the order is stable
         merged[name] = Object.fromEntries(Object.entries(merged[name]).sort());
