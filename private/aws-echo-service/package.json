@@ -12,7 +12,7 @@
     "clean:dist": "rimraf ./dist-*",
     "clean:docs": "rimraf ./docs",
     "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
-    "test": "jest --coverage --passWithNoTests"
+    "test": "jest  --passWithNoTests"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",
