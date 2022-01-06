@@ -17,8 +17,7 @@
     "preserveConstEnums": true,
     "removeComments": true,
     "resolveJsonModule": true,
-    "target": "es5",
-    "types": ["node"]
+    "target": "es5"
   },
   "include": ["packages/", "lib/"],
   "exclude": ["node_modules/", "**/*.spec.ts"]
