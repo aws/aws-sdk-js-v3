@@ -4,6 +4,9 @@ const { copySync, removeSync } = require("fs-extra");
 const { readdirSync, lstatSync, readFileSync, existsSync, writeFileSync } = require("fs");
 
 const typedocJson = require("./config/typedoc.json");
+const tsconfigCjsJson = require("./config/tsconfig.cjs.json");
+const tsconfigEsJson = require("./config/tsconfig.es.json");
+const tsconfigTypesJson = require("./config/tsconfig.types.json");
 
 const getOverwritableDirectories = (subDirectories, packageName) => {
   const additionalGeneratedFiles = {
@@ -149,6 +152,20 @@ const copyToClients = async (sourceDir, destinationDir) => {
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
         if (packageSub === "typedoc.json") {
           writeFileSync(destSubPath, JSON.stringify(typedocJson, null, 2).concat(`\n`));
+        } else if (packageSub.startsWith("tsconfig")) {
+          switch (packageSub) {
+            case "tsconfig.json":
+              const tsconfigCjsPath = join(destPath, "tsconfig.cjs.json");
+              if (existsSync(tsconfigCjsPath)) break;
+              writeFileSync(tsconfigCjsPath, JSON.stringify(tsconfigCjsJson, null, 2).concat(`\n`));
+              break;
+            case "tsconfig.es.json":
+              writeFileSync(destSubPath, JSON.stringify(tsconfigEsJson, null, 2).concat(`\n`));
+              break;
+            case "tsconfig.types.json":
+              writeFileSync(destSubPath, JSON.stringify(tsconfigTypesJson, null, 2).concat(`\n`));
+              break;
+          }
         } else {
           if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
           copySync(packageSubPath, destSubPath, {
