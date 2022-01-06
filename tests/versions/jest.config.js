@@ -1,4 +1,5 @@
+const base = require("../../jest.config.base.js");
+
 module.exports = {
-  preset: "ts-jest",
-  testMatch: ["**/*.spec.ts"],
+  ...base,
 };
