@@ -31,7 +31,7 @@ export const downlevelWorkspace = async (workspacesDir, workspaceName) => {
   try {
     await access(downlevelDir);
   } catch (error) {
-    await execPromise(["yarn", "downlevel-dts"].join(" "), { cwd: workspaceDir });
+    await execPromise(["yarn", "build:types:downlevel"].join(" "), { cwd: workspaceDir });
   }
 
   // Strip comments from downlevel-dts files
