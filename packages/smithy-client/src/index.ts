@@ -2,6 +2,7 @@ export * from "./client";
 export * from "./command";
 export * from "./constants";
 export * from "./date-utils";
+export * from "./defaults-mode";
 export * from "./emitWarningIfUnsupportedVersion";
 export * from "./extended-encode-uri-component";
 export * from "./get-array-if-single-item";

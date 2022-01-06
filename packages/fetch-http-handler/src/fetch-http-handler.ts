@@ -1,6 +1,6 @@
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
-import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
+import { HeaderBag, HttpHandlerOptions, Provider } from "@aws-sdk/types";
 
 import { requestTimeout } from "./request-timeout";
 
@@ -17,19 +17,29 @@ export interface FetchHttpHandlerOptions {
   requestTimeout?: number;
 }
 
-export class FetchHttpHandler implements HttpHandler {
-  private readonly requestTimeout?: number;
+type FetchHttpHandlerConfig = FetchHttpHandlerOptions;
 
-  constructor({ requestTimeout }: FetchHttpHandlerOptions = {}) {
-    this.requestTimeout = requestTimeout;
+export class FetchHttpHandler implements HttpHandler {
+  private config?: FetchHttpHandlerConfig;
+  private readonly configProvider?: Provider<FetchHttpHandlerConfig>;
+
+  constructor(options?: FetchHttpHandlerOptions | Provider<FetchHttpHandlerOptions | undefined>) {
+    if (typeof options === "function") {
+      this.configProvider = async () => (await options()) || {};
+    } else {
+      this.config = options ?? {};
+    }
   }
 
   destroy(): void {
     // Do nothing. TLS and HTTP/2 connection pooling is handled by the browser.
   }
 
-  handle(request: HttpRequest, { abortSignal }: HttpHandlerOptions = {}): Promise<{ response: HttpResponse }> {
-    const requestTimeoutInMs = this.requestTimeout;
+  async handle(request: HttpRequest, { abortSignal }: HttpHandlerOptions = {}): Promise<{ response: HttpResponse }> {
+    if (!this.config && this.configProvider) {
+      this.config = await this.configProvider();
+    }
+    const requestTimeoutInMs = this.config!.requestTimeout;
 
     // if the request was already aborted, prevent doing extra work
     if (abortSignal?.aborted) {

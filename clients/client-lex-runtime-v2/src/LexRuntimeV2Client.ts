@@ -40,6 +40,7 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
+  DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
@@ -216,6 +217,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * The function that provides necessary utilities for generating and parsing event stream
    */
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
+
+  /**
+   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
 }
 
 type LexRuntimeV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &

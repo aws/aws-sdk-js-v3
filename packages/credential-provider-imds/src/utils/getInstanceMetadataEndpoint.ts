@@ -27,6 +27,8 @@ import {
  * If endpoint mode is set to {@link EndpointMode.IPv6}, then the host is {@link Endpoint.IPv6}.
  *
  * @returns Host to use for instance metadata service call.
+ *
+ * @internal
  */
 export const getInstanceMetadataEndpoint = async (): Promise<Endpoint> =>
   parseUrl((await getFromEndpointConfig()) || (await getFromEndpointModeConfig()));

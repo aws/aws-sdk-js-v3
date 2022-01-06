@@ -23,6 +23,7 @@ import {
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
+  DefaultsMode,
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
@@ -142,6 +143,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
+   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
 }
 
 type EchoServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &

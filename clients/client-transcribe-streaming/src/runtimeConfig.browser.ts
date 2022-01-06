@@ -14,16 +14,21 @@ import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
 import { TranscribeStreamingClientConfig } from "./TranscribeStreamingClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
+import { loadConfigsForDefaultMode } from "@aws-sdk/smithy-client";
+import { resolveDefaultsModeConfig } from "@aws-sdk/util-defaults-mode-browser";
 
 /**
  * @internal
  */
 export const getRuntimeConfig = (config: TranscribeStreamingClientConfig) => {
+  const defaultsMode = resolveDefaultsModeConfig(config);
+  const defaultConfigProvider = () => defaultsMode().then(loadConfigsForDefaultMode);
   const clientSharedValues = getSharedRuntimeConfig(config);
   return {
     ...clientSharedValues,
     ...config,
     runtime: "browser",
+    defaultsMode,
     base64Decoder: config?.base64Decoder ?? fromBase64,
     base64Encoder: config?.base64Encoder ?? toBase64,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
@@ -37,7 +42,7 @@ export const getRuntimeConfig = (config: TranscribeStreamingClientConfig) => {
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     region: config?.region ?? invalidProvider("Region is missing"),
     requestHandler: config?.requestHandler ?? new WebSocketHandler(),
-    retryMode: config?.retryMode ?? (() => Promise.resolve(DEFAULT_RETRY_MODE)),
+    retryMode: config?.retryMode ?? (async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE),
     sha256: config?.sha256 ?? Sha256,
     streamCollector: config?.streamCollector ?? streamCollector,
     useDualstackEndpoint: config?.useDualstackEndpoint ?? (() => Promise.resolve(DEFAULT_USE_DUALSTACK_ENDPOINT)),
