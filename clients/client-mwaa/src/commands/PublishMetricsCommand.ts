@@ -22,7 +22,8 @@ export interface PublishMetricsCommandInput extends PublishMetricsInput {}
 export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __MetadataBearer {}
 
 /**
- * An operation for publishing metrics from the customers to the Ops plane.
+ * <p>
+ *             <b>Internal only</b>. Publishes environment health metrics to Amazon CloudWatch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -20,6 +20,10 @@ import {
   AssociateApplicationFleetCommandInput,
   AssociateApplicationFleetCommandOutput,
 } from "../commands/AssociateApplicationFleetCommand";
+import {
+  AssociateApplicationToEntitlementCommandInput,
+  AssociateApplicationToEntitlementCommandOutput,
+} from "../commands/AssociateApplicationToEntitlementCommand";
 import { AssociateFleetCommandInput, AssociateFleetCommandOutput } from "../commands/AssociateFleetCommand";
 import {
   BatchAssociateUserStackCommandInput,
@@ -36,6 +40,7 @@ import {
   CreateDirectoryConfigCommandInput,
   CreateDirectoryConfigCommandOutput,
 } from "../commands/CreateDirectoryConfigCommand";
+import { CreateEntitlementCommandInput, CreateEntitlementCommandOutput } from "../commands/CreateEntitlementCommand";
 import { CreateFleetCommandInput, CreateFleetCommandOutput } from "../commands/CreateFleetCommand";
 import { CreateImageBuilderCommandInput, CreateImageBuilderCommandOutput } from "../commands/CreateImageBuilderCommand";
 import {
@@ -56,6 +61,7 @@ import {
   DeleteDirectoryConfigCommandInput,
   DeleteDirectoryConfigCommandOutput,
 } from "../commands/DeleteDirectoryConfigCommand";
+import { DeleteEntitlementCommandInput, DeleteEntitlementCommandOutput } from "../commands/DeleteEntitlementCommand";
 import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "../commands/DeleteFleetCommand";
 import { DeleteImageBuilderCommandInput, DeleteImageBuilderCommandOutput } from "../commands/DeleteImageBuilderCommand";
 import { DeleteImageCommandInput, DeleteImageCommandOutput } from "../commands/DeleteImageCommand";
@@ -82,6 +88,10 @@ import {
   DescribeDirectoryConfigsCommandInput,
   DescribeDirectoryConfigsCommandOutput,
 } from "../commands/DescribeDirectoryConfigsCommand";
+import {
+  DescribeEntitlementsCommandInput,
+  DescribeEntitlementsCommandOutput,
+} from "../commands/DescribeEntitlementsCommand";
 import { DescribeFleetsCommandInput, DescribeFleetsCommandOutput } from "../commands/DescribeFleetsCommand";
 import {
   DescribeImageBuildersCommandInput,
@@ -108,6 +118,10 @@ import {
   DisassociateApplicationFleetCommandInput,
   DisassociateApplicationFleetCommandOutput,
 } from "../commands/DisassociateApplicationFleetCommand";
+import {
+  DisassociateApplicationFromEntitlementCommandInput,
+  DisassociateApplicationFromEntitlementCommandOutput,
+} from "../commands/DisassociateApplicationFromEntitlementCommand";
 import { DisassociateFleetCommandInput, DisassociateFleetCommandOutput } from "../commands/DisassociateFleetCommand";
 import { EnableUserCommandInput, EnableUserCommandOutput } from "../commands/EnableUserCommand";
 import { ExpireSessionCommandInput, ExpireSessionCommandOutput } from "../commands/ExpireSessionCommand";
@@ -119,6 +133,10 @@ import {
   ListAssociatedStacksCommandInput,
   ListAssociatedStacksCommandOutput,
 } from "../commands/ListAssociatedStacksCommand";
+import {
+  ListEntitledApplicationsCommandInput,
+  ListEntitledApplicationsCommandOutput,
+} from "../commands/ListEntitledApplicationsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -134,6 +152,7 @@ import {
   UpdateDirectoryConfigCommandInput,
   UpdateDirectoryConfigCommandOutput,
 } from "../commands/UpdateDirectoryConfigCommand";
+import { UpdateEntitlementCommandInput, UpdateEntitlementCommandOutput } from "../commands/UpdateEntitlementCommand";
 import { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "../commands/UpdateFleetCommand";
 import {
   UpdateImagePermissionsCommandInput,
@@ -150,6 +169,8 @@ import {
   ApplicationSettingsResponse,
   AssociateApplicationFleetRequest,
   AssociateApplicationFleetResult,
+  AssociateApplicationToEntitlementRequest,
+  AssociateApplicationToEntitlementResult,
   AssociateFleetRequest,
   AssociateFleetResult,
   BatchAssociateUserStackRequest,
@@ -167,6 +188,8 @@ import {
   CreateApplicationResult,
   CreateDirectoryConfigRequest,
   CreateDirectoryConfigResult,
+  CreateEntitlementRequest,
+  CreateEntitlementResult,
   CreateFleetRequest,
   CreateFleetResult,
   CreateImageBuilderRequest,
@@ -189,6 +212,8 @@ import {
   DeleteApplicationResult,
   DeleteDirectoryConfigRequest,
   DeleteDirectoryConfigResult,
+  DeleteEntitlementRequest,
+  DeleteEntitlementResult,
   DeleteFleetRequest,
   DeleteFleetResult,
   DeleteImageBuilderRequest,
@@ -211,6 +236,8 @@ import {
   DescribeApplicationsResult,
   DescribeDirectoryConfigsRequest,
   DescribeDirectoryConfigsResult,
+  DescribeEntitlementsRequest,
+  DescribeEntitlementsResult,
   DescribeFleetsRequest,
   DescribeFleetsResult,
   DescribeImageBuildersRequest,
@@ -234,11 +261,18 @@ import {
   DisableUserResult,
   DisassociateApplicationFleetRequest,
   DisassociateApplicationFleetResult,
+  DisassociateApplicationFromEntitlementRequest,
+  DisassociateApplicationFromEntitlementResult,
   DisassociateFleetRequest,
   DisassociateFleetResult,
   DomainJoinInfo,
   EnableUserRequest,
   EnableUserResult,
+  EntitledApplication,
+  Entitlement,
+  EntitlementAlreadyExistsException,
+  EntitlementAttribute,
+  EntitlementNotFoundException,
   ExpireSessionRequest,
   ExpireSessionResult,
   Fleet,
@@ -259,6 +293,8 @@ import {
   ListAssociatedFleetsResult,
   ListAssociatedStacksRequest,
   ListAssociatedStacksResult,
+  ListEntitledApplicationsRequest,
+  ListEntitledApplicationsResult,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
   NetworkAccessConfiguration,
@@ -295,6 +331,8 @@ import {
   UpdateApplicationResult,
   UpdateDirectoryConfigRequest,
   UpdateDirectoryConfigResult,
+  UpdateEntitlementRequest,
+  UpdateEntitlementResult,
   UpdateFleetRequest,
   UpdateFleetResult,
   UpdateImagePermissionsRequest,
@@ -319,6 +357,19 @@ export const serializeAws_json1_1AssociateApplicationFleetCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateApplicationFleetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1AssociateApplicationToEntitlementCommand = async (
+  input: AssociateApplicationToEntitlementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "PhotonAdminProxyService.AssociateApplicationToEntitlement",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AssociateApplicationToEntitlementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -410,6 +461,19 @@ export const serializeAws_json1_1CreateDirectoryConfigCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDirectoryConfigRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateEntitlementCommand = async (
+  input: CreateEntitlementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "PhotonAdminProxyService.CreateEntitlement",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateEntitlementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -556,6 +620,19 @@ export const serializeAws_json1_1DeleteDirectoryConfigCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteEntitlementCommand = async (
+  input: DeleteEntitlementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "PhotonAdminProxyService.DeleteEntitlement",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteEntitlementRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteFleetCommand = async (
   input: DeleteFleetCommandInput,
   context: __SerdeContext
@@ -696,6 +773,19 @@ export const serializeAws_json1_1DescribeDirectoryConfigsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDirectoryConfigsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeEntitlementsCommand = async (
+  input: DescribeEntitlementsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "PhotonAdminProxyService.DescribeEntitlements",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeEntitlementsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -842,6 +932,19 @@ export const serializeAws_json1_1DisassociateApplicationFleetCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DisassociateApplicationFromEntitlementCommand = async (
+  input: DisassociateApplicationFromEntitlementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "PhotonAdminProxyService.DisassociateApplicationFromEntitlement",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DisassociateApplicationFromEntitlementRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DisassociateFleetCommand = async (
   input: DisassociateFleetCommandInput,
   context: __SerdeContext
@@ -904,6 +1007,19 @@ export const serializeAws_json1_1ListAssociatedStacksCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAssociatedStacksRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListEntitledApplicationsCommand = async (
+  input: ListEntitledApplicationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "PhotonAdminProxyService.ListEntitledApplications",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListEntitledApplicationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1024,6 +1140,19 @@ export const serializeAws_json1_1UpdateDirectoryConfigCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateEntitlementCommand = async (
+  input: UpdateEntitlementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "PhotonAdminProxyService.UpdateEntitlement",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateEntitlementRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateFleetCommand = async (
   input: UpdateFleetCommandInput,
   context: __SerdeContext
@@ -1104,6 +1233,84 @@ const deserializeAws_json1_1AssociateApplicationFleetCommandError = async (
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1AssociateApplicationToEntitlementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateApplicationToEntitlementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1AssociateApplicationToEntitlementCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AssociateApplicationToEntitlementResult(data, context);
+  const response: AssociateApplicationToEntitlementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AssociateApplicationToEntitlementCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateApplicationToEntitlementCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntitlementNotFoundException":
+    case "com.amazonaws.appstream#EntitlementNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntitlementNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1690,6 +1897,84 @@ const deserializeAws_json1_1CreateDirectoryConfigCommandError = async (
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateEntitlementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEntitlementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateEntitlementCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateEntitlementResult(data, context);
+  const response: CreateEntitlementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateEntitlementCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEntitlementCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntitlementAlreadyExistsException":
+    case "com.amazonaws.appstream#EntitlementAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1EntitlementAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2697,6 +2982,84 @@ const deserializeAws_json1_1DeleteDirectoryConfigCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteEntitlementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEntitlementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteEntitlementCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteEntitlementResult(data, context);
+  const response: DeleteEntitlementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteEntitlementCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEntitlementCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntitlementNotFoundException":
+    case "com.amazonaws.appstream#EntitlementNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntitlementNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeleteFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3010,6 +3373,14 @@ const deserializeAws_json1_1DeleteStackCommandError = async (
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3378,6 +3749,76 @@ const deserializeAws_json1_1DescribeDirectoryConfigsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeEntitlementsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEntitlementsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeEntitlementsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeEntitlementsResult(data, context);
+  const response: DescribeEntitlementsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeEntitlementsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEntitlementsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntitlementNotFoundException":
+    case "com.amazonaws.appstream#EntitlementNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntitlementNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       response = {
@@ -4053,6 +4494,76 @@ const deserializeAws_json1_1DisassociateApplicationFleetCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DisassociateApplicationFromEntitlementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateApplicationFromEntitlementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DisassociateApplicationFromEntitlementCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DisassociateApplicationFromEntitlementResult(data, context);
+  const response: DisassociateApplicationFromEntitlementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DisassociateApplicationFromEntitlementCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateApplicationFromEntitlementCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntitlementNotFoundException":
+    case "com.amazonaws.appstream#EntitlementNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntitlementNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DisassociateFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4314,6 +4825,76 @@ const deserializeAws_json1_1ListAssociatedStacksCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListEntitledApplicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEntitledApplicationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListEntitledApplicationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListEntitledApplicationsResult(data, context);
+  const response: ListEntitledApplicationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListEntitledApplicationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEntitledApplicationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntitlementNotFoundException":
+    case "com.amazonaws.appstream#EntitlementNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntitlementNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -4993,6 +5574,84 @@ const deserializeAws_json1_1UpdateDirectoryConfigCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateEntitlementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEntitlementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateEntitlementCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateEntitlementResult(data, context);
+  const response: UpdateEntitlementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateEntitlementCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEntitlementCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntitlementNotFoundException":
+    case "com.amazonaws.appstream#EntitlementNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntitlementNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5330,6 +5989,36 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1EntitlementAlreadyExistsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EntitlementAlreadyExistsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1EntitlementAlreadyExistsException(body, context);
+  const contents: EntitlementAlreadyExistsException = {
+    name: "EntitlementAlreadyExistsException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1EntitlementNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EntitlementNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1EntitlementNotFoundException(body, context);
+  const contents: EntitlementNotFoundException = {
+    name: "EntitlementNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1IncompatibleImageExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -5556,6 +6245,19 @@ const serializeAws_json1_1AssociateApplicationFleetRequest = (
   };
 };
 
+const serializeAws_json1_1AssociateApplicationToEntitlementRequest = (
+  input: AssociateApplicationToEntitlementRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ApplicationIdentifier !== undefined &&
+      input.ApplicationIdentifier !== null && { ApplicationIdentifier: input.ApplicationIdentifier }),
+    ...(input.EntitlementName !== undefined &&
+      input.EntitlementName !== null && { EntitlementName: input.EntitlementName }),
+    ...(input.StackName !== undefined && input.StackName !== null && { StackName: input.StackName }),
+  };
+};
+
 const serializeAws_json1_1AssociateFleetRequest = (input: AssociateFleetRequest, context: __SerdeContext): any => {
   return {
     ...(input.FleetName !== undefined && input.FleetName !== null && { FleetName: input.FleetName }),
@@ -5683,6 +6385,22 @@ const serializeAws_json1_1CreateDirectoryConfigRequest = (
           context
         ),
       }),
+  };
+};
+
+const serializeAws_json1_1CreateEntitlementRequest = (
+  input: CreateEntitlementRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AppVisibility !== undefined && input.AppVisibility !== null && { AppVisibility: input.AppVisibility }),
+    ...(input.Attributes !== undefined &&
+      input.Attributes !== null && {
+        Attributes: serializeAws_json1_1EntitlementAttributeList(input.Attributes, context),
+      }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.StackName !== undefined && input.StackName !== null && { StackName: input.StackName }),
   };
 };
 
@@ -5874,6 +6592,16 @@ const serializeAws_json1_1DeleteDirectoryConfigRequest = (
   };
 };
 
+const serializeAws_json1_1DeleteEntitlementRequest = (
+  input: DeleteEntitlementRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.StackName !== undefined && input.StackName !== null && { StackName: input.StackName }),
+  };
+};
+
 const serializeAws_json1_1DeleteFleetRequest = (input: DeleteFleetRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
@@ -5973,6 +6701,18 @@ const serializeAws_json1_1DescribeDirectoryConfigsRequest = (
       }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1DescribeEntitlementsRequest = (
+  input: DescribeEntitlementsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.StackName !== undefined && input.StackName !== null && { StackName: input.StackName }),
   };
 };
 
@@ -6105,6 +6845,19 @@ const serializeAws_json1_1DisassociateApplicationFleetRequest = (
   };
 };
 
+const serializeAws_json1_1DisassociateApplicationFromEntitlementRequest = (
+  input: DisassociateApplicationFromEntitlementRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ApplicationIdentifier !== undefined &&
+      input.ApplicationIdentifier !== null && { ApplicationIdentifier: input.ApplicationIdentifier }),
+    ...(input.EntitlementName !== undefined &&
+      input.EntitlementName !== null && { EntitlementName: input.EntitlementName }),
+    ...(input.StackName !== undefined && input.StackName !== null && { StackName: input.StackName }),
+  };
+};
+
 const serializeAws_json1_1DisassociateFleetRequest = (
   input: DisassociateFleetRequest,
   context: __SerdeContext
@@ -6155,6 +6908,24 @@ const serializeAws_json1_1EnableUserRequest = (input: EnableUserRequest, context
   };
 };
 
+const serializeAws_json1_1EntitlementAttribute = (input: EntitlementAttribute, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1EntitlementAttributeList = (input: EntitlementAttribute[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1EntitlementAttribute(entry, context);
+    });
+};
+
 const serializeAws_json1_1ExpireSessionRequest = (input: ExpireSessionRequest, context: __SerdeContext): any => {
   return {
     ...(input.SessionId !== undefined && input.SessionId !== null && { SessionId: input.SessionId }),
@@ -6197,6 +6968,19 @@ const serializeAws_json1_1ListAssociatedStacksRequest = (
   return {
     ...(input.FleetName !== undefined && input.FleetName !== null && { FleetName: input.FleetName }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListEntitledApplicationsRequest = (
+  input: ListEntitledApplicationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EntitlementName !== undefined &&
+      input.EntitlementName !== null && { EntitlementName: input.EntitlementName }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.StackName !== undefined && input.StackName !== null && { StackName: input.StackName }),
   };
 };
 
@@ -6444,6 +7228,22 @@ const serializeAws_json1_1UpdateDirectoryConfigRequest = (
           context
         ),
       }),
+  };
+};
+
+const serializeAws_json1_1UpdateEntitlementRequest = (
+  input: UpdateEntitlementRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AppVisibility !== undefined && input.AppVisibility !== null && { AppVisibility: input.AppVisibility }),
+    ...(input.Attributes !== undefined &&
+      input.Attributes !== null && {
+        Attributes: serializeAws_json1_1EntitlementAttributeList(input.Attributes, context),
+      }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.StackName !== undefined && input.StackName !== null && { StackName: input.StackName }),
   };
 };
 
@@ -6749,6 +7549,13 @@ const deserializeAws_json1_1AssociateApplicationFleetResult = (
   } as any;
 };
 
+const deserializeAws_json1_1AssociateApplicationToEntitlementResult = (
+  output: any,
+  context: __SerdeContext
+): AssociateApplicationToEntitlementResult => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1AssociateFleetResult = (output: any, context: __SerdeContext): AssociateFleetResult => {
   return {} as any;
 };
@@ -6830,6 +7637,18 @@ const deserializeAws_json1_1CreateDirectoryConfigResult = (
     DirectoryConfig:
       output.DirectoryConfig !== undefined && output.DirectoryConfig !== null
         ? deserializeAws_json1_1DirectoryConfig(output.DirectoryConfig, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateEntitlementResult = (
+  output: any,
+  context: __SerdeContext
+): CreateEntitlementResult => {
+  return {
+    Entitlement:
+      output.Entitlement !== undefined && output.Entitlement !== null
+        ? deserializeAws_json1_1Entitlement(output.Entitlement, context)
         : undefined,
   } as any;
 };
@@ -6935,6 +7754,13 @@ const deserializeAws_json1_1DeleteDirectoryConfigResult = (
   return {} as any;
 };
 
+const deserializeAws_json1_1DeleteEntitlementResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteEntitlementResult => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeleteFleetResult = (output: any, context: __SerdeContext): DeleteFleetResult => {
   return {} as any;
 };
@@ -7029,6 +7855,19 @@ const deserializeAws_json1_1DescribeDirectoryConfigsResult = (
     DirectoryConfigs:
       output.DirectoryConfigs !== undefined && output.DirectoryConfigs !== null
         ? deserializeAws_json1_1DirectoryConfigList(output.DirectoryConfigs, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeEntitlementsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeEntitlementsResult => {
+  return {
+    Entitlements:
+      output.Entitlements !== undefined && output.Entitlements !== null
+        ? deserializeAws_json1_1EntitlementList(output.Entitlements, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
@@ -7180,6 +8019,13 @@ const deserializeAws_json1_1DisassociateApplicationFleetResult = (
   return {} as any;
 };
 
+const deserializeAws_json1_1DisassociateApplicationFromEntitlementResult = (
+  output: any,
+  context: __SerdeContext
+): DisassociateApplicationFromEntitlementResult => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DisassociateFleetResult = (
   output: any,
   context: __SerdeContext
@@ -7218,6 +8064,94 @@ const deserializeAws_json1_1EmbedHostDomains = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1EnableUserResult = (output: any, context: __SerdeContext): EnableUserResult => {
   return {} as any;
+};
+
+const deserializeAws_json1_1EntitledApplication = (output: any, context: __SerdeContext): EntitledApplication => {
+  return {
+    ApplicationIdentifier: __expectString(output.ApplicationIdentifier),
+  } as any;
+};
+
+const deserializeAws_json1_1EntitledApplicationList = (output: any, context: __SerdeContext): EntitledApplication[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EntitledApplication(entry, context);
+    });
+};
+
+const deserializeAws_json1_1Entitlement = (output: any, context: __SerdeContext): Entitlement => {
+  return {
+    AppVisibility: __expectString(output.AppVisibility),
+    Attributes:
+      output.Attributes !== undefined && output.Attributes !== null
+        ? deserializeAws_json1_1EntitlementAttributeList(output.Attributes, context)
+        : undefined,
+    CreatedTime:
+      output.CreatedTime !== undefined && output.CreatedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
+        : undefined,
+    Description: __expectString(output.Description),
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    Name: __expectString(output.Name),
+    StackName: __expectString(output.StackName),
+  } as any;
+};
+
+const deserializeAws_json1_1EntitlementAlreadyExistsException = (
+  output: any,
+  context: __SerdeContext
+): EntitlementAlreadyExistsException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1EntitlementAttribute = (output: any, context: __SerdeContext): EntitlementAttribute => {
+  return {
+    Name: __expectString(output.Name),
+    Value: __expectString(output.Value),
+  } as any;
+};
+
+const deserializeAws_json1_1EntitlementAttributeList = (
+  output: any,
+  context: __SerdeContext
+): EntitlementAttribute[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EntitlementAttribute(entry, context);
+    });
+};
+
+const deserializeAws_json1_1EntitlementList = (output: any, context: __SerdeContext): Entitlement[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Entitlement(entry, context);
+    });
+};
+
+const deserializeAws_json1_1EntitlementNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): EntitlementNotFoundException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
 };
 
 const deserializeAws_json1_1ExpireSessionResult = (output: any, context: __SerdeContext): ExpireSessionResult => {
@@ -7513,6 +8447,19 @@ const deserializeAws_json1_1ListAssociatedStacksResult = (
     Names:
       output.Names !== undefined && output.Names !== null
         ? deserializeAws_json1_1StringList(output.Names, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListEntitledApplicationsResult = (
+  output: any,
+  context: __SerdeContext
+): ListEntitledApplicationsResult => {
+  return {
+    EntitledApplications:
+      output.EntitledApplications !== undefined && output.EntitledApplications !== null
+        ? deserializeAws_json1_1EntitledApplicationList(output.EntitledApplications, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
@@ -7928,6 +8875,18 @@ const deserializeAws_json1_1UpdateDirectoryConfigResult = (
     DirectoryConfig:
       output.DirectoryConfig !== undefined && output.DirectoryConfig !== null
         ? deserializeAws_json1_1DirectoryConfig(output.DirectoryConfig, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateEntitlementResult = (
+  output: any,
+  context: __SerdeContext
+): UpdateEntitlementResult => {
+  return {
+    Entitlement:
+      output.Entitlement !== undefined && output.Entitlement !== null
+        ? deserializeAws_json1_1Entitlement(output.Entitlement, context)
         : undefined,
   } as any;
 };

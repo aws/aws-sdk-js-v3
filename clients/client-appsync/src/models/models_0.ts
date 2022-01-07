@@ -1650,6 +1650,11 @@ export interface CreateFunctionRequest {
    *          resolver is invoked.</p>
    */
   syncConfig?: SyncConfig;
+
+  /**
+   * <p>The maximum batching size for a resolver.</p>
+   */
+  maxBatchSize?: number;
 }
 
 export namespace CreateFunctionRequest {
@@ -1714,6 +1719,11 @@ export interface FunctionConfiguration {
    *          resolver is invoked.</p>
    */
   syncConfig?: SyncConfig;
+
+  /**
+   * <p>The maximum batching size for a resolver.</p>
+   */
+  maxBatchSize?: number;
 }
 
 export namespace FunctionConfiguration {
@@ -2136,6 +2146,11 @@ export interface CreateResolverRequest {
    * <p>The caching configuration for the resolver.</p>
    */
   cachingConfig?: CachingConfig;
+
+  /**
+   * <p>The maximum batching size for a resolver.</p>
+   */
+  maxBatchSize?: number;
 }
 
 export namespace CreateResolverRequest {
@@ -2215,6 +2230,11 @@ export interface Resolver {
    * <p>The caching configuration for the resolver.</p>
    */
   cachingConfig?: CachingConfig;
+
+  /**
+   * <p>The maximum batching size for a resolver.</p>
+   */
+  maxBatchSize?: number;
 }
 
 export namespace Resolver {
@@ -3934,6 +3954,11 @@ export interface UpdateFunctionRequest {
    *          resolver is invoked.</p>
    */
   syncConfig?: SyncConfig;
+
+  /**
+   * <p>The maximum batching size for a resolver.</p>
+   */
+  maxBatchSize?: number;
 }
 
 export namespace UpdateFunctionRequest {
@@ -4107,6 +4132,11 @@ export interface UpdateResolverRequest {
    * <p>The caching configuration for the resolver.</p>
    */
   cachingConfig?: CachingConfig;
+
+  /**
+   * <p>The maximum batching size for a resolver.</p>
+   */
+  maxBatchSize?: number;
 }
 
 export namespace UpdateResolverRequest {

@@ -5005,6 +5005,8 @@ const serializeAws_restJson1AdvancedSecurityOptionsInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AnonymousAuthEnabled !== undefined &&
+      input.AnonymousAuthEnabled !== null && { AnonymousAuthEnabled: input.AnonymousAuthEnabled }),
     ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
     ...(input.InternalUserDatabaseEnabled !== undefined &&
       input.InternalUserDatabaseEnabled !== null && { InternalUserDatabaseEnabled: input.InternalUserDatabaseEnabled }),
@@ -5440,6 +5442,11 @@ const deserializeAws_restJson1AdvancedSecurityOptions = (
   context: __SerdeContext
 ): AdvancedSecurityOptions => {
   return {
+    AnonymousAuthDisableDate:
+      output.AnonymousAuthDisableDate !== undefined && output.AnonymousAuthDisableDate !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AnonymousAuthDisableDate)))
+        : undefined,
+    AnonymousAuthEnabled: __expectBoolean(output.AnonymousAuthEnabled),
     Enabled: __expectBoolean(output.Enabled),
     InternalUserDatabaseEnabled: __expectBoolean(output.InternalUserDatabaseEnabled),
     SAMLOptions:

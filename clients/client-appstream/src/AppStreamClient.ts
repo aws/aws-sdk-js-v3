@@ -53,6 +53,10 @@ import {
   AssociateApplicationFleetCommandInput,
   AssociateApplicationFleetCommandOutput,
 } from "./commands/AssociateApplicationFleetCommand";
+import {
+  AssociateApplicationToEntitlementCommandInput,
+  AssociateApplicationToEntitlementCommandOutput,
+} from "./commands/AssociateApplicationToEntitlementCommand";
 import { AssociateFleetCommandInput, AssociateFleetCommandOutput } from "./commands/AssociateFleetCommand";
 import {
   BatchAssociateUserStackCommandInput,
@@ -69,6 +73,7 @@ import {
   CreateDirectoryConfigCommandInput,
   CreateDirectoryConfigCommandOutput,
 } from "./commands/CreateDirectoryConfigCommand";
+import { CreateEntitlementCommandInput, CreateEntitlementCommandOutput } from "./commands/CreateEntitlementCommand";
 import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import { CreateImageBuilderCommandInput, CreateImageBuilderCommandOutput } from "./commands/CreateImageBuilderCommand";
 import {
@@ -89,6 +94,7 @@ import {
   DeleteDirectoryConfigCommandInput,
   DeleteDirectoryConfigCommandOutput,
 } from "./commands/DeleteDirectoryConfigCommand";
+import { DeleteEntitlementCommandInput, DeleteEntitlementCommandOutput } from "./commands/DeleteEntitlementCommand";
 import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import { DeleteImageBuilderCommandInput, DeleteImageBuilderCommandOutput } from "./commands/DeleteImageBuilderCommand";
 import { DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand";
@@ -115,6 +121,10 @@ import {
   DescribeDirectoryConfigsCommandInput,
   DescribeDirectoryConfigsCommandOutput,
 } from "./commands/DescribeDirectoryConfigsCommand";
+import {
+  DescribeEntitlementsCommandInput,
+  DescribeEntitlementsCommandOutput,
+} from "./commands/DescribeEntitlementsCommand";
 import { DescribeFleetsCommandInput, DescribeFleetsCommandOutput } from "./commands/DescribeFleetsCommand";
 import {
   DescribeImageBuildersCommandInput,
@@ -141,6 +151,10 @@ import {
   DisassociateApplicationFleetCommandInput,
   DisassociateApplicationFleetCommandOutput,
 } from "./commands/DisassociateApplicationFleetCommand";
+import {
+  DisassociateApplicationFromEntitlementCommandInput,
+  DisassociateApplicationFromEntitlementCommandOutput,
+} from "./commands/DisassociateApplicationFromEntitlementCommand";
 import { DisassociateFleetCommandInput, DisassociateFleetCommandOutput } from "./commands/DisassociateFleetCommand";
 import { EnableUserCommandInput, EnableUserCommandOutput } from "./commands/EnableUserCommand";
 import { ExpireSessionCommandInput, ExpireSessionCommandOutput } from "./commands/ExpireSessionCommand";
@@ -152,6 +166,10 @@ import {
   ListAssociatedStacksCommandInput,
   ListAssociatedStacksCommandOutput,
 } from "./commands/ListAssociatedStacksCommand";
+import {
+  ListEntitledApplicationsCommandInput,
+  ListEntitledApplicationsCommandOutput,
+} from "./commands/ListEntitledApplicationsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -167,6 +185,7 @@ import {
   UpdateDirectoryConfigCommandInput,
   UpdateDirectoryConfigCommandOutput,
 } from "./commands/UpdateDirectoryConfigCommand";
+import { UpdateEntitlementCommandInput, UpdateEntitlementCommandOutput } from "./commands/UpdateEntitlementCommand";
 import { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
 import {
   UpdateImagePermissionsCommandInput,
@@ -177,6 +196,7 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | AssociateApplicationFleetCommandInput
+  | AssociateApplicationToEntitlementCommandInput
   | AssociateFleetCommandInput
   | BatchAssociateUserStackCommandInput
   | BatchDisassociateUserStackCommandInput
@@ -184,6 +204,7 @@ export type ServiceInputTypes =
   | CreateAppBlockCommandInput
   | CreateApplicationCommandInput
   | CreateDirectoryConfigCommandInput
+  | CreateEntitlementCommandInput
   | CreateFleetCommandInput
   | CreateImageBuilderCommandInput
   | CreateImageBuilderStreamingURLCommandInput
@@ -195,6 +216,7 @@ export type ServiceInputTypes =
   | DeleteAppBlockCommandInput
   | DeleteApplicationCommandInput
   | DeleteDirectoryConfigCommandInput
+  | DeleteEntitlementCommandInput
   | DeleteFleetCommandInput
   | DeleteImageBuilderCommandInput
   | DeleteImageCommandInput
@@ -206,6 +228,7 @@ export type ServiceInputTypes =
   | DescribeApplicationFleetAssociationsCommandInput
   | DescribeApplicationsCommandInput
   | DescribeDirectoryConfigsCommandInput
+  | DescribeEntitlementsCommandInput
   | DescribeFleetsCommandInput
   | DescribeImageBuildersCommandInput
   | DescribeImagePermissionsCommandInput
@@ -217,11 +240,13 @@ export type ServiceInputTypes =
   | DescribeUsersCommandInput
   | DisableUserCommandInput
   | DisassociateApplicationFleetCommandInput
+  | DisassociateApplicationFromEntitlementCommandInput
   | DisassociateFleetCommandInput
   | EnableUserCommandInput
   | ExpireSessionCommandInput
   | ListAssociatedFleetsCommandInput
   | ListAssociatedStacksCommandInput
+  | ListEntitledApplicationsCommandInput
   | ListTagsForResourceCommandInput
   | StartFleetCommandInput
   | StartImageBuilderCommandInput
@@ -231,12 +256,14 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateApplicationCommandInput
   | UpdateDirectoryConfigCommandInput
+  | UpdateEntitlementCommandInput
   | UpdateFleetCommandInput
   | UpdateImagePermissionsCommandInput
   | UpdateStackCommandInput;
 
 export type ServiceOutputTypes =
   | AssociateApplicationFleetCommandOutput
+  | AssociateApplicationToEntitlementCommandOutput
   | AssociateFleetCommandOutput
   | BatchAssociateUserStackCommandOutput
   | BatchDisassociateUserStackCommandOutput
@@ -244,6 +271,7 @@ export type ServiceOutputTypes =
   | CreateAppBlockCommandOutput
   | CreateApplicationCommandOutput
   | CreateDirectoryConfigCommandOutput
+  | CreateEntitlementCommandOutput
   | CreateFleetCommandOutput
   | CreateImageBuilderCommandOutput
   | CreateImageBuilderStreamingURLCommandOutput
@@ -255,6 +283,7 @@ export type ServiceOutputTypes =
   | DeleteAppBlockCommandOutput
   | DeleteApplicationCommandOutput
   | DeleteDirectoryConfigCommandOutput
+  | DeleteEntitlementCommandOutput
   | DeleteFleetCommandOutput
   | DeleteImageBuilderCommandOutput
   | DeleteImageCommandOutput
@@ -266,6 +295,7 @@ export type ServiceOutputTypes =
   | DescribeApplicationFleetAssociationsCommandOutput
   | DescribeApplicationsCommandOutput
   | DescribeDirectoryConfigsCommandOutput
+  | DescribeEntitlementsCommandOutput
   | DescribeFleetsCommandOutput
   | DescribeImageBuildersCommandOutput
   | DescribeImagePermissionsCommandOutput
@@ -277,11 +307,13 @@ export type ServiceOutputTypes =
   | DescribeUsersCommandOutput
   | DisableUserCommandOutput
   | DisassociateApplicationFleetCommandOutput
+  | DisassociateApplicationFromEntitlementCommandOutput
   | DisassociateFleetCommandOutput
   | EnableUserCommandOutput
   | ExpireSessionCommandOutput
   | ListAssociatedFleetsCommandOutput
   | ListAssociatedStacksCommandOutput
+  | ListEntitledApplicationsCommandOutput
   | ListTagsForResourceCommandOutput
   | StartFleetCommandOutput
   | StartImageBuilderCommandOutput
@@ -291,6 +323,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateApplicationCommandOutput
   | UpdateDirectoryConfigCommandOutput
+  | UpdateEntitlementCommandOutput
   | UpdateFleetCommandOutput
   | UpdateImagePermissionsCommandOutput
   | UpdateStackCommandOutput;

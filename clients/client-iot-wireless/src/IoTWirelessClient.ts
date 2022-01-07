@@ -122,6 +122,10 @@ import {
   DeleteMulticastGroupCommandOutput,
 } from "./commands/DeleteMulticastGroupCommand";
 import {
+  DeleteQueuedMessagesCommandInput,
+  DeleteQueuedMessagesCommandOutput,
+} from "./commands/DeleteQueuedMessagesCommand";
+import {
   DeleteServiceProfileCommandInput,
   DeleteServiceProfileCommandOutput,
 } from "./commands/DeleteServiceProfileCommand";
@@ -237,6 +241,7 @@ import {
   ListPartnerAccountsCommandInput,
   ListPartnerAccountsCommandOutput,
 } from "./commands/ListPartnerAccountsCommand";
+import { ListQueuedMessagesCommandInput, ListQueuedMessagesCommandOutput } from "./commands/ListQueuedMessagesCommand";
 import {
   ListServiceProfilesCommandInput,
   ListServiceProfilesCommandOutput,
@@ -347,6 +352,7 @@ export type ServiceInputTypes =
   | DeleteDeviceProfileCommandInput
   | DeleteFuotaTaskCommandInput
   | DeleteMulticastGroupCommandInput
+  | DeleteQueuedMessagesCommandInput
   | DeleteServiceProfileCommandInput
   | DeleteWirelessDeviceCommandInput
   | DeleteWirelessGatewayCommandInput
@@ -385,6 +391,7 @@ export type ServiceInputTypes =
   | ListMulticastGroupsByFuotaTaskCommandInput
   | ListMulticastGroupsCommandInput
   | ListPartnerAccountsCommandInput
+  | ListQueuedMessagesCommandInput
   | ListServiceProfilesCommandInput
   | ListTagsForResourceCommandInput
   | ListWirelessDevicesCommandInput
@@ -434,6 +441,7 @@ export type ServiceOutputTypes =
   | DeleteDeviceProfileCommandOutput
   | DeleteFuotaTaskCommandOutput
   | DeleteMulticastGroupCommandOutput
+  | DeleteQueuedMessagesCommandOutput
   | DeleteServiceProfileCommandOutput
   | DeleteWirelessDeviceCommandOutput
   | DeleteWirelessGatewayCommandOutput
@@ -472,6 +480,7 @@ export type ServiceOutputTypes =
   | ListMulticastGroupsByFuotaTaskCommandOutput
   | ListMulticastGroupsCommandOutput
   | ListPartnerAccountsCommandOutput
+  | ListQueuedMessagesCommandOutput
   | ListServiceProfilesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWirelessDevicesCommandOutput
@@ -648,7 +657,17 @@ type IoTWirelessClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpH
 export interface IoTWirelessClientResolvedConfig extends IoTWirelessClientResolvedConfigType {}
 
 /**
- * <p>AWS IoT Wireless API documentation</p>
+ * <p>AWS IoT Wireless provides bi-directional communication between internet-connected wireless
+ * 	        devices and the AWS Cloud. To onboard both LoRaWAN and Sidewalk devices to AWS IoT, use the
+ * 	        IoT Wireless API. These wireless devices use the Low Power Wide Area Networking (LPWAN)
+ * 	        communication protocol to communicate with AWS IoT.</p>
+ * 	        <p>Using the API, you can perform create, read, update, and delete operations for your wireless
+ * 	        devices, gateways, destinations, and profiles. After onboarding your devices, you
+ * 	        can use the API operations to set log levels and monitor your devices with CloudWatch.</p>
+ * 	        <p>You can also use the API operations to create multicast groups and schedule a multicast session for
+ * 	        sending a downlink message to devices in the group. By using Firmware Updates Over-The-Air
+ * 	        (FUOTA) API operations, you can create a FUOTA task and schedule a session to update the firmware
+ * 	        of individual devices or an entire group of devices in a multicast group.</p>
  */
 export class IoTWirelessClient extends __Client<
   __HttpHandlerOptions,

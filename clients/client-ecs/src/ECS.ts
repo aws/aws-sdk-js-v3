@@ -1699,7 +1699,7 @@ export class ECS extends ECSClient {
    * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       <p>Alternatively, you can use <a>StartTask</a> to use your own scheduler or
    * 			place tasks manually on specific container instances.</p>
-   * 		       <p>The Amazon ECS API follows an eventual consistency model. This is because the distributed
+   * 		       <p>The Amazon ECS API follows an eventual consistency model. This is because of the distributed
    * 			nature of the system supporting the API. This means that the result of an API command
    * 			you run that affects your Amazon ECS resources might not be immediately visible to all
    * 			subsequent commands you run. Keep this in mind when you carry out an API command that

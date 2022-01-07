@@ -22,7 +22,7 @@ export interface CreateWebLoginTokenCommandInput extends CreateWebLoginTokenRequ
 export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenResponse, __MetadataBearer {}
 
 /**
- * <p>Create a JWT token to be used to login to Airflow Web UI with claims based Authentication.</p>
+ * <p>Creates a web login token for the Airflow Web UI. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-web.html">Creating an Apache Airflow web login token</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

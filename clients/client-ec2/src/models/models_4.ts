@@ -44,7 +44,6 @@ import {
   InstanceIpv6Address,
   InstanceRequirements,
   InstanceRequirementsRequest,
-  IpamResourceTag,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
   PrivateIpAddressSpecification,
@@ -70,6 +69,7 @@ import {
   DnsNameState,
   Filter,
   IpamPoolCidr,
+  PayerResponsibility,
   ServiceConfiguration,
   ServiceTypeDetail,
   State,
@@ -93,11 +93,115 @@ import {
   PermissionGroup,
   ProductCode,
   RecurringCharge,
-  ReservedInstancesModification,
+  ReservedInstancesConfiguration,
   RIProductDescription,
   Scope,
   VirtualizationType,
 } from "./models_3";
+
+/**
+ * <p>Describes the modification request/s.</p>
+ */
+export interface ReservedInstancesModificationResult {
+  /**
+   * <p>The ID for the Reserved Instances that were created as part of the modification request. This field is only available when the modification is fulfilled.</p>
+   */
+  ReservedInstancesId?: string;
+
+  /**
+   * <p>The target Reserved Instances configurations supplied as part of the modification request.</p>
+   */
+  TargetConfiguration?: ReservedInstancesConfiguration;
+}
+
+export namespace ReservedInstancesModificationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReservedInstancesModificationResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the ID of a Reserved Instance.</p>
+ */
+export interface ReservedInstancesId {
+  /**
+   * <p>The ID of the Reserved Instance.</p>
+   */
+  ReservedInstancesId?: string;
+}
+
+export namespace ReservedInstancesId {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReservedInstancesId): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a Reserved Instance modification.</p>
+ */
+export interface ReservedInstancesModification {
+  /**
+   * <p>A unique, case-sensitive key supplied by the client to ensure that the request is idempotent.
+   * 			For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   * 				Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The time when the modification request was created.</p>
+   */
+  CreateDate?: Date;
+
+  /**
+   * <p>The time for the modification to become effective.</p>
+   */
+  EffectiveDate?: Date;
+
+  /**
+   * <p>Contains target configurations along with their corresponding new Reserved Instance IDs.</p>
+   */
+  ModificationResults?: ReservedInstancesModificationResult[];
+
+  /**
+   * <p>The IDs of one or more Reserved Instances.</p>
+   */
+  ReservedInstancesIds?: ReservedInstancesId[];
+
+  /**
+   * <p>A unique ID for the Reserved Instance modification.</p>
+   */
+  ReservedInstancesModificationId?: string;
+
+  /**
+   * <p>The status of the Reserved Instances modification request.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The reason for the status.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The time when the modification request was last updated.</p>
+   */
+  UpdateDate?: Date;
+}
+
+export namespace ReservedInstancesModification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReservedInstancesModification): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Contains the output of DescribeReservedInstancesModifications.</p>
@@ -1727,8 +1831,9 @@ export interface DescribeSnapshotTierStatusRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>last-tiering-operation</code> - The state of the last archive or restore action. (<code>archiving</code> | <code>archival_error</code> |
-   *           <code>archival_complete</code> | <code>restoring</code> | <code>restore_error</code> | <code>restore_complete</code>)</p>
+   *                   <code>last-tiering-operation</code> - The state of the last archive or restore action. (<code>archival-in-progress</code> | <code>archival-completed</code> |
+   *           <code>archival-failed</code> | <code>permanent-restore-in-progress</code> | <code>permanent-restore-completed</code> | <code>permanent-restore-failed</code> |
+   * 		<code>temporary-restore-in-progress</code> | <code>temporary-restore-completed</code> | <code>temporary-restore-failed</code>)</p>
    *             </li>
    *          </ul>
    */
@@ -2748,7 +2853,7 @@ export enum ReplacementStrategy {
 /**
  * <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your
  *             Spot Instance is at an elevated risk of being interrupted. For more information, see
- *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#spot-fleet-capacity-rebalance">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  */
 export interface SpotCapacityRebalance {
   /**
@@ -2771,7 +2876,8 @@ export interface SpotCapacityRebalance {
   /**
    * <p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
    *             Instance after launching a new replacement Spot Instance.</p>
-   *         <p>Valid only when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>
+   *         <p>Required when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>
+   *         <p>Not valid when <code>ReplacementStrategy</code> is set to <code>launch</code>.</p>
    *         <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>
    */
   TerminationDelay?: number;
@@ -2792,8 +2898,9 @@ export namespace SpotCapacityRebalance {
  */
 export interface SpotMaintenanceStrategies {
   /**
-   * <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an
-   *             elevated risk of being interrupted.</p>
+   * <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your
+   *             Spot Instance is at an elevated risk of being interrupted. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
   CapacityRebalance?: SpotCapacityRebalance;
 }
@@ -7066,6 +7173,11 @@ export interface ServiceDetail {
   ManagesVpcEndpoints?: boolean;
 
   /**
+   * <p>The payer responsibility.</p>
+   */
+  PayerResponsibility?: PayerResponsibility | string;
+
+  /**
    * <p>Any tags assigned to the service.</p>
    */
   Tags?: Tag[];
@@ -11046,138 +11158,4 @@ export enum IpamManagementState {
   ignored = "ignored",
   managed = "managed",
   unmanaged = "unmanaged",
-}
-
-/**
- * <p>The CIDR for an IPAM resource.</p>
- */
-export interface IpamResourceCidr {
-  /**
-   * <p>The IPAM ID for an IPAM resource.</p>
-   */
-  IpamId?: string;
-
-  /**
-   * <p>The scope ID for an IPAM resource.</p>
-   */
-  IpamScopeId?: string;
-
-  /**
-   * <p>The pool ID for an IPAM resource.</p>
-   */
-  IpamPoolId?: string;
-
-  /**
-   * <p>The Amazon Web Services Region for an IPAM resource.</p>
-   */
-  ResourceRegion?: string;
-
-  /**
-   * <p>The Amazon Web Services account number of the owner of an IPAM resource.</p>
-   */
-  ResourceOwnerId?: string;
-
-  /**
-   * <p>The ID of an IPAM resource.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * <p>The name of an IPAM resource.</p>
-   */
-  ResourceName?: string;
-
-  /**
-   * <p>The CIDR for an IPAM resource.</p>
-   */
-  ResourceCidr?: string;
-
-  /**
-   * <p>The type of IPAM resource.</p>
-   */
-  ResourceType?: IpamResourceType | string;
-
-  /**
-   * <p>The tags for an IPAM resource.</p>
-   */
-  ResourceTags?: IpamResourceTag[];
-
-  /**
-   * <p>The IP address space in the IPAM pool that is allocated to this resource. To convert the decimal to a percentage, multiply the decimal by 100.</p>
-   */
-  IpUsage?: number;
-
-  /**
-   * <p>The compliance status of the IPAM resource. For more information on compliance statuses, see <a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
-   */
-  ComplianceStatus?: IpamComplianceStatus | string;
-
-  /**
-   * <p>The management state of the resource. For more information about management states, see <a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
-   */
-  ManagementState?: IpamManagementState | string;
-
-  /**
-   * <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
-   */
-  OverlapStatus?: IpamOverlapStatus | string;
-
-  /**
-   * <p>The ID of a VPC.</p>
-   */
-  VpcId?: string;
-}
-
-export namespace IpamResourceCidr {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IpamResourceCidr): any => ({
-    ...obj,
-  });
-}
-
-export interface GetIpamResourceCidrsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The resource CIDRs.</p>
-   */
-  IpamResourceCidrs?: IpamResourceCidr[];
-}
-
-export namespace GetIpamResourceCidrsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIpamResourceCidrsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetLaunchTemplateDataRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId: string | undefined;
-}
-
-export namespace GetLaunchTemplateDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchTemplateDataRequest): any => ({
-    ...obj,
-  });
 }

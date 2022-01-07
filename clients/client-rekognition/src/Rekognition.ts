@@ -2018,7 +2018,7 @@ export class Rekognition extends RekognitionClient {
    *          <p>If you request all facial attributes (by using the <code>detectionAttributes</code>
    *       parameter), Amazon Rekognition returns detailed facial attributes, such as facial landmarks (for
    *       example, location of eye and mouth) and other facial attributes. If you provide
-   *       the same image, specify the same collection, and use the same external ID in the
+   *       the same image, specify the same collection, use the same external ID, and use the same model version in the
    *         <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate face metadata.</p>
    *
    *

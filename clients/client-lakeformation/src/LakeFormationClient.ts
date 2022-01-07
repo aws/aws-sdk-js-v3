@@ -97,6 +97,14 @@ import { GetQueryStateCommandInput, GetQueryStateCommandOutput } from "./command
 import { GetQueryStatisticsCommandInput, GetQueryStatisticsCommandOutput } from "./commands/GetQueryStatisticsCommand";
 import { GetResourceLFTagsCommandInput, GetResourceLFTagsCommandOutput } from "./commands/GetResourceLFTagsCommand";
 import { GetTableObjectsCommandInput, GetTableObjectsCommandOutput } from "./commands/GetTableObjectsCommand";
+import {
+  GetTemporaryGluePartitionCredentialsCommandInput,
+  GetTemporaryGluePartitionCredentialsCommandOutput,
+} from "./commands/GetTemporaryGluePartitionCredentialsCommand";
+import {
+  GetTemporaryGlueTableCredentialsCommandInput,
+  GetTemporaryGlueTableCredentialsCommandOutput,
+} from "./commands/GetTemporaryGlueTableCredentialsCommand";
 import { GetWorkUnitResultsCommandInput, GetWorkUnitResultsCommandOutput } from "./commands/GetWorkUnitResultsCommand";
 import { GetWorkUnitsCommandInput, GetWorkUnitsCommandOutput } from "./commands/GetWorkUnitsCommand";
 import { GrantPermissionsCommandInput, GrantPermissionsCommandOutput } from "./commands/GrantPermissionsCommand";
@@ -163,6 +171,8 @@ export type ServiceInputTypes =
   | GetQueryStatisticsCommandInput
   | GetResourceLFTagsCommandInput
   | GetTableObjectsCommandInput
+  | GetTemporaryGluePartitionCredentialsCommandInput
+  | GetTemporaryGlueTableCredentialsCommandInput
   | GetWorkUnitResultsCommandInput
   | GetWorkUnitsCommandInput
   | GrantPermissionsCommandInput
@@ -207,6 +217,8 @@ export type ServiceOutputTypes =
   | GetQueryStatisticsCommandOutput
   | GetResourceLFTagsCommandOutput
   | GetTableObjectsCommandOutput
+  | GetTemporaryGluePartitionCredentialsCommandOutput
+  | GetTemporaryGlueTableCredentialsCommandOutput
   | GetWorkUnitResultsCommandOutput
   | GetWorkUnitsCommandOutput
   | GrantPermissionsCommandOutput

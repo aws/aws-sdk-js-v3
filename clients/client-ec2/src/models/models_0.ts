@@ -6332,6 +6332,15 @@ export interface CreateCapacityReservationRequest {
    * <p>The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.</p>
    */
   OutpostArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster placement group in which
+   * 			to create the Capacity Reservation. For more information, see
+   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html">
+   * 				Capacity Reservations for cluster placement groups</a> in the
+   * 			<i>Amazon EC2 User Guide</i>.</p>
+   */
+  PlacementGroupArn?: string;
 }
 
 export namespace CreateCapacityReservationRequest {
@@ -6524,6 +6533,15 @@ export interface CapacityReservation {
    * 			Only valid for Capacity Reservations that were created by a Capacity Reservation Fleet.</p>
    */
   CapacityReservationFleetId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster placement group in which
+   * 			the Capacity Reservation was created. For more information, see
+   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html">
+   * 				Capacity Reservations for cluster placement groups</a> in the
+   * 			<i>Amazon EC2 User Guide</i>.</p>
+   */
+  PlacementGroupArn?: string;
 }
 
 export namespace CapacityReservation {

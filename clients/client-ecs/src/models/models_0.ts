@@ -128,7 +128,7 @@ export interface AutoScalingGroupProvider {
   /**
    * <p>The managed termination protection setting to use for the Auto Scaling group capacity
    * 			provider. This determines whether the Auto Scaling group has managed termination
-   * 			protection.</p>
+   * 			protection. The default is disabled.</p>
    * 		       <important>
    * 			         <p>When using managed termination protection, managed scaling must also be used
    * 				otherwise managed termination protection doesn't work.</p>
@@ -845,7 +845,8 @@ export interface Attachment {
   /**
    * <p> The status of the attachment. Valid values are <code>PRECREATED</code>,
    * 				<code>CREATED</code>, <code>ATTACHING</code>, <code>ATTACHED</code>,
-   * 				<code>DETACHING</code>, <code>DETACHED</code>, and <code>DELETED</code>.</p>
+   * 				<code>DETACHING</code>, <code>DETACHED</code>, <code>DELETED</code>, and
+   * 				<code>FAILED</code>.</p>
    */
   status?: string;
 
@@ -10197,7 +10198,7 @@ export interface UpdateContainerInstancesStateRequest {
   cluster?: string;
 
   /**
-   * <p>A list of container instance IDs or full ARN entries.</p>
+   * <p>A list of up to 10 container instance IDs or full ARN entries.</p>
    */
   containerInstances: string[] | undefined;
 

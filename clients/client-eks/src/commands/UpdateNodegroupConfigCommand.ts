@@ -22,11 +22,10 @@ export interface UpdateNodegroupConfigCommandInput extends UpdateNodegroupConfig
 export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an Amazon EKS managed node group configuration. Your node group continues to
- *             function during the update. The response output includes an update ID that you can use
- *             to track the status of your node group update with the <a>DescribeUpdate</a>
- *             API operation. Currently you can update the Kubernetes labels for a node group or the
- *             scaling configuration.</p>
+ * <p>Updates an Amazon EKS managed node group configuration. Your node group
+ *             continues to function during the update. The response output includes an update ID that
+ *             you can use to track the status of your node group update with the <a>DescribeUpdate</a> API operation. Currently you can update the Kubernetes
+ *             labels for a node group or the scaling configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -22,7 +22,7 @@ export interface CreateCliTokenCommandInput extends CreateCliTokenRequest {}
 export interface CreateCliTokenCommandOutput extends CreateCliTokenResponse, __MetadataBearer {}
 
 /**
- * <p>Create a CLI token to use Airflow CLI.</p>
+ * <p>Creates a CLI token for the Airflow CLI. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-cli.html">Creating an Apache Airflow CLI token</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

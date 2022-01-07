@@ -7,6 +7,11 @@ import {
   AssociateApplicationFleetCommandOutput,
 } from "./commands/AssociateApplicationFleetCommand";
 import {
+  AssociateApplicationToEntitlementCommand,
+  AssociateApplicationToEntitlementCommandInput,
+  AssociateApplicationToEntitlementCommandOutput,
+} from "./commands/AssociateApplicationToEntitlementCommand";
+import {
   AssociateFleetCommand,
   AssociateFleetCommandInput,
   AssociateFleetCommandOutput,
@@ -37,6 +42,11 @@ import {
   CreateDirectoryConfigCommandInput,
   CreateDirectoryConfigCommandOutput,
 } from "./commands/CreateDirectoryConfigCommand";
+import {
+  CreateEntitlementCommand,
+  CreateEntitlementCommandInput,
+  CreateEntitlementCommandOutput,
+} from "./commands/CreateEntitlementCommand";
 import { CreateFleetCommand, CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import {
   CreateImageBuilderCommand,
@@ -80,6 +90,11 @@ import {
   DeleteDirectoryConfigCommandInput,
   DeleteDirectoryConfigCommandOutput,
 } from "./commands/DeleteDirectoryConfigCommand";
+import {
+  DeleteEntitlementCommand,
+  DeleteEntitlementCommandInput,
+  DeleteEntitlementCommandOutput,
+} from "./commands/DeleteEntitlementCommand";
 import { DeleteFleetCommand, DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import {
   DeleteImageBuilderCommand,
@@ -119,6 +134,11 @@ import {
   DescribeDirectoryConfigsCommandInput,
   DescribeDirectoryConfigsCommandOutput,
 } from "./commands/DescribeDirectoryConfigsCommand";
+import {
+  DescribeEntitlementsCommand,
+  DescribeEntitlementsCommandInput,
+  DescribeEntitlementsCommandOutput,
+} from "./commands/DescribeEntitlementsCommand";
 import {
   DescribeFleetsCommand,
   DescribeFleetsCommandInput,
@@ -171,6 +191,11 @@ import {
   DisassociateApplicationFleetCommandOutput,
 } from "./commands/DisassociateApplicationFleetCommand";
 import {
+  DisassociateApplicationFromEntitlementCommand,
+  DisassociateApplicationFromEntitlementCommandInput,
+  DisassociateApplicationFromEntitlementCommandOutput,
+} from "./commands/DisassociateApplicationFromEntitlementCommand";
+import {
   DisassociateFleetCommand,
   DisassociateFleetCommandInput,
   DisassociateFleetCommandOutput,
@@ -191,6 +216,11 @@ import {
   ListAssociatedStacksCommandInput,
   ListAssociatedStacksCommandOutput,
 } from "./commands/ListAssociatedStacksCommand";
+import {
+  ListEntitledApplicationsCommand,
+  ListEntitledApplicationsCommandInput,
+  ListEntitledApplicationsCommandOutput,
+} from "./commands/ListEntitledApplicationsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -224,6 +254,11 @@ import {
   UpdateDirectoryConfigCommandInput,
   UpdateDirectoryConfigCommandOutput,
 } from "./commands/UpdateDirectoryConfigCommand";
+import {
+  UpdateEntitlementCommand,
+  UpdateEntitlementCommandInput,
+  UpdateEntitlementCommandOutput,
+} from "./commands/UpdateEntitlementCommand";
 import { UpdateFleetCommand, UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
 import {
   UpdateImagePermissionsCommand,
@@ -278,6 +313,38 @@ export class AppStream extends AppStreamClient {
     cb?: (err: any, data?: AssociateApplicationFleetCommandOutput) => void
   ): Promise<AssociateApplicationFleetCommandOutput> | void {
     const command = new AssociateApplicationFleetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates an application to entitle.</p>
+   */
+  public associateApplicationToEntitlement(
+    args: AssociateApplicationToEntitlementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateApplicationToEntitlementCommandOutput>;
+  public associateApplicationToEntitlement(
+    args: AssociateApplicationToEntitlementCommandInput,
+    cb: (err: any, data?: AssociateApplicationToEntitlementCommandOutput) => void
+  ): void;
+  public associateApplicationToEntitlement(
+    args: AssociateApplicationToEntitlementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateApplicationToEntitlementCommandOutput) => void
+  ): void;
+  public associateApplicationToEntitlement(
+    args: AssociateApplicationToEntitlementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateApplicationToEntitlementCommandOutput) => void),
+    cb?: (err: any, data?: AssociateApplicationToEntitlementCommandOutput) => void
+  ): Promise<AssociateApplicationToEntitlementCommandOutput> | void {
+    const command = new AssociateApplicationToEntitlementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -508,6 +575,43 @@ export class AppStream extends AppStreamClient {
     cb?: (err: any, data?: CreateDirectoryConfigCommandOutput) => void
   ): Promise<CreateDirectoryConfigCommandOutput> | void {
     const command = new CreateDirectoryConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new entitlement. Entitlements control access to specific applications within
+   *             a stack, based on user attributes. Entitlements apply to SAML 2.0 federated user
+   *             identities. Amazon AppStream 2.0 user pool and streaming URL users are entitled to all
+   *             applications in a stack. Entitlements don't apply to the desktop stream view
+   *             application, or to applications managed by a dynamic app provider using the Dynamic
+   *             Application Framework.</p>
+   */
+  public createEntitlement(
+    args: CreateEntitlementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEntitlementCommandOutput>;
+  public createEntitlement(
+    args: CreateEntitlementCommandInput,
+    cb: (err: any, data?: CreateEntitlementCommandOutput) => void
+  ): void;
+  public createEntitlement(
+    args: CreateEntitlementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEntitlementCommandOutput) => void
+  ): void;
+  public createEntitlement(
+    args: CreateEntitlementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEntitlementCommandOutput) => void),
+    cb?: (err: any, data?: CreateEntitlementCommandOutput) => void
+  ): Promise<CreateEntitlementCommandOutput> | void {
+    const command = new CreateEntitlementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -857,6 +961,38 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
+   * <p>Deletes the specified entitlement.</p>
+   */
+  public deleteEntitlement(
+    args: DeleteEntitlementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEntitlementCommandOutput>;
+  public deleteEntitlement(
+    args: DeleteEntitlementCommandInput,
+    cb: (err: any, data?: DeleteEntitlementCommandOutput) => void
+  ): void;
+  public deleteEntitlement(
+    args: DeleteEntitlementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEntitlementCommandOutput) => void
+  ): void;
+  public deleteEntitlement(
+    args: DeleteEntitlementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEntitlementCommandOutput) => void),
+    cb?: (err: any, data?: DeleteEntitlementCommandOutput) => void
+  ): Promise<DeleteEntitlementCommandOutput> | void {
+    const command = new DeleteEntitlementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified fleet.</p>
    */
   public deleteFleet(args: DeleteFleetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFleetCommandOutput>;
@@ -1177,6 +1313,38 @@ export class AppStream extends AppStreamClient {
     cb?: (err: any, data?: DescribeDirectoryConfigsCommandOutput) => void
   ): Promise<DescribeDirectoryConfigsCommandOutput> | void {
     const command = new DescribeDirectoryConfigsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a list that describes one of more entitlements.</p>
+   */
+  public describeEntitlements(
+    args: DescribeEntitlementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEntitlementsCommandOutput>;
+  public describeEntitlements(
+    args: DescribeEntitlementsCommandInput,
+    cb: (err: any, data?: DescribeEntitlementsCommandOutput) => void
+  ): void;
+  public describeEntitlements(
+    args: DescribeEntitlementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEntitlementsCommandOutput) => void
+  ): void;
+  public describeEntitlements(
+    args: DescribeEntitlementsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEntitlementsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEntitlementsCommandOutput) => void
+  ): Promise<DescribeEntitlementsCommandOutput> | void {
+    const command = new DescribeEntitlementsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1544,6 +1712,40 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
+   * <p>Deletes the specified application from the specified entitlement.</p>
+   */
+  public disassociateApplicationFromEntitlement(
+    args: DisassociateApplicationFromEntitlementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateApplicationFromEntitlementCommandOutput>;
+  public disassociateApplicationFromEntitlement(
+    args: DisassociateApplicationFromEntitlementCommandInput,
+    cb: (err: any, data?: DisassociateApplicationFromEntitlementCommandOutput) => void
+  ): void;
+  public disassociateApplicationFromEntitlement(
+    args: DisassociateApplicationFromEntitlementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateApplicationFromEntitlementCommandOutput) => void
+  ): void;
+  public disassociateApplicationFromEntitlement(
+    args: DisassociateApplicationFromEntitlementCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisassociateApplicationFromEntitlementCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateApplicationFromEntitlementCommandOutput) => void
+  ): Promise<DisassociateApplicationFromEntitlementCommandOutput> | void {
+    const command = new DisassociateApplicationFromEntitlementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disassociates the specified fleet from the specified stack.</p>
    */
   public disassociateFleet(
@@ -1687,6 +1889,38 @@ export class AppStream extends AppStreamClient {
     cb?: (err: any, data?: ListAssociatedStacksCommandOutput) => void
   ): Promise<ListAssociatedStacksCommandOutput> | void {
     const command = new ListAssociatedStacksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a list of entitled applications.</p>
+   */
+  public listEntitledApplications(
+    args: ListEntitledApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEntitledApplicationsCommandOutput>;
+  public listEntitledApplications(
+    args: ListEntitledApplicationsCommandInput,
+    cb: (err: any, data?: ListEntitledApplicationsCommandOutput) => void
+  ): void;
+  public listEntitledApplications(
+    args: ListEntitledApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEntitledApplicationsCommandOutput) => void
+  ): void;
+  public listEntitledApplications(
+    args: ListEntitledApplicationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEntitledApplicationsCommandOutput) => void),
+    cb?: (err: any, data?: ListEntitledApplicationsCommandOutput) => void
+  ): Promise<ListEntitledApplicationsCommandOutput> | void {
+    const command = new ListEntitledApplicationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1966,6 +2200,38 @@ export class AppStream extends AppStreamClient {
     cb?: (err: any, data?: UpdateDirectoryConfigCommandOutput) => void
   ): Promise<UpdateDirectoryConfigCommandOutput> | void {
     const command = new UpdateDirectoryConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the specified entitlement.</p>
+   */
+  public updateEntitlement(
+    args: UpdateEntitlementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEntitlementCommandOutput>;
+  public updateEntitlement(
+    args: UpdateEntitlementCommandInput,
+    cb: (err: any, data?: UpdateEntitlementCommandOutput) => void
+  ): void;
+  public updateEntitlement(
+    args: UpdateEntitlementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEntitlementCommandOutput) => void
+  ): void;
+  public updateEntitlement(
+    args: UpdateEntitlementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEntitlementCommandOutput) => void),
+    cb?: (err: any, data?: UpdateEntitlementCommandOutput) => void
+  ): Promise<UpdateEntitlementCommandOutput> | void {
+    const command = new UpdateEntitlementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

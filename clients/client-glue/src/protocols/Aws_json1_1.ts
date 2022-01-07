@@ -206,6 +206,18 @@ import { GetTagsCommandInput, GetTagsCommandOutput } from "../commands/GetTagsCo
 import { GetTriggerCommandInput, GetTriggerCommandOutput } from "../commands/GetTriggerCommand";
 import { GetTriggersCommandInput, GetTriggersCommandOutput } from "../commands/GetTriggersCommand";
 import {
+  GetUnfilteredPartitionMetadataCommandInput,
+  GetUnfilteredPartitionMetadataCommandOutput,
+} from "../commands/GetUnfilteredPartitionMetadataCommand";
+import {
+  GetUnfilteredPartitionsMetadataCommandInput,
+  GetUnfilteredPartitionsMetadataCommandOutput,
+} from "../commands/GetUnfilteredPartitionsMetadataCommand";
+import {
+  GetUnfilteredTableMetadataCommandInput,
+  GetUnfilteredTableMetadataCommandOutput,
+} from "../commands/GetUnfilteredTableMetadataCommand";
+import {
   GetUserDefinedFunctionCommandInput,
   GetUserDefinedFunctionCommandOutput,
 } from "../commands/GetUserDefinedFunctionCommand";
@@ -330,6 +342,7 @@ import {
   AccessDeniedException,
   Action,
   AlreadyExistsException,
+  AuditContext,
   BatchCreatePartitionRequest,
   BatchCreatePartitionResponse,
   BatchDeleteConnectionRequest,
@@ -487,6 +500,7 @@ import {
   DeleteUserDefinedFunctionResponse,
   DeleteWorkflowRequest,
   DeleteWorkflowResponse,
+  DeltaTarget,
   DevEndpoint,
   DoubleColumnStatisticsData,
   DynamoDBTarget,
@@ -520,11 +534,8 @@ import {
   GetConnectionsRequest,
   GetConnectionsResponse,
   GetCrawlerMetricsRequest,
-  GetCrawlerMetricsResponse,
   GetCrawlerRequest,
   GetCrawlerResponse,
-  GetCrawlersRequest,
-  GetCrawlersResponse,
   GlueEncryptionException,
   GlueTable,
   GrokClassifier,
@@ -539,6 +550,7 @@ import {
   JobNodeDetails,
   JobRun,
   JsonClassifier,
+  LakeFormationConfiguration,
   LastActiveDefinition,
   LastCrawlInfo,
   LineageConfiguration,
@@ -597,6 +609,7 @@ import {
   BackfillError,
   CatalogEntry,
   ColumnImportance,
+  ColumnRowFilter,
   ColumnStatisticsError,
   ConcurrentRunsExceededException,
   ConfusionMatrix,
@@ -611,6 +624,9 @@ import {
   ExportLabelsTaskRunProperties,
   FindMatchesMetrics,
   FindMatchesTaskRunProperties,
+  GetCrawlerMetricsResponse,
+  GetCrawlersRequest,
+  GetCrawlersResponse,
   GetDatabaseRequest,
   GetDatabaseResponse,
   GetDatabasesRequest,
@@ -683,6 +699,12 @@ import {
   GetTriggerResponse,
   GetTriggersRequest,
   GetTriggersResponse,
+  GetUnfilteredPartitionMetadataRequest,
+  GetUnfilteredPartitionMetadataResponse,
+  GetUnfilteredPartitionsMetadataRequest,
+  GetUnfilteredPartitionsMetadataResponse,
+  GetUnfilteredTableMetadataRequest,
+  GetUnfilteredTableMetadataResponse,
   GetUserDefinedFunctionRequest,
   GetUserDefinedFunctionResponse,
   GetUserDefinedFunctionsRequest,
@@ -734,6 +756,8 @@ import {
   NoScheduleException,
   OtherMetadataValueListItem,
   PartitionIndexDescriptor,
+  PermissionType,
+  PermissionTypeMismatchException,
   PropertyPredicate,
   PutDataCatalogEncryptionSettingsRequest,
   PutDataCatalogEncryptionSettingsResponse,
@@ -804,6 +828,7 @@ import {
   TransformFilterCriteria,
   TransformSortCriteria,
   TriggerUpdate,
+  UnfilteredPartition,
   UntagResourceRequest,
   UntagResourceResponse,
   UpdateBlueprintRequest,
@@ -2212,6 +2237,45 @@ export const serializeAws_json1_1GetTriggersCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTriggersRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetUnfilteredPartitionMetadataCommand = async (
+  input: GetUnfilteredPartitionMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.GetUnfilteredPartitionMetadata",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetUnfilteredPartitionMetadataRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetUnfilteredPartitionsMetadataCommand = async (
+  input: GetUnfilteredPartitionsMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.GetUnfilteredPartitionsMetadata",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetUnfilteredPartitionsMetadataRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetUnfilteredTableMetadataCommand = async (
+  input: GetUnfilteredTableMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.GetUnfilteredTableMetadata",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetUnfilteredTableMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -11454,6 +11518,288 @@ const deserializeAws_json1_1GetTriggersCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetUnfilteredPartitionMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetUnfilteredPartitionMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetUnfilteredPartitionMetadataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetUnfilteredPartitionMetadataResponse(data, context);
+  const response: GetUnfilteredPartitionMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetUnfilteredPartitionMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetUnfilteredPartitionMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "GlueEncryptionException":
+    case "com.amazonaws.glue#GlueEncryptionException":
+      response = {
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PermissionTypeMismatchException":
+    case "com.amazonaws.glue#PermissionTypeMismatchException":
+      response = {
+        ...(await deserializeAws_json1_1PermissionTypeMismatchExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetUnfilteredPartitionsMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetUnfilteredPartitionsMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetUnfilteredPartitionsMetadataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetUnfilteredPartitionsMetadataResponse(data, context);
+  const response: GetUnfilteredPartitionsMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetUnfilteredPartitionsMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetUnfilteredPartitionsMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "GlueEncryptionException":
+    case "com.amazonaws.glue#GlueEncryptionException":
+      response = {
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PermissionTypeMismatchException":
+    case "com.amazonaws.glue#PermissionTypeMismatchException":
+      response = {
+        ...(await deserializeAws_json1_1PermissionTypeMismatchExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetUnfilteredTableMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetUnfilteredTableMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetUnfilteredTableMetadataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetUnfilteredTableMetadataResponse(data, context);
+  const response: GetUnfilteredTableMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetUnfilteredTableMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetUnfilteredTableMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "GlueEncryptionException":
+    case "com.amazonaws.glue#GlueEncryptionException":
+      response = {
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PermissionTypeMismatchException":
+    case "com.amazonaws.glue#PermissionTypeMismatchException":
+      response = {
+        ...(await deserializeAws_json1_1PermissionTypeMismatchExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetUserDefinedFunctionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -16784,6 +17130,21 @@ const deserializeAws_json1_1OperationTimeoutExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1PermissionTypeMismatchExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PermissionTypeMismatchException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1PermissionTypeMismatchException(body, context);
+  const contents: PermissionTypeMismatchException = {
+    name: "PermissionTypeMismatchException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1ResourceNotReadyExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -16929,6 +17290,13 @@ const serializeAws_json1_1AdditionalPlanOptionsMap = (
       [key]: value,
     };
   }, {});
+};
+
+const serializeAws_json1_1AuditContext = (input: AuditContext, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalAuditContext !== undefined &&
+      input.AdditionalAuditContext !== null && { AdditionalAuditContext: input.AdditionalAuditContext }),
+  };
 };
 
 const serializeAws_json1_1BatchCreatePartitionRequest = (
@@ -17275,6 +17643,8 @@ const serializeAws_json1_1CatalogTablesList = (input: string[], context: __Serde
 
 const serializeAws_json1_1CatalogTarget = (input: CatalogTarget, context: __SerdeContext): any => {
   return {
+    ...(input.ConnectionName !== undefined &&
+      input.ConnectionName !== null && { ConnectionName: input.ConnectionName }),
     ...(input.DatabaseName !== undefined && input.DatabaseName !== null && { DatabaseName: input.DatabaseName }),
     ...(input.Tables !== undefined &&
       input.Tables !== null && { Tables: serializeAws_json1_1CatalogTablesList(input.Tables, context) }),
@@ -17554,6 +17924,10 @@ const serializeAws_json1_1CrawlerTargets = (input: CrawlerTargets, context: __Se
       input.CatalogTargets !== null && {
         CatalogTargets: serializeAws_json1_1CatalogTargetList(input.CatalogTargets, context),
       }),
+    ...(input.DeltaTargets !== undefined &&
+      input.DeltaTargets !== null && {
+        DeltaTargets: serializeAws_json1_1DeltaTargetList(input.DeltaTargets, context),
+      }),
     ...(input.DynamoDBTargets !== undefined &&
       input.DynamoDBTargets !== null && {
         DynamoDBTargets: serializeAws_json1_1DynamoDBTargetList(input.DynamoDBTargets, context),
@@ -17624,6 +17998,13 @@ const serializeAws_json1_1CreateCrawlerRequest = (input: CreateCrawlerRequest, c
       }),
     ...(input.DatabaseName !== undefined && input.DatabaseName !== null && { DatabaseName: input.DatabaseName }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.LakeFormationConfiguration !== undefined &&
+      input.LakeFormationConfiguration !== null && {
+        LakeFormationConfiguration: serializeAws_json1_1LakeFormationConfiguration(
+          input.LakeFormationConfiguration,
+          context
+        ),
+      }),
     ...(input.LineageConfiguration !== undefined &&
       input.LineageConfiguration !== null && {
         LineageConfiguration: serializeAws_json1_1LineageConfiguration(input.LineageConfiguration, context),
@@ -18284,6 +18665,27 @@ const serializeAws_json1_1DeleteWorkflowRequest = (input: DeleteWorkflowRequest,
   };
 };
 
+const serializeAws_json1_1DeltaTarget = (input: DeltaTarget, context: __SerdeContext): any => {
+  return {
+    ...(input.ConnectionName !== undefined &&
+      input.ConnectionName !== null && { ConnectionName: input.ConnectionName }),
+    ...(input.DeltaTables !== undefined &&
+      input.DeltaTables !== null && { DeltaTables: serializeAws_json1_1PathList(input.DeltaTables, context) }),
+    ...(input.WriteManifest !== undefined && input.WriteManifest !== null && { WriteManifest: input.WriteManifest }),
+  };
+};
+
+const serializeAws_json1_1DeltaTargetList = (input: DeltaTarget[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1DeltaTarget(entry, context);
+    });
+};
+
 const serializeAws_json1_1DevEndpointCustomLibraries = (
   input: DevEndpointCustomLibraries,
   context: __SerdeContext
@@ -18907,6 +19309,66 @@ const serializeAws_json1_1GetTriggersRequest = (input: GetTriggersRequest, conte
   };
 };
 
+const serializeAws_json1_1GetUnfilteredPartitionMetadataRequest = (
+  input: GetUnfilteredPartitionMetadataRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AuditContext !== undefined &&
+      input.AuditContext !== null && { AuditContext: serializeAws_json1_1AuditContext(input.AuditContext, context) }),
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.DatabaseName !== undefined && input.DatabaseName !== null && { DatabaseName: input.DatabaseName }),
+    ...(input.PartitionValues !== undefined &&
+      input.PartitionValues !== null && {
+        PartitionValues: serializeAws_json1_1ValueStringList(input.PartitionValues, context),
+      }),
+    ...(input.SupportedPermissionTypes !== undefined &&
+      input.SupportedPermissionTypes !== null && {
+        SupportedPermissionTypes: serializeAws_json1_1PermissionTypeList(input.SupportedPermissionTypes, context),
+      }),
+    ...(input.TableName !== undefined && input.TableName !== null && { TableName: input.TableName }),
+  };
+};
+
+const serializeAws_json1_1GetUnfilteredPartitionsMetadataRequest = (
+  input: GetUnfilteredPartitionsMetadataRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AuditContext !== undefined &&
+      input.AuditContext !== null && { AuditContext: serializeAws_json1_1AuditContext(input.AuditContext, context) }),
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.DatabaseName !== undefined && input.DatabaseName !== null && { DatabaseName: input.DatabaseName }),
+    ...(input.Expression !== undefined && input.Expression !== null && { Expression: input.Expression }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Segment !== undefined &&
+      input.Segment !== null && { Segment: serializeAws_json1_1Segment(input.Segment, context) }),
+    ...(input.SupportedPermissionTypes !== undefined &&
+      input.SupportedPermissionTypes !== null && {
+        SupportedPermissionTypes: serializeAws_json1_1PermissionTypeList(input.SupportedPermissionTypes, context),
+      }),
+    ...(input.TableName !== undefined && input.TableName !== null && { TableName: input.TableName }),
+  };
+};
+
+const serializeAws_json1_1GetUnfilteredTableMetadataRequest = (
+  input: GetUnfilteredTableMetadataRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AuditContext !== undefined &&
+      input.AuditContext !== null && { AuditContext: serializeAws_json1_1AuditContext(input.AuditContext, context) }),
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.DatabaseName !== undefined && input.DatabaseName !== null && { DatabaseName: input.DatabaseName }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.SupportedPermissionTypes !== undefined &&
+      input.SupportedPermissionTypes !== null && {
+        SupportedPermissionTypes: serializeAws_json1_1PermissionTypeList(input.SupportedPermissionTypes, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1GetUserDefinedFunctionRequest = (
   input: GetUserDefinedFunctionRequest,
   context: __SerdeContext
@@ -19095,6 +19557,17 @@ const serializeAws_json1_1KeyList = (input: string[], context: __SerdeContext): 
     });
 };
 
+const serializeAws_json1_1LakeFormationConfiguration = (
+  input: LakeFormationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.UseLakeFormationCredentials !== undefined &&
+      input.UseLakeFormationCredentials !== null && { UseLakeFormationCredentials: input.UseLakeFormationCredentials }),
+  };
+};
+
 const serializeAws_json1_1LineageConfiguration = (input: LineageConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.CrawlerLineageSettings !== undefined &&
@@ -19208,6 +19681,17 @@ const serializeAws_json1_1LocationMap = (input: { [key: string]: string }, conte
       [key]: value,
     };
   }, {});
+};
+
+const serializeAws_json1_1LocationStringList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1LongColumnStatisticsData = (
@@ -19449,6 +19933,17 @@ const serializeAws_json1_1PathList = (input: string[], context: __SerdeContext):
 };
 
 const serializeAws_json1_1PermissionList = (input: (Permission | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1PermissionTypeList = (input: (PermissionType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -19996,6 +20491,10 @@ const serializeAws_json1_1StopWorkflowRunRequest = (input: StopWorkflowRunReques
 
 const serializeAws_json1_1StorageDescriptor = (input: StorageDescriptor, context: __SerdeContext): any => {
   return {
+    ...(input.AdditionalLocations !== undefined &&
+      input.AdditionalLocations !== null && {
+        AdditionalLocations: serializeAws_json1_1LocationStringList(input.AdditionalLocations, context),
+      }),
     ...(input.BucketColumns !== undefined &&
       input.BucketColumns !== null && {
         BucketColumns: serializeAws_json1_1NameStringList(input.BucketColumns, context),
@@ -20331,6 +20830,13 @@ const serializeAws_json1_1UpdateCrawlerRequest = (input: UpdateCrawlerRequest, c
       }),
     ...(input.DatabaseName !== undefined && input.DatabaseName !== null && { DatabaseName: input.DatabaseName }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.LakeFormationConfiguration !== undefined &&
+      input.LakeFormationConfiguration !== null && {
+        LakeFormationConfiguration: serializeAws_json1_1LakeFormationConfiguration(
+          input.LakeFormationConfiguration,
+          context
+        ),
+      }),
     ...(input.LineageConfiguration !== undefined &&
       input.LineageConfiguration !== null && {
         LineageConfiguration: serializeAws_json1_1LineageConfiguration(input.LineageConfiguration, context),
@@ -21146,6 +21652,7 @@ const deserializeAws_json1_1CatalogTablesList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1CatalogTarget = (output: any, context: __SerdeContext): CatalogTarget => {
   return {
+    ConnectionName: __expectString(output.ConnectionName),
     DatabaseName: __expectString(output.DatabaseName),
     Tables:
       output.Tables !== undefined && output.Tables !== null
@@ -21323,6 +21830,24 @@ const deserializeAws_json1_1ColumnList = (output: any, context: __SerdeContext):
         return null as any;
       }
       return deserializeAws_json1_1Column(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ColumnRowFilter = (output: any, context: __SerdeContext): ColumnRowFilter => {
+  return {
+    ColumnName: __expectString(output.ColumnName),
+    RowFilterExpression: __expectString(output.RowFilterExpression),
+  } as any;
+};
+
+const deserializeAws_json1_1ColumnRowFilterList = (output: any, context: __SerdeContext): ColumnRowFilter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ColumnRowFilter(entry, context);
     });
 };
 
@@ -21596,6 +22121,10 @@ const deserializeAws_json1_1Crawler = (output: any, context: __SerdeContext): Cr
         : undefined,
     DatabaseName: __expectString(output.DatabaseName),
     Description: __expectString(output.Description),
+    LakeFormationConfiguration:
+      output.LakeFormationConfiguration !== undefined && output.LakeFormationConfiguration !== null
+        ? deserializeAws_json1_1LakeFormationConfiguration(output.LakeFormationConfiguration, context)
+        : undefined,
     LastCrawl:
       output.LastCrawl !== undefined && output.LastCrawl !== null
         ? deserializeAws_json1_1LastCrawlInfo(output.LastCrawl, context)
@@ -21719,6 +22248,10 @@ const deserializeAws_json1_1CrawlerTargets = (output: any, context: __SerdeConte
     CatalogTargets:
       output.CatalogTargets !== undefined && output.CatalogTargets !== null
         ? deserializeAws_json1_1CatalogTargetList(output.CatalogTargets, context)
+        : undefined,
+    DeltaTargets:
+      output.DeltaTargets !== undefined && output.DeltaTargets !== null
+        ? deserializeAws_json1_1DeltaTargetList(output.DeltaTargets, context)
         : undefined,
     DynamoDBTargets:
       output.DynamoDBTargets !== undefined && output.DynamoDBTargets !== null
@@ -22242,6 +22775,28 @@ const deserializeAws_json1_1DeleteWorkflowResponse = (output: any, context: __Se
   return {
     Name: __expectString(output.Name),
   } as any;
+};
+
+const deserializeAws_json1_1DeltaTarget = (output: any, context: __SerdeContext): DeltaTarget => {
+  return {
+    ConnectionName: __expectString(output.ConnectionName),
+    DeltaTables:
+      output.DeltaTables !== undefined && output.DeltaTables !== null
+        ? deserializeAws_json1_1PathList(output.DeltaTables, context)
+        : undefined,
+    WriteManifest: __expectBoolean(output.WriteManifest),
+  } as any;
+};
+
+const deserializeAws_json1_1DeltaTargetList = (output: any, context: __SerdeContext): DeltaTarget[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DeltaTarget(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DevEndpoint = (output: any, context: __SerdeContext): DevEndpoint => {
@@ -23134,6 +23689,57 @@ const deserializeAws_json1_1GetTriggersResponse = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1GetUnfilteredPartitionMetadataResponse = (
+  output: any,
+  context: __SerdeContext
+): GetUnfilteredPartitionMetadataResponse => {
+  return {
+    AuthorizedColumns:
+      output.AuthorizedColumns !== undefined && output.AuthorizedColumns !== null
+        ? deserializeAws_json1_1NameStringList(output.AuthorizedColumns, context)
+        : undefined,
+    IsRegisteredWithLakeFormation: __expectBoolean(output.IsRegisteredWithLakeFormation),
+    Partition:
+      output.Partition !== undefined && output.Partition !== null
+        ? deserializeAws_json1_1Partition(output.Partition, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetUnfilteredPartitionsMetadataResponse = (
+  output: any,
+  context: __SerdeContext
+): GetUnfilteredPartitionsMetadataResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    UnfilteredPartitions:
+      output.UnfilteredPartitions !== undefined && output.UnfilteredPartitions !== null
+        ? deserializeAws_json1_1UnfilteredPartitionList(output.UnfilteredPartitions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetUnfilteredTableMetadataResponse = (
+  output: any,
+  context: __SerdeContext
+): GetUnfilteredTableMetadataResponse => {
+  return {
+    AuthorizedColumns:
+      output.AuthorizedColumns !== undefined && output.AuthorizedColumns !== null
+        ? deserializeAws_json1_1NameStringList(output.AuthorizedColumns, context)
+        : undefined,
+    CellFilters:
+      output.CellFilters !== undefined && output.CellFilters !== null
+        ? deserializeAws_json1_1ColumnRowFilterList(output.CellFilters, context)
+        : undefined,
+    IsRegisteredWithLakeFormation: __expectBoolean(output.IsRegisteredWithLakeFormation),
+    Table:
+      output.Table !== undefined && output.Table !== null
+        ? deserializeAws_json1_1Table(output.Table, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1GetUserDefinedFunctionResponse = (
   output: any,
   context: __SerdeContext
@@ -23557,6 +24163,16 @@ const deserializeAws_json1_1LabelingSetGenerationTaskRunProperties = (
   } as any;
 };
 
+const deserializeAws_json1_1LakeFormationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): LakeFormationConfiguration => {
+  return {
+    AccountId: __expectString(output.AccountId),
+    UseLakeFormationCredentials: __expectBoolean(output.UseLakeFormationCredentials),
+  } as any;
+};
+
 const deserializeAws_json1_1LastActiveDefinition = (output: any, context: __SerdeContext): LastActiveDefinition => {
   return {
     BlueprintLocation: __expectString(output.BlueprintLocation),
@@ -23709,6 +24325,17 @@ const deserializeAws_json1_1LocationMap = (output: any, context: __SerdeContext)
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_json1_1LocationStringList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_json1_1LongColumnStatisticsData = (
@@ -24141,6 +24768,15 @@ const deserializeAws_json1_1PermissionList = (output: any, context: __SerdeConte
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_json1_1PermissionTypeMismatchException = (
+  output: any,
+  context: __SerdeContext
+): PermissionTypeMismatchException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
 };
 
 const deserializeAws_json1_1PhysicalConnectionRequirements = (
@@ -24760,6 +25396,10 @@ const deserializeAws_json1_1StopWorkflowRunResponse = (
 
 const deserializeAws_json1_1StorageDescriptor = (output: any, context: __SerdeContext): StorageDescriptor => {
   return {
+    AdditionalLocations:
+      output.AdditionalLocations !== undefined && output.AdditionalLocations !== null
+        ? deserializeAws_json1_1LocationStringList(output.AdditionalLocations, context)
+        : undefined,
     BucketColumns:
       output.BucketColumns !== undefined && output.BucketColumns !== null
         ? deserializeAws_json1_1NameStringList(output.BucketColumns, context)
@@ -25126,6 +25766,31 @@ const deserializeAws_json1_1TriggerNodeDetails = (output: any, context: __SerdeC
         ? deserializeAws_json1_1Trigger(output.Trigger, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1UnfilteredPartition = (output: any, context: __SerdeContext): UnfilteredPartition => {
+  return {
+    AuthorizedColumns:
+      output.AuthorizedColumns !== undefined && output.AuthorizedColumns !== null
+        ? deserializeAws_json1_1NameStringList(output.AuthorizedColumns, context)
+        : undefined,
+    IsRegisteredWithLakeFormation: __expectBoolean(output.IsRegisteredWithLakeFormation),
+    Partition:
+      output.Partition !== undefined && output.Partition !== null
+        ? deserializeAws_json1_1Partition(output.Partition, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UnfilteredPartitionList = (output: any, context: __SerdeContext): UnfilteredPartition[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1UnfilteredPartition(entry, context);
+    });
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {

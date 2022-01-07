@@ -18,10 +18,25 @@ import {
   DeleteMembersCommandOutput,
 } from "./commands/DeleteMembersCommand";
 import {
+  DescribeOrganizationConfigurationCommand,
+  DescribeOrganizationConfigurationCommandInput,
+  DescribeOrganizationConfigurationCommandOutput,
+} from "./commands/DescribeOrganizationConfigurationCommand";
+import {
+  DisableOrganizationAdminAccountCommand,
+  DisableOrganizationAdminAccountCommandInput,
+  DisableOrganizationAdminAccountCommandOutput,
+} from "./commands/DisableOrganizationAdminAccountCommand";
+import {
   DisassociateMembershipCommand,
   DisassociateMembershipCommandInput,
   DisassociateMembershipCommandOutput,
 } from "./commands/DisassociateMembershipCommand";
+import {
+  EnableOrganizationAdminAccountCommand,
+  EnableOrganizationAdminAccountCommandInput,
+  EnableOrganizationAdminAccountCommandOutput,
+} from "./commands/EnableOrganizationAdminAccountCommand";
 import { GetMembersCommand, GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
 import { ListGraphsCommand, ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
 import {
@@ -30,6 +45,11 @@ import {
   ListInvitationsCommandOutput,
 } from "./commands/ListInvitationsCommand";
 import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
+import {
+  ListOrganizationAdminAccountsCommand,
+  ListOrganizationAdminAccountsCommandInput,
+  ListOrganizationAdminAccountsCommandOutput,
+} from "./commands/ListOrganizationAdminAccountsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -51,23 +71,40 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateOrganizationConfigurationCommand,
+  UpdateOrganizationConfigurationCommandInput,
+  UpdateOrganizationConfigurationCommandOutput,
+} from "./commands/UpdateOrganizationConfigurationCommand";
 import { DetectiveClient } from "./DetectiveClient";
 
 /**
- * <p>Detective uses machine learning and purpose-built visualizations to help you analyze and
- *          investigate security issues across your Amazon Web Services (AWS) workloads. Detective automatically
- *          extracts time-based events such as login attempts, API calls, and network traffic from
- *          AWS CloudTrail and Amazon Virtual Private Cloud (Amazon VPC) flow logs. It also extracts findings detected by
- *          Amazon GuardDuty.</p>
- *          <p>The Detective API primarily supports the creation and management of behavior graphs. A
- *          behavior graph contains the extracted data from a set of member accounts, and is created
- *          and managed by an administrator account.</p>
- *          <p>Every behavior graph is specific to a Region. You can only use the API to manage graphs
- *          that belong to the Region that is associated with the currently selected endpoint.</p>
- *          <p>A Detective administrator account can use the Detective API to do the following:</p>
+ * <p>Detective uses machine learning and purpose-built visualizations to help you to
+ *          analyze and investigate security issues across your Amazon Web Services (Amazon Web Services) workloads. Detective automatically extracts time-based events such
+ *          as login attempts, API calls, and network traffic from CloudTrail and Amazon Virtual Private Cloud (Amazon VPC) flow logs. It also extracts findings detected by
+ *             Amazon GuardDuty.</p>
+ *          <p>The Detective API primarily supports the creation and management of behavior
+ *          graphs. A behavior graph contains the extracted data from a set of member accounts, and is
+ *          created and managed by an administrator account.</p>
+ *          <p>To add a member account to the behavior graph, the administrator account sends an
+ *          invitation to the account. When the account accepts the invitation, it becomes a member
+ *          account in the behavior graph.</p>
+ *          <p>Detective is also integrated with Organizations. The organization
+ *          management account designates the Detective administrator account for the
+ *          organization. That account becomes the administrator account for the organization behavior
+ *          graph. The Detective administrator account can enable any organization account as
+ *          a member account in the organization behavior graph. The organization accounts do not
+ *          receive invitations. The Detective administrator account can also invite other
+ *          accounts to the organization behavior graph.</p>
+ *          <p>Every behavior graph is specific to a Region. You can only use the API to manage
+ *          behavior graphs that belong to the Region that is associated with the currently selected
+ *          endpoint.</p>
+ *          <p>The administrator account for a behavior graph can use the Detective API to do
+ *          the following:</p>
  *          <ul>
  *             <li>
- *                <p>Enable and disable Detective. Enabling Detective creates a new behavior graph.</p>
+ *                <p>Enable and disable Detective. Enabling Detective creates a new
+ *                behavior graph.</p>
  *             </li>
  *             <li>
  *                <p>View the list of member accounts in a behavior graph.</p>
@@ -78,8 +115,23 @@ import { DetectiveClient } from "./DetectiveClient";
  *             <li>
  *                <p>Remove member accounts from a behavior graph.</p>
  *             </li>
+ *             <li>
+ *                <p>Apply tags to a behavior graph.</p>
+ *             </li>
  *          </ul>
- *          <p>A member account can use the Detective API to do the following:</p>
+ *          <p>The organization management account can use the Detective API to select the
+ *          delegated administrator for Detective.</p>
+ *          <p>The Detective administrator account for an organization can use the Detective API to do the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Perform all of the functions of an administrator account.</p>
+ *             </li>
+ *             <li>
+ *                <p>Determine whether to automatically enable new organization accounts as member
+ *                accounts in the organization behavior graph.</p>
+ *             </li>
+ *          </ul>
+ *          <p>An invited member account can use the Detective API to do the following:</p>
  *          <ul>
  *             <li>
  *                <p>View the list of behavior graphs that they are invited to.</p>
@@ -98,7 +150,8 @@ import { DetectiveClient } from "./DetectiveClient";
  *          <note>
  *             <p>We replaced the term "master account" with the term "administrator account." An
  *             administrator account is used to centrally manage multiple accounts. In the case of
- *             Detective, the administrator account manages the accounts in their behavior graph.</p>
+ *                Detective, the administrator account manages the accounts in their behavior
+ *             graph.</p>
  *          </note>
  */
 export class Detective extends DetectiveClient {
@@ -139,15 +192,15 @@ export class Detective extends DetectiveClient {
 
   /**
    * <p>Creates a new behavior graph for the calling account, and sets that account as the
-   *          administrator account. This operation is called by the account that is enabling
-   *          Detective.</p>
-   *          <p>Before you try to enable Detective, make sure that your account has been enrolled in
-   *          Amazon GuardDuty for at least 48 hours. If you do not meet this requirement, you cannot enable
-   *          Detective. If you do meet the GuardDuty prerequisite, then when you make the request to enable
-   *          Detective, it checks whether your data volume is within the Detective quota. If it exceeds the
-   *          quota, then you cannot enable Detective. </p>
-   *          <p>The operation also enables Detective for the calling account in the currently selected
-   *          Region. It returns the ARN of the new behavior graph.</p>
+   *          administrator account. This operation is called by the account that is enabling Detective.</p>
+   *          <p>Before you try to enable Detective, make sure that your account has been
+   *          enrolled in Amazon GuardDuty for at least 48 hours. If you do not meet this
+   *          requirement, you cannot enable Detective. If you do meet the GuardDuty
+   *          prerequisite, then when you make the request to enable Detective, it checks
+   *          whether your data volume is within the Detective quota. If it exceeds the quota,
+   *          then you cannot enable Detective. </p>
+   *          <p>The operation also enables Detective for the calling account in the currently
+   *          selected Region. It returns the ARN of the new behavior graph.</p>
    *          <p>
    *             <code>CreateGraph</code> triggers a process to create the corresponding data tables for
    *          the new behavior graph.</p>
@@ -179,21 +232,31 @@ export class Detective extends DetectiveClient {
   }
 
   /**
-   * <p>Sends a request to invite the specified AWS accounts to be member accounts in the
-   *          behavior graph. This operation can only be called by the administrator account for a
-   *          behavior graph. </p>
+   * <p>
+   *             <code>CreateMembers</code> is used to send invitations to accounts. For the organization
+   *          behavior graph, the Detective administrator account uses
+   *             <code>CreateMembers</code> to enable organization accounts as member accounts.</p>
+   *          <p>For invited accounts, <code>CreateMembers</code> sends a request to invite the specified
+   *             Amazon Web Services accounts to be member accounts in the behavior graph. This operation
+   *          can only be called by the administrator account for a behavior graph. </p>
    *          <p>
    *             <code>CreateMembers</code> verifies the accounts and then invites the verified accounts.
    *          The administrator can optionally specify to not send invitation emails to the member
    *          accounts. This would be used when the administrator manages their member accounts
    *          centrally.</p>
-   *          <p>The request provides the behavior graph ARN and the list of accounts to invite.</p>
+   *          <p>For organization accounts in the organization behavior graph, <code>CreateMembers</code>
+   *          attempts to enable the accounts. The organization accounts do not receive
+   *          invitations.</p>
+   *          <p>The request provides the behavior graph ARN and the list of accounts to invite or to
+   *          enable.</p>
    *          <p>The response separates the requested accounts into two lists:</p>
    *          <ul>
    *             <li>
-   *                <p>The accounts that <code>CreateMembers</code> was able to start the verification
-   *                for. This list includes member accounts that are being verified, that have passed
-   *                verification and are to be invited, and that have failed verification.</p>
+   *                <p>The accounts that <code>CreateMembers</code> was able to process. For invited
+   *                accounts, includes member accounts that are being verified, that have passed
+   *                verification and are to be invited, and that have failed verification. For
+   *                organization accounts in the organization behavior graph, includes accounts that can
+   *                be enabled and that cannot be enabled.</p>
    *             </li>
    *             <li>
    *                <p>The accounts that <code>CreateMembers</code> was unable to process. This list
@@ -233,7 +296,7 @@ export class Detective extends DetectiveClient {
 
   /**
    * <p>Disables the specified behavior graph and queues it to be deleted. This operation
-   *          removes the graph from each member account's list of behavior graphs.</p>
+   *          removes the behavior graph from each member account's list of behavior graphs.</p>
    *          <p>
    *             <code>DeleteGraph</code> can only be called by the administrator account for a behavior
    *          graph.</p>
@@ -262,11 +325,19 @@ export class Detective extends DetectiveClient {
   }
 
   /**
-   * <p>Deletes one or more member accounts from the administrator account's behavior graph.
-   *          This operation can only be called by a Detective administrator account. That account cannot use
-   *             <code>DeleteMembers</code> to delete their own account from the behavior graph. To
-   *          disable a behavior graph, the administrator account uses the <code>DeleteGraph</code> API
-   *          method.</p>
+   * <p>Removes the specified member accounts from the behavior graph. The removed accounts no
+   *          longer contribute data to the behavior graph. This operation can only be called by the
+   *          administrator account for the behavior graph.</p>
+   *          <p>For invited accounts, the removed accounts are deleted from the list of accounts in the
+   *          behavior graph. To restore the account, the administrator account must send another
+   *          invitation.</p>
+   *          <p>For organization accounts in the organization behavior graph, the Detective
+   *          administrator account can always enable the organization account again. Organization
+   *          accounts that are not enabled as member accounts are not included in the
+   *             <code>ListMembers</code> results for the organization behavior graph.</p>
+   *          <p>An administrator account cannot use <code>DeleteMembers</code> to remove their own
+   *          account from the behavior graph. To disable a behavior graph, the administrator account
+   *          uses the <code>DeleteGraph</code> API method.</p>
    */
   public deleteMembers(
     args: DeleteMembersCommandInput,
@@ -298,8 +369,84 @@ export class Detective extends DetectiveClient {
   }
 
   /**
+   * <p>Returns information about the configuration for the organization behavior graph.
+   *          Currently indicates whether to automatically enable new organization accounts as member
+   *          accounts.</p>
+   *          <p>Can only be called by the Detective administrator account for the organization. </p>
+   */
+  public describeOrganizationConfiguration(
+    args: DescribeOrganizationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeOrganizationConfigurationCommandOutput>;
+  public describeOrganizationConfiguration(
+    args: DescribeOrganizationConfigurationCommandInput,
+    cb: (err: any, data?: DescribeOrganizationConfigurationCommandOutput) => void
+  ): void;
+  public describeOrganizationConfiguration(
+    args: DescribeOrganizationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeOrganizationConfigurationCommandOutput) => void
+  ): void;
+  public describeOrganizationConfiguration(
+    args: DescribeOrganizationConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOrganizationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeOrganizationConfigurationCommandOutput) => void
+  ): Promise<DescribeOrganizationConfigurationCommandOutput> | void {
+    const command = new DescribeOrganizationConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes the Detective administrator account for the organization in the current
+   *          Region. Deletes the behavior graph for that account.</p>
+   *          <p>Can only be called by the organization management account. Before you can select a
+   *          different Detective administrator account, you must remove the Detective
+   *          administrator account in all Regions.</p>
+   */
+  public disableOrganizationAdminAccount(
+    args: DisableOrganizationAdminAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableOrganizationAdminAccountCommandOutput>;
+  public disableOrganizationAdminAccount(
+    args: DisableOrganizationAdminAccountCommandInput,
+    cb: (err: any, data?: DisableOrganizationAdminAccountCommandOutput) => void
+  ): void;
+  public disableOrganizationAdminAccount(
+    args: DisableOrganizationAdminAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableOrganizationAdminAccountCommandOutput) => void
+  ): void;
+  public disableOrganizationAdminAccount(
+    args: DisableOrganizationAdminAccountCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableOrganizationAdminAccountCommandOutput) => void),
+    cb?: (err: any, data?: DisableOrganizationAdminAccountCommandOutput) => void
+  ): Promise<DisableOrganizationAdminAccountCommandOutput> | void {
+    const command = new DisableOrganizationAdminAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Removes the member account from the specified behavior graph. This operation can only be
-   *          called by a member account that has the <code>ENABLED</code> status.</p>
+   *          called by an invited member account that has the <code>ENABLED</code> status.</p>
+   *          <p>
+   *             <code>DisassociateMembership</code> cannot be called by an organization account in the
+   *          organization behavior graph. For the organization behavior graph, the Detective
+   *          administrator account determines which organization accounts to enable or disable as member
+   *          accounts.</p>
    */
   public disassociateMembership(
     args: DisassociateMembershipCommandInput,
@@ -320,6 +467,45 @@ export class Detective extends DetectiveClient {
     cb?: (err: any, data?: DisassociateMembershipCommandOutput) => void
   ): Promise<DisassociateMembershipCommandOutput> | void {
     const command = new DisassociateMembershipCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Designates the Detective administrator account for the organization in the
+   *          current Region.</p>
+   *          <p>If the account does not have Detective enabled, then enables Detective
+   *          for that account and creates a new behavior graph.</p>
+   *          <p>Can only be called by the organization management account.</p>
+   *          <p>The Detective administrator account for an organization must be the same in all
+   *          Regions. If you already designated a Detective administrator account in another
+   *          Region, then you must designate the same account.</p>
+   */
+  public enableOrganizationAdminAccount(
+    args: EnableOrganizationAdminAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableOrganizationAdminAccountCommandOutput>;
+  public enableOrganizationAdminAccount(
+    args: EnableOrganizationAdminAccountCommandInput,
+    cb: (err: any, data?: EnableOrganizationAdminAccountCommandOutput) => void
+  ): void;
+  public enableOrganizationAdminAccount(
+    args: EnableOrganizationAdminAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableOrganizationAdminAccountCommandOutput) => void
+  ): void;
+  public enableOrganizationAdminAccount(
+    args: EnableOrganizationAdminAccountCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableOrganizationAdminAccountCommandOutput) => void),
+    cb?: (err: any, data?: EnableOrganizationAdminAccountCommandOutput) => void
+  ): Promise<EnableOrganizationAdminAccountCommandOutput> | void {
+    const command = new EnableOrganizationAdminAccountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -388,7 +574,7 @@ export class Detective extends DetectiveClient {
 
   /**
    * <p>Retrieves the list of open and accepted behavior graph invitations for the member
-   *          account. This operation can only be called by a member account.</p>
+   *          account. This operation can only be called by an invited member account.</p>
    *          <p>Open invitations are invitations that the member account has not responded to.</p>
    *          <p>The results do not include behavior graphs for which the member account declined the
    *          invitation. The results also do not include behavior graphs that the member account
@@ -424,8 +610,12 @@ export class Detective extends DetectiveClient {
   }
 
   /**
-   * <p>Retrieves the list of member accounts for a behavior graph. Does not return member
-   *          accounts that were removed from the behavior graph.</p>
+   * <p>Retrieves the list of member accounts for a behavior graph.</p>
+   *          <p>For invited accounts, the results do not include member accounts that were removed from
+   *          the behavior graph.</p>
+   *          <p>For the organization behavior graph, the results do not include organization accounts
+   *          that the Detective administrator account has not enabled as member
+   *          accounts.</p>
    */
   public listMembers(args: ListMembersCommandInput, options?: __HttpHandlerOptions): Promise<ListMembersCommandOutput>;
   public listMembers(args: ListMembersCommandInput, cb: (err: any, data?: ListMembersCommandOutput) => void): void;
@@ -440,6 +630,39 @@ export class Detective extends DetectiveClient {
     cb?: (err: any, data?: ListMembersCommandOutput) => void
   ): Promise<ListMembersCommandOutput> | void {
     const command = new ListMembersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about the Detective administrator account for an
+   *          organization. Can only be called by the organization management account.</p>
+   */
+  public listOrganizationAdminAccounts(
+    args: ListOrganizationAdminAccountsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOrganizationAdminAccountsCommandOutput>;
+  public listOrganizationAdminAccounts(
+    args: ListOrganizationAdminAccountsCommandInput,
+    cb: (err: any, data?: ListOrganizationAdminAccountsCommandOutput) => void
+  ): void;
+  public listOrganizationAdminAccounts(
+    args: ListOrganizationAdminAccountsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOrganizationAdminAccountsCommandOutput) => void
+  ): void;
+  public listOrganizationAdminAccounts(
+    args: ListOrganizationAdminAccountsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOrganizationAdminAccountsCommandOutput) => void),
+    cb?: (err: any, data?: ListOrganizationAdminAccountsCommandOutput) => void
+  ): Promise<ListOrganizationAdminAccountsCommandOutput> | void {
+    const command = new ListOrganizationAdminAccountsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -484,7 +707,12 @@ export class Detective extends DetectiveClient {
 
   /**
    * <p>Rejects an invitation to contribute the account data to a behavior graph. This operation
-   *          must be called by a member account that has the <code>INVITED</code> status.</p>
+   *          must be called by an invited member account that has the <code>INVITED</code>
+   *          status.</p>
+   *          <p>
+   *             <code>RejectInvitation</code> cannot be called by an organization account in the
+   *          organization behavior graph. In the organization behavior graph, organization accounts do
+   *          not receive an invitation.</p>
    */
   public rejectInvitation(
     args: RejectInvitationCommandInput,
@@ -522,7 +750,7 @@ export class Detective extends DetectiveClient {
    *          <ul>
    *             <li>
    *                <p>If Detective enabled the member account, then the new status is
-   *                <code>ENABLED</code>.</p>
+   *                   <code>ENABLED</code>.</p>
    *             </li>
    *             <li>
    *                <p>If Detective cannot enable the member account, the status remains
@@ -607,6 +835,40 @@ export class Detective extends DetectiveClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the configuration for the Organizations integration in the current Region.
+   *          Can only be called by the Detective administrator account for the
+   *          organization.</p>
+   */
+  public updateOrganizationConfiguration(
+    args: UpdateOrganizationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateOrganizationConfigurationCommandOutput>;
+  public updateOrganizationConfiguration(
+    args: UpdateOrganizationConfigurationCommandInput,
+    cb: (err: any, data?: UpdateOrganizationConfigurationCommandOutput) => void
+  ): void;
+  public updateOrganizationConfiguration(
+    args: UpdateOrganizationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateOrganizationConfigurationCommandOutput) => void
+  ): void;
+  public updateOrganizationConfiguration(
+    args: UpdateOrganizationConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateOrganizationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateOrganizationConfigurationCommandOutput) => void
+  ): Promise<UpdateOrganizationConfigurationCommandOutput> | void {
+    const command = new UpdateOrganizationConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -11,10 +11,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTrainingJobsForHyperParameterTuningJobRequest,
-  ListTrainingJobsForHyperParameterTuningJobResponse,
-} from "../models/models_2";
+import { ListTrainingJobsForHyperParameterTuningJobRequest } from "../models/models_2";
+import { ListTrainingJobsForHyperParameterTuningJobResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCommand,
   serializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCommand,

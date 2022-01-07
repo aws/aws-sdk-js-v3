@@ -22,7 +22,7 @@ export interface DescribeAccountAttributesCommandInput extends DescribeAccountAt
 export interface DescribeAccountAttributesCommandOutput extends DescribeAccountAttributesResult, __MetadataBearer {}
 
 /**
- * <p>Describes attributes of your AWS account. The following are the supported account attributes:</p>
+ * <p>Describes attributes of your Amazon Web Services account. The following are the supported account attributes:</p>
  *          <ul>
  *             <li>
  *                <p>

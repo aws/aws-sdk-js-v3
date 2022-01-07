@@ -22,7 +22,7 @@ export interface CreateDataSetCommandInput extends CreateDataSetRequest {}
 export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a dataset.</p>
+ * <p>Creates a dataset. This operation doesn't support datasets that include uploaded files as a source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

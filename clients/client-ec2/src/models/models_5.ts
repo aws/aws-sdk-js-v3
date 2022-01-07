@@ -55,10 +55,10 @@ import {
   InstanceRequirementsRequest,
   Ipam,
   IpamPool,
+  IpamResourceTag,
   IpamScope,
   LaunchTemplate,
   ManagedPrefixList,
-  MarketType,
   NetworkInsightsAccessScopeContent,
   Placement,
   PlatformValues,
@@ -87,6 +87,7 @@ import {
   IKEVersionsRequestListValue,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
+  PayerResponsibility,
   Phase1DHGroupNumbersRequestListValue,
   Phase1EncryptionAlgorithmsRequestListValue,
   Phase1IntegrityAlgorithmsRequestListValue,
@@ -112,6 +113,7 @@ import {
   InstanceMetadataEndpointState,
   InstanceMetadataOptionsResponse,
   InstanceMetadataProtocolState,
+  InstanceMetadataTagsState,
   InstanceStatusEvent,
   LaunchPermission,
   Monitoring,
@@ -127,7 +129,10 @@ import {
   ExcessCapacityTerminationPolicy,
   InstanceFamilyCreditSpecification,
   InstanceNetworkInterfaceSpecification,
-  IpamResourceCidr,
+  IpamComplianceStatus,
+  IpamManagementState,
+  IpamOverlapStatus,
+  IpamResourceType,
   LaunchTemplateConfig,
   Purchase,
   RunInstancesMonitoringEnabled,
@@ -140,6 +145,140 @@ import {
   UnlimitedSupportedInstanceFamily,
   VolumeModification,
 } from "./models_4";
+
+/**
+ * <p>The CIDR for an IPAM resource.</p>
+ */
+export interface IpamResourceCidr {
+  /**
+   * <p>The IPAM ID for an IPAM resource.</p>
+   */
+  IpamId?: string;
+
+  /**
+   * <p>The scope ID for an IPAM resource.</p>
+   */
+  IpamScopeId?: string;
+
+  /**
+   * <p>The pool ID for an IPAM resource.</p>
+   */
+  IpamPoolId?: string;
+
+  /**
+   * <p>The Amazon Web Services Region for an IPAM resource.</p>
+   */
+  ResourceRegion?: string;
+
+  /**
+   * <p>The Amazon Web Services account number of the owner of an IPAM resource.</p>
+   */
+  ResourceOwnerId?: string;
+
+  /**
+   * <p>The ID of an IPAM resource.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The name of an IPAM resource.</p>
+   */
+  ResourceName?: string;
+
+  /**
+   * <p>The CIDR for an IPAM resource.</p>
+   */
+  ResourceCidr?: string;
+
+  /**
+   * <p>The type of IPAM resource.</p>
+   */
+  ResourceType?: IpamResourceType | string;
+
+  /**
+   * <p>The tags for an IPAM resource.</p>
+   */
+  ResourceTags?: IpamResourceTag[];
+
+  /**
+   * <p>The IP address space in the IPAM pool that is allocated to this resource. To convert the decimal to a percentage, multiply the decimal by 100.</p>
+   */
+  IpUsage?: number;
+
+  /**
+   * <p>The compliance status of the IPAM resource. For more information on compliance statuses, see <a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   */
+  ComplianceStatus?: IpamComplianceStatus | string;
+
+  /**
+   * <p>The management state of the resource. For more information about management states, see <a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   */
+  ManagementState?: IpamManagementState | string;
+
+  /**
+   * <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   */
+  OverlapStatus?: IpamOverlapStatus | string;
+
+  /**
+   * <p>The ID of a VPC.</p>
+   */
+  VpcId?: string;
+}
+
+export namespace IpamResourceCidr {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IpamResourceCidr): any => ({
+    ...obj,
+  });
+}
+
+export interface GetIpamResourceCidrsResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The resource CIDRs.</p>
+   */
+  IpamResourceCidrs?: IpamResourceCidr[];
+}
+
+export namespace GetIpamResourceCidrsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetIpamResourceCidrsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetLaunchTemplateDataRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+export namespace GetLaunchTemplateDataRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetLaunchTemplateDataRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface GetLaunchTemplateDataResult {
   /**
@@ -1818,7 +1957,7 @@ export namespace ImportImageLicenseConfigurationRequest {
 export interface ImportImageRequest {
   /**
    * <p>The architecture of the virtual machine.</p>
-   *          <p>Valid values: <code>i386</code> | <code>x86_64</code> | <code>arm64</code>
+   *          <p>Valid values: <code>i386</code> | <code>x86_64</code>
    *          </p>
    */
   Architecture?: string;
@@ -3454,12 +3593,12 @@ export namespace ModifyIdFormatRequest {
  */
 export interface LaunchPermissionModifications {
   /**
-   * <p>The Amazon Web Services account ID to add to the list of launch permissions for the AMI.</p>
+   * <p>The Amazon Web Services account ID, organization ARN, or OU ARN to add to the list of launch permissions for the AMI.</p>
    */
   Add?: LaunchPermission[];
 
   /**
-   * <p>The Amazon Web Services account ID to remove from the list of launch permissions for the AMI.</p>
+   * <p>The Amazon Web Services account ID, organization ARN, or OU ARN to remove from the list of launch permissions for the AMI.</p>
    */
   Remove?: LaunchPermission[];
 }
@@ -4160,7 +4299,7 @@ export interface ModifyInstanceMetadataOptionsRequest {
 
   /**
    * <p>Enables or disables the HTTP metadata endpoint on your instances. If
-   *             the parameter is not specified, the existing state is maintained.</p>
+   *             this parameter is not specified, the existing state is maintained.</p>
    *         <p>If you specify a value of <code>disabled</code>, you cannot access your
    *             instance metadata.</p>
    */
@@ -4178,6 +4317,16 @@ export interface ModifyInstanceMetadataOptionsRequest {
    *             applies only if you have enabled the HTTP metadata endpoint.</p>
    */
   HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
+
+  /**
+   * <p>Set to <code>enabled</code> to allow access to instance tags from the instance
+   *             metadata. Set to <code>disabled</code> to turn off access to instance tags from the
+   *             instance metadata. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
+   *                 instance tags using the instance metadata</a>.</p>
+   *         <p>Default: <code>disabled</code>
+   *          </p>
+   */
+  InstanceMetadataTags?: InstanceMetadataTagsState | string;
 }
 
 export namespace ModifyInstanceMetadataOptionsRequest {
@@ -6168,6 +6317,52 @@ export namespace ModifyVpcEndpointServiceConfigurationResult {
   });
 }
 
+export interface ModifyVpcEndpointServicePayerResponsibilityRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the service.</p>
+   */
+  ServiceId: string | undefined;
+
+  /**
+   * <p>The entity that is responsible for the endpoint costs. The default is the endpoint owner.
+   *             If you set the payer responsibility to the service owner, you cannot set it back to the
+   *             endpoint owner.</p>
+   */
+  PayerResponsibility: PayerResponsibility | string | undefined;
+}
+
+export namespace ModifyVpcEndpointServicePayerResponsibilityRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyVpcEndpointServicePayerResponsibilityRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyVpcEndpointServicePayerResponsibilityResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  ReturnValue?: boolean;
+}
+
+export namespace ModifyVpcEndpointServicePayerResponsibilityResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyVpcEndpointServicePayerResponsibilityResult): any => ({
+    ...obj,
+  });
+}
+
 export interface ModifyVpcEndpointServicePermissionsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -6662,7 +6857,7 @@ export interface ModifyVpnTunnelOptionsSpecification {
 
   /**
    * <p>The number of seconds after which a DPD timeout occurs.</p>
-   *         <p>Constraints: A value between 0 and 30.</p>
+   *         <p>Constraints: A value greater than or equal to 30.</p>
    *         <p>Default: <code>30</code>
    *          </p>
    */
@@ -6938,17 +7133,17 @@ export interface MoveByoipCidrToIpamRequest {
   /**
    * <p>The BYOIP CIDR.</p>
    */
-  Cidr?: string;
+  Cidr: string | undefined;
 
   /**
    * <p>The IPAM pool ID.</p>
    */
-  IpamPoolId?: string;
+  IpamPoolId: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the owner of the IPAM pool.</p>
    */
-  IpamPoolOwner?: string;
+  IpamPoolOwner: string | undefined;
 }
 
 export namespace MoveByoipCidrToIpamRequest {
@@ -9664,164 +9859,6 @@ export namespace CpuOptionsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: CpuOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>
- *            Describes an elastic inference accelerator.
- *         </p>
- */
-export interface ElasticInferenceAccelerator {
-  /**
-   * <p>
-   *         	The type of elastic inference accelerator. The possible values are <code>eia1.medium</code>, <code>eia1.large</code>, <code>eia1.xlarge</code>, <code>eia2.medium</code>, <code>eia2.large</code>, and <code>eia2.xlarge</code>.
-   *         </p>
-   */
-  Type: string | undefined;
-
-  /**
-   * <p>
-   *             The number of elastic inference accelerators to attach to the instance.
-   *         </p>
-   *          <p>Default: 1</p>
-   */
-  Count?: number;
-}
-
-export namespace ElasticInferenceAccelerator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticInferenceAccelerator): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information,
- *     		see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">
- *     		    What is Amazon Web Services Nitro Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
- */
-export interface EnclaveOptionsRequest {
-  /**
-   * <p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to <code>true</code>.</p>
-   */
-  Enabled?: boolean;
-}
-
-export namespace EnclaveOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnclaveOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Indicates whether your instance is configured for hibernation. This parameter is valid
- *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
- *                 prerequisites</a>. For
- *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
- */
-export interface HibernationOptionsRequest {
-  /**
-   * <p>If you set this parameter to <code>true</code>, your instance is enabled for
-   *             hibernation.</p>
-   *         <p>Default: <code>false</code>
-   *          </p>
-   */
-  Configured?: boolean;
-}
-
-export namespace HibernationOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HibernationOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The options for Spot Instances.</p>
- */
-export interface SpotMarketOptions {
-  /**
-   * <p>The maximum hourly price you're willing to pay for the Spot Instances. The default is
-   *             the On-Demand price.</p>
-   */
-  MaxPrice?: string;
-
-  /**
-   * <p>The Spot Instance request type. For <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances">RunInstances</a>, persistent Spot
-   *             Instance requests are only supported when the instance interruption behavior is either <code>hibernate</code> or
-   *                 <code>stop</code>.</p>
-   */
-  SpotInstanceType?: SpotInstanceType | string;
-
-  /**
-   * <p>Deprecated.</p>
-   */
-  BlockDurationMinutes?: number;
-
-  /**
-   * <p>The end date of the request, in UTC format
-   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *             Supported only for persistent requests.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>For a persistent request, the request remains active until the
-   *                         <code>ValidUntil</code> date and time is reached. Otherwise, the request
-   *                     remains active until you cancel it.</p>
-   *             </li>
-   *             <li>
-   *                 <p>For a one-time request, <code>ValidUntil</code> is not supported. The request
-   *                     remains active until all instances launch or you cancel the request.</p>
-   *             </li>
-   *          </ul>
-   */
-  ValidUntil?: Date;
-
-  /**
-   * <p>The behavior when a Spot Instance is interrupted. The default is
-   *                 <code>terminate</code>.</p>
-   */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
-}
-
-export namespace SpotMarketOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SpotMarketOptions): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the market (purchasing) option for the instances.</p>
- */
-export interface InstanceMarketOptionsRequest {
-  /**
-   * <p>The market type.</p>
-   */
-  MarketType?: MarketType | string;
-
-  /**
-   * <p>The options for Spot Instances.</p>
-   */
-  SpotOptions?: SpotMarketOptions;
-}
-
-export namespace InstanceMarketOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceMarketOptionsRequest): any => ({
     ...obj,
   });
 }

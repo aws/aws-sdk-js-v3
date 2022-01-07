@@ -17,6 +17,7 @@ export * from "./GetSecurityConfigurationsPaginator";
 export * from "./GetTableVersionsPaginator";
 export * from "./GetTablesPaginator";
 export * from "./GetTriggersPaginator";
+export * from "./GetUnfilteredPartitionsMetadataPaginator";
 export * from "./GetUserDefinedFunctionsPaginator";
 export * from "./GetWorkflowRunsPaginator";
 export * from "./ListBlueprintsPaginator";

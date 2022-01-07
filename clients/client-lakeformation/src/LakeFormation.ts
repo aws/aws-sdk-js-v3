@@ -94,6 +94,16 @@ import {
   GetTableObjectsCommandOutput,
 } from "./commands/GetTableObjectsCommand";
 import {
+  GetTemporaryGluePartitionCredentialsCommand,
+  GetTemporaryGluePartitionCredentialsCommandInput,
+  GetTemporaryGluePartitionCredentialsCommandOutput,
+} from "./commands/GetTemporaryGluePartitionCredentialsCommand";
+import {
+  GetTemporaryGlueTableCredentialsCommand,
+  GetTemporaryGlueTableCredentialsCommandInput,
+  GetTemporaryGlueTableCredentialsCommandOutput,
+} from "./commands/GetTemporaryGlueTableCredentialsCommand";
+import {
   GetWorkUnitResultsCommand,
   GetWorkUnitResultsCommandInput,
   GetWorkUnitResultsCommandOutput,
@@ -853,6 +863,70 @@ export class LakeFormation extends LakeFormationClient {
     cb?: (err: any, data?: GetTableObjectsCommandOutput) => void
   ): Promise<GetTableObjectsCommandOutput> | void {
     const command = new GetTableObjectsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is identical to <code>GetTemporaryTableCredentials</code> except that this is used when the target Data Catalog resource is of type Partition.  Lake Formation restricts the permission of the vended credentials with the same scope down policy which restricts access to a single Amazon S3 prefix.</p>
+   */
+  public getTemporaryGluePartitionCredentials(
+    args: GetTemporaryGluePartitionCredentialsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTemporaryGluePartitionCredentialsCommandOutput>;
+  public getTemporaryGluePartitionCredentials(
+    args: GetTemporaryGluePartitionCredentialsCommandInput,
+    cb: (err: any, data?: GetTemporaryGluePartitionCredentialsCommandOutput) => void
+  ): void;
+  public getTemporaryGluePartitionCredentials(
+    args: GetTemporaryGluePartitionCredentialsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTemporaryGluePartitionCredentialsCommandOutput) => void
+  ): void;
+  public getTemporaryGluePartitionCredentials(
+    args: GetTemporaryGluePartitionCredentialsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTemporaryGluePartitionCredentialsCommandOutput) => void),
+    cb?: (err: any, data?: GetTemporaryGluePartitionCredentialsCommandOutput) => void
+  ): Promise<GetTemporaryGluePartitionCredentialsCommandOutput> | void {
+    const command = new GetTemporaryGluePartitionCredentialsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Allows a caller in a secure environment to assume a role with permission to access Amazon S3. In order to vend such credentials, Lake Formation assumes the role associated with a registered location, for example an Amazon S3 bucket, with a scope down policy which restricts the access to a single prefix.</p>
+   */
+  public getTemporaryGlueTableCredentials(
+    args: GetTemporaryGlueTableCredentialsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTemporaryGlueTableCredentialsCommandOutput>;
+  public getTemporaryGlueTableCredentials(
+    args: GetTemporaryGlueTableCredentialsCommandInput,
+    cb: (err: any, data?: GetTemporaryGlueTableCredentialsCommandOutput) => void
+  ): void;
+  public getTemporaryGlueTableCredentials(
+    args: GetTemporaryGlueTableCredentialsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTemporaryGlueTableCredentialsCommandOutput) => void
+  ): void;
+  public getTemporaryGlueTableCredentials(
+    args: GetTemporaryGlueTableCredentialsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTemporaryGlueTableCredentialsCommandOutput) => void),
+    cb?: (err: any, data?: GetTemporaryGlueTableCredentialsCommandOutput) => void
+  ): Promise<GetTemporaryGlueTableCredentialsCommandOutput> | void {
+    const command = new GetTemporaryGlueTableCredentialsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

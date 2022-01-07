@@ -22,8 +22,12 @@ export interface ListMembersCommandInput extends ListMembersRequest {}
 export interface ListMembersCommandOutput extends ListMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the list of member accounts for a behavior graph. Does not return member
- *          accounts that were removed from the behavior graph.</p>
+ * <p>Retrieves the list of member accounts for a behavior graph.</p>
+ *          <p>For invited accounts, the results do not include member accounts that were removed from
+ *          the behavior graph.</p>
+ *          <p>For the organization behavior graph, the results do not include organization accounts
+ *          that the Detective administrator account has not enabled as member
+ *          accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

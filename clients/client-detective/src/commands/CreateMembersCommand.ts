@@ -22,21 +22,31 @@ export interface CreateMembersCommandInput extends CreateMembersRequest {}
 export interface CreateMembersCommandOutput extends CreateMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Sends a request to invite the specified AWS accounts to be member accounts in the
- *          behavior graph. This operation can only be called by the administrator account for a
- *          behavior graph. </p>
+ * <p>
+ *             <code>CreateMembers</code> is used to send invitations to accounts. For the organization
+ *          behavior graph, the Detective administrator account uses
+ *             <code>CreateMembers</code> to enable organization accounts as member accounts.</p>
+ *          <p>For invited accounts, <code>CreateMembers</code> sends a request to invite the specified
+ *             Amazon Web Services accounts to be member accounts in the behavior graph. This operation
+ *          can only be called by the administrator account for a behavior graph. </p>
  *          <p>
  *             <code>CreateMembers</code> verifies the accounts and then invites the verified accounts.
  *          The administrator can optionally specify to not send invitation emails to the member
  *          accounts. This would be used when the administrator manages their member accounts
  *          centrally.</p>
- *          <p>The request provides the behavior graph ARN and the list of accounts to invite.</p>
+ *          <p>For organization accounts in the organization behavior graph, <code>CreateMembers</code>
+ *          attempts to enable the accounts. The organization accounts do not receive
+ *          invitations.</p>
+ *          <p>The request provides the behavior graph ARN and the list of accounts to invite or to
+ *          enable.</p>
  *          <p>The response separates the requested accounts into two lists:</p>
  *          <ul>
  *             <li>
- *                <p>The accounts that <code>CreateMembers</code> was able to start the verification
- *                for. This list includes member accounts that are being verified, that have passed
- *                verification and are to be invited, and that have failed verification.</p>
+ *                <p>The accounts that <code>CreateMembers</code> was able to process. For invited
+ *                accounts, includes member accounts that are being verified, that have passed
+ *                verification and are to be invited, and that have failed verification. For
+ *                organization accounts in the organization behavior graph, includes accounts that can
+ *                be enabled and that cannot be enabled.</p>
  *             </li>
  *             <li>
  *                <p>The accounts that <code>CreateMembers</code> was unable to process. This list

@@ -4537,6 +4537,58 @@ export namespace InvalidAggregationException {
   });
 }
 
+export enum RetryableFailureType {
+  ALL = "ALL",
+  FAILED = "FAILED",
+  TIMED_OUT = "TIMED_OUT",
+}
+
+/**
+ * <p>The criteria that determines how many retries are allowed for each failure
+ *             type for a job.</p>
+ */
+export interface RetryCriteria {
+  /**
+   * <p>The type of job execution failures that can initiate a job retry.</p>
+   */
+  failureType: RetryableFailureType | string | undefined;
+
+  /**
+   * <p>The number of retries allowed for a failure type for the job.</p>
+   */
+  numberOfRetries: number | undefined;
+}
+
+export namespace RetryCriteria {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RetryCriteria): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration that determines how many retries are allowed for each failure
+ *             type for a job.</p>
+ */
+export interface JobExecutionsRetryConfig {
+  /**
+   * <p>The list of criteria that determines how many retries are allowed for each failure
+   *             type for a job.</p>
+   */
+  criteriaList: RetryCriteria[] | undefined;
+}
+
+export namespace JobExecutionsRetryConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JobExecutionsRetryConfig): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Allows you to define a criteria to initiate the increase in rate of rollout for a job.</p>
  */
@@ -4729,7 +4781,7 @@ export interface CreateJobRequest {
   jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
 
   /**
-   * <p>Allows you to create criteria to abort a job.</p>
+   * <p>Allows you to create the criteria to abort a job.</p>
    */
   abortConfig?: AbortConfig;
 
@@ -4763,6 +4815,11 @@ export interface CreateJobRequest {
    * <p>The ARN of the job template used to create the job.</p>
    */
   jobTemplateArn?: string;
+
+  /**
+   * <p>Allows you to create the criteria to retry a job.</p>
+   */
+  jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
 
   /**
    * <p>Parameters of a managed template that you can specify to create the job document.</p>
@@ -4885,6 +4942,11 @@ export interface CreateJobTemplateRequest {
    * <p>Metadata that can be used to manage the job template.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>Allows you to create the criteria to retry a job.</p>
+   */
+  jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
 }
 
 export namespace CreateJobTemplateRequest {
@@ -7841,56 +7903,6 @@ export namespace DeleteRoleAliasResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteRoleAliasResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteScheduledAuditRequest {
-  /**
-   * <p>The name of the scheduled audit you want to delete.</p>
-   */
-  scheduledAuditName: string | undefined;
-}
-
-export namespace DeleteScheduledAuditRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScheduledAuditRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteScheduledAuditResponse {}
-
-export namespace DeleteScheduledAuditResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScheduledAuditResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteSecurityProfileRequest {
-  /**
-   * <p>The name of the security profile to be deleted.</p>
-   */
-  securityProfileName: string | undefined;
-
-  /**
-   * <p>The expected version of the security profile. A new version is generated whenever
-   *         the security profile is updated. If you specify a value that is different from the actual
-   *         version, a <code>VersionConflictException</code> is thrown.</p>
-   */
-  expectedVersion?: number;
-}
-
-export namespace DeleteSecurityProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSecurityProfileRequest): any => ({
     ...obj,
   });
 }

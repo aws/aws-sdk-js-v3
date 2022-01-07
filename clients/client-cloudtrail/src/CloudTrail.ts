@@ -2,13 +2,34 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { CloudTrailClient } from "./CloudTrailClient";
 import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import { CancelQueryCommand, CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
+import {
+  CreateEventDataStoreCommand,
+  CreateEventDataStoreCommandInput,
+  CreateEventDataStoreCommandOutput,
+} from "./commands/CreateEventDataStoreCommand";
 import { CreateTrailCommand, CreateTrailCommandInput, CreateTrailCommandOutput } from "./commands/CreateTrailCommand";
+import {
+  DeleteEventDataStoreCommand,
+  DeleteEventDataStoreCommandInput,
+  DeleteEventDataStoreCommandOutput,
+} from "./commands/DeleteEventDataStoreCommand";
 import { DeleteTrailCommand, DeleteTrailCommandInput, DeleteTrailCommandOutput } from "./commands/DeleteTrailCommand";
+import {
+  DescribeQueryCommand,
+  DescribeQueryCommandInput,
+  DescribeQueryCommandOutput,
+} from "./commands/DescribeQueryCommand";
 import {
   DescribeTrailsCommand,
   DescribeTrailsCommandInput,
   DescribeTrailsCommandOutput,
 } from "./commands/DescribeTrailsCommand";
+import {
+  GetEventDataStoreCommand,
+  GetEventDataStoreCommandInput,
+  GetEventDataStoreCommandOutput,
+} from "./commands/GetEventDataStoreCommand";
 import {
   GetEventSelectorsCommand,
   GetEventSelectorsCommandInput,
@@ -19,6 +40,11 @@ import {
   GetInsightSelectorsCommandInput,
   GetInsightSelectorsCommandOutput,
 } from "./commands/GetInsightSelectorsCommand";
+import {
+  GetQueryResultsCommand,
+  GetQueryResultsCommandInput,
+  GetQueryResultsCommandOutput,
+} from "./commands/GetQueryResultsCommand";
 import { GetTrailCommand, GetTrailCommandInput, GetTrailCommandOutput } from "./commands/GetTrailCommand";
 import {
   GetTrailStatusCommand,
@@ -26,10 +52,16 @@ import {
   GetTrailStatusCommandOutput,
 } from "./commands/GetTrailStatusCommand";
 import {
+  ListEventDataStoresCommand,
+  ListEventDataStoresCommandInput,
+  ListEventDataStoresCommandOutput,
+} from "./commands/ListEventDataStoresCommand";
+import {
   ListPublicKeysCommand,
   ListPublicKeysCommandInput,
   ListPublicKeysCommandOutput,
 } from "./commands/ListPublicKeysCommand";
+import { ListQueriesCommand, ListQueriesCommandInput, ListQueriesCommandOutput } from "./commands/ListQueriesCommand";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import { ListTrailsCommand, ListTrailsCommandInput, ListTrailsCommandOutput } from "./commands/ListTrailsCommand";
 import {
@@ -49,11 +81,22 @@ import {
 } from "./commands/PutInsightSelectorsCommand";
 import { RemoveTagsCommand, RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
+  RestoreEventDataStoreCommand,
+  RestoreEventDataStoreCommandInput,
+  RestoreEventDataStoreCommandOutput,
+} from "./commands/RestoreEventDataStoreCommand";
+import {
   StartLoggingCommand,
   StartLoggingCommandInput,
   StartLoggingCommandOutput,
 } from "./commands/StartLoggingCommand";
+import { StartQueryCommand, StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
 import { StopLoggingCommand, StopLoggingCommandInput, StopLoggingCommandOutput } from "./commands/StopLoggingCommand";
+import {
+  UpdateEventDataStoreCommand,
+  UpdateEventDataStoreCommandInput,
+  UpdateEventDataStoreCommandOutput,
+} from "./commands/UpdateEventDataStoreCommand";
 import { UpdateTrailCommand, UpdateTrailCommandInput, UpdateTrailCommandOutput } from "./commands/UpdateTrailCommand";
 
 /**
@@ -105,6 +148,66 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * <p>Cancels a query if the query is not in a terminated state, such as <code>CANCELLED</code>, <code>FAILED</code> or <code>FINISHED</code>. You must specify an ARN value for <code>EventDataStore</code>.
+   *          The ID of the query that you want to cancel is also required. When you run <code>CancelQuery</code>, the query status might
+   *          show as <code>CANCELLED</code> even if the operation is not yet finished.</p>
+   */
+  public cancelQuery(args: CancelQueryCommandInput, options?: __HttpHandlerOptions): Promise<CancelQueryCommandOutput>;
+  public cancelQuery(args: CancelQueryCommandInput, cb: (err: any, data?: CancelQueryCommandOutput) => void): void;
+  public cancelQuery(
+    args: CancelQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelQueryCommandOutput) => void
+  ): void;
+  public cancelQuery(
+    args: CancelQueryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelQueryCommandOutput) => void),
+    cb?: (err: any, data?: CancelQueryCommandOutput) => void
+  ): Promise<CancelQueryCommandOutput> | void {
+    const command = new CancelQueryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new event data store.</p>
+   */
+  public createEventDataStore(
+    args: CreateEventDataStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEventDataStoreCommandOutput>;
+  public createEventDataStore(
+    args: CreateEventDataStoreCommandInput,
+    cb: (err: any, data?: CreateEventDataStoreCommandOutput) => void
+  ): void;
+  public createEventDataStore(
+    args: CreateEventDataStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEventDataStoreCommandOutput) => void
+  ): void;
+  public createEventDataStore(
+    args: CreateEventDataStoreCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEventDataStoreCommandOutput) => void),
+    cb?: (err: any, data?: CreateEventDataStoreCommandOutput) => void
+  ): Promise<CreateEventDataStoreCommandOutput> | void {
+    const command = new CreateEventDataStoreCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket.
    *          </p>
    */
@@ -121,6 +224,44 @@ export class CloudTrail extends CloudTrailClient {
     cb?: (err: any, data?: CreateTrailCommandOutput) => void
   ): Promise<CreateTrailCommandOutput> | void {
     const command = new CreateTrailCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disables the event data store specified by <code>EventDataStore</code>, which accepts an event data store ARN.
+   *          After you run <code>DeleteEventDataStore</code>, the event data store is automatically deleted after a wait period of
+   *          seven days. <code>TerminationProtectionEnabled</code> must be set to <code>False</code> on the event data store; this
+   *          operation cannot work if <code>TerminationProtectionEnabled</code> is <code>True</code>.</p>
+   *          <p>After you run <code>DeleteEventDataStore</code> on an event data store, you cannot run <code>ListQueries</code>,
+   *          <code>DescribeQuery</code>, or <code>GetQueryResults</code> on queries that are using an event data store in a
+   *          <code>PENDING_DELETION</code> state.</p>
+   */
+  public deleteEventDataStore(
+    args: DeleteEventDataStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEventDataStoreCommandOutput>;
+  public deleteEventDataStore(
+    args: DeleteEventDataStoreCommandInput,
+    cb: (err: any, data?: DeleteEventDataStoreCommandOutput) => void
+  ): void;
+  public deleteEventDataStore(
+    args: DeleteEventDataStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEventDataStoreCommandOutput) => void
+  ): void;
+  public deleteEventDataStore(
+    args: DeleteEventDataStoreCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventDataStoreCommandOutput) => void),
+    cb?: (err: any, data?: DeleteEventDataStoreCommandOutput) => void
+  ): Promise<DeleteEventDataStoreCommandOutput> | void {
+    const command = new DeleteEventDataStoreCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -160,6 +301,39 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * <p>Returns metadata about a query, including query run time in milliseconds, number of events scanned and matched, and query
+   *          status. You must specify an ARN for <code>EventDataStore</code>, and a value for <code>QueryID</code>.</p>
+   */
+  public describeQuery(
+    args: DescribeQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeQueryCommandOutput>;
+  public describeQuery(
+    args: DescribeQueryCommandInput,
+    cb: (err: any, data?: DescribeQueryCommandOutput) => void
+  ): void;
+  public describeQuery(
+    args: DescribeQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeQueryCommandOutput) => void
+  ): void;
+  public describeQuery(
+    args: DescribeQueryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeQueryCommandOutput) => void),
+    cb?: (err: any, data?: DescribeQueryCommandOutput) => void
+  ): Promise<DescribeQueryCommandOutput> | void {
+    const command = new DescribeQueryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves settings for one or more trails associated with the current region for your account.</p>
    */
   public describeTrails(
@@ -181,6 +355,38 @@ export class CloudTrail extends CloudTrailClient {
     cb?: (err: any, data?: DescribeTrailsCommandOutput) => void
   ): Promise<DescribeTrailsCommandOutput> | void {
     const command = new DescribeTrailsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about an event data store specified as either an ARN or the ID portion of the ARN.</p>
+   */
+  public getEventDataStore(
+    args: GetEventDataStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEventDataStoreCommandOutput>;
+  public getEventDataStore(
+    args: GetEventDataStoreCommandInput,
+    cb: (err: any, data?: GetEventDataStoreCommandOutput) => void
+  ): void;
+  public getEventDataStore(
+    args: GetEventDataStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEventDataStoreCommandOutput) => void
+  ): void;
+  public getEventDataStore(
+    args: GetEventDataStoreCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEventDataStoreCommandOutput) => void),
+    cb?: (err: any, data?: GetEventDataStoreCommandOutput) => void
+  ): Promise<GetEventDataStoreCommandOutput> | void {
+    const command = new GetEventDataStoreCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -278,6 +484,39 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * <p>Gets event data results of a query. You must specify the <code>QueryID</code> value returned by the <code>StartQuery</code>
+   *          operation, and an ARN for <code>EventDataStore</code>.</p>
+   */
+  public getQueryResults(
+    args: GetQueryResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQueryResultsCommandOutput>;
+  public getQueryResults(
+    args: GetQueryResultsCommandInput,
+    cb: (err: any, data?: GetQueryResultsCommandOutput) => void
+  ): void;
+  public getQueryResults(
+    args: GetQueryResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQueryResultsCommandOutput) => void
+  ): void;
+  public getQueryResults(
+    args: GetQueryResultsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueryResultsCommandOutput) => void),
+    cb?: (err: any, data?: GetQueryResultsCommandOutput) => void
+  ): Promise<GetQueryResultsCommandOutput> | void {
+    const command = new GetQueryResultsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns settings information for a specified trail.</p>
    */
   public getTrail(args: GetTrailCommandInput, options?: __HttpHandlerOptions): Promise<GetTrailCommandOutput>;
@@ -336,6 +575,38 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * <p>Returns information about all event data stores in the account, in the current region.</p>
+   */
+  public listEventDataStores(
+    args: ListEventDataStoresCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEventDataStoresCommandOutput>;
+  public listEventDataStores(
+    args: ListEventDataStoresCommandInput,
+    cb: (err: any, data?: ListEventDataStoresCommandOutput) => void
+  ): void;
+  public listEventDataStores(
+    args: ListEventDataStoresCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEventDataStoresCommandOutput) => void
+  ): void;
+  public listEventDataStores(
+    args: ListEventDataStoresCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEventDataStoresCommandOutput) => void),
+    cb?: (err: any, data?: ListEventDataStoresCommandOutput) => void
+  ): Promise<ListEventDataStoresCommandOutput> | void {
+    const command = new ListEventDataStoresCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns all public keys whose private keys were used to sign the digest files within the specified time range. The public key is needed to validate digest files that were signed with its corresponding private key.</p>
    *          <note>
    *             <p>CloudTrail uses different private and public key pairs per region. Each digest file is signed with a private key
@@ -362,6 +633,36 @@ export class CloudTrail extends CloudTrailClient {
     cb?: (err: any, data?: ListPublicKeysCommandOutput) => void
   ): Promise<ListPublicKeysCommandOutput> | void {
     const command = new ListPublicKeysCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of queries and query statuses for the past seven days. You must specify an ARN value for
+   *          <code>EventDataStore</code>. Optionally, to shorten the list of results, you can specify a time range,
+   *          formatted as timestamps, by adding <code>StartTime</code> and <code>EndTime</code> parameters, and a
+   *          <code>QueryStatus</code> value. Valid values for <code>QueryStatus</code> include <code>QUEUED</code>, <code>RUNNING</code>,
+   *          <code>FINISHED</code>, <code>FAILED</code>, or <code>CANCELLED</code>.</p>
+   */
+  public listQueries(args: ListQueriesCommandInput, options?: __HttpHandlerOptions): Promise<ListQueriesCommandOutput>;
+  public listQueries(args: ListQueriesCommandInput, cb: (err: any, data?: ListQueriesCommandOutput) => void): void;
+  public listQueries(
+    args: ListQueriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListQueriesCommandOutput) => void
+  ): void;
+  public listQueries(
+    args: ListQueriesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQueriesCommandOutput) => void),
+    cb?: (err: any, data?: ListQueriesCommandOutput) => void
+  ): Promise<ListQueriesCommandOutput> | void {
+    const command = new ListQueriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -580,7 +881,7 @@ export class CloudTrail extends CloudTrailClient {
    * <p>Lets you enable Insights event logging by specifying the Insights
    *          selectors that you want to enable on an existing trail. You also use
    *          <code>PutInsightSelectors</code> to turn off Insights event logging, by passing an empty list of insight types.
-   *          The valid Insights event type in this release is <code>ApiCallRateInsight</code>.</p>
+   *          The valid Insights event types in this release are <code>ApiErrorRateInsight</code> and <code>ApiCallRateInsight</code>.</p>
    */
   public putInsightSelectors(
     args: PutInsightSelectorsCommandInput,
@@ -638,6 +939,40 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
+   * <p>Restores a deleted event data store specified by <code>EventDataStore</code>, which accepts an event data store ARN.
+   *          You can only restore a deleted event data store within the seven-day wait period after deletion. Restoring an event data store
+   *          can take several minutes, depending on the size of the event data store.</p>
+   */
+  public restoreEventDataStore(
+    args: RestoreEventDataStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreEventDataStoreCommandOutput>;
+  public restoreEventDataStore(
+    args: RestoreEventDataStoreCommandInput,
+    cb: (err: any, data?: RestoreEventDataStoreCommandOutput) => void
+  ): void;
+  public restoreEventDataStore(
+    args: RestoreEventDataStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestoreEventDataStoreCommandOutput) => void
+  ): void;
+  public restoreEventDataStore(
+    args: RestoreEventDataStoreCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreEventDataStoreCommandOutput) => void),
+    cb?: (err: any, data?: RestoreEventDataStoreCommandOutput) => void
+  ): Promise<RestoreEventDataStoreCommandOutput> | void {
+    const command = new RestoreEventDataStoreCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Starts the recording of Amazon Web Services API calls and log file delivery for a trail. For a trail that is enabled in all regions, this operation must be called from the region in which the trail was created. This operation cannot be called on the shadow trails (replicated trails in other regions) of a trail that is enabled in all regions.</p>
    */
   public startLogging(
@@ -656,6 +991,33 @@ export class CloudTrail extends CloudTrailClient {
     cb?: (err: any, data?: StartLoggingCommandOutput) => void
   ): Promise<StartLoggingCommandOutput> | void {
     const command = new StartLoggingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts a CloudTrail Lake query. The required <code>QueryStatement</code>
+   *          parameter provides your SQL query, enclosed in single quotation marks.</p>
+   */
+  public startQuery(args: StartQueryCommandInput, options?: __HttpHandlerOptions): Promise<StartQueryCommandOutput>;
+  public startQuery(args: StartQueryCommandInput, cb: (err: any, data?: StartQueryCommandOutput) => void): void;
+  public startQuery(
+    args: StartQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartQueryCommandOutput) => void
+  ): void;
+  public startQuery(
+    args: StartQueryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartQueryCommandOutput) => void),
+    cb?: (err: any, data?: StartQueryCommandOutput) => void
+  ): Promise<StartQueryCommandOutput> | void {
+    const command = new StartQueryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -688,6 +1050,43 @@ export class CloudTrail extends CloudTrailClient {
     cb?: (err: any, data?: StopLoggingCommandOutput) => void
   ): Promise<StopLoggingCommandOutput> | void {
     const command = new StopLoggingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an event data store. The required <code>EventDataStore</code> value is an ARN or the ID portion of the ARN.
+   *          Other parameters are optional, but at least one optional parameter must be specified, or CloudTrail throws an error.
+   *          <code>RetentionPeriod</code> is in days, and valid values are integers between 90 and 2555.
+   *          By default, <code>TerminationProtection</code> is enabled. <code>AdvancedEventSelectors</code> includes or excludes management
+   *          and data events in your event data store; for more information about <code>AdvancedEventSelectors</code>, see
+   *          <a>PutEventSelectorsRequest$AdvancedEventSelectors</a>.</p>
+   */
+  public updateEventDataStore(
+    args: UpdateEventDataStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEventDataStoreCommandOutput>;
+  public updateEventDataStore(
+    args: UpdateEventDataStoreCommandInput,
+    cb: (err: any, data?: UpdateEventDataStoreCommandOutput) => void
+  ): void;
+  public updateEventDataStore(
+    args: UpdateEventDataStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEventDataStoreCommandOutput) => void
+  ): void;
+  public updateEventDataStore(
+    args: UpdateEventDataStoreCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEventDataStoreCommandOutput) => void),
+    cb?: (err: any, data?: UpdateEventDataStoreCommandOutput) => void
+  ): Promise<UpdateEventDataStoreCommandOutput> | void {
+    const command = new UpdateEventDataStoreCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

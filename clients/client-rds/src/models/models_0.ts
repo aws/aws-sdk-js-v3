@@ -1750,7 +1750,24 @@ export interface DBClusterSnapshot {
   AllocatedStorage?: number;
 
   /**
-   * <p>Specifies the status of this DB cluster snapshot.</p>
+   * <p>Specifies the status of this DB cluster snapshot. Valid statuses are the following:</p>
+   *          <ul>
+   *             <li>
+   *               <p>
+   *                   <code>available</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *               <p>
+   *                   <code>copying</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *               <p>
+   *                   <code>creating</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Status?: string;
 
@@ -3200,7 +3217,7 @@ export interface CreateCustomDBEngineVersionMessage {
   /**
    * <p>The name of your CEV. The name format is <code>19.<i>customized_string</i>
    *             </code>. For example,
-   *             a valid name is <code>19.my_cev1</code>. This setting is required for RDS Custom, but optional for Amazon RDS.
+   *             a valid name is <code>19.my_cev1</code>. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS.
    *             The combination of <code>Engine</code> and <code>EngineVersion</code> is unique per customer per Region.</p>
    */
   EngineVersion: string | undefined;
@@ -3767,7 +3784,7 @@ export interface CreateDBClusterMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</p>
+   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3795,7 +3812,7 @@ export interface CreateDBClusterMessage {
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
-   *          <p>To list all of the available engine versions for MySQL 5.7-compatible Aurora, use the following command:</p>
+   *          <p>To list all of the available engine versions for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora, use the following command:</p>
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
@@ -4203,15 +4220,13 @@ export interface CreateDBClusterMessage {
    * <p>Specifies the storage type to be associated with the DB cluster.</p>
    *         <p>This setting is required to create a Multi-AZ DB cluster.</p>
    *         <p>
-   *             Valid values: <code>standard | gp2 | io1</code>
+   *             Valid values: <code>io1</code>
    *         </p>
    *         <p>
-   *             If you specify <code>io1</code>, also include a value for the
-   *             <code>Iops</code> parameter.
+   *             When specified, a value for the <code>Iops</code> parameter is required.
    *         </p>
    *         <p>
-   *             Default: <code>io1</code> if the <code>Iops</code> parameter
-   *             is specified, otherwise <code>gp2</code>
+   *             Default: <code>io1</code>
    *         </p>
    *         <p>Valid for: Multi-AZ DB clusters only</p>
    */
@@ -4964,7 +4979,7 @@ export interface DBCluster {
   DBClusterInstanceClass?: string;
 
   /**
-   * <p>The storage type associated with DB instance.</p>
+   * <p>The storage type associated with the DB cluster.</p>
    *         <p>This setting is only for non-Aurora Multi-AZ DB clusters.</p>
    */
   StorageType?: string;
@@ -5515,7 +5530,7 @@ export interface CreateDBClusterParameterGroupMessage {
    *          <p>
    *             <b>Aurora MySQL</b>
    *          </p>
-   *          <p>Example: <code>aurora5.6</code>, <code>aurora-mysql5.7</code>
+   *          <p>Example: <code>aurora5.6</code>, <code>aurora-mysql5.7</code>, <code>aurora-mysql8.0</code>
    *          </p>
    *          <p>
    *             <b>Aurora PostgreSQL</b>
@@ -5551,7 +5566,7 @@ export interface CreateDBClusterParameterGroupMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</p>
+   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5789,7 +5804,7 @@ export interface CreateDBInstanceMessage {
    *             </li>
    *          </ul>
    *          <p>
-   *             <b>Amazon RDS Custom</b>
+   *             <b>Amazon RDS Custom for Oracle</b>
    *          </p>
    *          <p>The Oracle System ID (SID) of the created RDS Custom DB instance.
    *           If you don't specify a value, the default value is <code>ORCL</code>.
@@ -5808,6 +5823,10 @@ export interface CreateDBInstanceMessage {
    *                <p>It can't be a word reserved by the database engine.</p>
    *             </li>
    *          </ul>
+   *          <p>
+   *             <b>Amazon RDS Custom for SQL Server</b>
+   *          </p>
+   *          <p>Not applicable. Must be null.</p>
    *          <p>
    *             <b>SQL Server</b>
    *          </p>
@@ -5886,10 +5905,12 @@ export interface CreateDBInstanceMessage {
    *       </p>
    *          <ul>
    *             <li>
-   *                <p>General Purpose (SSD) storage (gp2): Must be an integer from 40 to 65536.</p>
+   *                <p>General Purpose (SSD) storage (gp2): Must be an integer from 40 to 65536 for RDS Custom for Oracle,
+   *               16384 for RDS Custom for SQL Server.</p>
    *             </li>
    *             <li>
-   *                <p>Provisioned IOPS storage (io1): Must be an integer from 40 to 65536.</p>
+   *                <p>Provisioned IOPS storage (io1): Must be an integer from 40 to 65536 for RDS Custom for Oracle,
+   *               16384 for RDS Custom for SQL Server.</p>
    *             </li>
    *          </ul>
    *
@@ -5971,7 +5992,7 @@ export interface CreateDBInstanceMessage {
    *                <p>General Purpose (SSD) storage (gp2):</p>
    *                <ul>
    *                   <li>
-   *                      <p>Enterprise and Standard editions: Must be an integer from 200 to 16384.</p>
+   *                      <p>Enterprise and Standard editions: Must be an integer from 20 to 16384.</p>
    *                   </li>
    *                   <li>
    *                      <p>Web and Express editions: Must be an integer from 20 to 16384.</p>
@@ -5982,7 +6003,7 @@ export interface CreateDBInstanceMessage {
    *                <p>Provisioned IOPS storage (io1):</p>
    *               <ul>
    *                   <li>
-   *                      <p>Enterprise and Standard editions: Must be an integer from 200 to 16384.</p>
+   *                      <p>Enterprise and Standard editions: Must be an integer from 100 to 16384.</p>
    *                   </li>
    *                   <li>
    *                      <p>Web and Express editions: Must be an integer from 100 to 16384.</p>
@@ -5993,7 +6014,7 @@ export interface CreateDBInstanceMessage {
    *                <p>Magnetic storage (standard):</p>
    *               <ul>
    *                   <li>
-   *                      <p>Enterprise and Standard editions: Must be an integer from 200 to 1024.</p>
+   *                      <p>Enterprise and Standard editions: Must be an integer from 20 to 1024.</p>
    *                   </li>
    *                   <li>
    *                      <p>Web and Express editions: Must be an integer from 20 to 1024.</p>
@@ -6030,7 +6051,7 @@ export interface CreateDBInstanceMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</p>
+   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6039,7 +6060,22 @@ export interface CreateDBInstanceMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>custom-oracle-ee (for RDS Custom instances)</code>
+   *                   <code>custom-oracle-ee (for RDS Custom for Oracle instances)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-ee (for RDS Custom for SQL Server instances)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-se (for RDS Custom for SQL Server instances)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-web (for RDS Custom for SQL Server instances)</code>
    *                </p>
    *             </li>
    *             <li>
@@ -6193,6 +6229,11 @@ export interface CreateDBInstanceMessage {
    *         <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
    *         and Availability Zones</a>.
    *         </p>
+   *          <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *          <p>Not applicable. Availability Zones are managed by the DB cluster.
+   *       </p>
    *          <p>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services Region.</p>
    *          <p>
    *             Example: <code>us-east-1d</code>
@@ -6272,7 +6313,7 @@ export interface CreateDBInstanceMessage {
    *                <p>Can't be set to 0 if the DB instance is a source to read replicas</p>
    *             </li>
    *             <li>
-   *                <p>Can't be set to 0 or 35 for an RDS Custom DB instance</p>
+   *                <p>Can't be set to 0 or 35 for an RDS Custom for Oracle DB instance</p>
    *             </li>
    *          </ul>
    */
@@ -6389,18 +6430,24 @@ export interface CreateDBInstanceMessage {
    *             instance is managed by the DB cluster.</p>
    *
    *          <p>
-   *             <b>Amazon RDS Custom</b>
+   *             <b>Amazon RDS Custom for Oracle</b>
    *          </p>
-   *          <p>A custom engine version (CEV) that you have previously created. This setting is required for RDS Custom. The CEV
+   *          <p>A custom engine version (CEV) that you have previously created. This setting is required for RDS Custom for Oracle. The CEV
    *           name has the following format: <code>19.<i>customized_string</i>
    *             </code>. An example identifier is
    *           <code>19.my_cev1</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-creating.html#custom-creating.create">
-   *               Creating an RDS Custom DB instance</a> in the <i>Amazon RDS User Guide.</i>.</p>
+   *               Creating an RDS Custom for Oracle DB instance</a> in the <i>Amazon RDS User Guide.</i>.</p>
+   *
+   *          <p>
+   *             <b>Amazon RDS Custom for SQL Server</b>
+   *          </p>
+   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits.html#custom-reqs-limits.reqsMS">RDS Custom for SQL Server general requirements</a>
+   *           in the <i>Amazon RDS User Guide.</i>
+   *          </p>
    *
    *          <p>
    *             <b>MariaDB</b>
    *          </p>
-   *
    *          <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt">MariaDB on Amazon RDS Versions</a> in the
    *           <i>Amazon RDS User Guide.</i>
    *          </p>
@@ -6408,7 +6455,6 @@ export interface CreateDBInstanceMessage {
    *          <p>
    *             <b>Microsoft SQL Server</b>
    *          </p>
-   *
    *          <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport">Microsoft SQL Server Versions on Amazon RDS</a> in the
    *           <i>Amazon RDS User Guide.</i>
    *          </p>
@@ -6416,7 +6462,6 @@ export interface CreateDBInstanceMessage {
    *          <p>
    *             <b>MySQL</b>
    *          </p>
-   *
    *          <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">MySQL on Amazon RDS Versions</a> in the
    *           <i>Amazon RDS User Guide.</i>
    *          </p>
@@ -6424,7 +6469,6 @@ export interface CreateDBInstanceMessage {
    *          <p>
    *             <b>Oracle</b>
    *          </p>
-   *
    *          <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html">Oracle Database Engine Release Notes</a> in the
    *           <i>Amazon RDS User Guide.</i>
    *          </p>
@@ -6432,7 +6476,6 @@ export interface CreateDBInstanceMessage {
    *          <p>
    *             <b>PostgreSQL</b>
    *          </p>
-   *
    *          <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts">Amazon RDS for PostgreSQL versions and extensions</a> in the
    *           <i>Amazon RDS User Guide.</i>
    *          </p>
@@ -6565,7 +6608,7 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.</p>
-   *          <p>For RDS Custom Oracle instances, either set this parameter to <code>true</code> or leave it unset.
+   *          <p>For RDS Custom instances, either set this parameter to <code>true</code> or leave it unset.
    *           If you set this parameter to <code>false</code>, RDS reports an error.</p>
    *          <p>
    *             <b>Amazon Aurora</b>
@@ -6591,8 +6634,8 @@ export interface CreateDBInstanceMessage {
    *          <p>
    *             <b>Amazon RDS Custom</b>
    *          </p>
-   *          <p>A KMS key is required for RDS Custom Oracle instances. For most RDS engines, if you leave this parameter empty
-   *           while enabling <code>StorageEncrypted</code>, the engine uses the default KMS key. However, RDS Custom for Oracle
+   *          <p>A KMS key is required for RDS Custom instances. For most RDS engines, if you leave this parameter empty
+   *           while enabling <code>StorageEncrypted</code>, the engine uses the default KMS key. However, RDS Custom
    *           doesn't use the default key when this parameter is empty. You must explicitly specify a key.</p>
    */
   KmsKeyId?: string;
@@ -8542,7 +8585,7 @@ export interface CreateDBParameterGroupMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</p>
+   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -12649,7 +12692,7 @@ export interface DescribeDBEngineVersionsMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</p>
+   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
    *             </li>
    *             <li>
    *                <p>

@@ -22,7 +22,7 @@ export interface DescribeDataSetCommandInput extends DescribeDataSetRequest {}
 export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a dataset. </p>
+ * <p>Describes a dataset. This operation doesn't support datasets that include uploaded files as a source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

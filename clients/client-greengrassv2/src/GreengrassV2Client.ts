@@ -50,6 +50,10 @@ import {
 } from "@aws-sdk/types";
 
 import {
+  AssociateServiceRoleToAccountCommandInput,
+  AssociateServiceRoleToAccountCommandOutput,
+} from "./commands/AssociateServiceRoleToAccountCommand";
+import {
   BatchAssociateClientDeviceWithCoreDeviceCommandInput,
   BatchAssociateClientDeviceWithCoreDeviceCommandOutput,
 } from "./commands/BatchAssociateClientDeviceWithCoreDeviceCommand";
@@ -66,13 +70,25 @@ import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./c
 import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "./commands/DeleteComponentCommand";
 import { DeleteCoreDeviceCommandInput, DeleteCoreDeviceCommandOutput } from "./commands/DeleteCoreDeviceCommand";
 import { DescribeComponentCommandInput, DescribeComponentCommandOutput } from "./commands/DescribeComponentCommand";
+import {
+  DisassociateServiceRoleFromAccountCommandInput,
+  DisassociateServiceRoleFromAccountCommandOutput,
+} from "./commands/DisassociateServiceRoleFromAccountCommand";
 import { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
 import {
   GetComponentVersionArtifactCommandInput,
   GetComponentVersionArtifactCommandOutput,
 } from "./commands/GetComponentVersionArtifactCommand";
+import {
+  GetConnectivityInfoCommandInput,
+  GetConnectivityInfoCommandOutput,
+} from "./commands/GetConnectivityInfoCommand";
 import { GetCoreDeviceCommandInput, GetCoreDeviceCommandOutput } from "./commands/GetCoreDeviceCommand";
 import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
+import {
+  GetServiceRoleForAccountCommandInput,
+  GetServiceRoleForAccountCommandOutput,
+} from "./commands/GetServiceRoleForAccountCommand";
 import {
   ListClientDevicesAssociatedWithCoreDeviceCommandInput,
   ListClientDevicesAssociatedWithCoreDeviceCommandOutput,
@@ -102,9 +118,14 @@ import {
 } from "./commands/ResolveComponentCandidatesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateConnectivityInfoCommandInput,
+  UpdateConnectivityInfoCommandOutput,
+} from "./commands/UpdateConnectivityInfoCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | AssociateServiceRoleToAccountCommandInput
   | BatchAssociateClientDeviceWithCoreDeviceCommandInput
   | BatchDisassociateClientDeviceFromCoreDeviceCommandInput
   | CancelDeploymentCommandInput
@@ -113,10 +134,13 @@ export type ServiceInputTypes =
   | DeleteComponentCommandInput
   | DeleteCoreDeviceCommandInput
   | DescribeComponentCommandInput
+  | DisassociateServiceRoleFromAccountCommandInput
   | GetComponentCommandInput
   | GetComponentVersionArtifactCommandInput
+  | GetConnectivityInfoCommandInput
   | GetCoreDeviceCommandInput
   | GetDeploymentCommandInput
+  | GetServiceRoleForAccountCommandInput
   | ListClientDevicesAssociatedWithCoreDeviceCommandInput
   | ListComponentVersionsCommandInput
   | ListComponentsCommandInput
@@ -127,9 +151,11 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ResolveComponentCandidatesCommandInput
   | TagResourceCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | UpdateConnectivityInfoCommandInput;
 
 export type ServiceOutputTypes =
+  | AssociateServiceRoleToAccountCommandOutput
   | BatchAssociateClientDeviceWithCoreDeviceCommandOutput
   | BatchDisassociateClientDeviceFromCoreDeviceCommandOutput
   | CancelDeploymentCommandOutput
@@ -138,10 +164,13 @@ export type ServiceOutputTypes =
   | DeleteComponentCommandOutput
   | DeleteCoreDeviceCommandOutput
   | DescribeComponentCommandOutput
+  | DisassociateServiceRoleFromAccountCommandOutput
   | GetComponentCommandOutput
   | GetComponentVersionArtifactCommandOutput
+  | GetConnectivityInfoCommandOutput
   | GetCoreDeviceCommandOutput
   | GetDeploymentCommandOutput
+  | GetServiceRoleForAccountCommandOutput
   | ListClientDevicesAssociatedWithCoreDeviceCommandOutput
   | ListComponentVersionsCommandOutput
   | ListComponentsCommandOutput
@@ -152,7 +181,8 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ResolveComponentCandidatesCommandOutput
   | TagResourceCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | UpdateConnectivityInfoCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

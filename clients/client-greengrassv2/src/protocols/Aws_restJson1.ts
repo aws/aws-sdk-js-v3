@@ -23,6 +23,10 @@ import {
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
+  AssociateServiceRoleToAccountCommandInput,
+  AssociateServiceRoleToAccountCommandOutput,
+} from "../commands/AssociateServiceRoleToAccountCommand";
+import {
   BatchAssociateClientDeviceWithCoreDeviceCommandInput,
   BatchAssociateClientDeviceWithCoreDeviceCommandOutput,
 } from "../commands/BatchAssociateClientDeviceWithCoreDeviceCommand";
@@ -39,13 +43,25 @@ import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "../
 import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "../commands/DeleteComponentCommand";
 import { DeleteCoreDeviceCommandInput, DeleteCoreDeviceCommandOutput } from "../commands/DeleteCoreDeviceCommand";
 import { DescribeComponentCommandInput, DescribeComponentCommandOutput } from "../commands/DescribeComponentCommand";
+import {
+  DisassociateServiceRoleFromAccountCommandInput,
+  DisassociateServiceRoleFromAccountCommandOutput,
+} from "../commands/DisassociateServiceRoleFromAccountCommand";
 import { GetComponentCommandInput, GetComponentCommandOutput } from "../commands/GetComponentCommand";
 import {
   GetComponentVersionArtifactCommandInput,
   GetComponentVersionArtifactCommandOutput,
 } from "../commands/GetComponentVersionArtifactCommand";
+import {
+  GetConnectivityInfoCommandInput,
+  GetConnectivityInfoCommandOutput,
+} from "../commands/GetConnectivityInfoCommand";
 import { GetCoreDeviceCommandInput, GetCoreDeviceCommandOutput } from "../commands/GetCoreDeviceCommand";
 import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "../commands/GetDeploymentCommand";
+import {
+  GetServiceRoleForAccountCommandInput,
+  GetServiceRoleForAccountCommandOutput,
+} from "../commands/GetServiceRoleForAccountCommand";
 import {
   ListClientDevicesAssociatedWithCoreDeviceCommandInput,
   ListClientDevicesAssociatedWithCoreDeviceCommandOutput,
@@ -76,6 +92,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
+  UpdateConnectivityInfoCommandInput,
+  UpdateConnectivityInfoCommandOutput,
+} from "../commands/UpdateConnectivityInfoCommand";
+import {
   AccessDeniedException,
   AssociateClientDeviceWithCoreDeviceEntry,
   AssociateClientDeviceWithCoreDeviceErrorEntry,
@@ -91,6 +111,7 @@ import {
   ComponentRunWith,
   ComponentVersionListItem,
   ConflictException,
+  ConnectivityInfo,
   CoreDevice,
   Deployment,
   DeploymentComponentUpdatePolicy,
@@ -124,6 +145,31 @@ import {
   ValidationException,
   ValidationExceptionField,
 } from "../models/models_0";
+
+export const serializeAws_restJson1AssociateServiceRoleToAccountCommand = async (
+  input: AssociateServiceRoleToAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/servicerole";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.roleArn !== undefined && input.roleArn !== null && { RoleArn: input.roleArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1BatchAssociateClientDeviceWithCoreDeviceCommand = async (
   input: BatchAssociateClientDeviceWithCoreDeviceCommandInput,
@@ -392,6 +438,29 @@ export const serializeAws_restJson1DescribeComponentCommand = async (
   });
 };
 
+export const serializeAws_restJson1DisassociateServiceRoleFromAccountCommand = async (
+  input: DisassociateServiceRoleFromAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/servicerole";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetComponentCommand = async (
   input: GetComponentCommandInput,
   context: __SerdeContext
@@ -470,6 +539,36 @@ export const serializeAws_restJson1GetComponentVersionArtifactCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetConnectivityInfoCommand = async (
+  input: GetConnectivityInfoCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/things/{thingName}/connectivityInfo";
+  if (input.thingName !== undefined) {
+    const labelValue: string = input.thingName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: thingName.");
+    }
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: thingName.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetCoreDeviceCommand = async (
   input: GetCoreDeviceCommandInput,
   context: __SerdeContext
@@ -518,6 +617,29 @@ export const serializeAws_restJson1GetDeploymentCommand = async (
     throw new Error("No value provided for input HTTP label: deploymentId.");
   }
   let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetServiceRoleForAccountCommand = async (
+  input: GetServiceRoleForAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/servicerole";
+  let body: any;
+  body = "";
   return new __HttpRequest({
     protocol,
     hostname,
@@ -869,6 +991,107 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     query,
     body,
   });
+};
+
+export const serializeAws_restJson1UpdateConnectivityInfoCommand = async (
+  input: UpdateConnectivityInfoCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/things/{thingName}/connectivityInfo";
+  if (input.thingName !== undefined) {
+    const labelValue: string = input.thingName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: thingName.");
+    }
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: thingName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.connectivityInfo !== undefined &&
+      input.connectivityInfo !== null && {
+        ConnectivityInfo: serializeAws_restJson1connectivityInfoList(input.connectivityInfo, context),
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const deserializeAws_restJson1AssociateServiceRoleToAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateServiceRoleToAccountCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AssociateServiceRoleToAccountCommandError(output, context);
+  }
+  const contents: AssociateServiceRoleToAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    associatedAt: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AssociatedAt !== undefined && data.AssociatedAt !== null) {
+    contents.associatedAt = __expectString(data.AssociatedAt);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AssociateServiceRoleToAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateServiceRoleToAccountCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.greengrassv2#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.greengrassv2#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1BatchAssociateClientDeviceWithCoreDeviceCommand = async (
@@ -1669,6 +1892,61 @@ const deserializeAws_restJson1DescribeComponentCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DisassociateServiceRoleFromAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateServiceRoleFromAccountCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisassociateServiceRoleFromAccountCommandError(output, context);
+  }
+  const contents: DisassociateServiceRoleFromAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    disassociatedAt: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.DisassociatedAt !== undefined && data.DisassociatedAt !== null) {
+    contents.disassociatedAt = __expectString(data.DisassociatedAt);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DisassociateServiceRoleFromAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateServiceRoleFromAccountCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.greengrassv2#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1822,6 +2100,73 @@ const deserializeAws_restJson1GetComponentVersionArtifactCommandError = async (
     case "com.amazonaws.greengrassv2#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.greengrassv2#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetConnectivityInfoCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConnectivityInfoCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetConnectivityInfoCommandError(output, context);
+  }
+  const contents: GetConnectivityInfoCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    connectivityInfo: undefined,
+    message: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ConnectivityInfo !== undefined && data.ConnectivityInfo !== null) {
+    contents.connectivityInfo = deserializeAws_restJson1connectivityInfoList(data.ConnectivityInfo, context);
+  }
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.message = __expectString(data.Message);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetConnectivityInfoCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConnectivityInfoCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.greengrassv2#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2081,6 +2426,65 @@ const deserializeAws_restJson1GetDeploymentCommandError = async (
     case "com.amazonaws.greengrassv2#ValidationException":
       response = {
         ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetServiceRoleForAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetServiceRoleForAccountCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetServiceRoleForAccountCommandError(output, context);
+  }
+  const contents: GetServiceRoleForAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    associatedAt: undefined,
+    roleArn: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AssociatedAt !== undefined && data.AssociatedAt !== null) {
+    contents.associatedAt = __expectString(data.AssociatedAt);
+  }
+  if (data.RoleArn !== undefined && data.RoleArn !== null) {
+    contents.roleArn = __expectString(data.RoleArn);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetServiceRoleForAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetServiceRoleForAccountCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.greengrassv2#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3024,6 +3428,73 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateConnectivityInfoCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectivityInfoCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateConnectivityInfoCommandError(output, context);
+  }
+  const contents: UpdateConnectivityInfoCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    message: undefined,
+    version: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.message = __expectString(data.Message);
+  }
+  if (data.Version !== undefined && data.Version !== null) {
+    contents.version = __expectString(data.Version);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateConnectivityInfoCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectivityInfoCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.greengrassv2#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.greengrassv2#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3387,6 +3858,26 @@ const serializeAws_restJson1ComponentVersionRequirementMap = (
       [key]: value,
     };
   }, {});
+};
+
+const serializeAws_restJson1ConnectivityInfo = (input: ConnectivityInfo, context: __SerdeContext): any => {
+  return {
+    ...(input.hostAddress !== undefined && input.hostAddress !== null && { HostAddress: input.hostAddress }),
+    ...(input.id !== undefined && input.id !== null && { Id: input.id }),
+    ...(input.metadata !== undefined && input.metadata !== null && { Metadata: input.metadata }),
+    ...(input.portNumber !== undefined && input.portNumber !== null && { PortNumber: input.portNumber }),
+  };
+};
+
+const serializeAws_restJson1connectivityInfoList = (input: ConnectivityInfo[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1ConnectivityInfo(entry, context);
+    });
 };
 
 const serializeAws_restJson1DeploymentComponentUpdatePolicy = (
@@ -3980,6 +4471,26 @@ const deserializeAws_restJson1ComponentVersionListItem = (
     componentName: __expectString(output.componentName),
     componentVersion: __expectString(output.componentVersion),
   } as any;
+};
+
+const deserializeAws_restJson1ConnectivityInfo = (output: any, context: __SerdeContext): ConnectivityInfo => {
+  return {
+    hostAddress: __expectString(output.HostAddress),
+    id: __expectString(output.Id),
+    metadata: __expectString(output.Metadata),
+    portNumber: __expectInt32(output.PortNumber),
+  } as any;
+};
+
+const deserializeAws_restJson1connectivityInfoList = (output: any, context: __SerdeContext): ConnectivityInfo[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ConnectivityInfo(entry, context);
+    });
 };
 
 const deserializeAws_restJson1CoreDevice = (output: any, context: __SerdeContext): CoreDevice => {

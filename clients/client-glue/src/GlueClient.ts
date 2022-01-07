@@ -236,6 +236,18 @@ import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCom
 import { GetTriggerCommandInput, GetTriggerCommandOutput } from "./commands/GetTriggerCommand";
 import { GetTriggersCommandInput, GetTriggersCommandOutput } from "./commands/GetTriggersCommand";
 import {
+  GetUnfilteredPartitionMetadataCommandInput,
+  GetUnfilteredPartitionMetadataCommandOutput,
+} from "./commands/GetUnfilteredPartitionMetadataCommand";
+import {
+  GetUnfilteredPartitionsMetadataCommandInput,
+  GetUnfilteredPartitionsMetadataCommandOutput,
+} from "./commands/GetUnfilteredPartitionsMetadataCommand";
+import {
+  GetUnfilteredTableMetadataCommandInput,
+  GetUnfilteredTableMetadataCommandOutput,
+} from "./commands/GetUnfilteredTableMetadataCommand";
+import {
   GetUserDefinedFunctionCommandInput,
   GetUserDefinedFunctionCommandOutput,
 } from "./commands/GetUserDefinedFunctionCommand";
@@ -464,6 +476,9 @@ export type ServiceInputTypes =
   | GetTagsCommandInput
   | GetTriggerCommandInput
   | GetTriggersCommandInput
+  | GetUnfilteredPartitionMetadataCommandInput
+  | GetUnfilteredPartitionsMetadataCommandInput
+  | GetUnfilteredTableMetadataCommandInput
   | GetUserDefinedFunctionCommandInput
   | GetUserDefinedFunctionsCommandInput
   | GetWorkflowCommandInput
@@ -632,6 +647,9 @@ export type ServiceOutputTypes =
   | GetTagsCommandOutput
   | GetTriggerCommandOutput
   | GetTriggersCommandOutput
+  | GetUnfilteredPartitionMetadataCommandOutput
+  | GetUnfilteredPartitionsMetadataCommandOutput
+  | GetUnfilteredTableMetadataCommandOutput
   | GetUserDefinedFunctionCommandOutput
   | GetUserDefinedFunctionsCommandOutput
   | GetWorkflowCommandOutput
