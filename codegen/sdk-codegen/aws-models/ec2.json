@@ -1600,7 +1600,7 @@
           "name": "ec2"
         },
         "aws.protocols#ec2Query": {},
-        "smithy.api#documentation": "<fullname>Amazon Elastic Compute Cloud</fullname>\n         <p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the AWS Cloud. \n          Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and deploy applications \n          faster. Amazon Virtual Private Cloud (Amazon VPC) enables you to provision a logically isolated section of the \n          AWS Cloud where you can launch AWS resources in a virtual network that you've defined. Amazon Elastic Block Store \n          (Amazon EBS) provides block level storage volumes for use with EC2 instances. EBS volumes are highly available  \n          and reliable storage volumes that can be attached to any running instance and used like a hard drive.</p>\n         <p>To learn more, see the following resources:</p>\n         <ul>\n            <li>\n               <p>Amazon EC2: <a href=\"http://aws.amazon.com/ec2\">AmazonEC2 product page</a>, <a href=\"http://aws.amazon.com/documentation/ec2\">Amazon EC2 documentation</a>\n               </p>\n            </li>\n            <li>\n               <p>Amazon EBS: <a href=\"http://aws.amazon.com/ebs\">Amazon EBS product page</a>, <a href=\"http://aws.amazon.com/documentation/ebs\">Amazon EBS documentation</a>\n               </p>\n            </li>\n            <li>\n               <p>Amazon VPC: <a href=\"http://aws.amazon.com/vpc\">Amazon VPC product page</a>, <a href=\"http://aws.amazon.com/documentation/vpc\">Amazon VPC documentation</a>\n               </p>\n            </li>\n            <li>\n               <p>AWS VPN: <a href=\"http://aws.amazon.com/vpn\">AWS VPN product page</a>, <a href=\"http://aws.amazon.com/documentation/vpn\">AWS VPN documentation</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<fullname>Amazon Elastic Compute Cloud</fullname>\n         <p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the Amazon Web Services Cloud. \n          Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and deploy applications \n          faster. Amazon Virtual Private Cloud (Amazon VPC) enables you to provision a logically isolated section of the \n          Amazon Web Services Cloud where you can launch Amazon Web Services resources in a virtual network that you've defined. Amazon Elastic Block Store \n          (Amazon EBS) provides block level storage volumes for use with EC2 instances. EBS volumes are highly available  \n          and reliable storage volumes that can be attached to any running instance and used like a hard drive.</p>\n         <p>To learn more, see the following resources:</p>\n         <ul>\n            <li>\n               <p>Amazon EC2: <a href=\"http://aws.amazon.com/ec2\">AmazonEC2 product page</a>, <a href=\"http://aws.amazon.com/documentation/ec2\">Amazon EC2 documentation</a>\n               </p>\n            </li>\n            <li>\n               <p>Amazon EBS: <a href=\"http://aws.amazon.com/ebs\">Amazon EBS product page</a>, <a href=\"http://aws.amazon.com/documentation/ebs\">Amazon EBS documentation</a>\n               </p>\n            </li>\n            <li>\n               <p>Amazon VPC: <a href=\"http://aws.amazon.com/vpc\">Amazon VPC product page</a>, <a href=\"http://aws.amazon.com/documentation/vpc\">Amazon VPC documentation</a>\n               </p>\n            </li>\n            <li>\n               <p>Amazon Web Services VPN: <a href=\"http://aws.amazon.com/vpn\">Amazon Web Services VPN product page</a>, <a href=\"http://aws.amazon.com/documentation/vpn\">Amazon Web Services VPN documentation</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#title": "Amazon Elastic Compute Cloud",
         "smithy.api#xmlNamespace": {
           "uri": "http://ec2.amazonaws.com/doc/2016-11-15"
@@ -2939,6 +2939,9 @@
         },
         {
           "target": "com.amazonaws.ec2#ModifyVpcEndpointServiceConfiguration"
+        },
+        {
+          "target": "com.amazonaws.ec2#ModifyVpcEndpointServicePayerResponsibility"
         },
         {
           "target": "com.amazonaws.ec2#ModifyVpcEndpointServicePermissions"
@@ -7229,6 +7232,14 @@
             "smithy.api#documentation": "<p>The ID of the Capacity Reservation Fleet to which the Capacity Reservation belongs. \n\t\t\tOnly valid for Capacity Reservations that were created by a Capacity Reservation Fleet.</p>",
             "smithy.api#xmlName": "capacityReservationFleetId"
           }
+        },
+        "PlacementGroupArn": {
+          "target": "com.amazonaws.ec2#PlacementGroupArn",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PlacementGroupArn",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the cluster placement group in which \n\t\t\tthe Capacity Reservation was created. For more information, see \n\t\t\t<a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html\">\n\t\t\t\tCapacity Reservations for cluster placement groups</a> in the \n\t\t\t<i>Amazon EC2 User Guide</i>.</p>",
+            "smithy.api#xmlName": "placementGroupArn"
+          }
         }
       },
       "traits": {
@@ -10019,6 +10030,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.</p>"
           }
+        },
+        "PlacementGroupArn": {
+          "target": "com.amazonaws.ec2#PlacementGroupArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the cluster placement group in which \n\t\t\tto create the Capacity Reservation. For more information, see \n\t\t\t<a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html\">\n\t\t\t\tCapacity Reservations for cluster placement groups</a> in the \n\t\t\t<i>Amazon EC2 User Guide</i>.</p>"
+          }
         }
       }
     },
@@ -10773,7 +10790,7 @@
         "Type": {
           "target": "com.amazonaws.ec2#FleetType",
           "traits": {
-            "smithy.api#documentation": "<p>The fleet type. The default value is <code>maintain</code>.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>maintain</code> - The EC2 Fleet places an asynchronous request for your desired\n               capacity, and continues to maintain your desired Spot capacity by replenishing\n               interrupted Spot Instances.</p>\n            </li>\n            <li>\n               <p>\n                  <code>request</code> - The EC2 Fleet places an asynchronous one-time request for your\n               desired capacity, but does submit Spot requests in alternative capacity pools if Spot\n               capacity is unavailable, and does not maintain Spot capacity if Spot Instances are\n               interrupted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>instant</code> - The EC2 Fleet places a synchronous one-time request for your\n               desired capacity, and returns errors for any instances that could not be\n               launched.</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type\">EC2 Fleet\n            request types</a> in the <i>Amazon EC2 User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The fleet type. The default value is <code>maintain</code>.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>maintain</code> - The EC2 Fleet places an asynchronous request for your desired\n               capacity, and continues to maintain your desired Spot capacity by replenishing\n               interrupted Spot Instances.</p>\n            </li>\n            <li>\n               <p>\n                  <code>request</code> - The EC2 Fleet places an asynchronous one-time request for your\n               desired capacity, but does submit Spot requests in alternative capacity pools if Spot\n               capacity is unavailable, and does not maintain Spot capacity if Spot Instances are\n               interrupted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>instant</code> - The EC2 Fleet places a synchronous one-time request for your\n               desired capacity, and returns errors for any instances that could not be\n               launched.</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/https:/docs.aws.amazon.com/ec2-fleet-request-type.html\">EC2 Fleet\n            request types</a> in the <i>Amazon EC2 User Guide</i>.</p>"
           }
         },
         "ValidFrom": {
@@ -12527,7 +12544,7 @@
         "InterfaceType": {
           "target": "com.amazonaws.ec2#NetworkInterfaceCreationType",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates the type of network interface. To create an Elastic Fabric Adapter (EFA), specify \n\t\t\t<code>efa</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html\">\n\t\t\t    Elastic Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. To create a trunk network interface, specify \n\t\t    <code>efa</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/eni-trunking.html\">\n\t\t        Network interface trunking</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>Indicates the type of network interface. To create an Elastic Fabric Adapter (EFA), specify \n\t\t\t<code>efa</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html\">\n\t\t\t    Elastic Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. To create a trunk network interface, specify \n\t\t    <code>trunk</code>.</p>"
           }
         },
         "SubnetId": {
@@ -18862,7 +18879,7 @@
         "target": "com.amazonaws.ec2#DescribeAccountAttributesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes attributes of your AWS account. The following are the supported account attributes:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>supported-platforms</code>: Indicates whether your account can launch instances\n          into EC2-Classic and EC2-VPC, or only into EC2-VPC.</p>\n            </li>\n            <li>\n               <p>\n                  <code>default-vpc</code>: The ID of the default VPC for your account, or\n            <code>none</code>.</p>\n            </li>\n            <li>\n               <p>\n                    <code>max-instances</code>: This attribute is no longer supported. The returned\n                    value does not reflect your actual vCPU limit for running On-Demand Instances.\n                    For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-on-demand-instances.html#ec2-on-demand-instances-limits\">On-Demand Instance Limits</a> in the\n                        <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>vpc-max-security-groups-per-interface</code>: The maximum number of security groups\n          that you can assign to a network interface.</p>\n            </li>\n            <li>\n               <p>\n                  <code>max-elastic-ips</code>: The maximum number of Elastic IP addresses that you can\n          allocate for use with EC2-Classic. </p>\n            </li>\n            <li>\n               <p>\n                  <code>vpc-max-elastic-ips</code>: The maximum number of Elastic IP addresses that you can\n          allocate for use with EC2-VPC.</p>\n            </li>\n         </ul>"
+        "smithy.api#documentation": "<p>Describes attributes of your Amazon Web Services account. The following are the supported account attributes:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>supported-platforms</code>: Indicates whether your account can launch instances\n          into EC2-Classic and EC2-VPC, or only into EC2-VPC.</p>\n            </li>\n            <li>\n               <p>\n                  <code>default-vpc</code>: The ID of the default VPC for your account, or\n            <code>none</code>.</p>\n            </li>\n            <li>\n               <p>\n                    <code>max-instances</code>: This attribute is no longer supported. The returned\n                    value does not reflect your actual vCPU limit for running On-Demand Instances.\n                    For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-on-demand-instances.html#ec2-on-demand-instances-limits\">On-Demand Instance Limits</a> in the\n                        <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>vpc-max-security-groups-per-interface</code>: The maximum number of security groups\n          that you can assign to a network interface.</p>\n            </li>\n            <li>\n               <p>\n                  <code>max-elastic-ips</code>: The maximum number of Elastic IP addresses that you can\n          allocate for use with EC2-Classic. </p>\n            </li>\n            <li>\n               <p>\n                  <code>vpc-max-elastic-ips</code>: The maximum number of Elastic IP addresses that you can\n          allocate for use with EC2-VPC.</p>\n            </li>\n         </ul>"
       }
     },
     "com.amazonaws.ec2#DescribeAccountAttributesRequest": {
@@ -19430,7 +19447,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters.</p>\n\t  \t     <ul>\n            <li>\n               <p>\n                  <code>instance-type</code> - The type of instance for which the Capacity Reservation reserves capacity.</p>\n            </li>\n            <li>\n               <p>\n                  <code>owner-id</code> - The ID of the Amazon Web Services account that owns the Capacity Reservation.</p>\n            </li>\n            <li>\n               <p>\n                  <code>availability-zone-id</code> - The Availability Zone ID of the Capacity Reservation.</p>\n            </li>\n            <li>\n               <p>\n                  <code>instance-platform</code> - The type of operating system for which the Capacity Reservation reserves capacity.</p>\n            </li>\n            <li>\n               <p>\n                  <code>availability-zone</code> - The Availability Zone ID of the Capacity Reservation.</p>\n            </li>\n            <li>\n               <p>\n                  <code>tenancy</code> - Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the \n\t  \t\t\tfollowing tenancy settings:</p>\n\t  \t\t\t         <ul>\n                  <li>\n                     <p>\n                        <code>default</code> - The Capacity Reservation is created on hardware that is shared with other Amazon Web Services accounts.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single Amazon Web Services account.</p>\n                  </li>\n               </ul>\n\t  \t\t\t      </li>\n            <li>\n               <p>\n                  <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost on which the Capacity Reservation was created.</p>\n            </li>\n            <li>\n               <p>\n                  <code>state</code> - The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p>\n\t  \t\t          <ul>\n                  <li>\n                     <p>\n                        <code>active</code>- The Capacity Reservation is active and the capacity is available for your use.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>expired</code> - The Capacity Reservation expired automatically at the date and time specified in your request. \n\t  \t\t\t\tThe reserved capacity is no longer available for your use.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>cancelled</code> - The Capacity Reservation was cancelled. The reserved capacity is no longer available for your use.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>pending</code> - The Capacity Reservation request was successful but the capacity provisioning is still pending.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>failed</code> - The Capacity Reservation request has failed. A request might fail due to invalid request parameters, \n\t  \t\t\t\tcapacity constraints, or instance limit constraints. Failed requests are retained for 60 minutes.</p>\n\t  \t\t             </li>\n               </ul>\n\t  \t\t       </li>\n            <li>\n               <p>\n                  <code>start-date</code> - The date and time at which the Capacity Reservation was started.</p>\n            </li>\n            <li>\n               <p>\n                  <code>end-date</code> - The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is \n\t  \t\t\treleased and you can no longer launch instances into it. The Capacity Reservation's state changes to expired when it reaches its end date and time.</p>\n            </li>\n            <li>\n               <p>\n                  <code>end-date-type</code> - Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:</p>\n\t  \t\t          <ul>\n                  <li>\n                     <p>\n                        <code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>limited</code> - The Capacity Reservation expires automatically at a specified date and time.</p>\n                  </li>\n               </ul>\n\t  \t\t       </li>\n            <li>\n               <p>\n                  <code>instance-match-criteria</code> - Indicates the type of instance launches that the Capacity Reservation accepts. The options include:</p>\n\t  \t\t\t         <ul>\n                  <li>\n                     <p>\n                        <code>open</code> - The Capacity Reservation accepts all instances that have matching\n\t\t\t\t\t\t\tattributes (instance type, platform, and Availability Zone). Instances\n\t\t\t\t\t\t\tthat have matching attributes launch into the Capacity Reservation\n\t\t\t\t\t\t\tautomatically without specifying any additional parameters.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>targeted</code> - The Capacity Reservation only accepts instances that have matching\n\t\t\t\t\t\t\tattributes (instance type, platform, and Availability Zone), and\n\t\t\t\t\t\t\texplicitly target the Capacity Reservation. This ensures that only\n\t\t\t\t\t\t\tpermitted instances can use the reserved capacity.</p>\n                  </li>\n               </ul>\n\t  \t\t       </li>\n         </ul>",
+            "smithy.api#documentation": "<p>One or more filters.</p>\n\t  \t     <ul>\n            <li>\n               <p>\n                  <code>instance-type</code> - The type of instance for which the Capacity Reservation reserves capacity.</p>\n            </li>\n            <li>\n               <p>\n                  <code>owner-id</code> - The ID of the Amazon Web Services account that owns the Capacity Reservation.</p>\n            </li>\n            <li>\n               <p>\n                  <code>instance-platform</code> - The type of operating system for which the Capacity Reservation reserves capacity.</p>\n            </li>\n            <li>\n               <p>\n                  <code>availability-zone</code> - The Availability Zone of the Capacity Reservation.</p>\n            </li>\n            <li>\n               <p>\n                  <code>tenancy</code> - Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the \n\t  \t\t\tfollowing tenancy settings:</p>\n\t  \t\t\t         <ul>\n                  <li>\n                     <p>\n                        <code>default</code> - The Capacity Reservation is created on hardware that is shared with other Amazon Web Services accounts.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single Amazon Web Services account.</p>\n                  </li>\n               </ul>\n\t  \t\t\t      </li>\n            <li>\n               <p>\n                  <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost on which the Capacity Reservation was created.</p>\n            </li>\n            <li>\n               <p>\n                  <code>state</code> - The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p>\n\t  \t\t          <ul>\n                  <li>\n                     <p>\n                        <code>active</code>- The Capacity Reservation is active and the capacity is available for your use.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>expired</code> - The Capacity Reservation expired automatically at the date and time specified in your request. \n\t  \t\t\t\tThe reserved capacity is no longer available for your use.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>cancelled</code> - The Capacity Reservation was cancelled. The reserved capacity is no longer available for your use.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>pending</code> - The Capacity Reservation request was successful but the capacity provisioning is still pending.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>failed</code> - The Capacity Reservation request has failed. A request might fail due to invalid request parameters, \n\t  \t\t\t\tcapacity constraints, or instance limit constraints. Failed requests are retained for 60 minutes.</p>\n\t  \t\t             </li>\n               </ul>\n\t  \t\t       </li>\n            <li>\n               <p>\n                  <code>start-date</code> - The date and time at which the Capacity Reservation was started.</p>\n            </li>\n            <li>\n               <p>\n                  <code>end-date</code> - The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is \n\t  \t\t\treleased and you can no longer launch instances into it. The Capacity Reservation's state changes to expired when it reaches its end date and time.</p>\n            </li>\n            <li>\n               <p>\n                  <code>end-date-type</code> - Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:</p>\n\t  \t\t          <ul>\n                  <li>\n                     <p>\n                        <code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>limited</code> - The Capacity Reservation expires automatically at a specified date and time.</p>\n                  </li>\n               </ul>\n\t  \t\t       </li>\n            <li>\n               <p>\n                  <code>instance-match-criteria</code> - Indicates the type of instance launches that the Capacity Reservation accepts. The options include:</p>\n\t  \t\t\t         <ul>\n                  <li>\n                     <p>\n                        <code>open</code> - The Capacity Reservation accepts all instances that have matching\n\t\t\t\t\t\t\tattributes (instance type, platform, and Availability Zone). Instances\n\t\t\t\t\t\t\tthat have matching attributes launch into the Capacity Reservation\n\t\t\t\t\t\t\tautomatically without specifying any additional parameters.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>targeted</code> - The Capacity Reservation only accepts instances that have matching\n\t\t\t\t\t\t\tattributes (instance type, platform, and Availability Zone), and\n\t\t\t\t\t\t\texplicitly target the Capacity Reservation. This ensures that only\n\t\t\t\t\t\t\tpermitted instances can use the reserved capacity.</p>\n                  </li>\n               </ul>\n\t  \t\t       </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -23564,7 +23581,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters.</p>\n        <ul>\n            <li>\n               <p>\n                  <code>create-time</code> - The time the launch template version was created.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ebs-optimized</code> - A boolean that indicates whether the instance\n                    is optimized for Amazon EBS I/O.</p>\n            </li>\n            <li>\n                <p>\n                  <code>iam-instance-profile</code> - The ARN of the IAM instance\n                    profile.</p>\n            </li>\n            <li>\n                <p>\n                  <code>image-id</code> - The ID of the AMI.</p>\n            </li>\n            <li>\n                <p>\n                  <code>instance-type</code> - The instance type.</p>\n            </li>\n            <li>\n                <p>\n                  <code>is-default-version</code> - A boolean that indicates whether the\n                    launch template version is the default version.</p>\n            </li>\n            <li>\n                <p>\n                  <code>kernel-id</code> - The kernel ID.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ram-disk-id</code> - The RAM disk ID.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>One or more filters.</p>\n        <ul>\n            <li>\n               <p>\n                  <code>create-time</code> - The time the launch template version was created.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ebs-optimized</code> - A boolean that indicates whether the instance\n                    is optimized for Amazon EBS I/O.</p>\n            </li>\n            <li>\n                <p>\n                  <code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on\n                    your instances is enabled (<code>enabled</code> | <code>disabled</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the\n                    instance metadata service is enabled (<code>enabled</code> |\n                        <code>disabled</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>host-resource-group-arn</code> - The ARN of the host resource group in\n                    which to launch the instances.</p>\n            </li>\n            <li>\n                <p>\n                  <code>http-tokens</code> - The state of token usage for your instance metadata\n                    requests (<code>optional</code> | <code>required</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>iam-instance-profile</code> - The ARN of the IAM instance\n                    profile.</p>\n            </li>\n            <li>\n                <p>\n                  <code>image-id</code> - The ID of the AMI.</p>\n            </li>\n            <li>\n                <p>\n                  <code>instance-type</code> - The instance type.</p>\n            </li>\n            <li>\n                <p>\n                  <code>is-default-version</code> - A boolean that indicates whether the\n                    launch template version is the default version.</p>\n            </li>\n            <li>\n                <p>\n                  <code>kernel-id</code> - The kernel ID.</p>\n            </li>\n            <li>\n                <p>\n                  <code>license-configuration-arn</code> - The ARN of the license\n                    configuration.</p>\n            </li>\n            <li>\n                <p>\n                  <code>network-card-index</code> - The index of the network card.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ram-disk-id</code> - The RAM disk ID.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         }
@@ -25187,7 +25204,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>The filters.</p>\n        <ul>\n            <li>\n                <p>\n                    <code>group-name</code> - The name of the placement group.</p>\n            </li>\n            <li>\n                <p>\n                    <code>state</code> - The state of the placement group (<code>pending</code> |\n                        <code>available</code> | <code>deleting</code> |\n                    <code>deleted</code>).</p>\n            </li>\n            <li>\n                <p>\n                    <code>strategy</code> - The strategy of the placement group\n                        (<code>cluster</code> | <code>spread</code> |\n                    <code>partition</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The filters.</p>\n        <ul>\n            <li>\n                <p>\n                    <code>group-name</code> - The name of the placement group.</p>\n            </li>\n            <li>\n                <p>\n                    <code>group-arn</code> - The Amazon Resource Name (ARN) of the placement group.</p>\n            </li>\n            <li>\n                <p>\n                    <code>state</code> - The state of the placement group (<code>pending</code> |\n                        <code>available</code> | <code>deleting</code> |\n                    <code>deleted</code>).</p>\n            </li>\n            <li>\n                <p>\n                    <code>strategy</code> - The strategy of the placement group\n                        (<code>cluster</code> | <code>spread</code> |\n                    <code>partition</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -26582,7 +26599,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>The filters.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>snapshot-id</code> - The snapshot ID.</p>\n            </li>\n            <li>\n               <p>\n                  <code>volume-id</code> - The ID of the volume the snapshot is for.</p>\n            </li>\n            <li>\n               <p>\n                  <code>last-tiering-operation</code> - The state of the last archive or restore action. (<code>archiving</code> | <code>archival_error</code> |\n          <code>archival_complete</code> | <code>restoring</code> | <code>restore_error</code> | <code>restore_complete</code>)</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The filters.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>snapshot-id</code> - The snapshot ID.</p>\n            </li>\n            <li>\n               <p>\n                  <code>volume-id</code> - The ID of the volume the snapshot is for.</p>\n            </li>\n            <li>\n               <p>\n                  <code>last-tiering-operation</code> - The state of the last archive or restore action. (<code>archival-in-progress</code> | <code>archival-completed</code> |\n          <code>archival-failed</code> | <code>permanent-restore-in-progress</code> | <code>permanent-restore-completed</code> | <code>permanent-restore-failed</code> | \n\t\t<code>temporary-restore-in-progress</code> | <code>temporary-restore-completed</code> | <code>temporary-restore-failed</code>)</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -27379,7 +27396,7 @@
         "target": "com.amazonaws.ec2#DescribeStaleSecurityGroupsResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>[VPC only] Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in a peer VPC, or a security group in a peer VPC for which the VPC peering connection has been deleted.</p>",
+        "smithy.api#documentation": "<p>[VPC only] Describes the stale security group rules for security groups in a specified VPC. \n          Rules are stale when they reference a deleted security group in the same VPC or in a peer VPC, \n          or if they reference a security group in a peer VPC for which the VPC peering connection has \n          been deleted.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -34725,13 +34742,13 @@
         "Values": {
           "target": "com.amazonaws.ec2#ValueStringList",
           "traits": {
-            "smithy.api#documentation": "<p>The filter values. Filter values are case-sensitive.</p>",
+            "smithy.api#documentation": "<p>The filter values. Filter values are case-sensitive. If you specify multiple values for a \n         filter, the values are joined with an <code>OR</code>, and the request returns all results \n         that match any of the specified values.</p>",
             "smithy.api#xmlName": "Value"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A filter name and value pair that is used to return a more specific list of results from a describe operation. \n         Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.</p>"
+        "smithy.api#documentation": "<p>A filter name and value pair that is used to return a more specific list of results from a describe operation. \n         Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.</p>\n         <p>If you specify multiple filters, the filters are joined with an <code>AND</code>, and the request returns only \n           results that match all of the specified filters.</p>"
       }
     },
     "com.amazonaws.ec2#FilterList": {
@@ -35468,7 +35485,7 @@
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
             "aws.protocols#ec2QueryName": "TerminationDelay",
-            "smithy.api#documentation": "<p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot\n         Instance after launching a new replacement Spot Instance.</p>\n         <p>Valid only when <code>replacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>\n         <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>",
+            "smithy.api#documentation": "<p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot\n         Instance after launching a new replacement Spot Instance.</p>\n         <p>Required when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>\n         <p>Not valid when <code>ReplacementStrategy</code> is set to <code>launch</code>.</p>\n         <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>",
             "smithy.api#xmlName": "terminationDelay"
           }
         }
@@ -35489,12 +35506,12 @@
         "TerminationDelay": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot\n         Instance after launching a new replacement Spot Instance.</p>\n         <p>Valid only when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>\n         <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>"
+            "smithy.api#documentation": "<p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot\n         Instance after launching a new replacement Spot Instance.</p>\n         <p>Required when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>\n         <p>Not valid when <code>ReplacementStrategy</code> is set to <code>launch</code>.</p>\n         <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance\n         notification signal that your Spot Instance is at an elevated risk of being interrupted.\n         For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-capacity-rebalance\">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance\n         notification signal that your Spot Instance is at an elevated risk of being interrupted.\n         For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-capacity-rebalance.html\">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#FleetSpotMaintenanceStrategies": {
@@ -39140,7 +39157,7 @@
           }
         },
         "OfferingId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#OfferingId",
           "traits": {
             "aws.protocols#ec2QueryName": "OfferingId",
             "smithy.api#documentation": "<p>The ID of the offering.</p>",
@@ -39284,7 +39301,7 @@
           }
         },
         "HostReservationId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#HostReservationId",
           "traits": {
             "aws.protocols#ec2QueryName": "HostReservationId",
             "smithy.api#documentation": "<p>The ID of the reservation that specifies the associated Dedicated Hosts.</p>",
@@ -39308,7 +39325,7 @@
           }
         },
         "OfferingId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#OfferingId",
           "traits": {
             "aws.protocols#ec2QueryName": "OfferingId",
             "smithy.api#documentation": "<p>The ID of the reservation. This remains the same regardless of which Dedicated\n            Hosts are associated with it.</p>",
@@ -40312,7 +40329,7 @@
         "Architecture": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The architecture of the virtual machine.</p>\n         <p>Valid values: <code>i386</code> | <code>x86_64</code> | <code>arm64</code>\n         </p>"
+            "smithy.api#documentation": "<p>The architecture of the virtual machine.</p>\n         <p>Valid values: <code>i386</code> | <code>x86_64</code>\n         </p>"
           }
         },
         "ClientData": {
@@ -42946,7 +42963,7 @@
         "HttpTokens": {
           "target": "com.amazonaws.ec2#HttpTokensState",
           "traits": {
-            "smithy.api#documentation": "<p>The state of token usage for your instance metadata requests. If the parameter is not\n            specified in the request, the default state is <code>optional</code>.</p>\n        <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata\n            with or without a signed token header on your request. If you retrieve the IAM role\n            credentials without a token, the version 1.0 role credentials are returned. If you\n            retrieve the IAM role credentials using a valid signed token, the version 2.0 role\n            credentials are returned.</p>\n        <p>If the state is <code>required</code>, you must send a signed token header with any\n            instance metadata retrieval requests. In this state, retrieving the IAM role credentials\n            always returns the version 2.0 credentials; the version 1.0 credentials are not\n            available.</p>"
+            "smithy.api#documentation": "<p>The state of token usage for your instance metadata requests.</p>\n        <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata\n            with or without a signed token header on your request. If you retrieve the IAM role\n            credentials without a token, the version 1.0 role credentials are returned. If you\n            retrieve the IAM role credentials using a valid signed token, the version 2.0 role\n            credentials are returned.</p>\n        <p>If the state is <code>required</code>, you must send a signed token header with any\n            instance metadata retrieval requests. In this state, retrieving the IAM role credentials\n            always returns the version 2.0 credentials; the version 1.0 credentials are not\n            available.</p>\n        <p>Default: <code>optional</code>\n         </p>"
           }
         },
         "HttpPutResponseHopLimit": {
@@ -42958,13 +42975,19 @@
         "HttpEndpoint": {
           "target": "com.amazonaws.ec2#InstanceMetadataEndpointState",
           "traits": {
-            "smithy.api#documentation": "<p>Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not \n            specified, the default state is <code>enabled</code>.</p>\n        <p>If you specify a value of <code>disabled</code>, you will not be able to access your\n            instance metadata.</p>"
+            "smithy.api#documentation": "<p>Enables or disables the HTTP metadata endpoint on your instances.</p>\n        <p>If you specify a value of <code>disabled</code>, you cannot access your\n            instance metadata.</p>\n        <p>Default: <code>enabled</code>\n         </p>"
           }
         },
         "HttpProtocolIpv6": {
           "target": "com.amazonaws.ec2#InstanceMetadataProtocolState",
           "traits": {
             "smithy.api#documentation": "<p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>"
+          }
+        },
+        "InstanceMetadataTags": {
+          "target": "com.amazonaws.ec2#InstanceMetadataTagsState",
+          "traits": {
+            "smithy.api#documentation": "<p>Set to <code>enabled</code> to allow access to instance tags from the instance metadata. Set to <code>disabled</code> to turn off \n            access to instance tags from the instance metadata. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS\">Work with instance tags using the instance metadata</a>.</p>\n        <p>Default: <code>disabled</code>\n         </p>"
           }
         }
       },
@@ -42987,7 +43010,7 @@
           "target": "com.amazonaws.ec2#HttpTokensState",
           "traits": {
             "aws.protocols#ec2QueryName": "HttpTokens",
-            "smithy.api#documentation": "<p>The state of token usage for your instance metadata requests. If the parameter is not\n            specified in the request, the default state is <code>optional</code>.</p>\n        <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata\n            with or without a signed token header on your request. If you retrieve the IAM role\n            credentials without a token, the version 1.0 role credentials are returned. If you\n            retrieve the IAM role credentials using a valid signed token, the version 2.0 role\n            credentials are returned.</p>\n        <p>If the state is <code>required</code>, you must send a signed token header with any\n            instance metadata retrieval requests. In this state, retrieving the IAM role credential\n            always returns the version 2.0 credentials; the version 1.0 credentials are not\n            available.</p>",
+            "smithy.api#documentation": "<p>The state of token usage for your instance metadata requests.</p>\n        <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata\n            with or without a signed token header on your request. If you retrieve the IAM role\n            credentials without a token, the version 1.0 role credentials are returned. If you\n            retrieve the IAM role credentials using a valid signed token, the version 2.0 role\n            credentials are returned.</p>\n        <p>If the state is <code>required</code>, you must send a signed token header with any\n            instance metadata retrieval requests. In this state, retrieving the IAM role credential\n            always returns the version 2.0 credentials; the version 1.0 credentials are not\n            available.</p>\n        <p>Default: <code>optional</code>\n         </p>",
             "smithy.api#xmlName": "httpTokens"
           }
         },
@@ -43003,7 +43026,7 @@
           "target": "com.amazonaws.ec2#InstanceMetadataEndpointState",
           "traits": {
             "aws.protocols#ec2QueryName": "HttpEndpoint",
-            "smithy.api#documentation": "<p>Indicates whether the HTTP metadata endpoint on your instances is enabled or disabled.</p>",
+            "smithy.api#documentation": "<p>Indicates whether the HTTP metadata endpoint on your instances is enabled or\n            disabled.</p>\n            <p>If the value is <code>disabled</code>, you cannot access your\n                instance metadata.</p>",
             "smithy.api#xmlName": "httpEndpoint"
           }
         },
@@ -43013,6 +43036,14 @@
             "aws.protocols#ec2QueryName": "HttpProtocolIpv6",
             "smithy.api#documentation": "<p>Indicates whether the IPv6 endpoint for the instance metadata service is enabled or disabled.</p>",
             "smithy.api#xmlName": "httpProtocolIpv6"
+          }
+        },
+        "InstanceMetadataTags": {
+          "target": "com.amazonaws.ec2#InstanceMetadataTagsState",
+          "traits": {
+            "aws.protocols#ec2QueryName": "InstanceMetadataTags",
+            "smithy.api#documentation": "<p>Indicates whether access to instance tags from the instance metadata is enabled or\n            disabled. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS\">Work with\n                instance tags using the instance metadata</a>.</p>",
+            "smithy.api#xmlName": "instanceMetadataTags"
           }
         }
       },
@@ -43036,6 +43067,21 @@
       }
     },
     "com.amazonaws.ec2#InstanceMetadataProtocolState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "disabled",
+            "name": "disabled"
+          },
+          {
+            "value": "enabled",
+            "name": "enabled"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.ec2#InstanceMetadataTagsState": {
       "type": "string",
       "traits": {
         "smithy.api#enum": [
@@ -44318,596 +44364,28 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "t1.micro",
-            "name": "t1_micro"
+            "value": "a1.medium",
+            "name": "a1_medium"
           },
           {
-            "value": "t2.nano",
-            "name": "t2_nano"
+            "value": "a1.large",
+            "name": "a1_large"
           },
           {
-            "value": "t2.micro",
-            "name": "t2_micro"
+            "value": "a1.xlarge",
+            "name": "a1_xlarge"
           },
           {
-            "value": "t2.small",
-            "name": "t2_small"
+            "value": "a1.2xlarge",
+            "name": "a1_2xlarge"
           },
           {
-            "value": "t2.medium",
-            "name": "t2_medium"
+            "value": "a1.4xlarge",
+            "name": "a1_4xlarge"
           },
           {
-            "value": "t2.large",
-            "name": "t2_large"
-          },
-          {
-            "value": "t2.xlarge",
-            "name": "t2_xlarge"
-          },
-          {
-            "value": "t2.2xlarge",
-            "name": "t2_2xlarge"
-          },
-          {
-            "value": "t3.nano",
-            "name": "t3_nano"
-          },
-          {
-            "value": "t3.micro",
-            "name": "t3_micro"
-          },
-          {
-            "value": "t3.small",
-            "name": "t3_small"
-          },
-          {
-            "value": "t3.medium",
-            "name": "t3_medium"
-          },
-          {
-            "value": "t3.large",
-            "name": "t3_large"
-          },
-          {
-            "value": "t3.xlarge",
-            "name": "t3_xlarge"
-          },
-          {
-            "value": "t3.2xlarge",
-            "name": "t3_2xlarge"
-          },
-          {
-            "value": "t3a.nano",
-            "name": "t3a_nano"
-          },
-          {
-            "value": "t3a.micro",
-            "name": "t3a_micro"
-          },
-          {
-            "value": "t3a.small",
-            "name": "t3a_small"
-          },
-          {
-            "value": "t3a.medium",
-            "name": "t3a_medium"
-          },
-          {
-            "value": "t3a.large",
-            "name": "t3a_large"
-          },
-          {
-            "value": "t3a.xlarge",
-            "name": "t3a_xlarge"
-          },
-          {
-            "value": "t3a.2xlarge",
-            "name": "t3a_2xlarge"
-          },
-          {
-            "value": "t4g.nano",
-            "name": "t4g_nano"
-          },
-          {
-            "value": "t4g.micro",
-            "name": "t4g_micro"
-          },
-          {
-            "value": "t4g.small",
-            "name": "t4g_small"
-          },
-          {
-            "value": "t4g.medium",
-            "name": "t4g_medium"
-          },
-          {
-            "value": "t4g.large",
-            "name": "t4g_large"
-          },
-          {
-            "value": "t4g.xlarge",
-            "name": "t4g_xlarge"
-          },
-          {
-            "value": "t4g.2xlarge",
-            "name": "t4g_2xlarge"
-          },
-          {
-            "value": "m1.small",
-            "name": "m1_small"
-          },
-          {
-            "value": "m1.medium",
-            "name": "m1_medium"
-          },
-          {
-            "value": "m1.large",
-            "name": "m1_large"
-          },
-          {
-            "value": "m1.xlarge",
-            "name": "m1_xlarge"
-          },
-          {
-            "value": "m3.medium",
-            "name": "m3_medium"
-          },
-          {
-            "value": "m3.large",
-            "name": "m3_large"
-          },
-          {
-            "value": "m3.xlarge",
-            "name": "m3_xlarge"
-          },
-          {
-            "value": "m3.2xlarge",
-            "name": "m3_2xlarge"
-          },
-          {
-            "value": "m4.large",
-            "name": "m4_large"
-          },
-          {
-            "value": "m4.xlarge",
-            "name": "m4_xlarge"
-          },
-          {
-            "value": "m4.2xlarge",
-            "name": "m4_2xlarge"
-          },
-          {
-            "value": "m4.4xlarge",
-            "name": "m4_4xlarge"
-          },
-          {
-            "value": "m4.10xlarge",
-            "name": "m4_10xlarge"
-          },
-          {
-            "value": "m4.16xlarge",
-            "name": "m4_16xlarge"
-          },
-          {
-            "value": "m2.xlarge",
-            "name": "m2_xlarge"
-          },
-          {
-            "value": "m2.2xlarge",
-            "name": "m2_2xlarge"
-          },
-          {
-            "value": "m2.4xlarge",
-            "name": "m2_4xlarge"
-          },
-          {
-            "value": "cr1.8xlarge",
-            "name": "cr1_8xlarge"
-          },
-          {
-            "value": "r3.large",
-            "name": "r3_large"
-          },
-          {
-            "value": "r3.xlarge",
-            "name": "r3_xlarge"
-          },
-          {
-            "value": "r3.2xlarge",
-            "name": "r3_2xlarge"
-          },
-          {
-            "value": "r3.4xlarge",
-            "name": "r3_4xlarge"
-          },
-          {
-            "value": "r3.8xlarge",
-            "name": "r3_8xlarge"
-          },
-          {
-            "value": "r4.large",
-            "name": "r4_large"
-          },
-          {
-            "value": "r4.xlarge",
-            "name": "r4_xlarge"
-          },
-          {
-            "value": "r4.2xlarge",
-            "name": "r4_2xlarge"
-          },
-          {
-            "value": "r4.4xlarge",
-            "name": "r4_4xlarge"
-          },
-          {
-            "value": "r4.8xlarge",
-            "name": "r4_8xlarge"
-          },
-          {
-            "value": "r4.16xlarge",
-            "name": "r4_16xlarge"
-          },
-          {
-            "value": "r5.large",
-            "name": "r5_large"
-          },
-          {
-            "value": "r5.xlarge",
-            "name": "r5_xlarge"
-          },
-          {
-            "value": "r5.2xlarge",
-            "name": "r5_2xlarge"
-          },
-          {
-            "value": "r5.4xlarge",
-            "name": "r5_4xlarge"
-          },
-          {
-            "value": "r5.8xlarge",
-            "name": "r5_8xlarge"
-          },
-          {
-            "value": "r5.12xlarge",
-            "name": "r5_12xlarge"
-          },
-          {
-            "value": "r5.16xlarge",
-            "name": "r5_16xlarge"
-          },
-          {
-            "value": "r5.24xlarge",
-            "name": "r5_24xlarge"
-          },
-          {
-            "value": "r5.metal",
-            "name": "r5_metal"
-          },
-          {
-            "value": "r5a.large",
-            "name": "r5a_large"
-          },
-          {
-            "value": "r5a.xlarge",
-            "name": "r5a_xlarge"
-          },
-          {
-            "value": "r5a.2xlarge",
-            "name": "r5a_2xlarge"
-          },
-          {
-            "value": "r5a.4xlarge",
-            "name": "r5a_4xlarge"
-          },
-          {
-            "value": "r5a.8xlarge",
-            "name": "r5a_8xlarge"
-          },
-          {
-            "value": "r5a.12xlarge",
-            "name": "r5a_12xlarge"
-          },
-          {
-            "value": "r5a.16xlarge",
-            "name": "r5a_16xlarge"
-          },
-          {
-            "value": "r5a.24xlarge",
-            "name": "r5a_24xlarge"
-          },
-          {
-            "value": "r5b.large",
-            "name": "r5b_large"
-          },
-          {
-            "value": "r5b.xlarge",
-            "name": "r5b_xlarge"
-          },
-          {
-            "value": "r5b.2xlarge",
-            "name": "r5b_2xlarge"
-          },
-          {
-            "value": "r5b.4xlarge",
-            "name": "r5b_4xlarge"
-          },
-          {
-            "value": "r5b.8xlarge",
-            "name": "r5b_8xlarge"
-          },
-          {
-            "value": "r5b.12xlarge",
-            "name": "r5b_12xlarge"
-          },
-          {
-            "value": "r5b.16xlarge",
-            "name": "r5b_16xlarge"
-          },
-          {
-            "value": "r5b.24xlarge",
-            "name": "r5b_24xlarge"
-          },
-          {
-            "value": "r5b.metal",
-            "name": "r5b_metal"
-          },
-          {
-            "value": "r5d.large",
-            "name": "r5d_large"
-          },
-          {
-            "value": "r5d.xlarge",
-            "name": "r5d_xlarge"
-          },
-          {
-            "value": "r5d.2xlarge",
-            "name": "r5d_2xlarge"
-          },
-          {
-            "value": "r5d.4xlarge",
-            "name": "r5d_4xlarge"
-          },
-          {
-            "value": "r5d.8xlarge",
-            "name": "r5d_8xlarge"
-          },
-          {
-            "value": "r5d.12xlarge",
-            "name": "r5d_12xlarge"
-          },
-          {
-            "value": "r5d.16xlarge",
-            "name": "r5d_16xlarge"
-          },
-          {
-            "value": "r5d.24xlarge",
-            "name": "r5d_24xlarge"
-          },
-          {
-            "value": "r5d.metal",
-            "name": "r5d_metal"
-          },
-          {
-            "value": "r5ad.large",
-            "name": "r5ad_large"
-          },
-          {
-            "value": "r5ad.xlarge",
-            "name": "r5ad_xlarge"
-          },
-          {
-            "value": "r5ad.2xlarge",
-            "name": "r5ad_2xlarge"
-          },
-          {
-            "value": "r5ad.4xlarge",
-            "name": "r5ad_4xlarge"
-          },
-          {
-            "value": "r5ad.8xlarge",
-            "name": "r5ad_8xlarge"
-          },
-          {
-            "value": "r5ad.12xlarge",
-            "name": "r5ad_12xlarge"
-          },
-          {
-            "value": "r5ad.16xlarge",
-            "name": "r5ad_16xlarge"
-          },
-          {
-            "value": "r5ad.24xlarge",
-            "name": "r5ad_24xlarge"
-          },
-          {
-            "value": "r6g.metal",
-            "name": "r6g_metal"
-          },
-          {
-            "value": "r6g.medium",
-            "name": "r6g_medium"
-          },
-          {
-            "value": "r6g.large",
-            "name": "r6g_large"
-          },
-          {
-            "value": "r6g.xlarge",
-            "name": "r6g_xlarge"
-          },
-          {
-            "value": "r6g.2xlarge",
-            "name": "r6g_2xlarge"
-          },
-          {
-            "value": "r6g.4xlarge",
-            "name": "r6g_4xlarge"
-          },
-          {
-            "value": "r6g.8xlarge",
-            "name": "r6g_8xlarge"
-          },
-          {
-            "value": "r6g.12xlarge",
-            "name": "r6g_12xlarge"
-          },
-          {
-            "value": "r6g.16xlarge",
-            "name": "r6g_16xlarge"
-          },
-          {
-            "value": "r6gd.metal",
-            "name": "r6gd_metal"
-          },
-          {
-            "value": "r6gd.medium",
-            "name": "r6gd_medium"
-          },
-          {
-            "value": "r6gd.large",
-            "name": "r6gd_large"
-          },
-          {
-            "value": "r6gd.xlarge",
-            "name": "r6gd_xlarge"
-          },
-          {
-            "value": "r6gd.2xlarge",
-            "name": "r6gd_2xlarge"
-          },
-          {
-            "value": "r6gd.4xlarge",
-            "name": "r6gd_4xlarge"
-          },
-          {
-            "value": "r6gd.8xlarge",
-            "name": "r6gd_8xlarge"
-          },
-          {
-            "value": "r6gd.12xlarge",
-            "name": "r6gd_12xlarge"
-          },
-          {
-            "value": "r6gd.16xlarge",
-            "name": "r6gd_16xlarge"
-          },
-          {
-            "value": "x1.16xlarge",
-            "name": "x1_16xlarge"
-          },
-          {
-            "value": "x1.32xlarge",
-            "name": "x1_32xlarge"
-          },
-          {
-            "value": "x1e.xlarge",
-            "name": "x1e_xlarge"
-          },
-          {
-            "value": "x1e.2xlarge",
-            "name": "x1e_2xlarge"
-          },
-          {
-            "value": "x1e.4xlarge",
-            "name": "x1e_4xlarge"
-          },
-          {
-            "value": "x1e.8xlarge",
-            "name": "x1e_8xlarge"
-          },
-          {
-            "value": "x1e.16xlarge",
-            "name": "x1e_16xlarge"
-          },
-          {
-            "value": "x1e.32xlarge",
-            "name": "x1e_32xlarge"
-          },
-          {
-            "value": "i2.xlarge",
-            "name": "i2_xlarge"
-          },
-          {
-            "value": "i2.2xlarge",
-            "name": "i2_2xlarge"
-          },
-          {
-            "value": "i2.4xlarge",
-            "name": "i2_4xlarge"
-          },
-          {
-            "value": "i2.8xlarge",
-            "name": "i2_8xlarge"
-          },
-          {
-            "value": "i3.large",
-            "name": "i3_large"
-          },
-          {
-            "value": "i3.xlarge",
-            "name": "i3_xlarge"
-          },
-          {
-            "value": "i3.2xlarge",
-            "name": "i3_2xlarge"
-          },
-          {
-            "value": "i3.4xlarge",
-            "name": "i3_4xlarge"
-          },
-          {
-            "value": "i3.8xlarge",
-            "name": "i3_8xlarge"
-          },
-          {
-            "value": "i3.16xlarge",
-            "name": "i3_16xlarge"
-          },
-          {
-            "value": "i3.metal",
-            "name": "i3_metal"
-          },
-          {
-            "value": "i3en.large",
-            "name": "i3en_large"
-          },
-          {
-            "value": "i3en.xlarge",
-            "name": "i3en_xlarge"
-          },
-          {
-            "value": "i3en.2xlarge",
-            "name": "i3en_2xlarge"
-          },
-          {
-            "value": "i3en.3xlarge",
-            "name": "i3en_3xlarge"
-          },
-          {
-            "value": "i3en.6xlarge",
-            "name": "i3en_6xlarge"
-          },
-          {
-            "value": "i3en.12xlarge",
-            "name": "i3en_12xlarge"
-          },
-          {
-            "value": "i3en.24xlarge",
-            "name": "i3en_24xlarge"
-          },
-          {
-            "value": "i3en.metal",
-            "name": "i3en_metal"
-          },
-          {
-            "value": "hi1.4xlarge",
-            "name": "hi1_4xlarge"
-          },
-          {
-            "value": "hs1.8xlarge",
-            "name": "hs1_8xlarge"
+            "value": "a1.metal",
+            "name": "a1_metal"
           },
           {
             "value": "c1.medium",
@@ -45122,10 +44600,6 @@
             "name": "c5n_metal"
           },
           {
-            "value": "c6g.metal",
-            "name": "c6g_metal"
-          },
-          {
             "value": "c6g.medium",
             "name": "c6g_medium"
           },
@@ -45158,8 +44632,8 @@
             "name": "c6g_16xlarge"
           },
           {
-            "value": "c6gd.metal",
-            "name": "c6gd_metal"
+            "value": "c6g.metal",
+            "name": "c6g_metal"
           },
           {
             "value": "c6gd.medium",
@@ -45192,6 +44666,10 @@
           {
             "value": "c6gd.16xlarge",
             "name": "c6gd_16xlarge"
+          },
+          {
+            "value": "c6gd.metal",
+            "name": "c6gd_metal"
           },
           {
             "value": "c6gn.medium",
@@ -45270,112 +44748,12 @@
             "name": "cc2_8xlarge"
           },
           {
-            "value": "g2.2xlarge",
-            "name": "g2_2xlarge"
-          },
-          {
-            "value": "g2.8xlarge",
-            "name": "g2_8xlarge"
-          },
-          {
-            "value": "g3.4xlarge",
-            "name": "g3_4xlarge"
-          },
-          {
-            "value": "g3.8xlarge",
-            "name": "g3_8xlarge"
-          },
-          {
-            "value": "g3.16xlarge",
-            "name": "g3_16xlarge"
-          },
-          {
-            "value": "g3s.xlarge",
-            "name": "g3s_xlarge"
-          },
-          {
-            "value": "g4ad.xlarge",
-            "name": "g4ad_xlarge"
-          },
-          {
-            "value": "g4ad.2xlarge",
-            "name": "g4ad_2xlarge"
-          },
-          {
-            "value": "g4ad.4xlarge",
-            "name": "g4ad_4xlarge"
-          },
-          {
-            "value": "g4ad.8xlarge",
-            "name": "g4ad_8xlarge"
-          },
-          {
-            "value": "g4ad.16xlarge",
-            "name": "g4ad_16xlarge"
-          },
-          {
-            "value": "g4dn.xlarge",
-            "name": "g4dn_xlarge"
-          },
-          {
-            "value": "g4dn.2xlarge",
-            "name": "g4dn_2xlarge"
-          },
-          {
-            "value": "g4dn.4xlarge",
-            "name": "g4dn_4xlarge"
-          },
-          {
-            "value": "g4dn.8xlarge",
-            "name": "g4dn_8xlarge"
-          },
-          {
-            "value": "g4dn.12xlarge",
-            "name": "g4dn_12xlarge"
-          },
-          {
-            "value": "g4dn.16xlarge",
-            "name": "g4dn_16xlarge"
-          },
-          {
-            "value": "g4dn.metal",
-            "name": "g4dn_metal"
-          },
-          {
             "value": "cg1.4xlarge",
             "name": "cg1_4xlarge"
           },
           {
-            "value": "p2.xlarge",
-            "name": "p2_xlarge"
-          },
-          {
-            "value": "p2.8xlarge",
-            "name": "p2_8xlarge"
-          },
-          {
-            "value": "p2.16xlarge",
-            "name": "p2_16xlarge"
-          },
-          {
-            "value": "p3.2xlarge",
-            "name": "p3_2xlarge"
-          },
-          {
-            "value": "p3.8xlarge",
-            "name": "p3_8xlarge"
-          },
-          {
-            "value": "p3.16xlarge",
-            "name": "p3_16xlarge"
-          },
-          {
-            "value": "p3dn.24xlarge",
-            "name": "p3dn_24xlarge"
-          },
-          {
-            "value": "p4d.24xlarge",
-            "name": "p4d_24xlarge"
+            "value": "cr1.8xlarge",
+            "name": "cr1_8xlarge"
           },
           {
             "value": "d2.xlarge",
@@ -45450,6 +44828,366 @@
             "name": "f1_16xlarge"
           },
           {
+            "value": "g2.2xlarge",
+            "name": "g2_2xlarge"
+          },
+          {
+            "value": "g2.8xlarge",
+            "name": "g2_8xlarge"
+          },
+          {
+            "value": "g3.4xlarge",
+            "name": "g3_4xlarge"
+          },
+          {
+            "value": "g3.8xlarge",
+            "name": "g3_8xlarge"
+          },
+          {
+            "value": "g3.16xlarge",
+            "name": "g3_16xlarge"
+          },
+          {
+            "value": "g3s.xlarge",
+            "name": "g3s_xlarge"
+          },
+          {
+            "value": "g4ad.xlarge",
+            "name": "g4ad_xlarge"
+          },
+          {
+            "value": "g4ad.2xlarge",
+            "name": "g4ad_2xlarge"
+          },
+          {
+            "value": "g4ad.4xlarge",
+            "name": "g4ad_4xlarge"
+          },
+          {
+            "value": "g4ad.8xlarge",
+            "name": "g4ad_8xlarge"
+          },
+          {
+            "value": "g4ad.16xlarge",
+            "name": "g4ad_16xlarge"
+          },
+          {
+            "value": "g4dn.xlarge",
+            "name": "g4dn_xlarge"
+          },
+          {
+            "value": "g4dn.2xlarge",
+            "name": "g4dn_2xlarge"
+          },
+          {
+            "value": "g4dn.4xlarge",
+            "name": "g4dn_4xlarge"
+          },
+          {
+            "value": "g4dn.8xlarge",
+            "name": "g4dn_8xlarge"
+          },
+          {
+            "value": "g4dn.12xlarge",
+            "name": "g4dn_12xlarge"
+          },
+          {
+            "value": "g4dn.16xlarge",
+            "name": "g4dn_16xlarge"
+          },
+          {
+            "value": "g4dn.metal",
+            "name": "g4dn_metal"
+          },
+          {
+            "value": "g5.xlarge",
+            "name": "g5_xlarge"
+          },
+          {
+            "value": "g5.2xlarge",
+            "name": "g5_2xlarge"
+          },
+          {
+            "value": "g5.4xlarge",
+            "name": "g5_4xlarge"
+          },
+          {
+            "value": "g5.8xlarge",
+            "name": "g5_8xlarge"
+          },
+          {
+            "value": "g5.12xlarge",
+            "name": "g5_12xlarge"
+          },
+          {
+            "value": "g5.16xlarge",
+            "name": "g5_16xlarge"
+          },
+          {
+            "value": "g5.24xlarge",
+            "name": "g5_24xlarge"
+          },
+          {
+            "value": "g5.48xlarge",
+            "name": "g5_48xlarge"
+          },
+          {
+            "value": "g5g.xlarge",
+            "name": "g5g_xlarge"
+          },
+          {
+            "value": "g5g.2xlarge",
+            "name": "g5g_2xlarge"
+          },
+          {
+            "value": "g5g.4xlarge",
+            "name": "g5g_4xlarge"
+          },
+          {
+            "value": "g5g.8xlarge",
+            "name": "g5g_8xlarge"
+          },
+          {
+            "value": "g5g.16xlarge",
+            "name": "g5g_16xlarge"
+          },
+          {
+            "value": "g5g.metal",
+            "name": "g5g_metal"
+          },
+          {
+            "value": "hi1.4xlarge",
+            "name": "hi1_4xlarge"
+          },
+          {
+            "value": "hs1.8xlarge",
+            "name": "hs1_8xlarge"
+          },
+          {
+            "value": "h1.2xlarge",
+            "name": "h1_2xlarge"
+          },
+          {
+            "value": "h1.4xlarge",
+            "name": "h1_4xlarge"
+          },
+          {
+            "value": "h1.8xlarge",
+            "name": "h1_8xlarge"
+          },
+          {
+            "value": "h1.16xlarge",
+            "name": "h1_16xlarge"
+          },
+          {
+            "value": "i2.xlarge",
+            "name": "i2_xlarge"
+          },
+          {
+            "value": "i2.2xlarge",
+            "name": "i2_2xlarge"
+          },
+          {
+            "value": "i2.4xlarge",
+            "name": "i2_4xlarge"
+          },
+          {
+            "value": "i2.8xlarge",
+            "name": "i2_8xlarge"
+          },
+          {
+            "value": "i3.large",
+            "name": "i3_large"
+          },
+          {
+            "value": "i3.xlarge",
+            "name": "i3_xlarge"
+          },
+          {
+            "value": "i3.2xlarge",
+            "name": "i3_2xlarge"
+          },
+          {
+            "value": "i3.4xlarge",
+            "name": "i3_4xlarge"
+          },
+          {
+            "value": "i3.8xlarge",
+            "name": "i3_8xlarge"
+          },
+          {
+            "value": "i3.16xlarge",
+            "name": "i3_16xlarge"
+          },
+          {
+            "value": "i3.metal",
+            "name": "i3_metal"
+          },
+          {
+            "value": "i3en.large",
+            "name": "i3en_large"
+          },
+          {
+            "value": "i3en.xlarge",
+            "name": "i3en_xlarge"
+          },
+          {
+            "value": "i3en.2xlarge",
+            "name": "i3en_2xlarge"
+          },
+          {
+            "value": "i3en.3xlarge",
+            "name": "i3en_3xlarge"
+          },
+          {
+            "value": "i3en.6xlarge",
+            "name": "i3en_6xlarge"
+          },
+          {
+            "value": "i3en.12xlarge",
+            "name": "i3en_12xlarge"
+          },
+          {
+            "value": "i3en.24xlarge",
+            "name": "i3en_24xlarge"
+          },
+          {
+            "value": "i3en.metal",
+            "name": "i3en_metal"
+          },
+          {
+            "value": "im4gn.large",
+            "name": "im4gn_large"
+          },
+          {
+            "value": "im4gn.xlarge",
+            "name": "im4gn_xlarge"
+          },
+          {
+            "value": "im4gn.2xlarge",
+            "name": "im4gn_2xlarge"
+          },
+          {
+            "value": "im4gn.4xlarge",
+            "name": "im4gn_4xlarge"
+          },
+          {
+            "value": "im4gn.8xlarge",
+            "name": "im4gn_8xlarge"
+          },
+          {
+            "value": "im4gn.16xlarge",
+            "name": "im4gn_16xlarge"
+          },
+          {
+            "value": "inf1.xlarge",
+            "name": "inf1_xlarge"
+          },
+          {
+            "value": "inf1.2xlarge",
+            "name": "inf1_2xlarge"
+          },
+          {
+            "value": "inf1.6xlarge",
+            "name": "inf1_6xlarge"
+          },
+          {
+            "value": "inf1.24xlarge",
+            "name": "inf1_24xlarge"
+          },
+          {
+            "value": "is4gen.medium",
+            "name": "is4gen_medium"
+          },
+          {
+            "value": "is4gen.large",
+            "name": "is4gen_large"
+          },
+          {
+            "value": "is4gen.xlarge",
+            "name": "is4gen_xlarge"
+          },
+          {
+            "value": "is4gen.2xlarge",
+            "name": "is4gen_2xlarge"
+          },
+          {
+            "value": "is4gen.4xlarge",
+            "name": "is4gen_4xlarge"
+          },
+          {
+            "value": "is4gen.8xlarge",
+            "name": "is4gen_8xlarge"
+          },
+          {
+            "value": "m1.small",
+            "name": "m1_small"
+          },
+          {
+            "value": "m1.medium",
+            "name": "m1_medium"
+          },
+          {
+            "value": "m1.large",
+            "name": "m1_large"
+          },
+          {
+            "value": "m1.xlarge",
+            "name": "m1_xlarge"
+          },
+          {
+            "value": "m2.xlarge",
+            "name": "m2_xlarge"
+          },
+          {
+            "value": "m2.2xlarge",
+            "name": "m2_2xlarge"
+          },
+          {
+            "value": "m2.4xlarge",
+            "name": "m2_4xlarge"
+          },
+          {
+            "value": "m3.medium",
+            "name": "m3_medium"
+          },
+          {
+            "value": "m3.large",
+            "name": "m3_large"
+          },
+          {
+            "value": "m3.xlarge",
+            "name": "m3_xlarge"
+          },
+          {
+            "value": "m3.2xlarge",
+            "name": "m3_2xlarge"
+          },
+          {
+            "value": "m4.large",
+            "name": "m4_large"
+          },
+          {
+            "value": "m4.xlarge",
+            "name": "m4_xlarge"
+          },
+          {
+            "value": "m4.2xlarge",
+            "name": "m4_2xlarge"
+          },
+          {
+            "value": "m4.4xlarge",
+            "name": "m4_4xlarge"
+          },
+          {
+            "value": "m4.10xlarge",
+            "name": "m4_10xlarge"
+          },
+          {
+            "value": "m4.16xlarge",
+            "name": "m4_16xlarge"
+          },
+          {
             "value": "m5.large",
             "name": "m5_large"
           },
@@ -45518,6 +45256,38 @@
             "name": "m5a_24xlarge"
           },
           {
+            "value": "m5ad.large",
+            "name": "m5ad_large"
+          },
+          {
+            "value": "m5ad.xlarge",
+            "name": "m5ad_xlarge"
+          },
+          {
+            "value": "m5ad.2xlarge",
+            "name": "m5ad_2xlarge"
+          },
+          {
+            "value": "m5ad.4xlarge",
+            "name": "m5ad_4xlarge"
+          },
+          {
+            "value": "m5ad.8xlarge",
+            "name": "m5ad_8xlarge"
+          },
+          {
+            "value": "m5ad.12xlarge",
+            "name": "m5ad_12xlarge"
+          },
+          {
+            "value": "m5ad.16xlarge",
+            "name": "m5ad_16xlarge"
+          },
+          {
+            "value": "m5ad.24xlarge",
+            "name": "m5ad_24xlarge"
+          },
+          {
             "value": "m5d.large",
             "name": "m5d_large"
           },
@@ -45552,170 +45322,6 @@
           {
             "value": "m5d.metal",
             "name": "m5d_metal"
-          },
-          {
-            "value": "m5ad.large",
-            "name": "m5ad_large"
-          },
-          {
-            "value": "m5ad.xlarge",
-            "name": "m5ad_xlarge"
-          },
-          {
-            "value": "m5ad.2xlarge",
-            "name": "m5ad_2xlarge"
-          },
-          {
-            "value": "m5ad.4xlarge",
-            "name": "m5ad_4xlarge"
-          },
-          {
-            "value": "m5ad.8xlarge",
-            "name": "m5ad_8xlarge"
-          },
-          {
-            "value": "m5ad.12xlarge",
-            "name": "m5ad_12xlarge"
-          },
-          {
-            "value": "m5ad.16xlarge",
-            "name": "m5ad_16xlarge"
-          },
-          {
-            "value": "m5ad.24xlarge",
-            "name": "m5ad_24xlarge"
-          },
-          {
-            "value": "m5zn.large",
-            "name": "m5zn_large"
-          },
-          {
-            "value": "m5zn.xlarge",
-            "name": "m5zn_xlarge"
-          },
-          {
-            "value": "m5zn.2xlarge",
-            "name": "m5zn_2xlarge"
-          },
-          {
-            "value": "m5zn.3xlarge",
-            "name": "m5zn_3xlarge"
-          },
-          {
-            "value": "m5zn.6xlarge",
-            "name": "m5zn_6xlarge"
-          },
-          {
-            "value": "m5zn.12xlarge",
-            "name": "m5zn_12xlarge"
-          },
-          {
-            "value": "m5zn.metal",
-            "name": "m5zn_metal"
-          },
-          {
-            "value": "h1.2xlarge",
-            "name": "h1_2xlarge"
-          },
-          {
-            "value": "h1.4xlarge",
-            "name": "h1_4xlarge"
-          },
-          {
-            "value": "h1.8xlarge",
-            "name": "h1_8xlarge"
-          },
-          {
-            "value": "h1.16xlarge",
-            "name": "h1_16xlarge"
-          },
-          {
-            "value": "z1d.large",
-            "name": "z1d_large"
-          },
-          {
-            "value": "z1d.xlarge",
-            "name": "z1d_xlarge"
-          },
-          {
-            "value": "z1d.2xlarge",
-            "name": "z1d_2xlarge"
-          },
-          {
-            "value": "z1d.3xlarge",
-            "name": "z1d_3xlarge"
-          },
-          {
-            "value": "z1d.6xlarge",
-            "name": "z1d_6xlarge"
-          },
-          {
-            "value": "z1d.12xlarge",
-            "name": "z1d_12xlarge"
-          },
-          {
-            "value": "z1d.metal",
-            "name": "z1d_metal"
-          },
-          {
-            "value": "u-6tb1.56xlarge",
-            "name": "u_6tb1_56xlarge"
-          },
-          {
-            "value": "u-6tb1.112xlarge",
-            "name": "u_6tb1_112xlarge"
-          },
-          {
-            "value": "u-9tb1.112xlarge",
-            "name": "u_9tb1_112xlarge"
-          },
-          {
-            "value": "u-12tb1.112xlarge",
-            "name": "u_12tb1_112xlarge"
-          },
-          {
-            "value": "u-6tb1.metal",
-            "name": "u_6tb1_metal"
-          },
-          {
-            "value": "u-9tb1.metal",
-            "name": "u_9tb1_metal"
-          },
-          {
-            "value": "u-12tb1.metal",
-            "name": "u_12tb1_metal"
-          },
-          {
-            "value": "u-18tb1.metal",
-            "name": "u_18tb1_metal"
-          },
-          {
-            "value": "u-24tb1.metal",
-            "name": "u_24tb1_metal"
-          },
-          {
-            "value": "a1.medium",
-            "name": "a1_medium"
-          },
-          {
-            "value": "a1.large",
-            "name": "a1_large"
-          },
-          {
-            "value": "a1.xlarge",
-            "name": "a1_xlarge"
-          },
-          {
-            "value": "a1.2xlarge",
-            "name": "a1_2xlarge"
-          },
-          {
-            "value": "a1.4xlarge",
-            "name": "a1_4xlarge"
-          },
-          {
-            "value": "a1.metal",
-            "name": "a1_metal"
           },
           {
             "value": "m5dn.large",
@@ -45790,92 +45396,72 @@
             "name": "m5n_metal"
           },
           {
-            "value": "r5dn.large",
-            "name": "r5dn_large"
+            "value": "m5zn.large",
+            "name": "m5zn_large"
           },
           {
-            "value": "r5dn.xlarge",
-            "name": "r5dn_xlarge"
+            "value": "m5zn.xlarge",
+            "name": "m5zn_xlarge"
           },
           {
-            "value": "r5dn.2xlarge",
-            "name": "r5dn_2xlarge"
+            "value": "m5zn.2xlarge",
+            "name": "m5zn_2xlarge"
           },
           {
-            "value": "r5dn.4xlarge",
-            "name": "r5dn_4xlarge"
+            "value": "m5zn.3xlarge",
+            "name": "m5zn_3xlarge"
           },
           {
-            "value": "r5dn.8xlarge",
-            "name": "r5dn_8xlarge"
+            "value": "m5zn.6xlarge",
+            "name": "m5zn_6xlarge"
           },
           {
-            "value": "r5dn.12xlarge",
-            "name": "r5dn_12xlarge"
+            "value": "m5zn.12xlarge",
+            "name": "m5zn_12xlarge"
           },
           {
-            "value": "r5dn.16xlarge",
-            "name": "r5dn_16xlarge"
+            "value": "m5zn.metal",
+            "name": "m5zn_metal"
           },
           {
-            "value": "r5dn.24xlarge",
-            "name": "r5dn_24xlarge"
+            "value": "m6a.large",
+            "name": "m6a_large"
           },
           {
-            "value": "r5dn.metal",
-            "name": "r5dn_metal"
+            "value": "m6a.xlarge",
+            "name": "m6a_xlarge"
           },
           {
-            "value": "r5n.large",
-            "name": "r5n_large"
+            "value": "m6a.2xlarge",
+            "name": "m6a_2xlarge"
           },
           {
-            "value": "r5n.xlarge",
-            "name": "r5n_xlarge"
+            "value": "m6a.4xlarge",
+            "name": "m6a_4xlarge"
           },
           {
-            "value": "r5n.2xlarge",
-            "name": "r5n_2xlarge"
+            "value": "m6a.8xlarge",
+            "name": "m6a_8xlarge"
           },
           {
-            "value": "r5n.4xlarge",
-            "name": "r5n_4xlarge"
+            "value": "m6a.12xlarge",
+            "name": "m6a_12xlarge"
           },
           {
-            "value": "r5n.8xlarge",
-            "name": "r5n_8xlarge"
+            "value": "m6a.16xlarge",
+            "name": "m6a_16xlarge"
           },
           {
-            "value": "r5n.12xlarge",
-            "name": "r5n_12xlarge"
+            "value": "m6a.24xlarge",
+            "name": "m6a_24xlarge"
           },
           {
-            "value": "r5n.16xlarge",
-            "name": "r5n_16xlarge"
+            "value": "m6a.32xlarge",
+            "name": "m6a_32xlarge"
           },
           {
-            "value": "r5n.24xlarge",
-            "name": "r5n_24xlarge"
-          },
-          {
-            "value": "r5n.metal",
-            "name": "r5n_metal"
-          },
-          {
-            "value": "inf1.xlarge",
-            "name": "inf1_xlarge"
-          },
-          {
-            "value": "inf1.2xlarge",
-            "name": "inf1_2xlarge"
-          },
-          {
-            "value": "inf1.6xlarge",
-            "name": "inf1_6xlarge"
-          },
-          {
-            "value": "inf1.24xlarge",
-            "name": "inf1_24xlarge"
+            "value": "m6a.48xlarge",
+            "name": "m6a_48xlarge"
           },
           {
             "value": "m6g.metal",
@@ -45950,46 +45536,6 @@
             "name": "m6gd_16xlarge"
           },
           {
-            "value": "m6a.large",
-            "name": "m6a_large"
-          },
-          {
-            "value": "m6a.xlarge",
-            "name": "m6a_xlarge"
-          },
-          {
-            "value": "m6a.2xlarge",
-            "name": "m6a_2xlarge"
-          },
-          {
-            "value": "m6a.4xlarge",
-            "name": "m6a_4xlarge"
-          },
-          {
-            "value": "m6a.8xlarge",
-            "name": "m6a_8xlarge"
-          },
-          {
-            "value": "m6a.12xlarge",
-            "name": "m6a_12xlarge"
-          },
-          {
-            "value": "m6a.16xlarge",
-            "name": "m6a_16xlarge"
-          },
-          {
-            "value": "m6a.24xlarge",
-            "name": "m6a_24xlarge"
-          },
-          {
-            "value": "m6a.32xlarge",
-            "name": "m6a_32xlarge"
-          },
-          {
-            "value": "m6a.48xlarge",
-            "name": "m6a_48xlarge"
-          },
-          {
             "value": "m6i.large",
             "name": "m6i_large"
           },
@@ -46030,6 +45576,594 @@
             "name": "mac1_metal"
           },
           {
+            "value": "p2.xlarge",
+            "name": "p2_xlarge"
+          },
+          {
+            "value": "p2.8xlarge",
+            "name": "p2_8xlarge"
+          },
+          {
+            "value": "p2.16xlarge",
+            "name": "p2_16xlarge"
+          },
+          {
+            "value": "p3.2xlarge",
+            "name": "p3_2xlarge"
+          },
+          {
+            "value": "p3.8xlarge",
+            "name": "p3_8xlarge"
+          },
+          {
+            "value": "p3.16xlarge",
+            "name": "p3_16xlarge"
+          },
+          {
+            "value": "p3dn.24xlarge",
+            "name": "p3dn_24xlarge"
+          },
+          {
+            "value": "p4d.24xlarge",
+            "name": "p4d_24xlarge"
+          },
+          {
+            "value": "r3.large",
+            "name": "r3_large"
+          },
+          {
+            "value": "r3.xlarge",
+            "name": "r3_xlarge"
+          },
+          {
+            "value": "r3.2xlarge",
+            "name": "r3_2xlarge"
+          },
+          {
+            "value": "r3.4xlarge",
+            "name": "r3_4xlarge"
+          },
+          {
+            "value": "r3.8xlarge",
+            "name": "r3_8xlarge"
+          },
+          {
+            "value": "r4.large",
+            "name": "r4_large"
+          },
+          {
+            "value": "r4.xlarge",
+            "name": "r4_xlarge"
+          },
+          {
+            "value": "r4.2xlarge",
+            "name": "r4_2xlarge"
+          },
+          {
+            "value": "r4.4xlarge",
+            "name": "r4_4xlarge"
+          },
+          {
+            "value": "r4.8xlarge",
+            "name": "r4_8xlarge"
+          },
+          {
+            "value": "r4.16xlarge",
+            "name": "r4_16xlarge"
+          },
+          {
+            "value": "r5.large",
+            "name": "r5_large"
+          },
+          {
+            "value": "r5.xlarge",
+            "name": "r5_xlarge"
+          },
+          {
+            "value": "r5.2xlarge",
+            "name": "r5_2xlarge"
+          },
+          {
+            "value": "r5.4xlarge",
+            "name": "r5_4xlarge"
+          },
+          {
+            "value": "r5.8xlarge",
+            "name": "r5_8xlarge"
+          },
+          {
+            "value": "r5.12xlarge",
+            "name": "r5_12xlarge"
+          },
+          {
+            "value": "r5.16xlarge",
+            "name": "r5_16xlarge"
+          },
+          {
+            "value": "r5.24xlarge",
+            "name": "r5_24xlarge"
+          },
+          {
+            "value": "r5.metal",
+            "name": "r5_metal"
+          },
+          {
+            "value": "r5a.large",
+            "name": "r5a_large"
+          },
+          {
+            "value": "r5a.xlarge",
+            "name": "r5a_xlarge"
+          },
+          {
+            "value": "r5a.2xlarge",
+            "name": "r5a_2xlarge"
+          },
+          {
+            "value": "r5a.4xlarge",
+            "name": "r5a_4xlarge"
+          },
+          {
+            "value": "r5a.8xlarge",
+            "name": "r5a_8xlarge"
+          },
+          {
+            "value": "r5a.12xlarge",
+            "name": "r5a_12xlarge"
+          },
+          {
+            "value": "r5a.16xlarge",
+            "name": "r5a_16xlarge"
+          },
+          {
+            "value": "r5a.24xlarge",
+            "name": "r5a_24xlarge"
+          },
+          {
+            "value": "r5ad.large",
+            "name": "r5ad_large"
+          },
+          {
+            "value": "r5ad.xlarge",
+            "name": "r5ad_xlarge"
+          },
+          {
+            "value": "r5ad.2xlarge",
+            "name": "r5ad_2xlarge"
+          },
+          {
+            "value": "r5ad.4xlarge",
+            "name": "r5ad_4xlarge"
+          },
+          {
+            "value": "r5ad.8xlarge",
+            "name": "r5ad_8xlarge"
+          },
+          {
+            "value": "r5ad.12xlarge",
+            "name": "r5ad_12xlarge"
+          },
+          {
+            "value": "r5ad.16xlarge",
+            "name": "r5ad_16xlarge"
+          },
+          {
+            "value": "r5ad.24xlarge",
+            "name": "r5ad_24xlarge"
+          },
+          {
+            "value": "r5b.large",
+            "name": "r5b_large"
+          },
+          {
+            "value": "r5b.xlarge",
+            "name": "r5b_xlarge"
+          },
+          {
+            "value": "r5b.2xlarge",
+            "name": "r5b_2xlarge"
+          },
+          {
+            "value": "r5b.4xlarge",
+            "name": "r5b_4xlarge"
+          },
+          {
+            "value": "r5b.8xlarge",
+            "name": "r5b_8xlarge"
+          },
+          {
+            "value": "r5b.12xlarge",
+            "name": "r5b_12xlarge"
+          },
+          {
+            "value": "r5b.16xlarge",
+            "name": "r5b_16xlarge"
+          },
+          {
+            "value": "r5b.24xlarge",
+            "name": "r5b_24xlarge"
+          },
+          {
+            "value": "r5b.metal",
+            "name": "r5b_metal"
+          },
+          {
+            "value": "r5d.large",
+            "name": "r5d_large"
+          },
+          {
+            "value": "r5d.xlarge",
+            "name": "r5d_xlarge"
+          },
+          {
+            "value": "r5d.2xlarge",
+            "name": "r5d_2xlarge"
+          },
+          {
+            "value": "r5d.4xlarge",
+            "name": "r5d_4xlarge"
+          },
+          {
+            "value": "r5d.8xlarge",
+            "name": "r5d_8xlarge"
+          },
+          {
+            "value": "r5d.12xlarge",
+            "name": "r5d_12xlarge"
+          },
+          {
+            "value": "r5d.16xlarge",
+            "name": "r5d_16xlarge"
+          },
+          {
+            "value": "r5d.24xlarge",
+            "name": "r5d_24xlarge"
+          },
+          {
+            "value": "r5d.metal",
+            "name": "r5d_metal"
+          },
+          {
+            "value": "r5dn.large",
+            "name": "r5dn_large"
+          },
+          {
+            "value": "r5dn.xlarge",
+            "name": "r5dn_xlarge"
+          },
+          {
+            "value": "r5dn.2xlarge",
+            "name": "r5dn_2xlarge"
+          },
+          {
+            "value": "r5dn.4xlarge",
+            "name": "r5dn_4xlarge"
+          },
+          {
+            "value": "r5dn.8xlarge",
+            "name": "r5dn_8xlarge"
+          },
+          {
+            "value": "r5dn.12xlarge",
+            "name": "r5dn_12xlarge"
+          },
+          {
+            "value": "r5dn.16xlarge",
+            "name": "r5dn_16xlarge"
+          },
+          {
+            "value": "r5dn.24xlarge",
+            "name": "r5dn_24xlarge"
+          },
+          {
+            "value": "r5dn.metal",
+            "name": "r5dn_metal"
+          },
+          {
+            "value": "r5n.large",
+            "name": "r5n_large"
+          },
+          {
+            "value": "r5n.xlarge",
+            "name": "r5n_xlarge"
+          },
+          {
+            "value": "r5n.2xlarge",
+            "name": "r5n_2xlarge"
+          },
+          {
+            "value": "r5n.4xlarge",
+            "name": "r5n_4xlarge"
+          },
+          {
+            "value": "r5n.8xlarge",
+            "name": "r5n_8xlarge"
+          },
+          {
+            "value": "r5n.12xlarge",
+            "name": "r5n_12xlarge"
+          },
+          {
+            "value": "r5n.16xlarge",
+            "name": "r5n_16xlarge"
+          },
+          {
+            "value": "r5n.24xlarge",
+            "name": "r5n_24xlarge"
+          },
+          {
+            "value": "r5n.metal",
+            "name": "r5n_metal"
+          },
+          {
+            "value": "r6g.medium",
+            "name": "r6g_medium"
+          },
+          {
+            "value": "r6g.large",
+            "name": "r6g_large"
+          },
+          {
+            "value": "r6g.xlarge",
+            "name": "r6g_xlarge"
+          },
+          {
+            "value": "r6g.2xlarge",
+            "name": "r6g_2xlarge"
+          },
+          {
+            "value": "r6g.4xlarge",
+            "name": "r6g_4xlarge"
+          },
+          {
+            "value": "r6g.8xlarge",
+            "name": "r6g_8xlarge"
+          },
+          {
+            "value": "r6g.12xlarge",
+            "name": "r6g_12xlarge"
+          },
+          {
+            "value": "r6g.16xlarge",
+            "name": "r6g_16xlarge"
+          },
+          {
+            "value": "r6g.metal",
+            "name": "r6g_metal"
+          },
+          {
+            "value": "r6gd.medium",
+            "name": "r6gd_medium"
+          },
+          {
+            "value": "r6gd.large",
+            "name": "r6gd_large"
+          },
+          {
+            "value": "r6gd.xlarge",
+            "name": "r6gd_xlarge"
+          },
+          {
+            "value": "r6gd.2xlarge",
+            "name": "r6gd_2xlarge"
+          },
+          {
+            "value": "r6gd.4xlarge",
+            "name": "r6gd_4xlarge"
+          },
+          {
+            "value": "r6gd.8xlarge",
+            "name": "r6gd_8xlarge"
+          },
+          {
+            "value": "r6gd.12xlarge",
+            "name": "r6gd_12xlarge"
+          },
+          {
+            "value": "r6gd.16xlarge",
+            "name": "r6gd_16xlarge"
+          },
+          {
+            "value": "r6gd.metal",
+            "name": "r6gd_metal"
+          },
+          {
+            "value": "t1.micro",
+            "name": "t1_micro"
+          },
+          {
+            "value": "t2.nano",
+            "name": "t2_nano"
+          },
+          {
+            "value": "t2.micro",
+            "name": "t2_micro"
+          },
+          {
+            "value": "t2.small",
+            "name": "t2_small"
+          },
+          {
+            "value": "t2.medium",
+            "name": "t2_medium"
+          },
+          {
+            "value": "t2.large",
+            "name": "t2_large"
+          },
+          {
+            "value": "t2.xlarge",
+            "name": "t2_xlarge"
+          },
+          {
+            "value": "t2.2xlarge",
+            "name": "t2_2xlarge"
+          },
+          {
+            "value": "t3.nano",
+            "name": "t3_nano"
+          },
+          {
+            "value": "t3.micro",
+            "name": "t3_micro"
+          },
+          {
+            "value": "t3.small",
+            "name": "t3_small"
+          },
+          {
+            "value": "t3.medium",
+            "name": "t3_medium"
+          },
+          {
+            "value": "t3.large",
+            "name": "t3_large"
+          },
+          {
+            "value": "t3.xlarge",
+            "name": "t3_xlarge"
+          },
+          {
+            "value": "t3.2xlarge",
+            "name": "t3_2xlarge"
+          },
+          {
+            "value": "t3a.nano",
+            "name": "t3a_nano"
+          },
+          {
+            "value": "t3a.micro",
+            "name": "t3a_micro"
+          },
+          {
+            "value": "t3a.small",
+            "name": "t3a_small"
+          },
+          {
+            "value": "t3a.medium",
+            "name": "t3a_medium"
+          },
+          {
+            "value": "t3a.large",
+            "name": "t3a_large"
+          },
+          {
+            "value": "t3a.xlarge",
+            "name": "t3a_xlarge"
+          },
+          {
+            "value": "t3a.2xlarge",
+            "name": "t3a_2xlarge"
+          },
+          {
+            "value": "t4g.nano",
+            "name": "t4g_nano"
+          },
+          {
+            "value": "t4g.micro",
+            "name": "t4g_micro"
+          },
+          {
+            "value": "t4g.small",
+            "name": "t4g_small"
+          },
+          {
+            "value": "t4g.medium",
+            "name": "t4g_medium"
+          },
+          {
+            "value": "t4g.large",
+            "name": "t4g_large"
+          },
+          {
+            "value": "t4g.xlarge",
+            "name": "t4g_xlarge"
+          },
+          {
+            "value": "t4g.2xlarge",
+            "name": "t4g_2xlarge"
+          },
+          {
+            "value": "u-6tb1.56xlarge",
+            "name": "u_6tb1_56xlarge"
+          },
+          {
+            "value": "u-6tb1.112xlarge",
+            "name": "u_6tb1_112xlarge"
+          },
+          {
+            "value": "u-9tb1.112xlarge",
+            "name": "u_9tb1_112xlarge"
+          },
+          {
+            "value": "u-12tb1.112xlarge",
+            "name": "u_12tb1_112xlarge"
+          },
+          {
+            "value": "u-6tb1.metal",
+            "name": "u_6tb1_metal"
+          },
+          {
+            "value": "u-9tb1.metal",
+            "name": "u_9tb1_metal"
+          },
+          {
+            "value": "u-12tb1.metal",
+            "name": "u_12tb1_metal"
+          },
+          {
+            "value": "u-18tb1.metal",
+            "name": "u_18tb1_metal"
+          },
+          {
+            "value": "u-24tb1.metal",
+            "name": "u_24tb1_metal"
+          },
+          {
+            "value": "vt1.3xlarge",
+            "name": "vt1_3xlarge"
+          },
+          {
+            "value": "vt1.6xlarge",
+            "name": "vt1_6xlarge"
+          },
+          {
+            "value": "vt1.24xlarge",
+            "name": "vt1_24xlarge"
+          },
+          {
+            "value": "x1.16xlarge",
+            "name": "x1_16xlarge"
+          },
+          {
+            "value": "x1.32xlarge",
+            "name": "x1_32xlarge"
+          },
+          {
+            "value": "x1e.xlarge",
+            "name": "x1e_xlarge"
+          },
+          {
+            "value": "x1e.2xlarge",
+            "name": "x1e_2xlarge"
+          },
+          {
+            "value": "x1e.4xlarge",
+            "name": "x1e_4xlarge"
+          },
+          {
+            "value": "x1e.8xlarge",
+            "name": "x1e_8xlarge"
+          },
+          {
+            "value": "x1e.16xlarge",
+            "name": "x1e_16xlarge"
+          },
+          {
+            "value": "x1e.32xlarge",
+            "name": "x1e_32xlarge"
+          },
+          {
             "value": "x2gd.medium",
             "name": "x2gd_medium"
           },
@@ -46066,120 +46200,32 @@
             "name": "x2gd_metal"
           },
           {
-            "value": "vt1.3xlarge",
-            "name": "vt1_3xlarge"
+            "value": "z1d.large",
+            "name": "z1d_large"
           },
           {
-            "value": "vt1.6xlarge",
-            "name": "vt1_6xlarge"
+            "value": "z1d.xlarge",
+            "name": "z1d_xlarge"
           },
           {
-            "value": "vt1.24xlarge",
-            "name": "vt1_24xlarge"
+            "value": "z1d.2xlarge",
+            "name": "z1d_2xlarge"
           },
           {
-            "value": "im4gn.16xlarge",
-            "name": "im4gn_16xlarge"
+            "value": "z1d.3xlarge",
+            "name": "z1d_3xlarge"
           },
           {
-            "value": "im4gn.2xlarge",
-            "name": "im4gn_2xlarge"
+            "value": "z1d.6xlarge",
+            "name": "z1d_6xlarge"
           },
           {
-            "value": "im4gn.4xlarge",
-            "name": "im4gn_4xlarge"
+            "value": "z1d.12xlarge",
+            "name": "z1d_12xlarge"
           },
           {
-            "value": "im4gn.8xlarge",
-            "name": "im4gn_8xlarge"
-          },
-          {
-            "value": "im4gn.large",
-            "name": "im4gn_large"
-          },
-          {
-            "value": "im4gn.xlarge",
-            "name": "im4gn_xlarge"
-          },
-          {
-            "value": "is4gen.2xlarge",
-            "name": "is4gen_2xlarge"
-          },
-          {
-            "value": "is4gen.4xlarge",
-            "name": "is4gen_4xlarge"
-          },
-          {
-            "value": "is4gen.8xlarge",
-            "name": "is4gen_8xlarge"
-          },
-          {
-            "value": "is4gen.large",
-            "name": "is4gen_large"
-          },
-          {
-            "value": "is4gen.medium",
-            "name": "is4gen_medium"
-          },
-          {
-            "value": "is4gen.xlarge",
-            "name": "is4gen_xlarge"
-          },
-          {
-            "value": "g5g.xlarge",
-            "name": "g5g_xlarge"
-          },
-          {
-            "value": "g5g.2xlarge",
-            "name": "g5g_2xlarge"
-          },
-          {
-            "value": "g5g.4xlarge",
-            "name": "g5g_4xlarge"
-          },
-          {
-            "value": "g5g.8xlarge",
-            "name": "g5g_8xlarge"
-          },
-          {
-            "value": "g5g.16xlarge",
-            "name": "g5g_16xlarge"
-          },
-          {
-            "value": "g5g.metal",
-            "name": "g5g_metal"
-          },
-          {
-            "value": "g5.xlarge",
-            "name": "g5_xlarge"
-          },
-          {
-            "value": "g5.2xlarge",
-            "name": "g5_2xlarge"
-          },
-          {
-            "value": "g5.4xlarge",
-            "name": "g5_4xlarge"
-          },
-          {
-            "value": "g5.8xlarge",
-            "name": "g5_8xlarge"
-          },
-          {
-            "value": "g5.12xlarge",
-            "name": "g5_12xlarge"
-          },
-          {
-            "value": "g5.16xlarge",
-            "name": "g5_16xlarge"
-          },
-          {
-            "value": "g5.24xlarge",
-            "name": "g5_24xlarge"
-          },
-          {
-            "value": "g5.48xlarge",
-            "name": "g5_48xlarge"
+            "value": "z1d.metal",
+            "name": "z1d_metal"
           }
         ]
       }
@@ -48643,13 +48689,13 @@
         "Add": {
           "target": "com.amazonaws.ec2#LaunchPermissionList",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Web Services account ID to add to the list of launch permissions for the AMI.</p>"
+            "smithy.api#documentation": "<p>The Amazon Web Services account ID, organization ARN, or OU ARN to add to the list of launch permissions for the AMI.</p>"
           }
         },
         "Remove": {
           "target": "com.amazonaws.ec2#LaunchPermissionList",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Web Services account ID to remove from the list of launch permissions for the AMI.</p>"
+            "smithy.api#documentation": "<p>The Amazon Web Services account ID, organization ARN, or OU ARN to remove from the list of launch permissions for the AMI.</p>"
           }
         }
       },
@@ -49543,7 +49589,7 @@
           "target": "com.amazonaws.ec2#LaunchTemplateInstanceMetadataEndpointState",
           "traits": {
             "aws.protocols#ec2QueryName": "HttpEndpoint",
-            "smithy.api#documentation": "<p>This parameter enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is <code>enabled</code>.</p>\n        <note>\n            <p>If you specify a value of <code>disabled</code>, you will not be able to access your instance metadata.\n            </p>\n        </note>",
+            "smithy.api#documentation": "<p>Enables or disables the HTTP metadata endpoint on your instances. If the parameter is\n            not specified, the default state is <code>enabled</code>.</p>\n        <note>\n            <p>If you specify a value of <code>disabled</code>, you will not be able to access your instance metadata.\n            </p>\n        </note>",
             "smithy.api#xmlName": "httpEndpoint"
           }
         },
@@ -49553,6 +49599,14 @@
             "aws.protocols#ec2QueryName": "HttpProtocolIpv6",
             "smithy.api#documentation": "<p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>\n        <p>Default: <code>disabled</code>\n         </p>",
             "smithy.api#xmlName": "httpProtocolIpv6"
+          }
+        },
+        "InstanceMetadataTags": {
+          "target": "com.amazonaws.ec2#LaunchTemplateInstanceMetadataTagsState",
+          "traits": {
+            "aws.protocols#ec2QueryName": "InstanceMetadataTags",
+            "smithy.api#documentation": "<p>\n            \n        </p>",
+            "smithy.api#xmlName": "instanceMetadataTags"
           }
         }
       },
@@ -49578,13 +49632,19 @@
         "HttpEndpoint": {
           "target": "com.amazonaws.ec2#LaunchTemplateInstanceMetadataEndpointState",
           "traits": {
-            "smithy.api#documentation": "<p>This parameter enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is <code>enabled</code>.</p>\n         <note>\n            <p>If you specify a value of <code>disabled</code>, you will not be able to access your instance metadata.\n</p>\n         </note>"
+            "smithy.api#documentation": "<p>Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not\n            specified, the default state is <code>enabled</code>.</p>\n         <note>\n            <p>If you specify a value of <code>disabled</code>, you will not be able to access your instance metadata.\n</p>\n         </note>"
           }
         },
         "HttpProtocolIpv6": {
           "target": "com.amazonaws.ec2#LaunchTemplateInstanceMetadataProtocolIpv6",
           "traits": {
             "smithy.api#documentation": "<p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>\n        <p>Default: <code>disabled</code>\n         </p>"
+          }
+        },
+        "InstanceMetadataTags": {
+          "target": "com.amazonaws.ec2#LaunchTemplateInstanceMetadataTagsState",
+          "traits": {
+            "smithy.api#documentation": "<p>Set to <code>enabled</code> to allow access to instance tags from the instance\n            metadata. Set to <code>disabled</code> to turn off access to instance tags from the instance\n            metadata. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS\">Work with\n                instance tags using the instance metadata</a>.</p>\n            <p>Default: <code>disabled</code>\n         </p>"
           }
         }
       },
@@ -49608,6 +49668,21 @@
       }
     },
     "com.amazonaws.ec2#LaunchTemplateInstanceMetadataProtocolIpv6": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "disabled",
+            "name": "disabled"
+          },
+          {
+            "value": "enabled",
+            "name": "enabled"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.ec2#LaunchTemplateInstanceMetadataTagsState": {
       "type": "string",
       "traits": {
         "smithy.api#enum": [
@@ -53082,7 +53157,7 @@
         "HttpEndpoint": {
           "target": "com.amazonaws.ec2#InstanceMetadataEndpointState",
           "traits": {
-            "smithy.api#documentation": "<p>Enables or disables the HTTP metadata endpoint on your instances. If\n            the parameter is not specified, the existing state is maintained.</p>\n        <p>If you specify a value of <code>disabled</code>, you cannot access your\n            instance metadata.</p>"
+            "smithy.api#documentation": "<p>Enables or disables the HTTP metadata endpoint on your instances. If\n            this parameter is not specified, the existing state is maintained.</p>\n        <p>If you specify a value of <code>disabled</code>, you cannot access your\n            instance metadata.</p>"
           }
         },
         "DryRun": {
@@ -53095,6 +53170,12 @@
           "target": "com.amazonaws.ec2#InstanceMetadataProtocolState",
           "traits": {
             "smithy.api#documentation": "<p>Enables or disables the IPv6 endpoint for the instance metadata service. This setting \n            applies only if you have enabled the HTTP metadata endpoint.</p>"
+          }
+        },
+        "InstanceMetadataTags": {
+          "target": "com.amazonaws.ec2#InstanceMetadataTagsState",
+          "traits": {
+            "smithy.api#documentation": "<p>Set to <code>enabled</code> to allow access to instance tags from the instance\n            metadata. Set to <code>disabled</code> to turn off access to instance tags from the\n            instance metadata. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS\">Work with\n                instance tags using the instance metadata</a>.</p>\n        <p>Default: <code>disabled</code>\n         </p>"
           }
         }
       }
@@ -55040,6 +55121,56 @@
         }
       }
     },
+    "com.amazonaws.ec2#ModifyVpcEndpointServicePayerResponsibility": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#ModifyVpcEndpointServicePayerResponsibilityRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#ModifyVpcEndpointServicePayerResponsibilityResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Modifies the payer responsibility for your VPC endpoint service.</p>"
+      }
+    },
+    "com.amazonaws.ec2#ModifyVpcEndpointServicePayerResponsibilityRequest": {
+      "type": "structure",
+      "members": {
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        },
+        "ServiceId": {
+          "target": "com.amazonaws.ec2#VpcEndpointServiceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the service.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PayerResponsibility": {
+          "target": "com.amazonaws.ec2#PayerResponsibility",
+          "traits": {
+            "smithy.api#documentation": "<p>The entity that is responsible for the endpoint costs. The default is the endpoint owner.\n            If you set the payer responsibility to the service owner, you cannot set it back to the\n            endpoint owner.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#ModifyVpcEndpointServicePayerResponsibilityResult": {
+      "type": "structure",
+      "members": {
+        "ReturnValue": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Return",
+            "smithy.api#documentation": "<p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>",
+            "smithy.api#xmlName": "return"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#ModifyVpcEndpointServicePermissions": {
       "type": "operation",
       "input": {
@@ -55493,7 +55624,7 @@
         "DPDTimeoutSeconds": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The number of seconds after which a DPD timeout occurs.</p>\n        <p>Constraints: A value between 0 and 30.</p>\n        <p>Default: <code>30</code>\n         </p>"
+            "smithy.api#documentation": "<p>The number of seconds after which a DPD timeout occurs.</p>\n        <p>Constraints: A value greater than or equal to 30.</p>\n        <p>Default: <code>30</code>\n         </p>"
           }
         },
         "DPDTimeoutAction": {
@@ -55726,19 +55857,22 @@
         "Cidr": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The BYOIP CIDR.</p>"
+            "smithy.api#documentation": "<p>The BYOIP CIDR.</p>",
+            "smithy.api#required": {}
           }
         },
         "IpamPoolId": {
           "target": "com.amazonaws.ec2#IpamPoolId",
           "traits": {
-            "smithy.api#documentation": "<p>The IPAM pool ID.</p>"
+            "smithy.api#documentation": "<p>The IPAM pool ID.</p>",
+            "smithy.api#required": {}
           }
         },
         "IpamPoolOwner": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Web Services account ID of the owner of the IPAM pool.</p>"
+            "smithy.api#documentation": "<p>The Amazon Web Services account ID of the owner of the IPAM pool.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -58163,6 +58297,17 @@
         "smithy.api#documentation": "<p>Describes a path statement.</p>"
       }
     },
+    "com.amazonaws.ec2#PayerResponsibility": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "ServiceOwner",
+            "name": "ServiceOwner"
+          }
+        ]
+      }
+    },
     "com.amazonaws.ec2#PaymentOption": {
       "type": "string",
       "traits": {
@@ -58749,10 +58894,24 @@
             "smithy.api#documentation": "<p>Any tags applied to the placement group.</p>",
             "smithy.api#xmlName": "tagSet"
           }
+        },
+        "GroupArn": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "GroupArn",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the placement group.</p>",
+            "smithy.api#xmlName": "groupArn"
+          }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Describes a placement group.</p>"
+      }
+    },
+    "com.amazonaws.ec2#PlacementGroupArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^arn:aws([a-z-]+)?:ec2:[a-z\\d-]+:\\d{12}:placement-group/([^\\s].+[^\\s]){1,255}$"
       }
     },
     "com.amazonaws.ec2#PlacementGroupId": {
@@ -60189,7 +60348,7 @@
           }
         },
         "HostReservationId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#HostReservationId",
           "traits": {
             "aws.protocols#ec2QueryName": "HostReservationId",
             "smithy.api#documentation": "<p>The ID of the reservation.</p>",
@@ -67612,6 +67771,14 @@
             "smithy.api#xmlName": "privateDnsNameConfiguration"
           }
         },
+        "PayerResponsibility": {
+          "target": "com.amazonaws.ec2#PayerResponsibility",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PayerResponsibility",
+            "smithy.api#documentation": "<p>The payer responsibility.</p>",
+            "smithy.api#xmlName": "payerResponsibility"
+          }
+        },
         "Tags": {
           "target": "com.amazonaws.ec2#TagList",
           "traits": {
@@ -67723,6 +67890,14 @@
             "aws.protocols#ec2QueryName": "ManagesVpcEndpoints",
             "smithy.api#documentation": "<p>Indicates whether the service manages its VPC endpoints. Management of the service VPC\n            endpoints using the VPC endpoint API is restricted.</p>",
             "smithy.api#xmlName": "managesVpcEndpoints"
+          }
+        },
+        "PayerResponsibility": {
+          "target": "com.amazonaws.ec2#PayerResponsibility",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PayerResponsibility",
+            "smithy.api#documentation": "<p>The payer responsibility.</p>",
+            "smithy.api#xmlName": "payerResponsibility"
           }
         },
         "Tags": {
@@ -68619,13 +68794,13 @@
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
             "aws.protocols#ec2QueryName": "TerminationDelay",
-            "smithy.api#documentation": "<p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot\n            Instance after launching a new replacement Spot Instance.</p>\n        <p>Valid only when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>\n        <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>",
+            "smithy.api#documentation": "<p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot\n            Instance after launching a new replacement Spot Instance.</p>\n        <p>Required when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>\n        <p>Not valid when <code>ReplacementStrategy</code> is set to <code>launch</code>.</p>\n        <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>",
             "smithy.api#xmlName": "terminationDelay"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your\n            Spot Instance is at an elevated risk of being interrupted. For more information, see\n                <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#spot-fleet-capacity-rebalance\">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>"
+        "smithy.api#documentation": "<p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your\n            Spot Instance is at an elevated risk of being interrupted. For more information, see\n                <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html\">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>"
       }
     },
     "com.amazonaws.ec2#SpotDatafeedSubscription": {
@@ -69484,7 +69659,7 @@
           "target": "com.amazonaws.ec2#SpotCapacityRebalance",
           "traits": {
             "aws.protocols#ec2QueryName": "CapacityRebalance",
-            "smithy.api#documentation": "<p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an\n            elevated risk of being interrupted.</p>",
+            "smithy.api#documentation": "<p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your\n            Spot Instance is at an elevated risk of being interrupted. For more information, see\n            <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html\">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>",
             "smithy.api#xmlName": "capacityRebalance"
           }
         }
@@ -78061,7 +78236,7 @@
         "DPDTimeoutSeconds": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The number of seconds after which a DPD timeout occurs.</p>\n        <p>Constraints: A value between 0 and 30.</p>\n        <p>Default: <code>30</code>\n         </p>"
+            "smithy.api#documentation": "<p>The number of seconds after which a DPD timeout occurs.</p>\n        <p>Constraints: A value greater than or equal to 30.</p>\n        <p>Default: <code>30</code>\n         </p>"
           }
         },
         "DPDTimeoutAction": {
