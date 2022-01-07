@@ -10,7 +10,7 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "yarn clean:dist && yarn clean:docs",
-    "clean:dist": "rimraf ./dist",
+    "clean:dist": "rimraf ./dist-*",
     "clean:docs": "rimraf ./docs",
     "test:integration": "jest --config jest.integ.config.js"
   },
