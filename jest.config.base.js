@@ -5,7 +5,11 @@ module.exports = {
   testMatch: ["**/*.spec.ts", "!**/*.browser.spec.ts", "!**/*.integ.spec.ts"],
   globals: {
     "ts-jest": {
-      tsconfig: { ...compilerOptions, noImplicitAny: false },
+      tsconfig: {
+        ...compilerOptions,
+        noImplicitAny: false,
+        strictNullChecks: false,
+      },
     },
   },
 };
