@@ -22,7 +22,7 @@ export interface UpdateResourceShareCommandInput extends UpdateResourceShareRequ
 export interface UpdateResourceShareCommandOutput extends UpdateResourceShareResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified resource share that you own.</p>
+ * <p>Modifies some of the properties of the specified resource share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -32,7 +32,7 @@ describe(chunkFromReadable.name, () => {
     return chunks;
   };
 
-  it("should return chunks of a specific size", async (done) => {
+  it("should return chunks of a specific size", async () => {
     const chunks = await getChunks(58, 1, 20);
 
     expect(chunks.length).toBe(3);
@@ -47,10 +47,9 @@ describe(chunkFromReadable.name, () => {
     expect(byteLength(chunks[2].data)).toEqual(18);
     expect(chunks[2].partNumber).toEqual(3);
     expect(chunks[2].lastPart).toBe(true);
-    done();
   });
 
-  it("should properly chunk a file", async (done) => {
+  it("should properly chunk a file", async () => {
     const fileStream = fs.createReadStream(__dirname + "/sample.file");
     const chunks: DataPart[] = [];
     const chunker = chunkFromReadable<Readable>(fileStream, _6MB, getDataReadable);
@@ -62,10 +61,9 @@ describe(chunkFromReadable.name, () => {
     expect(byteLength(chunks[0].data)).toEqual(byteLength(fileStream));
     expect(chunks[0].partNumber).toEqual(1);
     expect(chunks[0].lastPart).toBe(true);
-    done();
   });
 
-  it("should properly chunk a large stream of unknown size", async (done) => {
+  it("should properly chunk a large stream of unknown size", async () => {
     //should go into 11 chunks. Each with ~6mb and the last with 3mb
     const chunks = await getChunks(_6MB / 2, 21, _6MB);
 
@@ -76,6 +74,5 @@ describe(chunkFromReadable.name, () => {
     }
     expect(byteLength(chunks[10].data)).toEqual(_6MB / 2);
     expect(chunks[10].lastPart).toBe(true);
-    done();
   });
 });

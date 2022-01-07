@@ -298,6 +298,7 @@ final class AwsProtocolUtils {
         if (testCase.getId().equals("QueryCustomizedError")) {
             return true;
         }
+
         // TODO: Remove when server protocol tests are fixed in
         // https://github.com/aws/aws-sdk-js-v3/issues/3058
         // TODO: Move to filter specific to server protocol tests if added in
@@ -306,6 +307,19 @@ final class AwsProtocolUtils {
             || testCase.getId().equals("RestJsonHttpWithHeadersButNoPayload")) {
             return true;
         }
+
+        // TODO: remove when there's a decision on separator to use
+        // https://github.com/awslabs/smithy/issues/1014
+        if (testCase.getId().equals("RestJsonInputAndOutputWithQuotedStringHeaders")) {
+            return true;
+        }
+
+        // TODO: remove when there's a decision on behavior for list of timestamps.
+        // https://github.com/awslabs/smithy/issues/1015
+        if (testCase.getId().equals("RestJsonInputAndOutputWithTimestampHeaders")) {
+            return true;
+        }
+
         return false;
     }
 

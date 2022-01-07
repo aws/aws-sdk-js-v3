@@ -12,6 +12,11 @@ import {
   CreateLocationEfsCommandOutput,
 } from "./commands/CreateLocationEfsCommand";
 import {
+  CreateLocationFsxLustreCommand,
+  CreateLocationFsxLustreCommandInput,
+  CreateLocationFsxLustreCommandOutput,
+} from "./commands/CreateLocationFsxLustreCommand";
+import {
   CreateLocationFsxWindowsCommand,
   CreateLocationFsxWindowsCommandInput,
   CreateLocationFsxWindowsCommandOutput,
@@ -59,6 +64,11 @@ import {
   DescribeLocationEfsCommandInput,
   DescribeLocationEfsCommandOutput,
 } from "./commands/DescribeLocationEfsCommand";
+import {
+  DescribeLocationFsxLustreCommand,
+  DescribeLocationFsxLustreCommandInput,
+  DescribeLocationFsxLustreCommandOutput,
+} from "./commands/DescribeLocationFsxLustreCommand";
 import {
   DescribeLocationFsxWindowsCommand,
   DescribeLocationFsxWindowsCommandInput,
@@ -267,6 +277,38 @@ export class DataSync extends DataSyncClient {
     cb?: (err: any, data?: CreateLocationEfsCommandOutput) => void
   ): Promise<CreateLocationEfsCommandOutput> | void {
     const command = new CreateLocationEfsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an endpoint for an Amazon FSx for Lustre file system.</p>
+   */
+  public createLocationFsxLustre(
+    args: CreateLocationFsxLustreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocationFsxLustreCommandOutput>;
+  public createLocationFsxLustre(
+    args: CreateLocationFsxLustreCommandInput,
+    cb: (err: any, data?: CreateLocationFsxLustreCommandOutput) => void
+  ): void;
+  public createLocationFsxLustre(
+    args: CreateLocationFsxLustreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocationFsxLustreCommandOutput) => void
+  ): void;
+  public createLocationFsxLustre(
+    args: CreateLocationFsxLustreCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationFsxLustreCommandOutput) => void),
+    cb?: (err: any, data?: CreateLocationFsxLustreCommandOutput) => void
+  ): Promise<CreateLocationFsxLustreCommandOutput> | void {
+    const command = new CreateLocationFsxLustreCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -665,6 +707,39 @@ export class DataSync extends DataSyncClient {
     cb?: (err: any, data?: DescribeLocationEfsCommandOutput) => void
   ): Promise<DescribeLocationEfsCommandOutput> | void {
     const command = new DescribeLocationEfsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns metadata, such as the path information about an Amazon FSx for Lustre
+   *       location.</p>
+   */
+  public describeLocationFsxLustre(
+    args: DescribeLocationFsxLustreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLocationFsxLustreCommandOutput>;
+  public describeLocationFsxLustre(
+    args: DescribeLocationFsxLustreCommandInput,
+    cb: (err: any, data?: DescribeLocationFsxLustreCommandOutput) => void
+  ): void;
+  public describeLocationFsxLustre(
+    args: DescribeLocationFsxLustreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLocationFsxLustreCommandOutput) => void
+  ): void;
+  public describeLocationFsxLustre(
+    args: DescribeLocationFsxLustreCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationFsxLustreCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLocationFsxLustreCommandOutput) => void
+  ): Promise<DescribeLocationFsxLustreCommandOutput> | void {
+    const command = new DescribeLocationFsxLustreCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

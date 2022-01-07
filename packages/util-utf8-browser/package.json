@@ -9,7 +9,7 @@
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build:types": "tsc -p tsconfig.types.json",
-    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "test": "jest"
   },
   "author": {
@@ -20,11 +20,7 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "devDependencies": {
-    "@types/jest": "^26.0.4",
-    "jest": "^26.1.0",
-    "typescript": "~4.3.5"
-  },
+  "devDependencies": {},
   "types": "./dist-types/index.d.ts",
   "typesVersions": {
     "<4.0": {

@@ -29,8 +29,12 @@ describe("setConnectionTimeout", () => {
     };
 
     beforeEach(() => {
-      jest.useFakeTimers();
+      jest.useFakeTimers("legacy");
       setConnectionTimeout(clientRequest, reject, timeoutInMs);
+    });
+
+    afterEach(() => {
+      jest.useRealTimers();
     });
 
     it("attaches listener", () => {

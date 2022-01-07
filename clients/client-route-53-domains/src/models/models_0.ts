@@ -6,7 +6,7 @@ import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException
  */
 export interface AcceptDomainTransferFromAnotherAwsAccountRequest {
   /**
-   * <p>The name of the domain that was specified when another AWS account submitted a
+   * <p>The name of the domain that was specified when another Amazon Web Services account submitted a
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>
    * 			request.
    * 		</p>
@@ -117,6 +117,27 @@ export namespace OperationLimitExceeded {
   });
 }
 
+/**
+ * <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ */
+export interface UnsupportedTLD extends __SmithyException, $MetadataBearer {
+  name: "UnsupportedTLD";
+  $fault: "client";
+  /**
+   * <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+   */
+  message?: string;
+}
+
+export namespace UnsupportedTLD {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnsupportedTLD): any => ({
+    ...obj,
+  });
+}
+
 export enum OperationType {
   ADD_DNSSEC = "ADD_DNSSEC",
   CHANGE_DOMAIN_OWNER = "CHANGE_DOMAIN_OWNER",
@@ -187,7 +208,7 @@ export namespace BillingRecord {
  */
 export interface CancelDomainTransferToAnotherAwsAccountRequest {
   /**
-   * <p>The name of the domain for which you want to cancel the transfer to another AWS account.</p>
+   * <p>The name of the domain for which you want to cancel the transfer to another Amazon Web Services account.</p>
    */
   DomainName: string | undefined;
 }
@@ -345,27 +366,6 @@ export namespace CheckDomainAvailabilityResponse {
 }
 
 /**
- * <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
- */
-export interface UnsupportedTLD extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedTLD";
-  $fault: "client";
-  /**
-   * <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
-   */
-  message?: string;
-}
-
-export namespace UnsupportedTLD {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedTLD): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>The CheckDomainTransferability request contains the following elements.</p>
  */
 export interface CheckDomainTransferabilityRequest {
@@ -475,6 +475,7 @@ export namespace CheckDomainTransferabilityResponse {
 export type ContactType = "ASSOCIATION" | "COMPANY" | "PERSON" | "PUBLIC_BODY" | "RESELLER";
 
 export type CountryCode =
+  | "AC"
   | "AD"
   | "AE"
   | "AF"
@@ -490,6 +491,7 @@ export type CountryCode =
   | "AT"
   | "AU"
   | "AW"
+  | "AX"
   | "AZ"
   | "BA"
   | "BB"
@@ -504,9 +506,11 @@ export type CountryCode =
   | "BM"
   | "BN"
   | "BO"
+  | "BQ"
   | "BR"
   | "BS"
   | "BT"
+  | "BV"
   | "BW"
   | "BY"
   | "BZ"
@@ -525,6 +529,7 @@ export type CountryCode =
   | "CR"
   | "CU"
   | "CV"
+  | "CW"
   | "CX"
   | "CY"
   | "CZ"
@@ -537,6 +542,7 @@ export type CountryCode =
   | "EC"
   | "EE"
   | "EG"
+  | "EH"
   | "ER"
   | "ES"
   | "ET"
@@ -550,18 +556,23 @@ export type CountryCode =
   | "GB"
   | "GD"
   | "GE"
+  | "GF"
+  | "GG"
   | "GH"
   | "GI"
   | "GL"
   | "GM"
   | "GN"
+  | "GP"
   | "GQ"
   | "GR"
+  | "GS"
   | "GT"
   | "GU"
   | "GW"
   | "GY"
   | "HK"
+  | "HM"
   | "HN"
   | "HR"
   | "HT"
@@ -571,10 +582,12 @@ export type CountryCode =
   | "IL"
   | "IM"
   | "IN"
+  | "IO"
   | "IQ"
   | "IR"
   | "IS"
   | "IT"
+  | "JE"
   | "JM"
   | "JO"
   | "JP"
@@ -613,6 +626,7 @@ export type CountryCode =
   | "MN"
   | "MO"
   | "MP"
+  | "MQ"
   | "MR"
   | "MS"
   | "MT"
@@ -625,6 +639,7 @@ export type CountryCode =
   | "NA"
   | "NC"
   | "NE"
+  | "NF"
   | "NG"
   | "NI"
   | "NL"
@@ -644,10 +659,12 @@ export type CountryCode =
   | "PM"
   | "PN"
   | "PR"
+  | "PS"
   | "PT"
   | "PW"
   | "PY"
   | "QA"
+  | "RE"
   | "RO"
   | "RS"
   | "RU"
@@ -660,18 +677,22 @@ export type CountryCode =
   | "SG"
   | "SH"
   | "SI"
+  | "SJ"
   | "SK"
   | "SL"
   | "SM"
   | "SN"
   | "SO"
   | "SR"
+  | "SS"
   | "ST"
   | "SV"
+  | "SX"
   | "SY"
   | "SZ"
   | "TC"
   | "TD"
+  | "TF"
   | "TG"
   | "TH"
   | "TJ"
@@ -680,6 +701,7 @@ export type CountryCode =
   | "TM"
   | "TN"
   | "TO"
+  | "TP"
   | "TR"
   | "TT"
   | "TV"
@@ -722,6 +744,7 @@ export enum ExtraParamName {
   ES_IDENTIFICATION = "ES_IDENTIFICATION",
   ES_IDENTIFICATION_TYPE = "ES_IDENTIFICATION_TYPE",
   ES_LEGAL_FORM = "ES_LEGAL_FORM",
+  EU_COUNTRY_OF_CITIZENSHIP = "EU_COUNTRY_OF_CITIZENSHIP",
   FI_BUSINESS_NUMBER = "FI_BUSINESS_NUMBER",
   FI_NATIONALITY = "FI_NATIONALITY",
   FI_ORGANIZATION_TYPE = "FI_ORGANIZATION_TYPE",
@@ -982,19 +1005,64 @@ export interface ExtraParam {
    *                      <p>
    *                         <code>ES_IDENTIFICATION</code>
    *                      </p>
-   * 							              <p>Specify the applicable value:</p>
+   * 							              <p>The value of <code>ES_IDENTIFICATION</code> depends on the following values:</p>
    * 							              <ul>
    *                         <li>
-   *                            <p>
-   *                               <b>For contacts inside Spain:</b> Enter your passport ID.</p>
+   *                            <p>The value of <code>ES_LEGAL_FORM</code>
+   *                            </p>
    *                         </li>
    *                         <li>
-   *                            <p>
-   *                               <b>For contacts outside of Spain:</b> Enter the VAT identification number
-   * 									for the company.</p>
-   * 									                  <note>
-   *                               <p>For .es domains, the value of <code>ContactType</code> must be <code>PERSON</code>.</p>
-   *                            </note>
+   *                            <p>The value of <code>ES_IDENTIFICATION_TYPE</code>
+   *                            </p>
+   *                         </li>
+   *                      </ul>
+   *
+   * 							              <p>
+   *                         <b>If <code>ES_LEGAL_FORM</code> is any value other than <code>INDIVIDUAL</code>:</b>
+   *                      </p>
+   * 							              <ul>
+   *                         <li>
+   *                            <p>Specify 1 letter + 8 numbers (CIF [Certificado de Identificación Fiscal])</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Example: B12345678</p>
+   *                         </li>
+   *                      </ul>
+   *
+   * 							              <p>
+   *                         <b>If <code>ES_LEGAL_FORM</code> is <code>INDIVIDUAL</code>, the value that you specify for
+   * 								<code>ES_IDENTIFICATION</code> depends on the value of <code>ES_IDENTIFICATION_TYPE</code>:</b>
+   *                      </p>
+   * 							              <ul>
+   *                         <li>
+   * 									                  <p>If <code>ES_IDENTIFICATION_TYPE</code> is <code>DNI_AND_NIF</code> (for Spanish contacts):</p>
+   * 									                  <ul>
+   *                               <li>
+   *                                  <p>Specify 8 numbers + 1 letter (DNI [Documento Nacional de Identidad], NIF [Número de Identificación Fiscal])</p>
+   *                               </li>
+   *                               <li>
+   *                                  <p>Example: 12345678M</p>
+   *                               </li>
+   *                            </ul>
+   * 								                </li>
+   *                         <li>
+   * 									                  <p>If <code>ES_IDENTIFICATION_TYPE</code> is <code>NIE</code> (for foreigners with legal residence):</p>
+   * 									                  <ul>
+   *                               <li>
+   *                                  <p>Specify 1 letter + 7 numbers + 1 letter ( NIE [Número de Identidad de Extranjero])</p>
+   *                               </li>
+   *                               <li>
+   *                                  <p>Example: Y1234567X</p>
+   *                               </li>
+   *                            </ul>
+   * 								                </li>
+   *                         <li>
+   * 									                  <p>If <code>ES_IDENTIFICATION_TYPE</code> is <code>OTHER</code> (for contacts outside of Spain):</p>
+   * 									                  <ul>
+   *                               <li>
+   *                                  <p>Specify a passport number, drivers license number, or national identity card number</p>
+   *                               </li>
+   *                            </ul>
    * 								                </li>
    *                      </ul>
    * 						            </li>
@@ -1219,6 +1287,16 @@ export interface ExtraParam {
    * 						            </li>
    *                </ul>
    * 				        </dd>
+   *             <dt>.eu</dt>
+   *             <dd>
+   * 		            <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code> EU_COUNTRY_OF_CITIZENSHIP</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   * 		          </dd>
    *             <dt>.fi</dt>
    *             <dd>
    * 					          <ul>
@@ -1523,6 +1601,7 @@ export namespace ExtraParam {
    */
   export const filterSensitiveLog = (obj: ExtraParam): any => ({
     ...obj,
+    ...(obj.Value && { Value: SENSITIVE_STRING }),
   });
 }
 
@@ -1555,8 +1634,7 @@ export interface ContactDetail {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For .es domains, if you specify <code>PERSON</code>, you must specify <code>INDIVIDUAL</code>
-   * 				for the value of <code>ES_LEGAL_FORM</code>.</p>
+   *                <p>For .es domains, the value of <code>ContactType</code> must be <code>PERSON</code> for all three contacts.</p>
    *             </li>
    *          </ul>
    */
@@ -1627,6 +1705,82 @@ export namespace ContactDetail {
    * @internal
    */
   export const filterSensitiveLog = (obj: ContactDetail): any => ({
+    ...obj,
+    ...(obj.ExtraParams && { ExtraParams: obj.ExtraParams.map((item) => ExtraParam.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface DeleteDomainRequest {
+  /**
+   * <p>Name of the domain to be deleted.</p>
+   */
+  DomainName: string | undefined;
+}
+
+export namespace DeleteDomainRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteDomainRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteDomainResponse {
+  /**
+   * <p>Identifier for tracking the progress of the request.
+   * 			To query the operation status, use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
+   */
+  OperationId?: string;
+}
+
+export namespace DeleteDomainResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteDomainResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request is already in progress for the domain.</p>
+ */
+export interface DuplicateRequest extends __SmithyException, $MetadataBearer {
+  name: "DuplicateRequest";
+  $fault: "client";
+  /**
+   * <p>The request is already in progress for the domain.</p>
+   */
+  message?: string;
+}
+
+export namespace DuplicateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DuplicateRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The top-level domain does not support this operation.</p>
+ */
+export interface TLDRulesViolation extends __SmithyException, $MetadataBearer {
+  name: "TLDRulesViolation";
+  $fault: "client";
+  /**
+   * <p>The top-level domain does not support this operation.</p>
+   */
+  message?: string;
+}
+
+export namespace TLDRulesViolation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TLDRulesViolation): any => ({
     ...obj,
   });
 }
@@ -1733,43 +1887,69 @@ export namespace DisableDomainTransferLockResponse {
 }
 
 /**
- * <p>The request is already in progress for the domain.</p>
+ * <p>Currency-specific price information.</p>
  */
-export interface DuplicateRequest extends __SmithyException, $MetadataBearer {
-  name: "DuplicateRequest";
-  $fault: "client";
+export interface PriceWithCurrency {
   /**
-   * <p>The request is already in progress for the domain.</p>
+   * <p>The price of a domain, in a specific currency.</p>
    */
-  message?: string;
+  Price: number | undefined;
+
+  /**
+   * <p>The currency specifier.</p>
+   */
+  Currency: string | undefined;
 }
 
-export namespace DuplicateRequest {
+export namespace PriceWithCurrency {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DuplicateRequest): any => ({
+  export const filterSensitiveLog = (obj: PriceWithCurrency): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The top-level domain does not support this operation.</p>
+ * <p>Information about the domain price associated with a TLD.</p>
  */
-export interface TLDRulesViolation extends __SmithyException, $MetadataBearer {
-  name: "TLDRulesViolation";
-  $fault: "client";
+export interface DomainPrice {
   /**
-   * <p>The top-level domain does not support this operation.</p>
+   * <p>The name of the TLD for which the prices apply.</p>
    */
-  message?: string;
+  Name?: string;
+
+  /**
+   * <p>The price for domain registration with Route 53.</p>
+   */
+  RegistrationPrice?: PriceWithCurrency;
+
+  /**
+   * <p>The price for transferring the domain registration to Route 53.</p>
+   */
+  TransferPrice?: PriceWithCurrency;
+
+  /**
+   * <p>The price for renewing domain registration with Route 53.</p>
+   */
+  RenewalPrice?: PriceWithCurrency;
+
+  /**
+   * <p>The price for changing domain ownership.</p>
+   */
+  ChangeOwnershipPrice?: PriceWithCurrency;
+
+  /**
+   * <p>The price for restoring the domain with Route 53.</p>
+   */
+  RestorationPrice?: PriceWithCurrency;
 }
 
-export namespace TLDRulesViolation {
+export namespace DomainPrice {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TLDRulesViolation): any => ({
+  export const filterSensitiveLog = (obj: DomainPrice): any => ({
     ...obj,
   });
 }
@@ -1942,6 +2122,61 @@ export namespace EnableDomainTransferLockResponse {
   });
 }
 
+export enum ListDomainsAttributeName {
+  DomainName = "DomainName",
+  Expiry = "Expiry",
+}
+
+export enum Operator {
+  BEGINS_WITH = "BEGINS_WITH",
+  GE = "GE",
+  LE = "LE",
+}
+
+/**
+ * <p>Information for the filtering of a list of domains returned by
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains__ListDomains.html">ListDomains</a>.</p>
+ */
+export interface FilterCondition {
+  /**
+   * <p>Name of the field which should be used for filtering the list of domains.</p>
+   */
+  Name: ListDomainsAttributeName | string | undefined;
+
+  /**
+   * <p>The operator values for filtering domain names. The values can be:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LE</code>: Less than, or equal to</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GE</code>: Greater than, or equal to</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BEGINS_WITH</code>: Begins with</p>
+   *             </li>
+   *          </ul>
+   */
+  Operator: Operator | string | undefined;
+
+  /**
+   * <p> An array of strings presenting values to compare. Only 1 item in the list is currently supported.</p>
+   */
+  Values: string[] | undefined;
+}
+
+export namespace FilterCondition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FilterCondition): any => ({
+    ...obj,
+  });
+}
+
 export interface GetContactReachabilityStatusRequest {
   /**
    * <p>The name of the domain for which you want to know whether the registrant contact has confirmed that the email address is valid.</p>
@@ -2056,7 +2291,8 @@ export interface GetDomainDetailResponse {
   DomainName: string | undefined;
 
   /**
-   * <p>The name of the domain.</p>
+   * <p>The
+   * 			name of the domain.</p>
    */
   Nameservers: Nameserver[] | undefined;
 
@@ -2081,9 +2317,10 @@ export interface GetDomainDetailResponse {
   TechContact: ContactDetail | undefined;
 
   /**
-   * <p>Specifies whether contact information is concealed from WHOIS queries. If the value is <code>true</code>,
-   * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
-   * 			or for our registrar associate, Gandi (for all other TLDs). If the value is <code>false</code>,
+   * <p>Specifies whether contact information is concealed from WHOIS
+   * 			queries. If the value is <code>true</code>, WHOIS ("who is") queries return contact
+   * 			information either for Amazon Registrar (for .com, .net, and .org domains) or for our
+   * 			registrar associate, Gandi (for all other TLDs). If the value is <code>false</code>,
    * 			WHOIS queries return the information that you entered for the admin contact.</p>
    */
   AdminPrivacy?: boolean;
@@ -2162,7 +2399,7 @@ export interface GetDomainDetailResponse {
   Reseller?: string;
 
   /**
-   * <p>Reserved for future use.</p>
+   * <p>Deprecated.</p>
    */
   DnsSec?: string;
 
@@ -2327,13 +2564,56 @@ export namespace GetOperationDetailResponse {
   });
 }
 
+export enum SortOrder {
+  ASC = "ASC",
+  DESC = "DESC",
+}
+
+/**
+ * <p>Information for sorting a list of domains.</p>
+ */
+export interface SortCondition {
+  /**
+   * <p>Field to be used for sorting the list of domains. It can be either the name or the expiration for a domain. Note that if
+   * 			<code>filterCondition</code> is used in the same
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains__ListDomains.html">ListDomains</a>
+   * 			 call, the field used for sorting has to be the same as the field used for filtering.</p>
+   */
+  Name: ListDomainsAttributeName | string | undefined;
+
+  /**
+   * <p>The sort order for a list of domains. Either ascending (ASC) or descending (DES).</p>
+   */
+  SortOrder: SortOrder | string | undefined;
+}
+
+export namespace SortCondition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SortCondition): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The ListDomains request includes the following elements.</p>
  */
 export interface ListDomainsRequest {
   /**
+   * <p>A complex type that contains information about the filters applied during the <code>ListDomains</code> request. The filter conditions can
+   * 			include domain name and domain expiration.</p>
+   */
+  FilterConditions?: FilterCondition[];
+
+  /**
+   * <p>A complex type that contains information about the requested ordering of domains in the returned list.</p>
+   */
+  SortCondition?: SortCondition;
+
+  /**
    * <p>For an initial request for a list of domains, omit this element. If the number of domains
-   * 			that are associated with the current AWS account is greater than the value that you specified for
+   * 			that are associated with the current Amazon Web Services account is greater than the value that you specified for
    * 			<code>MaxItems</code>, you can use <code>Marker</code> to return additional domains. Get the value of
    * 			<code>NextPageMarker</code> from the previous response, and submit another request that includes the
    * 			value of <code>NextPageMarker</code> in the <code>Marker</code> element.</p>
@@ -2362,7 +2642,7 @@ export namespace ListDomainsRequest {
  */
 export interface ListDomainsResponse {
   /**
-   * <p>A summary of domains.</p>
+   * <p>A list of domains.</p>
    */
   Domains: DomainSummary[] | undefined;
 
@@ -2471,6 +2751,65 @@ export namespace ListOperationsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListOperationsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPricesRequest {
+  /**
+   * <p>The TLD for which you want to receive the pricing information. For example.
+   * 				<code>.net</code>.</p>
+   * 		       <p>If a <code>Tld</code> value is not provided, a list of prices for all TLDs supported by Route 53
+   * 		is returned.</p>
+   */
+  Tld?: string;
+
+  /**
+   * <p>For an initial request for a list of prices, omit this element.
+   * 			If the number of prices that are not yet complete is greater than the value that you specified for <code>MaxItems</code>,
+   * 			you can use <code>Marker</code> to return additional prices. Get the value of <code>NextPageMarker</code> from the previous response,
+   * 			and submit another request that includes the value of <code>NextPageMarker</code> in the <code>Marker</code> element. </p>
+   * 		       <p>Used only for all TLDs. If you specify a TLD, don't specify a <code>Marker</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>Number of <code>Prices</code> to be returned.</p>
+   * 		       <p>Used only for all TLDs. If you specify a TLD, don't specify a <code>MaxItems</code>.</p>
+   */
+  MaxItems?: number;
+}
+
+export namespace ListPricesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPricesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPricesResponse {
+  /**
+   * <p>A complex type that includes all the pricing information. If you specify a TLD, this array
+   * 			contains only the pricing for that TLD.</p>
+   */
+  Prices: DomainPrice[] | undefined;
+
+  /**
+   * <p>If there are more prices than you specified for <code>MaxItems</code> in the request, submit another request and include the value of
+   * 			<code>NextPageMarker</code> in the value of <code>Marker</code>. </p>
+   * 		       <p>Used only for all TLDs. If you specify a TLD, don't specify a
+   * 			<code>NextPageMarker</code>.</p>
+   */
+  NextPageMarker?: string;
+}
+
+export namespace ListPricesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPricesResponse): any => ({
     ...obj,
   });
 }
@@ -2619,6 +2958,9 @@ export interface RegisterDomainRequest {
    * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
    * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
    * 			WHOIS queries return the information that you entered for the admin contact.</p>
+   * 		       <note>
+   * 			         <p>You must specify the same privacy setting for the administrative, registrant, and technical contacts.</p>
+   * 		       </note>
    * 		       <p>Default: <code>true</code>
    *          </p>
    */
@@ -2629,6 +2971,9 @@ export interface RegisterDomainRequest {
    * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
    * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
    * 			WHOIS queries return the information that you entered for the registrant contact (the domain owner).</p>
+   * 		       <note>
+   * 			         <p>You must specify the same privacy setting for the administrative, registrant, and technical contacts.</p>
+   * 		       </note>
    * 		       <p>Default: <code>true</code>
    *          </p>
    */
@@ -2639,6 +2984,9 @@ export interface RegisterDomainRequest {
    * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
    * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
    * 			WHOIS queries return the information that you entered for the technical contact.</p>
+   * 		       <note>
+   * 			         <p>You must specify the same privacy setting for the administrative, registrant, and technical contacts.</p>
+   * 		       </note>
    * 		       <p>Default: <code>true</code>
    *          </p>
    */
@@ -2682,7 +3030,7 @@ export namespace RegisterDomainResponse {
  */
 export interface RejectDomainTransferFromAnotherAwsAccountRequest {
   /**
-   * <p>The name of the domain that was specified when another AWS account submitted a
+   * <p>The name of the domain that was specified when another Amazon Web Services account submitted a
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>
    * 			request.
    * 		</p>
@@ -2930,6 +3278,9 @@ export interface TransferDomainRequest {
    * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
    * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
    * 			WHOIS queries return the information that you entered for the admin contact.</p>
+   * 		       <note>
+   * 			         <p>You must specify the same privacy setting for the administrative, registrant, and technical contacts.</p>
+   * 		       </note>
    * 		       <p>Default: <code>true</code>
    *          </p>
    */
@@ -2940,6 +3291,9 @@ export interface TransferDomainRequest {
    * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
    * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
    * 			WHOIS queries return the information that you entered for the registrant contact (domain owner).</p>
+   * 		       <note>
+   * 			         <p>You must specify the same privacy setting for the administrative, registrant, and technical contacts.</p>
+   * 		       </note>
    * 		       <p>Default: <code>true</code>
    *          </p>
    */
@@ -2950,6 +3304,9 @@ export interface TransferDomainRequest {
    * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
    * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
    * 			WHOIS queries return the information that you entered for the technical contact.</p>
+   * 		       <note>
+   * 			         <p>You must specify the same privacy setting for the administrative, registrant, and technical contacts.</p>
+   * 		       </note>
    * 		       <p>Default: <code>true</code>
    *          </p>
    */
@@ -2994,12 +3351,12 @@ export namespace TransferDomainResponse {
  */
 export interface TransferDomainToAnotherAwsAccountRequest {
   /**
-   * <p>The name of the domain that you want to transfer from the current AWS account to another account.</p>
+   * <p>The name of the domain that you want to transfer from the current Amazon Web Services account to another account.</p>
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The account ID of the AWS account that you want to transfer the domain to, for example, <code>111122223333</code>.</p>
+   * <p>The account ID of the Amazon Web Services account that you want to transfer the domain to, for example, <code>111122223333</code>.</p>
    */
   AccountId: string | undefined;
 }
@@ -3024,7 +3381,7 @@ export interface TransferDomainToAnotherAwsAccountResponse {
   OperationId?: string;
 
   /**
-   * <p>To finish transferring a domain to another AWS account, the account that the domain is being transferred to must submit an
+   * <p>To finish transferring a domain to another Amazon Web Services account, the account that the domain is being transferred to must submit an
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html">AcceptDomainTransferFromAnotherAwsAccount</a>
    * 			request. The request must include the value of the <code>Password</code> element that was returned in the
    * 			<code>TransferDomainToAnotherAwsAccount</code> response.</p>
@@ -3112,6 +3469,9 @@ export interface UpdateDomainContactPrivacyRequest {
    * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
    * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
    * 			WHOIS queries return the information that you entered for the admin contact.</p>
+   * 		       <note>
+   * 			         <p>You must specify the same privacy setting for the administrative, registrant, and technical contacts.</p>
+   * 		       </note>
    */
   AdminPrivacy?: boolean;
 
@@ -3120,6 +3480,9 @@ export interface UpdateDomainContactPrivacyRequest {
    * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
    * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
    * 			WHOIS queries return the information that you entered for the registrant contact (domain owner).</p>
+   * 		       <note>
+   * 			         <p>You must specify the same privacy setting for the administrative, registrant, and technical contacts.</p>
+   * 		       </note>
    */
   RegistrantPrivacy?: boolean;
 
@@ -3128,6 +3491,9 @@ export interface UpdateDomainContactPrivacyRequest {
    * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
    * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
    * 			WHOIS queries return the information that you entered for the technical contact.</p>
+   * 		       <note>
+   * 			         <p>You must specify the same privacy setting for the administrative, registrant, and technical contacts.</p>
+   * 		       </note>
    */
   TechPrivacy?: boolean;
 }
@@ -3191,6 +3557,7 @@ export namespace UpdateDomainNameserversRequest {
    */
   export const filterSensitiveLog = (obj: UpdateDomainNameserversRequest): any => ({
     ...obj,
+    ...(obj.FIAuthKey && { FIAuthKey: SENSITIVE_STRING }),
   });
 }
 
@@ -3268,7 +3635,7 @@ export interface ViewBillingRequest {
 
   /**
    * <p>For an initial request for a list of billing records, omit this element. If the number of billing records
-   * 			that are associated with the current AWS account during the specified period is greater than the value that
+   * 			that are associated with the current Amazon Web Services account during the specified period is greater than the value that
    * 			you specified for <code>MaxItems</code>, you can use <code>Marker</code> to return additional billing records.
    * 			Get the value of <code>NextPageMarker</code> from the previous response, and submit another request that includes
    * 			the value of <code>NextPageMarker</code> in the <code>Marker</code> element.

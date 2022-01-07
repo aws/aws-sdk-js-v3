@@ -22,7 +22,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds the specified tags to the specified resource share that you own.</p>
+ * <p>Adds the specified tag keys and values to the specified resource share. The tags are attached
+ *             only to the resource share, not to the resources that are in the resource share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

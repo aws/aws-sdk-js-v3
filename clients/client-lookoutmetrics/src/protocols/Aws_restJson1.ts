@@ -56,6 +56,10 @@ import {
   ListAnomalyDetectorsCommandOutput,
 } from "../commands/ListAnomalyDetectorsCommand";
 import {
+  ListAnomalyGroupRelatedMetricsCommandInput,
+  ListAnomalyGroupRelatedMetricsCommandOutput,
+} from "../commands/ListAnomalyGroupRelatedMetricsCommand";
+import {
   ListAnomalyGroupSummariesCommandInput,
   ListAnomalyGroupSummariesCommandOutput,
 } from "../commands/ListAnomalyGroupSummariesCommand";
@@ -99,6 +103,7 @@ import {
   DimensionValueContribution,
   ExecutionStatus,
   FileFormatDescriptor,
+  InterMetricImpactDetails,
   InternalServerException,
   ItemizedMetricStats,
   JsonFormatDescriptor,
@@ -566,6 +571,38 @@ export const serializeAws_restJson1ListAnomalyDetectorsCommand = async (
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListAnomalyGroupRelatedMetricsCommand = async (
+  input: ListAnomalyGroupRelatedMetricsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListAnomalyGroupRelatedMetrics";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AnomalyDetectorArn !== undefined &&
+      input.AnomalyDetectorArn !== null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
+    ...(input.AnomalyGroupId !== undefined &&
+      input.AnomalyGroupId !== null && { AnomalyGroupId: input.AnomalyGroupId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.RelationshipTypeFilter !== undefined &&
+      input.RelationshipTypeFilter !== null && { RelationshipTypeFilter: input.RelationshipTypeFilter }),
   });
   return new __HttpRequest({
     protocol,
@@ -2405,6 +2442,97 @@ const deserializeAws_restJson1ListAnomalyDetectorsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListAnomalyGroupRelatedMetricsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnomalyGroupRelatedMetricsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAnomalyGroupRelatedMetricsCommandError(output, context);
+  }
+  const contents: ListAnomalyGroupRelatedMetricsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    InterMetricImpactList: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.InterMetricImpactList !== undefined && data.InterMetricImpactList !== null) {
+    contents.InterMetricImpactList = deserializeAws_restJson1InterMetricImpactList(data.InterMetricImpactList, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAnomalyGroupRelatedMetricsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnomalyGroupRelatedMetricsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutmetrics#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.lookoutmetrics#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutmetrics#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.lookoutmetrics#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.lookoutmetrics#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListAnomalyGroupSummariesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3984,6 +4112,32 @@ const deserializeAws_restJson1HistoricalDataPathList = (output: any, context: __
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1InterMetricImpactDetails = (
+  output: any,
+  context: __SerdeContext
+): InterMetricImpactDetails => {
+  return {
+    AnomalyGroupId: __expectString(output.AnomalyGroupId),
+    ContributionPercentage: __limitedParseDouble(output.ContributionPercentage),
+    MetricName: __expectString(output.MetricName),
+    RelationshipType: __expectString(output.RelationshipType),
+  } as any;
+};
+
+const deserializeAws_restJson1InterMetricImpactList = (
+  output: any,
+  context: __SerdeContext
+): InterMetricImpactDetails[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1InterMetricImpactDetails(entry, context);
     });
 };
 

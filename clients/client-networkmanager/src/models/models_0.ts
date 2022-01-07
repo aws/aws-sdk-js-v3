@@ -1,5 +1,194 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { LazyJsonString as __LazyJsonString, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
+export interface AcceptAttachmentRequest {
+  /**
+   * <p>The ID of the attachment. </p>
+   */
+  AttachmentId: string | undefined;
+}
+
+export namespace AcceptAttachmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AcceptAttachmentRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum AttachmentType {
+  CONNECT = "CONNECT",
+  SITE_TO_SITE_VPN = "SITE_TO_SITE_VPN",
+  VPC = "VPC",
+}
+
+/**
+ * <p>Describes a tag.</p>
+ */
+export interface Tag {
+  /**
+   * <p>The tag key.</p>
+   *         <p>Constraints: Maximum length of 128 characters.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The tag value.</p>
+   *         <p>Constraints: Maximum length of 256 characters.</p>
+   */
+  Value?: string;
+}
+
+export namespace Tag {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a proposed segment change. In some cases, the segment change must first be evaluated and accepted. </p>
+ */
+export interface ProposedSegmentChange {
+  /**
+   * <p>The key-value tags that changed for the segment.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The rule number in the policy document that applies to this change.</p>
+   */
+  AttachmentPolicyRuleNumber?: number;
+
+  /**
+   * <p>The name of the segment to change.</p>
+   */
+  SegmentName?: string;
+}
+
+export namespace ProposedSegmentChange {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProposedSegmentChange): any => ({
+    ...obj,
+  });
+}
+
+export enum AttachmentState {
+  AVAILABLE = "AVAILABLE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  PENDING_ATTACHMENT_ACCEPTANCE = "PENDING_ATTACHMENT_ACCEPTANCE",
+  PENDING_NETWORK_UPDATE = "PENDING_NETWORK_UPDATE",
+  PENDING_TAG_ACCEPTANCE = "PENDING_TAG_ACCEPTANCE",
+  REJECTED = "REJECTED",
+  UPDATING = "UPDATING",
+}
+
+/**
+ * <p>Describes a core network attachment.</p>
+ */
+export interface Attachment {
+  /**
+   * <p>A core network ID.</p>
+   */
+  CoreNetworkId?: string;
+
+  /**
+   * <p>The ARN of a core network.</p>
+   */
+  CoreNetworkArn?: string;
+
+  /**
+   * <p>The ID of the attachment.</p>
+   */
+  AttachmentId?: string;
+
+  /**
+   * <p>The ID of the attachment account owner.</p>
+   */
+  OwnerAccountId?: string;
+
+  /**
+   * <p>The type of attachment.</p>
+   */
+  AttachmentType?: AttachmentType | string;
+
+  /**
+   * <p>The state of the attachment.</p>
+   */
+  State?: AttachmentState | string;
+
+  /**
+   * <p>The Region where the edge is located.</p>
+   */
+  EdgeLocation?: string;
+
+  /**
+   * <p>The attachment resource ARN.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The policy rule number associated with the attachment.</p>
+   */
+  AttachmentPolicyRuleNumber?: number;
+
+  /**
+   * <p>The name of the segment attachment.</p>
+   */
+  SegmentName?: string;
+
+  /**
+   * <p>The tags associated with the attachment.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The attachment to move from one segment to another.</p>
+   */
+  ProposedSegmentChange?: ProposedSegmentChange;
+
+  /**
+   * <p>The timestamp when the attachment was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The timestamp when the attachment was last updated.</p>
+   */
+  UpdatedAt?: Date;
+}
+
+export namespace Attachment {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Attachment): any => ({
+    ...obj,
+  });
+}
+
+export interface AcceptAttachmentResponse {
+  /**
+   * <p>The response to the attachment request. </p>
+   */
+  Attachment?: Attachment;
+}
+
+export namespace AcceptAttachmentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AcceptAttachmentResponse): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
@@ -15,6 +204,302 @@ export namespace AccessDeniedException {
    * @internal
    */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>There was a conflict processing the request. Updating or deleting the resource can
+ *             cause an inconsistent state.</p>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  Message: string | undefined;
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The resource type.</p>
+   */
+  ResourceType: string | undefined;
+}
+
+export namespace ConflictException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request has failed due to an internal error.</p>
+ */
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
+  name: "InternalServerException";
+  $fault: "server";
+  Message: string | undefined;
+  /**
+   * <p>Indicates when to retry the request.</p>
+   */
+  RetryAfterSeconds?: number;
+}
+
+export namespace InternalServerException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InternalServerException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified resource could not be found.</p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  Message: string | undefined;
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The resource type.</p>
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>The specified resource could not be found.</p>
+   */
+  Context?: { [key: string]: string };
+}
+
+export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request was denied due to request throttling.</p>
+ */
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
+  name: "ThrottlingException";
+  $fault: "client";
+  Message: string | undefined;
+  /**
+   * <p>Indicates when to retry the request.</p>
+   */
+  RetryAfterSeconds?: number;
+}
+
+export namespace ThrottlingException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a validation exception for a field.</p>
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>The name of the field.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The message for the field.</p>
+   */
+  Message: string | undefined;
+}
+
+export namespace ValidationExceptionField {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
+    ...obj,
+  });
+}
+
+export enum ValidationExceptionReason {
+  CANNOT_PARSE = "CannotParse",
+  FIELD_VALIDATION_FAILED = "FieldValidationFailed",
+  OTHER = "Other",
+  UNKNOWN_OPERATION = "UnknownOperation",
+}
+
+/**
+ * <p>The input fails to satisfy the constraints.</p>
+ */
+export interface ValidationException extends __SmithyException, $MetadataBearer {
+  name: "ValidationException";
+  $fault: "client";
+  Message: string | undefined;
+  /**
+   * <p>The reason for the error.</p>
+   */
+  Reason?: ValidationExceptionReason | string;
+
+  /**
+   * <p>The fields that caused the error, if applicable.</p>
+   */
+  Fields?: ValidationExceptionField[];
+}
+
+export namespace ValidationException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateConnectPeerRequest {
+  /**
+   * <p>The ID of your global network.</p>
+   */
+  GlobalNetworkId: string | undefined;
+
+  /**
+   * <p>The ID of the Connect peer.</p>
+   */
+  ConnectPeerId: string | undefined;
+
+  /**
+   * <p>The ID of the device.</p>
+   */
+  DeviceId: string | undefined;
+
+  /**
+   * <p>The ID of the link.</p>
+   */
+  LinkId?: string;
+}
+
+export namespace AssociateConnectPeerRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateConnectPeerRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ConnectPeerAssociationState {
+  available = "AVAILABLE",
+  deleted = "DELETED",
+  deleting = "DELETING",
+  pending = "PENDING",
+}
+
+/**
+ * <p>Describes a core network Connect peer association.</p>
+ */
+export interface ConnectPeerAssociation {
+  /**
+   * <p>The ID of the Connect peer.</p>
+   */
+  ConnectPeerId?: string;
+
+  /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId?: string;
+
+  /**
+   * <p>The ID of the device to connect to.</p>
+   */
+  DeviceId?: string;
+
+  /**
+   * <p>The ID of the link.</p>
+   */
+  LinkId?: string;
+
+  /**
+   * <p>The state of the Connect peer association.</p>
+   */
+  State?: ConnectPeerAssociationState | string;
+}
+
+export namespace ConnectPeerAssociation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectPeerAssociation): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateConnectPeerResponse {
+  /**
+   * <p>The response to the Connect peer request.</p>
+   */
+  ConnectPeerAssociation?: ConnectPeerAssociation;
+}
+
+export namespace AssociateConnectPeerResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateConnectPeerResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A service limit was exceeded.</p>
+ */
+export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
+  name: "ServiceQuotaExceededException";
+  $fault: "client";
+  /**
+   * <p>The error message.</p>
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The resource type.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>The limit code.</p>
+   */
+  LimitCode: string | undefined;
+
+  /**
+   * <p>The service code.</p>
+   */
+  ServiceCode: string | undefined;
+}
+
+export namespace ServiceQuotaExceededException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
 }
@@ -108,206 +593,6 @@ export namespace AssociateCustomerGatewayResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: AssociateCustomerGatewayResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>There was a conflict processing the request. Updating or deleting the resource can
- *             cause an inconsistent state.</p>
- */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  Message: string | undefined;
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The resource type.</p>
-   */
-  ResourceType: string | undefined;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The request has failed due to an internal error.</p>
- */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
-  Message: string | undefined;
-  /**
-   * <p>Indicates when to retry the request.</p>
-   */
-  RetryAfterSeconds?: number;
-}
-
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The specified resource could not be found.</p>
- */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  Message: string | undefined;
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The resource type.</p>
-   */
-  ResourceType: string | undefined;
-
-  Context?: { [key: string]: string };
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A service limit was exceeded.</p>
- */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
-  /**
-   * <p>The error message.</p>
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * <p>The resource type.</p>
-   */
-  ResourceType?: string;
-
-  /**
-   * <p>The limit code.</p>
-   */
-  LimitCode: string | undefined;
-
-  /**
-   * <p>The service code.</p>
-   */
-  ServiceCode: string | undefined;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  Message: string | undefined;
-  /**
-   * <p>Indicates when to retry the request.</p>
-   */
-  RetryAfterSeconds?: number;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a validation exception for a field.</p>
- */
-export interface ValidationExceptionField {
-  /**
-   * <p>The name of the field.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The message for the field.</p>
-   */
-  Message: string | undefined;
-}
-
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CannotParse",
-  FIELD_VALIDATION_FAILED = "FieldValidationFailed",
-  OTHER = "Other",
-  UNKNOWN_OPERATION = "UnknownOperation",
-}
-
-/**
- * <p>The input fails to satisfy the constraints.</p>
- */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  Message: string | undefined;
-  /**
-   * <p>The reason for the error.</p>
-   */
-  Reason?: ValidationExceptionReason | string;
-
-  /**
-   * <p>The fields that caused the error, if applicable.</p>
-   */
-  Fields?: ValidationExceptionField[];
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
 }
@@ -537,37 +822,105 @@ export namespace Bandwidth {
   });
 }
 
+/**
+ * <p>Describes the BGP options.</p>
+ */
+export interface BgpOptions {
+  /**
+   * <p>The Peer ASN of the BGP.</p>
+   */
+  PeerAsn?: number;
+}
+
+export namespace BgpOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BgpOptions): any => ({
+    ...obj,
+  });
+}
+
+export enum ChangeAction {
+  ADD = "ADD",
+  MODIFY = "MODIFY",
+  REMOVE = "REMOVE",
+}
+
+export enum ChangeSetState {
+  EXECUTING = "EXECUTING",
+  EXECUTION_SUCCEEDED = "EXECUTION_SUCCEEDED",
+  FAILED_GENERATION = "FAILED_GENERATION",
+  OUT_OF_DATE = "OUT_OF_DATE",
+  PENDING_GENERATION = "PENDING_GENERATION",
+  READY_TO_EXECUTE = "READY_TO_EXECUTE",
+}
+
+export enum ChangeType {
+  ATTACHMENT_MAPPING = "ATTACHMENT_MAPPING",
+  ATTACHMENT_ROUTE_PROPAGATION = "ATTACHMENT_ROUTE_PROPAGATION",
+  ATTACHMENT_ROUTE_STATIC = "ATTACHMENT_ROUTE_STATIC",
+  CORE_NETWORK_EDGE = "CORE_NETWORK_EDGE",
+  CORE_NETWORK_SEGMENT = "CORE_NETWORK_SEGMENT",
+}
+
+export enum TunnelProtocol {
+  GRE = "GRE",
+}
+
+/**
+ * <p>Describes a core network Connect attachment options.</p>
+ */
+export interface ConnectAttachmentOptions {
+  /**
+   * <p>The protocol used for the attachment connection.</p>
+   */
+  Protocol?: TunnelProtocol | string;
+}
+
+export namespace ConnectAttachmentOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectAttachmentOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a core network Connect attachment.</p>
+ */
+export interface ConnectAttachment {
+  /**
+   * <p>The attachment details.</p>
+   */
+  Attachment?: Attachment;
+
+  /**
+   * <p>The ID of the transport attachment.</p>
+   */
+  TransportAttachmentId?: string;
+
+  /**
+   * <p>Options for connecting an attachment.</p>
+   */
+  Options?: ConnectAttachmentOptions;
+}
+
+export namespace ConnectAttachment {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectAttachment): any => ({
+    ...obj,
+  });
+}
+
 export enum ConnectionState {
   available = "AVAILABLE",
   deleting = "DELETING",
   pending = "PENDING",
   updating = "UPDATING",
-}
-
-/**
- * <p>Describes a tag.</p>
- */
-export interface Tag {
-  /**
-   * <p>The tag key.</p>
-   *         <p>Constraints: Maximum length of 128 characters.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The tag value.</p>
-   *         <p>Constraints: Maximum length of 256 characters.</p>
-   */
-  Value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -678,6 +1031,690 @@ export namespace ConnectionHealth {
   });
 }
 
+/**
+ * <p>Describes a core network BGP configuration.</p>
+ */
+export interface ConnectPeerBgpConfiguration {
+  /**
+   * <p>The ASN of the Coret Network.</p>
+   */
+  CoreNetworkAsn?: number;
+
+  /**
+   * <p>The ASN of the Connect peer.</p>
+   */
+  PeerAsn?: number;
+
+  /**
+   * <p>The address of a core network.</p>
+   */
+  CoreNetworkAddress?: string;
+
+  /**
+   * <p>The address of a core network Connect peer.</p>
+   */
+  PeerAddress?: string;
+}
+
+export namespace ConnectPeerBgpConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectPeerBgpConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a core network Connect peer configuration.</p>
+ */
+export interface ConnectPeerConfiguration {
+  /**
+   * <p>The IP address of a core network.</p>
+   */
+  CoreNetworkAddress?: string;
+
+  /**
+   * <p>The IP address of the Connect peer.</p>
+   */
+  PeerAddress?: string;
+
+  /**
+   * <p>The inside IP addresses used for a Connect peer configuration.</p>
+   */
+  InsideCidrBlocks?: string[];
+
+  /**
+   * <p>The protocol used for a Connect peer configuration.</p>
+   */
+  Protocol?: TunnelProtocol | string;
+
+  /**
+   * <p>The Connect peer BGP configurations.</p>
+   */
+  BgpConfigurations?: ConnectPeerBgpConfiguration[];
+}
+
+export namespace ConnectPeerConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectPeerConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum ConnectPeerState {
+  AVAILABLE = "AVAILABLE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+}
+
+/**
+ * <p>Describes a core network Connect peer.</p>
+ */
+export interface ConnectPeer {
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId?: string;
+
+  /**
+   * <p>The ID of the attachment to connect.</p>
+   */
+  ConnectAttachmentId?: string;
+
+  /**
+   * <p>The ID of the Connect peer.</p>
+   */
+  ConnectPeerId?: string;
+
+  /**
+   * <p>The Connect peer Regions where edges are located.</p>
+   */
+  EdgeLocation?: string;
+
+  /**
+   * <p>The state of the Connect peer.</p>
+   */
+  State?: ConnectPeerState | string;
+
+  /**
+   * <p>The timestamp when the Connect peer was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The configuration of the Connect peer.</p>
+   */
+  Configuration?: ConnectPeerConfiguration;
+
+  /**
+   * <p>The tags associated with the Connect peer.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ConnectPeer {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectPeer): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summary description of a Connect peer.</p>
+ */
+export interface ConnectPeerSummary {
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId?: string;
+
+  /**
+   * <p>The ID of a Connect peer attachment.</p>
+   */
+  ConnectAttachmentId?: string;
+
+  /**
+   * <p>The ID of a Connect peer.</p>
+   */
+  ConnectPeerId?: string;
+
+  /**
+   * <p>The Region where the edge is located.</p>
+   */
+  EdgeLocation?: string;
+
+  /**
+   * <p>The state of a Connect peer.</p>
+   */
+  ConnectPeerState?: ConnectPeerState | string;
+
+  /**
+   * <p>The timestamp when a Connect peer was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The tags associated with a Connect peer summary.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ConnectPeerSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectPeerSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a core network edge.</p>
+ */
+export interface CoreNetworkEdge {
+  /**
+   * <p>The Region where a core network edge is located.</p>
+   */
+  EdgeLocation?: string;
+
+  /**
+   * <p>The ASN of a core network edge.</p>
+   */
+  Asn?: number;
+
+  /**
+   * <p>The inside IP addresses used for core network edges.</p>
+   */
+  InsideCidrBlocks?: string[];
+}
+
+export namespace CoreNetworkEdge {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CoreNetworkEdge): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a core network segment, which are dedicated routes. Only attachments within this segment can communicate with each other.</p>
+ */
+export interface CoreNetworkSegment {
+  /**
+   * <p>The name of a core network segment.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Regions where the edges are located.</p>
+   */
+  EdgeLocations?: string[];
+
+  /**
+   * <p>The shared segments of a core network.</p>
+   */
+  SharedSegments?: string[];
+}
+
+export namespace CoreNetworkSegment {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CoreNetworkSegment): any => ({
+    ...obj,
+  });
+}
+
+export enum CoreNetworkState {
+  AVAILABLE = "AVAILABLE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  UPDATING = "UPDATING",
+}
+
+/**
+ * <p>Describes a core network.</p>
+ */
+export interface CoreNetwork {
+  /**
+   * <p>The ID of the global network that your core network is a part of. </p>
+   */
+  GlobalNetworkId?: string;
+
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId?: string;
+
+  /**
+   * <p>The ARN of a core network.</p>
+   */
+  CoreNetworkArn?: string;
+
+  /**
+   * <p>The description of a core network.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The timestamp when a core network was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The current state of a core network.</p>
+   */
+  State?: CoreNetworkState | string;
+
+  /**
+   * <p>The segments within a core network.</p>
+   */
+  Segments?: CoreNetworkSegment[];
+
+  /**
+   * <p>The edges within a core network.</p>
+   */
+  Edges?: CoreNetworkEdge[];
+
+  /**
+   * <p>The tags associated with a core network.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CoreNetwork {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CoreNetwork): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a core network change.</p>
+ */
+export interface CoreNetworkChangeValues {
+  /**
+   * <p>The names of the segments in a core network.</p>
+   */
+  SegmentName?: string;
+
+  /**
+   * <p>The Regions where edges are located in a core network. </p>
+   */
+  EdgeLocations?: string[];
+
+  /**
+   * <p>The ASN of a core network.</p>
+   */
+  Asn?: number;
+
+  /**
+   * <p>The IP addresses used for a core network.</p>
+   */
+  Cidr?: string;
+
+  /**
+   * <p>The ID of the destination.</p>
+   */
+  DestinationIdentifier?: string;
+
+  /**
+   * <p>The inside IP addresses used for core network change values.</p>
+   */
+  InsideCidrBlocks?: string[];
+
+  /**
+   * <p>The shared segments for a core network change value. </p>
+   */
+  SharedSegments?: string[];
+}
+
+export namespace CoreNetworkChangeValues {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CoreNetworkChangeValues): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details describing a core network change.</p>
+ */
+export interface CoreNetworkChange {
+  /**
+   * <p>The type of change.</p>
+   */
+  Type?: ChangeType | string;
+
+  /**
+   * <p>The action to take for a core network.</p>
+   */
+  Action?: ChangeAction | string;
+
+  /**
+   * <p>The resource identifier.</p>
+   */
+  Identifier?: string;
+
+  /**
+   * <p>The previous values for a core network.</p>
+   */
+  PreviousValues?: CoreNetworkChangeValues;
+
+  /**
+   * <p>The new value for a core network</p>
+   */
+  NewValues?: CoreNetworkChangeValues;
+}
+
+export namespace CoreNetworkChange {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CoreNetworkChange): any => ({
+    ...obj,
+  });
+}
+
+export enum CoreNetworkPolicyAlias {
+  LATEST = "LATEST",
+  LIVE = "LIVE",
+}
+
+/**
+ * <p>Provides details about an error in a core network policy.</p>
+ */
+export interface CoreNetworkPolicyError {
+  /**
+   * <p>The error code associated with a core network policy error.</p>
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>The message associated with a core network policy error code.</p>
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The JSON path where the error was discovered in the policy document.</p>
+   */
+  Path?: string;
+}
+
+export namespace CoreNetworkPolicyError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CoreNetworkPolicyError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a core network policy. You can have only one LIVE Core Policy.</p>
+ */
+export interface CoreNetworkPolicy {
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId?: string;
+
+  /**
+   * <p>The ID of the policy version.</p>
+   */
+  PolicyVersionId?: number;
+
+  /**
+   * <p>Whether a core network policy is the current LIVE policy or the most recently submitted policy.</p>
+   */
+  Alias?: CoreNetworkPolicyAlias | string;
+
+  /**
+   * <p>The description of a core network policy.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The timestamp when a core network policy was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The state of a core network policy.</p>
+   */
+  ChangeSetState?: ChangeSetState | string;
+
+  /**
+   * <p>Describes any errors in a core network policy.</p>
+   */
+  PolicyErrors?: CoreNetworkPolicyError[];
+
+  /**
+   * <p>Describes a core network policy.</p>
+   */
+  PolicyDocument?: __LazyJsonString | string;
+}
+
+export namespace CoreNetworkPolicy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CoreNetworkPolicy): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a core network policy exception.</p>
+ */
+export interface CoreNetworkPolicyException extends __SmithyException, $MetadataBearer {
+  name: "CoreNetworkPolicyException";
+  $fault: "client";
+  Message: string | undefined;
+  /**
+   * <p>Describes a core network policy exception.</p>
+   */
+  Errors?: CoreNetworkPolicyError[];
+}
+
+export namespace CoreNetworkPolicyException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CoreNetworkPolicyException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a core network policy version.</p>
+ */
+export interface CoreNetworkPolicyVersion {
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId?: string;
+
+  /**
+   * <p>The ID of the policy version.</p>
+   */
+  PolicyVersionId?: number;
+
+  /**
+   * <p>Whether a core network policy is the current policy or the most recently submitted policy.</p>
+   */
+  Alias?: CoreNetworkPolicyAlias | string;
+
+  /**
+   * <p>The description of a core network policy version.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The timestamp when a core network policy version was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The status of the policy version change set.</p>
+   */
+  ChangeSetState?: ChangeSetState | string;
+}
+
+export namespace CoreNetworkPolicyVersion {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CoreNetworkPolicyVersion): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns details about a core network edge.</p>
+ */
+export interface CoreNetworkSegmentEdgeIdentifier {
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId?: string;
+
+  /**
+   * <p>The name of the segment edge.</p>
+   */
+  SegmentName?: string;
+
+  /**
+   * <p>The Region where the segment edge is located.</p>
+   */
+  EdgeLocation?: string;
+}
+
+export namespace CoreNetworkSegmentEdgeIdentifier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CoreNetworkSegmentEdgeIdentifier): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns summary information about a core network.</p>
+ */
+export interface CoreNetworkSummary {
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId?: string;
+
+  /**
+   * <p>a core network ARN.</p>
+   */
+  CoreNetworkArn?: string;
+
+  /**
+   * <p>The global network ID.</p>
+   */
+  GlobalNetworkId?: string;
+
+  /**
+   * <p>The ID of the account owner.</p>
+   */
+  OwnerAccountId?: string;
+
+  /**
+   * <p>The state of a core network.</p>
+   */
+  State?: CoreNetworkState | string;
+
+  /**
+   * <p>The description of a core network.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The key-value tags associated with a core network summary.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CoreNetworkSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CoreNetworkSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateConnectAttachmentRequest {
+  /**
+   * <p>The ID of a core network where you want to create the attachment. </p>
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The Region where the edge is located.</p>
+   */
+  EdgeLocation: string | undefined;
+
+  /**
+   * <p>The ID of the attachment between the two connections.</p>
+   */
+  TransportAttachmentId: string | undefined;
+
+  /**
+   * <p>Options for creating an attachment.</p>
+   */
+  Options: ConnectAttachmentOptions | undefined;
+
+  /**
+   * <p>The list of key-value tags associated with the request.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The client token associated with the request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace CreateConnectAttachmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateConnectAttachmentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateConnectAttachmentResponse {
+  /**
+   * <p>The response to a Connect attachment request.</p>
+   */
+  ConnectAttachment?: ConnectAttachment;
+}
+
+export namespace CreateConnectAttachmentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateConnectAttachmentResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateConnectionRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -737,6 +1774,120 @@ export namespace CreateConnectionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateConnectionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateConnectPeerRequest {
+  /**
+   * <p>The ID of the connection attachment.</p>
+   */
+  ConnectAttachmentId: string | undefined;
+
+  /**
+   * <p>A Connect peer core network address.</p>
+   */
+  CoreNetworkAddress?: string;
+
+  /**
+   * <p>The Connect peer address.</p>
+   */
+  PeerAddress: string | undefined;
+
+  /**
+   * <p>The Connect peer BGP options.</p>
+   */
+  BgpOptions?: BgpOptions;
+
+  /**
+   * <p>The inside IP addresses used for BGP peering.</p>
+   */
+  InsideCidrBlocks: string[] | undefined;
+
+  /**
+   * <p>The tags associated with the peer request.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The client token associated with the request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace CreateConnectPeerRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateConnectPeerRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateConnectPeerResponse {
+  /**
+   * <p>The response to the request.</p>
+   */
+  ConnectPeer?: ConnectPeer;
+}
+
+export namespace CreateConnectPeerResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateConnectPeerResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateCoreNetworkRequest {
+  /**
+   * <p>The ID of the global network that a core network will be a part of. </p>
+   */
+  GlobalNetworkId: string | undefined;
+
+  /**
+   * <p>The description of a core network.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Key-value tags associated with a core network request.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The policy document for creating a core network.</p>
+   */
+  PolicyDocument?: string;
+
+  /**
+   * <p>The client token associated with a core network request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace CreateCoreNetworkRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateCoreNetworkRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateCoreNetworkResponse {
+  /**
+   * <p>Returns details about a core network.</p>
+   */
+  CoreNetwork?: CoreNetwork;
+}
+
+export namespace CreateCoreNetworkResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateCoreNetworkResponse): any => ({
     ...obj,
   });
 }
@@ -975,7 +2126,7 @@ export enum GlobalNetworkState {
 }
 
 /**
- * <p>Describes a global network.</p>
+ * <p>Describes a global network. This is a single private network acting as a high-level container for your network objects, including an Amazon Web Services-manged Core Network.</p>
  */
 export interface GlobalNetwork {
   /**
@@ -1301,6 +2452,214 @@ export namespace CreateSiteResponse {
   });
 }
 
+export interface CreateSiteToSiteVpnAttachmentRequest {
+  /**
+   * <p>The ID of a core network where you're creating a site-to-site VPN attachment.</p>
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The ARN identifying the VPN attachment.</p>
+   */
+  VpnConnectionArn: string | undefined;
+
+  /**
+   * <p>The tags associated with the request.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The client token associated with the request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace CreateSiteToSiteVpnAttachmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateSiteToSiteVpnAttachmentRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Creates a site-to-site VPN attachment.</p>
+ */
+export interface SiteToSiteVpnAttachment {
+  /**
+   * <p>Provides details about a site-to-site VPN attachment.</p>
+   */
+  Attachment?: Attachment;
+
+  /**
+   * <p>The ARN of the site-to-site VPN attachment. </p>
+   */
+  VpnConnectionArn?: string;
+}
+
+export namespace SiteToSiteVpnAttachment {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SiteToSiteVpnAttachment): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateSiteToSiteVpnAttachmentResponse {
+  /**
+   * <p>Details about a site-to-site VPN attachment.</p>
+   */
+  SiteToSiteVpnAttachment?: SiteToSiteVpnAttachment;
+}
+
+export namespace CreateSiteToSiteVpnAttachmentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateSiteToSiteVpnAttachmentResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the VPC options.</p>
+ */
+export interface VpcOptions {
+  /**
+   * <p>Indicates whether IPv6 is supported.</p>
+   */
+  Ipv6Support?: boolean;
+}
+
+export namespace VpcOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VpcOptions): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateVpcAttachmentRequest {
+  /**
+   * <p>The ID of a core network for the VPC attachment.</p>
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The ARN of the VPC.</p>
+   */
+  VpcArn: string | undefined;
+
+  /**
+   * <p>The subnet ARN of the VPC attachment.</p>
+   */
+  SubnetArns: string[] | undefined;
+
+  /**
+   * <p>Options for the VPC attachment.</p>
+   */
+  Options?: VpcOptions;
+
+  /**
+   * <p>The key-value tags associated with the request.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The client token associated with the request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace CreateVpcAttachmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateVpcAttachmentRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a VPC attachment.</p>
+ */
+export interface VpcAttachment {
+  /**
+   * <p>Provides details about the VPC attachment.</p>
+   */
+  Attachment?: Attachment;
+
+  /**
+   * <p>The subnet ARNs.</p>
+   */
+  SubnetArns?: string[];
+
+  /**
+   * <p>Provides details about the VPC attachment.</p>
+   */
+  Options?: VpcOptions;
+}
+
+export namespace VpcAttachment {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VpcAttachment): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateVpcAttachmentResponse {
+  /**
+   * <p>Provides details about the VPC attachment.</p>
+   */
+  VpcAttachment?: VpcAttachment;
+}
+
+export namespace CreateVpcAttachmentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateVpcAttachmentResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteAttachmentRequest {
+  /**
+   * <p>The ID of the attachment to delete.</p>
+   */
+  AttachmentId: string | undefined;
+}
+
+export namespace DeleteAttachmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteAttachmentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteAttachmentResponse {
+  /**
+   * <p>Information about the deleted attachment.</p>
+   */
+  Attachment?: Attachment;
+}
+
+export namespace DeleteAttachmentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteAttachmentResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteConnectionRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -1334,6 +2693,107 @@ export namespace DeleteConnectionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteConnectionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteConnectPeerRequest {
+  /**
+   * <p>The ID of the deleted Connect peer.</p>
+   */
+  ConnectPeerId: string | undefined;
+}
+
+export namespace DeleteConnectPeerRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteConnectPeerRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteConnectPeerResponse {
+  /**
+   * <p>Information about the deleted Connect peer.</p>
+   */
+  ConnectPeer?: ConnectPeer;
+}
+
+export namespace DeleteConnectPeerResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteConnectPeerResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteCoreNetworkRequest {
+  /**
+   * <p>The network ID of the deleted core network.</p>
+   */
+  CoreNetworkId: string | undefined;
+}
+
+export namespace DeleteCoreNetworkRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteCoreNetworkRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteCoreNetworkResponse {
+  /**
+   * <p>Information about the deleted core network.</p>
+   */
+  CoreNetwork?: CoreNetwork;
+}
+
+export namespace DeleteCoreNetworkResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteCoreNetworkResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteCoreNetworkPolicyVersionRequest {
+  /**
+   * <p>The ID of a core network for the deleted policy.</p>
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The version ID of the deleted policy.</p>
+   */
+  PolicyVersionId: number | undefined;
+}
+
+export namespace DeleteCoreNetworkPolicyVersionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteCoreNetworkPolicyVersionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteCoreNetworkPolicyVersionResponse {
+  /**
+   * <p>Returns information about the deleted policy version. </p>
+   */
+  CoreNetworkPolicy?: CoreNetworkPolicy;
+}
+
+export namespace DeleteCoreNetworkPolicyVersionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteCoreNetworkPolicyVersionResponse): any => ({
     ...obj,
   });
 }
@@ -1441,6 +2901,33 @@ export namespace DeleteLinkResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteLinkResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>The ARN of the policy to delete.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace DeleteResourcePolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteResourcePolicyResponse {}
+
+export namespace DeleteResourcePolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
     ...obj,
   });
 }
@@ -1628,6 +3115,43 @@ export namespace DescribeGlobalNetworksResponse {
   });
 }
 
+export interface DisassociateConnectPeerRequest {
+  /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId: string | undefined;
+
+  /**
+   * <p>The ID of the Connect peer to disassociate from a device.</p>
+   */
+  ConnectPeerId: string | undefined;
+}
+
+export namespace DisassociateConnectPeerRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateConnectPeerRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateConnectPeerResponse {
+  /**
+   * <p>Describes the Connect peer association.</p>
+   */
+  ConnectPeerAssociation?: ConnectPeerAssociation;
+}
+
+export namespace DisassociateConnectPeerResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateConnectPeerResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DisassociateCustomerGatewayRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -1744,6 +3268,70 @@ export namespace DisassociateTransitGatewayConnectPeerResponse {
   });
 }
 
+export interface ExecuteCoreNetworkChangeSetRequest {
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The ID of the policy version.</p>
+   */
+  PolicyVersionId: number | undefined;
+}
+
+export namespace ExecuteCoreNetworkChangeSetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExecuteCoreNetworkChangeSetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ExecuteCoreNetworkChangeSetResponse {}
+
+export namespace ExecuteCoreNetworkChangeSetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExecuteCoreNetworkChangeSetResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetConnectAttachmentRequest {
+  /**
+   * <p>The ID of the attachment.</p>
+   */
+  AttachmentId: string | undefined;
+}
+
+export namespace GetConnectAttachmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConnectAttachmentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetConnectAttachmentResponse {
+  /**
+   * <p>Details about the Connect attachment.</p>
+   */
+  ConnectAttachment?: ConnectAttachment;
+}
+
+export namespace GetConnectAttachmentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConnectAttachmentResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetConnectionsRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -1797,6 +3385,216 @@ export namespace GetConnectionsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetConnectionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetConnectPeerRequest {
+  /**
+   * <p>The ID of the Connect peer.</p>
+   */
+  ConnectPeerId: string | undefined;
+}
+
+export namespace GetConnectPeerRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConnectPeerRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetConnectPeerResponse {
+  /**
+   * <p>Returns information about a core network Connect peer.</p>
+   */
+  ConnectPeer?: ConnectPeer;
+}
+
+export namespace GetConnectPeerResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConnectPeerResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetConnectPeerAssociationsRequest {
+  /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId: string | undefined;
+
+  /**
+   * <p>The IDs of the Connect peers.</p>
+   */
+  ConnectPeerIds?: string[];
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetConnectPeerAssociationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConnectPeerAssociationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetConnectPeerAssociationsResponse {
+  /**
+   * <p>Displays a list of Connect peer associations.</p>
+   */
+  ConnectPeerAssociations?: ConnectPeerAssociation[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetConnectPeerAssociationsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConnectPeerAssociationsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCoreNetworkRequest {
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId: string | undefined;
+}
+
+export namespace GetCoreNetworkRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCoreNetworkRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCoreNetworkResponse {
+  /**
+   * <p>Details about a core network.</p>
+   */
+  CoreNetwork?: CoreNetwork;
+}
+
+export namespace GetCoreNetworkResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCoreNetworkResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCoreNetworkChangeSetRequest {
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The ID of the policy version.</p>
+   */
+  PolicyVersionId: number | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetCoreNetworkChangeSetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCoreNetworkChangeSetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCoreNetworkChangeSetResponse {
+  /**
+   * <p>Describes a core network changes.</p>
+   */
+  CoreNetworkChanges?: CoreNetworkChange[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetCoreNetworkChangeSetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCoreNetworkChangeSetResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCoreNetworkPolicyRequest {
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The ID of a core network policy version.</p>
+   */
+  PolicyVersionId?: number;
+
+  /**
+   * <p>The alias of a core network policy </p>
+   */
+  Alias?: CoreNetworkPolicyAlias | string;
+}
+
+export namespace GetCoreNetworkPolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCoreNetworkPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCoreNetworkPolicyResponse {
+  /**
+   * <p>The details about a core network policy.</p>
+   */
+  CoreNetworkPolicy?: CoreNetworkPolicy;
+}
+
+export namespace GetCoreNetworkPolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCoreNetworkPolicyResponse): any => ({
     ...obj,
   });
 }
@@ -2194,6 +3992,11 @@ export interface GetNetworkResourceRelationshipsRequest {
   GlobalNetworkId: string | undefined;
 
   /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId?: string;
+
+  /**
    * <p>The ARN of the registered gateway.</p>
    */
   RegisteredGatewayArn?: string;
@@ -2366,6 +4169,11 @@ export interface GetNetworkResourcesRequest {
   GlobalNetworkId: string | undefined;
 
   /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId?: string;
+
+  /**
    * <p>The ARN of the gateway.</p>
    */
   RegisteredGatewayArn?: string;
@@ -2494,6 +4302,11 @@ export interface NetworkResource {
    * <p>The ARN of the gateway.</p>
    */
   RegisteredGatewayArn?: string;
+
+  /**
+   * <p>a core network ID.</p>
+   */
+  CoreNetworkId?: string;
 
   /**
    * <p>The Amazon Web Services Region.</p>
@@ -2655,6 +4468,11 @@ export interface RouteTableIdentifier {
    * <p>The ARN of the transit gateway route table.</p>
    */
   TransitGatewayRouteTableArn?: string;
+
+  /**
+   * <p>The segment edge in a core network.</p>
+   */
+  CoreNetworkSegmentEdge?: CoreNetworkSegmentEdgeIdentifier;
 }
 
 export namespace RouteTableIdentifier {
@@ -2742,9 +4560,24 @@ export namespace GetNetworkRoutesRequest {
  */
 export interface NetworkRouteDestination {
   /**
+   * <p>The ID of a core network attachment.</p>
+   */
+  CoreNetworkAttachmentId?: string;
+
+  /**
    * <p>The ID of the transit gateway attachment.</p>
    */
   TransitGatewayAttachmentId?: string;
+
+  /**
+   * <p>The name of the segment.</p>
+   */
+  SegmentName?: string;
+
+  /**
+   * <p>The edge location for the network destination.</p>
+   */
+  EdgeLocation?: string;
 
   /**
    * <p>The resource type.</p>
@@ -2806,6 +4639,7 @@ export namespace NetworkRoute {
 }
 
 export enum RouteTableType {
+  CORE_NETWORK_SEGMENT = "CORE_NETWORK_SEGMENT",
   TRANSIT_GATEWAY_ROUTE_TABLE = "TRANSIT_GATEWAY_ROUTE_TABLE",
 }
 
@@ -2814,6 +4648,11 @@ export interface GetNetworkRoutesResponse {
    * <p>The ARN of the route table.</p>
    */
   RouteTableArn?: string;
+
+  /**
+   * <p>Describes a core network segment edge.</p>
+   */
+  CoreNetworkSegmentEdge?: CoreNetworkSegmentEdgeIdentifier;
 
   /**
    * <p>The route table type.</p>
@@ -2845,6 +4684,11 @@ export interface GetNetworkTelemetryRequest {
    * <p>The ID of the global network.</p>
    */
   GlobalNetworkId: string | undefined;
+
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId?: string;
 
   /**
    * <p>The ARN of the gateway.</p>
@@ -2977,6 +4821,11 @@ export interface NetworkTelemetry {
   RegisteredGatewayArn?: string;
 
   /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId?: string;
+
+  /**
    * <p>The Amazon Web Services Region.</p>
    */
   AwsRegion?: string;
@@ -3038,6 +4887,38 @@ export namespace GetNetworkTelemetryResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetNetworkTelemetryResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetResourcePolicyRequest {
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace GetResourcePolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetResourcePolicyResponse {
+  /**
+   * <p>The resource policy document.</p>
+   */
+  PolicyDocument?: __LazyJsonString | string;
+}
+
+export namespace GetResourcePolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
     ...obj,
   });
 }
@@ -3421,6 +5302,38 @@ export namespace GetSitesResponse {
   });
 }
 
+export interface GetSiteToSiteVpnAttachmentRequest {
+  /**
+   * <p>The ID of the attachment.</p>
+   */
+  AttachmentId: string | undefined;
+}
+
+export namespace GetSiteToSiteVpnAttachmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSiteToSiteVpnAttachmentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSiteToSiteVpnAttachmentResponse {
+  /**
+   * <p>Describes the site-to-site attachment.</p>
+   */
+  SiteToSiteVpnAttachment?: SiteToSiteVpnAttachment;
+}
+
+export namespace GetSiteToSiteVpnAttachmentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSiteToSiteVpnAttachmentResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetTransitGatewayConnectPeerAssociationsRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -3526,6 +5439,241 @@ export namespace GetTransitGatewayRegistrationsResponse {
   });
 }
 
+export interface GetVpcAttachmentRequest {
+  /**
+   * <p>The ID of the attachment.</p>
+   */
+  AttachmentId: string | undefined;
+}
+
+export namespace GetVpcAttachmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetVpcAttachmentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetVpcAttachmentResponse {
+  /**
+   * <p>Returns details about a VPC attachment.</p>
+   */
+  VpcAttachment?: VpcAttachment;
+}
+
+export namespace GetVpcAttachmentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetVpcAttachmentResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAttachmentsRequest {
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId?: string;
+
+  /**
+   * <p>The type of attachment.</p>
+   */
+  AttachmentType?: AttachmentType | string;
+
+  /**
+   * <p>The Region where the edge is located.</p>
+   */
+  EdgeLocation?: string;
+
+  /**
+   * <p>The state of the attachment.</p>
+   */
+  State?: AttachmentState | string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAttachmentsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAttachmentsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAttachmentsResponse {
+  /**
+   * <p>Describes the list of attachments.</p>
+   */
+  Attachments?: Attachment[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAttachmentsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAttachmentsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListConnectPeersRequest {
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId?: string;
+
+  /**
+   * <p>The ID of the attachment.</p>
+   */
+  ConnectAttachmentId?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListConnectPeersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListConnectPeersRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListConnectPeersResponse {
+  /**
+   * <p>Describes the Connect peers.</p>
+   */
+  ConnectPeers?: ConnectPeerSummary[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListConnectPeersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListConnectPeersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListCoreNetworkPolicyVersionsRequest {
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListCoreNetworkPolicyVersionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListCoreNetworkPolicyVersionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListCoreNetworkPolicyVersionsResponse {
+  /**
+   * <p>Describes core network policy versions.</p>
+   */
+  CoreNetworkPolicyVersions?: CoreNetworkPolicyVersion[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListCoreNetworkPolicyVersionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListCoreNetworkPolicyVersionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListCoreNetworksRequest {
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListCoreNetworksRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListCoreNetworksRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListCoreNetworksResponse {
+  /**
+   * <p>Describes the list of core networks.</p>
+   */
+  CoreNetworks?: CoreNetworkSummary[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListCoreNetworksResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListCoreNetworksResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -3554,6 +5702,90 @@ export namespace ListTagsForResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutCoreNetworkPolicyRequest {
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The policy document.</p>
+   */
+  PolicyDocument: __LazyJsonString | string | undefined;
+
+  /**
+   * <p>a core network policy description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of a core network policy. </p>
+   */
+  LatestVersionId?: number;
+
+  /**
+   * <p>The client token associated with the request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace PutCoreNetworkPolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutCoreNetworkPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutCoreNetworkPolicyResponse {
+  /**
+   * <p>Describes the changed core network policy.</p>
+   */
+  CoreNetworkPolicy?: CoreNetworkPolicy;
+}
+
+export namespace PutCoreNetworkPolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutCoreNetworkPolicyResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>The JSON resource policy document.</p>
+   */
+  PolicyDocument: __LazyJsonString | string | undefined;
+
+  /**
+   * <p>The ARN of the resource policy. </p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace PutResourcePolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutResourcePolicyResponse {}
+
+export namespace PutResourcePolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
     ...obj,
   });
 }
@@ -3591,6 +5823,75 @@ export namespace RegisterTransitGatewayResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: RegisterTransitGatewayResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface RejectAttachmentRequest {
+  /**
+   * <p>The ID of the attachment.</p>
+   */
+  AttachmentId: string | undefined;
+}
+
+export namespace RejectAttachmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectAttachmentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RejectAttachmentResponse {
+  /**
+   * <p>Describes the rejected attachment request.</p>
+   */
+  Attachment?: Attachment;
+}
+
+export namespace RejectAttachmentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectAttachmentResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreCoreNetworkPolicyVersionRequest {
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The ID of the policy version to restore.</p>
+   */
+  PolicyVersionId: number | undefined;
+}
+
+export namespace RestoreCoreNetworkPolicyVersionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreCoreNetworkPolicyVersionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreCoreNetworkPolicyVersionResponse {
+  /**
+   * <p>Describes the restored core network policy.</p>
+   */
+  CoreNetworkPolicy?: CoreNetworkPolicy;
+}
+
+export namespace RestoreCoreNetworkPolicyVersionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreCoreNetworkPolicyVersionResponse): any => ({
     ...obj,
   });
 }
@@ -3785,6 +6086,43 @@ export namespace UpdateConnectionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateConnectionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateCoreNetworkRequest {
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The description of the update.</p>
+   */
+  Description?: string;
+}
+
+export namespace UpdateCoreNetworkRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateCoreNetworkRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateCoreNetworkResponse {
+  /**
+   * <p>Returns information about a core network update.</p>
+   */
+  CoreNetwork?: CoreNetwork;
+}
+
+export namespace UpdateCoreNetworkResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateCoreNetworkResponse): any => ({
     ...obj,
   });
 }
@@ -4078,5 +6416,52 @@ export namespace UpdateSiteResponse {
   export const filterSensitiveLog = (obj: UpdateSiteResponse): any => ({
     ...obj,
     ...(obj.Site && { Site: Site.filterSensitiveLog(obj.Site) }),
+  });
+}
+
+export interface UpdateVpcAttachmentRequest {
+  /**
+   * <p>The ID of the attachment.</p>
+   */
+  AttachmentId: string | undefined;
+
+  /**
+   * <p>Adds a subnet ARN to the VPC attachment.</p>
+   */
+  AddSubnetArns?: string[];
+
+  /**
+   * <p>Removes a subnet ARN from the attachment.</p>
+   */
+  RemoveSubnetArns?: string[];
+
+  /**
+   * <p>Additional options for updating the VPC attachment. </p>
+   */
+  Options?: VpcOptions;
+}
+
+export namespace UpdateVpcAttachmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateVpcAttachmentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateVpcAttachmentResponse {
+  /**
+   * <p>Describes the updated VPC attachment.</p>
+   */
+  VpcAttachment?: VpcAttachment;
+}
+
+export namespace UpdateVpcAttachmentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateVpcAttachmentResponse): any => ({
+    ...obj,
   });
 }

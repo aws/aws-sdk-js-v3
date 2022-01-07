@@ -26,7 +26,7 @@ export interface ListControlPanelsCommandInput extends ListControlPanelsRequest 
 export interface ListControlPanelsCommandOutput extends ListControlPanelsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns an array of control panels for a cluster.</p>
+ * <p>Returns an array of control panels in an account or in a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

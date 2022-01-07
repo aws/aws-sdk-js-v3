@@ -1256,6 +1256,10 @@ export class Nimble extends NimbleClient {
 
   /**
    * <p>Get all users in a given studio membership.</p>
+   *         <note>
+   *             <p>
+   *                <code>ListStudioMembers</code> only returns admin members.</p>
+   *         </note>
    */
   public listStudioMembers(
     args: ListStudioMembersCommandInput,

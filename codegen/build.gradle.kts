@@ -31,7 +31,7 @@ allprojects {
     version = "0.8.0"
 }
 
-extra["smithyVersion"] = "[1.14.0,1.15.0["
+extra["smithyVersion"] = "[1.15.0,1.16.0["
 
 // The root project doesn't produce a JAR.
 tasks["jar"].enabled = false
@@ -88,6 +88,10 @@ subprojects {
         // Use Junit5's test runner.
         tasks.withType<Test> {
             useJUnitPlatform()
+        }
+
+        tasks.withType<JavaExec> {
+            jvmArgs = listOf<String>("-Xms4g", "-Xmx4g")
         }
 
         // Apply junit 5 and hamcrest test dependencies to all java projects.

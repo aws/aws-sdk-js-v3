@@ -44,6 +44,10 @@ import {
   DeleteAccessControlRuleCommandOutput,
 } from "../commands/DeleteAccessControlRuleCommand";
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "../commands/DeleteAliasCommand";
+import {
+  DeleteEmailMonitoringConfigurationCommandInput,
+  DeleteEmailMonitoringConfigurationCommandOutput,
+} from "../commands/DeleteEmailMonitoringConfigurationCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "../commands/DeleteGroupCommand";
 import {
   DeleteMailboxPermissionsCommandInput,
@@ -72,6 +76,10 @@ import {
   DeregisterMailDomainCommandInput,
   DeregisterMailDomainCommandOutput,
 } from "../commands/DeregisterMailDomainCommand";
+import {
+  DescribeEmailMonitoringConfigurationCommandInput,
+  DescribeEmailMonitoringConfigurationCommandOutput,
+} from "../commands/DescribeEmailMonitoringConfigurationCommand";
 import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "../commands/DescribeGroupCommand";
 import {
   DescribeInboundDmarcSettingsCommandInput,
@@ -153,6 +161,10 @@ import {
   PutAccessControlRuleCommandOutput,
 } from "../commands/PutAccessControlRuleCommand";
 import {
+  PutEmailMonitoringConfigurationCommandInput,
+  PutEmailMonitoringConfigurationCommandOutput,
+} from "../commands/PutEmailMonitoringConfigurationCommand";
+import {
   PutInboundDmarcSettingsCommandInput,
   PutInboundDmarcSettingsCommandOutput,
 } from "../commands/PutInboundDmarcSettingsCommand";
@@ -214,6 +226,8 @@ import {
   DeleteAccessControlRuleResponse,
   DeleteAliasRequest,
   DeleteAliasResponse,
+  DeleteEmailMonitoringConfigurationRequest,
+  DeleteEmailMonitoringConfigurationResponse,
   DeleteGroupRequest,
   DeleteGroupResponse,
   DeleteMailboxPermissionsRequest,
@@ -234,6 +248,8 @@ import {
   DeregisterFromWorkMailResponse,
   DeregisterMailDomainRequest,
   DeregisterMailDomainResponse,
+  DescribeEmailMonitoringConfigurationRequest,
+  DescribeEmailMonitoringConfigurationResponse,
   DescribeGroupRequest,
   DescribeGroupResponse,
   DescribeInboundDmarcSettingsRequest,
@@ -323,6 +339,8 @@ import {
   PermissionType,
   PutAccessControlRuleRequest,
   PutAccessControlRuleResponse,
+  PutEmailMonitoringConfigurationRequest,
+  PutEmailMonitoringConfigurationResponse,
   PutInboundDmarcSettingsRequest,
   PutInboundDmarcSettingsResponse,
   PutMailboxPermissionsRequest,
@@ -505,6 +523,19 @@ export const serializeAws_json1_1DeleteAliasCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteEmailMonitoringConfigurationCommand = async (
+  input: DeleteEmailMonitoringConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.DeleteEmailMonitoringConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteEmailMonitoringConfigurationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
@@ -632,6 +663,19 @@ export const serializeAws_json1_1DeregisterMailDomainCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeregisterMailDomainRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeEmailMonitoringConfigurationCommand = async (
+  input: DescribeEmailMonitoringConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.DescribeEmailMonitoringConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeEmailMonitoringConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1009,6 +1053,19 @@ export const serializeAws_json1_1PutAccessControlRuleCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutAccessControlRuleRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1PutEmailMonitoringConfigurationCommand = async (
+  input: PutEmailMonitoringConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.PutEmailMonitoringConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutEmailMonitoringConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2241,6 +2298,76 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteEmailMonitoringConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEmailMonitoringConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteEmailMonitoringConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteEmailMonitoringConfigurationResponse(data, context);
+  const response: DeleteEmailMonitoringConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteEmailMonitoringConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEmailMonitoringConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeleteGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3048,6 +3175,84 @@ const deserializeAws_json1_1DeregisterMailDomainCommandError = async (
     case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeEmailMonitoringConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEmailMonitoringConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeEmailMonitoringConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeEmailMonitoringConfigurationResponse(data, context);
+  const response: DescribeEmailMonitoringConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeEmailMonitoringConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEmailMonitoringConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workmail#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5259,6 +5464,84 @@ const deserializeAws_json1_1PutAccessControlRuleCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1PutEmailMonitoringConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutEmailMonitoringConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PutEmailMonitoringConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutEmailMonitoringConfigurationResponse(data, context);
+  const response: PutEmailMonitoringConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutEmailMonitoringConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutEmailMonitoringConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workmail#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1PutInboundDmarcSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7140,6 +7423,16 @@ const serializeAws_json1_1DeleteAliasRequest = (input: DeleteAliasRequest, conte
   };
 };
 
+const serializeAws_json1_1DeleteEmailMonitoringConfigurationRequest = (
+  input: DeleteEmailMonitoringConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+  };
+};
+
 const serializeAws_json1_1DeleteGroupRequest = (input: DeleteGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.GroupId !== undefined && input.GroupId !== null && { GroupId: input.GroupId }),
@@ -7241,6 +7534,16 @@ const serializeAws_json1_1DeregisterMailDomainRequest = (
 ): any => {
   return {
     ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+  };
+};
+
+const serializeAws_json1_1DescribeEmailMonitoringConfigurationRequest = (
+  input: DescribeEmailMonitoringConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
     ...(input.OrganizationId !== undefined &&
       input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
@@ -7667,6 +7970,18 @@ const serializeAws_json1_1PutAccessControlRuleRequest = (
       input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
     ...(input.UserIds !== undefined &&
       input.UserIds !== null && { UserIds: serializeAws_json1_1UserIdList(input.UserIds, context) }),
+  };
+};
+
+const serializeAws_json1_1PutEmailMonitoringConfigurationRequest = (
+  input: PutEmailMonitoringConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LogGroupArn !== undefined && input.LogGroupArn !== null && { LogGroupArn: input.LogGroupArn }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
   };
 };
 
@@ -8100,6 +8415,13 @@ const deserializeAws_json1_1DeleteAliasResponse = (output: any, context: __Serde
   return {} as any;
 };
 
+const deserializeAws_json1_1DeleteEmailMonitoringConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteEmailMonitoringConfigurationResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeleteGroupResponse = (output: any, context: __SerdeContext): DeleteGroupResponse => {
   return {} as any;
 };
@@ -8162,6 +8484,16 @@ const deserializeAws_json1_1DeregisterMailDomainResponse = (
   context: __SerdeContext
 ): DeregisterMailDomainResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1DescribeEmailMonitoringConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeEmailMonitoringConfigurationResponse => {
+  return {
+    LogGroupArn: __expectString(output.LogGroupArn),
+    RoleArn: __expectString(output.RoleArn),
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeGroupResponse = (output: any, context: __SerdeContext): DescribeGroupResponse => {
@@ -9076,6 +9408,13 @@ const deserializeAws_json1_1PutAccessControlRuleResponse = (
   output: any,
   context: __SerdeContext
 ): PutAccessControlRuleResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1PutEmailMonitoringConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): PutEmailMonitoringConfigurationResponse => {
   return {} as any;
 };
 

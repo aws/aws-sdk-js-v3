@@ -690,6 +690,64 @@ export namespace ChannelFlow {
 }
 
 /**
+ * <p>A list of message attribute values.</p>
+ */
+export interface MessageAttributeValue {
+  /**
+   * <p>The strings in a message attribute value.</p>
+   */
+  StringValues?: string[];
+}
+
+export namespace MessageAttributeValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MessageAttributeValue): any => ({
+    ...obj,
+    ...(obj.StringValues && { StringValues: SENSITIVE_STRING }),
+  });
+}
+
+export enum PushNotificationType {
+  DEFAULT = "DEFAULT",
+  VOIP = "VOIP",
+}
+
+/**
+ * <p>The push notification configuration of the message.</p>
+ */
+export interface PushNotificationConfiguration {
+  /**
+   * <p>The title of the push notification.</p>
+   */
+  Title?: string;
+
+  /**
+   * <p>The body of the push notification.</p>
+   */
+  Body?: string;
+
+  /**
+   * <p>Enum value that indicates the type of the push notification for a message.
+   *          <code>DEFAULT</code>: Normal mobile push notification.
+   *          <code>VOIP</code>: VOIP mobile push notification.</p>
+   */
+  Type?: PushNotificationType | string;
+}
+
+export namespace PushNotificationConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PushNotificationConfiguration): any => ({
+    ...obj,
+    ...(obj.Title && { Title: SENSITIVE_STRING }),
+    ...(obj.Body && { Body: SENSITIVE_STRING }),
+  });
+}
+
+/**
  * <p>Stores information about a callback.</p>
  */
 export interface ChannelMessageCallback {
@@ -707,6 +765,16 @@ export interface ChannelMessageCallback {
    * <p>The message metadata.</p>
    */
   Metadata?: string;
+
+  /**
+   * <p>The push notification configuration of the message.</p>
+   */
+  PushNotification?: PushNotificationConfiguration;
+
+  /**
+   * <p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>. </p>
+   */
+  MessageAttributes?: { [key: string]: MessageAttributeValue };
 }
 
 export namespace ChannelMessageCallback {
@@ -717,6 +785,18 @@ export namespace ChannelMessageCallback {
     ...obj,
     ...(obj.Content && { Content: SENSITIVE_STRING }),
     ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+    ...(obj.PushNotification && {
+      PushNotification: PushNotificationConfiguration.filterSensitiveLog(obj.PushNotification),
+    }),
+    ...(obj.MessageAttributes && {
+      MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
+        (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
+          ...acc,
+          [key]: MessageAttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -987,26 +1067,6 @@ export namespace ChannelMembershipSummary {
   export const filterSensitiveLog = (obj: ChannelMembershipSummary): any => ({
     ...obj,
     ...(obj.Member && { Member: Identity.filterSensitiveLog(obj.Member) }),
-  });
-}
-
-/**
- * <p>A list of message attribute values.</p>
- */
-export interface MessageAttributeValue {
-  /**
-   * <p>The strings in a message attribute value.</p>
-   */
-  StringValues?: string[];
-}
-
-export namespace MessageAttributeValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageAttributeValue): any => ({
-    ...obj,
-    ...(obj.StringValues && { StringValues: SENSITIVE_STRING }),
   });
 }
 
@@ -2390,9 +2450,9 @@ export interface ListChannelMembershipsRequest {
 
   /**
    * <p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default
-   *          members are always returned as part of <code>ListChannelMemberships</code>. Hidden members
+   *          members are returned as part of <code>ListChannelMemberships</code> if no type is specified. Hidden members
    *          are only returned if the type filter in <code>ListChannelMemberships</code> equals
-   *             <code>HIDDEN</code>. Otherwise hidden members are not returned.</p>
+   *             <code>HIDDEN</code>.</p>
    */
   Type?: ChannelMembershipType | string;
 
@@ -2972,44 +3032,6 @@ export namespace RedactChannelMessageResponse {
    */
   export const filterSensitiveLog = (obj: RedactChannelMessageResponse): any => ({
     ...obj,
-  });
-}
-
-export enum PushNotificationType {
-  DEFAULT = "DEFAULT",
-  VOIP = "VOIP",
-}
-
-/**
- * <p>The push notification configuration of the message.</p>
- */
-export interface PushNotificationConfiguration {
-  /**
-   * <p>The title of the push notification.</p>
-   */
-  Title: string | undefined;
-
-  /**
-   * <p>The body of the push notification.</p>
-   */
-  Body: string | undefined;
-
-  /**
-   * <p>Enum value that indicates the type of the push notification for a message.
-   *          <code>DEFAULT</code>: Normal mobile push notification.
-   *          <code>VOIP</code>: VOIP mobile push notification.</p>
-   */
-  Type: PushNotificationType | string | undefined;
-}
-
-export namespace PushNotificationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PushNotificationConfiguration): any => ({
-    ...obj,
-    ...(obj.Title && { Title: SENSITIVE_STRING }),
-    ...(obj.Body && { Body: SENSITIVE_STRING }),
   });
 }
 

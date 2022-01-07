@@ -12,6 +12,7 @@ export * from "./DescribeFirewallPolicyCommand";
 export * from "./DescribeLoggingConfigurationCommand";
 export * from "./DescribeResourcePolicyCommand";
 export * from "./DescribeRuleGroupCommand";
+export * from "./DescribeRuleGroupMetadataCommand";
 export * from "./DisassociateSubnetsCommand";
 export * from "./ListFirewallPoliciesCommand";
 export * from "./ListFirewallsCommand";

@@ -28,12 +28,12 @@ export interface CancelDomainTransferToAnotherAwsAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Cancels the transfer of a domain from the current AWS account to another AWS account. You initiate a transfer between AWS accounts using
+ * <p>Cancels the transfer of a domain from the current Amazon Web Services account to another Amazon Web Services account. You initiate a transfer betweenAmazon Web Services accounts using
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.
  * 		</p>
  *
  * 		       <important>
- * 			         <p>You must cancel the transfer before the other AWS account accepts the transfer using
+ * 			         <p>You must cancel the transfer before the other Amazon Web Services account accepts the transfer using
  * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html">AcceptDomainTransferFromAnotherAwsAccount</a>.</p>
  * 		       </important>
  *

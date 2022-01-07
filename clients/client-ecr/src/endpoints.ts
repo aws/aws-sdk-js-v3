@@ -74,6 +74,15 @@ const regionHash: RegionHash = {
     ],
     signingRegion: "ap-southeast-2",
   },
+  "ap-southeast-3": {
+    variants: [
+      {
+        hostname: "api.ecr.ap-southeast-3.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "ap-southeast-3",
+  },
   "ca-central-1": {
     variants: [
       {
@@ -291,6 +300,7 @@ const partitionHash: PartitionHash = {
       "ap-south-1",
       "ap-southeast-1",
       "ap-southeast-2",
+      "ap-southeast-3",
       "ca-central-1",
       "dkr-us-east-1",
       "dkr-us-east-2",

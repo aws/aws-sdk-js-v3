@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-transcribe-streaming",
-  "version": "3.40.0",
+  "version": "3.45.0",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
@@ -9,7 +9,7 @@
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build:types": "tsc -p tsconfig.types.json",
-    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "pretest": "yarn build",
     "test": "jest --passWithNoTests"
   },
@@ -20,23 +20,20 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/eventstream-serde-browser": "3.40.0",
-    "@aws-sdk/middleware-signing": "3.40.0",
+    "@aws-sdk/middleware-signing": "3.45.0",
     "@aws-sdk/protocol-http": "3.40.0",
-    "@aws-sdk/signature-v4": "3.40.0",
+    "@aws-sdk/signature-v4": "3.45.0",
     "@aws-sdk/types": "3.40.0",
     "@aws-sdk/util-format-url": "3.40.0",
     "tslib": "^2.3.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.4",
-    "jest": "^26.1.0",
     "jest-websocket-mock": "^2.0.2",
-    "mock-socket": "^9.0.3",
-    "typescript": "~4.3.5"
+    "mock-socket": "^9.0.3"
   },
   "engines": {
-    "node": ">= 10.0.0"
+    "node": ">= 12.0.0"
   },
   "typesVersions": {
     "<4.0": {

@@ -56,6 +56,10 @@ import {
 import { CreateAgentCommandInput, CreateAgentCommandOutput } from "./commands/CreateAgentCommand";
 import { CreateLocationEfsCommandInput, CreateLocationEfsCommandOutput } from "./commands/CreateLocationEfsCommand";
 import {
+  CreateLocationFsxLustreCommandInput,
+  CreateLocationFsxLustreCommandOutput,
+} from "./commands/CreateLocationFsxLustreCommand";
+import {
   CreateLocationFsxWindowsCommandInput,
   CreateLocationFsxWindowsCommandOutput,
 } from "./commands/CreateLocationFsxWindowsCommand";
@@ -76,6 +80,10 @@ import {
   DescribeLocationEfsCommandInput,
   DescribeLocationEfsCommandOutput,
 } from "./commands/DescribeLocationEfsCommand";
+import {
+  DescribeLocationFsxLustreCommandInput,
+  DescribeLocationFsxLustreCommandOutput,
+} from "./commands/DescribeLocationFsxLustreCommand";
 import {
   DescribeLocationFsxWindowsCommandInput,
   DescribeLocationFsxWindowsCommandOutput,
@@ -132,6 +140,7 @@ export type ServiceInputTypes =
   | CancelTaskExecutionCommandInput
   | CreateAgentCommandInput
   | CreateLocationEfsCommandInput
+  | CreateLocationFsxLustreCommandInput
   | CreateLocationFsxWindowsCommandInput
   | CreateLocationHdfsCommandInput
   | CreateLocationNfsCommandInput
@@ -144,6 +153,7 @@ export type ServiceInputTypes =
   | DeleteTaskCommandInput
   | DescribeAgentCommandInput
   | DescribeLocationEfsCommandInput
+  | DescribeLocationFsxLustreCommandInput
   | DescribeLocationFsxWindowsCommandInput
   | DescribeLocationHdfsCommandInput
   | DescribeLocationNfsCommandInput
@@ -172,6 +182,7 @@ export type ServiceOutputTypes =
   | CancelTaskExecutionCommandOutput
   | CreateAgentCommandOutput
   | CreateLocationEfsCommandOutput
+  | CreateLocationFsxLustreCommandOutput
   | CreateLocationFsxWindowsCommandOutput
   | CreateLocationHdfsCommandOutput
   | CreateLocationNfsCommandOutput
@@ -184,6 +195,7 @@ export type ServiceOutputTypes =
   | DeleteTaskCommandOutput
   | DescribeAgentCommandOutput
   | DescribeLocationEfsCommandOutput
+  | DescribeLocationFsxLustreCommandOutput
   | DescribeLocationFsxWindowsCommandOutput
   | DescribeLocationHdfsCommandOutput
   | DescribeLocationNfsCommandOutput

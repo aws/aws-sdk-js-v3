@@ -65,53 +65,53 @@ import { ResolveCaseCommand, ResolveCaseCommandInput, ResolveCaseCommandOutput }
 import { SupportClient } from "./SupportClient";
 
 /**
- * <fullname>AWS Support</fullname>
- *         <p>The <i>AWS Support API Reference</i> is intended for programmers who need detailed
- *             information about the AWS Support operations and data types. You can use the API to manage
- *             your support cases programmatically. The AWS Support API uses HTTP methods that return
+ * <fullname>Amazon Web Services Support</fullname>
+ *         <p>The <i>Amazon Web Services Support API Reference</i> is intended for programmers who need detailed
+ *             information about the Amazon Web Services Support operations and data types. You can use the API to manage
+ *             your support cases programmatically. The Amazon Web Services Support API uses HTTP methods that return
  *             results in JSON format.</p>
  *         <note>
  *             <ul>
  *                <li>
- *                     <p>You must have a Business or Enterprise Support plan to use the AWS Support
+ *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  *                         API. </p>
  *                 </li>
  *                <li>
- *                     <p>If you call the AWS Support API from an account that does not have a
- *                         Business or Enterprise Support plan, the
+ *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+ *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
  *                             <code>SubscriptionRequiredException</code> error message appears. For
- *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+ *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
  *                 </li>
  *             </ul>
  *         </note>
- *         <p>The AWS Support service also exposes a set of <a href="http://aws.amazon.com/premiumsupport/trustedadvisor/">AWS Trusted Advisor</a> features. You can
+ *         <p>The Amazon Web Services Support service also exposes a set of <a href="http://aws.amazon.com/premiumsupport/trustedadvisor/">Trusted Advisor</a> features. You can
  *             retrieve a list of checks and their descriptions, get check results, specify checks to
  *             refresh, and get the refresh status of checks.</p>
- *         <p>The following list describes the AWS Support case management operations:</p>
+ *         <p>The following list describes the Amazon Web Services Support case management operations:</p>
  *         <ul>
  *             <li>
  *                 <p> Service names, issue categories, and available severity levels  - The
- *                         <a>DescribeServices</a> and <a>DescribeSeverityLevels</a> operations return AWS service names,
+ *                         <a>DescribeServices</a> and <a>DescribeSeverityLevels</a> operations return Amazon Web Services service names,
  *                     service codes, service categories, and problem severity levels. You use these
  *                     values when you call the <a>CreateCase</a> operation.</p>
  *             </li>
  *             <li>
  *                 <p> Case creation, case details, and case resolution - The <a>CreateCase</a>, <a>DescribeCases</a>, <a>DescribeAttachment</a>, and <a>ResolveCase</a> operations
- *                     create AWS Support cases, retrieve information about cases, and resolve cases.</p>
+ *                     create Amazon Web Services Support cases, retrieve information about cases, and resolve cases.</p>
  *             </li>
  *             <li>
  *                 <p> Case communication - The <a>DescribeCommunications</a>,
  *                         <a>AddCommunicationToCase</a>, and <a>AddAttachmentsToSet</a> operations retrieve and add communications
- *                     and attachments to AWS Support cases.</p>
+ *                     and attachments to Amazon Web Services Support cases.</p>
  *             </li>
  *          </ul>
- *         <p>The following list describes the operations available from the AWS Support service for
+ *         <p>The following list describes the operations available from the Amazon Web Services Support service for
  *             Trusted Advisor:</p>
  *         <ul>
  *             <li>
  *                 <p>
  *                     <a>DescribeTrustedAdvisorChecks</a> returns the list of checks that
- *                     run against your AWS resources.</p>
+ *                     run against your Amazon Web Services resources.</p>
  *             </li>
  *             <li>
  *                 <p>Using the <code>checkId</code> for a specific check returned by <a>DescribeTrustedAdvisorChecks</a>, you can call <a>DescribeTrustedAdvisorCheckResult</a> to obtain the results for the
@@ -133,10 +133,10 @@ import { SupportClient } from "./SupportClient";
  *                     status of one or more checks.</p>
  *             </li>
  *          </ul>
- *         <p>For authentication of requests, AWS Support uses <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing
+ *         <p>For authentication of requests, Amazon Web Services Support uses <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing
  *                 Process</a>.</p>
  *         <p>See <a href="https://docs.aws.amazon.com/awssupport/latest/user/Welcome.html">About the
- *             AWS Support API</a> in the <i>AWS Support User Guide</i> for
+ *             Amazon Web Services Support API</a> in the <i>Amazon Web Services Support User Guide</i> for
  *             information about how to use this service to create and manage your support cases, and
  *             how to call Trusted Advisor for results of checks on your resources.</p>
  */
@@ -149,14 +149,14 @@ export class Support extends SupportClient {
    *         <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business or Enterprise Support plan to use the AWS Support
+   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
    *                 </li>
    *                <li>
-   *                     <p>If you call the AWS Support API from an account that does not have a
-   *                         Business or Enterprise Support plan, the
+   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
-   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
    *                 </li>
    *             </ul>
    *         </note>
@@ -191,7 +191,7 @@ export class Support extends SupportClient {
   }
 
   /**
-   * <p>Adds additional customer communication to an AWS Support case. Use the <code>caseId</code>
+   * <p>Adds additional customer communication to an Amazon Web Services Support case. Use the <code>caseId</code>
    *             parameter to identify the case to which to add communication. You can list a set of
    *             email addresses to copy on the communication by using the <code>ccEmailAddresses</code>
    *             parameter. The <code>communicationBody</code> value contains the text of the
@@ -200,14 +200,14 @@ export class Support extends SupportClient {
    *         <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business or Enterprise Support plan to use the AWS Support
+   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
    *                 </li>
    *                <li>
-   *                     <p>If you call the AWS Support API from an account that does not have a
-   *                         Business or Enterprise Support plan, the
+   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
-   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
    *                 </li>
    *             </ul>
    *         </note>
@@ -242,36 +242,36 @@ export class Support extends SupportClient {
   }
 
   /**
-   * <p>Creates a case in the AWS Support Center. This operation is similar to how you create a case
-   *             in the AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create
+   * <p>Creates a case in the Amazon Web Services Support Center. This operation is similar to how you create a case
+   *             in the Amazon Web Services Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create
    *                 Case</a> page.</p>
-   *         <p>The AWS Support API doesn't support requesting service limit increases. You can submit a
+   *         <p>The Amazon Web Services Support API doesn't support requesting service limit increases. You can submit a
    *             service limit increase in the following ways: </p>
    *         <ul>
    *             <li>
-   *                 <p>Submit a request from the AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page.</p>
+   *                 <p>Submit a request from the Amazon Web Services Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page.</p>
    *             </li>
    *             <li>
    *                 <p>Use the Service Quotas <a href="https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_RequestServiceQuotaIncrease.html">RequestServiceQuotaIncrease</a> operation.</p>
    *             </li>
    *          </ul>
-   *         <p>A successful <code>CreateCase</code> request returns an AWS Support case number. You can use
+   *         <p>A successful <code>CreateCase</code> request returns an Amazon Web Services Support case number. You can use
    *             the <a>DescribeCases</a> operation and specify the case number to get
-   *             existing AWS Support cases. After you create a case, use the <a>AddCommunicationToCase</a> operation to add additional communication or
+   *             existing Amazon Web Services Support cases. After you create a case, use the <a>AddCommunicationToCase</a> operation to add additional communication or
    *             attachments to an existing case.</p>
    *         <p>The <code>caseId</code> is separate from the <code>displayId</code> that appears in
-   *             the <a href="https://console.aws.amazon.com/support">AWS Support Center</a>. Use the <a>DescribeCases</a> operation to get the <code>displayId</code>.</p>
+   *             the <a href="https://console.aws.amazon.com/support">Amazon Web Services Support Center</a>. Use the <a>DescribeCases</a> operation to get the <code>displayId</code>.</p>
    *         <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business or Enterprise Support plan to use the AWS Support
+   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
    *                 </li>
    *                <li>
-   *                     <p>If you call the AWS Support API from an account that does not have a
-   *                         Business or Enterprise Support plan, the
+   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
-   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
    *                 </li>
    *             </ul>
    *         </note>
@@ -308,14 +308,14 @@ export class Support extends SupportClient {
    *         <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business or Enterprise Support plan to use the AWS Support
+   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
    *                 </li>
    *                <li>
-   *                     <p>If you call the AWS Support API from an account that does not have a
-   *                         Business or Enterprise Support plan, the
+   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
-   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
    *                 </li>
    *             </ul>
    *         </note>
@@ -370,14 +370,14 @@ export class Support extends SupportClient {
    *         <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business or Enterprise Support plan to use the AWS Support
+   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
    *                 </li>
    *                <li>
-   *                     <p>If you call the AWS Support API from an account that does not have a
-   *                         Business or Enterprise Support plan, the
+   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
-   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
    *                 </li>
    *             </ul>
    *         </note>
@@ -425,14 +425,14 @@ export class Support extends SupportClient {
    *         <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business or Enterprise Support plan to use the AWS Support
+   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
    *                 </li>
    *                <li>
-   *                     <p>If you call the AWS Support API from an account that does not have a
-   *                         Business or Enterprise Support plan, the
+   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
-   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
    *                 </li>
    *             </ul>
    *         </note>
@@ -467,11 +467,11 @@ export class Support extends SupportClient {
   }
 
   /**
-   * <p>Returns the current list of AWS services and a list of service categories for each
+   * <p>Returns the current list of Amazon Web Services services and a list of service categories for each
    *             service. You then use service names and categories in your <a>CreateCase</a>
-   *             requests. Each AWS service has its own set of categories.</p>
+   *             requests. Each Amazon Web Services service has its own set of categories.</p>
    *         <p>The service codes and category codes correspond to the values that appear in the
-   *                 <b>Service</b> and <b>Category</b> lists on the AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page. The values in those fields
+   *                 <b>Service</b> and <b>Category</b> lists on the Amazon Web Services Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page. The values in those fields
    *             don't necessarily match the service codes and categories returned by the
    *                 <code>DescribeServices</code> operation. Always use the service codes and categories
    *             that the <code>DescribeServices</code> operation returns, so that you have the most
@@ -479,14 +479,14 @@ export class Support extends SupportClient {
    *         <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business or Enterprise Support plan to use the AWS Support
+   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
    *                 </li>
    *                <li>
-   *                     <p>If you call the AWS Support API from an account that does not have a
-   *                         Business or Enterprise Support plan, the
+   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
-   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
    *                 </li>
    *             </ul>
    *         </note>
@@ -527,14 +527,14 @@ export class Support extends SupportClient {
    *         <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business or Enterprise Support plan to use the AWS Support
+   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
    *                 </li>
    *                <li>
-   *                     <p>If you call the AWS Support API from an account that does not have a
-   *                         Business or Enterprise Support plan, the
+   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
-   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
    *                 </li>
    *             </ul>
    *         </note>
@@ -569,7 +569,7 @@ export class Support extends SupportClient {
   }
 
   /**
-   * <p>Returns the refresh status of the AWS Trusted Advisor checks that have the specified check
+   * <p>Returns the refresh status of the Trusted Advisor checks that have the specified check
    *             IDs. You can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a> operation.</p>
    *         <p>Some checks are refreshed automatically, and you can't return their refresh statuses
    *             by using the <code>DescribeTrustedAdvisorCheckRefreshStatuses</code> operation. If you
@@ -578,14 +578,14 @@ export class Support extends SupportClient {
    *         <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business or Enterprise Support plan to use the AWS Support
+   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
    *                 </li>
    *                <li>
-   *                     <p>If you call the AWS Support API from an account that does not have a
-   *                         Business or Enterprise Support plan, the
+   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
-   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
    *                 </li>
    *             </ul>
    *         </note>
@@ -622,7 +622,7 @@ export class Support extends SupportClient {
   }
 
   /**
-   * <p>Returns the results of the AWS Trusted Advisor check that has the specified check ID. You
+   * <p>Returns the results of the Trusted Advisor check that has the specified check ID. You
    *             can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a>
    *             operation.</p>
    *         <p>The response contains a <a>TrustedAdvisorCheckResult</a> object, which
@@ -667,14 +667,14 @@ export class Support extends SupportClient {
    *         <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business or Enterprise Support plan to use the AWS Support
+   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
    *                 </li>
    *                <li>
-   *                     <p>If you call the AWS Support API from an account that does not have a
-   *                         Business or Enterprise Support plan, the
+   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
-   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
    *                 </li>
    *             </ul>
    *         </note>
@@ -709,23 +709,23 @@ export class Support extends SupportClient {
   }
 
   /**
-   * <p>Returns information about all available AWS Trusted Advisor checks, including the name, ID,
-   *             category, description, and metadata. You must specify a language code. The AWS Support API
+   * <p>Returns information about all available Trusted Advisor checks, including the name, ID,
+   *             category, description, and metadata. You must specify a language code. The Amazon Web Services Support API
    *             currently supports English ("en") and Japanese ("ja"). The response contains a <a>TrustedAdvisorCheckDescription</a> object for each check. You must set the
-   *             AWS Region to us-east-1.</p>
+   *             Amazon Web Services Region to us-east-1.</p>
    *
    *
    *         <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business or Enterprise Support plan to use the AWS Support
+   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
    *                 </li>
    *                <li>
-   *                     <p>If you call the AWS Support API from an account that does not have a
-   *                         Business or Enterprise Support plan, the
+   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                         <code>SubscriptionRequiredException</code> error message appears. For
-   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
    *                 </li>
    *                <li>
    *                     <p>The names and descriptions for Trusted Advisor checks are subject to change. We recommend
@@ -764,21 +764,21 @@ export class Support extends SupportClient {
   }
 
   /**
-   * <p>Returns the results for the AWS Trusted Advisor check summaries for the check IDs that you
+   * <p>Returns the results for the Trusted Advisor check summaries for the check IDs that you
    *             specified. You can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a> operation.</p>
    *         <p>The response contains an array of <a>TrustedAdvisorCheckSummary</a>
    *             objects.</p>
    *         <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business or Enterprise Support plan to use the AWS Support
+   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
    *                 </li>
    *                <li>
-   *                     <p>If you call the AWS Support API from an account that does not have a
-   *                         Business or Enterprise Support plan, the
+   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
-   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
    *                 </li>
    *             </ul>
    *         </note>
@@ -813,7 +813,7 @@ export class Support extends SupportClient {
   }
 
   /**
-   * <p>Refreshes the AWS Trusted Advisor check that you specify using the check ID. You can get the
+   * <p>Refreshes the Trusted Advisor check that you specify using the check ID. You can get the
    *             check IDs by calling the <a>DescribeTrustedAdvisorChecks</a>
    *             operation.</p>
    *         <note>
@@ -826,14 +826,14 @@ export class Support extends SupportClient {
    *         <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business or Enterprise Support plan to use the AWS Support
+   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
    *                 </li>
    *                <li>
-   *                     <p>If you call the AWS Support API from an account that does not have a
-   *                         Business or Enterprise Support plan, the
+   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
-   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
    *                 </li>
    *             </ul>
    *         </note>
@@ -873,14 +873,14 @@ export class Support extends SupportClient {
    *         <note>
    *             <ul>
    *                <li>
-   *                     <p>You must have a Business or Enterprise Support plan to use the AWS Support
+   *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
    *                         API. </p>
    *                 </li>
    *                <li>
-   *                     <p>If you call the AWS Support API from an account that does not have a
-   *                         Business or Enterprise Support plan, the
+   *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+   *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
    *                             <code>SubscriptionRequiredException</code> error message appears. For
-   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+   *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
    *                 </li>
    *             </ul>
    *         </note>

@@ -22,7 +22,7 @@ export interface GetDomainDetailCommandInput extends GetDomainDetailRequest {}
 export interface GetDomainDetailCommandOutput extends GetDomainDetailResponse, __MetadataBearer {}
 
 /**
- * <p>This operation returns detailed information about a specified domain that is associated with the current AWS account.
+ * <p>This operation returns detailed information about a specified domain that is associated with the current Amazon Web Services account.
  * 			Contact information for the domain is also returned as part of the output.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

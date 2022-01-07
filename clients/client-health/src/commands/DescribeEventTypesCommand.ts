@@ -26,7 +26,7 @@ export interface DescribeEventTypesCommandOutput extends DescribeEventTypesRespo
  *          operation to find information about the Health event, such as the category, Amazon Web Services
  *          service, and event code. The metadata for each event appears in the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html">EventType</a> object. </p>
  *          <p>If you don't specify a filter criteria, the API operation returns all event types, in no
- *          particular order.  </p>
+ *          particular order. </p>
  *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
  *          </note>

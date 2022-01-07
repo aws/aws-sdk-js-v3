@@ -49,7 +49,7 @@ export interface CompareFacesCommandOutput extends CompareFacesResponse, __Metad
  *       supported. The image must be formatted as a PNG or JPEG file. </p>
  *          <p>In response, the operation returns an array of face matches ordered by similarity score
  *       in descending order. For each face match, the response provides a bounding box of the face,
- *       facial landmarks, pose details (pitch, role, and yaw), quality (brightness and sharpness), and
+ *       facial landmarks, pose details (pitch, roll, and yaw), quality (brightness and sharpness), and
  *       confidence value (indicating the level of confidence that the bounding box contains a face).
  *       The response also provides a similarity score, which indicates how closely the faces match. </p>
  *

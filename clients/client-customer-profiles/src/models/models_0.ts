@@ -477,8 +477,7 @@ export namespace S3ExportingConfig {
  *          <note>
  *             <p>You need to give Customer Profiles service principal write permission to your S3 bucket.
  *             Otherwise, you'll get an exception in the API response. For an example policy, see
- *                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html#customer-profiles-cross-service">Amazon Connect Customer Profiles cross-service confused deputy prevention</a>.
- *          </p>
+ *                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html#customer-profiles-cross-service">Amazon Connect Customer Profiles cross-service confused deputy prevention</a>. </p>
  *          </note>
  */
 export interface ExportingConfig {
@@ -1516,7 +1515,7 @@ export interface GetIntegrationResponse {
   /**
    * <p>The name of the profile object type.</p>
    */
-  ObjectTypeName: string | undefined;
+  ObjectTypeName?: string;
 
   /**
    * <p>The timestamp of when the domain was created.</p>
@@ -1532,6 +1531,13 @@ export interface GetIntegrationResponse {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an <code>ObjectTypeName</code> (template) used to ingest the event.
+   * It supports the following event types: <code>SegmentIdentify</code>, <code>ShopifyCreateCustomers</code>, <code>ShopifyUpdateCustomers</code>, <code>ShopifyCreateDraftOrders</code>,
+   * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
+   */
+  ObjectTypeNames?: { [key: string]: string };
 }
 
 export namespace GetIntegrationResponse {
@@ -1696,6 +1702,7 @@ export enum StandardIdentifier {
   CASE = "CASE",
   LOOKUP_ONLY = "LOOKUP_ONLY",
   NEW_ONLY = "NEW_ONLY",
+  ORDER = "ORDER",
   PROFILE = "PROFILE",
   SECONDARY = "SECONDARY",
   UNIQUE = "UNIQUE",
@@ -1708,8 +1715,8 @@ export enum StandardIdentifier {
 export interface ObjectTypeKey {
   /**
    * <p>The types of keys that a ProfileObject can have. Each ProfileObject can have only 1
-   *          UNIQUE key but multiple PROFILE keys. PROFILE, ASSET or CASE means that this key can be
-   *          used to tie an object to a PROFILE, ASSET or CASE respectively. UNIQUE means that it can be
+   *          UNIQUE key but multiple PROFILE keys. PROFILE, ASSET, CASE, or ORDER  means that this key can be
+   *          used to tie an object to a PROFILE, ASSET, CASE, or ORDER respectively. UNIQUE means that it can be
    *          used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to
    *          search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is
    *          only used to match a profile but is not persisted to be used for searching of the profile.
@@ -1920,7 +1927,7 @@ export interface ListIntegrationItem {
   /**
    * <p>The name of the profile object type.</p>
    */
-  ObjectTypeName: string | undefined;
+  ObjectTypeName?: string;
 
   /**
    * <p>The timestamp of when the domain was created.</p>
@@ -1936,6 +1943,13 @@ export interface ListIntegrationItem {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an <code>ObjectTypeName</code> (template) used to ingest the event.
+   * It supports the following event types: <code>SegmentIdentify</code>, <code>ShopifyCreateCustomers</code>, <code>ShopifyUpdateCustomers</code>, <code>ShopifyCreateDraftOrders</code>,
+   * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
+   */
+  ObjectTypeNames?: { [key: string]: string };
 }
 
 export namespace ListIntegrationItem {
@@ -2230,14 +2244,15 @@ export namespace ListIntegrationsResponse {
 
 /**
  * <p>The filter applied to ListProfileObjects response to include profile objects with the
- *          specified index values. This filter is only supported for ObjectTypeName _asset and
- *          _case.</p>
+ *          specified index values. This filter is only supported for ObjectTypeName _asset, _case and
+ *          _order.</p>
  */
 export interface ObjectFilter {
   /**
    * <p>A searchable identifier of a standard profile object. The predefined keys you can use to
    *          search for _asset include: _assetId, _assetName, _serialNumber. The predefined keys you can
-   *          use to search for _case include: _caseId.</p>
+   *          use to search for _case include: _caseId. The predefined keys you can use to search for
+   *          _order include: _orderId.</p>
    */
   KeyName: string | undefined;
 
@@ -2284,7 +2299,7 @@ export interface ListProfileObjectsRequest {
 
   /**
    * <p>Applies a filter to the response to include profile objects with the specified index
-   *          values. This filter is only supported for ObjectTypeName _asset and _case.</p>
+   *          values. This filter is only supported for ObjectTypeName _asset, _case and _order.</p>
    */
   ObjectFilter?: ObjectFilter;
 }
@@ -3169,7 +3184,7 @@ export interface PutIntegrationRequest {
   /**
    * <p>The name of the profile object type.</p>
    */
-  ObjectTypeName: string | undefined;
+  ObjectTypeName?: string;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
@@ -3181,6 +3196,13 @@ export interface PutIntegrationRequest {
    *          source.</p>
    */
   FlowDefinition?: FlowDefinition;
+
+  /**
+   * <p>A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an <code>ObjectTypeName</code> (template) used to ingest the event.
+   * It supports the following event types: <code>SegmentIdentify</code>, <code>ShopifyCreateCustomers</code>, <code>ShopifyUpdateCustomers</code>, <code>ShopifyCreateDraftOrders</code>,
+   * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
+   */
+  ObjectTypeNames?: { [key: string]: string };
 }
 
 export namespace PutIntegrationRequest {
@@ -3206,7 +3228,7 @@ export interface PutIntegrationResponse {
   /**
    * <p>The name of the profile object type.</p>
    */
-  ObjectTypeName: string | undefined;
+  ObjectTypeName?: string;
 
   /**
    * <p>The timestamp of when the domain was created.</p>
@@ -3222,6 +3244,13 @@ export interface PutIntegrationResponse {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an <code>ObjectTypeName</code> (template) used to ingest the event.
+   * It supports the following event types: <code>SegmentIdentify</code>, <code>ShopifyCreateCustomers</code>, <code>ShopifyUpdateCustomers</code>, <code>ShopifyCreateDraftOrders</code>,
+   * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
+   */
+  ObjectTypeNames?: { [key: string]: string };
 }
 
 export namespace PutIntegrationResponse {
@@ -3318,7 +3347,7 @@ export interface PutProfileObjectTypeRequest {
 
   /**
    * <p>The format of your <code>sourceLastUpdatedTimestamp</code> that was previously set up.
-   *          </p>
+   *       </p>
    */
   SourceLastUpdatedTimestampFormat?: string;
 
@@ -3442,9 +3471,12 @@ export interface SearchProfilesRequest {
   DomainName: string | undefined;
 
   /**
-   * <p>A searchable identifier of a customer profile. The predefined keys you can use to search include: _account, _profileId,
-   *          _fullName, _phone, _email, _ctrContactId, _marketoLeadId, _salesforceAccountId,
-   *          _salesforceContactId, _zendeskUserId, _zendeskExternalId, _serviceNowSystemId.</p>
+   * <p>A searchable identifier of a customer profile. The predefined keys you can use
+   *          to search include: _account, _profileId, _assetId, _caseId, _orderId, _fullName, _phone,
+   *          _email, _ctrContactId, _marketoLeadId, _salesforceAccountId, _salesforceContactId,
+   *          _salesforceAssetId, _zendeskUserId, _zendeskExternalId, _zendeskTicketId,
+   *          _serviceNowSystemId, _serviceNowIncidentId, _segmentUserId, _shopifyCustomerId,
+   *          _shopifyOrderId.</p>
    */
   KeyName: string | undefined;
 

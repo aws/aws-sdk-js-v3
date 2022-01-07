@@ -22,7 +22,7 @@ export interface DisassociateConnectorCommandInput extends DisassociateConnector
 export interface DisassociateConnectorCommandOutput extends DisassociateConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Disassociates the specified connector from AWS SMS.</p>
+ * <p>Disassociates the specified connector from Server Migration Service.</p>
  *         <p>After you disassociate a connector, it is no longer available to support
  *             replication jobs.</p>
  * @example

@@ -683,6 +683,11 @@ export interface DataShare {
    * <p>A value that specifies when the datashare has an association between a producer and data consumers.</p>
    */
   DataShareAssociations?: DataShareAssociation[];
+
+  /**
+   * <p>The identifier of a datashare to show its managing entity.</p>
+   */
+  ManagedBy?: string;
 }
 
 export namespace DataShare {
@@ -1126,7 +1131,7 @@ export interface AuthorizeDataShareMessage {
   DataShareArn: string | undefined;
 
   /**
-   * <p>The identifier of the data consumer that is authorized to access the datashare. This identifier is an Amazon Web Services account ID.</p>
+   * <p>The identifier of the data consumer that is authorized to access the datashare. This identifier is an Amazon Web Services account ID or a keyword, such as ADX.</p>
    */
   ConsumerIdentifier: string | undefined;
 }
@@ -6843,7 +6848,7 @@ export interface DeauthorizeDataShareMessage {
 
   /**
    * <p>The identifier of the data consumer that is to have authorization removed from the datashare.
-   *             This identifier is an Amazon Web Services account ID.</p>
+   *             This identifier is an Amazon Web Services account ID or a keyword, such as ADX.</p>
    */
   ConsumerIdentifier: string | undefined;
 }

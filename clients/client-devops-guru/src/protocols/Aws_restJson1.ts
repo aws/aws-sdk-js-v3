@@ -1699,6 +1699,7 @@ export const deserializeAws_restJson1DescribeOrganizationResourceCollectionHealt
     CloudFormation: undefined,
     NextToken: undefined,
     Service: undefined,
+    Tags: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Account !== undefined && data.Account !== null) {
@@ -1712,6 +1713,9 @@ export const deserializeAws_restJson1DescribeOrganizationResourceCollectionHealt
   }
   if (data.Service !== undefined && data.Service !== null) {
     contents.Service = deserializeAws_restJson1ServiceHealths(data.Service, context);
+  }
+  if (data.Tags !== undefined && data.Tags !== null) {
+    contents.Tags = deserializeAws_restJson1TagHealths(data.Tags, context);
   }
   return Promise.resolve(contents);
 };

@@ -24,6 +24,7 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
 /**
  * <p>Returns information about all of the operations that return an operation ID and that have ever been
  * 			performed on domains that were registered by the current account. </p>
+ * 		       <p>This command runs only in the us-east-1 Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

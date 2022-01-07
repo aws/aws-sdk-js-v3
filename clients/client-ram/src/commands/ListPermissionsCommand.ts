@@ -22,7 +22,8 @@ export interface ListPermissionsCommandInput extends ListPermissionsRequest {}
 export interface ListPermissionsCommandOutput extends ListPermissionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the RAM permissions.</p>
+ * <p>Retrieves a list of available RAM permissions that you can use for the supported
+ *             resource types. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

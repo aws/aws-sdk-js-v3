@@ -22,19 +22,9 @@ export interface GetRandomPasswordCommandInput extends GetRandomPasswordRequest 
 export interface GetRandomPasswordCommandOutput extends GetRandomPasswordResponse, __MetadataBearer {}
 
 /**
- * <p>Generates a random password of the specified complexity. This operation is intended for
- *       use in the Lambda rotation function. Per best practice, we recommend that you specify the
+ * <p>Generates a random password. We recommend that you specify the
  *       maximum length and include every character type that the system you are generating a password
  *       for can support.</p>
- *          <p>
- *             <b>Minimum permissions</b>
- *          </p>
- *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
- *             <li>
- *                <p>secretsmanager:GetRandomPassword</p>
- *             </li>
- *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

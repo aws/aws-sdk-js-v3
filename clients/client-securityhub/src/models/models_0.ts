@@ -1450,6 +1450,178 @@ export namespace AwsApiGatewayV2StageDetails {
 }
 
 /**
+ * <p>An Availability Zone for the automatic scaling group.</p>
+ */
+export interface AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails {
+  /**
+   * <p>The name of the Availability Zone.</p>
+   */
+  Value?: string;
+}
+
+export namespace AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the instances distribution.</p>
+ */
+export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails {
+  /**
+   * <p>How to allocate instance types to fulfill On-Demand capacity.</p>
+   */
+  OnDemandAllocationStrategy?: string;
+
+  /**
+   * <p>The minimum amount of the Auto Scaling group's capacity that must be fulfilled by On-Demand Instances.</p>
+   */
+  OnDemandBaseCapacity?: number;
+
+  /**
+   * <p>The percentage of On-Demand Instances and Spot Instances for additional capacity beyond <code>OnDemandBaseCapacity</code>.</p>
+   */
+  OnDemandPercentageAboveBaseCapacity?: number;
+
+  /**
+   * <p>How to allocate instances across Spot Instance pools.</p>
+   */
+  SpotAllocationStrategy?: string;
+
+  /**
+   * <p>The number of Spot Instance pools across which to allocate your Spot Instances.</p>
+   */
+  SpotInstancePools?: number;
+
+  /**
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance.</p>
+   */
+  SpotMaxPrice?: string;
+}
+
+export namespace AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the launch template to use.</p>
+ */
+export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
+  /**
+   * <p>The identifier of the launch template. You must specify either <code>LaunchTemplateId</code> or <code>LaunchTemplateName</code>.</p>
+   */
+  LaunchTemplateId?: string;
+
+  /**
+   * <p>The name of the launch template. You must specify either <code>LaunchTemplateId</code> or <code>LaunchTemplateName</code>.</p>
+   */
+  LaunchTemplateName?: string;
+
+  /**
+   * <p>Identifies the version of the launch template. You can specify a version identifier, or use the values <code>$Latest</code> or <code>$Default</code>.</p>
+   */
+  Version?: string;
+}
+
+export namespace AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Property values to use to override the values in the launch template.</p>
+ */
+export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails {
+  /**
+   * <p>The instance type. For example, <code>m3.xlarge</code>.</p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The number of capacity units provided by the specified instance type in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic.</p>
+   */
+  WeightedCapacity?: string;
+}
+
+export namespace AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a launch template and overrides for a mixed instances policy.</p>
+ */
+export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails {
+  /**
+   * <p>The launch template to use.</p>
+   */
+  LaunchTemplateSpecification?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification;
+
+  /**
+   * <p>Property values to use to override the values in the launch template.</p>
+   */
+  Overrides?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails[];
+}
+
+export namespace AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The mixed instances policy for the automatic scaling group.</p>
+ */
+export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails {
+  /**
+   * <p>The instances distribution. The instances distribution specifies the distribution of On-Demand Instances and Spot Instances, the maximum price to pay for Spot Instances, and how the Auto Scaling group allocates instance types to fulfill On-Demand and Spot capacity.</p>
+   */
+  InstancesDistribution?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails;
+
+  /**
+   * <p>The launch template to use and the instance types (overrides) to use to provision EC2 instances to fulfill On-Demand and Spot capacities.</p>
+   */
+  LaunchTemplate?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails;
+}
+
+export namespace AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Provides details about an auto scaling group.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupDetails {
@@ -1481,6 +1653,16 @@ export interface AwsAutoScalingAutoScalingGroupDetails {
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreatedTime?: string;
+
+  /**
+   * <p>The mixed instances policy for the automatic scaling group.</p>
+   */
+  MixedInstancesPolicy?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails;
+
+  /**
+   * <p>The list of Availability Zones for the automatic scaling group.</p>
+   */
+  AvailabilityZones?: AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails[];
 }
 
 export namespace AwsAutoScalingAutoScalingGroupDetails {
@@ -1612,6 +1794,35 @@ export namespace AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails {
 }
 
 /**
+ * <p>The metadata options for the instances.</p>
+ */
+export interface AwsAutoScalingLaunchConfigurationMetadataOptions {
+  /**
+   * <p>Enables or disables the HTTP metadata endpoint on your instances. By default, the metadata endpoint is enabled.</p>
+   */
+  HttpEndpoint?: string;
+
+  /**
+   * <p>The HTTP <code>PUT</code> response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.</p>
+   */
+  HttpPutResponseHopLimit?: number;
+
+  /**
+   * <p>Indicates whether token usage is <code>required</code> or <code>optional</code> for metadata requests. By default, token usage is <code>optional</code>.</p>
+   */
+  HttpTokens?: string;
+}
+
+export namespace AwsAutoScalingLaunchConfigurationMetadataOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsAutoScalingLaunchConfigurationMetadataOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Details about a launch configuration.</p>
  */
 export interface AwsAutoScalingLaunchConfigurationDetails {
@@ -1712,6 +1923,11 @@ export interface AwsAutoScalingLaunchConfigurationDetails {
    *          text.</p>
    */
   UserData?: string;
+
+  /**
+   * <p>The metadata options for the instances.</p>
+   */
+  MetadataOptions?: AwsAutoScalingLaunchConfigurationMetadataOptions;
 }
 
 export namespace AwsAutoScalingLaunchConfigurationDetails {
@@ -9279,6 +9495,844 @@ export namespace AwsLambdaLayerVersionDetails {
 }
 
 /**
+ * <p>A public subnet that Network Firewall uses for the firewall.</p>
+ */
+export interface AwsNetworkFirewallFirewallSubnetMappingsDetails {
+  /**
+   * <p>The identifier of the subnet</p>
+   */
+  SubnetId?: string;
+}
+
+export namespace AwsNetworkFirewallFirewallSubnetMappingsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsNetworkFirewallFirewallSubnetMappingsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about an Network Firewall firewall.</p>
+ */
+export interface AwsNetworkFirewallFirewallDetails {
+  /**
+   * <p>Whether the firewall is protected from deletion. If set to <code>true</code>, then the firewall cannot be deleted.</p>
+   */
+  DeleteProtection?: boolean;
+
+  /**
+   * <p>A description of the firewall.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ARN of the firewall.</p>
+   */
+  FirewallArn?: string;
+
+  /**
+   * <p>The identifier of the firewall.</p>
+   */
+  FirewallId?: string;
+
+  /**
+   * <p>A descriptive name of the firewall.</p>
+   */
+  FirewallName?: string;
+
+  /**
+   * <p>The ARN of the firewall policy.</p>
+   */
+  FirewallPolicyArn?: string;
+
+  /**
+   * <p>Whether the firewall is protected from a change to the firewall policy. If set to <code>true</code>, you cannot associate a different policy with the firewall.</p>
+   */
+  FirewallPolicyChangeProtection?: boolean;
+
+  /**
+   * <p>Whether the firewall is protected from a change to the subnet associations. If set to <code>true</code>, you cannot map different subnets to the firewall.</p>
+   */
+  SubnetChangeProtection?: boolean;
+
+  /**
+   * <p>The public subnets that Network Firewall uses for the firewall. Each subnet must belong to a different Availability Zone.</p>
+   */
+  SubnetMappings?: AwsNetworkFirewallFirewallSubnetMappingsDetails[];
+
+  /**
+   * <p>The identifier of the VPC where the firewall is used.</p>
+   */
+  VpcId?: string;
+}
+
+export namespace AwsNetworkFirewallFirewallDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsNetworkFirewallFirewallDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A stateful rule group that is used by the firewall policy.</p>
+ */
+export interface FirewallPolicyStatefulRuleGroupReferencesDetails {
+  /**
+   * <p>The ARN of the stateful rule group.</p>
+   */
+  ResourceArn?: string;
+}
+
+export namespace FirewallPolicyStatefulRuleGroupReferencesDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FirewallPolicyStatefulRuleGroupReferencesDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines a CloudWatch dimension value to publish.</p>
+ */
+export interface StatelessCustomPublishMetricActionDimension {
+  /**
+   * <p>The value to use for the custom metric dimension.</p>
+   */
+  Value?: string;
+}
+
+export namespace StatelessCustomPublishMetricActionDimension {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StatelessCustomPublishMetricActionDimension): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about metrics to publish to CloudWatch.</p>
+ */
+export interface StatelessCustomPublishMetricAction {
+  /**
+   * <p>Defines CloudWatch dimension values to publish.</p>
+   */
+  Dimensions?: StatelessCustomPublishMetricActionDimension[];
+}
+
+export namespace StatelessCustomPublishMetricAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StatelessCustomPublishMetricAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The definition of a custom action that can be used for stateless packet handling.</p>
+ */
+export interface StatelessCustomActionDefinition {
+  /**
+   * <p>Information about metrics to publish to CloudWatch.</p>
+   */
+  PublishMetricAction?: StatelessCustomPublishMetricAction;
+}
+
+export namespace StatelessCustomActionDefinition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StatelessCustomActionDefinition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A custom action that can be used for stateless packet handling.</p>
+ */
+export interface FirewallPolicyStatelessCustomActionsDetails {
+  /**
+   * <p>The definition of the custom action.</p>
+   */
+  ActionDefinition?: StatelessCustomActionDefinition;
+
+  /**
+   * <p>The name of the custom action.</p>
+   */
+  ActionName?: string;
+}
+
+export namespace FirewallPolicyStatelessCustomActionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FirewallPolicyStatelessCustomActionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A stateless rule group that is used by the firewall policy.</p>
+ */
+export interface FirewallPolicyStatelessRuleGroupReferencesDetails {
+  /**
+   * <p>The order in which to run the stateless rule group.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>The ARN of the stateless rule group.</p>
+   */
+  ResourceArn?: string;
+}
+
+export namespace FirewallPolicyStatelessRuleGroupReferencesDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FirewallPolicyStatelessRuleGroupReferencesDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines the behavior of the firewall.</p>
+ */
+export interface FirewallPolicyDetails {
+  /**
+   * <p>The stateful rule groups that are used in the firewall policy.</p>
+   */
+  StatefulRuleGroupReferences?: FirewallPolicyStatefulRuleGroupReferencesDetails[];
+
+  /**
+   * <p>The custom action definitions that are available to use in the firewall policy's <code>StatelessDefaultActions</code> setting.</p>
+   */
+  StatelessCustomActions?: FirewallPolicyStatelessCustomActionsDetails[];
+
+  /**
+   * <p>The actions to take on a packet if it doesn't match any of the stateless rules in the policy.</p>
+   *          <p>You must specify a standard action (<code>aws:pass</code>, <code>aws:drop</code>, <code>aws:forward_to_sfe</code>), and can optionally include a custom action from <code>StatelessCustomActions</code>.
+   *       </p>
+   */
+  StatelessDefaultActions?: string[];
+
+  /**
+   * <p>The actions to take on a fragmented UDP packet if it doesn't match any of the stateless rules in the policy.</p>
+   *          <p>You must specify a standard action (<code>aws:pass</code>, <code>aws:drop</code>, <code>aws:forward_to_sfe</code>), and can optionally include a custom action from <code>StatelessCustomActions</code>.
+   *       </p>
+   */
+  StatelessFragmentDefaultActions?: string[];
+
+  /**
+   * <p>The stateless rule groups that are used in the firewall policy.</p>
+   */
+  StatelessRuleGroupReferences?: FirewallPolicyStatelessRuleGroupReferencesDetails[];
+}
+
+export namespace FirewallPolicyDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FirewallPolicyDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about a firewall policy. A firewall policy defines the behavior of a network firewall.</p>
+ */
+export interface AwsNetworkFirewallFirewallPolicyDetails {
+  /**
+   * <p>The firewall policy configuration.</p>
+   */
+  FirewallPolicy?: FirewallPolicyDetails;
+
+  /**
+   * <p>The ARN of the firewall policy.</p>
+   */
+  FirewallPolicyArn?: string;
+
+  /**
+   * <p>The identifier of the firewall policy.</p>
+   */
+  FirewallPolicyId?: string;
+
+  /**
+   * <p>The name of the firewall policy.</p>
+   */
+  FirewallPolicyName?: string;
+
+  /**
+   * <p>A description of the firewall policy.</p>
+   */
+  Description?: string;
+}
+
+export namespace AwsNetworkFirewallFirewallPolicyDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsNetworkFirewallFirewallPolicyDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Stateful inspection criteria for a domain list rule group.</p>
+ */
+export interface RuleGroupSourceListDetails {
+  /**
+   * <p>Indicates whether to allow or deny access to the domains listed in <code>Targets</code>.</p>
+   */
+  GeneratedRulesType?: string;
+
+  /**
+   * <p>The protocols that you want to inspect. Specify <code>LS_SNI</code> for HTTPS. Specify <code>HTTP_HOST</code> for HTTP. You can specify either or both.</p>
+   */
+  TargetTypes?: string[];
+
+  /**
+   * <p>The domains that you want to inspect for in your traffic flows. You can provide full domain names, or use the '.' prefix as a wildcard. For example, <code>.example.com</code> matches all domains that end with <code>example.com</code>.</p>
+   */
+  Targets?: string[];
+}
+
+export namespace RuleGroupSourceListDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupSourceListDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The inspection criteria for a stateful rule.</p>
+ */
+export interface RuleGroupSourceStatefulRulesHeaderDetails {
+  /**
+   * <p>The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify <code>ANY</code>.</p>
+   */
+  Destination?: string;
+
+  /**
+   * <p>The destination port to inspect for. You can specify an individual port, such as <code>1994</code>. You also can specify a port range, such as <code>1990:1994</code>. To match with any port, specify <code>ANY</code>.</p>
+   */
+  DestinationPort?: string;
+
+  /**
+   * <p>The direction of traffic flow to inspect. If set to <code>ANY</code>, the inspection matches bidirectional traffic, both from the source to the destination and from the destination to the source. If set to <code>FORWARD</code>, the inspection only matches traffic going from the source to the destination.</p>
+   */
+  Direction?: string;
+
+  /**
+   * <p>The protocol to inspect for. To inspector for all protocols, use <code>IP</code>.</p>
+   */
+  Protocol?: string;
+
+  /**
+   * <p>The source IP address or address range to inspect for, in CIDR notation. To match with any address, specify <code>ANY</code>.</p>
+   */
+  Source?: string;
+
+  /**
+   * <p>The source port to inspect for. You can specify an individual port, such as <code>1994</code>. You also can specify a port range, such as <code>1990:1994</code>. To match with any port, specify <code>ANY</code>.</p>
+   */
+  SourcePort?: string;
+}
+
+export namespace RuleGroupSourceStatefulRulesHeaderDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupSourceStatefulRulesHeaderDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A rule option for a stateful rule.</p>
+ */
+export interface RuleGroupSourceStatefulRulesOptionsDetails {
+  /**
+   * <p>A keyword to look for.</p>
+   */
+  Keyword?: string;
+
+  /**
+   * <p>A list of settings.</p>
+   */
+  Settings?: string[];
+}
+
+export namespace RuleGroupSourceStatefulRulesOptionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupSourceStatefulRulesOptionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A Suricata rule specification.</p>
+ */
+export interface RuleGroupSourceStatefulRulesDetails {
+  /**
+   * <p>Defines what Network Firewall should do with the packets in a traffic flow when the flow matches the stateful rule criteria.</p>
+   */
+  Action?: string;
+
+  /**
+   * <p>The stateful inspection criteria for the rule.</p>
+   */
+  Header?: RuleGroupSourceStatefulRulesHeaderDetails;
+
+  /**
+   * <p>Additional options for the rule.</p>
+   */
+  RuleOptions?: RuleGroupSourceStatefulRulesOptionsDetails[];
+}
+
+export namespace RuleGroupSourceStatefulRulesDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupSourceStatefulRulesDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A custom action definition. A custom action is an optional, non-standard action to use for stateless packet handling.</p>
+ */
+export interface RuleGroupSourceCustomActionsDetails {
+  /**
+   * <p>The definition of a custom action.</p>
+   */
+  ActionDefinition?: StatelessCustomActionDefinition;
+
+  /**
+   * <p>A descriptive name of the custom action.</p>
+   */
+  ActionName?: string;
+}
+
+export namespace RuleGroupSourceCustomActionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupSourceCustomActionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A port range to specify the destination ports to inspect for.</p>
+ */
+export interface RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts {
+  /**
+   * <p>The starting port value for the port range.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The ending port value for the port range.</p>
+   */
+  ToPort?: number;
+}
+
+export namespace RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A destination IP address or range.</p>
+ */
+export interface RuleGroupSourceStatelessRuleMatchAttributesDestinations {
+  /**
+   * <p>An IP address or a block of IP addresses.</p>
+   */
+  AddressDefinition?: string;
+}
+
+export namespace RuleGroupSourceStatelessRuleMatchAttributesDestinations {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleMatchAttributesDestinations): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A port range to specify the source ports to inspect for.</p>
+ */
+export interface RuleGroupSourceStatelessRuleMatchAttributesSourcePorts {
+  /**
+   * <p>The starting port value for the port range.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The ending port value for the port range.</p>
+   */
+  ToPort?: number;
+}
+
+export namespace RuleGroupSourceStatelessRuleMatchAttributesSourcePorts {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleMatchAttributesSourcePorts): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A source IP addresses and address range to inspect for.</p>
+ */
+export interface RuleGroupSourceStatelessRuleMatchAttributesSources {
+  /**
+   * <p>An IP address or a block of IP addresses.</p>
+   */
+  AddressDefinition?: string;
+}
+
+export namespace RuleGroupSourceStatelessRuleMatchAttributesSources {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleMatchAttributesSources): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A set of TCP flags and masks to inspect for.</p>
+ */
+export interface RuleGroupSourceStatelessRuleMatchAttributesTcpFlags {
+  /**
+   * <p>Defines the flags from the <code>Masks</code> setting that must be set in order for the packet to match. Flags that are listed must be set. Flags that are not listed must not be set.</p>
+   */
+  Flags?: string[];
+
+  /**
+   * <p>The set of flags to consider in the inspection. If not specified, then all flags are inspected.</p>
+   */
+  Masks?: string[];
+}
+
+export namespace RuleGroupSourceStatelessRuleMatchAttributesTcpFlags {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleMatchAttributesTcpFlags): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Criteria for the stateless rule.</p>
+ */
+export interface RuleGroupSourceStatelessRuleMatchAttributes {
+  /**
+   * <p>A list of port ranges to specify the destination ports to inspect for.</p>
+   */
+  DestinationPorts?: RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts[];
+
+  /**
+   * <p>The destination IP addresses and address ranges to inspect for, in CIDR notation.</p>
+   */
+  Destinations?: RuleGroupSourceStatelessRuleMatchAttributesDestinations[];
+
+  /**
+   * <p>The protocols to inspect for.</p>
+   */
+  Protocols?: number[];
+
+  /**
+   * <p>A list of port ranges to specify the source ports to inspect for.</p>
+   */
+  SourcePorts?: RuleGroupSourceStatelessRuleMatchAttributesSourcePorts[];
+
+  /**
+   * <p>The source IP addresses and address ranges to inspect for, in CIDR notation.</p>
+   */
+  Sources?: RuleGroupSourceStatelessRuleMatchAttributesSources[];
+
+  /**
+   * <p>The TCP flags and masks to inspect for.</p>
+   */
+  TcpFlags?: RuleGroupSourceStatelessRuleMatchAttributesTcpFlags[];
+}
+
+export namespace RuleGroupSourceStatelessRuleMatchAttributes {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleMatchAttributes): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The definition of the stateless rule.</p>
+ */
+export interface RuleGroupSourceStatelessRuleDefinition {
+  /**
+   * <p>The actions to take on a packet that matches one of the stateless rule definition's match attributes. You must specify a standard action (<code>aws:pass</code>, <code>aws:drop</code>, or <code>aws:forward_to_sfe</code>). You can then add custom actions.</p>
+   */
+  Actions?: string[];
+
+  /**
+   * <p>The criteria for Network Firewall to use to inspect an individual packet in a stateless rule inspection.</p>
+   */
+  MatchAttributes?: RuleGroupSourceStatelessRuleMatchAttributes;
+}
+
+export namespace RuleGroupSourceStatelessRuleDefinition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleDefinition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A stateless rule in the rule group.</p>
+ */
+export interface RuleGroupSourceStatelessRulesDetails {
+  /**
+   * <p>Indicates the order in which to run this rule relative to all of the rules in the stateless rule group.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>Provides the definition of the stateless rule.</p>
+   */
+  RuleDefinition?: RuleGroupSourceStatelessRuleDefinition;
+}
+
+export namespace RuleGroupSourceStatelessRulesDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRulesDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Stateless rules and custom actions for a stateless rule group.</p>
+ */
+export interface RuleGroupSourceStatelessRulesAndCustomActionsDetails {
+  /**
+   * <p>Custom actions for the rule group.</p>
+   */
+  CustomActions?: RuleGroupSourceCustomActionsDetails[];
+
+  /**
+   * <p>Stateless rules for the rule group.</p>
+   */
+  StatelessRules?: RuleGroupSourceStatelessRulesDetails[];
+}
+
+export namespace RuleGroupSourceStatelessRulesAndCustomActionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRulesAndCustomActionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The rules and actions for the rule group.</p>
+ */
+export interface RuleGroupSource {
+  /**
+   * <p>Stateful inspection criteria for a domain list rule group. A domain list rule group determines access by specific protocols to specific domains.</p>
+   */
+  RulesSourceList?: RuleGroupSourceListDetails;
+
+  /**
+   * <p>Stateful inspection criteria, provided in Suricata compatible intrusion prevention system (IPS) rules.</p>
+   */
+  RulesString?: string;
+
+  /**
+   * <p>Suricata rule specifications.</p>
+   */
+  StatefulRules?: RuleGroupSourceStatefulRulesDetails[];
+
+  /**
+   * <p>The stateless rules and custom actions used by a stateless rule group.</p>
+   */
+  StatelessRulesAndCustomActions?: RuleGroupSourceStatelessRulesAndCustomActionsDetails;
+}
+
+export namespace RuleGroupSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupSource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of IP addresses and address ranges, in CIDR notation.</p>
+ */
+export interface RuleGroupVariablesIpSetsDetails {
+  /**
+   * <p>The list of IP addresses and ranges.</p>
+   */
+  Definition?: string[];
+}
+
+export namespace RuleGroupVariablesIpSetsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupVariablesIpSetsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of port ranges.</p>
+ */
+export interface RuleGroupVariablesPortSetsDetails {
+  /**
+   * <p>The list of port ranges.</p>
+   */
+  Definition?: string[];
+}
+
+export namespace RuleGroupVariablesPortSetsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupVariablesPortSetsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Additional settings to use in the specified rules.</p>
+ */
+export interface RuleGroupVariables {
+  /**
+   * <p>A list of IP addresses and address ranges, in CIDR notation.</p>
+   */
+  IpSets?: RuleGroupVariablesIpSetsDetails;
+
+  /**
+   * <p>A list of port ranges.</p>
+   */
+  PortSets?: RuleGroupVariablesPortSetsDetails;
+}
+
+export namespace RuleGroupVariables {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupVariables): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the rule group.</p>
+ */
+export interface RuleGroupDetails {
+  /**
+   * <p>Additional settings to use in the specified rules.</p>
+   */
+  RuleVariables?: RuleGroupVariables;
+
+  /**
+   * <p>The rules and actions for the rule group.</p>
+   *          <p>For stateful rule groups, can contain <code>RulesString</code>, <code>RulesSourceList</code>, or <code>StatefulRules</code>.</p>
+   *          <p>For stateless rule groups, contains <code>StatelessRulesAndCustomActions</code>.</p>
+   */
+  RulesSource?: RuleGroupSource;
+}
+
+export namespace RuleGroupDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleGroupDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about an Network Firewall rule group. Rule groups are used to inspect and control network traffic. Stateless rule groups apply to individual packets. Stateful rule groups apply to packets in the context of their traffic flow.</p>
+ *          <p>Rule groups are referenced in firewall policies.
+ *       </p>
+ */
+export interface AwsNetworkFirewallRuleGroupDetails {
+  /**
+   * <p>The maximum number of operating resources that this rule group can use.</p>
+   */
+  Capacity?: number;
+
+  /**
+   * <p>A description of the rule group.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Details about the rule group.</p>
+   */
+  RuleGroup?: RuleGroupDetails;
+
+  /**
+   * <p>The ARN of the rule group.</p>
+   */
+  RuleGroupArn?: string;
+
+  /**
+   * <p>The identifier of the rule group.</p>
+   */
+  RuleGroupId?: string;
+
+  /**
+   * <p>The descriptive name of the rule group.</p>
+   */
+  RuleGroupName?: string;
+
+  /**
+   * <p>The type of rule group. A rule group can be stateful or stateless.</p>
+   */
+  Type?: string;
+}
+
+export namespace AwsNetworkFirewallRuleGroupDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsNetworkFirewallRuleGroupDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Configuration options for zone awareness.</p>
  */
 export interface AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails {
@@ -10371,1954 +11425,6 @@ export namespace AwsRdsPendingCloudWatchLogsExports {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsRdsPendingCloudWatchLogsExports): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A processor feature.</p>
- */
-export interface AwsRdsDbProcessorFeature {
-  /**
-   * <p>The name of the processor feature.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The value of the processor feature.</p>
-   */
-  Value?: string;
-}
-
-export namespace AwsRdsDbProcessorFeature {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbProcessorFeature): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Changes to a DB instance that are currently pending.</p>
- */
-export interface AwsRdsDbPendingModifiedValues {
-  /**
-   * <p>The new DB instance class for the DB instance.</p>
-   */
-  DbInstanceClass?: string;
-
-  /**
-   * <p>The new value of the allocated storage for the DB instance.</p>
-   */
-  AllocatedStorage?: number;
-
-  /**
-   * <p>The new master user password for the DB instance.</p>
-   */
-  MasterUserPassword?: string;
-
-  /**
-   * <p>The new port for the DB instance.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>The new backup retention period for the DB instance.</p>
-   */
-  BackupRetentionPeriod?: number;
-
-  /**
-   * <p>Indicates that a single Availability Zone DB instance is changing to a multiple Availability Zone deployment.</p>
-   */
-  MultiAZ?: boolean;
-
-  /**
-   * <p>The new engine version for the DB instance.</p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>The new license model value for the DB instance.</p>
-   */
-  LicenseModel?: string;
-
-  /**
-   * <p>The new provisioned IOPS value for the DB instance.</p>
-   */
-  Iops?: number;
-
-  /**
-   * <p>The new DB instance identifier for the DB instance.</p>
-   */
-  DbInstanceIdentifier?: string;
-
-  /**
-   * <p>The new storage type for the DB instance.</p>
-   */
-  StorageType?: string;
-
-  /**
-   * <p>The new CA certificate identifier for the DB instance.</p>
-   */
-  CaCertificateIdentifier?: string;
-
-  /**
-   * <p>The name of the new subnet group for the DB instance.</p>
-   */
-  DbSubnetGroupName?: string;
-
-  /**
-   * <p>A list of log types that are being enabled or disabled.</p>
-   */
-  PendingCloudWatchLogsExports?: AwsRdsPendingCloudWatchLogsExports;
-
-  /**
-   * <p>Processor features that are being updated.</p>
-   */
-  ProcessorFeatures?: AwsRdsDbProcessorFeature[];
-}
-
-export namespace AwsRdsDbPendingModifiedValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbPendingModifiedValues): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the status of a read replica.</p>
- */
-export interface AwsRdsDbStatusInfo {
-  /**
-   * <p>The type of status. For a read replica, the status type is read replication.</p>
-   */
-  StatusType?: string;
-
-  /**
-   * <p>Whether the read replica instance is operating normally.</p>
-   */
-  Normal?: boolean;
-
-  /**
-   * <p>The status of the read replica instance.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>If the read replica is currently in an error state, provides the error details.</p>
-   */
-  Message?: string;
-}
-
-export namespace AwsRdsDbStatusInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbStatusInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the details of an Amazon RDS DB instance.</p>
- */
-export interface AwsRdsDbInstanceDetails {
-  /**
-   * <p>The IAM roles associated with the DB
-   *          instance.</p>
-   */
-  AssociatedRoles?: AwsRdsDbInstanceAssociatedRole[];
-
-  /**
-   * <p>The identifier of the CA certificate for this DB instance.</p>
-   */
-  CACertificateIdentifier?: string;
-
-  /**
-   * <p>If the DB instance is a member of a DB cluster, contains the name of the DB cluster that
-   *          the DB instance is a member of.</p>
-   */
-  DBClusterIdentifier?: string;
-
-  /**
-   * <p>Contains a user-supplied database identifier. This identifier is the unique key that
-   *          identifies a DB instance.</p>
-   */
-  DBInstanceIdentifier?: string;
-
-  /**
-   * <p>Contains the name of the compute and memory capacity class of the DB instance.</p>
-   */
-  DBInstanceClass?: string;
-
-  /**
-   * <p>Specifies the port that the DB instance listens on. If the DB instance is part of a DB
-   *          cluster, this can be a different port than the DB cluster port.</p>
-   */
-  DbInstancePort?: number;
-
-  /**
-   * <p>The Amazon Web Services Region-unique, immutable identifier for the DB instance. This identifier is
-   *          found in CloudTrail log entries whenever the KMS key for the DB instance is
-   *          accessed. </p>
-   */
-  DbiResourceId?: string;
-
-  /**
-   * <p>The meaning of this parameter differs according to the database engine you use.</p>
-   *          <p>
-   *             <b>MySQL, MariaDB, SQL Server, PostgreSQL</b>
-   *          </p>
-   *          <p>Contains the name of the initial database of this instance that was provided at create
-   *          time, if one was specified when the DB instance was created. This same name is returned for
-   *          the life of the DB instance.</p>
-   *          <p>
-   *             <b>Oracle</b>
-   *          </p>
-   *          <p>Contains the Oracle System ID (SID) of the created DB instance. Not shown when the
-   *          returned parameters do not apply to an Oracle DB instance. </p>
-   */
-  DBName?: string;
-
-  /**
-   * <p>Indicates whether the DB instance has deletion protection enabled.</p>
-   *          <p>When deletion protection is enabled, the database cannot be deleted.</p>
-   */
-  DeletionProtection?: boolean;
-
-  /**
-   * <p>Specifies the connection endpoint.</p>
-   */
-  Endpoint?: AwsRdsDbInstanceEndpoint;
-
-  /**
-   * <p>Provides the name of the database engine to use for this DB instance.</p>
-   */
-  Engine?: string;
-
-  /**
-   * <p>Indicates the database engine version.</p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>True if mapping of IAM accounts to database
-   *          accounts is enabled, and otherwise false.</p>
-   *          <p>IAM database authentication can be enabled for the following database engines.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For MySQL 5.6, minor version 5.6.34 or higher</p>
-   *             </li>
-   *             <li>
-   *                <p>For MySQL 5.7, minor version 5.7.16 or higher</p>
-   *             </li>
-   *             <li>
-   *                <p>Aurora 5.6 or higher</p>
-   *             </li>
-   *          </ul>
-   */
-  IAMDatabaseAuthenticationEnabled?: boolean;
-
-  /**
-   * <p>Indicates when the DB instance was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  InstanceCreateTime?: string;
-
-  /**
-   * <p>If <code>StorageEncrypted</code> is true, the KMS key identifier for the encrypted
-   *          DB instance.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>Specifies the accessibility options for the DB instance.</p>
-   *          <p>A value of true specifies an Internet-facing instance with a publicly resolvable DNS
-   *          name, which resolves to a public IP address.</p>
-   *          <p>A value of false specifies an internal instance with a DNS name that resolves to a
-   *          private IP address. </p>
-   */
-  PubliclyAccessible?: boolean;
-
-  /**
-   * <p>Specifies whether the DB instance is encrypted.</p>
-   */
-  StorageEncrypted?: boolean;
-
-  /**
-   * <p>The ARN from the key store with which the instance is associated for TDE
-   *          encryption.</p>
-   */
-  TdeCredentialArn?: string;
-
-  /**
-   * <p>A list of VPC security groups that the DB instance belongs to.</p>
-   */
-  VpcSecurityGroups?: AwsRdsDbInstanceVpcSecurityGroup[];
-
-  /**
-   * <p>Whether the DB instance is a multiple Availability Zone deployment.</p>
-   */
-  MultiAz?: boolean;
-
-  /**
-   * <p>The ARN of the CloudWatch Logs log stream that receives the enhanced monitoring metrics
-   *          data for the DB instance.</p>
-   */
-  EnhancedMonitoringResourceArn?: string;
-
-  /**
-   * <p>The current status of the DB instance.</p>
-   */
-  DbInstanceStatus?: string;
-
-  /**
-   * <p>The master user name of the DB instance.</p>
-   */
-  MasterUsername?: string;
-
-  /**
-   * <p>The amount of storage (in gigabytes) to initially allocate for the DB instance.</p>
-   */
-  AllocatedStorage?: number;
-
-  /**
-   * <p>The range of time each day when automated backups are created, if automated backups are
-   *          enabled.</p>
-   *          <p>Uses the format <code>HH:MM-HH:MM</code>. For example, <code>04:52-05:22</code>.</p>
-   */
-  PreferredBackupWindow?: string;
-
-  /**
-   * <p>The number of days for which to retain automated backups.</p>
-   */
-  BackupRetentionPeriod?: number;
-
-  /**
-   * <p>A list of the DB security groups to assign to the DB instance.</p>
-   */
-  DbSecurityGroups?: string[];
-
-  /**
-   * <p>A list of the DB parameter groups to assign to the DB instance.</p>
-   */
-  DbParameterGroups?: AwsRdsDbParameterGroup[];
-
-  /**
-   * <p>The Availability Zone where the DB instance will be created.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>Information about the subnet group that is associated with the DB instance.</p>
-   */
-  DbSubnetGroup?: AwsRdsDbSubnetGroup;
-
-  /**
-   * <p>The weekly time range during which system maintenance can occur, in Universal
-   *          Coordinated Time (UTC).</p>
-   *          <p>Uses the format <code><day>:HH:MM-<day>:HH:MM</code>.</p>
-   *          <p>For the day values, use
-   *             <code>mon</code>|<code>tue</code>|<code>wed</code>|<code>thu</code>|<code>fri</code>|<code>sat</code>|<code>sun</code>.</p>
-   *          <p>For example, <code>sun:09:32-sun:10:02</code>.</p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>Changes to the DB instance that are currently pending.</p>
-   */
-  PendingModifiedValues?: AwsRdsDbPendingModifiedValues;
-
-  /**
-   * <p>Specifies the latest time to which a database can be restored with point-in-time
-   *          restore.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  LatestRestorableTime?: string;
-
-  /**
-   * <p>Indicates whether minor version patches are applied automatically.</p>
-   */
-  AutoMinorVersionUpgrade?: boolean;
-
-  /**
-   * <p>If this DB instance is a read replica, contains the identifier of the source DB
-   *          instance.</p>
-   */
-  ReadReplicaSourceDBInstanceIdentifier?: string;
-
-  /**
-   * <p>List of identifiers of the read replicas associated with this DB instance.</p>
-   */
-  ReadReplicaDBInstanceIdentifiers?: string[];
-
-  /**
-   * <p>List of identifiers of Aurora DB clusters to which the RDS DB instance is replicated as
-   *          a read replica.</p>
-   */
-  ReadReplicaDBClusterIdentifiers?: string[];
-
-  /**
-   * <p>License model information for this DB instance.</p>
-   */
-  LicenseModel?: string;
-
-  /**
-   * <p>Specifies the provisioned IOPS (I/O operations per second) for this DB instance.</p>
-   */
-  Iops?: number;
-
-  /**
-   * <p>The list of option group memberships for this DB instance.</p>
-   */
-  OptionGroupMemberships?: AwsRdsDbOptionGroupMembership[];
-
-  /**
-   * <p>The name of the character set that this DB instance is associated with.</p>
-   */
-  CharacterSetName?: string;
-
-  /**
-   * <p>For a DB instance with multi-Availability Zone support, the name of the secondary
-   *          Availability Zone.</p>
-   */
-  SecondaryAvailabilityZone?: string;
-
-  /**
-   * <p>The status of a read replica. If the instance isn't a read replica, this is
-   *          empty.</p>
-   */
-  StatusInfos?: AwsRdsDbStatusInfo[];
-
-  /**
-   * <p>The storage type for the DB instance.</p>
-   */
-  StorageType?: string;
-
-  /**
-   * <p>The Active Directory domain membership records associated with the DB instance.</p>
-   */
-  DomainMemberships?: AwsRdsDbDomainMembership[];
-
-  /**
-   * <p>Whether to copy resource tags to snapshots of the DB instance.</p>
-   */
-  CopyTagsToSnapshot?: boolean;
-
-  /**
-   * <p>The interval, in seconds, between points when enhanced monitoring metrics are collected
-   *          for the DB instance.</p>
-   */
-  MonitoringInterval?: number;
-
-  /**
-   * <p>The ARN for the IAM role that permits Amazon RDS to send enhanced monitoring metrics to
-   *          CloudWatch Logs.</p>
-   */
-  MonitoringRoleArn?: string;
-
-  /**
-   * <p>The order in which to promote an Aurora replica to the primary instance after a failure
-   *          of the existing primary instance.</p>
-   */
-  PromotionTier?: number;
-
-  /**
-   * <p>The time zone of the DB instance.</p>
-   */
-  Timezone?: string;
-
-  /**
-   * <p>Indicates whether Performance Insights is enabled for the DB instance.</p>
-   */
-  PerformanceInsightsEnabled?: boolean;
-
-  /**
-   * <p>The identifier of the KMS key used to encrypt the Performance Insights data.</p>
-   */
-  PerformanceInsightsKmsKeyId?: string;
-
-  /**
-   * <p>The number of days to retain Performance Insights data.</p>
-   */
-  PerformanceInsightsRetentionPeriod?: number;
-
-  /**
-   * <p>A list of log types that this DB instance is configured to export to CloudWatch Logs.</p>
-   */
-  EnabledCloudWatchLogsExports?: string[];
-
-  /**
-   * <p>The number of CPU cores and the number of threads per core for the DB instance class of
-   *          the DB instance.</p>
-   */
-  ProcessorFeatures?: AwsRdsDbProcessorFeature[];
-
-  /**
-   * <p>Specifies the connection endpoint.</p>
-   */
-  ListenerEndpoint?: AwsRdsDbInstanceEndpoint;
-
-  /**
-   * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB
-   *          instance.</p>
-   */
-  MaxAllocatedStorage?: number;
-}
-
-export namespace AwsRdsDbInstanceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbInstanceDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides details about an Amazon RDS DB cluster snapshot.</p>
- */
-export interface AwsRdsDbSnapshotDetails {
-  /**
-   * <p>The name or ARN of the DB snapshot that is used to restore the DB instance.</p>
-   */
-  DbSnapshotIdentifier?: string;
-
-  /**
-   * <p>A name for the DB instance.</p>
-   */
-  DbInstanceIdentifier?: string;
-
-  /**
-   * <p>When the snapshot was taken in Coordinated Universal Time (UTC).</p>
-   */
-  SnapshotCreateTime?: string;
-
-  /**
-   * <p>The name of the database engine to use for this DB instance.</p>
-   */
-  Engine?: string;
-
-  /**
-   * <p>The amount of storage (in gigabytes) to be initially allocated for the database instance.</p>
-   */
-  AllocatedStorage?: number;
-
-  /**
-   * <p>The status of this DB snapshot.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>The port that the database engine was listening on at the time of the snapshot.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>Specifies the name of the Availability Zone in which the DB instance was located at the time of the DB snapshot.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The VPC ID associated with the DB snapshot.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>Specifies the time in Coordinated Universal Time (UTC) when the DB instance, from which the snapshot was taken, was created.</p>
-   */
-  InstanceCreateTime?: string;
-
-  /**
-   * <p>The master user name for the DB snapshot.</p>
-   */
-  MasterUsername?: string;
-
-  /**
-   * <p>The version of the database engine.</p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>License model information for the restored DB instance.</p>
-   */
-  LicenseModel?: string;
-
-  /**
-   * <p>The type of the DB snapshot.</p>
-   */
-  SnapshotType?: string;
-
-  /**
-   * <p>The provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.</p>
-   */
-  Iops?: number;
-
-  /**
-   * <p>The option group name for the DB snapshot.</p>
-   */
-  OptionGroupName?: string;
-
-  /**
-   * <p>The percentage of the estimated data that has been transferred.</p>
-   */
-  PercentProgress?: number;
-
-  /**
-   * <p>The Amazon Web Services Region that the DB snapshot was created in or copied from.</p>
-   */
-  SourceRegion?: string;
-
-  /**
-   * <p>The DB snapshot ARN that the DB snapshot was copied from.</p>
-   */
-  SourceDbSnapshotIdentifier?: string;
-
-  /**
-   * <p>The storage type associated with the DB snapshot.</p>
-   */
-  StorageType?: string;
-
-  /**
-   * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
-   */
-  TdeCredentialArn?: string;
-
-  /**
-   * <p>Whether the DB snapshot is encrypted.</p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>If <code>Encrypted</code> is <code>true</code>, the KMS key identifier for the encrypted DB snapshot.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The time zone of the DB snapshot.</p>
-   */
-  Timezone?: string;
-
-  /**
-   * <p>Whether mapping of IAM accounts to database accounts is enabled.</p>
-   */
-  IamDatabaseAuthenticationEnabled?: boolean;
-
-  /**
-   * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
-   */
-  ProcessorFeatures?: AwsRdsDbProcessorFeature[];
-
-  /**
-   * <p>The identifier for the source DB instance.</p>
-   */
-  DbiResourceId?: string;
-}
-
-export namespace AwsRdsDbSnapshotDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbSnapshotDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about an Amazon RDS event notification subscription. The subscription allows Amazon RDS to post events to an SNS topic.</p>
- */
-export interface AwsRdsEventSubscriptionDetails {
-  /**
-   * <p>The identifier of the account that is associated with the event notification subscription.</p>
-   */
-  CustSubscriptionId?: string;
-
-  /**
-   * <p>The identifier of the event notification subscription.</p>
-   */
-  CustomerAwsId?: string;
-
-  /**
-   * <p>Whether the event notification subscription is enabled.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The list of event categories for the event notification subscription.</p>
-   */
-  EventCategoriesList?: string[];
-
-  /**
-   * <p>The ARN of the event notification subscription.</p>
-   */
-  EventSubscriptionArn?: string;
-
-  /**
-   * <p>The ARN of the SNS topic to post the event notifications to.</p>
-   */
-  SnsTopicArn?: string;
-
-  /**
-   * <p>A list of source identifiers for the event notification subscription.</p>
-   */
-  SourceIdsList?: string[];
-
-  /**
-   * <p>The source type for the event notification subscription.</p>
-   */
-  SourceType?: string;
-
-  /**
-   * <p>The status of the event notification subscription.</p>
-   *          <p>Valid values: <code>creating</code> | <code>modifying</code> | <code>deleting</code> | <code>active</code> | <code>no-permission</code> | <code>topic-not-exist</code>
-   *          </p>
-   */
-  Status?: string;
-
-  /**
-   * <p>The datetime when the event notification subscription was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces. For example,
-   *          <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  SubscriptionCreationTime?: string;
-}
-
-export namespace AwsRdsEventSubscriptionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsEventSubscriptionDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A node in an Amazon Redshift cluster.</p>
- */
-export interface AwsRedshiftClusterClusterNode {
-  /**
-   * <p>The role of the node. A node might be a leader node or a compute node.</p>
-   */
-  NodeRole?: string;
-
-  /**
-   * <p>The private IP address of the node.</p>
-   */
-  PrivateIpAddress?: string;
-
-  /**
-   * <p>The public IP address of the node.</p>
-   */
-  PublicIpAddress?: string;
-}
-
-export namespace AwsRedshiftClusterClusterNode {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterClusterNode): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The status of a parameter in a cluster parameter group for an Amazon Redshift
- *          cluster.</p>
- */
-export interface AwsRedshiftClusterClusterParameterStatus {
-  /**
-   * <p>The name of the parameter.</p>
-   */
-  ParameterName?: string;
-
-  /**
-   * <p>The status of the parameter. Indicates whether the parameter is in sync with the
-   *          database, waiting for a cluster reboot, or encountered an error when it was applied.</p>
-   *          <p>Valid values: <code>in-sync</code> | <code>pending-reboot</code> | <code>applying</code>
-   *          | <code>invalid-parameter</code> | <code>apply-deferred</code> | <code>apply-error</code> |
-   *             <code>unknown-error</code>
-   *          </p>
-   */
-  ParameterApplyStatus?: string;
-
-  /**
-   * <p>The error that prevented the parameter from being applied to the database.</p>
-   */
-  ParameterApplyErrorDescription?: string;
-}
-
-export namespace AwsRedshiftClusterClusterParameterStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterClusterParameterStatus): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A cluster parameter group that is associated with an Amazon Redshift cluster.</p>
- */
-export interface AwsRedshiftClusterClusterParameterGroup {
-  /**
-   * <p>The list of parameter statuses.</p>
-   */
-  ClusterParameterStatusList?: AwsRedshiftClusterClusterParameterStatus[];
-
-  /**
-   * <p>The status of updates to the parameters.</p>
-   */
-  ParameterApplyStatus?: string;
-
-  /**
-   * <p>The name of the parameter group.</p>
-   */
-  ParameterGroupName?: string;
-}
-
-export namespace AwsRedshiftClusterClusterParameterGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterClusterParameterGroup): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A security group that is associated with the cluster.</p>
- */
-export interface AwsRedshiftClusterClusterSecurityGroup {
-  /**
-   * <p>The name of the cluster security group.</p>
-   */
-  ClusterSecurityGroupName?: string;
-
-  /**
-   * <p>The status of the cluster security group.</p>
-   */
-  Status?: string;
-}
-
-export namespace AwsRedshiftClusterClusterSecurityGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterClusterSecurityGroup): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about a cross-Region snapshot copy.</p>
- */
-export interface AwsRedshiftClusterClusterSnapshotCopyStatus {
-  /**
-   * <p>The destination Region that snapshots are automatically copied to when cross-Region
-   *          snapshot copy is enabled.</p>
-   */
-  DestinationRegion?: string;
-
-  /**
-   * <p>The number of days that manual snapshots are retained in the destination region after
-   *          they are copied from a source region.</p>
-   *          <p>If the value is -1, then the manual snapshot is retained indefinitely.</p>
-   *          <p>Valid values: Either -1 or an integer between 1 and 3,653</p>
-   */
-  ManualSnapshotRetentionPeriod?: number;
-
-  /**
-   * <p>The number of days to retain automated snapshots in the destination Region after they
-   *          are copied from a source Region.</p>
-   */
-  RetentionPeriod?: number;
-
-  /**
-   * <p>The name of the snapshot copy grant.</p>
-   */
-  SnapshotCopyGrantName?: string;
-}
-
-export namespace AwsRedshiftClusterClusterSnapshotCopyStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterClusterSnapshotCopyStatus): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A time windows during which maintenance was deferred for an Amazon Redshift
- *          cluster.</p>
- */
-export interface AwsRedshiftClusterDeferredMaintenanceWindow {
-  /**
-   * <p>The end of the time window for which maintenance was deferred.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  DeferMaintenanceEndTime?: string;
-
-  /**
-   * <p>The identifier of the maintenance window.</p>
-   */
-  DeferMaintenanceIdentifier?: string;
-
-  /**
-   * <p>The start of the time window for which maintenance was deferred.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  DeferMaintenanceStartTime?: string;
-}
-
-export namespace AwsRedshiftClusterDeferredMaintenanceWindow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterDeferredMaintenanceWindow): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The status of the elastic IP (EIP) address for an Amazon Redshift cluster.</p>
- */
-export interface AwsRedshiftClusterElasticIpStatus {
-  /**
-   * <p>The elastic IP address for the cluster.</p>
-   */
-  ElasticIp?: string;
-
-  /**
-   * <p>The status of the elastic IP address.</p>
-   */
-  Status?: string;
-}
-
-export namespace AwsRedshiftClusterElasticIpStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterElasticIpStatus): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The connection endpoint for an Amazon Redshift cluster.</p>
- */
-export interface AwsRedshiftClusterEndpoint {
-  /**
-   * <p>The DNS address of the cluster.</p>
-   */
-  Address?: string;
-
-  /**
-   * <p>The port that the database engine listens on.</p>
-   */
-  Port?: number;
-}
-
-export namespace AwsRedshiftClusterEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterEndpoint): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about whether an Amazon Redshift cluster finished applying any hardware
- *          changes to security module (HSM) settings that were specified in a modify cluster
- *          command.</p>
- */
-export interface AwsRedshiftClusterHsmStatus {
-  /**
-   * <p>The name of the HSM client certificate that the Amazon Redshift cluster uses to retrieve
-   *          the data encryption keys that are stored in an HSM.</p>
-   */
-  HsmClientCertificateIdentifier?: string;
-
-  /**
-   * <p>The name of the HSM configuration that contains the information that the Amazon Redshift
-   *          cluster can use to retrieve and store keys in an HSM.</p>
-   */
-  HsmConfigurationIdentifier?: string;
-
-  /**
-   * <p>Indicates whether the Amazon Redshift cluster has finished applying any HSM settings
-   *          changes specified in a modify cluster command.</p>
-   *          <p>Type: String</p>
-   *          <p>Valid values: <code>active</code> | <code>applying</code>
-   *          </p>
-   */
-  Status?: string;
-}
-
-export namespace AwsRedshiftClusterHsmStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterHsmStatus): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An IAM role that the cluster can use to access other Amazon Web Services services.</p>
- */
-export interface AwsRedshiftClusterIamRole {
-  /**
-   * <p>The status of the IAM role's association with the cluster.</p>
-   *          <p>Valid values: <code>in-sync</code> | <code>adding</code> | <code>removing</code>
-   *          </p>
-   */
-  ApplyStatus?: string;
-
-  /**
-   * <p>The ARN of the IAM role.</p>
-   */
-  IamRoleArn?: string;
-}
-
-export namespace AwsRedshiftClusterIamRole {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterIamRole): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Changes to the Amazon Redshift cluster that are currently pending.</p>
- */
-export interface AwsRedshiftClusterPendingModifiedValues {
-  /**
-   * <p>The pending or in-progress change to the automated snapshot retention period.</p>
-   */
-  AutomatedSnapshotRetentionPeriod?: number;
-
-  /**
-   * <p>The pending or in-progress change to the identifier for the cluster.</p>
-   */
-  ClusterIdentifier?: string;
-
-  /**
-   * <p>The pending or in-progress change to the cluster type.</p>
-   */
-  ClusterType?: string;
-
-  /**
-   * <p>The pending or in-progress change to the service version.</p>
-   */
-  ClusterVersion?: string;
-
-  /**
-   * <p>The encryption type for a cluster.</p>
-   */
-  EncryptionType?: string;
-
-  /**
-   * <p>Indicates whether to create the cluster with enhanced VPC routing enabled.</p>
-   */
-  EnhancedVpcRouting?: boolean;
-
-  /**
-   * <p>The name of the maintenance track that the cluster changes to during the next
-   *          maintenance window.</p>
-   */
-  MaintenanceTrackName?: string;
-
-  /**
-   * <p>The pending or in-progress change to the master user password for the cluster.</p>
-   */
-  MasterUserPassword?: string;
-
-  /**
-   * <p>The pending or in-progress change to the cluster's node type.</p>
-   */
-  NodeType?: string;
-
-  /**
-   * <p>The pending or in-progress change to the number of nodes in the cluster.</p>
-   */
-  NumberOfNodes?: number;
-
-  /**
-   * <p>The pending or in-progress change to whether the cluster can be connected to from the
-   *          public network.</p>
-   */
-  PubliclyAccessible?: boolean;
-}
-
-export namespace AwsRedshiftClusterPendingModifiedValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterPendingModifiedValues): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the resize operation for the cluster.</p>
- */
-export interface AwsRedshiftClusterResizeInfo {
-  /**
-   * <p>Indicates whether the resize operation can be canceled.</p>
-   */
-  AllowCancelResize?: boolean;
-
-  /**
-   * <p>The type of resize operation.</p>
-   *          <p>Valid values: <code>ClassicResize</code>
-   *          </p>
-   */
-  ResizeType?: string;
-}
-
-export namespace AwsRedshiftClusterResizeInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterResizeInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the status of a cluster restore action. It only applies if the cluster
- *          was created by restoring a snapshot.</p>
- */
-export interface AwsRedshiftClusterRestoreStatus {
-  /**
-   * <p>The number of megabytes per second being transferred from the backup storage. Returns
-   *          the average rate for a completed backup.</p>
-   *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
-   */
-  CurrentRestoreRateInMegaBytesPerSecond?: number;
-
-  /**
-   * <p>The amount of time an in-progress restore has been running, or the amount of time it
-   *          took a completed restore to finish.</p>
-   *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
-   */
-  ElapsedTimeInSeconds?: number;
-
-  /**
-   * <p>The estimate of the time remaining before the restore is complete. Returns 0 for a
-   *          completed restore.</p>
-   *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
-   */
-  EstimatedTimeToCompletionInSeconds?: number;
-
-  /**
-   * <p>The number of megabytes that were transferred from snapshot storage.</p>
-   *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
-   */
-  ProgressInMegaBytes?: number;
-
-  /**
-   * <p>The size of the set of snapshot data that was used to restore the cluster.</p>
-   *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
-   */
-  SnapshotSizeInMegaBytes?: number;
-
-  /**
-   * <p>The status of the restore action.</p>
-   *          <p>Valid values: <code>starting</code> | <code>restoring</code> | <code>completed</code> |
-   *             <code>failed</code>
-   *          </p>
-   */
-  Status?: string;
-}
-
-export namespace AwsRedshiftClusterRestoreStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterRestoreStatus): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A VPC security group that the cluster belongs to, if the cluster is in a VPC.</p>
- */
-export interface AwsRedshiftClusterVpcSecurityGroup {
-  /**
-   * <p>The status of the VPC security group.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>The identifier of the VPC security group.</p>
-   */
-  VpcSecurityGroupId?: string;
-}
-
-export namespace AwsRedshiftClusterVpcSecurityGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterVpcSecurityGroup): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about an Amazon Redshift cluster.</p>
- */
-export interface AwsRedshiftClusterDetails {
-  /**
-   * <p>Indicates whether major version upgrades are applied automatically to the cluster during
-   *          the maintenance window.</p>
-   */
-  AllowVersionUpgrade?: boolean;
-
-  /**
-   * <p>The number of days that automatic cluster snapshots are retained.</p>
-   */
-  AutomatedSnapshotRetentionPeriod?: number;
-
-  /**
-   * <p>The name of the Availability Zone in which the cluster is located.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The availability status of the cluster for queries. Possible values are the
-   *          following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Available</code> - The cluster is available for queries.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unavailable</code> - The cluster is not available for queries.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Maintenance</code> - The cluster is intermittently available for queries due
-   *                to maintenance activities.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Modifying</code> -The cluster is intermittently available for queries due to
-   *                changes that modify the cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Failed</code> - The cluster failed and is not available for queries.</p>
-   *             </li>
-   *          </ul>
-   */
-  ClusterAvailabilityStatus?: string;
-
-  /**
-   * <p>Indicates when the cluster was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  ClusterCreateTime?: string;
-
-  /**
-   * <p>The unique identifier of the cluster.</p>
-   */
-  ClusterIdentifier?: string;
-
-  /**
-   * <p>The nodes in the cluster.</p>
-   */
-  ClusterNodes?: AwsRedshiftClusterClusterNode[];
-
-  /**
-   * <p>The list of cluster parameter groups that are associated with this cluster.</p>
-   */
-  ClusterParameterGroups?: AwsRedshiftClusterClusterParameterGroup[];
-
-  /**
-   * <p>The public key for the cluster.</p>
-   */
-  ClusterPublicKey?: string;
-
-  /**
-   * <p>The specific revision number of the database in the cluster.</p>
-   */
-  ClusterRevisionNumber?: string;
-
-  /**
-   * <p>A list of cluster security groups that are associated with the cluster.</p>
-   */
-  ClusterSecurityGroups?: AwsRedshiftClusterClusterSecurityGroup[];
-
-  /**
-   * <p>Information about the destination Region and retention period for the cross-Region
-   *          snapshot copy.</p>
-   */
-  ClusterSnapshotCopyStatus?: AwsRedshiftClusterClusterSnapshotCopyStatus;
-
-  /**
-   * <p>The current status of the cluster.</p>
-   *          <p>Valid values: <code>available</code> | <code>available, prep-for-resize</code> |
-   *             <code>available, resize-cleanup</code> |<code> cancelling-resize</code> |
-   *             <code>creating</code> | <code>deleting</code> | <code>final-snapshot</code> |
-   *             <code>hardware-failure</code> | <code>incompatible-hsm</code> |<code>
-   *             incompatible-network</code> | <code>incompatible-parameters</code> |
-   *             <code>incompatible-restore</code> | <code>modifying</code> | <code>paused</code> |
-   *             <code>rebooting</code> | <code>renaming</code> | <code>resizing</code> |
-   *             <code>rotating-keys</code> | <code>storage-full</code> |
-   *          <code>updating-hsm</code>
-   *          </p>
-   */
-  ClusterStatus?: string;
-
-  /**
-   * <p>The name of the subnet group that is associated with the cluster. This parameter is
-   *          valid only when the cluster is in a VPC.</p>
-   */
-  ClusterSubnetGroupName?: string;
-
-  /**
-   * <p>The version ID of the Amazon Redshift engine that runs on the cluster.</p>
-   */
-  ClusterVersion?: string;
-
-  /**
-   * <p>The name of the initial database that was created when the cluster was created.</p>
-   *          <p>The same name is returned for the life of the cluster.</p>
-   *          <p>If an initial database is not specified, a database named <code>devdev</code> is created
-   *          by default.</p>
-   */
-  DBName?: string;
-
-  /**
-   * <p>List of time windows during which maintenance was deferred.</p>
-   */
-  DeferredMaintenanceWindows?: AwsRedshiftClusterDeferredMaintenanceWindow[];
-
-  /**
-   * <p>Information about the status of the Elastic IP (EIP) address.</p>
-   */
-  ElasticIpStatus?: AwsRedshiftClusterElasticIpStatus;
-
-  /**
-   * <p>The number of nodes that you can use the elastic resize method to resize the cluster
-   *          to.</p>
-   */
-  ElasticResizeNumberOfNodeOptions?: string;
-
-  /**
-   * <p>Indicates whether the data in the cluster is encrypted at rest.</p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>The connection endpoint.</p>
-   */
-  Endpoint?: AwsRedshiftClusterEndpoint;
-
-  /**
-   * <p>Indicates whether to create the cluster with enhanced VPC routing enabled.</p>
-   */
-  EnhancedVpcRouting?: boolean;
-
-  /**
-   * <p>Indicates when the next snapshot is expected to be taken. The cluster must have a valid
-   *          snapshot schedule and have backups enabled.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  ExpectedNextSnapshotScheduleTime?: string;
-
-  /**
-   * <p>The status of the next expected snapshot.</p>
-   *          <p>Valid values: <code>OnTrack</code> | <code>Pending</code>
-   *          </p>
-   */
-  ExpectedNextSnapshotScheduleTimeStatus?: string;
-
-  /**
-   * <p>Information about whether the Amazon Redshift cluster finished applying any changes to
-   *          hardware security module (HSM) settings that were specified in a modify cluster
-   *          command.</p>
-   */
-  HsmStatus?: AwsRedshiftClusterHsmStatus;
-
-  /**
-   * <p>A list of IAM roles that the cluster can use to access other Amazon Web Services services.</p>
-   */
-  IamRoles?: AwsRedshiftClusterIamRole[];
-
-  /**
-   * <p>The identifier of the KMS encryption key that is used to encrypt data in the
-   *          cluster.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The name of the maintenance track for the cluster.</p>
-   */
-  MaintenanceTrackName?: string;
-
-  /**
-   * <p>The default number of days to retain a manual snapshot.</p>
-   *          <p>If the value is -1, the snapshot is retained indefinitely.</p>
-   *          <p>This setting doesn't change the retention period of existing snapshots.</p>
-   *          <p>Valid values: Either -1 or an integer between 1 and 3,653</p>
-   */
-  ManualSnapshotRetentionPeriod?: number;
-
-  /**
-   * <p>The master user name for the cluster. This name is used to connect to the database that
-   *          is specified in as the value of <code>DBName</code>.</p>
-   */
-  MasterUsername?: string;
-
-  /**
-   * <p>Indicates the start of the next maintenance window.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  NextMaintenanceWindowStartTime?: string;
-
-  /**
-   * <p>The node type for the nodes in the cluster.</p>
-   */
-  NodeType?: string;
-
-  /**
-   * <p>The number of compute nodes in the cluster.</p>
-   */
-  NumberOfNodes?: number;
-
-  /**
-   * <p>A list of cluster operations that are waiting to start.</p>
-   */
-  PendingActions?: string[];
-
-  /**
-   * <p>A list of changes to the cluster that are currently pending.</p>
-   */
-  PendingModifiedValues?: AwsRedshiftClusterPendingModifiedValues;
-
-  /**
-   * <p>The weekly time range, in Universal Coordinated Time (UTC), during which system
-   *          maintenance can occur.</p>
-   *          <p>Format:
-   *             <code>
-   *                <i><day></i>:HH:MM-<i><day></i>:HH:MM</code>
-   *          </p>
-   *          <p>For the day values, use <code>mon</code> | <code>tue</code> | <code>wed</code> |
-   *             <code>thu</code> | <code>fri</code> | <code>sat</code> | <code>sun</code>
-   *          </p>
-   *          <p>For example, <code>sun:09:32-sun:10:02</code>
-   *          </p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>Whether the cluster can be accessed from a public network.</p>
-   */
-  PubliclyAccessible?: boolean;
-
-  /**
-   * <p>Information about the resize operation for the cluster.</p>
-   */
-  ResizeInfo?: AwsRedshiftClusterResizeInfo;
-
-  /**
-   * <p>Information about the status of a cluster restore action. Only applies to a cluster that
-   *          was created by restoring a snapshot.</p>
-   */
-  RestoreStatus?: AwsRedshiftClusterRestoreStatus;
-
-  /**
-   * <p>A unique identifier for the cluster snapshot schedule.</p>
-   */
-  SnapshotScheduleIdentifier?: string;
-
-  /**
-   * <p>The current state of the cluster snapshot schedule.</p>
-   *          <p>Valid values: <code>MODIFYING</code> | <code>ACTIVE</code> | <code>FAILED</code>
-   *          </p>
-   */
-  SnapshotScheduleState?: string;
-
-  /**
-   * <p>The identifier of the VPC that the cluster is in, if the cluster is in a VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The list of VPC security groups that the cluster belongs to, if the cluster is in a
-   *          VPC.</p>
-   */
-  VpcSecurityGroups?: AwsRedshiftClusterVpcSecurityGroup[];
-}
-
-export namespace AwsRedshiftClusterDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>provides information about the Amazon S3 Public Access Block configuration for accounts.</p>
- */
-export interface AwsS3AccountPublicAccessBlockDetails {
-  /**
-   * <p>Indicates whether to reject calls to update an S3 bucket if the calls include a public access control list (ACL).</p>
-   */
-  BlockPublicAcls?: boolean;
-
-  /**
-   * <p>Indicates whether to reject calls to update the access policy for an S3 bucket or access point if the policy allows public access.</p>
-   */
-  BlockPublicPolicy?: boolean;
-
-  /**
-   * <p>Indicates whether Amazon S3 ignores public ACLs that are associated with an S3 bucket.</p>
-   */
-  IgnorePublicAcls?: boolean;
-
-  /**
-   * <p>Indicates whether to restrict access to an access point or S3 bucket that has a public policy to only Amazon Web Services service principals and authorized users within the S3 bucket owner's account.</p>
-   */
-  RestrictPublicBuckets?: boolean;
-}
-
-export namespace AwsS3AccountPublicAccessBlockDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3AccountPublicAccessBlockDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about what Amazon S3
- *          does when a multipart upload is incomplete.</p>
- */
-export interface AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails {
-  /**
-   * <p>The number of days after which Amazon S3 cancels an incomplete multipart upload.</p>
-   */
-  DaysAfterInitiation?: number;
-}
-
-export namespace AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A tag that is assigned to matching objects.</p>
- */
-export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails {
-  /**
-   * <p>The tag key.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The tag value.</p>
-   */
-  Value?: string;
-}
-
-export namespace AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A value to use for the filter.</p>
- */
-export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails {
-  /**
-   * <p>Prefix text for matching objects.</p>
-   */
-  Prefix?: string;
-
-  /**
-   * <p>A tag that is assigned to matching objects.</p>
-   */
-  Tag?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails;
-
-  /**
-   * <p>The type of filter value.</p>
-   */
-  Type?: string;
-}
-
-export namespace AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A tag filter.</p>
- */
-export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails {
-  /**
-   * <p>The tag key.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The tag value</p>
-   */
-  Value?: string;
-}
-
-export namespace AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The configuration for the filter.</p>
- */
-export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails {
-  /**
-   * <p>The values to use for the filter.</p>
-   */
-  Operands?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails[];
-
-  /**
-   * <p>A prefix filter.</p>
-   */
-  Prefix?: string;
-
-  /**
-   * <p>A tag filter.</p>
-   */
-  Tag?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails;
-
-  /**
-   * <p>Whether to use <code>AND</code> or <code>OR</code> to join the operands.</p>
-   */
-  Type?: string;
-}
-
-export namespace AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Identifies the objects that a rule applies to.</p>
- */
-export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails {
-  /**
-   * <p>The configuration for the filter.</p>
-   */
-  Predicate?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails;
-}
-
-export namespace AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A transition rule that describes when noncurrent objects transition to a specified storage class.</p>
- */
-export interface AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails {
-  /**
-   * <p>The number of days that an object is noncurrent before Amazon S3 can perform the associated action.</p>
-   */
-  Days?: number;
-
-  /**
-   * <p>The class of storage to change the object to after the object is noncurrent for the specified number of days.</p>
-   */
-  StorageClass?: string;
-}
-
-export namespace AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A rule for when objects transition to specific storage classes.</p>
- */
-export interface AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails {
-  /**
-   * <p>A date on which to transition objects to the specified storage class. If you provide <code>Date</code>, you cannot provide <code>Days</code>.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces. For example,
-   *          <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  Date?: string;
-
-  /**
-   * <p>The number of days after which to transition the object to the specified storage class. If you provide <code>Days</code>, you cannot provide <code>Date</code>.</p>
-   */
-  Days?: number;
-
-  /**
-   * <p>The storage class to transition the object to.</p>
-   */
-  StorageClass?: string;
-}
-
-export namespace AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Configuration for a lifecycle rule.</p>
- */
-export interface AwsS3BucketBucketLifecycleConfigurationRulesDetails {
-  /**
-   * <p>How Amazon S3 responds when a multipart upload is incomplete. Specifically, provides a number
-   *          of days before Amazon S3 cancels the entire upload.</p>
-   */
-  AbortIncompleteMultipartUpload?: AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails;
-
-  /**
-   * <p>The date when objects are moved or deleted.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces. For example,
-   *          <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  ExpirationDate?: string;
-
-  /**
-   * <p>The length in days of the lifetime for objects that are subject to the rule.</p>
-   */
-  ExpirationInDays?: number;
-
-  /**
-   * <p>Whether Amazon S3 removes a delete marker that has no noncurrent versions. If set to
-   *          <code>true</code>, the delete marker is expired. If set to <code>false</code>, the policy
-   *          takes no action.</p>
-   *          <p>If you provide <code>ExpiredObjectDeleteMarker</code>, you cannot provide
-   *          <code>ExpirationInDays</code> or <code>ExpirationDate</code>.</p>
-   */
-  ExpiredObjectDeleteMarker?: boolean;
-
-  /**
-   * <p>Identifies the objects that a rule applies to.</p>
-   */
-  Filter?: AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails;
-
-  /**
-   * <p>The unique identifier of the rule.</p>
-   */
-  ID?: string;
-
-  /**
-   * <p>The number of days that an object is noncurrent before Amazon S3 can perform the associated action.</p>
-   */
-  NoncurrentVersionExpirationInDays?: number;
-
-  /**
-   * <p>Transition rules that describe when noncurrent objects transition to a specified storage class.</p>
-   */
-  NoncurrentVersionTransitions?: AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails[];
-
-  /**
-   * <p>A prefix that identifies one or more objects that the rule applies to.</p>
-   */
-  Prefix?: string;
-
-  /**
-   * <p>The current status of the rule. Indicates whether the rule is currently being applied.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>Transition rules that indicate when objects transition to a specified storage class.</p>
-   */
-  Transitions?: AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails[];
-}
-
-export namespace AwsS3BucketBucketLifecycleConfigurationRulesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketBucketLifecycleConfigurationRulesDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The lifecycle configuration for the objects in the S3 bucket.</p>
- */
-export interface AwsS3BucketBucketLifecycleConfigurationDetails {
-  /**
-   * <p>The lifecycle rules.</p>
-   */
-  Rules?: AwsS3BucketBucketLifecycleConfigurationRulesDetails[];
-}
-
-export namespace AwsS3BucketBucketLifecycleConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketBucketLifecycleConfigurationDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about logging for
- *          the S3 bucket</p>
- */
-export interface AwsS3BucketLoggingConfiguration {
-  /**
-   * <p>The name of the S3 bucket where log files for the S3 bucket are stored.</p>
-   */
-  DestinationBucketName?: string;
-
-  /**
-   * <p>The prefix added to log files for the S3 bucket.</p>
-   */
-  LogFilePrefix?: string;
-}
-
-export namespace AwsS3BucketLoggingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketLoggingConfiguration): any => ({
-    ...obj,
-  });
-}
-
-export enum AwsS3BucketNotificationConfigurationS3KeyFilterRuleName {
-  PREFIX = "Prefix",
-  SUFFIX = "Suffix",
-}
-
-/**
- * <p>Details for a filter rule.</p>
- */
-export interface AwsS3BucketNotificationConfigurationS3KeyFilterRule {
-  /**
-   * <p>Indicates whether the filter is based on the prefix or suffix of the Amazon S3 key.</p>
-   */
-  Name?: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName | string;
-
-  /**
-   * <p>The filter value.</p>
-   */
-  Value?: string;
-}
-
-export namespace AwsS3BucketNotificationConfigurationS3KeyFilterRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketNotificationConfigurationS3KeyFilterRule): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details for an Amazon S3 filter.</p>
- */
-export interface AwsS3BucketNotificationConfigurationS3KeyFilter {
-  /**
-   * <p>The filter rules for the filter.</p>
-   */
-  FilterRules?: AwsS3BucketNotificationConfigurationS3KeyFilterRule[];
-}
-
-export namespace AwsS3BucketNotificationConfigurationS3KeyFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketNotificationConfigurationS3KeyFilter): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Filtering information for the notifications. The
- *          filtering is based on Amazon S3 key names.</p>
- */
-export interface AwsS3BucketNotificationConfigurationFilter {
-  /**
-   * <p>Details for an Amazon S3 filter.</p>
-   */
-  S3KeyFilter?: AwsS3BucketNotificationConfigurationS3KeyFilter;
-}
-
-export namespace AwsS3BucketNotificationConfigurationFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketNotificationConfigurationFilter): any => ({
     ...obj,
   });
 }

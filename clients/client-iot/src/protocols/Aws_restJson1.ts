@@ -1488,6 +1488,8 @@ export const serializeAws_restJson1CreateAuthorizerCommand = async (
   body = JSON.stringify({
     ...(input.authorizerFunctionArn !== undefined &&
       input.authorizerFunctionArn !== null && { authorizerFunctionArn: input.authorizerFunctionArn }),
+    ...(input.enableCachingForHttp !== undefined &&
+      input.enableCachingForHttp !== null && { enableCachingForHttp: input.enableCachingForHttp }),
     ...(input.signingDisabled !== undefined &&
       input.signingDisabled !== null && { signingDisabled: input.signingDisabled }),
     ...(input.status !== undefined && input.status !== null && { status: input.status }),
@@ -7656,6 +7658,8 @@ export const serializeAws_restJson1UpdateAuthorizerCommand = async (
   body = JSON.stringify({
     ...(input.authorizerFunctionArn !== undefined &&
       input.authorizerFunctionArn !== null && { authorizerFunctionArn: input.authorizerFunctionArn }),
+    ...(input.enableCachingForHttp !== undefined &&
+      input.enableCachingForHttp !== null && { enableCachingForHttp: input.enableCachingForHttp }),
     ...(input.status !== undefined && input.status !== null && { status: input.status }),
     ...(input.tokenKeyName !== undefined && input.tokenKeyName !== null && { tokenKeyName: input.tokenKeyName }),
     ...(input.tokenSigningPublicKeys !== undefined &&
@@ -33408,6 +33412,7 @@ const deserializeAws_restJson1AuthorizerDescription = (output: any, context: __S
       output.creationDate !== undefined && output.creationDate !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
+    enableCachingForHttp: __expectBoolean(output.enableCachingForHttp),
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedDate)))

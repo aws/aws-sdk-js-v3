@@ -115,6 +115,7 @@ import {
   GetInfrastructureConfigurationCommandOutput,
 } from "./commands/GetInfrastructureConfigurationCommand";
 import { ImportComponentCommandInput, ImportComponentCommandOutput } from "./commands/ImportComponentCommand";
+import { ImportVmImageCommandInput, ImportVmImageCommandOutput } from "./commands/ImportVmImageCommand";
 import {
   ListComponentBuildVersionsCommandInput,
   ListComponentBuildVersionsCommandOutput,
@@ -206,6 +207,7 @@ export type ServiceInputTypes =
   | GetImageRecipePolicyCommandInput
   | GetInfrastructureConfigurationCommandInput
   | ImportComponentCommandInput
+  | ImportVmImageCommandInput
   | ListComponentBuildVersionsCommandInput
   | ListComponentsCommandInput
   | ListContainerRecipesCommandInput
@@ -257,6 +259,7 @@ export type ServiceOutputTypes =
   | GetImageRecipePolicyCommandOutput
   | GetInfrastructureConfigurationCommandOutput
   | ImportComponentCommandOutput
+  | ImportVmImageCommandOutput
   | ListComponentBuildVersionsCommandOutput
   | ListComponentsCommandOutput
   | ListContainerRecipesCommandOutput

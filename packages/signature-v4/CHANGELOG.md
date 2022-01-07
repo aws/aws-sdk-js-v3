@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.45.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.44.0...v3.45.0) (2021-12-23)
+
+
+### Bug Fixes
+
+* **signature-v4:** mock Date in SigV4 tests ([#2880](https://github.com/aws/aws-sdk-js-v3/issues/2880)) ([d79de1d](https://github.com/aws/aws-sdk-js-v3/commit/d79de1dd956fb6d0e530c343b9cd28ef8ad82b76))
+
+
+
+
+
 # [3.40.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.39.0...v3.40.0) (2021-11-05)
 
 **Note:** Version bump only for package @aws-sdk/signature-v4

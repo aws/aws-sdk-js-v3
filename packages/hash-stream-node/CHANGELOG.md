@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.45.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.44.0...v3.45.0) (2021-12-23)
+
+
+### Features
+
+* **hash-stream-node:** add readableStreamHasher ([#3088](https://github.com/aws/aws-sdk-js-v3/issues/3088)) ([943dab0](https://github.com/aws/aws-sdk-js-v3/commit/943dab08dc843fba9e825c7bf7856fc4b922b477))
+
+
+
+
+
 # [3.40.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.39.0...v3.40.0) (2021-11-05)
 
 **Note:** Version bump only for package @aws-sdk/hash-stream-node

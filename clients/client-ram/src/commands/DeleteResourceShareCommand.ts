@@ -22,7 +22,9 @@ export interface DeleteResourceShareCommandInput extends DeleteResourceShareRequ
 export interface DeleteResourceShareCommandOutput extends DeleteResourceShareResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified resource share.</p>
+ * <p>Deletes the specified resource share. This doesn't delete any of the resources that were
+ *             associated with the resource share; it only stops the sharing of those resources outside of the
+ *             Amazon Web Services account that created them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1,12 +1,12 @@
 {
   "name": "@aws-sdk/middleware-sdk-s3",
-  "version": "3.41.0",
+  "version": "3.45.0",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build:types": "tsc -p tsconfig.types.json",
-    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "test": "jest"
   },
   "main": "./dist-cjs/index.js",
@@ -25,22 +25,19 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/protocol-http": "3.40.0",
-    "@aws-sdk/signature-v4": "3.40.0",
+    "@aws-sdk/signature-v4": "3.45.0",
     "@aws-sdk/types": "3.40.0",
     "@aws-sdk/util-arn-parser": "3.37.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@aws-sdk/signature-v4-crt": "3.41.0",
-    "@types/jest": "^26.0.4",
-    "jest": "^26.1.0",
-    "typescript": "~4.3.5"
+    "@aws-sdk/signature-v4-crt": "3.45.0"
   },
   "peerDependencies": {
     "@aws-sdk/signature-v4-crt": "^3.31.0"
   },
   "engines": {
-    "node": ">= 10.0.0"
+    "node": ">= 12.0.0"
   },
   "typesVersions": {
     "<4.0": {

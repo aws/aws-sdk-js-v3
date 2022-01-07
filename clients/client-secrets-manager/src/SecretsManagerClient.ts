@@ -351,7 +351,7 @@ export interface SecretsManagerClientResolvedConfig extends SecretsManagerClient
  *       account and delivers log files to an Amazon S3 bucket. By using information that's collected
  *       by Amazon Web Services CloudTrail, you can determine the requests successfully made to Secrets Manager, who made the
  *       request, when it was made, and so on. For more about Amazon Web Services Secrets Manager and support for Amazon Web Services
- *       CloudTrail, see <a href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/monitoring.html#monitoring_cloudtrail">Logging
+ *       CloudTrail, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/monitoring.html#monitoring_cloudtrail">Logging
  *         Amazon Web Services Secrets Manager Events with Amazon Web Services CloudTrail</a> in the <i>Amazon Web Services Secrets Manager User Guide</i>.
  *       To learn more about CloudTrail, including enabling it and find your log files, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">Amazon Web Services CloudTrail User Guide</a>.</p>
  */

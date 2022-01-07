@@ -26,7 +26,7 @@ export interface UpdateSafetyRuleCommandInput extends UpdateSafetyRuleRequest {}
 export interface UpdateSafetyRuleCommandOutput extends UpdateSafetyRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Update a safety rule (an assertion rule or gating rule) for the routing controls in a control panel. You can only update the name and the waiting period for a safety rule. To make other updates, delete the safety rule and create a new safety rule.</p>
+ * <p>Update a safety rule (an assertion rule or gating rule). You can only update the name and the waiting period for a safety rule. To make other updates, delete the safety rule and create a new one.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

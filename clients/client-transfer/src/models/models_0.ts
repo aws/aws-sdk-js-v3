@@ -586,7 +586,7 @@ export interface IdentityProviderDetails {
   InvocationRole?: string;
 
   /**
-   * <p>The identifier of the Amazon Web ServicesDirectory Service directory that you want to stop sharing.</p>
+   * <p>The identifier of the Amazon Web Services Directory Service directory that you want to stop sharing.</p>
    */
   DirectoryId?: string;
 
@@ -610,6 +610,81 @@ export enum IdentityProviderType {
   AWS_DIRECTORY_SERVICE = "AWS_DIRECTORY_SERVICE",
   AWS_LAMBDA = "AWS_LAMBDA",
   SERVICE_MANAGED = "SERVICE_MANAGED",
+}
+
+export enum TlsSessionResumptionMode {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+  ENFORCED = "ENFORCED",
+}
+
+/**
+ * <p>
+ *       The protocol settings that are configured for your server.
+ *     </p>
+ */
+export interface ProtocolDetails {
+  /**
+   * <p>
+   *       Indicates passive mode, for FTP and FTPS protocols.
+   *       Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.
+   *       For example:
+   *     </p>
+   *          <p>
+   *             <code>
+   *         aws transfer update-server --protocol-details PassiveIp=<i>0.0.0.0</i>
+   *             </code>
+   *          </p>
+   *          <p>Replace <code>
+   *                <i>0.0.0.0</i>
+   *             </code> in the example above with the actual IP address you want to use.</p>
+   *          <note>
+   *             <p>
+   *         If you change the <code>PassiveIp</code> value, you must stop and then restart your Transfer server for the change to take effect. For details on using Passive IP (PASV) in a NAT environment, see <a href="http://aws.amazon.com/blogs/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/">Configuring your FTPS server behind a firewall or NAT with Amazon Web Services Transfer Family</a>.
+   *       </p>
+   *          </note>
+   */
+  PassiveIp?: string;
+
+  /**
+   * <p>A property used with Transfer servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret
+   *       key between the control and data connection for an FTPS session. <code>TlsSessionResumptionMode</code> determines whether or not the server resumes recent,
+   *       negotiated sessions through a unique session ID. This property is available during <code>CreateServer</code> and <code>UpdateServer</code> calls.
+   *       If a <code>TlsSessionResumptionMode</code> value is not specified during CreateServer, it is set to <code>ENFORCED</code> by default.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code>: the server does not process TLS session resumption client requests and creates a new TLS session for each request. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code>: the server processes and accepts clients that are performing TLS session resumption.
+   *             The server doesn't reject client data connections that do not perform the TLS session resumption client processing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENFORCED</code>: the server processes and accepts clients that are performing TLS session resumption.
+   *             The server rejects client data connections that do not perform the TLS session resumption client processing.
+   *             Before you set the value to <code>ENFORCED</code>, test your clients.</p>
+   *                <note>
+   *                   <p>Not all FTPS clients perform TLS session resumption. So, if you choose to enforce
+   *               TLS session resumption, you prevent any connections from FTPS clients that don't perform
+   *               the protocol negotiation. To determine whether or not you can use the
+   *               <code>ENFORCED</code> value, you need to test your clients.</p>
+   *                </note>
+   *             </li>
+   *          </ul>
+   */
+  TlsSessionResumptionMode?: TlsSessionResumptionMode | string;
+}
+
+export namespace ProtocolDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProtocolDetails): any => ({
+    ...obj,
+  });
 }
 
 export enum Protocol {
@@ -814,7 +889,7 @@ export interface CreateServerRequest {
    *          <p>Use the <code>API_GATEWAY</code> value to integrate with an identity provider of your choosing. The
    *       <code>API_GATEWAY</code> setting requires you to provide an API Gateway endpoint URL to call
    *       for authentication using the <code>IdentityProviderDetails</code> parameter.</p>
-   *          <p>Use the <code>LAMBDA</code> value to directly use a Lambda function as your identity provider. If you choose this value,
+   *          <p>Use the <code>AWS_LAMBDA</code> value to directly use a Lambda function as your identity provider. If you choose this value,
    *       you must specify the ARN for the lambda function in the <code>Function</code> parameter for the <code>IdentityProviderDetails</code> data type.</p>
    */
   IdentityProviderType?: IdentityProviderType | string;
@@ -865,6 +940,17 @@ export interface CreateServerRequest {
    *          </note>
    */
   Protocols?: (Protocol | string)[];
+
+  /**
+   * <p>The protocol settings that are configured for your server.</p>
+   *          <p>
+   *       Use the <code>PassiveIp</code> parameter to indicate passive mode (for FTP and FTPS protocols).
+   *       Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.
+   *     </p>
+   *          <p>Use the <code>TlsSessionResumptionMode</code> parameter to determine whether or not your Transfer server
+   *       resumes recent, negotiated sessions through a unique session ID.</p>
+   */
+  ProtocolDetails?: ProtocolDetails;
 
   /**
    * <p>Specifies the name of the security policy that is attached to the server.</p>
@@ -1030,6 +1116,11 @@ export interface CreateUserRequest {
   /**
    * <p>The public portion of the Secure Shell (SSH) key used to authenticate the user to the
    *       server.</p>
+   *          <note>
+   *             <p>
+   *         Currently, Transfer Family does not accept elliptical curve keys (keys beginning with <code>ecdsa</code>).
+   *       </p>
+   *          </note>
    */
   SshPublicKeyBody?: string;
 
@@ -1953,49 +2044,6 @@ export namespace DescribedSecurityPolicy {
   });
 }
 
-/**
- * <p>
- *       The protocol settings that are configured for your server.
- *     </p>
- *          <note>
- *             <p>
- *         This type is only valid in the <code>UpdateServer</code> API.
- *       </p>
- *          </note>
- */
-export interface ProtocolDetails {
-  /**
-   * <p>
-   *       Indicates passive mode, for FTP and FTPS protocols.
-   *       Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.
-   *       For example:
-   *     </p>
-   *          <p>
-   *             <code>
-   *         aws transfer update-server --protocol-details PassiveIp=<i>0.0.0.0</i>
-   *             </code>
-   *          </p>
-   *          <p>Replace <code>
-   *                <i>0.0.0.0</i>
-   *             </code> in the example above with the actual IP address you want to use.</p>
-   *          <note>
-   *             <p>
-   *         If you change the <code>PassiveIp</code> value, you must stop and then restart your Transfer server for the change to take effect. For details on using Passive IP (PASV) in a NAT environment, see <a href="http://aws.amazon.com/blogs/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/">Configuring your FTPS server behind a firewall or NAT with Amazon Web Services Transfer Family</a>.
-   *       </p>
-   *          </note>
-   */
-  PassiveIp?: string;
-}
-
-export namespace ProtocolDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProtocolDetails): any => ({
-    ...obj,
-  });
-}
-
 export enum State {
   OFFLINE = "OFFLINE",
   ONLINE = "ONLINE",
@@ -2077,7 +2125,7 @@ export interface DescribedServer {
    *          <p>Use the <code>API_GATEWAY</code> value to integrate with an identity provider of your choosing. The
    *       <code>API_GATEWAY</code> setting requires you to provide an API Gateway endpoint URL to call
    *       for authentication using the <code>IdentityProviderDetails</code> parameter.</p>
-   *          <p>Use the <code>LAMBDA</code> value to directly use a Lambda function as your identity provider. If you choose this value,
+   *          <p>Use the <code>AWS_LAMBDA</code> value to directly use a Lambda function as your identity provider. If you choose this value,
    *       you must specify the ARN for the lambda function in the <code>Function</code> parameter for the <code>IdentityProviderDetails</code> data type.</p>
    */
   IdentityProviderType?: IdentityProviderType | string;
@@ -2767,7 +2815,7 @@ export interface ListedServer {
    *          <p>Use the <code>API_GATEWAY</code> value to integrate with an identity provider of your choosing. The
    *       <code>API_GATEWAY</code> setting requires you to provide an API Gateway endpoint URL to call
    *       for authentication using the <code>IdentityProviderDetails</code> parameter.</p>
-   *          <p>Use the <code>LAMBDA</code> value to directly use a Lambda function as your identity provider. If you choose this value,
+   *          <p>Use the <code>AWS_LAMBDA</code> value to directly use a Lambda function as your identity provider. If you choose this value,
    *       you must specify the ARN for the lambda function in the <code>Function</code> parameter for the <code>IdentityProviderDetails</code> data type.</p>
    */
   IdentityProviderType?: IdentityProviderType | string;
@@ -3663,6 +3711,8 @@ export interface UpdateServerRequest {
    *       Use the <code>PassiveIp</code> parameter to indicate passive mode (for FTP and FTPS protocols).
    *       Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.
    *     </p>
+   *          <p>Use the <code>TlsSessionResumptionMode</code> parameter to determine whether or not your Transfer server
+   *       resumes recent, negotiated sessions through a unique session ID.</p>
    */
   ProtocolDetails?: ProtocolDetails;
 

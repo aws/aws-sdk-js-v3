@@ -22,8 +22,7 @@ export interface MergeProfilesCommandInput extends MergeProfilesRequest {}
 export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and subject to change.</p>
- *          <p>Runs an AWS Lambda job that does the following:</p>
+ * <p>Runs an AWS Lambda job that does the following:</p>
  *          <ol>
  *             <li>
  *                <p>All the profileKeys in the <code>ProfileToBeMerged</code> will be moved to the

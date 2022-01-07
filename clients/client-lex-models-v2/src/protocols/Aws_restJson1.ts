@@ -175,10 +175,13 @@ import {
   ExportResourceSpecification,
   ExportSortBy,
   ExportSummary,
+  ExternalSourceSetting,
   FulfillmentCodeHookSettings,
   FulfillmentStartResponseSpecification,
   FulfillmentUpdateResponseSpecification,
   FulfillmentUpdatesSpecification,
+  GrammarSlotTypeSetting,
+  GrammarSlotTypeSource,
   ImageResponseCard,
   ImportFilter,
   ImportResourceSpecification,
@@ -790,6 +793,10 @@ export const serializeAws_restJson1CreateSlotTypeCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.externalSourceSetting !== undefined &&
+      input.externalSourceSetting !== null && {
+        externalSourceSetting: serializeAws_restJson1ExternalSourceSetting(input.externalSourceSetting, context),
+      }),
     ...(input.parentSlotTypeSignature !== undefined &&
       input.parentSlotTypeSignature !== null && { parentSlotTypeSignature: input.parentSlotTypeSignature }),
     ...(input.slotTypeName !== undefined && input.slotTypeName !== null && { slotTypeName: input.slotTypeName }),
@@ -3245,6 +3252,10 @@ export const serializeAws_restJson1UpdateSlotTypeCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.externalSourceSetting !== undefined &&
+      input.externalSourceSetting !== null && {
+        externalSourceSetting: serializeAws_restJson1ExternalSourceSetting(input.externalSourceSetting, context),
+      }),
     ...(input.parentSlotTypeSignature !== undefined &&
       input.parentSlotTypeSignature !== null && { parentSlotTypeSignature: input.parentSlotTypeSignature }),
     ...(input.slotTypeName !== undefined && input.slotTypeName !== null && { slotTypeName: input.slotTypeName }),
@@ -4537,6 +4548,7 @@ export const deserializeAws_restJson1CreateSlotTypeCommand = async (
     botVersion: undefined,
     creationDateTime: undefined,
     description: undefined,
+    externalSourceSetting: undefined,
     localeId: undefined,
     parentSlotTypeSignature: undefined,
     slotTypeId: undefined,
@@ -4556,6 +4568,9 @@ export const deserializeAws_restJson1CreateSlotTypeCommand = async (
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
+  }
+  if (data.externalSourceSetting !== undefined && data.externalSourceSetting !== null) {
+    contents.externalSourceSetting = deserializeAws_restJson1ExternalSourceSetting(data.externalSourceSetting, context);
   }
   if (data.localeId !== undefined && data.localeId !== null) {
     contents.localeId = __expectString(data.localeId);
@@ -6133,6 +6148,7 @@ export const deserializeAws_restJson1DescribeBotLocaleCommand = async (
     localeId: undefined,
     localeName: undefined,
     nluIntentConfidenceThreshold: undefined,
+    recommendedActions: undefined,
     slotTypesCount: undefined,
     voiceSettings: undefined,
   };
@@ -6180,6 +6196,9 @@ export const deserializeAws_restJson1DescribeBotLocaleCommand = async (
   }
   if (data.nluIntentConfidenceThreshold !== undefined && data.nluIntentConfidenceThreshold !== null) {
     contents.nluIntentConfidenceThreshold = __limitedParseDouble(data.nluIntentConfidenceThreshold);
+  }
+  if (data.recommendedActions !== undefined && data.recommendedActions !== null) {
+    contents.recommendedActions = deserializeAws_restJson1RecommendedActions(data.recommendedActions, context);
   }
   if (data.slotTypesCount !== undefined && data.slotTypesCount !== null) {
     contents.slotTypesCount = __expectInt32(data.slotTypesCount);
@@ -7122,6 +7141,7 @@ export const deserializeAws_restJson1DescribeSlotTypeCommand = async (
     botVersion: undefined,
     creationDateTime: undefined,
     description: undefined,
+    externalSourceSetting: undefined,
     lastUpdatedDateTime: undefined,
     localeId: undefined,
     parentSlotTypeSignature: undefined,
@@ -7142,6 +7162,9 @@ export const deserializeAws_restJson1DescribeSlotTypeCommand = async (
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
+  }
+  if (data.externalSourceSetting !== undefined && data.externalSourceSetting !== null) {
+    contents.externalSourceSetting = deserializeAws_restJson1ExternalSourceSetting(data.externalSourceSetting, context);
   }
   if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
     contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
@@ -9435,6 +9458,7 @@ export const deserializeAws_restJson1UpdateBotLocaleCommand = async (
     localeId: undefined,
     localeName: undefined,
     nluIntentConfidenceThreshold: undefined,
+    recommendedActions: undefined,
     voiceSettings: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
@@ -9467,6 +9491,9 @@ export const deserializeAws_restJson1UpdateBotLocaleCommand = async (
   }
   if (data.nluIntentConfidenceThreshold !== undefined && data.nluIntentConfidenceThreshold !== null) {
     contents.nluIntentConfidenceThreshold = __limitedParseDouble(data.nluIntentConfidenceThreshold);
+  }
+  if (data.recommendedActions !== undefined && data.recommendedActions !== null) {
+    contents.recommendedActions = deserializeAws_restJson1RecommendedActions(data.recommendedActions, context);
   }
   if (data.voiceSettings !== undefined && data.voiceSettings !== null) {
     contents.voiceSettings = deserializeAws_restJson1VoiceSettings(data.voiceSettings, context);
@@ -10234,6 +10261,7 @@ export const deserializeAws_restJson1UpdateSlotTypeCommand = async (
     botVersion: undefined,
     creationDateTime: undefined,
     description: undefined,
+    externalSourceSetting: undefined,
     lastUpdatedDateTime: undefined,
     localeId: undefined,
     parentSlotTypeSignature: undefined,
@@ -10254,6 +10282,9 @@ export const deserializeAws_restJson1UpdateSlotTypeCommand = async (
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = __expectString(data.description);
+  }
+  if (data.externalSourceSetting !== undefined && data.externalSourceSetting !== null) {
+    contents.externalSourceSetting = deserializeAws_restJson1ExternalSourceSetting(data.externalSourceSetting, context);
   }
   if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
     contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
@@ -10916,6 +10947,15 @@ const serializeAws_restJson1ExportSortBy = (input: ExportSortBy, context: __Serd
   };
 };
 
+const serializeAws_restJson1ExternalSourceSetting = (input: ExternalSourceSetting, context: __SerdeContext): any => {
+  return {
+    ...(input.grammarSlotTypeSetting !== undefined &&
+      input.grammarSlotTypeSetting !== null && {
+        grammarSlotTypeSetting: serializeAws_restJson1GrammarSlotTypeSetting(input.grammarSlotTypeSetting, context),
+      }),
+  };
+};
+
 const serializeAws_restJson1FilterValues = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -10998,6 +11038,21 @@ const serializeAws_restJson1FulfillmentUpdatesSpecification = (
       input.updateResponse !== null && {
         updateResponse: serializeAws_restJson1FulfillmentUpdateResponseSpecification(input.updateResponse, context),
       }),
+  };
+};
+
+const serializeAws_restJson1GrammarSlotTypeSetting = (input: GrammarSlotTypeSetting, context: __SerdeContext): any => {
+  return {
+    ...(input.source !== undefined &&
+      input.source !== null && { source: serializeAws_restJson1GrammarSlotTypeSource(input.source, context) }),
+  };
+};
+
+const serializeAws_restJson1GrammarSlotTypeSource = (input: GrammarSlotTypeSource, context: __SerdeContext): any => {
+  return {
+    ...(input.kmsKeyArn !== undefined && input.kmsKeyArn !== null && { kmsKeyArn: input.kmsKeyArn }),
+    ...(input.s3BucketName !== undefined && input.s3BucketName !== null && { s3BucketName: input.s3BucketName }),
+    ...(input.s3ObjectKey !== undefined && input.s3ObjectKey !== null && { s3ObjectKey: input.s3ObjectKey }),
   };
 };
 
@@ -12339,6 +12394,15 @@ const deserializeAws_restJson1ExportSummaryList = (output: any, context: __Serde
     });
 };
 
+const deserializeAws_restJson1ExternalSourceSetting = (output: any, context: __SerdeContext): ExternalSourceSetting => {
+  return {
+    grammarSlotTypeSetting:
+      output.grammarSlotTypeSetting !== undefined && output.grammarSlotTypeSetting !== null
+        ? deserializeAws_restJson1GrammarSlotTypeSetting(output.grammarSlotTypeSetting, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1FailureReasons = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -12410,6 +12474,26 @@ const deserializeAws_restJson1FulfillmentUpdatesSpecification = (
       output.updateResponse !== undefined && output.updateResponse !== null
         ? deserializeAws_restJson1FulfillmentUpdateResponseSpecification(output.updateResponse, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GrammarSlotTypeSetting = (
+  output: any,
+  context: __SerdeContext
+): GrammarSlotTypeSetting => {
+  return {
+    source:
+      output.source !== undefined && output.source !== null
+        ? deserializeAws_restJson1GrammarSlotTypeSource(output.source, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GrammarSlotTypeSource = (output: any, context: __SerdeContext): GrammarSlotTypeSource => {
+  return {
+    kmsKeyArn: __expectString(output.kmsKeyArn),
+    s3BucketName: __expectString(output.s3BucketName),
+    s3ObjectKey: __expectString(output.s3ObjectKey),
   } as any;
 };
 
@@ -12720,6 +12804,17 @@ const deserializeAws_restJson1PromptSpecification = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_restJson1RecommendedActions = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_restJson1RecommendedIntentSummary = (
   output: any,
   context: __SerdeContext
@@ -12917,6 +13012,7 @@ const deserializeAws_restJson1SlotTypeSummary = (output: any, context: __SerdeCo
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     parentSlotTypeSignature: __expectString(output.parentSlotTypeSignature),
+    slotTypeCategory: __expectString(output.slotTypeCategory),
     slotTypeId: __expectString(output.slotTypeId),
     slotTypeName: __expectString(output.slotTypeName),
   } as any;

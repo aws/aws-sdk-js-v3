@@ -22,11 +22,11 @@ export interface ListPredictorsCommandInput extends ListPredictorsRequest {}
 export interface ListPredictorsCommandOutput extends ListPredictorsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of predictors created using the <a>CreatePredictor</a>
- *       operation. For each predictor, this operation returns a summary of its properties, including
- *       its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the
- *       ARN with the <a>DescribePredictor</a> operation. You can filter the list using an
- *       array of <a>Filter</a> objects.</p>
+ * <p>Returns a list of predictors created using the <a>CreateAutoPredictor</a> or
+ *         <a>CreatePredictor</a> operations. For each predictor, this operation returns a
+ *       summary of its properties, including its Amazon Resource Name (ARN). </p>
+ *          <p>You can retrieve the complete set of properties by using the ARN with the <a>DescribeAutoPredictor</a> and <a>DescribePredictor</a> operations. You
+ *       can filter the list using an array of <a>Filter</a> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

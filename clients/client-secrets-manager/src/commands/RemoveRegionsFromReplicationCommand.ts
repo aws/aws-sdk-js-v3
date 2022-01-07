@@ -24,7 +24,7 @@ export interface RemoveRegionsFromReplicationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Remove regions from replication.</p>
+ * <p>For a secret that is replicated to other Regions, deletes the secret replicas from the Regions you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

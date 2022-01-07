@@ -28,8 +28,8 @@ export interface DescribeEventDetailsForOrganizationCommandOutput
 
 /**
  * <p>Returns detailed information about one or more specified events for one or more
- *          Amazon Web Services accounts in your organization. This information includes standard event data (such as the
- *          Amazon Web Services Region and service), an event description, and (depending on the event) possible
+ *          Amazon Web Services accounts in your organization. This information includes standard event data (such as
+ *          the Amazon Web Services Region and service), an event description, and (depending on the event) possible
  *          metadata. This operation doesn't return affected entities, such as the resources related to
  *          the event. To return affected entities, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html">DescribeAffectedEntitiesForOrganization</a> operation.</p>
  *          <note>
@@ -49,7 +49,7 @@ export interface DescribeEventDetailsForOrganizationCommandOutput
  *             </li>
  *             <li>
  *                <p>To return event details for an event that is specific to an account in your
- *                organization,  you must specify the <code>awsAccountId</code> parameter in the
+ *                organization, you must specify the <code>awsAccountId</code> parameter in the
  *                request. If you don't specify an account ID, Health returns an error message
  *                because the event is specific to an account in your organization. </p>
  *             </li>

@@ -353,6 +353,7 @@ export namespace MediaStreamOutputConfigurationRequest {
 
 export enum Protocol {
   cdi = "cdi",
+  fujitsu_qos = "fujitsu-qos",
   rist = "rist",
   rtp = "rtp",
   rtp_fec = "rtp-fec",
@@ -406,7 +407,7 @@ export interface AddOutputRequest {
   Encryption?: Encryption;
 
   /**
-   * The maximum latency in milliseconds for Zixi-based streams.
+   * The maximum latency in milliseconds. This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
    */
   MaxLatency?: number;
 
@@ -439,6 +440,11 @@ export interface AddOutputRequest {
    * The remote ID for the Zixi-pull output stream.
    */
   RemoteId?: string;
+
+  /**
+   * The port that the flow uses to send outbound requests to initiate connection with the sender.
+   */
+  SenderControlPort?: number;
 
   /**
    * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
@@ -1105,7 +1111,7 @@ export interface Transport {
   MaxBitrate?: number;
 
   /**
-   * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+   * The maximum latency in milliseconds. This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
    */
   MaxLatency?: number;
 
@@ -1128,6 +1134,16 @@ export interface Transport {
    * The remote ID for the Zixi-pull stream.
    */
   RemoteId?: string;
+
+  /**
+   * The port that the flow uses to send outbound requests to initiate connection with the sender.
+   */
+  SenderControlPort?: number;
+
+  /**
+   * The IP address that the flow communicates with to initiate connection with the sender.
+   */
+  SenderIpAddress?: string;
 
   /**
    * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
@@ -1344,7 +1360,7 @@ export interface SetSourceRequest {
   MaxBitrate?: number;
 
   /**
-   * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+   * The maximum latency in milliseconds. This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
    */
   MaxLatency?: number;
 
@@ -1372,6 +1388,16 @@ export interface SetSourceRequest {
    * The protocol that is used by the source.
    */
   Protocol?: Protocol | string;
+
+  /**
+   * The port that the flow uses to send outbound requests to initiate connection with the sender.
+   */
+  SenderControlPort?: number;
+
+  /**
+   * The IP address that the flow communicates with to initiate connection with the sender.
+   */
+  SenderIpAddress?: string;
 
   /**
    * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
@@ -1443,6 +1469,16 @@ export interface Source {
   Name: string | undefined;
 
   /**
+   * The port that the flow uses to send outbound requests to initiate connection with the sender.
+   */
+  SenderControlPort?: number;
+
+  /**
+   * The IP address that the flow communicates with to initiate connection with the sender.
+   */
+  SenderIpAddress?: string;
+
+  /**
    * The ARN of the source.
    */
   SourceArn: string | undefined;
@@ -1482,7 +1518,7 @@ export enum NetworkInterfaceType {
  */
 export interface VpcInterface {
   /**
-   * Immutable and has to be a unique against other VpcInterfaces in this Flow
+   * Immutable and has to be a unique against other VpcInterfaces in this Flow.
    */
   Name: string | undefined;
 
@@ -1938,7 +1974,7 @@ export enum State {
 }
 
 /**
- * The settings for source failover
+ * The settings for source failover.
  */
 export interface FailoverConfig {
   /**
@@ -2003,7 +2039,7 @@ export interface CreateFlowRequest {
   Source?: SetSourceRequest;
 
   /**
-   * The settings for source failover
+   * The settings for source failover.
    */
   SourceFailoverConfig?: FailoverConfig;
 
@@ -2073,7 +2109,7 @@ export interface Flow {
   Source: Source | undefined;
 
   /**
-   * The settings for source failover
+   * The settings for source failover.
    */
   SourceFailoverConfig?: FailoverConfig;
 
@@ -2917,7 +2953,7 @@ export namespace UntagResourceRequest {
 }
 
 /**
- * The settings for source failover
+ * The settings for source failover.
  */
 export interface UpdateFailoverConfig {
   /**
@@ -2957,7 +2993,7 @@ export interface UpdateFlowRequest {
   FlowArn: string | undefined;
 
   /**
-   * The settings for source failover
+   * The settings for source failover.
    */
   SourceFailoverConfig?: UpdateFailoverConfig;
 }
@@ -3211,7 +3247,7 @@ export interface UpdateFlowOutputRequest {
   FlowArn: string | undefined;
 
   /**
-   * The maximum latency in milliseconds for Zixi-based streams.
+   * The maximum latency in milliseconds. This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
    */
   MaxLatency?: number;
 
@@ -3244,6 +3280,16 @@ export interface UpdateFlowOutputRequest {
    * The remote ID for the Zixi-pull stream.
    */
   RemoteId?: string;
+
+  /**
+   * The port that the flow uses to send outbound requests to initiate connection with the sender.
+   */
+  SenderControlPort?: number;
+
+  /**
+   * The IP address that the flow communicates with to initiate connection with the sender.
+   */
+  SenderIpAddress?: string;
 
   /**
    * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
@@ -3326,7 +3372,7 @@ export interface UpdateFlowSourceRequest {
   MaxBitrate?: number;
 
   /**
-   * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+   * The maximum latency in milliseconds. This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
    */
   MaxLatency?: number;
 
@@ -3349,6 +3395,16 @@ export interface UpdateFlowSourceRequest {
    * The protocol that is used by the source.
    */
   Protocol?: Protocol | string;
+
+  /**
+   * The port that the flow uses to send outbound requests to initiate connection with the sender.
+   */
+  SenderControlPort?: number;
+
+  /**
+   * The IP address that the flow communicates with to initiate connection with the sender.
+   */
+  SenderIpAddress?: string;
 
   /**
    * The ARN of the source that you want to update.

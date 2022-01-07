@@ -23,7 +23,7 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResponse, __M
 
 /**
  * <p>Creates a <code>Function</code> object.</p>
- *          <p>A function is a reusable entity. Multiple functions can be used to compose the resolver
+ *          <p>A function is a reusable entity. You can use multiple functions to compose the resolver
  *          logic.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -1,9 +1,6 @@
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
-/**
- *
- */
 export interface AcceptEulasRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -71,9 +68,6 @@ export namespace EulaAcceptance {
   });
 }
 
-/**
- *
- */
 export interface AcceptEulasResponse {
   /**
    * <p>A collection of EULA acceptances.</p>
@@ -411,6 +405,65 @@ export enum StreamingInstanceType {
   g4dn_xlarge = "g4dn.xlarge",
 }
 
+export enum StreamingSessionStorageMode {
+  UPLOAD = "UPLOAD",
+}
+
+/**
+ * <p>The upload storage root location (folder) on streaming workstations where files are
+ *             uploaded.</p>
+ */
+export interface StreamingSessionStorageRoot {
+  /**
+   * <p>The folder path in Linux workstations where files are uploaded. The default path is
+   *                 <code>$HOME/Downloads</code>.</p>
+   */
+  linux?: string;
+
+  /**
+   * <p>The folder path in Windows workstations where files are uploaded. The default path is
+   *                 <code>%HOMEPATH%\Downloads</code>.</p>
+   */
+  windows?: string;
+}
+
+export namespace StreamingSessionStorageRoot {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StreamingSessionStorageRoot): any => ({
+    ...obj,
+    ...(obj.linux && { linux: SENSITIVE_STRING }),
+    ...(obj.windows && { windows: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>The configuration for a streaming session’s upload storage.</p>
+ */
+export interface StreamConfigurationSessionStorage {
+  /**
+   * <p>The configuration for the upload storage root of the streaming session.</p>
+   */
+  root?: StreamingSessionStorageRoot;
+
+  /**
+   * <p>Allows artists to upload files to their workstations. The only valid option is
+   *                 <code>UPLOAD</code>.</p>
+   */
+  mode: (StreamingSessionStorageMode | string)[] | undefined;
+}
+
+export namespace StreamConfigurationSessionStorage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StreamConfigurationSessionStorage): any => ({
+    ...obj,
+    ...(obj.root && { root: StreamingSessionStorageRoot.filterSensitiveLog(obj.root) }),
+  });
+}
+
 /**
  * <p>Configuration for streaming workstations created using this launch profile.</p>
  */
@@ -429,9 +482,9 @@ export interface StreamConfigurationCreate {
 
   /**
    * <p>The length of time, in minutes, that a streaming session can be active before it is
-   *             stopped or terminated. After this point, Nimble Studio automatically terminates
-   *             or stops the session. The default length of time is 690 minutes, and the maximum length
-   *             of time is 30 days.</p>
+   *             stopped or terminated. After this point, Nimble Studio automatically terminates or
+   *             stops the session. The default length of time is 690 minutes, and the maximum length of
+   *             time is 30 days.</p>
    */
   maxSessionLengthInMinutes?: number;
 
@@ -442,12 +495,24 @@ export interface StreamConfigurationCreate {
   streamingImageIds: string[] | undefined;
 
   /**
-   * <p>The length of time, in minutes, that a streaming session can be active before it is
-   *             stopped or terminated. After this point, Nimble Studio automatically terminates or
-   *             stops the session. The default length of time is 690 minutes, and the maximum length of
-   *             time is 30 days.</p>
+   * <p>Integer that determines if you can start and stop your sessions and how long a session
+   *             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
+   *         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+   *             StopStreamingSession, the session fails. If the time that a session stays in the READY
+   *             state exceeds the maxSessionLengthInMinutes value, the session will automatically be
+   *             terminated by AWS (instead of stopped).</p>
+   *         <p>If the value is set to a positive number, the session can be stopped. You can call
+   *             StopStreamingSession to stop sessions in the READY state. If the time that a session
+   *             stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
+   *             automatically be stopped by AWS (instead of terminated).</p>
    */
   maxStoppedSessionLengthInMinutes?: number;
+
+  /**
+   * <p>(Optional) The upload storage for a streaming workstation that is created using this
+   *             launch profile.</p>
+   */
+  sessionStorage?: StreamConfigurationSessionStorage;
 }
 
 export namespace StreamConfigurationCreate {
@@ -456,12 +521,12 @@ export namespace StreamConfigurationCreate {
    */
   export const filterSensitiveLog = (obj: StreamConfigurationCreate): any => ({
     ...obj,
+    ...(obj.sessionStorage && {
+      sessionStorage: StreamConfigurationSessionStorage.filterSensitiveLog(obj.sessionStorage),
+    }),
   });
 }
 
-/**
- *
- */
 export interface CreateLaunchProfileRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -523,6 +588,9 @@ export namespace CreateLaunchProfileRequest {
     ...obj,
     ...(obj.description && { description: SENSITIVE_STRING }),
     ...(obj.name && { name: SENSITIVE_STRING }),
+    ...(obj.streamConfiguration && {
+      streamConfiguration: StreamConfigurationCreate.filterSensitiveLog(obj.streamConfiguration),
+    }),
   });
 }
 
@@ -571,9 +639,9 @@ export interface StreamConfiguration {
 
   /**
    * <p>The length of time, in minutes, that a streaming session can be active before it is
-   *             stopped or terminated. After this point, Nimble Studio automatically terminates
-   *             or stops the session. The default length of time is 690 minutes, and the maximum length
-   *             of time is 30 days.</p>
+   *             stopped or terminated. After this point, Nimble Studio automatically terminates or
+   *             stops the session. The default length of time is 690 minutes, and the maximum length of
+   *             time is 30 days.</p>
    */
   maxSessionLengthInMinutes?: number;
 
@@ -596,6 +664,11 @@ export interface StreamConfiguration {
    *             automatically be stopped by AWS (instead of terminated).</p>
    */
   maxStoppedSessionLengthInMinutes?: number;
+
+  /**
+   * <p>(Optional) The upload storage for a streaming session.</p>
+   */
+  sessionStorage?: StreamConfigurationSessionStorage;
 }
 
 export namespace StreamConfiguration {
@@ -604,6 +677,9 @@ export namespace StreamConfiguration {
    */
   export const filterSensitiveLog = (obj: StreamConfiguration): any => ({
     ...obj,
+    ...(obj.sessionStorage && {
+      sessionStorage: StreamConfigurationSessionStorage.filterSensitiveLog(obj.sessionStorage),
+    }),
   });
 }
 
@@ -710,12 +786,12 @@ export namespace LaunchProfile {
     ...obj,
     ...(obj.description && { description: SENSITIVE_STRING }),
     ...(obj.name && { name: SENSITIVE_STRING }),
+    ...(obj.streamConfiguration && {
+      streamConfiguration: StreamConfiguration.filterSensitiveLog(obj.streamConfiguration),
+    }),
   });
 }
 
-/**
- *
- */
 export interface CreateLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
@@ -733,9 +809,6 @@ export namespace CreateLaunchProfileResponse {
   });
 }
 
-/**
- *
- */
 export interface CreateStreamingImageRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -822,6 +895,7 @@ export enum StreamingImageState {
 }
 
 export enum StreamingImageStatusCode {
+  ACCESS_DENIED = "ACCESS_DENIED",
   INTERNAL_ERROR = "INTERNAL_ERROR",
   STREAMING_IMAGE_CREATE_IN_PROGRESS = "STREAMING_IMAGE_CREATE_IN_PROGRESS",
   STREAMING_IMAGE_DELETED = "STREAMING_IMAGE_DELETED",
@@ -921,9 +995,6 @@ export namespace StreamingImage {
   });
 }
 
-/**
- *
- */
 export interface CreateStreamingImageResponse {
   /**
    * <p>The streaming image.</p>
@@ -941,9 +1012,6 @@ export namespace CreateStreamingImageResponse {
   });
 }
 
-/**
- *
- */
 export interface CreateStreamingSessionRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1143,9 +1211,6 @@ export namespace StreamingSession {
   });
 }
 
-/**
- *
- */
 export interface CreateStreamingSessionResponse {
   /**
    * <p>The session.</p>
@@ -1162,9 +1227,6 @@ export namespace CreateStreamingSessionResponse {
   });
 }
 
-/**
- *
- */
 export interface CreateStreamingSessionStreamRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1274,9 +1336,6 @@ export namespace StreamingSessionStream {
   });
 }
 
-/**
- *
- */
 export interface CreateStreamingSessionStreamResponse {
   /**
    * <p>The stream.</p>
@@ -1323,9 +1382,6 @@ export namespace StudioEncryptionConfiguration {
   });
 }
 
-/**
- *
- */
 export interface CreateStudioRequest {
   /**
    * <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio
@@ -1523,9 +1579,6 @@ export namespace Studio {
   });
 }
 
-/**
- *
- */
 export interface CreateStudioResponse {
   /**
    * <p>Information about a studio.</p>
@@ -1745,9 +1798,6 @@ export enum StudioComponentType {
   SHARED_FILE_SYSTEM = "SHARED_FILE_SYSTEM",
 }
 
-/**
- *
- */
 export interface CreateStudioComponentRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1972,9 +2022,6 @@ export namespace StudioComponent {
   });
 }
 
-/**
- * <p/>
- */
 export interface CreateStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
@@ -2020,9 +2067,6 @@ export namespace DeleteLaunchProfileRequest {
   });
 }
 
-/**
- *
- */
 export interface DeleteLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
@@ -2073,9 +2117,6 @@ export namespace DeleteLaunchProfileMemberRequest {
   });
 }
 
-/**
- *
- */
 export interface DeleteLaunchProfileMemberResponse {}
 
 export namespace DeleteLaunchProfileMemberResponse {
@@ -2115,9 +2156,6 @@ export namespace DeleteStreamingImageRequest {
   });
 }
 
-/**
- *
- */
 export interface DeleteStreamingImageResponse {
   /**
    * <p>The streaming image.</p>
@@ -2163,9 +2201,6 @@ export namespace DeleteStreamingSessionRequest {
   });
 }
 
-/**
- *
- */
 export interface DeleteStreamingSessionResponse {
   /**
    * <p>The session.</p>
@@ -2205,9 +2240,6 @@ export namespace DeleteStudioRequest {
   });
 }
 
-/**
- *
- */
 export interface DeleteStudioResponse {
   /**
    * <p>Information about a studio.</p>
@@ -2253,9 +2285,6 @@ export namespace DeleteStudioComponentRequest {
   });
 }
 
-/**
- *
- */
 export interface DeleteStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
@@ -2301,9 +2330,6 @@ export namespace DeleteStudioMemberRequest {
   });
 }
 
-/**
- *
- */
 export interface DeleteStudioMemberResponse {}
 
 export namespace DeleteStudioMemberResponse {
@@ -2380,9 +2406,6 @@ export namespace ListEulaAcceptancesRequest {
   });
 }
 
-/**
- * <p/>
- */
 export interface ListEulaAcceptancesResponse {
   /**
    * <p>A collection of EULA acceptances.</p>
@@ -2420,9 +2443,6 @@ export namespace GetEulaRequest {
   });
 }
 
-/**
- *
- */
 export interface GetEulaResponse {
   /**
    * <p>The EULA.</p>
@@ -2460,9 +2480,6 @@ export namespace ListEulasRequest {
   });
 }
 
-/**
- *
- */
 export interface ListEulasResponse {
   /**
    * <p>A collection of EULA resources.</p>
@@ -2505,9 +2522,6 @@ export namespace GetLaunchProfileRequest {
   });
 }
 
-/**
- *
- */
 export interface GetLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
@@ -2547,7 +2561,7 @@ export namespace GetLaunchProfileDetailsRequest {
 }
 
 /**
- * <p/>
+ * <p>The studio component's summary.</p>
  */
 export interface StudioComponentSummary {
   /**
@@ -2607,9 +2621,6 @@ export namespace StudioComponentSummary {
   });
 }
 
-/**
- *
- */
 export interface GetLaunchProfileDetailsResponse {
   /**
    * <p>The launch profile.</p>
@@ -2682,7 +2693,8 @@ export namespace GetLaunchProfileInitializationRequest {
 }
 
 /**
- * <p/>
+ * <p>The Launch Profile Initialization Active Directory contains information required for
+ *             the launch profile to connect to the Active Directory.</p>
  */
 export interface LaunchProfileInitializationActiveDirectory {
   /**
@@ -2734,7 +2746,8 @@ export namespace LaunchProfileInitializationActiveDirectory {
 }
 
 /**
- * <p/>
+ * <p>The Launch Profile Initialization Script is used when start streaming session
+ *             runs.</p>
  */
 export interface LaunchProfileInitializationScript {
   /**
@@ -2766,7 +2779,7 @@ export namespace LaunchProfileInitializationScript {
 
 /**
  * <p>A Launch Profile Initialization contains information required for a workstation or
- *             server to connect to a launch profile</p>
+ *             server to connect to a launch profile.</p>
  *         <p>This includes scripts, endpoints, security groups, subnets, and other
  *             configuration.</p>
  */
@@ -2841,9 +2854,6 @@ export namespace LaunchProfileInitialization {
   });
 }
 
-/**
- *
- */
 export interface GetLaunchProfileInitializationResponse {
   /**
    * <p>The launch profile initialization.</p>
@@ -2894,7 +2904,32 @@ export enum LaunchProfilePersona {
 }
 
 /**
- * <p/>
+ * <p>Launch profile membership enables your studio admins to delegate launch profile access
+ *             to other studio users in the Nimble Studio portal without needing to write or
+ *             maintain complex IAM policies. A launch profile member is a user association from your
+ *             studio identity source who is granted permissions to a launch profile.</p>
+ *         <p>A launch profile member (type USER) provides the following permissions to that launch
+ *             profile:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>GetLaunchProfile</p>
+ *             </li>
+ *             <li>
+ *                 <p>GetLaunchProfileInitialization</p>
+ *             </li>
+ *             <li>
+ *                 <p>GetLaunchProfileMembers</p>
+ *             </li>
+ *             <li>
+ *                 <p>GetLaunchProfileMember</p>
+ *             </li>
+ *             <li>
+ *                 <p>CreateStreamingSession</p>
+ *             </li>
+ *             <li>
+ *                 <p>GetLaunchProfileDetails</p>
+ *             </li>
+ *          </ul>
  */
 export interface LaunchProfileMembership {
   /**
@@ -2927,9 +2962,6 @@ export namespace LaunchProfileMembership {
   });
 }
 
-/**
- *
- */
 export interface GetLaunchProfileMemberResponse {
   /**
    * <p>The member.</p>
@@ -2967,9 +2999,6 @@ export namespace GetStreamingImageRequest {
   });
 }
 
-/**
- *
- */
 export interface GetStreamingImageResponse {
   /**
    * <p>The streaming image.</p>
@@ -3008,9 +3037,6 @@ export namespace GetStreamingSessionRequest {
   });
 }
 
-/**
- *
- */
 export interface GetStreamingSessionResponse {
   /**
    * <p>The session.</p>
@@ -3053,9 +3079,6 @@ export namespace GetStreamingSessionStreamRequest {
   });
 }
 
-/**
- *
- */
 export interface GetStreamingSessionStreamResponse {
   /**
    * <p>The stream.</p>
@@ -3089,9 +3112,6 @@ export namespace GetStudioRequest {
   });
 }
 
-/**
- *
- */
 export interface GetStudioResponse {
   /**
    * <p>Information about a studio.</p>
@@ -3130,9 +3150,6 @@ export namespace GetStudioComponentRequest {
   });
 }
 
-/**
- *
- */
 export interface GetStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
@@ -3218,9 +3235,6 @@ export namespace StudioMembership {
   });
 }
 
-/**
- *
- */
 export interface GetStudioMemberResponse {
   /**
    * <p>The member.</p>
@@ -3268,9 +3282,6 @@ export namespace ListLaunchProfileMembersRequest {
   });
 }
 
-/**
- *
- */
 export interface ListLaunchProfileMembersResponse {
   /**
    * <p>A list of members.</p>
@@ -3328,9 +3339,6 @@ export namespace ListLaunchProfilesRequest {
   });
 }
 
-/**
- *
- */
 export interface ListLaunchProfilesResponse {
   /**
    * <p>A collection of launch profiles.</p>
@@ -3356,7 +3364,7 @@ export namespace ListLaunchProfilesResponse {
 }
 
 /**
- * <p/>
+ * <p>A new member that is added to a launch profile.</p>
  */
 export interface NewLaunchProfileMember {
   /**
@@ -3379,9 +3387,6 @@ export namespace NewLaunchProfileMember {
   });
 }
 
-/**
- *
- */
 export interface PutLaunchProfileMembersRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3431,9 +3436,6 @@ export namespace PutLaunchProfileMembersResponse {
   });
 }
 
-/**
- *
- */
 export interface UpdateLaunchProfileRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3488,12 +3490,12 @@ export namespace UpdateLaunchProfileRequest {
     ...obj,
     ...(obj.description && { description: SENSITIVE_STRING }),
     ...(obj.name && { name: SENSITIVE_STRING }),
+    ...(obj.streamConfiguration && {
+      streamConfiguration: StreamConfigurationCreate.filterSensitiveLog(obj.streamConfiguration),
+    }),
   });
 }
 
-/**
- *
- */
 export interface UpdateLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
@@ -3511,9 +3513,6 @@ export namespace UpdateLaunchProfileResponse {
   });
 }
 
-/**
- * <p/>
- */
 export interface UpdateLaunchProfileMemberRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3594,9 +3593,6 @@ export namespace ListStreamingImagesRequest {
   });
 }
 
-/**
- *
- */
 export interface ListStreamingImagesResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3657,9 +3653,6 @@ export namespace ListStreamingSessionsRequest {
   });
 }
 
-/**
- *
- */
 export interface ListStreamingSessionsResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3717,9 +3710,6 @@ export namespace ListStudioComponentsRequest {
   });
 }
 
-/**
- *
- */
 export interface ListStudioComponentsResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3770,12 +3760,9 @@ export namespace ListStudioMembersRequest {
   });
 }
 
-/**
- *
- */
 export interface ListStudioMembersResponse {
   /**
-   * <p>A list of members.</p>
+   * <p>A list of admin members.</p>
    */
   members?: StudioMembership[];
 
@@ -3810,9 +3797,6 @@ export namespace ListStudiosRequest {
   });
 }
 
-/**
- *
- */
 export interface ListStudiosResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3851,9 +3835,6 @@ export namespace ListTagsForResourceRequest {
   });
 }
 
-/**
- *
- */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A collection of labels, in the form of key:value pairs, that apply to this
@@ -3872,7 +3853,7 @@ export namespace ListTagsForResourceResponse {
 }
 
 /**
- * <p/>
+ * <p>A new studio user's membership.</p>
  */
 export interface NewStudioMember {
   /**
@@ -3895,9 +3876,6 @@ export namespace NewStudioMember {
   });
 }
 
-/**
- *
- */
 export interface UpdateStreamingImageRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3938,12 +3916,16 @@ export namespace UpdateStreamingImageRequest {
   });
 }
 
-/**
- * <p/>
- */
 export interface UpdateStreamingImageResponse {
   /**
-   * <p/>
+   * <p>Represents a streaming image resource.</p>
+   *         <p>Streaming images are used by studio users to select which operating system and
+   *             software they want to use in a Nimble Studio streaming session.</p>
+   *         <p>Amazon provides a number of streaming images that include popular 3rd-party
+   *             software.</p>
+   *         <p>You can create your own streaming images using an Amazon Elastic Compute Cloud (Amazon
+   *             EC2) machine image that you create for this purpose. You can also include software that
+   *             your users require.</p>
    */
   streamingImage?: StreamingImage;
 }
@@ -4048,9 +4030,6 @@ export namespace StopStreamingSessionResponse {
   });
 }
 
-/**
- *
- */
 export interface UpdateStudioComponentRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -4128,9 +4107,6 @@ export namespace UpdateStudioComponentRequest {
   });
 }
 
-/**
- *
- */
 export interface UpdateStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
@@ -4148,9 +4124,6 @@ export namespace UpdateStudioComponentResponse {
   });
 }
 
-/**
- *
- */
 export interface PutStudioMembersRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -4184,9 +4157,6 @@ export namespace PutStudioMembersRequest {
   });
 }
 
-/**
- *
- */
 export interface PutStudioMembersResponse {}
 
 export namespace PutStudioMembersResponse {
@@ -4221,9 +4191,6 @@ export namespace StartStudioSSOConfigurationRepairRequest {
   });
 }
 
-/**
- *
- */
 export interface StartStudioSSOConfigurationRepairResponse {
   /**
    * <p>Information about a studio.</p>
@@ -4241,9 +4208,6 @@ export namespace StartStudioSSOConfigurationRepairResponse {
   });
 }
 
-/**
- *
- */
 export interface UpdateStudioRequest {
   /**
    * <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio
@@ -4285,9 +4249,6 @@ export namespace UpdateStudioRequest {
   });
 }
 
-/**
- *
- */
 export interface UpdateStudioResponse {
   /**
    * <p>Information about a studio.</p>
@@ -4305,9 +4266,6 @@ export namespace UpdateStudioResponse {
   });
 }
 
-/**
- * <p/>
- */
 export interface TagResourceRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of the resource you want to add tags to. </p>

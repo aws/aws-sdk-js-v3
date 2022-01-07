@@ -22,30 +22,8 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRe
 export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the resource-based permission policy attached to the secret.</p>
- *          <p>
- *             <b>Minimum permissions</b>
- *          </p>
- *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
- *             <li>
- *                <p>secretsmanager:DeleteResourcePolicy</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Related operations</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>To attach a resource policy to a secret, use <a>PutResourcePolicy</a>.</p>
- *             </li>
- *             <li>
- *                <p>To retrieve the current resource-based policy attached to a secret, use <a>GetResourcePolicy</a>.</p>
- *             </li>
- *             <li>
- *                <p>To list all of the currently available secrets, use <a>ListSecrets</a>.</p>
- *             </li>
- *          </ul>
+ * <p>Deletes the resource-based permission policy attached to the secret. To attach a policy to
+ *       a secret, use <a>PutResourcePolicy</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

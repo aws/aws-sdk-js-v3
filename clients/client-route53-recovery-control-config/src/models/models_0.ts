@@ -5,7 +5,7 @@ import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException
  */
 export interface ClusterEndpoint {
   /**
-   * <p>A cluster endpoint. Specify an endpoint and Amazon Web Services Region when you want to set or retrieve a routing control state in the cluster.</p> <p>To get or update the routing control state, see the Amazon Route 53 Application Recovery Controller Cluster (Data Plane) Actions.</p>
+   * <p>A cluster endpoint. Specify an endpoint and Amazon Web Services Region when you want to set or retrieve a routing control state in the cluster.</p> <p>To get or update the routing control state, see the Amazon Route 53 Application Recovery Controller Routing Control Actions.</p>
    */
   Endpoint?: string;
 
@@ -31,7 +31,7 @@ export enum Status {
 }
 
 /**
- * <p>A cluster is a set of five consensus-forming Regional endpoints that represent the infrastructure that hosts your routing controls. Typically, you host together on one cluster all of the routing controls for your applications.</p>
+ * <p>A set of five redundant Regional endpoints against which you can execute API calls to update or get the state of routing controls. You can host multiple control panels and routing controls on one cluster.</p>
  */
 export interface Cluster {
   /**
@@ -40,7 +40,7 @@ export interface Cluster {
   ClusterArn?: string;
 
   /**
-   * <p>Endpoints for a cluster. Specify one of these endpoints when you want to set or retrieve a routing control state in the cluster.</p> <p>To get or update the routing control state, see the Amazon Route 53 Application Recovery Controller Cluster (Data Plane) Actions.</p>
+   * <p>Endpoints for a cluster. Specify one of these endpoints when you want to set or retrieve a routing control state in the cluster.</p> <p>To get or update the routing control state, see the Amazon Route 53 Application Recovery Controller Routing Control Actions.</p>
    */
   ClusterEndpoints?: ClusterEndpoint[];
 
@@ -149,7 +149,7 @@ export enum RuleType {
 }
 
 /**
- * <p>The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many controls must be enabled after a transaction completes.</p>
+ * <p>The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many control states must be ON after a transaction completes.</p>
  */
 export interface RuleConfig {
   /**
@@ -178,7 +178,7 @@ export namespace RuleConfig {
 }
 
 /**
- * <p>An assertion rule enforces that, when a routing control state is changed, the criteria set by the rule configuration is met. Otherwise, the change to the routing control is not accepted.</p>
+ * <p>An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is On after the transation so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.</p>
  */
 export interface AssertionRule {
   /**
@@ -197,7 +197,7 @@ export interface AssertionRule {
   Name: string | undefined;
 
   /**
-   * <p>The criteria that you set for specific assertion controls (routing controls) that designate how many controls must be enabled as the result of a transaction. For example, if you have three assertion controls, you might specify atleast 2 for your rule configuration. This means that at least two assertion controls must be enabled, so that at least two Amazon Web Services Regions are enabled.</p>
+   * <p>The criteria that you set for specific assertion routing controls (AssertedControls) that designate how many routing control states must be ON as the result of a transaction. For example, if you have three assertion routing controls, you might specify atleast 2 for your rule configuration. This means that at least two assertion routing control states must be ON, so that at least two Amazon Web Services Regions have traffic flowing to them.</p>
    */
   RuleConfig: RuleConfig | undefined;
 
@@ -227,7 +227,7 @@ export namespace AssertionRule {
 }
 
 /**
- * <p>A gating rule verifies that a set of gating controls evaluates as true, based on a rule configuration that you specify. If the gating rule evaluates to true, Amazon Route 53 Application Recovery Controller allows a set of routing control state changes to run and complete against the set of target controls.</p>
+ * <p>A gating rule verifies that a gating routing control or set of gating rounting controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.</p> <p>For example, if you specify one gating routing control and you set the Type in the rule configuration to OR, that indicates that you must set the gating routing control to On for the rule to evaluate as true; that is, for the gating control "switch" to be "On". When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.</p>
  */
 export interface GatingRule {
   /**
@@ -236,17 +236,17 @@ export interface GatingRule {
   ControlPanelArn: string | undefined;
 
   /**
-   * <p>The gating controls for the gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.</p>
+   * <p>An array of gating routing control Amazon Resource Names (ARNs). For a simple "on/off" switch, specify the ARN for one routing control. The gating routing controls are evaluated by the rule configuration that you specify to determine if the target routing control states can be changed.</p>
    */
   GatingControls: string[] | undefined;
 
   /**
-   * <p>The name for the gating rule.</p>
+   * <p>The name for the gating rule. You can use any non-white space character in the name.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The criteria that you set for specific gating controls (routing controls) that designates how many controls must be enabled to allow you to change (set or unset) the target controls.</p>
+   * <p>The criteria that you set for gating routing controls that designates how many of the routing control states must be ON to allow you to update target routing control states.</p>
    */
   RuleConfig: RuleConfig | undefined;
 
@@ -261,7 +261,7 @@ export interface GatingRule {
   Status: Status | string | undefined;
 
   /**
-   * <p>Routing controls that can only be set or unset if the specified RuleConfig evaluates to true for the specified GatingControls. For example, say you have three gating controls, one for each of three Amazon Web Services Regions. Now you specify ATLEAST 2 as your RuleConfig. With these settings, you can only change (set or unset) the routing controls that you have specified as TargetControls if that rule evaluates to true.</p> <p>In other words, your ability to change the routing controls that you have specified as TargetControls is gated by the rule that you set for the routing controls in GatingControls.</p>
+   * <p>An array of target routing control Amazon Resource Names (ARNs) for which the states can only be updated if the rule configuration that you specify evaluates to true for the gating routing control. As a simple example, if you have a single gating control, it acts as an overall "on/off" switch for a set of target routing controls. You can use this to manually override automated fail over, for example.</p>
    */
   TargetControls: string[] | undefined;
 
@@ -285,12 +285,12 @@ export namespace GatingRule {
  */
 export interface Rule {
   /**
-   * <p>An assertion rule enforces that, when a routing control state is changed, the criteria set by the rule configuration is met. Otherwise, the change to the routing control is not accepted.</p>
+   * <p>An assertion rule enforces that, when a routing control state is changed, the criteria set by the rule configuration is met. Otherwise, the change to the routing control state is not accepted. For example, the criteria might be that at least one routing control state is On after the transation so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.</p>
    */
   ASSERTION?: AssertionRule;
 
   /**
-   * <p>A gating rule verifies that a set of gating controls evaluates as true, based on a rule configuration that you specify. If the gating rule evaluates to true, Amazon Route 53 Application Recovery Controller allows a set of routing control state changes to run and complete against the set of target controls.</p>
+   * <p>A gating rule verifies that a gating routing control or set of gating rounting controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.</p> <p>For example, if you specify one gating routing control and you set the Type in the rule configuration to OR, that indicates that you must set the gating routing control to On for the rule to evaluate as true; that is, for the gating control "switch" to be "On". When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.</p>
    */
   GATING?: GatingRule;
 }
@@ -305,7 +305,7 @@ export namespace Rule {
 }
 
 /**
- * <p>403 response - AccessDeniedException. You do not have sufficient access to perform this action.</p>
+ * <p>403 response - You do not have sufficient access to perform this action.</p>
  */
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
@@ -352,7 +352,7 @@ export namespace AssertionRuleUpdate {
 }
 
 /**
- * <p>409 response - ConflictException.</p>
+ * <p>409 response - ConflictException. You might be using a predefined variable.</p>
  */
 export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
@@ -374,7 +374,7 @@ export namespace ConflictException {
  */
 export interface CreateClusterRequest {
   /**
-   * <p>Unique client idempotency token.</p>
+   * <p>A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent API request with an action, specify a client token in the request.</p>
    */
   ClientToken?: string;
 
@@ -382,6 +382,11 @@ export interface CreateClusterRequest {
    * <p>The name of the cluster.</p>
    */
   ClusterName: string | undefined;
+
+  /**
+   * <p>The tags associated with the cluster.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateClusterRequest {
@@ -428,7 +433,7 @@ export namespace InternalServerException {
 }
 
 /**
- * <p>404 response - The query string contains a syntax error or resource not found.</p>
+ * <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found..</p>
  */
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
@@ -446,7 +451,7 @@ export namespace ResourceNotFoundException {
 }
 
 /**
- * <p>402 response</p>
+ * <p>402 response - You attempted to create more resources than the service allows based on service quotas.</p>
  */
 export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "ServiceQuotaExceededException";
@@ -464,7 +469,7 @@ export namespace ServiceQuotaExceededException {
 }
 
 /**
- * <p>429 response - ThrottlingException.</p>
+ * <p>429 response - LimitExceededException or TooManyRequestsException.</p>
  */
 export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
@@ -482,7 +487,7 @@ export namespace ThrottlingException {
 }
 
 /**
- * <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you used parameters together incorrectly.</p>
+ * <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  */
 export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
@@ -504,7 +509,7 @@ export namespace ValidationException {
  */
 export interface CreateControlPanelRequest {
   /**
-   * <p>Unique client idempotency token.</p>
+   * <p>A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent API request with an action, specify a client token in the request.</p>
    */
   ClientToken?: string;
 
@@ -517,6 +522,11 @@ export interface CreateControlPanelRequest {
    * <p>The name of the control panel.</p>
    */
   ControlPanelName: string | undefined;
+
+  /**
+   * <p>The tags associated with the control panel.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateControlPanelRequest {
@@ -549,7 +559,7 @@ export namespace CreateControlPanelResponse {
  */
 export interface CreateRoutingControlRequest {
   /**
-   * <p>Unique client idempotency token.</p>
+   * <p>A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent API request with an action, specify a client token in the request.</p>
    */
   ClientToken?: string;
 
@@ -614,7 +624,7 @@ export interface NewAssertionRule {
   Name: string | undefined;
 
   /**
-   * <p>The criteria that you set for specific assertion controls (routing controls) that designate how many controls must be enabled as the result of a transaction. For example, if you have three assertion controls, you might specify atleast 2 for your rule configuration. This means that at least two assertion controls must be enabled, so that at least two Amazon Web Services Regions are enabled.</p>
+   * <p>The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be ON as the result of a transaction. For example, if you have three assertion controls, you might specify ATLEAST 2for your rule configuration. This means that at least two assertion controls must be ON, so that at least two Amazon Web Services Regions have traffic flowing to them.</p>
    */
   RuleConfig: RuleConfig | undefined;
 
@@ -653,7 +663,7 @@ export interface NewGatingRule {
   Name: string | undefined;
 
   /**
-   * <p>The criteria that you set for specific gating controls (routing controls) that designates how many controls must be enabled to allow you to change (set or unset) the target controls.</p>
+   * <p>The criteria that you set for specific gating controls (routing controls) that designates how many control states must be ON to allow you to change (set or unset) the target control states.</p>
    */
   RuleConfig: RuleConfig | undefined;
 
@@ -682,19 +692,24 @@ export namespace NewGatingRule {
  */
 export interface CreateSafetyRuleRequest {
   /**
-   * <p>A new assertion rule for a control panel.</p>
+   * <p>The assertion rule requested.</p>
    */
   AssertionRule?: NewAssertionRule;
 
   /**
-   * <p>Unique client idempotency token.</p>
+   * <p>A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent API request with an action, specify a client token in the request.</p>
    */
   ClientToken?: string;
 
   /**
-   * <p>A new gating rule for a control panel.</p>
+   * <p>The gating rule requested.</p>
    */
   GatingRule?: NewGatingRule;
+
+  /**
+   * <p>The tags associated with the safety rule.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateSafetyRuleRequest {
@@ -708,12 +723,12 @@ export namespace CreateSafetyRuleRequest {
 
 export interface CreateSafetyRuleResponse {
   /**
-   * <p>An assertion rule enforces that, when a routing control state is changed, the criteria set by the rule configuration is met. Otherwise, the change to the routing control is not accepted.</p>
+   * <p>The assertion rule created.</p>
    */
   AssertionRule?: AssertionRule;
 
   /**
-   * <p>A gating rule verifies that a set of gating controls evaluates as true, based on a rule configuration that you specify. If the gating rule evaluates to true, Amazon Route 53 Application Recovery Controller allows a set of routing control state changes to run and complete against the set of target controls.</p>
+   * <p>The gating rule created.</p>
    */
   GatingRule?: GatingRule;
 }
@@ -756,7 +771,7 @@ export namespace DeleteClusterResponse {
 
 export interface DeleteControlPanelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the control panel that you're deleting.</p>
+   * <p>The Amazon Resource Name (ARN) of the control panel.</p>
    */
   ControlPanelArn: string | undefined;
 }
@@ -810,7 +825,7 @@ export namespace DeleteRoutingControlResponse {
 
 export interface DeleteSafetyRuleRequest {
   /**
-   * <p>The request body that you include when you update a safety rule.</p>
+   * <p>The ARN of the safety rule.</p>
    */
   SafetyRuleArn: string | undefined;
 }
@@ -837,7 +852,7 @@ export namespace DeleteSafetyRuleResponse {
 
 export interface DescribeClusterRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the cluster that you're getting details for.</p>
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    */
   ClusterArn: string | undefined;
 }
@@ -869,7 +884,7 @@ export namespace DescribeClusterResponse {
 
 export interface DescribeControlPanelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the control panel that you're getting details for.</p>
+   * <p>The Amazon Resource Name (ARN) of the control panel.</p>
    */
   ControlPanelArn: string | undefined;
 }
@@ -901,7 +916,7 @@ export namespace DescribeControlPanelResponse {
 
 export interface DescribeRoutingControlRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the routing control that you're getting details for.</p>
+   * <p>The Amazon Resource Name (ARN) of the routing control.</p>
    */
   RoutingControlArn: string | undefined;
 }
@@ -933,7 +948,7 @@ export namespace DescribeRoutingControlResponse {
 
 export interface DescribeSafetyRuleRequest {
   /**
-   * <p>The request body that you include when you update a safety rule.</p>
+   * <p>The ARN of the safety rule.</p>
    */
   SafetyRuleArn: string | undefined;
 }
@@ -949,12 +964,12 @@ export namespace DescribeSafetyRuleRequest {
 
 export interface DescribeSafetyRuleResponse {
   /**
-   * <p>An assertion rule enforces that, when a routing control state is changed, the criteria set by the rule configuration is met. Otherwise, the change to the routing control is not accepted.</p>
+   * <p>The assertion rule in the response.</p>
    */
   AssertionRule?: AssertionRule;
 
   /**
-   * <p>A gating rule verifies that a set of gating controls evaluates as true, based on a rule configuration that you specify. If the gating rule evaluates to true, Amazon Route 53 Application Recovery Controller allows a set of routing control state changes to run and complete against the set of target controls.</p>
+   * <p>The gating rule in the response.</p>
    */
   GatingRule?: GatingRule;
 }
@@ -973,7 +988,7 @@ export namespace DescribeSafetyRuleResponse {
  */
 export interface GatingRuleUpdate {
   /**
-   * <p>The name for the gating rule.</p>
+   * <p>The name for the gating rule. You can use any non-white space character in the name.</p>
    */
   Name: string | undefined;
 
@@ -1009,7 +1024,7 @@ export interface ListAssociatedRoute53HealthChecksRequest {
   NextToken?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the routing control that you're getting details for.</p>
+   * <p>The Amazon Resource Name (ARN) of the routing control.</p>
    */
   RoutingControlArn: string | undefined;
 }
@@ -1030,7 +1045,7 @@ export interface ListAssociatedRoute53HealthChecksResponse {
   HealthCheckIds?: string[];
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * <p>Next token for listing health checks.</p>
    */
   NextToken?: string;
 }
@@ -1135,7 +1150,7 @@ export namespace ListControlPanelsResponse {
 
 export interface ListRoutingControlsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the control panel that you're getting routing control details for.</p>
+   * <p>The Amazon Resource Name (ARN) of the control panel.</p>
    */
   ControlPanelArn: string | undefined;
 
@@ -1182,7 +1197,7 @@ export namespace ListRoutingControlsResponse {
 
 export interface ListSafetyRulesRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the control panel that you're getting details for.</p>
+   * <p>The Amazon Resource Name (ARN) of the control panel.</p>
    */
   ControlPanelArn: string | undefined;
 
@@ -1223,6 +1238,105 @@ export namespace ListSafetyRulesResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListSafetyRulesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the resource that's tagged.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tags associated with the resource.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Request of adding tag to the resource</p>
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the resource that's tagged.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The tags associated with the resource.</p>
+   */
+  Tags: { [key: string]: string } | undefined;
+}
+
+export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the resource that's tagged.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>Keys for the tags to be removed.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
 }
@@ -1307,14 +1421,17 @@ export namespace UpdateRoutingControlResponse {
   });
 }
 
+/**
+ * <p>A rule that you add to Application Recovery Controller to ensure that recovery actions don't accidentally impair your application's availability.</p>
+ */
 export interface UpdateSafetyRuleRequest {
   /**
-   * <p>An update to an assertion rule. You can update the name or the evaluation period (wait period). If you don't specify one of the items to update, the item is unchanged.</p>
+   * <p>The assertion rule to update.</p>
    */
   AssertionRuleUpdate?: AssertionRuleUpdate;
 
   /**
-   * <p>Update to a gating rule. You can update the name or the evaluation period (wait period). If you don't specify one of the items to update, the item is unchanged.</p>
+   * <p>The gating rule to update.</p>
    */
   GatingRuleUpdate?: GatingRuleUpdate;
 }
@@ -1330,12 +1447,12 @@ export namespace UpdateSafetyRuleRequest {
 
 export interface UpdateSafetyRuleResponse {
   /**
-   * <p>An assertion rule enforces that, when a routing control state is changed, the criteria set by the rule configuration is met. Otherwise, the change to the routing control is not accepted.</p>
+   * <p>The assertion rule updated.</p>
    */
   AssertionRule?: AssertionRule;
 
   /**
-   * <p>A gating rule verifies that a set of gating controls evaluates as true, based on a rule configuration that you specify. If the gating rule evaluates to true, Amazon Route 53 Application Recovery Controller allows a set of routing control state changes to run and complete against the set of target controls.</p>
+   * <p>The gating rule updated.</p>
    */
   GatingRule?: GatingRule;
 }

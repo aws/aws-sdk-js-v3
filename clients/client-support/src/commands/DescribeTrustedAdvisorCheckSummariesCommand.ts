@@ -27,21 +27,21 @@ export interface DescribeTrustedAdvisorCheckSummariesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns the results for the AWS Trusted Advisor check summaries for the check IDs that you
+ * <p>Returns the results for the Trusted Advisor check summaries for the check IDs that you
  *             specified. You can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a> operation.</p>
  *         <p>The response contains an array of <a>TrustedAdvisorCheckSummary</a>
  *             objects.</p>
  *         <note>
  *             <ul>
  *                <li>
- *                     <p>You must have a Business or Enterprise Support plan to use the AWS Support
+ *                     <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
  *                         API. </p>
  *                 </li>
  *                <li>
- *                     <p>If you call the AWS Support API from an account that does not have a
- *                         Business or Enterprise Support plan, the
+ *                     <p>If you call the Amazon Web Services Support API from an account that does not have a
+ *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
  *                             <code>SubscriptionRequiredException</code> error message appears. For
- *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+ *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
  *                 </li>
  *             </ul>
  *         </note>

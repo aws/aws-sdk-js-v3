@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AppSyncClient` and
-the commands you need, for example `CreateApiCacheCommand`:
+the commands you need, for example `AssociateApiCommand`:
 
 ```js
 // ES5 example
-const { AppSyncClient, CreateApiCacheCommand } = require("@aws-sdk/client-appsync");
+const { AppSyncClient, AssociateApiCommand } = require("@aws-sdk/client-appsync");
 ```
 
 ```ts
 // ES6+ example
-import { AppSyncClient, CreateApiCacheCommand } from "@aws-sdk/client-appsync";
+import { AppSyncClient, AssociateApiCommand } from "@aws-sdk/client-appsync";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new AppSyncClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateApiCacheCommand(params);
+const command = new AssociateApiCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.AppSync({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createApiCache(params);
+  const data = await client.associateApi(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .createApiCache(params)
+  .associateApi(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.createApiCache(params, (err, data) => {
+client.associateApi(params, (err, data) => {
   // proccess err and data.
 });
 ```

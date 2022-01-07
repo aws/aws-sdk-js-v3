@@ -23,7 +23,7 @@ export interface AuthorizeDataShareCommandOutput extends DataShare, __MetadataBe
 
 /**
  * <p>From a data producer account, authorizes the sharing of a datashare with one or more
- *             consumer accounts. To authorize a datashare for a data consumer, the producer account
+ *             consumer accounts or managing entities. To authorize a datashare for a data consumer, the producer account
  *             must have the correct access privileges.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -25,7 +25,7 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  * <note>
  *             <p> This operation creates a legacy predictor that does not include all the predictor
  *         functionalities provided by Amazon Forecast. To create a predictor that is compatible with all
- *         aspects of Forecast, use CreateAutoPredictor.</p>
+ *         aspects of Forecast, use <a>CreateAutoPredictor</a>.</p>
  *          </note>
  *          <p>Creates an Amazon Forecast predictor.</p>
  *          <p>In the request, provide a dataset group and either specify an algorithm or let Amazon Forecast

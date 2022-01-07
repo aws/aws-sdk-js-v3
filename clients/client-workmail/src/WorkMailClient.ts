@@ -75,6 +75,10 @@ import {
   DeleteAccessControlRuleCommandOutput,
 } from "./commands/DeleteAccessControlRuleCommand";
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
+import {
+  DeleteEmailMonitoringConfigurationCommandInput,
+  DeleteEmailMonitoringConfigurationCommandOutput,
+} from "./commands/DeleteEmailMonitoringConfigurationCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
   DeleteMailboxPermissionsCommandInput,
@@ -103,6 +107,10 @@ import {
   DeregisterMailDomainCommandInput,
   DeregisterMailDomainCommandOutput,
 } from "./commands/DeregisterMailDomainCommand";
+import {
+  DescribeEmailMonitoringConfigurationCommandInput,
+  DescribeEmailMonitoringConfigurationCommandOutput,
+} from "./commands/DescribeEmailMonitoringConfigurationCommand";
 import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "./commands/DescribeGroupCommand";
 import {
   DescribeInboundDmarcSettingsCommandInput,
@@ -184,6 +192,10 @@ import {
   PutAccessControlRuleCommandOutput,
 } from "./commands/PutAccessControlRuleCommand";
 import {
+  PutEmailMonitoringConfigurationCommandInput,
+  PutEmailMonitoringConfigurationCommandOutput,
+} from "./commands/PutEmailMonitoringConfigurationCommand";
+import {
   PutInboundDmarcSettingsCommandInput,
   PutInboundDmarcSettingsCommandOutput,
 } from "./commands/PutInboundDmarcSettingsCommand";
@@ -233,6 +245,7 @@ export type ServiceInputTypes =
   | CreateUserCommandInput
   | DeleteAccessControlRuleCommandInput
   | DeleteAliasCommandInput
+  | DeleteEmailMonitoringConfigurationCommandInput
   | DeleteGroupCommandInput
   | DeleteMailboxPermissionsCommandInput
   | DeleteMobileDeviceAccessOverrideCommandInput
@@ -243,6 +256,7 @@ export type ServiceInputTypes =
   | DeleteUserCommandInput
   | DeregisterFromWorkMailCommandInput
   | DeregisterMailDomainCommandInput
+  | DescribeEmailMonitoringConfigurationCommandInput
   | DescribeGroupCommandInput
   | DescribeInboundDmarcSettingsCommandInput
   | DescribeMailboxExportJobCommandInput
@@ -272,6 +286,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListUsersCommandInput
   | PutAccessControlRuleCommandInput
+  | PutEmailMonitoringConfigurationCommandInput
   | PutInboundDmarcSettingsCommandInput
   | PutMailboxPermissionsCommandInput
   | PutMobileDeviceAccessOverrideCommandInput
@@ -300,6 +315,7 @@ export type ServiceOutputTypes =
   | CreateUserCommandOutput
   | DeleteAccessControlRuleCommandOutput
   | DeleteAliasCommandOutput
+  | DeleteEmailMonitoringConfigurationCommandOutput
   | DeleteGroupCommandOutput
   | DeleteMailboxPermissionsCommandOutput
   | DeleteMobileDeviceAccessOverrideCommandOutput
@@ -310,6 +326,7 @@ export type ServiceOutputTypes =
   | DeleteUserCommandOutput
   | DeregisterFromWorkMailCommandOutput
   | DeregisterMailDomainCommandOutput
+  | DescribeEmailMonitoringConfigurationCommandOutput
   | DescribeGroupCommandOutput
   | DescribeInboundDmarcSettingsCommandOutput
   | DescribeMailboxExportJobCommandOutput
@@ -339,6 +356,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListUsersCommandOutput
   | PutAccessControlRuleCommandOutput
+  | PutEmailMonitoringConfigurationCommandOutput
   | PutInboundDmarcSettingsCommandOutput
   | PutMailboxPermissionsCommandOutput
   | PutMobileDeviceAccessOverrideCommandOutput

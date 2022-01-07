@@ -22,8 +22,7 @@ export interface ReplicateSecretToRegionsCommandInput extends ReplicateSecretToR
 export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretToRegionsResponse, __MetadataBearer {}
 
 /**
- * <p>Converts an existing secret to a multi-Region secret and begins replication the secret to a
- *       list of new regions. </p>
+ * <p>Replicates the secret to a new Regions. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create-manage-multi-region-secrets.html">Multi-Region secrets</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

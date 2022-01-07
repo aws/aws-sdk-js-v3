@@ -1064,6 +1064,10 @@ export const serializeAws_restJson1PutIntegrationCommand = async (
       }),
     ...(input.ObjectTypeName !== undefined &&
       input.ObjectTypeName !== null && { ObjectTypeName: input.ObjectTypeName }),
+    ...(input.ObjectTypeNames !== undefined &&
+      input.ObjectTypeNames !== null && {
+        ObjectTypeNames: serializeAws_restJson1ObjectTypeNames(input.ObjectTypeNames, context),
+      }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
     ...(input.Uri !== undefined && input.Uri !== null && { Uri: input.Uri }),
   });
@@ -2564,6 +2568,7 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
     DomainName: undefined,
     LastUpdatedAt: undefined,
     ObjectTypeName: undefined,
+    ObjectTypeNames: undefined,
     Tags: undefined,
     Uri: undefined,
   };
@@ -2579,6 +2584,9 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
   }
   if (data.ObjectTypeName !== undefined && data.ObjectTypeName !== null) {
     contents.ObjectTypeName = __expectString(data.ObjectTypeName);
+  }
+  if (data.ObjectTypeNames !== undefined && data.ObjectTypeNames !== null) {
+    contents.ObjectTypeNames = deserializeAws_restJson1ObjectTypeNames(data.ObjectTypeNames, context);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
@@ -3802,6 +3810,7 @@ export const deserializeAws_restJson1PutIntegrationCommand = async (
     DomainName: undefined,
     LastUpdatedAt: undefined,
     ObjectTypeName: undefined,
+    ObjectTypeNames: undefined,
     Tags: undefined,
     Uri: undefined,
   };
@@ -3817,6 +3826,9 @@ export const deserializeAws_restJson1PutIntegrationCommand = async (
   }
   if (data.ObjectTypeName !== undefined && data.ObjectTypeName !== null) {
     contents.ObjectTypeName = __expectString(data.ObjectTypeName);
+  }
+  if (data.ObjectTypeNames !== undefined && data.ObjectTypeNames !== null) {
+    contents.ObjectTypeNames = deserializeAws_restJson1ObjectTypeNames(data.ObjectTypeNames, context);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
@@ -4903,6 +4915,18 @@ const serializeAws_restJson1ObjectTypeKeyList = (input: ObjectTypeKey[], context
     });
 };
 
+const serializeAws_restJson1ObjectTypeNames = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
 const serializeAws_restJson1ProfileIdToBeMergedList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -5385,6 +5409,10 @@ const deserializeAws_restJson1ListIntegrationItem = (output: any, context: __Ser
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     ObjectTypeName: __expectString(output.ObjectTypeName),
+    ObjectTypeNames:
+      output.ObjectTypeNames !== undefined && output.ObjectTypeNames !== null
+        ? deserializeAws_restJson1ObjectTypeNames(output.ObjectTypeNames, context)
+        : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1TagMap(output.Tags, context)
@@ -5529,6 +5557,18 @@ const deserializeAws_restJson1ObjectTypeKeyList = (output: any, context: __Serde
       }
       return deserializeAws_restJson1ObjectTypeKey(entry, context);
     });
+};
+
+const deserializeAws_restJson1ObjectTypeNames = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1Profile = (output: any, context: __SerdeContext): Profile => {

@@ -807,11 +807,11 @@ export enum RuleOrder {
  */
 export interface StatefulEngineOptions {
   /**
-   * <p>Indicates how to manage the order of stateful rule evaluation for the policy. By default, Network Firewall
-   *            leaves the rule evaluation order up to the Suricata rule processing engine. If you set
-   *            this to <code>STRICT_ORDER</code>, your rules are evaluated in the exact order that you provide them
-   *            in the policy. With strict ordering, the rule groups are evaluated by order of priority, starting from the lowest number, and
-   *            the rules in each rule group are processed in the order that they're defined. </p>
+   * <p>Indicates how to manage the order of stateful rule evaluation for the policy. <code>DEFAULT_ACTION_ORDER</code> is
+   *          the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them
+   *          based on certain settings. For more information, see
+   *          <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation order for stateful rules</a> in the <i>AWS Network Firewall Developer Guide</i>.
+   *       </p>
    */
   RuleOrder?: RuleOrder | string;
 }
@@ -821,6 +821,30 @@ export namespace StatefulEngineOptions {
    * @internal
    */
   export const filterSensitiveLog = (obj: StatefulEngineOptions): any => ({
+    ...obj,
+  });
+}
+
+export enum OverrideAction {
+  DROP_TO_ALERT = "DROP_TO_ALERT",
+}
+
+/**
+ * <p>The setting that allows the policy owner to change the behavior of the rule group within a policy. </p>
+ */
+export interface StatefulRuleGroupOverride {
+  /**
+   * <p>The action that changes the rule group from <code>DROP</code> to <code>ALERT</code>. This only applies to
+   *       managed rule groups.</p>
+   */
+  Action?: OverrideAction | string;
+}
+
+export namespace StatefulRuleGroupOverride {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StatefulRuleGroupOverride): any => ({
     ...obj,
   });
 }
@@ -847,6 +871,11 @@ export interface StatefulRuleGroupReference {
    *          200, and so on. </p>
    */
   Priority?: number;
+
+  /**
+   * <p>The action that allows the policy owner to override the behavior of the rule group within a policy.</p>
+   */
+  Override?: StatefulRuleGroupOverride;
 }
 
 export namespace StatefulRuleGroupReference {
@@ -985,7 +1014,26 @@ export interface FirewallPolicy {
   StatefulRuleGroupReferences?: StatefulRuleGroupReference[];
 
   /**
-   * <p>The default actions to take on a packet that doesn't match any stateful rules.</p>
+   * <p>The default actions to take on a packet that doesn't match any stateful rules. The stateful default action is optional,
+   *          and is only valid when using the strict rule order.</p>
+   *          <p>Valid values of the stateful default action:</p>
+   *          <ul>
+   *             <li>
+   *                <p>aws:drop_strict</p>
+   *             </li>
+   *             <li>
+   *                <p>aws:drop_established</p>
+   *             </li>
+   *             <li>
+   *                <p>aws:alert_strict</p>
+   *             </li>
+   *             <li>
+   *                <p>aws:alert_established</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see
+   *          <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-strict-rule-evaluation-order.html">Strict evaluation order</a> in the <i>AWS Network Firewall Developer Guide</i>.
+   *       </p>
    */
   StatefulDefaultActions?: string[];
 
@@ -1156,8 +1204,7 @@ export enum TargetType {
  */
 export interface RulesSourceList {
   /**
-   * <p>The domains that you want to inspect for in your traffic flows. To provide multiple
-   *          domains, separate them with commas. Valid domain specifications are the following:</p>
+   * <p>The domains that you want to inspect for in your traffic flows. Valid domain specifications are the following:</p>
    *          <ul>
    *             <li>
    *                <p>Explicit names. For example, <code>abc.example.com</code> matches only the domain <code>abc.example.com</code>.</p>
@@ -1753,10 +1800,11 @@ export namespace RuleVariables {
  */
 export interface StatefulRuleOptions {
   /**
-   * <p>Indicates how to manage the order of the rule evaluation for the rule group. By default, Network Firewall
-   *            leaves the rule evaluation order up to the Suricata rule processing engine. If you set
-   *            this to <code>STRICT_ORDER</code>, your rules are evaluated in the exact order that they're listed
-   *            in your Suricata rules string. </p>
+   * <p>Indicates how to manage the order of the rule evaluation for the rule group. <code>DEFAULT_ACTION_ORDER</code> is
+   *              the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them
+   *              based on certain settings. For more information, see
+   *          <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation order for stateful rules</a> in the <i>AWS Network Firewall Developer Guide</i>.
+   *       </p>
    */
   RuleOrder?: RuleOrder | string;
 }
@@ -2549,6 +2597,90 @@ export namespace DescribeRuleGroupResponse {
   });
 }
 
+export interface DescribeRuleGroupMetadataRequest {
+  /**
+   * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   */
+  RuleGroupName?: string;
+
+  /**
+   * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   */
+  RuleGroupArn?: string;
+
+  /**
+   * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
+   * stateless rules. If it is stateful, it contains stateful rules. </p>
+   *          <note>
+   *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
+   *          </note>
+   */
+  Type?: RuleGroupType | string;
+}
+
+export namespace DescribeRuleGroupMetadataRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeRuleGroupMetadataRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeRuleGroupMetadataResponse {
+  /**
+   * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   */
+  RuleGroupArn: string | undefined;
+
+  /**
+   * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   */
+  RuleGroupName: string | undefined;
+
+  /**
+   * <p>Returns the metadata objects for the specified rule group.
+   *       </p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
+   * stateless rules. If it is stateful, it contains stateful rules. </p>
+   *          <note>
+   *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
+   *          </note>
+   */
+  Type?: RuleGroupType | string;
+
+  /**
+   * <p>The maximum operating resources that this rule group can use. Rule group capacity is fixed at creation.
+   *       When you update a rule group, you are limited to this capacity. When you reference a rule group
+   *       from a firewall policy, Network Firewall reserves this capacity for the rule group. </p>
+   *          <p>You can retrieve the capacity that would be required for a rule group before you create the rule group by calling
+   *       <a>CreateRuleGroup</a> with <code>DryRun</code> set to <code>TRUE</code>. </p>
+   */
+  Capacity?: number;
+
+  /**
+   * <p>Additional options governing how Network Firewall handles the rule group. You can only use these for stateful rule groups.</p>
+   */
+  StatefulRuleOptions?: StatefulRuleOptions;
+}
+
+export namespace DescribeRuleGroupMetadataResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeRuleGroupMetadataResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DisassociateSubnetsRequest {
   /**
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
@@ -2774,6 +2906,11 @@ export namespace ListFirewallsResponse {
   });
 }
 
+export enum ResourceManagedStatus {
+  ACCOUNT = "ACCOUNT",
+  MANAGED = "MANAGED",
+}
+
 export interface ListRuleGroupsRequest {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -2788,6 +2925,13 @@ export interface ListRuleGroupsRequest {
    *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The scope of the request. The default setting of <code>ACCOUNT</code> or a setting of
+   *          <code>NULL</code> returns all of the rule groups in your account. A setting of
+   *          <code>MANAGED</code> returns all available managed rule groups.</p>
+   */
+  Scope?: ResourceManagedStatus | string;
 }
 
 export namespace ListRuleGroupsRequest {
@@ -3112,7 +3256,9 @@ export interface UpdateFirewallDeleteProtectionResponse {
   FirewallName?: string;
 
   /**
-   * <p></p>
+   * <p>A flag indicating whether it is possible to delete the firewall. A setting of <code>TRUE</code> indicates
+   *          that the firewall is protected against deletion. Use this setting to protect against
+   *          accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to <code>TRUE</code>.</p>
    */
   DeleteProtection?: boolean;
 

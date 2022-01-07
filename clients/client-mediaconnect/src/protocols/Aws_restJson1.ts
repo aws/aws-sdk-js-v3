@@ -1137,6 +1137,10 @@ export const serializeAws_restJson1UpdateFlowOutputCommand = async (
     ...(input.Port !== undefined && input.Port !== null && { port: input.Port }),
     ...(input.Protocol !== undefined && input.Protocol !== null && { protocol: input.Protocol }),
     ...(input.RemoteId !== undefined && input.RemoteId !== null && { remoteId: input.RemoteId }),
+    ...(input.SenderControlPort !== undefined &&
+      input.SenderControlPort !== null && { senderControlPort: input.SenderControlPort }),
+    ...(input.SenderIpAddress !== undefined &&
+      input.SenderIpAddress !== null && { senderIpAddress: input.SenderIpAddress }),
     ...(input.SmoothingLatency !== undefined &&
       input.SmoothingLatency !== null && { smoothingLatency: input.SmoothingLatency }),
     ...(input.StreamId !== undefined && input.StreamId !== null && { streamId: input.StreamId }),
@@ -1204,6 +1208,10 @@ export const serializeAws_restJson1UpdateFlowSourceCommand = async (
       }),
     ...(input.MinLatency !== undefined && input.MinLatency !== null && { minLatency: input.MinLatency }),
     ...(input.Protocol !== undefined && input.Protocol !== null && { protocol: input.Protocol }),
+    ...(input.SenderControlPort !== undefined &&
+      input.SenderControlPort !== null && { senderControlPort: input.SenderControlPort }),
+    ...(input.SenderIpAddress !== undefined &&
+      input.SenderIpAddress !== null && { senderIpAddress: input.SenderIpAddress }),
     ...(input.StreamId !== undefined && input.StreamId !== null && { streamId: input.StreamId }),
     ...(input.VpcInterfaceName !== undefined &&
       input.VpcInterfaceName !== null && { vpcInterfaceName: input.VpcInterfaceName }),
@@ -4357,6 +4365,8 @@ const serializeAws_restJson1AddOutputRequest = (input: AddOutputRequest, context
     ...(input.Port !== undefined && input.Port !== null && { port: input.Port }),
     ...(input.Protocol !== undefined && input.Protocol !== null && { protocol: input.Protocol }),
     ...(input.RemoteId !== undefined && input.RemoteId !== null && { remoteId: input.RemoteId }),
+    ...(input.SenderControlPort !== undefined &&
+      input.SenderControlPort !== null && { senderControlPort: input.SenderControlPort }),
     ...(input.SmoothingLatency !== undefined &&
       input.SmoothingLatency !== null && { smoothingLatency: input.SmoothingLatency }),
     ...(input.StreamId !== undefined && input.StreamId !== null && { streamId: input.StreamId }),
@@ -4546,6 +4556,10 @@ const serializeAws_restJson1SetSourceRequest = (input: SetSourceRequest, context
     ...(input.MinLatency !== undefined && input.MinLatency !== null && { minLatency: input.MinLatency }),
     ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
     ...(input.Protocol !== undefined && input.Protocol !== null && { protocol: input.Protocol }),
+    ...(input.SenderControlPort !== undefined &&
+      input.SenderControlPort !== null && { senderControlPort: input.SenderControlPort }),
+    ...(input.SenderIpAddress !== undefined &&
+      input.SenderIpAddress !== null && { senderIpAddress: input.SenderIpAddress }),
     ...(input.StreamId !== undefined && input.StreamId !== null && { streamId: input.StreamId }),
     ...(input.VpcInterfaceName !== undefined &&
       input.VpcInterfaceName !== null && { vpcInterfaceName: input.VpcInterfaceName }),
@@ -5107,6 +5121,8 @@ const deserializeAws_restJson1Source = (output: any, context: __SerdeContext): S
           )
         : undefined,
     Name: __expectString(output.name),
+    SenderControlPort: __expectInt32(output.senderControlPort),
+    SenderIpAddress: __expectString(output.senderIpAddress),
     SourceArn: __expectString(output.sourceArn),
     Transport:
       output.transport !== undefined && output.transport !== null
@@ -5135,6 +5151,8 @@ const deserializeAws_restJson1Transport = (output: any, context: __SerdeContext)
     MinLatency: __expectInt32(output.minLatency),
     Protocol: __expectString(output.protocol),
     RemoteId: __expectString(output.remoteId),
+    SenderControlPort: __expectInt32(output.senderControlPort),
+    SenderIpAddress: __expectString(output.senderIpAddress),
     SmoothingLatency: __expectInt32(output.smoothingLatency),
     StreamId: __expectString(output.streamId),
   } as any;

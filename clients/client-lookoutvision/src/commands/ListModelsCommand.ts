@@ -23,6 +23,9 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
 
 /**
  * <p>Lists the versions of a model in an Amazon Lookout for Vision project.</p>
+ *          <p>The <code>ListModels</code> operation is eventually consistent.
+ *          Recent calls to <code>CreateModel</code> might
+ *          take a while to appear in the response from <code>ListProjects</code>.</p>
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:ListModels</code> operation.</p>
  * @example

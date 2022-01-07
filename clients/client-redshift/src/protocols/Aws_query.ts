@@ -18369,6 +18369,7 @@ const deserializeAws_queryDataShare = (output: any, context: __SerdeContext): Da
     ProducerArn: undefined,
     AllowPubliclyAccessibleConsumers: undefined,
     DataShareAssociations: undefined,
+    ManagedBy: undefined,
   };
   if (output["DataShareArn"] !== undefined) {
     contents.DataShareArn = __expectString(output["DataShareArn"]);
@@ -18387,6 +18388,9 @@ const deserializeAws_queryDataShare = (output: any, context: __SerdeContext): Da
       __getArrayIfSingleItem(output["DataShareAssociations"]["member"]),
       context
     );
+  }
+  if (output["ManagedBy"] !== undefined) {
+    contents.ManagedBy = __expectString(output["ManagedBy"]);
   }
   return contents;
 };

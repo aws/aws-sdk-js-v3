@@ -6,7 +6,7 @@
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build:types": "tsc -p tsconfig.types.json",
-    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "test": "karma start karma.conf.js"
   },
   "main": "./dist-cjs/index.js",
@@ -25,10 +25,7 @@
   },
   "devDependencies": {
     "@aws-crypto/sha256-js": "2.0.0",
-    "@aws-sdk/util-hex-encoding": "3.37.0",
-    "@types/jest": "^26.0.4",
-    "jest": "^26.1.0",
-    "typescript": "~4.3.5"
+    "@aws-sdk/util-hex-encoding": "3.37.0"
   },
   "react-native": {
     "@aws-sdk/chunked-blob-reader": "@aws-sdk/chunked-blob-reader-native"

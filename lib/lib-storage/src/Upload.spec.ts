@@ -76,7 +76,7 @@ describe(Upload.name, () => {
     Body: "this-is-a-sample-payload",
   };
 
-  it("correctly exposes the event emitter API", (done) => {
+  it("correctly exposes the event emitter API", () => {
     const upload = new Upload({
       params,
       client: new S3({}),
@@ -86,11 +86,9 @@ describe(Upload.name, () => {
     expect(upload.eventNames).toBeDefined();
     expect(upload.off).toBeDefined();
     expect(upload.on).toBeDefined();
-
-    done();
   });
 
-  it("should upload using PUT when empty buffer", async (done) => {
+  it("should upload using PUT when empty buffer", async () => {
     const buffer = Buffer.from("");
     const actionParams = { ...params, Body: buffer };
     const upload = new Upload({
@@ -115,11 +113,9 @@ describe(Upload.name, () => {
     expect(completeMultipartMock).toHaveBeenCalledTimes(0);
     // no tags were passed.
     expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
-
-    done();
   });
 
-  it("should upload using PUT when empty stream", async (done) => {
+  it("should upload using PUT when empty stream", async () => {
     const stream = new Readable({});
     stream.push(null);
     const actionParams = { ...params, Body: stream };
@@ -145,11 +141,9 @@ describe(Upload.name, () => {
     expect(completeMultipartMock).toHaveBeenCalledTimes(0);
     // no tags were passed.
     expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
-
-    done();
   });
 
-  it("should upload using PUT when parts are smaller than one part", async (done) => {
+  it("should upload using PUT when parts are smaller than one part", async () => {
     const upload = new Upload({
       params,
       client: new S3({}),
@@ -172,11 +166,9 @@ describe(Upload.name, () => {
     expect(completeMultipartMock).toHaveBeenCalledTimes(0);
     // no tags were passed.
     expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
-
-    done();
   });
 
-  it("should upload using PUT when parts are smaller than one part stream", async (done) => {
+  it("should upload using PUT when parts are smaller than one part stream", async () => {
     const streamBody = Readable.from(
       (function* () {
         yield params.Body;
@@ -204,8 +196,6 @@ describe(Upload.name, () => {
     expect(completeMultipartMock).toHaveBeenCalledTimes(0);
     // no tags were passed.
     expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
-
-    done();
   });
 
   it("should return a Bucket, Key and Location fields when upload uses a PUT", async (done) => {
@@ -240,7 +230,7 @@ describe(Upload.name, () => {
     done();
   });
 
-  it("should upload using multi-part when parts are larger than part size", async (done) => {
+  it("should upload using multi-part when parts are larger than part size", async () => {
     // create a string that's larger than 5MB.
     const partSize = 1024 * 1024 * 5;
     const largeBuffer = Buffer.from("#".repeat(partSize + 10));
@@ -302,10 +292,9 @@ describe(Upload.name, () => {
     expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
     // put was not called
     expect(putObjectMock).toHaveBeenCalledTimes(0);
-    done();
   });
 
-  it("should upload using multi-part when parts are larger than part size stream", async (done) => {
+  it("should upload using multi-part when parts are larger than part size stream", async () => {
     // create a string that's larger than 5MB.
     const largeBuffer = Buffer.from("#".repeat(DEFAULT_PART_SIZE + 10));
     const firstBuffer = largeBuffer.subarray(0, DEFAULT_PART_SIZE);
@@ -371,10 +360,9 @@ describe(Upload.name, () => {
     expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
     // put was not called
     expect(putObjectMock).toHaveBeenCalledTimes(0);
-    done();
   });
 
-  it("should add tags to the object if tags have been added PUT", async (done) => {
+  it("should add tags to the object if tags have been added PUT", async () => {
     const tags = [
       {
         Key: "k1",
@@ -404,11 +392,9 @@ describe(Upload.name, () => {
         TagSet: tags,
       },
     });
-
-    done();
   });
 
-  it("should add tags to the object if tags have been added multi-part", async (done) => {
+  it("should add tags to the object if tags have been added multi-part", async () => {
     const largeBuffer = Buffer.from("#".repeat(DEFAULT_PART_SIZE + 10));
     const actionParams = { ...params, Body: largeBuffer };
     const tags = [
@@ -440,44 +426,35 @@ describe(Upload.name, () => {
         TagSet: tags,
       },
     });
-
-    done();
   });
 
-  it("should validate partsize", async (done) => {
+  it("should validate partsize", () => {
     try {
-      const upload = new Upload({
+      new Upload({
         params,
         partSize: 6,
         client: new S3({}),
       });
-
-      //should not get here.
-      expect(1).toEqual(0);
+      fail();
     } catch (error) {
       expect(error).toBeDefined();
-      done();
     }
   });
 
-  it("should validate queue size", (done) => {
+  it("should validate queue size", () => {
     try {
-      const upload = new Upload({
+      new Upload({
         params,
         queueSize: -1,
         client: new S3({}),
       });
-
-      //should not get here.
-      expect(1).toEqual(0);
+      fail();
     } catch (error) {
       expect(error).toBeDefined();
-      done();
     }
-    done();
   });
 
-  it("should provide progress updates", async (done) => {
+  it("should provide progress updates", async () => {
     const upload = new Upload({
       params,
       client: new S3({}),
@@ -491,12 +468,11 @@ describe(Upload.name, () => {
         part: 1,
         total: 24,
       });
-      done();
     });
     await upload.done();
   });
 
-  it("should provide progress updates multi-part buffer", async (done) => {
+  it("should provide progress updates multi-part buffer", async () => {
     const partSize = 1024 * 1024 * 5;
     const largeBuffer = Buffer.from("#".repeat(partSize + 10));
     const firstBuffer = largeBuffer.subarray(0, partSize);
@@ -526,10 +502,9 @@ describe(Upload.name, () => {
       total: largeBuffer.byteLength,
     });
     expect(received.length).toBe(2);
-    done();
   });
 
-  it("should provide progress updates multi-part stream", async (done) => {
+  it("should provide progress updates multi-part stream", async () => {
     const partSize = 1024 * 1024 * 5;
     const largeBuffer = Buffer.from("#".repeat(partSize + 10));
     const streamBody = Readable.from(
@@ -563,10 +538,9 @@ describe(Upload.name, () => {
       total: undefined,
     });
     expect(received.length).toBe(2);
-    done();
   });
 
-  it("should provide progress updates empty buffer", async (done) => {
+  it("should provide progress updates empty buffer", async () => {
     const buffer = Buffer.from("");
     const actionParams = { ...params, Body: buffer };
     const upload = new Upload({
@@ -587,10 +561,9 @@ describe(Upload.name, () => {
       total: 0,
     });
     expect(received.length).toBe(1);
-    done();
   });
 
-  it("should provide progress updates empty stream", async (done) => {
+  it("should provide progress updates empty stream", async () => {
     const stream = Readable.from((function* () {})());
     const actionParams = { ...params, Body: stream };
     const upload = new Upload({
@@ -611,6 +584,5 @@ describe(Upload.name, () => {
       total: 0,
     });
     expect(received.length).toBe(1);
-    done();
   });
 });

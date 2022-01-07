@@ -7669,6 +7669,14 @@ const deserializeAws_restXmlUpdateHostedZoneCommentCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "PriorRequestNotComplete":
+    case "com.amazonaws.route53#PriorRequestNotComplete":
+      response = {
+        ...(await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;

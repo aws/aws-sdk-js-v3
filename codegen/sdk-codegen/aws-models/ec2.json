@@ -23007,6 +23007,30 @@
           "outputToken": "NextToken",
           "items": "InternetGateways",
           "pageSize": "MaxResults"
+        },
+        "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.waiters#waitable": {
+          "InternetGatewayExists": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "length(InternetGateways[].InternetGatewayId) > `0`",
+                    "expected": "true",
+                    "comparator": "booleanEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "InvalidInternetGateway.NotFound"
+                }
+              }
+            ],
+            "minDelay": 5
+          }
         }
       }
     },
@@ -32341,7 +32365,7 @@
       "type": "structure",
       "members": {
         "ElasticGpuId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#ElasticGpuId",
           "traits": {
             "aws.protocols#ec2QueryName": "ElasticGpuId",
             "smithy.api#documentation": "<p>The ID of the Elastic Graphics accelerator.</p>",

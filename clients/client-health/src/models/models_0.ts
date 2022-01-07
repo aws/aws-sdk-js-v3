@@ -211,8 +211,7 @@ export namespace DateTimeRange {
 }
 
 /**
- * <p>The values to use to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html">DescribeAffectedEntities</a>
- *          operation.</p>
+ * <p>The values to use to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html">DescribeAffectedEntities</a> operation.</p>
  */
 export interface EntityFilter {
   /**
@@ -800,9 +799,10 @@ export namespace EventDetailsErrorItem {
  *             </li>
  *             <li>
  *                <p>
- *                   <i>Account-specific</i> events are specific to either your Amazon Web Services account or an account in your organization. For example, if there's an issue with
- *                Amazon Elastic Compute Cloud in a Region that you use, Health provides information about the event
- *                and the affected resources in the account.</p>
+ *                   <i>Account-specific</i> events are specific to either your
+ *                Amazon Web Services account or an account in your organization. For example, if there's an issue
+ *                with Amazon Elastic Compute Cloud in a Region that you use, Health provides information about the
+ *                event and the affected resources in the account.</p>
  *             </li>
  *          </ul>
  *          <p>You can determine if an event is public or account-specific by using the
@@ -1035,7 +1035,8 @@ export interface OrganizationEventDetailsErrorItem {
    *                <p>We couldn't find an account specific event for the specified Amazon Web Services account. To find an event that is public, you must enter a null value for the Amazon Web Services account ID in the request.</p>
    *             </li>
    *             <li>
-   *                <p>Your Amazon Web Services account doesn't include the Amazon Web Services Support plan required to use the Health API. You must have either a Business or Enterprise Support plan.</p>
+   *                <p>Your Amazon Web Services account doesn't include the Amazon Web Services Support plan required to use the
+   * Health API. You must have either a Business, Enterprise On-Ramp, or Enterprise Support plan.</p>
    *             </li>
    *          </ul>
    */
@@ -1074,9 +1075,10 @@ export interface OrganizationEventDetails {
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Account-specific</i> events are specific to either your Amazon Web Services account or an account in your organization. For example, if there's an issue with
-   *                Amazon Elastic Compute Cloud in a Region that you use, Health provides information about the event
-   *                and the affected resources in the account.</p>
+   *                   <i>Account-specific</i> events are specific to either your
+   *                Amazon Web Services account or an account in your organization. For example, if there's an issue
+   *                with Amazon Elastic Compute Cloud in a Region that you use, Health provides information about the
+   *                event and the affected resources in the account.</p>
    *             </li>
    *          </ul>
    *          <p>You can determine if an event is public or account-specific by using the
@@ -1566,8 +1568,7 @@ export namespace DescribeEventTypesResponse {
 export interface DescribeHealthServiceStatusForOrganizationResponse {
   /**
    * <p>Information about the status of enabling or disabling the Health organizational
-   *          view feature in
-   *          your organization.</p>
+   *          view feature in your organization.</p>
    *          <p>Valid values are <code>ENABLED | DISABLED | PENDING</code>. </p>
    */
   healthServiceAccessStatusForOrganization?: string;

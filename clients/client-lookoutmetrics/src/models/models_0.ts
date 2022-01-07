@@ -2001,6 +2001,50 @@ export namespace GetSampleDataResponse {
   });
 }
 
+export enum RelationshipType {
+  CAUSE_OF_INPUT_ANOMALY_GROUP = "CAUSE_OF_INPUT_ANOMALY_GROUP",
+  EFFECT_OF_INPUT_ANOMALY_GROUP = "EFFECT_OF_INPUT_ANOMALY_GROUP",
+}
+
+/**
+ * <p>Aggregated details about the measures contributing to the anomaly group, and the measures
+ *             potentially impacted by the anomaly group.</p>
+ *         <p></p>
+ */
+export interface InterMetricImpactDetails {
+  /**
+   * <p>The name of the measure.</p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>The ID of the anomaly group.</p>
+   */
+  AnomalyGroupId?: string;
+
+  /**
+   * <p>Whether a measure is a potential cause of the anomaly group
+   *             (<code>CAUSE_OF_INPUT_ANOMALY_GROUP</code>), or whether the measure is impacted by the
+   *             anomaly group (<code>EFFECT_OF_INPUT_ANOMALY_GROUP</code>).</p>
+   */
+  RelationshipType?: RelationshipType | string;
+
+  /**
+   * <p>For potential causes (<code>CAUSE_OF_INPUT_ANOMALY_GROUP</code>), the percentage
+   *             contribution the measure has in causing the anomalies.</p>
+   */
+  ContributionPercentage?: number;
+}
+
+export namespace InterMetricImpactDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InterMetricImpactDetails): any => ({
+    ...obj,
+  });
+}
+
 export interface ListAlertsRequest {
   /**
    * <p>The ARN of the alert's detector.</p>
@@ -2090,6 +2134,66 @@ export namespace ListAnomalyDetectorsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListAnomalyDetectorsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAnomalyGroupRelatedMetricsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the anomaly detector.</p>
+   */
+  AnomalyDetectorArn: string | undefined;
+
+  /**
+   * <p>The ID of the anomaly group.</p>
+   */
+  AnomalyGroupId: string | undefined;
+
+  /**
+   * <p>Filter for potential causes (<code>CAUSE_OF_INPUT_ANOMALY_GROUP</code>) or
+   *             downstream effects (<code>EFFECT_OF_INPUT_ANOMALY_GROUP</code>) of the anomaly group.</p>
+   */
+  RelationshipTypeFilter?: RelationshipType | string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Specify the pagination token that's returned by a previous request to retrieve the next
+   *             page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAnomalyGroupRelatedMetricsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAnomalyGroupRelatedMetricsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAnomalyGroupRelatedMetricsResponse {
+  /**
+   * <p>Aggregated details about the measures contributing to the anomaly group, and the measures
+   *             potentially impacted by the anomaly group.</p>
+   */
+  InterMetricImpactList?: InterMetricImpactDetails[];
+
+  /**
+   * <p>The pagination token that's included if more results are available.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAnomalyGroupRelatedMetricsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAnomalyGroupRelatedMetricsResponse): any => ({
     ...obj,
   });
 }

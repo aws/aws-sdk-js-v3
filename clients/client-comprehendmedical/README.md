@@ -7,7 +7,7 @@
 
 AWS SDK for JavaScript ComprehendMedical Client for Node.js, Browser and React Native.
 
-<p> Amazon Comprehend Medical extracts structured information from unstructured clinical text. Use these actions
+<p> Comprehend Medical; extracts structured information from unstructured clinical text. Use these actions
 to gain insight in your documents. </p>
 
 ## Installing

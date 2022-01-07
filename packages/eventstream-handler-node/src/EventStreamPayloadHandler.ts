@@ -32,6 +32,7 @@ export interface EventStreamPayloadHandlerOptions {
 export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
   private readonly eventSigner: Provider<EventSigner>;
   private readonly eventMarshaller: EventMarshaller;
+
   constructor(options: EventStreamPayloadHandlerOptions) {
     this.eventSigner = options.eventSigner;
     this.eventMarshaller = new EventMarshaller(options.utf8Encoder, options.utf8Decoder);
@@ -45,13 +46,16 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
   ): Promise<FinalizeHandlerOutput<T>> {
     const request = args.request as HttpRequest;
     const { body: payload } = request;
+
     if (!(payload instanceof Readable)) {
       throw new Error("Eventstream payload must be a Readable stream.");
     }
+
     const payloadStream = payload as Readable;
     request.body = new PassThrough({
       objectMode: true,
     });
+
     let result: FinalizeHandlerOutput<any>;
     try {
       result = await next(args);
@@ -61,6 +65,7 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
       request.body.end();
       throw e;
     }
+
     // If response is successful, start piping the payload stream
     const match = (request.headers["authorization"] || "").match(/Signature=([\w]+)$/);
     // Sign the eventstream based on the signature from initial request.
@@ -70,11 +75,13 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
       eventMarshaller: this.eventMarshaller,
       eventSigner: await this.eventSigner(),
     });
+
     pipeline(payloadStream, signingStream, request.body, (err) => {
       if (err) {
         throw err;
       }
     });
+
     return result;
   }
 }

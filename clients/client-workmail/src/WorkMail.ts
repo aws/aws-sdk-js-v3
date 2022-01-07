@@ -39,6 +39,11 @@ import {
   DeleteAccessControlRuleCommandOutput,
 } from "./commands/DeleteAccessControlRuleCommand";
 import { DeleteAliasCommand, DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
+import {
+  DeleteEmailMonitoringConfigurationCommand,
+  DeleteEmailMonitoringConfigurationCommandInput,
+  DeleteEmailMonitoringConfigurationCommandOutput,
+} from "./commands/DeleteEmailMonitoringConfigurationCommand";
 import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
   DeleteMailboxPermissionsCommand,
@@ -81,6 +86,11 @@ import {
   DeregisterMailDomainCommandInput,
   DeregisterMailDomainCommandOutput,
 } from "./commands/DeregisterMailDomainCommand";
+import {
+  DescribeEmailMonitoringConfigurationCommand,
+  DescribeEmailMonitoringConfigurationCommandInput,
+  DescribeEmailMonitoringConfigurationCommandOutput,
+} from "./commands/DescribeEmailMonitoringConfigurationCommand";
 import {
   DescribeGroupCommand,
   DescribeGroupCommandInput,
@@ -214,6 +224,11 @@ import {
   PutAccessControlRuleCommandInput,
   PutAccessControlRuleCommandOutput,
 } from "./commands/PutAccessControlRuleCommand";
+import {
+  PutEmailMonitoringConfigurationCommand,
+  PutEmailMonitoringConfigurationCommandInput,
+  PutEmailMonitoringConfigurationCommandOutput,
+} from "./commands/PutEmailMonitoringConfigurationCommand";
 import {
   PutInboundDmarcSettingsCommand,
   PutInboundDmarcSettingsCommandInput,
@@ -667,6 +682,38 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * <p>Deletes the email monitoring configuration for a specified organization.</p>
+   */
+  public deleteEmailMonitoringConfiguration(
+    args: DeleteEmailMonitoringConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEmailMonitoringConfigurationCommandOutput>;
+  public deleteEmailMonitoringConfiguration(
+    args: DeleteEmailMonitoringConfigurationCommandInput,
+    cb: (err: any, data?: DeleteEmailMonitoringConfigurationCommandOutput) => void
+  ): void;
+  public deleteEmailMonitoringConfiguration(
+    args: DeleteEmailMonitoringConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEmailMonitoringConfigurationCommandOutput) => void
+  ): void;
+  public deleteEmailMonitoringConfiguration(
+    args: DeleteEmailMonitoringConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEmailMonitoringConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteEmailMonitoringConfigurationCommandOutput) => void
+  ): Promise<DeleteEmailMonitoringConfigurationCommandOutput> | void {
+    const command = new DeleteEmailMonitoringConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a group from Amazon WorkMail.</p>
    */
   public deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
@@ -978,6 +1025,38 @@ export class WorkMail extends WorkMailClient {
     cb?: (err: any, data?: DeregisterMailDomainCommandOutput) => void
   ): Promise<DeregisterMailDomainCommandOutput> | void {
     const command = new DeregisterMailDomainCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the current email monitoring configuration for a specified organization.</p>
+   */
+  public describeEmailMonitoringConfiguration(
+    args: DescribeEmailMonitoringConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEmailMonitoringConfigurationCommandOutput>;
+  public describeEmailMonitoringConfiguration(
+    args: DescribeEmailMonitoringConfigurationCommandInput,
+    cb: (err: any, data?: DescribeEmailMonitoringConfigurationCommandOutput) => void
+  ): void;
+  public describeEmailMonitoringConfiguration(
+    args: DescribeEmailMonitoringConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEmailMonitoringConfigurationCommandOutput) => void
+  ): void;
+  public describeEmailMonitoringConfiguration(
+    args: DescribeEmailMonitoringConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEmailMonitoringConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEmailMonitoringConfigurationCommandOutput) => void
+  ): Promise<DescribeEmailMonitoringConfigurationCommandOutput> | void {
+    const command = new DescribeEmailMonitoringConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1896,6 +1975,38 @@ export class WorkMail extends WorkMailClient {
     cb?: (err: any, data?: PutAccessControlRuleCommandOutput) => void
   ): Promise<PutAccessControlRuleCommandOutput> | void {
     const command = new PutAccessControlRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates or updates the email monitoring configuration for a specified organization.</p>
+   */
+  public putEmailMonitoringConfiguration(
+    args: PutEmailMonitoringConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutEmailMonitoringConfigurationCommandOutput>;
+  public putEmailMonitoringConfiguration(
+    args: PutEmailMonitoringConfigurationCommandInput,
+    cb: (err: any, data?: PutEmailMonitoringConfigurationCommandOutput) => void
+  ): void;
+  public putEmailMonitoringConfiguration(
+    args: PutEmailMonitoringConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutEmailMonitoringConfigurationCommandOutput) => void
+  ): void;
+  public putEmailMonitoringConfiguration(
+    args: PutEmailMonitoringConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEmailMonitoringConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutEmailMonitoringConfigurationCommandOutput) => void
+  ): Promise<PutEmailMonitoringConfigurationCommandOutput> | void {
+    const command = new PutEmailMonitoringConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

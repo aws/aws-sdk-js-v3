@@ -23,7 +23,7 @@ export interface CreateReplicationJobCommandOutput extends CreateReplicationJobR
 
 /**
  * <p>Creates a replication job. The replication job schedules periodic replication runs
- *             to replicate your server to AWS. Each replication run creates an Amazon Machine Image
+ *             to replicate your server to Amazon Web Services. Each replication run creates an Amazon Machine Image
  *             (AMI).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
