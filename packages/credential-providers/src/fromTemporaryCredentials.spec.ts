@@ -1,14 +1,13 @@
 const sendMock = jest.fn();
 jest.mock("@aws-sdk/client-sts", () => ({
-  STSClient: jest.fn().mockImplementation(function (config) {
-    this.config = config;
-    this.send = jest.fn().mockImplementation(async function (command) {
+  STSClient: jest.fn().mockImplementation((config) => ({
+    config,
+    send: jest.fn().mockImplementation(async function (command) {
       // Mock resolving client credentials provider at send()
-      if (typeof this.config.credentials === "function") this.config.credentials = await this.config.credentials();
+      if (typeof config.credentials === "function") config.credentials = await config.credentials();
       return await sendMock(command);
-    });
-    return this;
-  }),
+    }),
+  })),
   AssumeRoleCommand: jest.fn().mockImplementation(function (params) {
     // Return the input so we can assert the input parameters in client's send()
     return {
