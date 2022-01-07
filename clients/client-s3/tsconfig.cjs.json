@@ -2,7 +2,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": "src",
-    "outDir": "dist-cjs"
+    "outDir": "dist-cjs",
+    "types": ["mocha", "node"]
   },
   "exclude": ["test/**/*"],
   "extends": "../../tsconfig.cjs.json",
