@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.46.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.45.0...v3.46.0) (2022-01-07)
+
+
+### Bug Fixes
+
+* **md5-js:** remove unnecessary exclude from tsconfig ([#3158](https://github.com/aws/aws-sdk-js-v3/issues/3158)) ([6f50571](https://github.com/aws/aws-sdk-js-v3/commit/6f505712dbda1747e0622a9a20cd66b66b8e821c))
+
+
+
+
+
 # [3.40.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.39.0...v3.40.0) (2021-11-05)
 
 **Note:** Version bump only for package @aws-sdk/md5-js

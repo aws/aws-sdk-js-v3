@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/shared-ini-file-loader",
-  "version": "3.37.0",
+  "version": "3.46.0",
   "dependencies": {
     "tslib": "^2.3.0"
   },

@@ -1,11 +1,10 @@
 {
   "name": "@aws-sdk/types",
-  "version": "3.40.0",
+  "version": "3.46.0",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "description": "Types for the AWS SDK",
-  "devDependencies": {},
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",

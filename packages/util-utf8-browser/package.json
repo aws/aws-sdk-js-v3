@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-utf8-browser",
-  "version": "3.37.0",
+  "version": "3.46.0",
   "description": "A browser UTF-8 string <-> UInt8Array converter",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -20,7 +20,6 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "devDependencies": {},
   "types": "./dist-types/index.d.ts",
   "typesVersions": {
     "<4.0": {

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/is-array-buffer",
-  "version": "3.37.0",
+  "version": "3.46.0",
   "description": "Provides a function for detecting if an argument is an ArrayBuffer",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
@@ -17,7 +17,6 @@
   "license": "Apache-2.0",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
-  "devDependencies": {},
   "types": "./dist-types/index.d.ts",
   "dependencies": {
     "tslib": "^2.3.0"

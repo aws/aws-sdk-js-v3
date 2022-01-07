@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-retry",
-  "version": "3.40.0",
+  "version": "3.46.0",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -18,14 +18,14 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/protocol-http": "3.40.0",
-    "@aws-sdk/service-error-classification": "3.40.0",
-    "@aws-sdk/types": "3.40.0",
+    "@aws-sdk/protocol-http": "3.46.0",
+    "@aws-sdk/service-error-classification": "3.46.0",
+    "@aws-sdk/types": "3.46.0",
     "tslib": "^2.3.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@aws-sdk/node-config-provider": "3.40.0"
+    "@aws-sdk/node-config-provider": "3.46.0"
   },
   "engines": {
     "node": ">= 12.0.0"

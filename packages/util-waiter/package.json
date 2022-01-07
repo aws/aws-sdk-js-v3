@@ -1,13 +1,12 @@
 {
   "name": "@aws-sdk/util-waiter",
-  "version": "3.40.0",
+  "version": "3.46.0",
   "description": "Shared utilities for client waiters for the AWS SDK",
   "dependencies": {
-    "@aws-sdk/abort-controller": "3.40.0",
-    "@aws-sdk/types": "3.40.0",
+    "@aws-sdk/abort-controller": "3.46.0",
+    "@aws-sdk/types": "3.46.0",
     "tslib": "^2.3.0"
   },
-  "devDependencies": {},
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
