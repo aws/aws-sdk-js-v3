@@ -567,6 +567,16 @@ export interface AdvancedSecurityOptions {
    * <p>Describes the SAML application configured for a domain.</p>
    */
   SAMLOptions?: SAMLOptionsOutput;
+
+  /**
+   * <p>Specifies the Anonymous Auth Disable Date when Anonymous Auth is enabled.</p>
+   */
+  AnonymousAuthDisableDate?: Date;
+
+  /**
+   * <p>True if Anonymous auth is enabled. Anonymous auth can be enabled only when AdvancedSecurity is enabled on existing domains.</p>
+   */
+  AnonymousAuthEnabled?: boolean;
 }
 
 export namespace AdvancedSecurityOptions {
@@ -682,6 +692,11 @@ export interface AdvancedSecurityOptionsInput {
    * <p>Specifies the SAML application configuration for the domain.</p>
    */
   SAMLOptions?: SAMLOptionsInput;
+
+  /**
+   * <p>True if Anonymous auth is enabled. Anonymous auth can be enabled only when AdvancedSecurity is enabled on existing domains.</p>
+   */
+  AnonymousAuthEnabled?: boolean;
 }
 
 export namespace AdvancedSecurityOptionsInput {

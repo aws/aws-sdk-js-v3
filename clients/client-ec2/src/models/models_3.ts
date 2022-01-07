@@ -72,14 +72,55 @@ import {
   TrafficType,
 } from "./models_1";
 import {
-  ConversionTaskState,
+  DiskImageDescription,
+  DiskImageVolumeDescription,
   Filter,
   FleetStateCode,
   IdFormat,
   ImportInstanceTaskDetails,
-  ImportVolumeTaskDetails,
   InstanceTagNotificationAttribute,
 } from "./models_2";
+
+/**
+ * <p>Describes an import volume task.</p>
+ */
+export interface ImportVolumeTaskDetails {
+  /**
+   * <p>The Availability Zone where the resulting volume will reside.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The number of bytes converted so far.</p>
+   */
+  BytesConverted?: number;
+
+  /**
+   * <p>The description you provided when starting the import volume task.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The image.</p>
+   */
+  Image?: DiskImageDescription;
+
+  /**
+   * <p>The volume.</p>
+   */
+  Volume?: DiskImageVolumeDescription;
+}
+
+export namespace ImportVolumeTaskDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportVolumeTaskDetails): any => ({
+    ...obj,
+  });
+}
+
+export type ConversionTaskState = "active" | "cancelled" | "cancelling" | "completed";
 
 /**
  * <p>Describes a conversion task.</p>
@@ -1567,7 +1608,8 @@ export interface FleetSpotCapacityRebalance {
   /**
    * <p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
    *          Instance after launching a new replacement Spot Instance.</p>
-   *          <p>Valid only when <code>replacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>
+   *          <p>Required when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>
+   *          <p>Not valid when <code>ReplacementStrategy</code> is set to <code>launch</code>.</p>
    *          <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>
    */
   TerminationDelay?: number;
@@ -5647,6 +5689,11 @@ export enum HttpTokensState {
   required = "required",
 }
 
+export enum InstanceMetadataTagsState {
+  disabled = "disabled",
+  enabled = "enabled",
+}
+
 export type InstanceMetadataOptionsState = "applied" | "pending";
 
 /**
@@ -5665,8 +5712,7 @@ export interface InstanceMetadataOptionsResponse {
   State?: InstanceMetadataOptionsState | string;
 
   /**
-   * <p>The state of token usage for your instance metadata requests. If the parameter is not
-   *             specified in the request, the default state is <code>optional</code>.</p>
+   * <p>The state of token usage for your instance metadata requests.</p>
    *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
    *             with or without a signed token header on your request. If you retrieve the IAM role
    *             credentials without a token, the version 1.0 role credentials are returned. If you
@@ -5676,6 +5722,8 @@ export interface InstanceMetadataOptionsResponse {
    *             instance metadata retrieval requests. In this state, retrieving the IAM role credential
    *             always returns the version 2.0 credentials; the version 1.0 credentials are not
    *             available.</p>
+   *         <p>Default: <code>optional</code>
+   *          </p>
    */
   HttpTokens?: HttpTokensState | string;
 
@@ -5688,7 +5736,10 @@ export interface InstanceMetadataOptionsResponse {
   HttpPutResponseHopLimit?: number;
 
   /**
-   * <p>Indicates whether the HTTP metadata endpoint on your instances is enabled or disabled.</p>
+   * <p>Indicates whether the HTTP metadata endpoint on your instances is enabled or
+   *             disabled.</p>
+   *             <p>If the value is <code>disabled</code>, you cannot access your
+   *                 instance metadata.</p>
    */
   HttpEndpoint?: InstanceMetadataEndpointState | string;
 
@@ -5696,6 +5747,13 @@ export interface InstanceMetadataOptionsResponse {
    * <p>Indicates whether the IPv6 endpoint for the instance metadata service is enabled or disabled.</p>
    */
   HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
+
+  /**
+   * <p>Indicates whether access to instance tags from the instance metadata is enabled or
+   *             disabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
+   *                 instance tags using the instance metadata</a>.</p>
+   */
+  InstanceMetadataTags?: InstanceMetadataTagsState | string;
 }
 
 export namespace InstanceMetadataOptionsResponse {
@@ -8582,6 +8640,27 @@ export interface DescribeLaunchTemplateVersionsRequest {
    *             </li>
    *             <li>
    *                 <p>
+   *                   <code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on
+   *                     your instances is enabled (<code>enabled</code> | <code>disabled</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the
+   *                     instance metadata service is enabled (<code>enabled</code> |
+   *                         <code>disabled</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>host-resource-group-arn</code> - The ARN of the host resource group in
+   *                     which to launch the instances.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>http-tokens</code> - The state of token usage for your instance metadata
+   *                     requests (<code>optional</code> | <code>required</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
    *                   <code>iam-instance-profile</code> - The ARN of the IAM instance
    *                     profile.</p>
    *             </li>
@@ -8601,6 +8680,15 @@ export interface DescribeLaunchTemplateVersionsRequest {
    *             <li>
    *                 <p>
    *                   <code>kernel-id</code> - The kernel ID.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>license-configuration-arn</code> - The ARN of the license
+   *                     configuration.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>network-card-index</code> - The index of the network card.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -10893,6 +10981,10 @@ export interface DescribePlacementGroupsRequest {
    *             </li>
    *             <li>
    *                 <p>
+   *                     <code>group-arn</code> - The Amazon Resource Name (ARN) of the placement group.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
    *                     <code>state</code> - The state of the placement group (<code>pending</code> |
    *                         <code>available</code> | <code>deleting</code> |
    *                     <code>deleted</code>).</p>
@@ -11938,110 +12030,6 @@ export namespace ReservedInstancesConfiguration {
    * @internal
    */
   export const filterSensitiveLog = (obj: ReservedInstancesConfiguration): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the modification request/s.</p>
- */
-export interface ReservedInstancesModificationResult {
-  /**
-   * <p>The ID for the Reserved Instances that were created as part of the modification request. This field is only available when the modification is fulfilled.</p>
-   */
-  ReservedInstancesId?: string;
-
-  /**
-   * <p>The target Reserved Instances configurations supplied as part of the modification request.</p>
-   */
-  TargetConfiguration?: ReservedInstancesConfiguration;
-}
-
-export namespace ReservedInstancesModificationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedInstancesModificationResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the ID of a Reserved Instance.</p>
- */
-export interface ReservedInstancesId {
-  /**
-   * <p>The ID of the Reserved Instance.</p>
-   */
-  ReservedInstancesId?: string;
-}
-
-export namespace ReservedInstancesId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedInstancesId): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a Reserved Instance modification.</p>
- */
-export interface ReservedInstancesModification {
-  /**
-   * <p>A unique, case-sensitive key supplied by the client to ensure that the request is idempotent.
-   * 			For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   * 				Idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The time when the modification request was created.</p>
-   */
-  CreateDate?: Date;
-
-  /**
-   * <p>The time for the modification to become effective.</p>
-   */
-  EffectiveDate?: Date;
-
-  /**
-   * <p>Contains target configurations along with their corresponding new Reserved Instance IDs.</p>
-   */
-  ModificationResults?: ReservedInstancesModificationResult[];
-
-  /**
-   * <p>The IDs of one or more Reserved Instances.</p>
-   */
-  ReservedInstancesIds?: ReservedInstancesId[];
-
-  /**
-   * <p>A unique ID for the Reserved Instance modification.</p>
-   */
-  ReservedInstancesModificationId?: string;
-
-  /**
-   * <p>The status of the Reserved Instances modification request.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>The reason for the status.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The time when the modification request was last updated.</p>
-   */
-  UpdateDate?: Date;
-}
-
-export namespace ReservedInstancesModification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedInstancesModification): any => ({
     ...obj,
   });
 }

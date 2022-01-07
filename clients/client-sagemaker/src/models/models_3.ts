@@ -36,6 +36,7 @@ import {
   DebugRuleEvaluationStatus,
   DriftCheckBaselines,
   ExperimentConfig,
+  HyperParameterTrainingJobSummary,
   MemberDefinition,
   ModelArtifacts,
   ModelClientConfig,
@@ -47,6 +48,8 @@ import {
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
   OidcConfig,
+  ParallelismConfiguration,
+  PipelineDefinitionS3Location,
   ProcessingInput,
   ProcessingOutputConfig,
   ProcessingResources,
@@ -88,9 +91,9 @@ import {
   SecondaryStatus,
   SecondaryStatusTransition,
   ServiceCatalogProvisionedProductDetails,
+  SortBy,
   SortOrder,
   TransformJobStatus,
-  TransformJobSummary,
   TrialComponentMetricSummary,
   TrialComponentSource,
   TrialSource,
@@ -98,6 +101,156 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface ListTrainingJobsForHyperParameterTuningJobResponse {
+  /**
+   * <p>A list of <a>TrainingJobSummary</a> objects that
+   *             describe
+   *             the training jobs that the
+   *                 <code>ListTrainingJobsForHyperParameterTuningJob</code> request returned.</p>
+   */
+  TrainingJobSummaries: HyperParameterTrainingJobSummary[] | undefined;
+
+  /**
+   * <p>If the result of this <code>ListTrainingJobsForHyperParameterTuningJob</code> request
+   *             was truncated, the response includes a <code>NextToken</code>. To retrieve the next set
+   *             of training jobs, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListTrainingJobsForHyperParameterTuningJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTrainingJobsForHyperParameterTuningJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTransformJobsRequest {
+  /**
+   * <p>A filter that returns only transform jobs created after the specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only transform jobs created before the specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only transform jobs modified after the specified time.</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only transform jobs modified before the specified time.</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A string in the transform job name. This filter returns only transform jobs whose name
+   *             contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that retrieves only transform jobs with a specific status.</p>
+   */
+  StatusEquals?: TransformJobStatus | string;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortBy | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the result of the previous <code>ListTransformJobs</code> request was truncated,
+   *             the response includes a <code>NextToken</code>. To retrieve the next set of transform
+   *             jobs, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of transform jobs to return in the response. The default value is <code>10</code>.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListTransformJobsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTransformJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides a
+ *             summary
+ *             of a transform job. Multiple <code>TransformJobSummary</code> objects are returned as a
+ *             list after in response to a <a>ListTransformJobs</a> call.</p>
+ */
+export interface TransformJobSummary {
+  /**
+   * <p>The name of the transform job.</p>
+   */
+  TransformJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the transform job.</p>
+   */
+  TransformJobArn: string | undefined;
+
+  /**
+   * <p>A timestamp that shows when the transform Job was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Indicates when the transform
+   *             job
+   *             ends on compute instances. For successful jobs and stopped jobs, this
+   *             is the exact time
+   *             recorded
+   *             after the results are uploaded. For failed jobs, this is when Amazon SageMaker
+   *             detected that the job failed.</p>
+   */
+  TransformEndTime?: Date;
+
+  /**
+   * <p>Indicates when the transform job was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The status of the transform job.</p>
+   */
+  TransformJobStatus: TransformJobStatus | string | undefined;
+
+  /**
+   * <p>If the transform job failed,
+   *             the
+   *             reason it failed.</p>
+   */
+  FailureReason?: string;
+}
+
+export namespace TransformJobSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransformJobSummary): any => ({
+    ...obj,
+  });
+}
 
 export interface ListTransformJobsResponse {
   /**
@@ -1058,6 +1211,11 @@ export interface Pipeline {
   LastModifiedBy?: UserContext;
 
   /**
+   * <p>The parallelism configuration applied to the pipeline.</p>
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
+
+  /**
    * <p>A list of tags that apply to the pipeline.</p>
    */
   Tags?: Tag[];
@@ -1132,6 +1290,11 @@ export interface PipelineExecution {
    *       component, lineage group, or project.</p>
    */
   LastModifiedBy?: UserContext;
+
+  /**
+   * <p>The parallelism configuration applied to the pipeline execution.</p>
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
 
   /**
    * <p>Contains a list of pipeline parameters. This list can be empty. </p>
@@ -1777,6 +1940,12 @@ export interface RetryPipelineExecutionRequest {
    *          operation. An idempotent operation completes no more than once.</p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>This configuration, if specified, overrides the parallelism configuration
+   *             of the parent pipeline.</p>
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
 }
 
 export namespace RetryPipelineExecutionRequest {
@@ -2896,6 +3065,12 @@ export interface StartPipelineExecutionRequest {
    *          operation. An idempotent operation completes no more than once.</p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>This configuration, if specified, overrides the parallelism configuration
+   *             of the parent pipeline for this specific run.</p>
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
 }
 
 export namespace StartPipelineExecutionRequest {
@@ -3123,7 +3298,7 @@ export namespace StopTrainingJobRequest {
 
 export interface StopTransformJobRequest {
   /**
-   * <p>The name of the transform job to stop.</p>
+   * <p>The name of the batch transform job to stop.</p>
    */
   TransformJobName: string | undefined;
 }
@@ -3999,6 +4174,12 @@ export interface UpdatePipelineRequest {
   PipelineDefinition?: string;
 
   /**
+   * <p>The location of the pipeline definition stored in Amazon S3. If specified,
+   *             SageMaker will retrieve the pipeline definition from this location.</p>
+   */
+  PipelineDefinitionS3Location?: PipelineDefinitionS3Location;
+
+  /**
    * <p>The description of the pipeline.</p>
    */
   PipelineDescription?: string;
@@ -4007,6 +4188,11 @@ export interface UpdatePipelineRequest {
    * <p>The Amazon Resource Name (ARN) that the pipeline uses to execute.</p>
    */
   RoleArn?: string;
+
+  /**
+   * <p>If specified, it applies to all executions of this pipeline by default.</p>
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
 }
 
 export namespace UpdatePipelineRequest {
@@ -4049,6 +4235,12 @@ export interface UpdatePipelineExecutionRequest {
    * <p>The display name of the pipeline execution.</p>
    */
   PipelineExecutionDisplayName?: string;
+
+  /**
+   * <p>This configuration, if specified, overrides the parallelism configuration
+   *             of the parent pipeline for this specific run.</p>
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
 }
 
 export namespace UpdatePipelineExecutionRequest {

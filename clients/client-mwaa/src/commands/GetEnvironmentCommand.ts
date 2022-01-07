@@ -22,7 +22,7 @@ export interface GetEnvironmentCommandInput extends GetEnvironmentInput {}
 export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the details of an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
+ * <p>Describes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

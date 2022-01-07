@@ -1340,7 +1340,7 @@ export class RDS extends RDSClient {
    *             RU/RUR.</p>
    *         <p>Amazon RDS, which is a fully managed service, supplies the Amazon Machine Image (AMI) and database software.
    *             The Amazon RDS database software is preinstalled, so you need only select a DB engine and version, and create
-   *             your database. With Amazon RDS Custom, you upload your database installation files in Amazon S3.</p>
+   *             your database. With Amazon RDS Custom for Oracle, you upload your database installation files in Amazon S3.</p>
    *         <p>When you create a custom engine version, you specify the files in a JSON document called a CEV manifest.
    *             This document describes installation .zip files stored in Amazon S3. RDS Custom creates your CEV from
    *             the installation files that you provided. This service model is called Bring Your Own Media (BYOM).</p>

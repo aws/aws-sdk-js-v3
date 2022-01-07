@@ -353,6 +353,7 @@ export const serializeAws_restJson1CreateFunctionCommand = async (
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.functionVersion !== undefined &&
       input.functionVersion !== null && { functionVersion: input.functionVersion }),
+    ...(input.maxBatchSize !== undefined && input.maxBatchSize !== null && { maxBatchSize: input.maxBatchSize }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.requestMappingTemplate !== undefined &&
       input.requestMappingTemplate !== null && { requestMappingTemplate: input.requestMappingTemplate }),
@@ -460,6 +461,7 @@ export const serializeAws_restJson1CreateResolverCommand = async (
       input.dataSourceName !== null && { dataSourceName: input.dataSourceName }),
     ...(input.fieldName !== undefined && input.fieldName !== null && { fieldName: input.fieldName }),
     ...(input.kind !== undefined && input.kind !== null && { kind: input.kind }),
+    ...(input.maxBatchSize !== undefined && input.maxBatchSize !== null && { maxBatchSize: input.maxBatchSize }),
     ...(input.pipelineConfig !== undefined &&
       input.pipelineConfig !== null && {
         pipelineConfig: serializeAws_restJson1PipelineConfig(input.pipelineConfig, context),
@@ -1828,6 +1830,7 @@ export const serializeAws_restJson1UpdateFunctionCommand = async (
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.functionVersion !== undefined &&
       input.functionVersion !== null && { functionVersion: input.functionVersion }),
+    ...(input.maxBatchSize !== undefined && input.maxBatchSize !== null && { maxBatchSize: input.maxBatchSize }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.requestMappingTemplate !== undefined &&
       input.requestMappingTemplate !== null && { requestMappingTemplate: input.requestMappingTemplate }),
@@ -1951,6 +1954,7 @@ export const serializeAws_restJson1UpdateResolverCommand = async (
     ...(input.dataSourceName !== undefined &&
       input.dataSourceName !== null && { dataSourceName: input.dataSourceName }),
     ...(input.kind !== undefined && input.kind !== null && { kind: input.kind }),
+    ...(input.maxBatchSize !== undefined && input.maxBatchSize !== null && { maxBatchSize: input.maxBatchSize }),
     ...(input.pipelineConfig !== undefined &&
       input.pipelineConfig !== null && {
         pipelineConfig: serializeAws_restJson1PipelineConfig(input.pipelineConfig, context),
@@ -6809,6 +6813,7 @@ const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __S
     functionArn: __expectString(output.functionArn),
     functionId: __expectString(output.functionId),
     functionVersion: __expectString(output.functionVersion),
+    maxBatchSize: __expectInt32(output.maxBatchSize),
     name: __expectString(output.name),
     requestMappingTemplate: __expectString(output.requestMappingTemplate),
     responseMappingTemplate: __expectString(output.responseMappingTemplate),
@@ -7013,6 +7018,7 @@ const deserializeAws_restJson1Resolver = (output: any, context: __SerdeContext):
     dataSourceName: __expectString(output.dataSourceName),
     fieldName: __expectString(output.fieldName),
     kind: __expectString(output.kind),
+    maxBatchSize: __expectInt32(output.maxBatchSize),
     pipelineConfig:
       output.pipelineConfig !== undefined && output.pipelineConfig !== null
         ? deserializeAws_restJson1PipelineConfig(output.pipelineConfig, context)

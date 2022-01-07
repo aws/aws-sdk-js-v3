@@ -55,13 +55,29 @@ import { CreateMembersCommandInput, CreateMembersCommandOutput } from "./command
 import { DeleteGraphCommandInput, DeleteGraphCommandOutput } from "./commands/DeleteGraphCommand";
 import { DeleteMembersCommandInput, DeleteMembersCommandOutput } from "./commands/DeleteMembersCommand";
 import {
+  DescribeOrganizationConfigurationCommandInput,
+  DescribeOrganizationConfigurationCommandOutput,
+} from "./commands/DescribeOrganizationConfigurationCommand";
+import {
+  DisableOrganizationAdminAccountCommandInput,
+  DisableOrganizationAdminAccountCommandOutput,
+} from "./commands/DisableOrganizationAdminAccountCommand";
+import {
   DisassociateMembershipCommandInput,
   DisassociateMembershipCommandOutput,
 } from "./commands/DisassociateMembershipCommand";
+import {
+  EnableOrganizationAdminAccountCommandInput,
+  EnableOrganizationAdminAccountCommandOutput,
+} from "./commands/EnableOrganizationAdminAccountCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
 import { ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
 import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
+import {
+  ListOrganizationAdminAccountsCommandInput,
+  ListOrganizationAdminAccountsCommandOutput,
+} from "./commands/ListOrganizationAdminAccountsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -73,6 +89,10 @@ import {
 } from "./commands/StartMonitoringMemberCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateOrganizationConfigurationCommandInput,
+  UpdateOrganizationConfigurationCommandOutput,
+} from "./commands/UpdateOrganizationConfigurationCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -81,16 +101,21 @@ export type ServiceInputTypes =
   | CreateMembersCommandInput
   | DeleteGraphCommandInput
   | DeleteMembersCommandInput
+  | DescribeOrganizationConfigurationCommandInput
+  | DisableOrganizationAdminAccountCommandInput
   | DisassociateMembershipCommandInput
+  | EnableOrganizationAdminAccountCommandInput
   | GetMembersCommandInput
   | ListGraphsCommandInput
   | ListInvitationsCommandInput
   | ListMembersCommandInput
+  | ListOrganizationAdminAccountsCommandInput
   | ListTagsForResourceCommandInput
   | RejectInvitationCommandInput
   | StartMonitoringMemberCommandInput
   | TagResourceCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | UpdateOrganizationConfigurationCommandInput;
 
 export type ServiceOutputTypes =
   | AcceptInvitationCommandOutput
@@ -98,16 +123,21 @@ export type ServiceOutputTypes =
   | CreateMembersCommandOutput
   | DeleteGraphCommandOutput
   | DeleteMembersCommandOutput
+  | DescribeOrganizationConfigurationCommandOutput
+  | DisableOrganizationAdminAccountCommandOutput
   | DisassociateMembershipCommandOutput
+  | EnableOrganizationAdminAccountCommandOutput
   | GetMembersCommandOutput
   | ListGraphsCommandOutput
   | ListInvitationsCommandOutput
   | ListMembersCommandOutput
+  | ListOrganizationAdminAccountsCommandOutput
   | ListTagsForResourceCommandOutput
   | RejectInvitationCommandOutput
   | StartMonitoringMemberCommandOutput
   | TagResourceCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | UpdateOrganizationConfigurationCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -258,20 +288,32 @@ type DetectiveClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
 export interface DetectiveClientResolvedConfig extends DetectiveClientResolvedConfigType {}
 
 /**
- * <p>Detective uses machine learning and purpose-built visualizations to help you analyze and
- *          investigate security issues across your Amazon Web Services (AWS) workloads. Detective automatically
- *          extracts time-based events such as login attempts, API calls, and network traffic from
- *          AWS CloudTrail and Amazon Virtual Private Cloud (Amazon VPC) flow logs. It also extracts findings detected by
- *          Amazon GuardDuty.</p>
- *          <p>The Detective API primarily supports the creation and management of behavior graphs. A
- *          behavior graph contains the extracted data from a set of member accounts, and is created
- *          and managed by an administrator account.</p>
- *          <p>Every behavior graph is specific to a Region. You can only use the API to manage graphs
- *          that belong to the Region that is associated with the currently selected endpoint.</p>
- *          <p>A Detective administrator account can use the Detective API to do the following:</p>
+ * <p>Detective uses machine learning and purpose-built visualizations to help you to
+ *          analyze and investigate security issues across your Amazon Web Services (Amazon Web Services) workloads. Detective automatically extracts time-based events such
+ *          as login attempts, API calls, and network traffic from CloudTrail and Amazon Virtual Private Cloud (Amazon VPC) flow logs. It also extracts findings detected by
+ *             Amazon GuardDuty.</p>
+ *          <p>The Detective API primarily supports the creation and management of behavior
+ *          graphs. A behavior graph contains the extracted data from a set of member accounts, and is
+ *          created and managed by an administrator account.</p>
+ *          <p>To add a member account to the behavior graph, the administrator account sends an
+ *          invitation to the account. When the account accepts the invitation, it becomes a member
+ *          account in the behavior graph.</p>
+ *          <p>Detective is also integrated with Organizations. The organization
+ *          management account designates the Detective administrator account for the
+ *          organization. That account becomes the administrator account for the organization behavior
+ *          graph. The Detective administrator account can enable any organization account as
+ *          a member account in the organization behavior graph. The organization accounts do not
+ *          receive invitations. The Detective administrator account can also invite other
+ *          accounts to the organization behavior graph.</p>
+ *          <p>Every behavior graph is specific to a Region. You can only use the API to manage
+ *          behavior graphs that belong to the Region that is associated with the currently selected
+ *          endpoint.</p>
+ *          <p>The administrator account for a behavior graph can use the Detective API to do
+ *          the following:</p>
  *          <ul>
  *             <li>
- *                <p>Enable and disable Detective. Enabling Detective creates a new behavior graph.</p>
+ *                <p>Enable and disable Detective. Enabling Detective creates a new
+ *                behavior graph.</p>
  *             </li>
  *             <li>
  *                <p>View the list of member accounts in a behavior graph.</p>
@@ -282,8 +324,23 @@ export interface DetectiveClientResolvedConfig extends DetectiveClientResolvedCo
  *             <li>
  *                <p>Remove member accounts from a behavior graph.</p>
  *             </li>
+ *             <li>
+ *                <p>Apply tags to a behavior graph.</p>
+ *             </li>
  *          </ul>
- *          <p>A member account can use the Detective API to do the following:</p>
+ *          <p>The organization management account can use the Detective API to select the
+ *          delegated administrator for Detective.</p>
+ *          <p>The Detective administrator account for an organization can use the Detective API to do the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Perform all of the functions of an administrator account.</p>
+ *             </li>
+ *             <li>
+ *                <p>Determine whether to automatically enable new organization accounts as member
+ *                accounts in the organization behavior graph.</p>
+ *             </li>
+ *          </ul>
+ *          <p>An invited member account can use the Detective API to do the following:</p>
  *          <ul>
  *             <li>
  *                <p>View the list of behavior graphs that they are invited to.</p>
@@ -302,7 +359,8 @@ export interface DetectiveClientResolvedConfig extends DetectiveClientResolvedCo
  *          <note>
  *             <p>We replaced the term "master account" with the term "administrator account." An
  *             administrator account is used to centrally manage multiple accounts. In the case of
- *             Detective, the administrator account manages the accounts in their behavior graph.</p>
+ *                Detective, the administrator account manages the accounts in their behavior
+ *             graph.</p>
  *          </note>
  */
 export class DetectiveClient extends __Client<

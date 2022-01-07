@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteScheduledAuditRequest, DeleteScheduledAuditResponse } from "../models/models_0";
+import { DeleteScheduledAuditRequest, DeleteScheduledAuditResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteScheduledAuditCommand,
   serializeAws_restJson1DeleteScheduledAuditCommand,

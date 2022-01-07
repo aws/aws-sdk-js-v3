@@ -693,7 +693,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Creates a dataset.</p>
+   * <p>Creates a dataset. This operation doesn't support datasets that include uploaded files as a source.</p>
    */
   public createDataSet(
     args: CreateDataSetCommandInput,
@@ -915,7 +915,10 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Creates and starts a new SPICE ingestion on a dataset</p>
+   * <p>Creates and starts a new SPICE ingestion for a dataset. You can manually refresh datasets in
+   * 			an Enterprise edition account 32 times in a 24-hour period. You can manually refresh
+   * 			datasets in a Standard edition account 8 times in a 24-hour period. Each 24-hour period
+   * 			is measured starting 24 hours before the current date and time.</p>
    *
    * 		       <p>Any ingestions operating on tagged datasets inherit the same tags automatically for use in
    * 			access control. For an example, see <a href="http://aws.amazon.com/premiumsupport/knowledge-center/iam-ec2-resource-tags/">How do I create an IAM policy to control access to Amazon EC2 resources using
@@ -1914,7 +1917,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Describes a dataset. </p>
+   * <p>Describes a dataset. This operation doesn't support datasets that include uploaded files as a source.</p>
    */
   public describeDataSet(
     args: DescribeDataSetCommandInput,
@@ -3889,7 +3892,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Updates a dataset.</p>
+   * <p>Updates a dataset. This operation doesn't support datasets that include uploaded files as a source.</p>
    */
   public updateDataSet(
     args: UpdateDataSetCommandInput,

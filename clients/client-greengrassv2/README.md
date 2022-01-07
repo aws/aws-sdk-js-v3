@@ -34,16 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `GreengrassV2Client` and
-the commands you need, for example `BatchAssociateClientDeviceWithCoreDeviceCommand`:
+the commands you need, for example `AssociateServiceRoleToAccountCommand`:
 
 ```js
 // ES5 example
-const { GreengrassV2Client, BatchAssociateClientDeviceWithCoreDeviceCommand } = require("@aws-sdk/client-greengrassv2");
+const { GreengrassV2Client, AssociateServiceRoleToAccountCommand } = require("@aws-sdk/client-greengrassv2");
 ```
 
 ```ts
 // ES6+ example
-import { GreengrassV2Client, BatchAssociateClientDeviceWithCoreDeviceCommand } from "@aws-sdk/client-greengrassv2";
+import { GreengrassV2Client, AssociateServiceRoleToAccountCommand } from "@aws-sdk/client-greengrassv2";
 ```
 
 ### Usage
@@ -62,7 +62,7 @@ const client = new GreengrassV2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchAssociateClientDeviceWithCoreDeviceCommand(params);
+const command = new AssociateServiceRoleToAccountCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +141,7 @@ const client = new AWS.GreengrassV2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchAssociateClientDeviceWithCoreDevice(params);
+  const data = await client.associateServiceRoleToAccount(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +149,7 @@ try {
 
 // Promises.
 client
-  .batchAssociateClientDeviceWithCoreDevice(params)
+  .associateServiceRoleToAccount(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +158,7 @@ client
   });
 
 // callbacks.
-client.batchAssociateClientDeviceWithCoreDevice(params, (err, data) => {
+client.associateServiceRoleToAccount(params, (err, data) => {
   // proccess err and data.
 });
 ```

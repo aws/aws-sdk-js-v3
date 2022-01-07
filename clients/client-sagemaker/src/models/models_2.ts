@@ -33,6 +33,7 @@ import {
   CompilationJobStatus,
   CompilationJobSummary,
   ConditionStepMetadata,
+  ContainerDefinition,
   ContextSummary,
   EdgeOutputConfig,
   FeatureDefinition,
@@ -78,10 +79,10 @@ import {
   ExperimentSource,
   FeatureGroupStatus,
   FlowDefinitionStatus,
-  HyperParameterTrainingJobSummary,
   HyperParameterTuningJobStatus,
   ImageStatus,
   ImageVersionStatus,
+  InferenceExecutionConfig,
   LabelCounters,
   LabelingJobInputConfig,
   LabelingJobOutput,
@@ -109,6 +110,7 @@ import {
   ObjectiveStatusCounters,
   OfflineStoreStatus,
   OfflineStoreStatusValue,
+  ParallelismConfiguration,
   ProcessingInput,
   ProcessingOutputConfig,
   ProcessingResources,
@@ -131,6 +133,86 @@ import {
   TrialComponentParameterValue,
   TrialComponentStatus,
 } from "./models_1";
+
+export interface DescribeModelOutput {
+  /**
+   * <p>Name of the Amazon SageMaker model.</p>
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>The location of the primary inference code, associated artifacts, and custom
+   *             environment map that the inference code uses when it is deployed in production.
+   *         </p>
+   */
+  PrimaryContainer?: ContainerDefinition;
+
+  /**
+   * <p>The containers in the inference pipeline.</p>
+   */
+  Containers?: ContainerDefinition[];
+
+  /**
+   * <p>Specifies details of how containers in a multi-container endpoint are called.</p>
+   */
+  InferenceExecutionConfig?: InferenceExecutionConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the
+   *             model.</p>
+   */
+  ExecutionRoleArn: string | undefined;
+
+  /**
+   * <p>A <a>VpcConfig</a> object that specifies the VPC that this model has access
+   *             to. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual
+   *                 Private Cloud</a>
+   *          </p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * <p>A timestamp that shows when the model was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model.</p>
+   */
+  ModelArn: string | undefined;
+
+  /**
+   * <p>If <code>True</code>, no inbound or outbound network calls can be made to or from the
+   *             model container.</p>
+   */
+  EnableNetworkIsolation?: boolean;
+}
+
+export namespace DescribeModelOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeModelOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeModelBiasJobDefinitionRequest {
+  /**
+   * <p>The name of the model bias job definition. The name must be unique within an Amazon Web Services Region
+   *          in the Amazon Web Services account.</p>
+   */
+  JobDefinitionName: string | undefined;
+}
+
+export namespace DescribeModelBiasJobDefinitionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeModelBiasJobDefinitionRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeModelBiasJobDefinitionResponse {
   /**
@@ -1161,6 +1243,11 @@ export interface DescribePipelineResponse {
    *       component, lineage group, or project.</p>
    */
   LastModifiedBy?: UserContext;
+
+  /**
+   * <p>Lists the parallelism configuration applied to the pipeline.</p>
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
 }
 
 export namespace DescribePipelineResponse {
@@ -1314,6 +1401,11 @@ export interface DescribePipelineExecutionResponse {
    *       component, lineage group, or project.</p>
    */
   LastModifiedBy?: UserContext;
+
+  /**
+   * <p>The parallelism configuration applied to the pipeline.</p>
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
 }
 
 export namespace DescribePipelineExecutionResponse {
@@ -3818,6 +3910,41 @@ export namespace EdgePackagingJobSummary {
    * @internal
    */
   export const filterSensitiveLog = (obj: EdgePackagingJobSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configurations and outcomes of an Amazon EMR step execution.</p>
+ */
+export interface EMRStepMetadata {
+  /**
+   * <p>The identifier of the EMR cluster.</p>
+   */
+  ClusterId?: string;
+
+  /**
+   * <p>The identifier of the EMR cluster step.</p>
+   */
+  StepId?: string;
+
+  /**
+   * <p>The name of the EMR cluster step.</p>
+   */
+  StepName?: string;
+
+  /**
+   * <p>The path to the log file where the cluster step's failure root cause
+   *             is recorded.</p>
+   */
+  LogFilePath?: string;
+}
+
+export namespace EMRStepMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EMRStepMetadata): any => ({
     ...obj,
   });
 }
@@ -9718,6 +9845,11 @@ export interface PipelineExecutionStepMetadata {
    *          </ul>
    */
   ClarifyCheck?: ClarifyCheckStepMetadata;
+
+  /**
+   * <p>The configurations and outcomes of an EMR step execution.</p>
+   */
+  EMR?: EMRStepMetadata;
 }
 
 export namespace PipelineExecutionStepMetadata {
@@ -9748,6 +9880,16 @@ export interface PipelineExecutionStep {
   StepName?: string;
 
   /**
+   * <p>The display name of the step.</p>
+   */
+  StepDisplayName?: string;
+
+  /**
+   * <p>The description of the step.</p>
+   */
+  StepDescription?: string;
+
+  /**
    * <p>The time that the step started executing.</p>
    */
   StartTime?: Date;
@@ -9767,7 +9909,11 @@ export interface PipelineExecutionStep {
    */
   CacheHitResult?: CacheHitResult;
 
+  /**
+   * <p>The current attempt of the execution step. For more information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/sagemaker/latest/dg/pipelines-retry-policy.html">Retry Policy for Amazon SageMaker Pipelines steps</a>.</p>
+   */
   AttemptCount?: number;
+
   /**
    * <p>The reason why the step failed execution. This is only returned if the step failed its execution.</p>
    */
@@ -9845,7 +9991,9 @@ export namespace ListPipelineParametersForExecutionRequest {
  */
 export interface Parameter {
   /**
-   * <p>The name of the parameter to assign a value to. This parameter name must match a named parameter in the pipeline definition.</p>
+   * <p>The name of the parameter to assign a value to. This
+   *          parameter name must match a named parameter in the
+   *          pipeline definition.</p>
    */
   Name: string | undefined;
 
@@ -10709,156 +10857,6 @@ export namespace ListTrainingJobsForHyperParameterTuningJobRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListTrainingJobsForHyperParameterTuningJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTrainingJobsForHyperParameterTuningJobResponse {
-  /**
-   * <p>A list of <a>TrainingJobSummary</a> objects that
-   *             describe
-   *             the training jobs that the
-   *                 <code>ListTrainingJobsForHyperParameterTuningJob</code> request returned.</p>
-   */
-  TrainingJobSummaries: HyperParameterTrainingJobSummary[] | undefined;
-
-  /**
-   * <p>If the result of this <code>ListTrainingJobsForHyperParameterTuningJob</code> request
-   *             was truncated, the response includes a <code>NextToken</code>. To retrieve the next set
-   *             of training jobs, use the token in the next request.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListTrainingJobsForHyperParameterTuningJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrainingJobsForHyperParameterTuningJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTransformJobsRequest {
-  /**
-   * <p>A filter that returns only transform jobs created after the specified time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only transform jobs created before the specified time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only transform jobs modified after the specified time.</p>
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only transform jobs modified before the specified time.</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>A string in the transform job name. This filter returns only transform jobs whose name
-   *             contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that retrieves only transform jobs with a specific status.</p>
-   */
-  StatusEquals?: TransformJobStatus | string;
-
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   */
-  SortBy?: SortBy | string;
-
-  /**
-   * <p>The sort order for results. The default is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>If the result of the previous <code>ListTransformJobs</code> request was truncated,
-   *             the response includes a <code>NextToken</code>. To retrieve the next set of transform
-   *             jobs, use the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of transform jobs to return in the response. The default value is <code>10</code>.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace ListTransformJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTransformJobsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides a
- *             summary
- *             of a transform job. Multiple <code>TransformJobSummary</code> objects are returned as a
- *             list after in response to a <a>ListTransformJobs</a> call.</p>
- */
-export interface TransformJobSummary {
-  /**
-   * <p>The name of the transform job.</p>
-   */
-  TransformJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the transform job.</p>
-   */
-  TransformJobArn: string | undefined;
-
-  /**
-   * <p>A timestamp that shows when the transform Job was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Indicates when the transform
-   *             job
-   *             ends on compute instances. For successful jobs and stopped jobs, this
-   *             is the exact time
-   *             recorded
-   *             after the results are uploaded. For failed jobs, this is when Amazon SageMaker
-   *             detected that the job failed.</p>
-   */
-  TransformEndTime?: Date;
-
-  /**
-   * <p>Indicates when the transform job was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The status of the transform job.</p>
-   */
-  TransformJobStatus: TransformJobStatus | string | undefined;
-
-  /**
-   * <p>If the transform job failed,
-   *             the
-   *             reason it failed.</p>
-   */
-  FailureReason?: string;
-}
-
-export namespace TransformJobSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransformJobSummary): any => ({
     ...obj,
   });
 }

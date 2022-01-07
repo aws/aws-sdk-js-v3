@@ -1578,7 +1578,7 @@ export interface CreateCollectionResponse {
   CollectionArn?: string;
 
   /**
-   * <p>Version number of the face detection model associated with the collection you are creating.</p>
+   * <p>Latest face model being used with the collection. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-detection-model.html">Model versioning</a>.</p>
    */
   FaceModelVersion?: string;
 }
@@ -4292,6 +4292,13 @@ export interface Face {
    *       as a tree).</p>
    */
   Confidence?: number;
+
+  /**
+   * <p>
+   *       The version of the face detect and storage model that was used when indexing the face vector.
+   *     </p>
+   */
+  IndexFacesModelVersion?: string;
 }
 
 export namespace Face {
@@ -5643,8 +5650,7 @@ export interface IndexFacesResponse {
   OrientationCorrection?: OrientationCorrection | string;
 
   /**
-   * <p>The version number of the face detection model that's associated with the input
-   *       collection (<code>CollectionId</code>).</p>
+   * <p>Latest face model being used with the collection. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-detection-model.html">Model versioning</a>.</p>
    */
   FaceModelVersion?: string;
 
@@ -5700,7 +5706,7 @@ export interface ListCollectionsResponse {
   NextToken?: string;
 
   /**
-   * <p>Version numbers of the face detection models associated with the collections in the array <code>CollectionIds</code>.
+   * <p>Latest face models being used with the corresponding collections in the array. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-detection-model.html">Model versioning</a>.
    *     For example, the value of <code>FaceModelVersions[2]</code> is the version number for the face detection model used
    *       by the collection in <code>CollectionId[2]</code>.</p>
    */
@@ -5900,7 +5906,7 @@ export interface ListFacesResponse {
   NextToken?: string;
 
   /**
-   * <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
+   * <p>Latest face model being used with the collection. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-detection-model.html">Model versioning</a>.</p>
    */
   FaceModelVersion?: string;
 }
@@ -6161,7 +6167,7 @@ export interface SearchFacesResponse {
   FaceMatches?: FaceMatch[];
 
   /**
-   * <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
+   * <p>Latest face model being used with the collection. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-detection-model.html">Model versioning</a>.</p>
    */
   FaceModelVersion?: string;
 }
@@ -6251,7 +6257,7 @@ export interface SearchFacesByImageResponse {
   FaceMatches?: FaceMatch[];
 
   /**
-   * <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
+   * <p>Latest face model being used with the collection. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-detection-model.html">Model versioning</a>.</p>
    */
   FaceModelVersion?: string;
 }

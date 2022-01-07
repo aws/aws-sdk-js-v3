@@ -1226,7 +1226,11 @@ export namespace CreateLongTermPricingResult {
 export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
+  /**
+   * <p>You get this resource when you call <code>CreateReturnShippingLabel</code> more than once when other requests are not completed. .</p>
+   */
   ConflictResource?: string;
+
   Message?: string;
 }
 

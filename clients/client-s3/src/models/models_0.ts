@@ -4404,7 +4404,9 @@ export namespace GetBucketCorsRequest {
 /**
  * <p>Describes the default server-side encryption to apply to new objects in the bucket. If a
  *          PUT Object request doesn't specify any server-side encryption, this default encryption will
- *          be applied. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html">PUT Bucket encryption</a> in
+ *          be applied. If you don't specify a customer managed key at configuration, Amazon S3 automatically creates
+ *          an Amazon Web Services KMS key in your Amazon Web Services account the first time that you add an object encrypted with
+ *          SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html">PUT Bucket encryption</a> in
  *          the <i>Amazon S3 API Reference</i>.</p>
  */
 export interface ServerSideEncryptionByDefault {
@@ -4417,9 +4419,9 @@ export interface ServerSideEncryptionByDefault {
    * <p>Amazon Web Services Key Management Service (KMS) customer Amazon Web Services KMS key ID to use for the default
    *         encryption. This parameter is allowed if and only if <code>SSEAlgorithm</code> is set to
    *         <code>aws:kms</code>.</p>
-   *          <p>You can specify the key ID or the Amazon Resource Name (ARN) of the KMS key. However, if you
-   *         are using encryption with cross-account operations, you must use a fully qualified KMS key ARN.
-   *         For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy">Using encryption for cross-account operations</a>. </p>
+   *          <p>You can specify the key ID or the Amazon Resource Name (ARN) of the KMS key. However, if
+   *          you are using encryption with cross-account or Amazon Web Services service operations you must use a fully qualified KMS
+   *          key ARN. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy">Using encryption for cross-account operations</a>. </p>
    *          <p>
    *             <b>For example:</b>
    *          </p>
@@ -8594,12 +8596,8 @@ export interface HeadObjectRequest {
   Key: string | undefined;
 
   /**
-   * <p>Downloads the specified range bytes of an object. For more information about the HTTP
-   *          Range header, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35</a>.</p>
-   *          <note>
-   *             <p>Amazon S3 doesn't support retrieving multiple ranges of data per <code>GET</code>
-   *             request.</p>
-   *          </note>
+   * <p>Because <code>HeadObject</code> returns only the metadata for an object, this parameter
+   *         has no effect.</p>
    */
   Range?: string;
 

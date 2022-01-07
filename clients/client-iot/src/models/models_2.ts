@@ -20,6 +20,7 @@ import {
   DayOfWeek,
   DimensionType,
   FleetMetricUnit,
+  JobExecutionsRetryConfig,
   JobExecutionsRolloutConfig,
   LogLevel,
   MetricToRetain,
@@ -47,11 +48,100 @@ import {
   DomainConfigurationStatus,
   LogTargetType,
   RegistrationConfig,
+  ReportType,
+  Status,
   ThingGroupIndexingConfiguration,
   ThingIndexingConfiguration,
   ThingTypeMetadata,
   ViolationEventOccurrenceRange,
 } from "./models_1";
+
+export interface ListThingRegistrationTaskReportsRequest {
+  /**
+   * <p>The id of the task.</p>
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>The type of task report.</p>
+   */
+  reportType: ReportType | string | undefined;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 		the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per request.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListThingRegistrationTaskReportsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingRegistrationTaskReportsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThingRegistrationTaskReportsResponse {
+  /**
+   * <p>Links to the task resources.</p>
+   */
+  resourceLinks?: string[];
+
+  /**
+   * <p>The type of task report.</p>
+   */
+  reportType?: ReportType | string;
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListThingRegistrationTaskReportsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingRegistrationTaskReportsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListThingRegistrationTasksRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The status of the bulk thing provisioning task.</p>
+   */
+  status?: Status | string;
+}
+
+export namespace ListThingRegistrationTasksRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingRegistrationTasksRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface ListThingRegistrationTasksResponse {
   /**
@@ -3059,6 +3149,11 @@ export interface UpdateJobRequest {
    *          </note>
    */
   namespaceId?: string;
+
+  /**
+   * <p>Allows you to create the criteria to retry a job.</p>
+   */
+  jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
 }
 
 export namespace UpdateJobRequest {

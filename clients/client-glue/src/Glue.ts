@@ -446,6 +446,21 @@ import { GetTagsCommand, GetTagsCommandInput, GetTagsCommandOutput } from "./com
 import { GetTriggerCommand, GetTriggerCommandInput, GetTriggerCommandOutput } from "./commands/GetTriggerCommand";
 import { GetTriggersCommand, GetTriggersCommandInput, GetTriggersCommandOutput } from "./commands/GetTriggersCommand";
 import {
+  GetUnfilteredPartitionMetadataCommand,
+  GetUnfilteredPartitionMetadataCommandInput,
+  GetUnfilteredPartitionMetadataCommandOutput,
+} from "./commands/GetUnfilteredPartitionMetadataCommand";
+import {
+  GetUnfilteredPartitionsMetadataCommand,
+  GetUnfilteredPartitionsMetadataCommandInput,
+  GetUnfilteredPartitionsMetadataCommandOutput,
+} from "./commands/GetUnfilteredPartitionsMetadataCommand";
+import {
+  GetUnfilteredTableMetadataCommand,
+  GetUnfilteredTableMetadataCommandInput,
+  GetUnfilteredTableMetadataCommandOutput,
+} from "./commands/GetUnfilteredTableMetadataCommand";
+import {
   GetUserDefinedFunctionCommand,
   GetUserDefinedFunctionCommandInput,
   GetUserDefinedFunctionCommandOutput,
@@ -4040,6 +4055,93 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: GetTriggersCommandOutput) => void
   ): Promise<GetTriggersCommandOutput> | void {
     const command = new GetTriggersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public getUnfilteredPartitionMetadata(
+    args: GetUnfilteredPartitionMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUnfilteredPartitionMetadataCommandOutput>;
+  public getUnfilteredPartitionMetadata(
+    args: GetUnfilteredPartitionMetadataCommandInput,
+    cb: (err: any, data?: GetUnfilteredPartitionMetadataCommandOutput) => void
+  ): void;
+  public getUnfilteredPartitionMetadata(
+    args: GetUnfilteredPartitionMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetUnfilteredPartitionMetadataCommandOutput) => void
+  ): void;
+  public getUnfilteredPartitionMetadata(
+    args: GetUnfilteredPartitionMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUnfilteredPartitionMetadataCommandOutput) => void),
+    cb?: (err: any, data?: GetUnfilteredPartitionMetadataCommandOutput) => void
+  ): Promise<GetUnfilteredPartitionMetadataCommandOutput> | void {
+    const command = new GetUnfilteredPartitionMetadataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public getUnfilteredPartitionsMetadata(
+    args: GetUnfilteredPartitionsMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUnfilteredPartitionsMetadataCommandOutput>;
+  public getUnfilteredPartitionsMetadata(
+    args: GetUnfilteredPartitionsMetadataCommandInput,
+    cb: (err: any, data?: GetUnfilteredPartitionsMetadataCommandOutput) => void
+  ): void;
+  public getUnfilteredPartitionsMetadata(
+    args: GetUnfilteredPartitionsMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetUnfilteredPartitionsMetadataCommandOutput) => void
+  ): void;
+  public getUnfilteredPartitionsMetadata(
+    args: GetUnfilteredPartitionsMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUnfilteredPartitionsMetadataCommandOutput) => void),
+    cb?: (err: any, data?: GetUnfilteredPartitionsMetadataCommandOutput) => void
+  ): Promise<GetUnfilteredPartitionsMetadataCommandOutput> | void {
+    const command = new GetUnfilteredPartitionsMetadataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public getUnfilteredTableMetadata(
+    args: GetUnfilteredTableMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUnfilteredTableMetadataCommandOutput>;
+  public getUnfilteredTableMetadata(
+    args: GetUnfilteredTableMetadataCommandInput,
+    cb: (err: any, data?: GetUnfilteredTableMetadataCommandOutput) => void
+  ): void;
+  public getUnfilteredTableMetadata(
+    args: GetUnfilteredTableMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetUnfilteredTableMetadataCommandOutput) => void
+  ): void;
+  public getUnfilteredTableMetadata(
+    args: GetUnfilteredTableMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUnfilteredTableMetadataCommandOutput) => void),
+    cb?: (err: any, data?: GetUnfilteredTableMetadataCommandOutput) => void
+  ): Promise<GetUnfilteredTableMetadataCommandOutput> | void {
+    const command = new GetUnfilteredTableMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

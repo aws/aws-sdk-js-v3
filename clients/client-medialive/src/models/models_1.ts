@@ -45,7 +45,6 @@ import {
   LogLevel,
   MediaConnectFlow,
   MediaConnectFlowRequest,
-  MediaPackageGroupSettings,
   MultiplexOutputDestination,
   MultiplexProgramPipelineDetail,
   MultiplexProgramSummary,
@@ -60,6 +59,25 @@ import {
   ReservationResourceSpecification,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+/**
+ * Media Package Group Settings
+ */
+export interface MediaPackageGroupSettings {
+  /**
+   * MediaPackage channel destination.
+   */
+  Destination: OutputLocationRef | undefined;
+}
+
+export namespace MediaPackageGroupSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MediaPackageGroupSettings): any => ({
+    ...obj,
+  });
+}
 
 export enum SmoothGroupAudioOnlyTimecodeControl {
   PASSTHROUGH = "PASSTHROUGH",

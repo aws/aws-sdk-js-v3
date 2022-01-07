@@ -1697,6 +1697,43 @@ export namespace DeleteMulticastGroupResponse {
   });
 }
 
+export interface DeleteQueuedMessagesRequest {
+  /**
+   * <p>Id of a given wireless device which messages will be deleted </p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>if messageID=="*", the queue for a particular wireless deviceId will be purged, otherwise, the specific message with messageId will be deleted </p>
+   */
+  MessageId: string | undefined;
+
+  /**
+   * <p>The wireless device type, it is either Sidewalk or LoRaWAN. </p>
+   */
+  WirelessDeviceType?: WirelessDeviceType | string;
+}
+
+export namespace DeleteQueuedMessagesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteQueuedMessagesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteQueuedMessagesResponse {}
+
+export namespace DeleteQueuedMessagesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteQueuedMessagesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteServiceProfileRequest {
   /**
    * <p>The ID of the resource to delete.</p>
@@ -2166,6 +2203,59 @@ export namespace DisassociateWirelessGatewayFromThingResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DisassociateWirelessGatewayFromThingResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>LoRaWAN router info.</p>
+ */
+export interface LoRaWANSendDataToDevice {
+  /**
+   * <p>The Fport value.</p>
+   */
+  FPort?: number;
+}
+
+export namespace LoRaWANSendDataToDevice {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoRaWANSendDataToDevice): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The message in downlink queue.</p>
+ */
+export interface DownlinkQueueMessage {
+  /**
+   * <p> The messageId allocated by IoT Wireless for tracing purpose</p>
+   */
+  MessageId?: string;
+
+  /**
+   * <p>The transmit mode to use to send data to the wireless device. Can be: <code>0</code> for UM (unacknowledge mode) or <code>1</code> for AM (acknowledge mode).</p>
+   */
+  TransmitMode?: number;
+
+  /**
+   * <p>The timestamp that Iot Wireless received the message.</p>
+   */
+  ReceivedAt?: string;
+
+  /**
+   * <p>LoRaWAN router info.</p>
+   */
+  LoRaWAN?: LoRaWANSendDataToDevice;
+}
+
+export namespace DownlinkQueueMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DownlinkQueueMessage): any => ({
     ...obj,
   });
 }
@@ -4107,6 +4197,58 @@ export namespace ListPartnerAccountsResponse {
   });
 }
 
+export interface ListQueuedMessagesRequest {
+  /**
+   * <p>Id of a given wireless device which the downlink packets are targeted </p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The wireless device type, it is either Sidewalk or LoRaWAN.</p>
+   */
+  WirelessDeviceType?: WirelessDeviceType | string;
+}
+
+export namespace ListQueuedMessagesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListQueuedMessagesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListQueuedMessagesResponse {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The messages in downlink queue.</p>
+   */
+  DownlinkQueueMessagesList?: DownlinkQueueMessage[];
+}
+
+export namespace ListQueuedMessagesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListQueuedMessagesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListServiceProfilesRequest {
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
@@ -4763,25 +4905,6 @@ export namespace SendDataToMulticastGroupResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: SendDataToMulticastGroupResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>LoRaWAN router info.</p>
- */
-export interface LoRaWANSendDataToDevice {
-  /**
-   * <p>The Fport value.</p>
-   */
-  FPort?: number;
-}
-
-export namespace LoRaWANSendDataToDevice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANSendDataToDevice): any => ({
     ...obj,
   });
 }

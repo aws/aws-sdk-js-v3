@@ -877,11 +877,11 @@ export class S3 extends S3Client {
    *          <p>When creating a bucket using this operation, you can optionally configure the bucket ACL to specify the accounts or
    *          groups that should be granted specific permissions on the bucket.</p>
    *          <important>
-   *             <p>If your CreateBucket request includes the <code>BucketOwnerEnforced</code> value for
-   *             the <code>x-amz-object-ownership</code> header, your request can either not specify
-   *             an ACL or specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code>
-   *             canned ACL or an equivalent ACL expressed in the XML format. For
-   *             more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling object
+   *             <p>If your CreateBucket request sets bucket owner enforced for S3 Object Ownership and
+   *             specifies a bucket ACL that provides access to an external Amazon Web Services account, your request
+   *             fails with a <code>400</code> error and returns the
+   *                <code>InvalidBucketAclWithObjectOwnership</code> error code. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling object
    *                ownership</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          </important>
    *          <p>There are two ways to grant the appropriate permissions using the request headers.</p>
@@ -7721,7 +7721,8 @@ export class S3 extends S3Client {
    *          <p>This action is not supported by Amazon S3 on Outposts.</p>
    *          <p>For more information about Amazon S3 Select,
    *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html">Selecting Content from
-   *             Objects</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *              Objects</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-glacier-select-sql-reference-select.html">SELECT
+   *               Command</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>For more information about using SQL with Amazon S3 Select, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html"> SQL Reference for Amazon S3 Select
    *             and S3 Glacier Select</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p></p>

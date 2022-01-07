@@ -6417,6 +6417,10 @@ const serializeAws_restJson1NoiseReducerTemporalFilterSettings = (
       input.AggressiveMode !== null && { aggressiveMode: input.AggressiveMode }),
     ...(input.PostTemporalSharpening !== undefined &&
       input.PostTemporalSharpening !== null && { postTemporalSharpening: input.PostTemporalSharpening }),
+    ...(input.PostTemporalSharpeningStrength !== undefined &&
+      input.PostTemporalSharpeningStrength !== null && {
+        postTemporalSharpeningStrength: input.PostTemporalSharpeningStrength,
+      }),
     ...(input.Speed !== undefined && input.Speed !== null && { speed: input.Speed }),
     ...(input.Strength !== undefined && input.Strength !== null && { strength: input.Strength }),
   };
@@ -9570,6 +9574,7 @@ const deserializeAws_restJson1NoiseReducerTemporalFilterSettings = (
   return {
     AggressiveMode: __expectInt32(output.aggressiveMode),
     PostTemporalSharpening: __expectString(output.postTemporalSharpening),
+    PostTemporalSharpeningStrength: __expectString(output.postTemporalSharpeningStrength),
     Speed: __expectInt32(output.speed),
     Strength: __expectInt32(output.strength),
   } as any;

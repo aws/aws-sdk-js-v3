@@ -3013,6 +3013,12 @@ export enum NoiseFilterPostTemporalSharpening {
   ENABLED = "ENABLED",
 }
 
+export enum NoiseFilterPostTemporalSharpeningStrength {
+  HIGH = "HIGH",
+  LOW = "LOW",
+  MEDIUM = "MEDIUM",
+}
+
 /**
  * Noise reducer filter settings for temporal filter.
  */
@@ -3023,9 +3029,14 @@ export interface NoiseReducerTemporalFilterSettings {
   AggressiveMode?: number;
 
   /**
-   * Optional. When you set Noise reducer (noiseReducer) to Temporal (TEMPORAL), you can use this setting to apply sharpening. The default behavior, Auto (AUTO), allows the transcoder to determine whether to apply filtering, depending on input type and quality. When you set Noise reducer to Temporal, your output bandwidth is reduced. When Post temporal sharpening is also enabled, that bandwidth reduction is smaller.
+   * When you set Noise reducer (noiseReducer) to Temporal (TEMPORAL), the sharpness of your output is reduced. You can optionally use Post temporal sharpening (PostTemporalSharpening) to apply sharpening to the edges of your output. The default behavior, Auto (AUTO), allows the transcoder to determine whether to apply sharpening, depending on your input type and quality. When you set Post temporal sharpening to Enabled (ENABLED), specify how much sharpening is applied using Post temporal sharpening strength (PostTemporalSharpeningStrength). Set Post temporal sharpening to Disabled (DISABLED) to not apply sharpening.
    */
   PostTemporalSharpening?: NoiseFilterPostTemporalSharpening | string;
+
+  /**
+   * Use Post temporal sharpening strength (PostTemporalSharpeningStrength) to define the amount of sharpening the transcoder applies to your output. Set Post temporal sharpening strength to Low (LOW), or leave blank, to apply a low amount of sharpening. Set Post temporal sharpening strength to Medium (MEDIUM) to apply medium amount of sharpening. Set Post temporal sharpening strength to High (HIGH) to apply a high amount of sharpening.
+   */
+  PostTemporalSharpeningStrength?: NoiseFilterPostTemporalSharpeningStrength | string;
 
   /**
    * The speed of the filter (higher number is faster). Low setting reduces bit rate at the cost of transcode time, high setting improves transcode time at the cost of bit rate.
@@ -5473,22 +5484,6 @@ export namespace UpdatePresetRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdatePresetRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdatePresetResponse {
-  /**
-   * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
-   */
-  Preset?: Preset;
-}
-
-export namespace UpdatePresetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePresetResponse): any => ({
     ...obj,
   });
 }

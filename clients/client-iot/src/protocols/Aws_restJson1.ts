@@ -744,6 +744,7 @@ import {
   IotAnalyticsAction,
   IotEventsAction,
   IotSiteWiseAction,
+  JobExecutionsRetryConfig,
   JobExecutionsRolloutConfig,
   KafkaAction,
   KeyPair,
@@ -774,6 +775,7 @@ import {
   ResourceAlreadyExistsException,
   ResourceIdentifier,
   ResourceNotFoundException,
+  RetryCriteria,
   S3Action,
   S3Destination,
   S3Location,
@@ -1825,6 +1827,13 @@ export const serializeAws_restJson1CreateJobCommand = async (
       }),
     ...(input.documentSource !== undefined &&
       input.documentSource !== null && { documentSource: input.documentSource }),
+    ...(input.jobExecutionsRetryConfig !== undefined &&
+      input.jobExecutionsRetryConfig !== null && {
+        jobExecutionsRetryConfig: serializeAws_restJson1JobExecutionsRetryConfig(
+          input.jobExecutionsRetryConfig,
+          context
+        ),
+      }),
     ...(input.jobExecutionsRolloutConfig !== undefined &&
       input.jobExecutionsRolloutConfig !== null && {
         jobExecutionsRolloutConfig: serializeAws_restJson1JobExecutionsRolloutConfig(
@@ -1889,6 +1898,13 @@ export const serializeAws_restJson1CreateJobTemplateCommand = async (
     ...(input.documentSource !== undefined &&
       input.documentSource !== null && { documentSource: input.documentSource }),
     ...(input.jobArn !== undefined && input.jobArn !== null && { jobArn: input.jobArn }),
+    ...(input.jobExecutionsRetryConfig !== undefined &&
+      input.jobExecutionsRetryConfig !== null && {
+        jobExecutionsRetryConfig: serializeAws_restJson1JobExecutionsRetryConfig(
+          input.jobExecutionsRetryConfig,
+          context
+        ),
+      }),
     ...(input.jobExecutionsRolloutConfig !== undefined &&
       input.jobExecutionsRolloutConfig !== null && {
         jobExecutionsRolloutConfig: serializeAws_restJson1JobExecutionsRolloutConfig(
@@ -5769,6 +5785,7 @@ export const serializeAws_restJson1ListJobExecutionsForThingCommand = async (
     ...(input.namespaceId !== undefined && { namespaceId: input.namespaceId }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.jobId !== undefined && { jobId: input.jobId }),
   };
   let body: any;
   return new __HttpRequest({
@@ -8087,6 +8104,13 @@ export const serializeAws_restJson1UpdateJobCommand = async (
     ...(input.abortConfig !== undefined &&
       input.abortConfig !== null && { abortConfig: serializeAws_restJson1AbortConfig(input.abortConfig, context) }),
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.jobExecutionsRetryConfig !== undefined &&
+      input.jobExecutionsRetryConfig !== null && {
+        jobExecutionsRetryConfig: serializeAws_restJson1JobExecutionsRetryConfig(
+          input.jobExecutionsRetryConfig,
+          context
+        ),
+      }),
     ...(input.jobExecutionsRolloutConfig !== undefined &&
       input.jobExecutionsRolloutConfig !== null && {
         jobExecutionsRolloutConfig: serializeAws_restJson1JobExecutionsRolloutConfig(
@@ -17505,6 +17529,7 @@ export const deserializeAws_restJson1DescribeJobTemplateCommand = async (
     description: undefined,
     document: undefined,
     documentSource: undefined,
+    jobExecutionsRetryConfig: undefined,
     jobExecutionsRolloutConfig: undefined,
     jobTemplateArn: undefined,
     jobTemplateId: undefined,
@@ -17526,6 +17551,12 @@ export const deserializeAws_restJson1DescribeJobTemplateCommand = async (
   }
   if (data.documentSource !== undefined && data.documentSource !== null) {
     contents.documentSource = __expectString(data.documentSource);
+  }
+  if (data.jobExecutionsRetryConfig !== undefined && data.jobExecutionsRetryConfig !== null) {
+    contents.jobExecutionsRetryConfig = deserializeAws_restJson1JobExecutionsRetryConfig(
+      data.jobExecutionsRetryConfig,
+      context
+    );
   }
   if (data.jobExecutionsRolloutConfig !== undefined && data.jobExecutionsRolloutConfig !== null) {
     contents.jobExecutionsRolloutConfig = deserializeAws_restJson1JobExecutionsRolloutConfig(
@@ -31820,6 +31851,18 @@ const serializeAws_restJson1IotSiteWiseAction = (input: IotSiteWiseAction, conte
   };
 };
 
+const serializeAws_restJson1JobExecutionsRetryConfig = (
+  input: JobExecutionsRetryConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.criteriaList !== undefined &&
+      input.criteriaList !== null && {
+        criteriaList: serializeAws_restJson1RetryCriteriaList(input.criteriaList, context),
+      }),
+  };
+};
+
 const serializeAws_restJson1JobExecutionsRolloutConfig = (
   input: JobExecutionsRolloutConfig,
   context: __SerdeContext
@@ -32260,6 +32303,25 @@ const serializeAws_restJson1Resources = (input: string[], context: __SerdeContex
         return null as any;
       }
       return entry;
+    });
+};
+
+const serializeAws_restJson1RetryCriteria = (input: RetryCriteria, context: __SerdeContext): any => {
+  return {
+    ...(input.failureType !== undefined && input.failureType !== null && { failureType: input.failureType }),
+    ...(input.numberOfRetries !== undefined &&
+      input.numberOfRetries !== null && { numberOfRetries: input.numberOfRetries }),
+  };
+};
+
+const serializeAws_restJson1RetryCriteriaList = (input: RetryCriteria[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1RetryCriteria(entry, context);
     });
 };
 
@@ -34431,6 +34493,10 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
         : undefined,
     forceCanceled: __expectBoolean(output.forceCanceled),
     jobArn: __expectString(output.jobArn),
+    jobExecutionsRetryConfig:
+      output.jobExecutionsRetryConfig !== undefined && output.jobExecutionsRetryConfig !== null
+        ? deserializeAws_restJson1JobExecutionsRetryConfig(output.jobExecutionsRetryConfig, context)
+        : undefined,
     jobExecutionsRolloutConfig:
       output.jobExecutionsRolloutConfig !== undefined && output.jobExecutionsRolloutConfig !== null
         ? deserializeAws_restJson1JobExecutionsRolloutConfig(output.jobExecutionsRolloutConfig, context)
@@ -34492,6 +34558,18 @@ const deserializeAws_restJson1JobExecution = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_restJson1JobExecutionsRetryConfig = (
+  output: any,
+  context: __SerdeContext
+): JobExecutionsRetryConfig => {
+  return {
+    criteriaList:
+      output.criteriaList !== undefined && output.criteriaList !== null
+        ? deserializeAws_restJson1RetryCriteriaList(output.criteriaList, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1JobExecutionsRolloutConfig = (
   output: any,
   context: __SerdeContext
@@ -34528,6 +34606,7 @@ const deserializeAws_restJson1JobExecutionSummary = (output: any, context: __Ser
       output.queuedAt !== undefined && output.queuedAt !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.queuedAt)))
         : undefined,
+    retryAttempt: __expectInt32(output.retryAttempt),
     startedAt:
       output.startedAt !== undefined && output.startedAt !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt)))
@@ -35483,6 +35562,24 @@ const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext)
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1RetryCriteria = (output: any, context: __SerdeContext): RetryCriteria => {
+  return {
+    failureType: __expectString(output.failureType),
+    numberOfRetries: __expectInt32(output.numberOfRetries),
+  } as any;
+};
+
+const deserializeAws_restJson1RetryCriteriaList = (output: any, context: __SerdeContext): RetryCriteria[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RetryCriteria(entry, context);
     });
 };
 

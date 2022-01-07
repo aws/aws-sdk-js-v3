@@ -22,8 +22,8 @@ export interface ListFargateProfilesCommandInput extends ListFargateProfilesRequ
 export interface ListFargateProfilesCommandOutput extends ListFargateProfilesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the Fargate profiles associated with the specified cluster in your Amazon Web Services
- *             account in the specified Region.</p>
+ * <p>Lists the Fargate profiles associated with the specified cluster in
+ *             your Amazon Web Services account in the specified Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

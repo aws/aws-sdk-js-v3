@@ -25,7 +25,7 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  * <p>Lets you enable Insights event logging by specifying the Insights
  *          selectors that you want to enable on an existing trail. You also use
  *          <code>PutInsightSelectors</code> to turn off Insights event logging, by passing an empty list of insight types.
- *          The valid Insights event type in this release is <code>ApiCallRateInsight</code>.</p>
+ *          The valid Insights event types in this release are <code>ApiErrorRateInsight</code> and <code>ApiCallRateInsight</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

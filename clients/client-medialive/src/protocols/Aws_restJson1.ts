@@ -232,7 +232,6 @@ import {
   M3u8Settings,
   MediaConnectFlow,
   MediaConnectFlowRequest,
-  MediaPackageGroupSettings,
   MediaPackageOutputDestinationSettings,
   MediaPackageOutputSettings,
   Mp2Settings,
@@ -322,6 +321,7 @@ import {
   InputSwitchScheduleActionSettings,
   InputVpcRequest,
   InternalServerErrorException,
+  MediaPackageGroupSettings,
   MotionGraphicsActivateScheduleActionSettings,
   MotionGraphicsConfiguration,
   MotionGraphicsDeactivateScheduleActionSettings,
@@ -10840,6 +10840,8 @@ const serializeAws_restJson1HlsGroupSettings = (input: HlsGroupSettings, context
       input.OutputSelection !== null && { outputSelection: input.OutputSelection }),
     ...(input.ProgramDateTime !== undefined &&
       input.ProgramDateTime !== null && { programDateTime: input.ProgramDateTime }),
+    ...(input.ProgramDateTimeClock !== undefined &&
+      input.ProgramDateTimeClock !== null && { programDateTimeClock: input.ProgramDateTimeClock }),
     ...(input.ProgramDateTimePeriod !== undefined &&
       input.ProgramDateTimePeriod !== null && { programDateTimePeriod: input.ProgramDateTimePeriod }),
     ...(input.RedundantManifest !== undefined &&
@@ -14248,6 +14250,7 @@ const deserializeAws_restJson1HlsGroupSettings = (output: any, context: __SerdeC
     Mode: __expectString(output.mode),
     OutputSelection: __expectString(output.outputSelection),
     ProgramDateTime: __expectString(output.programDateTime),
+    ProgramDateTimeClock: __expectString(output.programDateTimeClock),
     ProgramDateTimePeriod: __expectInt32(output.programDateTimePeriod),
     RedundantManifest: __expectString(output.redundantManifest),
     SegmentLength: __expectInt32(output.segmentLength),

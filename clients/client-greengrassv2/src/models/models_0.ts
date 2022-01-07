@@ -94,6 +94,121 @@ export namespace AssociatedClientDevice {
   });
 }
 
+export interface AssociateServiceRoleToAccountRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service role to associate with IoT Greengrass for your
+   *       Amazon Web Services account in this Amazon Web Services Region.</p>
+   */
+  roleArn: string | undefined;
+}
+
+export namespace AssociateServiceRoleToAccountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateServiceRoleToAccountRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateServiceRoleToAccountResponse {
+  /**
+   * <p>The time when the service role was associated with IoT Greengrass for your Amazon Web Services account in this
+   *       Amazon Web Services Region.</p>
+   */
+  associatedAt?: string;
+}
+
+export namespace AssociateServiceRoleToAccountResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateServiceRoleToAccountResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ */
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
+  name: "InternalServerException";
+  $fault: "server";
+  message: string | undefined;
+  /**
+   * <p>The amount of time to wait before you retry the request.</p>
+   */
+  retryAfterSeconds?: number;
+}
+
+export namespace InternalServerException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InternalServerException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about a validation exception field.</p>
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>The name of the exception field.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The message of the exception field.</p>
+   */
+  message: string | undefined;
+}
+
+export namespace ValidationExceptionField {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
+    ...obj,
+  });
+}
+
+export enum ValidationExceptionReason {
+  CANNOT_PARSE = "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
+  OTHER = "OTHER",
+  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
+}
+
+/**
+ * <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters.</p>
+ */
+export interface ValidationException extends __SmithyException, $MetadataBearer {
+  name: "ValidationException";
+  $fault: "client";
+  message: string | undefined;
+  /**
+   * <p>The reason for the validation exception.</p>
+   */
+  reason?: ValidationExceptionReason | string;
+
+  /**
+   * <p>The list of fields that failed to validate.</p>
+   */
+  fields?: ValidationExceptionField[];
+}
+
+export namespace ValidationException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
+    ...obj,
+  });
+}
+
 export interface BatchAssociateClientDeviceWithCoreDeviceRequest {
   /**
    * <p>The list of client devices to associate.</p>
@@ -128,28 +243,6 @@ export namespace BatchAssociateClientDeviceWithCoreDeviceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: BatchAssociateClientDeviceWithCoreDeviceResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>IoT Greengrass can't process your request right now. Try again later.</p>
- */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
-  message: string | undefined;
-  /**
-   * <p>The amount of time to wait before you retry the request.</p>
-   */
-  retryAfterSeconds?: number;
-}
-
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
 }
@@ -210,65 +303,6 @@ export namespace ThrottlingException {
    * @internal
    */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains information about a validation exception field.</p>
- */
-export interface ValidationExceptionField {
-  /**
-   * <p>The name of the exception field.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The message of the exception field.</p>
-   */
-  message: string | undefined;
-}
-
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
-
-/**
- * <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *       unsupported characters.</p>
- */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message: string | undefined;
-  /**
-   * <p>The reason for the validation exception.</p>
-   */
-  reason?: ValidationExceptionReason | string;
-
-  /**
-   * <p>The list of fields that failed to validate.</p>
-   */
-  fields?: ValidationExceptionField[];
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
 }
@@ -347,8 +381,8 @@ export namespace DisassociateClientDeviceFromCoreDeviceErrorEntry {
 
 export interface BatchDisassociateClientDeviceFromCoreDeviceResponse {
   /**
-   * <p>The list of errors (if any) for the entries in the request. Each error entry contains the
-   *       name of the IoT thing that failed to disassociate.</p>
+   * <p>The list of any errors for the entries in the request. Each error entry contains the name
+   *       of the IoT thing that failed to disassociate.</p>
    */
   errorEntries?: DisassociateClientDeviceFromCoreDeviceErrorEntry[];
 }
@@ -825,6 +859,43 @@ export enum ComponentVisibilityScope {
   PUBLIC = "PUBLIC",
 }
 
+/**
+ * <p>Contains information about an endpoint and port where client devices can connect to an
+ *       MQTT broker on a Greengrass core device.</p>
+ */
+export interface ConnectivityInfo {
+  /**
+   * <p>An ID for the connectivity information.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The IP address or DNS address where client devices can connect to an MQTT broker on the
+   *       Greengrass core device.</p>
+   */
+  hostAddress?: string;
+
+  /**
+   * <p>The port where the MQTT broker operates on the core device. This port is typically 8883,
+   *       which is the default port for the MQTT broker component that runs on core devices.</p>
+   */
+  portNumber?: number;
+
+  /**
+   * <p>Additional metadata to provide to client devices that connect to this core device.</p>
+   */
+  metadata?: string;
+}
+
+export namespace ConnectivityInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectivityInfo): any => ({
+    ...obj,
+  });
+}
+
 export enum CoreDeviceStatus {
   HEALTHY = "HEALTHY",
   UNHEALTHY = "UNHEALTHY",
@@ -841,7 +912,8 @@ export interface CoreDevice {
   coreDeviceThingName?: string;
 
   /**
-   * <p>The status of the core device. Core devices can have the following statuses:</p>
+   * <p>The status of the core device. Core devices can have the following
+   *       statuses:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1940,6 +2012,34 @@ export namespace DescribeComponentResponse {
   });
 }
 
+export interface DisassociateServiceRoleFromAccountRequest {}
+
+export namespace DisassociateServiceRoleFromAccountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateServiceRoleFromAccountRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateServiceRoleFromAccountResponse {
+  /**
+   * <p>The time when the service role was disassociated from IoT Greengrass for your Amazon Web Services account in this
+   *       Amazon Web Services Region.</p>
+   */
+  disassociatedAt?: string;
+}
+
+export namespace DisassociateServiceRoleFromAccountResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateServiceRoleFromAccountResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum EffectiveDeploymentExecutionStatus {
   CANCELED = "CANCELED",
   COMPLETED = "COMPLETED",
@@ -2107,6 +2207,43 @@ export namespace GetComponentVersionArtifactResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetComponentVersionArtifactResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetConnectivityInfoRequest {
+  /**
+   * <p>The name of the core device. This is also the name of the IoT thing.</p>
+   */
+  thingName: string | undefined;
+}
+
+export namespace GetConnectivityInfoRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConnectivityInfoRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetConnectivityInfoResponse {
+  /**
+   * <p>The connectivity information for the core device.</p>
+   */
+  connectivityInfo?: ConnectivityInfo[];
+
+  /**
+   * <p>A message about the connectivity information request.</p>
+   */
+  message?: string;
+}
+
+export namespace GetConnectivityInfoResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConnectivityInfoResponse): any => ({
     ...obj,
   });
 }
@@ -2283,6 +2420,40 @@ export namespace GetDeploymentResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetDeploymentResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetServiceRoleForAccountRequest {}
+
+export namespace GetServiceRoleForAccountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetServiceRoleForAccountRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetServiceRoleForAccountResponse {
+  /**
+   * <p>The time when the service role was associated with IoT Greengrass for your Amazon Web Services account in this
+   *       Amazon Web Services Region.</p>
+   */
+  associatedAt?: string;
+
+  /**
+   * <p>The ARN of the service role that is associated with IoT Greengrass for your Amazon Web Services account in this
+   *       Amazon Web Services Region.</p>
+   */
+  roleArn?: string;
+}
+
+export namespace GetServiceRoleForAccountResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetServiceRoleForAccountResponse): any => ({
     ...obj,
   });
 }
@@ -2873,6 +3044,48 @@ export namespace UntagResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateConnectivityInfoRequest {
+  /**
+   * <p>The name of the core device. This is also the name of the IoT thing.</p>
+   */
+  thingName: string | undefined;
+
+  /**
+   * <p>The connectivity information for the core device.</p>
+   */
+  connectivityInfo: ConnectivityInfo[] | undefined;
+}
+
+export namespace UpdateConnectivityInfoRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateConnectivityInfoRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateConnectivityInfoResponse {
+  /**
+   * <p>The new version of the connectivity information for the core device.</p>
+   */
+  version?: string;
+
+  /**
+   * <p>A message about the connectivity information update request.</p>
+   */
+  message?: string;
+}
+
+export namespace UpdateConnectivityInfoResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateConnectivityInfoResponse): any => ({
     ...obj,
   });
 }

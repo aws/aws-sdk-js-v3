@@ -40,7 +40,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *         <p>In most cases, it takes several minutes to create a cluster. After you create an Amazon EKS cluster,
  *             you must configure your Kubernetes tooling to communicate with the API server and launch
  *             nodes into your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing Cluster
- *                 Authentication</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html">Launching Amazon EKS nodes</a> in the <i>Amazon EKS User Guide</i>.</p>
+ *                 Authentication</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html">Launching Amazon EKS nodes</a> in the
+ *             <i>Amazon EKS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

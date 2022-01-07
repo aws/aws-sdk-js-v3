@@ -22,7 +22,8 @@ export interface DeregisterClusterCommandInput extends DeregisterClusterRequest 
 export interface DeregisterClusterCommandOutput extends DeregisterClusterResponse, __MetadataBearer {}
 
 /**
- * <p>Deregisters a connected cluster to remove it from the Amazon EKS control plane.</p>
+ * <p>Deregisters a connected cluster to remove it from the Amazon EKS control
+ *             plane.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

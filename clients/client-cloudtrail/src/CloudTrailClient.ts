@@ -50,17 +50,34 @@ import {
 } from "@aws-sdk/types";
 
 import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import { CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
+import {
+  CreateEventDataStoreCommandInput,
+  CreateEventDataStoreCommandOutput,
+} from "./commands/CreateEventDataStoreCommand";
 import { CreateTrailCommandInput, CreateTrailCommandOutput } from "./commands/CreateTrailCommand";
+import {
+  DeleteEventDataStoreCommandInput,
+  DeleteEventDataStoreCommandOutput,
+} from "./commands/DeleteEventDataStoreCommand";
 import { DeleteTrailCommandInput, DeleteTrailCommandOutput } from "./commands/DeleteTrailCommand";
+import { DescribeQueryCommandInput, DescribeQueryCommandOutput } from "./commands/DescribeQueryCommand";
 import { DescribeTrailsCommandInput, DescribeTrailsCommandOutput } from "./commands/DescribeTrailsCommand";
+import { GetEventDataStoreCommandInput, GetEventDataStoreCommandOutput } from "./commands/GetEventDataStoreCommand";
 import { GetEventSelectorsCommandInput, GetEventSelectorsCommandOutput } from "./commands/GetEventSelectorsCommand";
 import {
   GetInsightSelectorsCommandInput,
   GetInsightSelectorsCommandOutput,
 } from "./commands/GetInsightSelectorsCommand";
+import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
 import { GetTrailCommandInput, GetTrailCommandOutput } from "./commands/GetTrailCommand";
 import { GetTrailStatusCommandInput, GetTrailStatusCommandOutput } from "./commands/GetTrailStatusCommand";
+import {
+  ListEventDataStoresCommandInput,
+  ListEventDataStoresCommandOutput,
+} from "./commands/ListEventDataStoresCommand";
 import { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "./commands/ListPublicKeysCommand";
+import { ListQueriesCommandInput, ListQueriesCommandOutput } from "./commands/ListQueriesCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import { ListTrailsCommandInput, ListTrailsCommandOutput } from "./commands/ListTrailsCommand";
 import { LookupEventsCommandInput, LookupEventsCommandOutput } from "./commands/LookupEventsCommand";
@@ -70,49 +87,80 @@ import {
   PutInsightSelectorsCommandOutput,
 } from "./commands/PutInsightSelectorsCommand";
 import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
+import {
+  RestoreEventDataStoreCommandInput,
+  RestoreEventDataStoreCommandOutput,
+} from "./commands/RestoreEventDataStoreCommand";
 import { StartLoggingCommandInput, StartLoggingCommandOutput } from "./commands/StartLoggingCommand";
+import { StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
 import { StopLoggingCommandInput, StopLoggingCommandOutput } from "./commands/StopLoggingCommand";
+import {
+  UpdateEventDataStoreCommandInput,
+  UpdateEventDataStoreCommandOutput,
+} from "./commands/UpdateEventDataStoreCommand";
 import { UpdateTrailCommandInput, UpdateTrailCommandOutput } from "./commands/UpdateTrailCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | AddTagsCommandInput
+  | CancelQueryCommandInput
+  | CreateEventDataStoreCommandInput
   | CreateTrailCommandInput
+  | DeleteEventDataStoreCommandInput
   | DeleteTrailCommandInput
+  | DescribeQueryCommandInput
   | DescribeTrailsCommandInput
+  | GetEventDataStoreCommandInput
   | GetEventSelectorsCommandInput
   | GetInsightSelectorsCommandInput
+  | GetQueryResultsCommandInput
   | GetTrailCommandInput
   | GetTrailStatusCommandInput
+  | ListEventDataStoresCommandInput
   | ListPublicKeysCommandInput
+  | ListQueriesCommandInput
   | ListTagsCommandInput
   | ListTrailsCommandInput
   | LookupEventsCommandInput
   | PutEventSelectorsCommandInput
   | PutInsightSelectorsCommandInput
   | RemoveTagsCommandInput
+  | RestoreEventDataStoreCommandInput
   | StartLoggingCommandInput
+  | StartQueryCommandInput
   | StopLoggingCommandInput
+  | UpdateEventDataStoreCommandInput
   | UpdateTrailCommandInput;
 
 export type ServiceOutputTypes =
   | AddTagsCommandOutput
+  | CancelQueryCommandOutput
+  | CreateEventDataStoreCommandOutput
   | CreateTrailCommandOutput
+  | DeleteEventDataStoreCommandOutput
   | DeleteTrailCommandOutput
+  | DescribeQueryCommandOutput
   | DescribeTrailsCommandOutput
+  | GetEventDataStoreCommandOutput
   | GetEventSelectorsCommandOutput
   | GetInsightSelectorsCommandOutput
+  | GetQueryResultsCommandOutput
   | GetTrailCommandOutput
   | GetTrailStatusCommandOutput
+  | ListEventDataStoresCommandOutput
   | ListPublicKeysCommandOutput
+  | ListQueriesCommandOutput
   | ListTagsCommandOutput
   | ListTrailsCommandOutput
   | LookupEventsCommandOutput
   | PutEventSelectorsCommandOutput
   | PutInsightSelectorsCommandOutput
   | RemoveTagsCommandOutput
+  | RestoreEventDataStoreCommandOutput
   | StartLoggingCommandOutput
+  | StartQueryCommandOutput
   | StopLoggingCommandOutput
+  | UpdateEventDataStoreCommandOutput
   | UpdateTrailCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

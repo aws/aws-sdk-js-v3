@@ -22,7 +22,8 @@ export interface UpdateNodegroupVersionCommandInput extends UpdateNodegroupVersi
 export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the Kubernetes version or AMI version of an Amazon EKS managed node group.</p>
+ * <p>Updates the Kubernetes version or AMI version of an Amazon EKS managed node
+ *             group.</p>
  *         <p>You can update a node group using a launch template only if the node group was
  *             originally deployed with a launch template. If you need to update a custom AMI in a node
  *             group that was deployed with a launch template, then update your custom AMI, specify the
@@ -32,14 +33,14 @@ export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVers
  *             AMI version of a node group's current Kubernetes version by not specifying a Kubernetes
  *             version in the request. You can update to the latest AMI version of your cluster's
  *             current Kubernetes version by specifying your cluster's Kubernetes version in the
- *             request. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon EKS
- *                 optimized Amazon Linux 2 AMI versions</a> in the <i>Amazon EKS User Guide</i>.</p>
+ *             request. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon EKS optimized Amazon Linux 2 AMI versions</a> in the <i>Amazon EKS User Guide</i>.</p>
  *         <p>You cannot roll back a node group to an earlier Kubernetes version or AMI
  *             version.</p>
  *         <p>When a node in a managed node group is terminated due to a scaling action or update,
- *             the pods in that node are drained first. Amazon EKS attempts to drain the nodes gracefully
- *             and will fail if it is unable to do so. You can <code>force</code> the update if Amazon EKS
- *             is unable to drain the nodes as a result of a pod disruption budget issue.</p>
+ *             the pods in that node are drained first. Amazon EKS attempts to drain the nodes
+ *             gracefully and will fail if it is unable to do so. You can <code>force</code> the update
+ *             if Amazon EKS is unable to drain the nodes as a result of a pod disruption
+ *             budget issue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

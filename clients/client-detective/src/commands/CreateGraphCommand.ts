@@ -23,15 +23,15 @@ export interface CreateGraphCommandOutput extends CreateGraphResponse, __Metadat
 
 /**
  * <p>Creates a new behavior graph for the calling account, and sets that account as the
- *          administrator account. This operation is called by the account that is enabling
- *          Detective.</p>
- *          <p>Before you try to enable Detective, make sure that your account has been enrolled in
- *          Amazon GuardDuty for at least 48 hours. If you do not meet this requirement, you cannot enable
- *          Detective. If you do meet the GuardDuty prerequisite, then when you make the request to enable
- *          Detective, it checks whether your data volume is within the Detective quota. If it exceeds the
- *          quota, then you cannot enable Detective. </p>
- *          <p>The operation also enables Detective for the calling account in the currently selected
- *          Region. It returns the ARN of the new behavior graph.</p>
+ *          administrator account. This operation is called by the account that is enabling Detective.</p>
+ *          <p>Before you try to enable Detective, make sure that your account has been
+ *          enrolled in Amazon GuardDuty for at least 48 hours. If you do not meet this
+ *          requirement, you cannot enable Detective. If you do meet the GuardDuty
+ *          prerequisite, then when you make the request to enable Detective, it checks
+ *          whether your data volume is within the Detective quota. If it exceeds the quota,
+ *          then you cannot enable Detective. </p>
+ *          <p>The operation also enables Detective for the calling account in the currently
+ *          selected Region. It returns the ARN of the new behavior graph.</p>
  *          <p>
  *             <code>CreateGraph</code> triggers a process to create the corresponding data tables for
  *          the new behavior graph.</p>

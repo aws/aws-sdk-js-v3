@@ -4524,6 +4524,58 @@ export namespace CreateNotebookInstanceLifecycleConfigOutput {
   });
 }
 
+/**
+ * <p>Configuration that controls the parallelism of the pipeline.
+ *             By default, the parallelism configuration specified applies to all
+ *             executions of the pipeline unless overridden.</p>
+ */
+export interface ParallelismConfiguration {
+  /**
+   * <p>The max number of steps that can be executed in parallel. </p>
+   */
+  MaxParallelExecutionSteps: number | undefined;
+}
+
+export namespace ParallelismConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ParallelismConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The location of the pipeline definition stored in Amazon S3.</p>
+ */
+export interface PipelineDefinitionS3Location {
+  /**
+   * <p>Name of the S3 bucket.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The object key (or key name) uniquely identifies the
+   *             object in an S3 bucket. </p>
+   */
+  ObjectKey: string | undefined;
+
+  /**
+   * <p>Version Id of the pipeline definition file. If not specified, Amazon SageMaker
+   *             will retrieve the latest version.</p>
+   */
+  VersionId?: string;
+}
+
+export namespace PipelineDefinitionS3Location {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PipelineDefinitionS3Location): any => ({
+    ...obj,
+  });
+}
+
 export interface CreatePipelineRequest {
   /**
    * <p>The name of the pipeline.</p>
@@ -4538,7 +4590,13 @@ export interface CreatePipelineRequest {
   /**
    * <p>The JSON pipeline definition of the pipeline.</p>
    */
-  PipelineDefinition: string | undefined;
+  PipelineDefinition?: string;
+
+  /**
+   * <p>The location of the pipeline definition stored in Amazon S3. If specified,
+   *             SageMaker will retrieve the pipeline definition from this location.</p>
+   */
+  PipelineDefinitionS3Location?: PipelineDefinitionS3Location;
 
   /**
    * <p>A description of the pipeline.</p>
@@ -4560,6 +4618,12 @@ export interface CreatePipelineRequest {
    * <p>A list of tags to apply to the created pipeline.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>This is the configuration that controls the parallelism of the pipeline.
+   *             If specified, it applies to all runs of this pipeline by default.</p>
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
 }
 
 export namespace CreatePipelineRequest {
@@ -9126,7 +9190,7 @@ export interface DescribeDomainResponse {
   /**
    * @deprecated
    *
-   * <p>This member is deprecated and replaced with <code>KmsKeyId</code>.</p>
+   * <p>Use <code>KmsKeyId</code>.</p>
    */
   HomeEfsFileSystemKmsKeyId?: string;
 
@@ -11365,86 +11429,6 @@ export namespace DescribeModelInput {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeModelInput): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeModelOutput {
-  /**
-   * <p>Name of the Amazon SageMaker model.</p>
-   */
-  ModelName: string | undefined;
-
-  /**
-   * <p>The location of the primary inference code, associated artifacts, and custom
-   *             environment map that the inference code uses when it is deployed in production.
-   *         </p>
-   */
-  PrimaryContainer?: ContainerDefinition;
-
-  /**
-   * <p>The containers in the inference pipeline.</p>
-   */
-  Containers?: ContainerDefinition[];
-
-  /**
-   * <p>Specifies details of how containers in a multi-container endpoint are called.</p>
-   */
-  InferenceExecutionConfig?: InferenceExecutionConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the
-   *             model.</p>
-   */
-  ExecutionRoleArn: string | undefined;
-
-  /**
-   * <p>A <a>VpcConfig</a> object that specifies the VPC that this model has access
-   *             to. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual
-   *                 Private Cloud</a>
-   *          </p>
-   */
-  VpcConfig?: VpcConfig;
-
-  /**
-   * <p>A timestamp that shows when the model was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model.</p>
-   */
-  ModelArn: string | undefined;
-
-  /**
-   * <p>If <code>True</code>, no inbound or outbound network calls can be made to or from the
-   *             model container.</p>
-   */
-  EnableNetworkIsolation?: boolean;
-}
-
-export namespace DescribeModelOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeModelOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeModelBiasJobDefinitionRequest {
-  /**
-   * <p>The name of the model bias job definition. The name must be unique within an Amazon Web Services Region
-   *          in the Amazon Web Services account.</p>
-   */
-  JobDefinitionName: string | undefined;
-}
-
-export namespace DescribeModelBiasJobDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeModelBiasJobDefinitionRequest): any => ({
     ...obj,
   });
 }

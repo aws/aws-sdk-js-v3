@@ -34,7 +34,8 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
  *          <p>For more information about Amazon S3 Select,
  *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html">Selecting Content from
- *             Objects</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *              Objects</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-glacier-select-sql-reference-select.html">SELECT
+ *               Command</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>For more information about using SQL with Amazon S3 Select, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html"> SQL Reference for Amazon S3 Select
  *             and S3 Glacier Select</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p></p>

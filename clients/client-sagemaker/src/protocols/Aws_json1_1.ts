@@ -1040,9 +1040,7 @@ import {
   DescribeLabelingJobResponse,
   DescribeLineageGroupRequest,
   DescribeLineageGroupResponse,
-  DescribeModelBiasJobDefinitionRequest,
   DescribeModelInput,
-  DescribeModelOutput,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1108,9 +1106,11 @@ import {
   OfflineStoreStatus,
   OidcConfig,
   OidcMemberDefinition,
+  ParallelismConfiguration,
   PendingDeploymentSummary,
   PendingProductionVariantSummary,
   Phase,
+  PipelineDefinitionS3Location,
   ProcessingClusterConfig,
   ProcessingFeatureStoreOutput,
   ProcessingInput,
@@ -1147,9 +1147,11 @@ import {
   UiTemplateInfo,
 } from "../models/models_1";
 import {
+  DescribeModelBiasJobDefinitionRequest,
   DescribeModelBiasJobDefinitionResponse,
   DescribeModelExplainabilityJobDefinitionRequest,
   DescribeModelExplainabilityJobDefinitionResponse,
+  DescribeModelOutput,
   DescribeModelPackageGroupInput,
   DescribeModelPackageGroupOutput,
   DescribeModelPackageInput,
@@ -1205,6 +1207,7 @@ import {
   EdgeModelStat,
   EdgeModelSummary,
   EdgePackagingJobSummary,
+  EMRStepMetadata,
   EnableSagemakerServicecatalogPortfolioInput,
   EnableSagemakerServicecatalogPortfolioOutput,
   Endpoint,
@@ -1337,10 +1340,8 @@ import {
   ListTagsInput,
   ListTagsOutput,
   ListTrainingJobsForHyperParameterTuningJobRequest,
-  ListTrainingJobsForHyperParameterTuningJobResponse,
   ListTrainingJobsRequest,
   ListTrainingJobsResponse,
-  ListTransformJobsRequest,
   MetricData,
   ModelMetadataFilter,
   ModelMetadataSearchExpression,
@@ -1381,7 +1382,6 @@ import {
   TrainingJobStepMetadata,
   TrainingJobSummary,
   TransformJobStepMetadata,
-  TransformJobSummary,
   TrialComponentMetricSummary,
   TrialComponentSource,
   TrialSource,
@@ -1390,6 +1390,8 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListTrainingJobsForHyperParameterTuningJobResponse,
+  ListTransformJobsRequest,
   ListTransformJobsResponse,
   ListTrialComponentsRequest,
   ListTrialComponentsResponse,
@@ -1450,6 +1452,7 @@ import {
   StopTransformJobRequest,
   TrainingJob,
   TransformJob,
+  TransformJobSummary,
   Trial,
   TrialComponent,
   TrialComponentSimpleSummary,
@@ -19667,8 +19670,19 @@ const serializeAws_json1_1CreateNotebookInstanceLifecycleConfigInput = (
 const serializeAws_json1_1CreatePipelineRequest = (input: CreatePipelineRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.ParallelismConfiguration !== undefined &&
+      input.ParallelismConfiguration !== null && {
+        ParallelismConfiguration: serializeAws_json1_1ParallelismConfiguration(input.ParallelismConfiguration, context),
+      }),
     ...(input.PipelineDefinition !== undefined &&
       input.PipelineDefinition !== null && { PipelineDefinition: input.PipelineDefinition }),
+    ...(input.PipelineDefinitionS3Location !== undefined &&
+      input.PipelineDefinitionS3Location !== null && {
+        PipelineDefinitionS3Location: serializeAws_json1_1PipelineDefinitionS3Location(
+          input.PipelineDefinitionS3Location,
+          context
+        ),
+      }),
     ...(input.PipelineDescription !== undefined &&
       input.PipelineDescription !== null && { PipelineDescription: input.PipelineDescription }),
     ...(input.PipelineDisplayName !== undefined &&
@@ -24184,6 +24198,16 @@ const serializeAws_json1_1OutputParameterList = (input: OutputParameter[], conte
     });
 };
 
+const serializeAws_json1_1ParallelismConfiguration = (
+  input: ParallelismConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxParallelExecutionSteps !== undefined &&
+      input.MaxParallelExecutionSteps !== null && { MaxParallelExecutionSteps: input.MaxParallelExecutionSteps }),
+  };
+};
+
 const serializeAws_json1_1Parameter = (input: Parameter, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
@@ -24305,6 +24329,17 @@ const serializeAws_json1_1Phases = (input: Phase[], context: __SerdeContext): an
       }
       return serializeAws_json1_1Phase(entry, context);
     });
+};
+
+const serializeAws_json1_1PipelineDefinitionS3Location = (
+  input: PipelineDefinitionS3Location,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
+    ...(input.ObjectKey !== undefined && input.ObjectKey !== null && { ObjectKey: input.ObjectKey }),
+    ...(input.VersionId !== undefined && input.VersionId !== null && { VersionId: input.VersionId }),
+  };
 };
 
 const serializeAws_json1_1ProcessingClusterConfig = (input: ProcessingClusterConfig, context: __SerdeContext): any => {
@@ -24875,6 +24910,10 @@ const serializeAws_json1_1RetryPipelineExecutionRequest = (
 ): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.ParallelismConfiguration !== undefined &&
+      input.ParallelismConfiguration !== null && {
+        ParallelismConfiguration: serializeAws_json1_1ParallelismConfiguration(input.ParallelismConfiguration, context),
+      }),
     ...(input.PipelineExecutionArn !== undefined &&
       input.PipelineExecutionArn !== null && { PipelineExecutionArn: input.PipelineExecutionArn }),
   };
@@ -25159,6 +25198,10 @@ const serializeAws_json1_1StartPipelineExecutionRequest = (
 ): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.ParallelismConfiguration !== undefined &&
+      input.ParallelismConfiguration !== null && {
+        ParallelismConfiguration: serializeAws_json1_1ParallelismConfiguration(input.ParallelismConfiguration, context),
+      }),
     ...(input.PipelineExecutionDescription !== undefined &&
       input.PipelineExecutionDescription !== null && {
         PipelineExecutionDescription: input.PipelineExecutionDescription,
@@ -25957,6 +26000,10 @@ const serializeAws_json1_1UpdatePipelineExecutionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.ParallelismConfiguration !== undefined &&
+      input.ParallelismConfiguration !== null && {
+        ParallelismConfiguration: serializeAws_json1_1ParallelismConfiguration(input.ParallelismConfiguration, context),
+      }),
     ...(input.PipelineExecutionArn !== undefined &&
       input.PipelineExecutionArn !== null && { PipelineExecutionArn: input.PipelineExecutionArn }),
     ...(input.PipelineExecutionDescription !== undefined &&
@@ -25972,8 +26019,19 @@ const serializeAws_json1_1UpdatePipelineExecutionRequest = (
 
 const serializeAws_json1_1UpdatePipelineRequest = (input: UpdatePipelineRequest, context: __SerdeContext): any => {
   return {
+    ...(input.ParallelismConfiguration !== undefined &&
+      input.ParallelismConfiguration !== null && {
+        ParallelismConfiguration: serializeAws_json1_1ParallelismConfiguration(input.ParallelismConfiguration, context),
+      }),
     ...(input.PipelineDefinition !== undefined &&
       input.PipelineDefinition !== null && { PipelineDefinition: input.PipelineDefinition }),
+    ...(input.PipelineDefinitionS3Location !== undefined &&
+      input.PipelineDefinitionS3Location !== null && {
+        PipelineDefinitionS3Location: serializeAws_json1_1PipelineDefinitionS3Location(
+          input.PipelineDefinitionS3Location,
+          context
+        ),
+      }),
     ...(input.PipelineDescription !== undefined &&
       input.PipelineDescription !== null && { PipelineDescription: input.PipelineDescription }),
     ...(input.PipelineDisplayName !== undefined &&
@@ -29647,6 +29705,10 @@ const deserializeAws_json1_1DescribePipelineExecutionResponse = (
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
+    ParallelismConfiguration:
+      output.ParallelismConfiguration !== undefined && output.ParallelismConfiguration !== null
+        ? deserializeAws_json1_1ParallelismConfiguration(output.ParallelismConfiguration, context)
+        : undefined,
     PipelineArn: __expectString(output.PipelineArn),
     PipelineExecutionArn: __expectString(output.PipelineExecutionArn),
     PipelineExecutionDescription: __expectString(output.PipelineExecutionDescription),
@@ -29683,6 +29745,10 @@ const deserializeAws_json1_1DescribePipelineResponse = (
     LastRunTime:
       output.LastRunTime !== undefined && output.LastRunTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRunTime)))
+        : undefined,
+    ParallelismConfiguration:
+      output.ParallelismConfiguration !== undefined && output.ParallelismConfiguration !== null
+        ? deserializeAws_json1_1ParallelismConfiguration(output.ParallelismConfiguration, context)
         : undefined,
     PipelineArn: __expectString(output.PipelineArn),
     PipelineDefinition: __expectString(output.PipelineDefinition),
@@ -30519,6 +30585,15 @@ const deserializeAws_json1_1Edges = (output: any, context: __SerdeContext): Edge
       }
       return deserializeAws_json1_1Edge(entry, context);
     });
+};
+
+const deserializeAws_json1_1EMRStepMetadata = (output: any, context: __SerdeContext): EMRStepMetadata => {
+  return {
+    ClusterId: __expectString(output.ClusterId),
+    LogFilePath: __expectString(output.LogFilePath),
+    StepId: __expectString(output.StepId),
+    StepName: __expectString(output.StepName),
+  } as any;
 };
 
 const deserializeAws_json1_1EnableSagemakerServicecatalogPortfolioOutput = (
@@ -34117,6 +34192,15 @@ const deserializeAws_json1_1OutputParameterList = (output: any, context: __Serde
     });
 };
 
+const deserializeAws_json1_1ParallelismConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ParallelismConfiguration => {
+  return {
+    MaxParallelExecutionSteps: __expectInt32(output.MaxParallelExecutionSteps),
+  } as any;
+};
+
 const deserializeAws_json1_1Parameter = (output: any, context: __SerdeContext): Parameter => {
   return {
     Name: __expectString(output.Name),
@@ -34332,6 +34416,10 @@ const deserializeAws_json1_1Pipeline = (output: any, context: __SerdeContext): P
       output.LastRunTime !== undefined && output.LastRunTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRunTime)))
         : undefined,
+    ParallelismConfiguration:
+      output.ParallelismConfiguration !== undefined && output.ParallelismConfiguration !== null
+        ? deserializeAws_json1_1ParallelismConfiguration(output.ParallelismConfiguration, context)
+        : undefined,
     PipelineArn: __expectString(output.PipelineArn),
     PipelineDescription: __expectString(output.PipelineDescription),
     PipelineDisplayName: __expectString(output.PipelineDisplayName),
@@ -34363,6 +34451,10 @@ const deserializeAws_json1_1PipelineExecution = (output: any, context: __SerdeCo
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    ParallelismConfiguration:
+      output.ParallelismConfiguration !== undefined && output.ParallelismConfiguration !== null
+        ? deserializeAws_json1_1ParallelismConfiguration(output.ParallelismConfiguration, context)
         : undefined,
     PipelineArn: __expectString(output.PipelineArn),
     PipelineExecutionArn: __expectString(output.PipelineExecutionArn),
@@ -34400,6 +34492,8 @@ const deserializeAws_json1_1PipelineExecutionStep = (output: any, context: __Ser
       output.StartTime !== undefined && output.StartTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
+    StepDescription: __expectString(output.StepDescription),
+    StepDisplayName: __expectString(output.StepDisplayName),
     StepName: __expectString(output.StepName),
     StepStatus: __expectString(output.StepStatus),
   } as any;
@@ -34435,6 +34529,10 @@ const deserializeAws_json1_1PipelineExecutionStepMetadata = (
     Condition:
       output.Condition !== undefined && output.Condition !== null
         ? deserializeAws_json1_1ConditionStepMetadata(output.Condition, context)
+        : undefined,
+    EMR:
+      output.EMR !== undefined && output.EMR !== null
+        ? deserializeAws_json1_1EMRStepMetadata(output.EMR, context)
         : undefined,
     Lambda:
       output.Lambda !== undefined && output.Lambda !== null
