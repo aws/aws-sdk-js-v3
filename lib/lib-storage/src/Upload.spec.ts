@@ -198,7 +198,7 @@ describe(Upload.name, () => {
     expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
   });
 
-  it("should return a Bucket, Key and Location fields when upload uses a PUT", async (done) => {
+  it("should return a Bucket, Key and Location fields when upload uses a PUT", async () => {
     const buffer = Buffer.from("");
     const actionParams = { ...params, Body: buffer };
     const upload = new Upload({
@@ -210,11 +210,9 @@ describe(Upload.name, () => {
     expect(result.Key).toEqual("example-key");
     expect(result.Bucket).toEqual("example-bucket");
     expect(result.Location).toEqual("https://example-bucket.s3.region.amazonaws.com/example-key");
-
-    done();
   });
 
-  it("should return a Location field formatted in path style when forcePathStyle is true", async (done) => {
+  it("should return a Location field formatted in path style when forcePathStyle is true", async () => {
     const buffer = Buffer.from("");
     const actionParams = { ...params, Body: buffer };
     const s3Client = new S3({});
@@ -226,8 +224,6 @@ describe(Upload.name, () => {
 
     const result = (await upload.done()) as CompleteMultipartUploadCommandOutput;
     expect(result.Location).toEqual("https://s3.region.amazonaws.com/example-bucket/example-key");
-
-    done();
   });
 
   it("should upload using multi-part when parts are larger than part size", async () => {
