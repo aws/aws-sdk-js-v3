@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "ca-central-1": {
     variants: [
       {
-        hostname: "mediaconvert.ca-central-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "mediaconvert-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -26,10 +22,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "mediaconvert.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "mediaconvert-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -37,10 +29,6 @@ const regionHash: RegionHash = {
   },
   "us-east-2": {
     variants: [
-      {
-        hostname: "mediaconvert.us-east-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "mediaconvert-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
@@ -59,10 +47,6 @@ const regionHash: RegionHash = {
   "us-west-1": {
     variants: [
       {
-        hostname: "mediaconvert.us-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "mediaconvert-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -70,10 +54,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "mediaconvert.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "mediaconvert-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

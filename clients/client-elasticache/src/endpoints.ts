@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "elasticache.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "elasticache-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -16,10 +12,6 @@ const regionHash: RegionHash = {
   },
   "us-east-2": {
     variants: [
-      {
-        hostname: "elasticache.us-east-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "elasticache-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
@@ -30,20 +22,12 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "elasticache.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
-        hostname: "elasticache.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
     ],
   },
   "us-west-1": {
     variants: [
-      {
-        hostname: "elasticache.us-west-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "elasticache-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
@@ -52,10 +36,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "elasticache.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "elasticache-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

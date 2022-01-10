@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "translate.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "translate-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -16,10 +12,6 @@ const regionHash: RegionHash = {
   },
   "us-east-2": {
     variants: [
-      {
-        hostname: "translate.us-east-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "translate-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
@@ -29,10 +21,6 @@ const regionHash: RegionHash = {
   "us-gov-west-1": {
     variants: [
       {
-        hostname: "translate.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "translate-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -40,10 +28,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "translate.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "translate-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

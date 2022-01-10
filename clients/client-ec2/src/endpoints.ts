@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "ap-south-1": {
     variants: [
       {
-        hostname: "ec2.ap-south-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "api.ec2.ap-south-1.aws",
         tags: ["dualstack"],
       },
@@ -16,10 +12,6 @@ const regionHash: RegionHash = {
   },
   "ca-central-1": {
     variants: [
-      {
-        hostname: "ec2.ca-central-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "ec2-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
@@ -29,10 +21,6 @@ const regionHash: RegionHash = {
   "eu-west-1": {
     variants: [
       {
-        hostname: "ec2.eu-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "api.ec2.eu-west-1.aws",
         tags: ["dualstack"],
       },
@@ -41,10 +29,6 @@ const regionHash: RegionHash = {
   "sa-east-1": {
     variants: [
       {
-        hostname: "ec2.sa-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "api.ec2.sa-east-1.aws",
         tags: ["dualstack"],
       },
@@ -52,10 +36,6 @@ const regionHash: RegionHash = {
   },
   "us-east-1": {
     variants: [
-      {
-        hostname: "ec2.us-east-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "api.ec2.us-east-1.aws",
         tags: ["dualstack"],
@@ -68,10 +48,6 @@ const regionHash: RegionHash = {
   },
   "us-east-2": {
     variants: [
-      {
-        hostname: "ec2.us-east-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "api.ec2.us-east-2.aws",
         tags: ["dualstack"],
@@ -103,10 +79,6 @@ const regionHash: RegionHash = {
   "us-west-1": {
     variants: [
       {
-        hostname: "ec2.us-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "ec2-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -114,10 +86,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "ec2.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "api.ec2.us-west-2.aws",
         tags: ["dualstack"],

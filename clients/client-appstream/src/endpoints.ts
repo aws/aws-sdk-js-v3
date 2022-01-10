@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "appstream2.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "appstream2-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -17,10 +13,6 @@ const regionHash: RegionHash = {
   "us-gov-west-1": {
     variants: [
       {
-        hostname: "appstream2.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "appstream2-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -28,10 +20,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "appstream2.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "appstream2-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

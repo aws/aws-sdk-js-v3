@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "comprehend.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "comprehend-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -16,10 +12,6 @@ const regionHash: RegionHash = {
   },
   "us-east-2": {
     variants: [
-      {
-        hostname: "comprehend.us-east-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "comprehend-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
@@ -29,10 +21,6 @@ const regionHash: RegionHash = {
   "us-gov-west-1": {
     variants: [
       {
-        hostname: "comprehend.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "comprehend-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -40,10 +28,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "comprehend.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "comprehend-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

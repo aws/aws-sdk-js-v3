@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "ap-northeast-1": {
     variants: [
       {
-        hostname: "snowball.ap-northeast-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "snowball-fips.ap-northeast-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -16,10 +12,6 @@ const regionHash: RegionHash = {
   },
   "ap-northeast-2": {
     variants: [
-      {
-        hostname: "snowball.ap-northeast-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "snowball-fips.ap-northeast-2.amazonaws.com",
         tags: ["fips"],
@@ -29,10 +21,6 @@ const regionHash: RegionHash = {
   "ap-northeast-3": {
     variants: [
       {
-        hostname: "snowball.ap-northeast-3.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "snowball-fips.ap-northeast-3.amazonaws.com",
         tags: ["fips"],
       },
@@ -40,10 +28,6 @@ const regionHash: RegionHash = {
   },
   "ap-south-1": {
     variants: [
-      {
-        hostname: "snowball.ap-south-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "snowball-fips.ap-south-1.amazonaws.com",
         tags: ["fips"],
@@ -53,10 +37,6 @@ const regionHash: RegionHash = {
   "ap-southeast-1": {
     variants: [
       {
-        hostname: "snowball.ap-southeast-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "snowball-fips.ap-southeast-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -64,10 +44,6 @@ const regionHash: RegionHash = {
   },
   "ap-southeast-2": {
     variants: [
-      {
-        hostname: "snowball.ap-southeast-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "snowball-fips.ap-southeast-2.amazonaws.com",
         tags: ["fips"],
@@ -77,10 +53,6 @@ const regionHash: RegionHash = {
   "ca-central-1": {
     variants: [
       {
-        hostname: "snowball.ca-central-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "snowball-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -88,10 +60,6 @@ const regionHash: RegionHash = {
   },
   "cn-north-1": {
     variants: [
-      {
-        hostname: "snowball.cn-north-1.amazonaws.com.cn",
-        tags: [],
-      },
       {
         hostname: "snowball-fips.cn-north-1.amazonaws.com.cn",
         tags: ["fips"],
@@ -101,10 +69,6 @@ const regionHash: RegionHash = {
   "cn-northwest-1": {
     variants: [
       {
-        hostname: "snowball.cn-northwest-1.amazonaws.com.cn",
-        tags: [],
-      },
-      {
         hostname: "snowball-fips.cn-northwest-1.amazonaws.com.cn",
         tags: ["fips"],
       },
@@ -112,10 +76,6 @@ const regionHash: RegionHash = {
   },
   "eu-central-1": {
     variants: [
-      {
-        hostname: "snowball.eu-central-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "snowball-fips.eu-central-1.amazonaws.com",
         tags: ["fips"],
@@ -125,10 +85,6 @@ const regionHash: RegionHash = {
   "eu-west-1": {
     variants: [
       {
-        hostname: "snowball.eu-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "snowball-fips.eu-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -136,10 +92,6 @@ const regionHash: RegionHash = {
   },
   "eu-west-2": {
     variants: [
-      {
-        hostname: "snowball.eu-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "snowball-fips.eu-west-2.amazonaws.com",
         tags: ["fips"],
@@ -149,10 +101,6 @@ const regionHash: RegionHash = {
   "eu-west-3": {
     variants: [
       {
-        hostname: "snowball.eu-west-3.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "snowball-fips.eu-west-3.amazonaws.com",
         tags: ["fips"],
       },
@@ -160,10 +108,6 @@ const regionHash: RegionHash = {
   },
   "sa-east-1": {
     variants: [
-      {
-        hostname: "snowball.sa-east-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "snowball-fips.sa-east-1.amazonaws.com",
         tags: ["fips"],
@@ -173,10 +117,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "snowball.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "snowball-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -184,10 +124,6 @@ const regionHash: RegionHash = {
   },
   "us-east-2": {
     variants: [
-      {
-        hostname: "snowball.us-east-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "snowball-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
@@ -197,10 +133,6 @@ const regionHash: RegionHash = {
   "us-gov-east-1": {
     variants: [
       {
-        hostname: "snowball.us-gov-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "snowball-fips.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -208,10 +140,6 @@ const regionHash: RegionHash = {
   },
   "us-gov-west-1": {
     variants: [
-      {
-        hostname: "snowball.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "snowball-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
@@ -221,10 +149,6 @@ const regionHash: RegionHash = {
   "us-west-1": {
     variants: [
       {
-        hostname: "snowball.us-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "snowball-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -232,10 +156,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "snowball.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "snowball-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

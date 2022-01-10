@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "models.lex.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "models-fips.lex.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -17,10 +13,6 @@ const regionHash: RegionHash = {
   "us-gov-west-1": {
     variants: [
       {
-        hostname: "models.lex.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "models-fips.lex.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -28,10 +20,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "models.lex.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "models-fips.lex.us-west-2.amazonaws.com",
         tags: ["fips"],

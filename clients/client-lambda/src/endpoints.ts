@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "af-south-1": {
     variants: [
       {
-        hostname: "lambda.af-south-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "lambda.af-south-1.api.aws",
         tags: ["dualstack"],
       },
@@ -16,10 +12,6 @@ const regionHash: RegionHash = {
   },
   "ap-east-1": {
     variants: [
-      {
-        hostname: "lambda.ap-east-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "lambda.ap-east-1.api.aws",
         tags: ["dualstack"],
@@ -29,10 +21,6 @@ const regionHash: RegionHash = {
   "ap-northeast-1": {
     variants: [
       {
-        hostname: "lambda.ap-northeast-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "lambda.ap-northeast-1.api.aws",
         tags: ["dualstack"],
       },
@@ -40,10 +28,6 @@ const regionHash: RegionHash = {
   },
   "ap-northeast-2": {
     variants: [
-      {
-        hostname: "lambda.ap-northeast-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "lambda.ap-northeast-2.api.aws",
         tags: ["dualstack"],
@@ -53,10 +37,6 @@ const regionHash: RegionHash = {
   "ap-northeast-3": {
     variants: [
       {
-        hostname: "lambda.ap-northeast-3.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "lambda.ap-northeast-3.api.aws",
         tags: ["dualstack"],
       },
@@ -64,10 +44,6 @@ const regionHash: RegionHash = {
   },
   "ap-south-1": {
     variants: [
-      {
-        hostname: "lambda.ap-south-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "lambda.ap-south-1.api.aws",
         tags: ["dualstack"],
@@ -77,10 +53,6 @@ const regionHash: RegionHash = {
   "ap-southeast-1": {
     variants: [
       {
-        hostname: "lambda.ap-southeast-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "lambda.ap-southeast-1.api.aws",
         tags: ["dualstack"],
       },
@@ -88,10 +60,6 @@ const regionHash: RegionHash = {
   },
   "ap-southeast-2": {
     variants: [
-      {
-        hostname: "lambda.ap-southeast-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "lambda.ap-southeast-2.api.aws",
         tags: ["dualstack"],
@@ -101,10 +69,6 @@ const regionHash: RegionHash = {
   "ap-southeast-3": {
     variants: [
       {
-        hostname: "lambda.ap-southeast-3.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "lambda.ap-southeast-3.api.aws",
         tags: ["dualstack"],
       },
@@ -112,10 +76,6 @@ const regionHash: RegionHash = {
   },
   "ca-central-1": {
     variants: [
-      {
-        hostname: "lambda.ca-central-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "lambda.ca-central-1.api.aws",
         tags: ["dualstack"],
@@ -125,10 +85,6 @@ const regionHash: RegionHash = {
   "cn-north-1": {
     variants: [
       {
-        hostname: "lambda.cn-north-1.amazonaws.com.cn",
-        tags: [],
-      },
-      {
         hostname: "lambda.cn-north-1.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
       },
@@ -136,10 +92,6 @@ const regionHash: RegionHash = {
   },
   "cn-northwest-1": {
     variants: [
-      {
-        hostname: "lambda.cn-northwest-1.amazonaws.com.cn",
-        tags: [],
-      },
       {
         hostname: "lambda.cn-northwest-1.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
@@ -149,10 +101,6 @@ const regionHash: RegionHash = {
   "eu-central-1": {
     variants: [
       {
-        hostname: "lambda.eu-central-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "lambda.eu-central-1.api.aws",
         tags: ["dualstack"],
       },
@@ -160,10 +108,6 @@ const regionHash: RegionHash = {
   },
   "eu-north-1": {
     variants: [
-      {
-        hostname: "lambda.eu-north-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "lambda.eu-north-1.api.aws",
         tags: ["dualstack"],
@@ -173,10 +117,6 @@ const regionHash: RegionHash = {
   "eu-south-1": {
     variants: [
       {
-        hostname: "lambda.eu-south-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "lambda.eu-south-1.api.aws",
         tags: ["dualstack"],
       },
@@ -184,10 +124,6 @@ const regionHash: RegionHash = {
   },
   "eu-west-1": {
     variants: [
-      {
-        hostname: "lambda.eu-west-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "lambda.eu-west-1.api.aws",
         tags: ["dualstack"],
@@ -197,10 +133,6 @@ const regionHash: RegionHash = {
   "eu-west-2": {
     variants: [
       {
-        hostname: "lambda.eu-west-2.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "lambda.eu-west-2.api.aws",
         tags: ["dualstack"],
       },
@@ -208,10 +140,6 @@ const regionHash: RegionHash = {
   },
   "eu-west-3": {
     variants: [
-      {
-        hostname: "lambda.eu-west-3.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "lambda.eu-west-3.api.aws",
         tags: ["dualstack"],
@@ -221,10 +149,6 @@ const regionHash: RegionHash = {
   "me-south-1": {
     variants: [
       {
-        hostname: "lambda.me-south-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "lambda.me-south-1.api.aws",
         tags: ["dualstack"],
       },
@@ -233,10 +157,6 @@ const regionHash: RegionHash = {
   "sa-east-1": {
     variants: [
       {
-        hostname: "lambda.sa-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "lambda.sa-east-1.api.aws",
         tags: ["dualstack"],
       },
@@ -244,10 +164,6 @@ const regionHash: RegionHash = {
   },
   "us-east-1": {
     variants: [
-      {
-        hostname: "lambda.us-east-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "lambda-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
@@ -261,10 +177,6 @@ const regionHash: RegionHash = {
   "us-east-2": {
     variants: [
       {
-        hostname: "lambda.us-east-2.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "lambda-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
@@ -277,10 +189,6 @@ const regionHash: RegionHash = {
   "us-gov-east-1": {
     variants: [
       {
-        hostname: "lambda.us-gov-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "lambda-fips.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -289,10 +197,6 @@ const regionHash: RegionHash = {
   "us-gov-west-1": {
     variants: [
       {
-        hostname: "lambda.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "lambda-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -300,10 +204,6 @@ const regionHash: RegionHash = {
   },
   "us-west-1": {
     variants: [
-      {
-        hostname: "lambda.us-west-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "lambda-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
@@ -316,10 +216,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "lambda.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "lambda-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

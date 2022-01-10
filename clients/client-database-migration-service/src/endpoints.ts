@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "dms.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "dms-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -16,10 +12,6 @@ const regionHash: RegionHash = {
   },
   "us-east-2": {
     variants: [
-      {
-        hostname: "dms.us-east-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "dms-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
@@ -30,20 +22,12 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "dms.us-gov-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
-        hostname: "dms.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
     ],
   },
   "us-gov-west-1": {
     variants: [
-      {
-        hostname: "dms.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "dms.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
@@ -54,20 +38,12 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "dms.us-iso-east-1.c2s.ic.gov",
-        tags: [],
-      },
-      {
-        hostname: "dms.us-iso-east-1.c2s.ic.gov",
         tags: ["fips"],
       },
     ],
   },
   "us-isob-east-1": {
     variants: [
-      {
-        hostname: "dms.us-isob-east-1.sc2s.sgov.gov",
-        tags: [],
-      },
       {
         hostname: "dms.us-isob-east-1.sc2s.sgov.gov",
         tags: ["fips"],
@@ -77,10 +53,6 @@ const regionHash: RegionHash = {
   "us-west-1": {
     variants: [
       {
-        hostname: "dms.us-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "dms-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -88,10 +60,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "dms.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "dms-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
