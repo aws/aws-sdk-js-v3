@@ -8,9 +8,6 @@ const regionHash: RegionHash = {
         hostname: "s3-outposts.ca-central-1.amazonaws.com",
         tags: [],
       },
-      {
-        tags: ["fips"],
-      },
     ],
   },
   "us-east-1": {
@@ -18,9 +15,6 @@ const regionHash: RegionHash = {
       {
         hostname: "s3-outposts.us-east-1.amazonaws.com",
         tags: [],
-      },
-      {
-        tags: ["fips"],
       },
     ],
   },
@@ -30,9 +24,6 @@ const regionHash: RegionHash = {
         hostname: "s3-outposts.us-east-2.amazonaws.com",
         tags: [],
       },
-      {
-        tags: ["fips"],
-      },
     ],
   },
   "us-gov-east-1": {
@@ -40,9 +31,6 @@ const regionHash: RegionHash = {
       {
         hostname: "s3-outposts.us-gov-east-1.amazonaws.com",
         tags: [],
-      },
-      {
-        tags: ["fips"],
       },
     ],
   },
@@ -52,9 +40,6 @@ const regionHash: RegionHash = {
         hostname: "s3-outposts.us-gov-west-1.amazonaws.com",
         tags: [],
       },
-      {
-        tags: ["fips"],
-      },
     ],
   },
   "us-west-1": {
@@ -63,9 +48,6 @@ const regionHash: RegionHash = {
         hostname: "s3-outposts.us-west-1.amazonaws.com",
         tags: [],
       },
-      {
-        tags: ["fips"],
-      },
     ],
   },
   "us-west-2": {
@@ -73,9 +55,6 @@ const regionHash: RegionHash = {
       {
         hostname: "s3-outposts.us-west-2.amazonaws.com",
         tags: [],
-      },
-      {
-        tags: ["fips"],
       },
     ],
   },
