@@ -96,13 +96,15 @@ final class EndpointGenerator implements Runnable {
                         && (config.containsMember("hostname") || config.containsMember("variants"))) {
                     String region = entry.getKey();
                     String hostname = config.getStringMemberOrDefault("hostname", partition.hostnameTemplate);
-                    String resolvedHostname = getResolvedHostnameWithDnsSuffix(
-                        getResolvedHostname(hostname, endpointPrefix, region),
-                        dnsSuffix
-                    );
+                    String resolvedHostname = getResolvedHostname(hostname, endpointPrefix, region);
 
-                    ArrayNode variants = config.getArrayMember("variants").orElse(ArrayNode.fromNodes());
-                    ArrayNode defaultVariant = ArrayNode.fromNodes(getDefaultVariant(resolvedHostname));
+                    ArrayNode variants = getServiceVariants(
+                        config.getArrayMember("variants").orElse(ArrayNode.fromNodes()),
+                        resolvedHostname,
+                        dnsSuffix);
+
+                    String defaultHostname = getResolvedHostnameWithDnsSuffix(resolvedHostname, dnsSuffix);
+                    ArrayNode defaultVariant = ArrayNode.fromNodes(getDefaultVariant(defaultHostname));
 
                     endpoints.put(region,
                         config
@@ -111,6 +113,27 @@ final class EndpointGenerator implements Runnable {
                 }
             }
         }
+    }
+
+    private ArrayNode getServiceVariants(ArrayNode variants, String defaultHostname, String defaultDnsSuffix) {
+        List<Node> serviceVariants = new ArrayList<Node>();
+
+        variants.forEach(variant -> {
+            ObjectNode variantNode = variant.expectObjectNode();
+            if (!variantNode.containsMember("hostname") && !variantNode.containsMember("dnsSuffix")) {
+                // Skip the empty variant which just contains tags.
+                return;
+            }
+            String hostname = variantNode.getStringMemberOrDefault("hostname", defaultHostname);
+            String dnsSuffix = variantNode.getStringMemberOrDefault("dnsSuffix", defaultDnsSuffix);
+            String resolvedHostname = getResolvedHostnameWithDnsSuffix(
+                getResolvedHostname(hostname, endpointPrefix),
+                dnsSuffix
+            );
+            serviceVariants.add(variantNode.withMember("hostname", resolvedHostname).withoutMember("dnsSuffix"));
+        });
+
+        return ArrayNode.fromNodes(serviceVariants);
     }
 
     @Override
