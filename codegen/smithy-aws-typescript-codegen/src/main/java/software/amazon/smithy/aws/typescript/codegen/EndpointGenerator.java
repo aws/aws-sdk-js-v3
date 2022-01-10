@@ -101,7 +101,9 @@ final class EndpointGenerator implements Runnable {
                         dnsSuffix
                     );
 
-                    ArrayNode variants = config.getArrayMember("variants").orElse(ArrayNode.fromNodes());
+                    ArrayNode variants = getServiceVariants(
+                        config.getArrayMember("variants").orElse(ArrayNode.fromNodes()),
+                        dnsSuffix);
                     ArrayNode defaultVariant = ArrayNode.fromNodes(getDefaultVariant(resolvedHostname));
 
                     endpoints.put(region,
@@ -111,6 +113,27 @@ final class EndpointGenerator implements Runnable {
                 }
             }
         }
+    }
+
+    private ArrayNode getServiceVariants(ArrayNode variants, String defaultDnsSuffix) {
+        List<Node> serviceVariants = new ArrayList<Node>();
+
+        variants.forEach(variant -> {
+            ObjectNode variantNode = variant.expectObjectNode();
+            if (!variantNode.containsMember("hostname") && !variantNode.containsMember("dnsSuffix")) {
+                // Skip the empty variant which just contains tags.
+                return;
+            }
+            String hostname = variantNode.expectStringMember("hostname").getValue();
+            String dnsSuffix = variantNode.getStringMemberOrDefault("dnsSuffix", defaultDnsSuffix);
+            String resolvedHostname = getResolvedHostnameWithDnsSuffix(
+                getResolvedHostname(hostname, endpointPrefix),
+                dnsSuffix
+            );
+            serviceVariants.add(variantNode.withMember("hostname", resolvedHostname).withoutMember("dnsSuffix"));
+        });
+
+        return ArrayNode.fromNodes(serviceVariants);
     }
 
     @Override
