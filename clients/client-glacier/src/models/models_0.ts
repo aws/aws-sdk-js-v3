@@ -60,15 +60,6 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InvalidParameterValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if a required header or parameter is missing from the request.</p>
  */
@@ -89,15 +80,6 @@ export interface MissingParameterValueException extends __SmithyException, $Meta
    * <p>Returned if no authentication data is found for the request.</p>
    */
   message?: string;
-}
-
-export namespace MissingParameterValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MissingParameterValueException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -124,15 +106,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if the service cannot complete the request.</p>
  */
@@ -153,15 +126,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
    * <p>Returned if the service cannot complete the request.</p>
    */
   message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -329,15 +293,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    * <p>Returned if the request results in a vault limit or tags limit being exceeded.</p>
    */
   message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1908,15 +1863,6 @@ export interface InsufficientCapacityException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace InsufficientCapacityException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientCapacityException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if a retrieval job would exceed the current data policy's retrieval rate
  *          limit. For more information about data retrieval policies,</p>
@@ -1938,15 +1884,6 @@ export interface PolicyEnforcedException extends __SmithyException, $MetadataBea
    * <p>InitiateJob request denied by current data retrieval policy.</p>
    */
   message?: string;
-}
-
-export namespace PolicyEnforcedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyEnforcedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2772,15 +2709,6 @@ export interface RequestTimeoutException extends __SmithyException, $MetadataBea
    *          upload.</p>
    */
   message?: string;
-}
-
-export namespace RequestTimeoutException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestTimeoutException): any => ({
-    ...obj,
-  });
 }
 
 /**

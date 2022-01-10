@@ -37,15 +37,6 @@ export interface InvalidArgumentException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InvalidArgumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
  *             stream requests exceeds the maximum number allowed. </p>
@@ -57,15 +48,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    * <p>A message that provides information about the error.</p>
    */
   message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -81,15 +63,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
@@ -101,15 +74,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>A message that provides information about the error.</p>
    */
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1200,15 +1164,6 @@ export interface ExpiredIteratorException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace ExpiredIteratorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpiredIteratorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The pagination token passed to the operation is expired.</p>
  */
@@ -1216,15 +1171,6 @@ export interface ExpiredNextTokenException extends __SmithyException, $MetadataB
   name: "ExpiredNextTokenException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ExpiredNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpiredNextTokenException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1363,15 +1309,6 @@ export interface KMSAccessDeniedException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace KMSAccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSAccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the specified customer master key (CMK) isn't
  *             enabled.</p>
@@ -1383,15 +1320,6 @@ export interface KMSDisabledException extends __SmithyException, $MetadataBearer
    * <p>A message that provides information about the error.</p>
    */
   message?: string;
-}
-
-export namespace KMSDisabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSDisabledException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1409,15 +1337,6 @@ export interface KMSInvalidStateException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace KMSInvalidStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSInvalidStateException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the specified entity or resource can't be
  *             found.</p>
@@ -1431,15 +1350,6 @@ export interface KMSNotFoundException extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace KMSNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
  */
@@ -1450,15 +1360,6 @@ export interface KMSOptInRequired extends __SmithyException, $MetadataBearer {
    * <p>A message that provides information about the error.</p>
    */
   message?: string;
-}
-
-export namespace KMSOptInRequired {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSOptInRequired): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1476,15 +1377,6 @@ export interface KMSThrottlingException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace KMSThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request rate for the stream is too high, or the requested data is too large for
  *             the available throughput. Reduce the frequency or size of your requests. For more
@@ -1499,15 +1391,6 @@ export interface ProvisionedThroughputExceededException extends __SmithyExceptio
    * <p>A message that provides information about the error.</p>
    */
   message?: string;
-}
-
-export namespace ProvisionedThroughputExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedThroughputExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum ShardIteratorType {
@@ -1649,15 +1532,6 @@ export interface InternalFailureException extends __SmithyException {
   name: "InternalFailureException";
   $fault: "server";
   message?: string;
-}
-
-export namespace InternalFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
 }
 
 export enum ShardFilterType {
@@ -2148,15 +2022,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 /**

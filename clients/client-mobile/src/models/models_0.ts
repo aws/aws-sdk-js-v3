@@ -16,15 +16,6 @@ export interface AccountActionRequiredException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace AccountActionRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountActionRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             The request cannot be processed because some parameter is not valid or the project
@@ -40,15 +31,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
    *         </p>
    */
   message?: string;
-}
-
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -267,15 +249,6 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InternalFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             There are too many AWS Mobile Hub projects in the account or the account has
@@ -302,15 +275,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             No entity can be found with the specified identifier.
@@ -325,15 +289,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
    *         </p>
    */
   message?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -360,15 +315,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Too many requests have been received for this AWS account in too short a time. The
@@ -393,15 +339,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Credentials of the caller are insufficient to authorize the request.
@@ -416,15 +353,6 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
    *         </p>
    */
   message?: string;
-}
-
-export namespace UnauthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj,
-  });
 }
 
 /**

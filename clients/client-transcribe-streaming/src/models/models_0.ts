@@ -220,15 +220,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A new stream started with the same session ID. The current stream has been
  *       terminated.</p>
@@ -237,15 +228,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 export enum ContentIdentificationType {
@@ -264,15 +246,6 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
   name: "InternalFailureException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace InternalFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
 }
 
 export enum LanguageCode {
@@ -328,15 +301,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum MediaEncoding {
@@ -580,15 +544,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 /**

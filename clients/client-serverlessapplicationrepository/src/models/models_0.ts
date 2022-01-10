@@ -350,15 +350,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource already exists.</p>
  */
@@ -374,15 +365,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>The resource already exists.</p>
    */
   Message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateApplicationRequest {
@@ -653,15 +635,6 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ForbiddenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The AWS Serverless Application Repository service encountered an internal error.</p>
  */
@@ -679,15 +652,6 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace InternalServerErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The client is sending more than the allowed number of requests per unit of time.</p>
  */
@@ -703,15 +667,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
    * <p>The client is sending more than the allowed number of requests per unit of time.</p>
    */
   Message?: string;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateApplicationVersionRequest {
@@ -1099,15 +1054,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
    * <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
    */
   Message?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteApplicationRequest {

@@ -74,15 +74,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You don't have permissions to perform this action.</p>
  */
@@ -90,15 +81,6 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   name: "ForbiddenException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ForbiddenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -110,15 +92,6 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
   $fault: "server";
   $retryable: {};
   message?: string;
-}
-
-export namespace InternalServerErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -225,15 +198,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request has failed due to a temporary failure of the service.</p>
  */
@@ -242,15 +206,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   $fault: "server";
   $retryable: {};
   message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -267,15 +222,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request contains a client token that was used for a previous update resource call
  *          with different specifications. Try the request again with a new client token.</p>
@@ -284,15 +230,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 export enum EgressFilterType {
@@ -519,15 +456,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  *
  */
@@ -574,15 +502,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   name: "ResourceInUseException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7341,15 +7260,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 /**

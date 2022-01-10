@@ -402,15 +402,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
  */
@@ -418,15 +409,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -517,15 +499,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested resource is not found. Make sure that the request URI is correct.</p>
  */
@@ -533,15 +506,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -554,15 +518,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request is denied because the caller has insufficient permissions.</p>
  */
@@ -570,15 +525,6 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
   name: "UnauthorizedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace UnauthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -885,15 +831,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   $fault: "server";
   retryAfterSeconds?: string;
   message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 export enum DocumentationPartType {

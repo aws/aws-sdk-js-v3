@@ -97,15 +97,6 @@ export interface NoSuchUpload extends __SmithyException, $MetadataBearer {
   $fault: "client";
 }
 
-export namespace NoSuchUpload {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchUpload): any => ({
-    ...obj,
-  });
-}
-
 export type BucketAccelerateStatus = "Enabled" | "Suspended";
 
 /**
@@ -888,15 +879,6 @@ export interface ObjectNotInActiveTierError extends __SmithyException, $Metadata
   $fault: "client";
 }
 
-export namespace ObjectNotInActiveTierError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectNotInActiveTierError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested bucket name is not available. The bucket namespace is shared by all users
  *          of the system. Select a different name and try again.</p>
@@ -904,15 +886,6 @@ export namespace ObjectNotInActiveTierError {
 export interface BucketAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "BucketAlreadyExists";
   $fault: "client";
-}
-
-export namespace BucketAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BucketAlreadyExists): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -924,15 +897,6 @@ export namespace BucketAlreadyExists {
 export interface BucketAlreadyOwnedByYou extends __SmithyException, $MetadataBearer {
   name: "BucketAlreadyOwnedByYou";
   $fault: "client";
-}
-
-export namespace BucketAlreadyOwnedByYou {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BucketAlreadyOwnedByYou): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBucketOutput {
@@ -7647,30 +7611,12 @@ export interface InvalidObjectState extends __SmithyException, $MetadataBearer {
   AccessTier?: IntelligentTieringAccessTier | string;
 }
 
-export namespace InvalidObjectState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidObjectState): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified key does not exist.</p>
  */
 export interface NoSuchKey extends __SmithyException, $MetadataBearer {
   name: "NoSuchKey";
   $fault: "client";
-}
-
-export namespace NoSuchKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchKey): any => ({
-    ...obj,
-  });
 }
 
 export interface GetObjectAclOutput {
@@ -8300,15 +8246,6 @@ export namespace HeadBucketRequest {
 export interface NotFound extends __SmithyException, $MetadataBearer {
   name: "NotFound";
   $fault: "client";
-}
-
-export namespace NotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFound): any => ({
-    ...obj,
-  });
 }
 
 export type ArchiveStatus = "ARCHIVE_ACCESS" | "DEEP_ARCHIVE_ACCESS";
@@ -9470,15 +9407,6 @@ export namespace ListObjectsRequest {
 export interface NoSuchBucket extends __SmithyException, $MetadataBearer {
   name: "NoSuchBucket";
   $fault: "client";
-}
-
-export namespace NoSuchBucket {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchBucket): any => ({
-    ...obj,
-  });
 }
 
 export interface ListObjectsV2Output {
@@ -11735,15 +11663,6 @@ export namespace PutPublicAccessBlockRequest {
 export interface ObjectAlreadyInActiveTierError extends __SmithyException, $MetadataBearer {
   name: "ObjectAlreadyInActiveTierError";
   $fault: "client";
-}
-
-export namespace ObjectAlreadyInActiveTierError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectAlreadyInActiveTierError): any => ({
-    ...obj,
-  });
 }
 
 export interface RestoreObjectOutput {

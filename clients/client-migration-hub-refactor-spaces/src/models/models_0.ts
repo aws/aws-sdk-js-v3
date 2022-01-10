@@ -10,15 +10,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum ApiGatewayEndpointType {
   PRIVATE = "PRIVATE",
   REGIONAL = "REGIONAL",
@@ -347,15 +338,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   ResourceType: string | undefined;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateApplicationRequest {
   /**
    * <p>The name to use for the application. </p>
@@ -497,15 +479,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   Message: string | undefined;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request references a resource that does not exist. </p>
  */
@@ -522,15 +495,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The type of resource. </p>
    */
   ResourceType: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -563,15 +527,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   ServiceCode: string | undefined;
 }
 
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request was denied because the request was throttled. </p>
  */
@@ -597,15 +552,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   RetryAfterSeconds?: number;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
  */
@@ -613,15 +559,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   Message: string | undefined;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export enum NetworkFabricType {
@@ -2089,15 +2026,6 @@ export interface InvalidResourcePolicyException extends __SmithyException, $Meta
   name: "InvalidResourcePolicyException";
   $fault: "client";
   Message: string | undefined;
-}
-
-export namespace InvalidResourcePolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidResourcePolicyException): any => ({
-    ...obj,
-  });
 }
 
 /**

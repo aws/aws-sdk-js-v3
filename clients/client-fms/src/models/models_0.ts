@@ -175,15 +175,6 @@ export interface InternalErrorException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace InternalErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalErrorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The parameters of the request were invalid.</p>
  */
@@ -191,15 +182,6 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
   name: "InvalidInputException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidInputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -215,15 +197,6 @@ export interface InvalidOperationException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace InvalidOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation exceeds a resource limit, for example, the maximum number of
  *         <code>policy</code> objects that you can create for an Amazon Web Services account. For more information,
@@ -236,15 +209,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource was not found.</p>
  */
@@ -252,15 +216,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1003,15 +958,6 @@ export interface InvalidTypeException extends __SmithyException, $MetadataBearer
   name: "InvalidTypeException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTypeException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetProtectionStatusRequest {

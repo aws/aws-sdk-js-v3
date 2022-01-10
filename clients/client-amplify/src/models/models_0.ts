@@ -10,15 +10,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 export enum Stage {
   BETA = "BETA",
   DEVELOPMENT = "DEVELOPMENT",
@@ -473,15 +464,6 @@ export interface DependentServiceFailureException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace DependentServiceFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DependentServiceFailureException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The service failed to perform an operation due to an internal issue. </p>
  */
@@ -489,15 +471,6 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
   name: "InternalFailureException";
   $fault: "server";
   message?: string;
-}
-
-export namespace InternalFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -509,15 +482,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> An operation failed due to a lack of access. </p>
  */
@@ -525,15 +489,6 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
   name: "UnauthorizedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace UnauthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -643,15 +598,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2482,15 +2428,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   $fault: "client";
   code: string | undefined;
   message: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**

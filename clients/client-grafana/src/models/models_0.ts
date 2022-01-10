@@ -10,15 +10,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum AccountAccessType {
   /**
    * Indicates that the customer is using Grafana to monitor resources in their current account.
@@ -428,15 +419,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   retryAfterSeconds?: number;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request references a resource that does not exist.</p>
  */
@@ -457,15 +439,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The type of the resource that is associated with the error.</p>
    */
   resourceType: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -494,15 +467,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>The value of a parameter in the request caused an error.</p>
    */
   retryAfterSeconds?: number;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -556,15 +520,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>A list of fields that might be associated with the error.</p>
    */
   fieldList?: ValidationExceptionField[];
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeWorkspaceAuthenticationRequest {
@@ -829,15 +784,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>The type of the resource that is associated with the error.</p>
    */
   resourceType: string | undefined;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateWorkspaceAuthenticationRequest {
@@ -1327,15 +1273,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    * <p>The ID of the service quota that was exceeded.</p>
    */
   quotaCode: string | undefined;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteWorkspaceRequest {

@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum TargetType {
   ACCOUNT = "ACCOUNT",
 }
@@ -145,15 +136,6 @@ export interface DryRunOperation extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace DryRunOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DryRunOperation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Exception raised when an internal, configuration, or dependency error is
  *       encountered.</p>
@@ -162,15 +144,6 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
   name: "InternalServerError";
   $fault: "server";
   Message?: string;
-}
-
-export namespace InternalServerError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -183,15 +156,6 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace InvalidInputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Exception raised when a request fails due to temporary unavailability of the
  *       service.</p>
@@ -200,15 +164,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -222,15 +177,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>The number of seconds the caller should wait before retrying.</p>
    */
   RetryAfterSeconds?: number;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeHomeRegionControlsRequest {

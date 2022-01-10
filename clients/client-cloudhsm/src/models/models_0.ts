@@ -79,15 +79,6 @@ export interface CloudHsmInternalException extends __SmithyException, $MetadataB
   retryable?: boolean;
 }
 
-export namespace CloudHsmInternalException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudHsmInternalException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
  */
@@ -105,15 +96,6 @@ export interface CloudHsmServiceException extends __SmithyException, $MetadataBe
   retryable?: boolean;
 }
 
-export namespace CloudHsmServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudHsmServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that one or more of the request parameters are not valid.</p>
  */
@@ -129,15 +111,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
    * <p>Indicates if the action can be retried.</p>
    */
   retryable?: boolean;
-}
-
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
 }
 
 export enum ClientVersion {

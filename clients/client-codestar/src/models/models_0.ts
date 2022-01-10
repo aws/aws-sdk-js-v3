@@ -68,15 +68,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service role is not valid.</p>
  */
@@ -84,15 +75,6 @@ export interface InvalidServiceRoleException extends __SmithyException, $Metadat
   name: "InvalidServiceRoleException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidServiceRoleException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidServiceRoleException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -104,15 +86,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Project configuration information is required but not specified.</p>
  */
@@ -120,15 +93,6 @@ export interface ProjectConfigurationException extends __SmithyException, $Metad
   name: "ProjectConfigurationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ProjectConfigurationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectConfigurationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -140,15 +104,6 @@ export interface ProjectNotFoundException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace ProjectNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The team member is already associated with a role in this project.</p>
  */
@@ -158,15 +113,6 @@ export interface TeamMemberAlreadyAssociatedException extends __SmithyException,
   message?: string;
 }
 
-export namespace TeamMemberAlreadyAssociatedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TeamMemberAlreadyAssociatedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified input is either not valid, or it could not be validated.</p>
  */
@@ -174,15 +120,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -513,15 +450,6 @@ export interface ProjectAlreadyExistsException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace ProjectAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The project creation request was valid, but a nonspecific exception or error occurred
  *       during project creation. The project could not be created in AWS CodeStar.</p>
@@ -530,15 +458,6 @@ export interface ProjectCreationFailedException extends __SmithyException, $Meta
   name: "ProjectCreationFailedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ProjectCreationFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectCreationFailedException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateUserProfileRequest {
@@ -630,15 +549,6 @@ export interface UserProfileAlreadyExistsException extends __SmithyException, $M
   name: "UserProfileAlreadyExistsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace UserProfileAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserProfileAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteProjectRequest {
@@ -907,15 +817,6 @@ export interface UserProfileNotFoundException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace UserProfileNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserProfileNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateTeamMemberRequest {
   /**
    * <p>The ID of the AWS CodeStar project from which you want to remove a team member.</p>
@@ -956,15 +857,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   name: "InvalidNextTokenException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListProjectsRequest {
@@ -1438,15 +1330,6 @@ export interface TeamMemberNotFoundException extends __SmithyException, $Metadat
   name: "TeamMemberNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TeamMemberNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TeamMemberNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateTeamMemberRequest {

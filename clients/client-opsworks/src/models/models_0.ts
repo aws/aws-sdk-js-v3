@@ -340,15 +340,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that a request was not valid.</p>
  */
@@ -359,15 +350,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>The exception message.</p>
    */
   message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssignVolumeRequest {

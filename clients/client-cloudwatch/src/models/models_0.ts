@@ -624,15 +624,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a specific dashboard.</p>
  */
@@ -702,15 +693,6 @@ export interface DashboardInvalidInputError extends __SmithyException, $Metadata
   dashboardValidationMessages?: DashboardValidationMessage[];
 }
 
-export namespace DashboardInvalidInputError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashboardInvalidInputError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified dashboard does not exist.</p>
  */
@@ -718,15 +700,6 @@ export interface DashboardNotFoundError extends __SmithyException, $MetadataBear
   name: "DashboardNotFoundError";
   $fault: "client";
   message?: string;
-}
-
-export namespace DashboardNotFoundError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashboardNotFoundError): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -810,15 +783,6 @@ export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
    * <p></p>
    */
   message?: string;
-}
-
-export namespace ResourceNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFound): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAnomalyDetectorInput {
@@ -954,15 +918,6 @@ export interface InternalServiceFault extends __SmithyException, $MetadataBearer
   Message?: string;
 }
 
-export namespace InternalServiceFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Parameters were used together that cannot be used together.</p>
  */
@@ -973,15 +928,6 @@ export interface InvalidParameterCombinationException extends __SmithyException,
    * <p></p>
    */
   message?: string;
-}
-
-export namespace InvalidParameterCombinationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -996,15 +942,6 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InvalidParameterValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An input parameter that is required is missing.</p>
  */
@@ -1017,15 +954,6 @@ export interface MissingRequiredParameterException extends __SmithyException, $M
   message?: string;
 }
 
-export namespace MissingRequiredParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MissingRequiredParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The named resource does not exist.</p>
  */
@@ -1035,15 +963,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   ResourceType?: string;
   ResourceId?: string;
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDashboardsInput {
@@ -1222,15 +1141,6 @@ export interface InvalidNextToken extends __SmithyException, $MetadataBearer {
    * <p></p>
    */
   message?: string;
-}
-
-export namespace InvalidNextToken {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextToken): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAlarmsInput {
@@ -1871,15 +1781,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDashboardInput {
@@ -3164,15 +3065,6 @@ export interface LimitExceededFault extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace LimitExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededFault): any => ({
-    ...obj,
-  });
-}
-
 export interface PutCompositeAlarmInput {
   /**
    * <p>Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. The default is
@@ -3914,15 +3806,6 @@ export interface InvalidFormatFault extends __SmithyException, $MetadataBearer {
    * <p></p>
    */
   message?: string;
-}
-
-export namespace InvalidFormatFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidFormatFault): any => ({
-    ...obj,
-  });
 }
 
 export interface SetAlarmStateInput {

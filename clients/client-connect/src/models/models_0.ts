@@ -10,15 +10,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the agent who accepted the contact.</p>
  */
@@ -175,15 +166,6 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InternalServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more of the specified parameters are not valid.</p>
  */
@@ -194,15 +176,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
    * <p>The message about the parameters.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -217,15 +190,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A resource already has that name.</p>
  */
@@ -233,15 +197,6 @@ export interface ResourceConflictException extends __SmithyException, $MetadataB
   name: "ResourceConflictException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -256,15 +211,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service quota has been exceeded.</p>
  */
@@ -274,15 +220,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The throttling limit has been exceeded.</p>
  */
@@ -290,15 +227,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   name: "ThrottlingException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -380,15 +308,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    * <p>The message about the limit.</p>
    */
   Message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum InstanceStorageResourceType {
@@ -891,15 +810,6 @@ export interface DuplicateResourceException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace DuplicateResourceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateResourceException): any => ({
-    ...obj,
-  });
-}
-
 export enum ContactFlowType {
   AGENT_HOLD = "AGENT_HOLD",
   AGENT_TRANSFER = "AGENT_TRANSFER",
@@ -1006,15 +916,6 @@ export interface InvalidContactFlowException extends __SmithyException, $Metadat
   problems?: ProblemDetail[];
 }
 
-export namespace InvalidContactFlowException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidContactFlowException): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateContactFlowModuleRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -1087,15 +988,6 @@ export interface IdempotencyException extends __SmithyException, $MetadataBearer
   Message?: string;
 }
 
-export namespace IdempotencyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdempotencyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The problems with the module. Please fix before trying again.</p>
  */
@@ -1103,15 +995,6 @@ export interface InvalidContactFlowModuleException extends __SmithyException, $M
   name: "InvalidContactFlowModuleException";
   $fault: "client";
   Problems?: ProblemDetail[];
-}
-
-export namespace InvalidContactFlowModuleException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidContactFlowModuleException): any => ({
-    ...obj,
-  });
 }
 
 export enum HoursOfOperationDays {
@@ -2260,15 +2143,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   ResourceId?: string;
 }
 
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteUseCaseRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -2538,15 +2412,6 @@ export interface ContactFlowNotPublishedException extends __SmithyException, $Me
   name: "ContactFlowNotPublishedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ContactFlowNotPublishedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContactFlowNotPublishedException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeContactFlowRequest {
@@ -4427,15 +4292,6 @@ export interface UserNotFoundException extends __SmithyException, $MetadataBeare
   name: "UserNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UserNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export enum HistoricalMetricName {
@@ -7441,15 +7297,6 @@ export interface DestinationNotAllowedException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace DestinationNotAllowedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationNotAllowedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The contact is not permitted.</p>
  */
@@ -7460,15 +7307,6 @@ export interface OutboundContactNotPermittedException extends __SmithyException,
    * <p>The message about the contact.</p>
    */
   Message?: string;
-}
-
-export namespace OutboundContactNotPermittedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutboundContactNotPermittedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7717,15 +7555,6 @@ export interface ContactNotFoundException extends __SmithyException, $MetadataBe
    * <p>The message.</p>
    */
   Message?: string;
-}
-
-export namespace ContactNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContactNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface StopContactRequest {

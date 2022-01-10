@@ -4181,15 +4181,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The service couldn't complete your request because there is a conflict with the current state of the resource.
  */
@@ -4197,15 +4188,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4217,15 +4199,6 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ForbiddenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The service encountered an unexpected condition and can't fulfill your request.
  */
@@ -4233,15 +4206,6 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
   name: "InternalServerErrorException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace InternalServerErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4253,15 +4217,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
  */
@@ -4269,15 +4224,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 export interface CancelJobRequest {

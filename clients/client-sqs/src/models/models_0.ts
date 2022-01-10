@@ -52,15 +52,6 @@ export interface OverLimit extends __SmithyException, $MetadataBearer {
   $fault: "client";
 }
 
-export namespace OverLimit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OverLimit): any => ({
-    ...obj,
-  });
-}
-
 export interface ChangeMessageVisibilityRequest {
   /**
    * <p>The URL of the Amazon SQS queue whose message's visibility is changed.</p>
@@ -98,15 +89,6 @@ export interface MessageNotInflight extends __SmithyException, $MetadataBearer {
   $fault: "client";
 }
 
-export namespace MessageNotInflight {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageNotInflight): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified receipt handle isn't valid.</p>
  */
@@ -115,30 +97,12 @@ export interface ReceiptHandleIsInvalid extends __SmithyException, $MetadataBear
   $fault: "client";
 }
 
-export namespace ReceiptHandleIsInvalid {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReceiptHandleIsInvalid): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
  */
 export interface BatchEntryIdsNotDistinct extends __SmithyException, $MetadataBearer {
   name: "BatchEntryIdsNotDistinct";
   $fault: "client";
-}
-
-export namespace BatchEntryIdsNotDistinct {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchEntryIdsNotDistinct): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -309,15 +273,6 @@ export interface EmptyBatchRequest extends __SmithyException, $MetadataBearer {
   $fault: "client";
 }
 
-export namespace EmptyBatchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmptyBatchRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
  */
@@ -326,30 +281,12 @@ export interface InvalidBatchEntryId extends __SmithyException, $MetadataBearer 
   $fault: "client";
 }
 
-export namespace InvalidBatchEntryId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidBatchEntryId): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The batch request contains more entries than permissible.</p>
  */
 export interface TooManyEntriesInBatchRequest extends __SmithyException, $MetadataBearer {
   name: "TooManyEntriesInBatchRequest";
   $fault: "client";
-}
-
-export namespace TooManyEntriesInBatchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyEntriesInBatchRequest): any => ({
-    ...obj,
-  });
 }
 
 export type QueueAttributeName =
@@ -634,15 +571,6 @@ export interface QueueDeletedRecently extends __SmithyException, $MetadataBearer
   $fault: "client";
 }
 
-export namespace QueueDeletedRecently {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueueDeletedRecently): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A queue with this name already exists. Amazon SQS returns this error only if the request
  *             includes attributes whose values differ from those of the existing queue.</p>
@@ -650,15 +578,6 @@ export namespace QueueDeletedRecently {
 export interface QueueNameExists extends __SmithyException, $MetadataBearer {
   name: "QueueNameExists";
   $fault: "client";
-}
-
-export namespace QueueNameExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueueNameExists): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -692,15 +611,6 @@ export namespace DeleteMessageRequest {
 export interface InvalidIdFormat extends __SmithyException, $MetadataBearer {
   name: "InvalidIdFormat";
   $fault: "client";
-}
-
-export namespace InvalidIdFormat {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidIdFormat): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1050,15 +960,6 @@ export interface InvalidAttributeName extends __SmithyException, $MetadataBearer
   $fault: "client";
 }
 
-export namespace InvalidAttributeName {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidAttributeName): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1109,15 +1010,6 @@ export namespace GetQueueUrlResult {
 export interface QueueDoesNotExist extends __SmithyException, $MetadataBearer {
   name: "QueueDoesNotExist";
   $fault: "client";
-}
-
-export namespace QueueDoesNotExist {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueueDoesNotExist): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1270,15 +1162,6 @@ export namespace ListQueueTagsResult {
 export interface PurgeQueueInProgress extends __SmithyException, $MetadataBearer {
   name: "PurgeQueueInProgress";
   $fault: "client";
-}
-
-export namespace PurgeQueueInProgress {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PurgeQueueInProgress): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1685,15 +1568,6 @@ export interface InvalidMessageContents extends __SmithyException, $MetadataBear
   $fault: "client";
 }
 
-export namespace InvalidMessageContents {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidMessageContents): any => ({
-    ...obj,
-  });
-}
-
 export type MessageSystemAttributeNameForSends = "AWSTraceHeader";
 
 /**
@@ -1941,30 +1815,12 @@ export interface UnsupportedOperation extends __SmithyException, $MetadataBearer
   $fault: "client";
 }
 
-export namespace UnsupportedOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedOperation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The length of all the messages put together is more than the limit.</p>
  */
 export interface BatchRequestTooLong extends __SmithyException, $MetadataBearer {
   name: "BatchRequestTooLong";
   $fault: "client";
-}
-
-export namespace BatchRequestTooLong {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchRequestTooLong): any => ({
-    ...obj,
-  });
 }
 
 /**

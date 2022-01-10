@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum ApplicationStatus {
   COMPLETED = "COMPLETED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -137,15 +128,6 @@ export interface DryRunOperation extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace DryRunOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DryRunOperation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The home region is not set. Set the home region to continue.</p>
  */
@@ -153,15 +135,6 @@ export interface HomeRegionNotSetException extends __SmithyException, $MetadataB
   name: "HomeRegionNotSetException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace HomeRegionNotSetException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HomeRegionNotSetException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -174,15 +147,6 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace InternalServerError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Exception raised when the provided input violates a policy constraint or is entered in
  *          the wrong format or data type.</p>
@@ -191,15 +155,6 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
   name: "InvalidInputException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidInputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -213,15 +168,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Exception raised when there is an internal, configuration, or dependency error
  *          encountered.</p>
@@ -230,15 +176,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -258,15 +195,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   RetryAfterSeconds?: number;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
@@ -275,15 +203,6 @@ export interface UnauthorizedOperation extends __SmithyException, $MetadataBeare
   name: "UnauthorizedOperation";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnauthorizedOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedOperation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -366,15 +285,6 @@ export interface PolicyErrorException extends __SmithyException, $MetadataBearer
   name: "PolicyErrorException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace PolicyErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyErrorException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateProgressUpdateStreamRequest {

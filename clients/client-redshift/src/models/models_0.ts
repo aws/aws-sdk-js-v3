@@ -181,15 +181,6 @@ export interface DependentServiceUnavailableFault extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace DependentServiceUnavailableFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DependentServiceUnavailableFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>
  */
@@ -197,15 +188,6 @@ export interface InvalidReservedNodeStateFault extends __SmithyException, $Metad
   name: "InvalidReservedNodeStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidReservedNodeStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidReservedNodeStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -217,15 +199,6 @@ export interface ReservedNodeAlreadyExistsFault extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace ReservedNodeAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedNodeAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the reserved node has already been exchanged.</p>
  */
@@ -233,15 +206,6 @@ export interface ReservedNodeAlreadyMigratedFault extends __SmithyException, $Me
   name: "ReservedNodeAlreadyMigratedFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ReservedNodeAlreadyMigratedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedNodeAlreadyMigratedFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -253,15 +217,6 @@ export interface ReservedNodeNotFoundFault extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ReservedNodeNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedNodeNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specified offering does not exist.</p>
  */
@@ -269,15 +224,6 @@ export interface ReservedNodeOfferingNotFoundFault extends __SmithyException, $M
   name: "ReservedNodeOfferingNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ReservedNodeOfferingNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedNodeOfferingNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -289,15 +235,6 @@ export interface UnsupportedOperationFault extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace UnsupportedOperationFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedOperationFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You are not authorized to access the cluster.</p>
  */
@@ -305,15 +242,6 @@ export interface AccessToClusterDeniedFault extends __SmithyException, $Metadata
   name: "AccessToClusterDeniedFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace AccessToClusterDeniedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessToClusterDeniedFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -324,15 +252,6 @@ export interface AccessToSnapshotDeniedFault extends __SmithyException, $Metadat
   name: "AccessToSnapshotDeniedFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace AccessToSnapshotDeniedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessToSnapshotDeniedFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -436,15 +355,6 @@ export interface ClusterNotFoundFault extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace ClusterNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 export interface PartnerIntegrationInputMessage {
   /**
    * <p>The Amazon Web Services account ID that owns the cluster.</p>
@@ -506,15 +416,6 @@ export interface PartnerNotFoundFault extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace PartnerNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PartnerNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The partner integration is not authorized.</p>
  */
@@ -522,15 +423,6 @@ export interface UnauthorizedPartnerIntegrationFault extends __SmithyException, 
   name: "UnauthorizedPartnerIntegrationFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace UnauthorizedPartnerIntegrationFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedPartnerIntegrationFault): any => ({
-    ...obj,
-  });
 }
 
 export enum AquaConfigurationStatus {
@@ -708,15 +600,6 @@ export interface InvalidDataShareFault extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace InvalidDataShareFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDataShareFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
  */
@@ -724,15 +607,6 @@ export interface InvalidNamespaceFault extends __SmithyException, $MetadataBeare
   name: "InvalidNamespaceFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidNamespaceFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNamespaceFault): any => ({
-    ...obj,
-  });
 }
 
 export type ScheduleState = "ACTIVE" | "FAILED" | "MODIFYING";
@@ -795,15 +669,6 @@ export interface AuthenticationProfileAlreadyExistsFault extends __SmithyExcepti
   message?: string;
 }
 
-export namespace AuthenticationProfileAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthenticationProfileAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The authentication profile can't be found.</p>
  */
@@ -811,15 +676,6 @@ export interface AuthenticationProfileNotFoundFault extends __SmithyException, $
   name: "AuthenticationProfileNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace AuthenticationProfileNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthenticationProfileNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -832,15 +688,6 @@ export interface AuthenticationProfileQuotaExceededFault extends __SmithyExcepti
   message?: string;
 }
 
-export namespace AuthenticationProfileQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthenticationProfileQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified CIDR block or EC2 security group is already authorized for the
  *             specified cluster security group.</p>
@@ -849,15 +696,6 @@ export interface AuthorizationAlreadyExistsFault extends __SmithyException, $Met
   name: "AuthorizationAlreadyExistsFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace AuthorizationAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizationAlreadyExistsFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -870,15 +708,6 @@ export interface AuthorizationNotFoundFault extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace AuthorizationNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizationNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The authorization quota for the cluster security group has been reached.</p>
  */
@@ -886,15 +715,6 @@ export interface AuthorizationQuotaExceededFault extends __SmithyException, $Met
   name: "AuthorizationQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace AuthorizationQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizationQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 export enum AuthorizationStatus {
@@ -1096,15 +916,6 @@ export interface ClusterSecurityGroupNotFoundFault extends __SmithyException, $M
   message?: string;
 }
 
-export namespace ClusterSecurityGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterSecurityGroupNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The state of the cluster security group is not <code>available</code>. </p>
  */
@@ -1112,15 +923,6 @@ export interface InvalidClusterSecurityGroupStateFault extends __SmithyException
   name: "InvalidClusterSecurityGroupStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidClusterSecurityGroupStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidClusterSecurityGroupStateFault): any => ({
-    ...obj,
-  });
 }
 
 export interface AuthorizeDataShareMessage {
@@ -1239,15 +1041,6 @@ export interface EndpointAuthorizationAlreadyExistsFault extends __SmithyExcepti
   message?: string;
 }
 
-export namespace EndpointAuthorizationAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointAuthorizationAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of endpoint authorizations per cluster has exceeded its limit.</p>
  */
@@ -1255,15 +1048,6 @@ export interface EndpointAuthorizationsPerClusterLimitExceededFault extends __Sm
   name: "EndpointAuthorizationsPerClusterLimitExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace EndpointAuthorizationsPerClusterLimitExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointAuthorizationsPerClusterLimitExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1275,15 +1059,6 @@ export interface InvalidAuthorizationStateFault extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InvalidAuthorizationStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidAuthorizationStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified cluster is not in the <code>available</code> state. </p>
  */
@@ -1291,15 +1066,6 @@ export interface InvalidClusterStateFault extends __SmithyException, $MetadataBe
   name: "InvalidClusterStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidClusterStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidClusterStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1583,15 +1349,6 @@ export interface ClusterSnapshotNotFoundFault extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace ClusterSnapshotNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterSnapshotNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request cannot be completed because a dependent service is throttling requests
  *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
@@ -1600,15 +1357,6 @@ export interface DependentServiceRequestThrottlingFault extends __SmithyExceptio
   name: "DependentServiceRequestThrottlingFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DependentServiceRequestThrottlingFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DependentServiceRequestThrottlingFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1621,15 +1369,6 @@ export interface InvalidClusterSnapshotStateFault extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace InvalidClusterSnapshotStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidClusterSnapshotStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
  */
@@ -1637,15 +1376,6 @@ export interface LimitExceededFault extends __SmithyException, $MetadataBearer {
   name: "LimitExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace LimitExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1802,15 +1532,6 @@ export interface BatchDeleteRequestSizeExceededFault extends __SmithyException, 
   message?: string;
 }
 
-export namespace BatchDeleteRequestSizeExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteRequestSizeExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The maximum number for snapshot identifiers has been reached. The limit is 100.
  *         </p>
@@ -1819,15 +1540,6 @@ export interface BatchModifyClusterSnapshotsLimitExceededFault extends __SmithyE
   name: "BatchModifyClusterSnapshotsLimitExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace BatchModifyClusterSnapshotsLimitExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchModifyClusterSnapshotsLimitExceededFault): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchModifyClusterSnapshotsMessage {
@@ -1893,15 +1605,6 @@ export interface InvalidRetentionPeriodFault extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace InvalidRetentionPeriodFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRetentionPeriodFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Could not find the specified S3 bucket.</p>
  */
@@ -1909,15 +1612,6 @@ export interface BucketNotFoundFault extends __SmithyException, $MetadataBearer 
   name: "BucketNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace BucketNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BucketNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 export interface CancelResizeMessage {
@@ -1944,15 +1638,6 @@ export interface ResizeNotFoundFault extends __SmithyException, $MetadataBearer 
   name: "ResizeNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResizeNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResizeNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3243,15 +2928,6 @@ export interface ClusterAlreadyExistsFault extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ClusterAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Temporary credentials with authorization to log on to an Amazon Redshift database.
  *         </p>
@@ -3388,15 +3064,6 @@ export interface ClusterOnLatestRevisionFault extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace ClusterOnLatestRevisionFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterOnLatestRevisionFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a parameter group.</p>
  */
@@ -3439,15 +3106,6 @@ export interface ClusterParameterGroupAlreadyExistsFault extends __SmithyExcepti
   name: "ClusterParameterGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ClusterParameterGroupAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterParameterGroupAlreadyExistsFault): any => ({
-    ...obj,
-  });
 }
 
 export type ParameterApplyType = "dynamic" | "static";
@@ -3583,15 +3241,6 @@ export interface ClusterParameterGroupNotFoundFault extends __SmithyException, $
   message?: string;
 }
 
-export namespace ClusterParameterGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterParameterGroupNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request would result in the user exceeding the allowed number of cluster
  *             parameter groups.
@@ -3603,15 +3252,6 @@ export interface ClusterParameterGroupQuotaExceededFault extends __SmithyExcepti
   name: "ClusterParameterGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ClusterParameterGroupQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterParameterGroupQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3657,15 +3297,6 @@ export interface ClusterQuotaExceededFault extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ClusterQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A cluster security group with the same name already exists.</p>
  */
@@ -3673,15 +3304,6 @@ export interface ClusterSecurityGroupAlreadyExistsFault extends __SmithyExceptio
   name: "ClusterSecurityGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ClusterSecurityGroupAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterSecurityGroupAlreadyExistsFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3725,15 +3347,6 @@ export interface ClusterSecurityGroupQuotaExceededFault extends __SmithyExceptio
   message?: string;
 }
 
-export namespace ClusterSecurityGroupQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterSecurityGroupQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output from the <a>DescribeClusters</a> action. </p>
  */
@@ -3773,15 +3386,6 @@ export interface ClusterSnapshotAlreadyExistsFault extends __SmithyException, $M
   message?: string;
 }
 
-export namespace ClusterSnapshotAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterSnapshotAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request would result in the user exceeding the allowed number of cluster
  *             snapshots.</p>
@@ -3790,15 +3394,6 @@ export interface ClusterSnapshotQuotaExceededFault extends __SmithyException, $M
   name: "ClusterSnapshotQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ClusterSnapshotQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterSnapshotQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3885,15 +3480,6 @@ export interface ClusterSubnetGroupAlreadyExistsFault extends __SmithyException,
   message?: string;
 }
 
-export namespace ClusterSubnetGroupAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterSubnetGroupAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output from the <a>DescribeClusterSubnetGroups</a> action.
  *         </p>
@@ -3933,15 +3519,6 @@ export interface ClusterSubnetGroupNotFoundFault extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace ClusterSubnetGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterSubnetGroupNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request would result in user exceeding the allowed number of cluster subnet
  *             groups.
@@ -3955,15 +3532,6 @@ export interface ClusterSubnetGroupQuotaExceededFault extends __SmithyException,
   message?: string;
 }
 
-export namespace ClusterSubnetGroupQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterSubnetGroupQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request would result in user exceeding the allowed number of subnets in a
  *             cluster subnet groups.
@@ -3975,15 +3543,6 @@ export interface ClusterSubnetQuotaExceededFault extends __SmithyException, $Met
   name: "ClusterSubnetQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ClusterSubnetQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterSubnetQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4141,15 +3700,6 @@ export interface CopyToRegionDisabledFault extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace CopyToRegionDisabledFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyToRegionDisabledFault): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAuthenticationProfileMessage {
   /**
    * <p>The name of the authentication profile to be created.</p>
@@ -4201,15 +3751,6 @@ export interface InvalidAuthenticationProfileRequestFault extends __SmithyExcept
   name: "InvalidAuthenticationProfileRequestFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidAuthenticationProfileRequestFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidAuthenticationProfileRequestFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4625,15 +4166,6 @@ export interface HsmClientCertificateNotFoundFault extends __SmithyException, $M
   message?: string;
 }
 
-export namespace HsmClientCertificateNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HsmClientCertificateNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
  */
@@ -4641,15 +4173,6 @@ export interface HsmConfigurationNotFoundFault extends __SmithyException, $Metad
   name: "HsmConfigurationNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace HsmConfigurationNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HsmConfigurationNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4662,15 +4185,6 @@ export interface InsufficientClusterCapacityFault extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace InsufficientClusterCapacityFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientClusterCapacityFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The cluster subnet group cannot be deleted because it is in use.</p>
  */
@@ -4678,15 +4192,6 @@ export interface InvalidClusterSubnetGroupStateFault extends __SmithyException, 
   name: "InvalidClusterSubnetGroupStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidClusterSubnetGroupStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidClusterSubnetGroupStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4698,15 +4203,6 @@ export interface InvalidClusterTrackFault extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InvalidClusterTrackFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidClusterTrackFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Elastic IP (EIP) is invalid or cannot be found.</p>
  */
@@ -4714,15 +4210,6 @@ export interface InvalidElasticIpFault extends __SmithyException, $MetadataBeare
   name: "InvalidElasticIpFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidElasticIpFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidElasticIpFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4735,15 +4222,6 @@ export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace InvalidSubnet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The tag is invalid.</p>
  */
@@ -4751,15 +4229,6 @@ export interface InvalidTagFault extends __SmithyException, $MetadataBearer {
   name: "InvalidTagFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidTagFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTagFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4771,15 +4240,6 @@ export interface InvalidVPCNetworkStateFault extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace InvalidVPCNetworkStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidVPCNetworkStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation would exceed the number of nodes allowed for a cluster.</p>
  */
@@ -4787,15 +4247,6 @@ export interface NumberOfNodesPerClusterLimitExceededFault extends __SmithyExcep
   name: "NumberOfNodesPerClusterLimitExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace NumberOfNodesPerClusterLimitExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NumberOfNodesPerClusterLimitExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4811,15 +4262,6 @@ export interface NumberOfNodesQuotaExceededFault extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace NumberOfNodesQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NumberOfNodesQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>We could not find the specified snapshot schedule. </p>
  */
@@ -4827,15 +4269,6 @@ export interface SnapshotScheduleNotFoundFault extends __SmithyException, $Metad
   name: "SnapshotScheduleNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SnapshotScheduleNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotScheduleNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4847,15 +4280,6 @@ export interface TagLimitExceededFault extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace TagLimitExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagLimitExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Your account is not authorized to perform the requested operation.</p>
  */
@@ -4863,15 +4287,6 @@ export interface UnauthorizedOperation extends __SmithyException, $MetadataBeare
   name: "UnauthorizedOperation";
   $fault: "client";
   message?: string;
-}
-
-export namespace UnauthorizedOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedOperation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5260,15 +4675,6 @@ export interface EndpointAlreadyExistsFault extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace EndpointAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of Redshift-managed VPC endpoints per authorization has exceeded its limit.</p>
  */
@@ -5278,15 +4684,6 @@ export interface EndpointsPerAuthorizationLimitExceededFault extends __SmithyExc
   message?: string;
 }
 
-export namespace EndpointsPerAuthorizationLimitExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointsPerAuthorizationLimitExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of Redshift-managed VPC endpoints per cluster has exceeded its limit.</p>
  */
@@ -5294,15 +4691,6 @@ export interface EndpointsPerClusterLimitExceededFault extends __SmithyException
   name: "EndpointsPerClusterLimitExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace EndpointsPerClusterLimitExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointsPerClusterLimitExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5512,15 +4900,6 @@ export interface EventSubscriptionQuotaExceededFault extends __SmithyException, 
   message?: string;
 }
 
-export namespace EventSubscriptionQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventSubscriptionQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Amazon SNS has responded that there is a problem with the specified Amazon SNS
  *             topic.</p>
@@ -5531,15 +4910,6 @@ export interface SNSInvalidTopicFault extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace SNSInvalidTopicFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNSInvalidTopicFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You do not have permission to publish to the specified Amazon SNS topic.</p>
  */
@@ -5547,15 +4917,6 @@ export interface SNSNoAuthorizationFault extends __SmithyException, $MetadataBea
   name: "SNSNoAuthorizationFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SNSNoAuthorizationFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNSNoAuthorizationFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5568,15 +4929,6 @@ export interface SNSTopicArnNotFoundFault extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace SNSTopicArnNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNSTopicArnNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified Amazon Redshift event source could not be found.</p>
  */
@@ -5584,15 +4936,6 @@ export interface SourceNotFoundFault extends __SmithyException, $MetadataBearer 
   name: "SourceNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SourceNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5603,15 +4946,6 @@ export interface SubscriptionAlreadyExistFault extends __SmithyException, $Metad
   name: "SubscriptionAlreadyExistFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SubscriptionAlreadyExistFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscriptionAlreadyExistFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5625,15 +4959,6 @@ export interface SubscriptionCategoryNotFoundFault extends __SmithyException, $M
   message?: string;
 }
 
-export namespace SubscriptionCategoryNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscriptionCategoryNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An Amazon Redshift event with the specified event ID does not exist.</p>
  */
@@ -5641,15 +4966,6 @@ export interface SubscriptionEventIdNotFoundFault extends __SmithyException, $Me
   name: "SubscriptionEventIdNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SubscriptionEventIdNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscriptionEventIdNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5661,15 +4977,6 @@ export interface SubscriptionSeverityNotFoundFault extends __SmithyException, $M
   name: "SubscriptionSeverityNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SubscriptionSeverityNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscriptionSeverityNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5757,15 +5064,6 @@ export interface HsmClientCertificateAlreadyExistsFault extends __SmithyExceptio
   message?: string;
 }
 
-export namespace HsmClientCertificateAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HsmClientCertificateAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The quota for HSM client certificates has been reached.
  * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
@@ -5776,15 +5074,6 @@ export interface HsmClientCertificateQuotaExceededFault extends __SmithyExceptio
   name: "HsmClientCertificateQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace HsmClientCertificateQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HsmClientCertificateQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5908,15 +5197,6 @@ export interface HsmConfigurationAlreadyExistsFault extends __SmithyException, $
   message?: string;
 }
 
-export namespace HsmConfigurationAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HsmConfigurationAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The quota for HSM configurations has been reached.
  * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
@@ -5927,15 +5207,6 @@ export interface HsmConfigurationQuotaExceededFault extends __SmithyException, $
   name: "HsmConfigurationQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace HsmConfigurationQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HsmConfigurationQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6125,15 +5396,6 @@ export interface InvalidScheduledActionFault extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace InvalidScheduledActionFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidScheduledActionFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The schedule you submitted isn't valid.</p>
  */
@@ -6141,15 +5403,6 @@ export interface InvalidScheduleFault extends __SmithyException, $MetadataBearer
   name: "InvalidScheduleFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidScheduleFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidScheduleFault): any => ({
-    ...obj,
-  });
 }
 
 export enum ScheduledActionState {
@@ -6240,15 +5493,6 @@ export interface ScheduledActionAlreadyExistsFault extends __SmithyException, $M
   message?: string;
 }
 
-export namespace ScheduledActionAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledActionAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The quota for scheduled actions exceeded. </p>
  */
@@ -6258,15 +5502,6 @@ export interface ScheduledActionQuotaExceededFault extends __SmithyException, $M
   message?: string;
 }
 
-export namespace ScheduledActionQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledActionQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The action type specified for a scheduled action is not supported. </p>
  */
@@ -6274,15 +5509,6 @@ export interface ScheduledActionTypeUnsupportedFault extends __SmithyException, 
   name: "ScheduledActionTypeUnsupportedFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ScheduledActionTypeUnsupportedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledActionTypeUnsupportedFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6404,15 +5630,6 @@ export interface SnapshotCopyGrantAlreadyExistsFault extends __SmithyException, 
   message?: string;
 }
 
-export namespace SnapshotCopyGrantAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotCopyGrantAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Amazon Web Services account has exceeded the maximum number of snapshot copy grants in this
  *             region.</p>
@@ -6421,15 +5638,6 @@ export interface SnapshotCopyGrantQuotaExceededFault extends __SmithyException, 
   name: "SnapshotCopyGrantQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SnapshotCopyGrantQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotCopyGrantQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSnapshotScheduleMessage {
@@ -6482,15 +5690,6 @@ export interface ScheduleDefinitionTypeUnsupportedFault extends __SmithyExceptio
   name: "ScheduleDefinitionTypeUnsupportedFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ScheduleDefinitionTypeUnsupportedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduleDefinitionTypeUnsupportedFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6552,15 +5751,6 @@ export interface SnapshotScheduleAlreadyExistsFault extends __SmithyException, $
   message?: string;
 }
 
-export namespace SnapshotScheduleAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotScheduleAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have exceeded the quota of snapshot schedules. </p>
  */
@@ -6568,15 +5758,6 @@ export interface SnapshotScheduleQuotaExceededFault extends __SmithyException, $
   name: "SnapshotScheduleQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SnapshotScheduleQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotScheduleQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6616,15 +5797,6 @@ export interface ResourceNotFoundFault extends __SmithyException, $MetadataBeare
   name: "ResourceNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 export enum UsageLimitBreachAction {
@@ -6711,15 +5883,6 @@ export interface InvalidUsageLimitFault extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace InvalidUsageLimitFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidUsageLimitFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a usage limit object for a cluster. </p>
  */
@@ -6795,15 +5958,6 @@ export interface UsageLimitAlreadyExistsFault extends __SmithyException, $Metada
   name: "UsageLimitAlreadyExistsFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace UsageLimitAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UsageLimitAlreadyExistsFault): any => ({
-    ...obj,
-  });
 }
 
 export interface CustomerStorageMessage {
@@ -7059,15 +6213,6 @@ export interface InvalidClusterParameterGroupStateFault extends __SmithyExceptio
   message?: string;
 }
 
-export namespace InvalidClusterParameterGroupStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidClusterParameterGroupStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -7131,15 +6276,6 @@ export interface InvalidClusterSubnetStateFault extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InvalidClusterSubnetStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidClusterSubnetStateFault): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEndpointAccessMessage {
   /**
    * <p>The Redshift-managed VPC endpoint to delete.</p>
@@ -7165,15 +6301,6 @@ export interface EndpointNotFoundFault extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace EndpointNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The status of the endpoint is not valid.</p>
  */
@@ -7181,15 +6308,6 @@ export interface InvalidEndpointStateFault extends __SmithyException, $MetadataB
   name: "InvalidEndpointStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidEndpointStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEndpointStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7221,15 +6339,6 @@ export interface InvalidSubscriptionStateFault extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace InvalidSubscriptionStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSubscriptionStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An Amazon Redshift event notification subscription with the specified name does not
  *             exist.</p>
@@ -7238,15 +6347,6 @@ export interface SubscriptionNotFoundFault extends __SmithyException, $MetadataB
   name: "SubscriptionNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SubscriptionNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscriptionNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7278,15 +6378,6 @@ export interface InvalidHsmClientCertificateStateFault extends __SmithyException
   message?: string;
 }
 
-export namespace InvalidHsmClientCertificateStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidHsmClientCertificateStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -7316,15 +6407,6 @@ export interface InvalidHsmConfigurationStateFault extends __SmithyException, $M
   message?: string;
 }
 
-export namespace InvalidHsmConfigurationStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidHsmConfigurationStateFault): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteScheduledActionMessage {
   /**
    * <p>The name of the scheduled action to delete. </p>
@@ -7348,15 +6430,6 @@ export interface ScheduledActionNotFoundFault extends __SmithyException, $Metada
   name: "ScheduledActionNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ScheduledActionNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledActionNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7388,15 +6461,6 @@ export interface InvalidSnapshotCopyGrantStateFault extends __SmithyException, $
   message?: string;
 }
 
-export namespace InvalidSnapshotCopyGrantStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSnapshotCopyGrantStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
  *             correctly and that the grant exists in the destination region.</p>
@@ -7405,15 +6469,6 @@ export interface SnapshotCopyGrantNotFoundFault extends __SmithyException, $Meta
   name: "SnapshotCopyGrantNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SnapshotCopyGrantNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotCopyGrantNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteSnapshotScheduleMessage {
@@ -7439,15 +6494,6 @@ export interface InvalidClusterSnapshotScheduleStateFault extends __SmithyExcept
   name: "InvalidClusterSnapshotScheduleStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidClusterSnapshotScheduleStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidClusterSnapshotScheduleStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7498,15 +6544,6 @@ export interface UsageLimitNotFoundFault extends __SmithyException, $MetadataBea
   name: "UsageLimitNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace UsageLimitNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UsageLimitNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAccountAttributesMessage {

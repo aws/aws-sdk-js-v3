@@ -31,15 +31,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Multiple requests to update the same resource were in conflict.</p>
  */
@@ -47,15 +38,6 @@ export interface OperationAbortedException extends __SmithyException, $MetadataB
   name: "OperationAbortedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace OperationAbortedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationAbortedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -67,15 +49,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service cannot complete the request.</p>
  */
@@ -83,15 +56,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   name: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 export interface CancelExportTaskRequest {
@@ -117,15 +81,6 @@ export interface InvalidOperationException extends __SmithyException, $MetadataB
   name: "InvalidOperationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateExportTaskRequest {
@@ -205,15 +160,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource already exists.</p>
  */
@@ -221,15 +167,6 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLogGroupRequest {
@@ -293,15 +230,6 @@ export interface DataAlreadyAcceptedException extends __SmithyException, $Metada
   $fault: "client";
   expectedSequenceToken?: string;
   message?: string;
-}
-
-export namespace DataAlreadyAcceptedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataAlreadyAcceptedException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDestinationRequest {
@@ -2104,15 +2032,6 @@ export interface InvalidSequenceTokenException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace InvalidSequenceTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSequenceTokenException): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsLogGroupRequest {
   /**
    * <p>The name of the log group.</p>
@@ -2317,15 +2236,6 @@ export interface UnrecognizedClientException extends __SmithyException, $Metadat
   name: "UnrecognizedClientException";
   $fault: "client";
   message?: string;
-}
-
-export namespace UnrecognizedClientException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnrecognizedClientException): any => ({
-    ...obj,
-  });
 }
 
 export interface PutMetricFilterRequest {
@@ -2649,15 +2559,6 @@ export interface MalformedQueryException extends __SmithyException, $MetadataBea
   queryCompileError?: QueryCompileError;
 
   message?: string;
-}
-
-export namespace MalformedQueryException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedQueryException): any => ({
-    ...obj,
-  });
 }
 
 export interface StartQueryRequest {

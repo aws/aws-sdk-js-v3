@@ -10,15 +10,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum ApplicationInstanceHealthStatus {
   ERROR = "ERROR",
   NOT_AVAILABLE = "NOT_AVAILABLE",
@@ -157,15 +148,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>A list of attributes that led to the exception and their values.</p>
    */
   ErrorArguments?: ConflictExceptionErrorArgument[];
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 export enum ConnectionType {
@@ -340,15 +322,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   RetryAfterSeconds?: number;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request would cause a limit to be exceeded.</p>
  */
@@ -375,15 +348,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    * <p>The name of the service.</p>
    */
   ServiceCode: string | undefined;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -467,15 +431,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>A list of request parameters that failed validation.</p>
    */
   Fields?: ValidationExceptionField[];
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -602,15 +557,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The resource's type.</p>
    */
   ResourceType: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export enum JobResourceType {

@@ -10,15 +10,6 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace AlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelResourceRequestInput {
   /**
    * <p>The <code>RequestToken</code> of the <code>ProgressEvent</code> object returned by the
@@ -201,15 +192,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A resource operation with the specified request token cannot be found.</p>
  */
@@ -217,15 +199,6 @@ export interface RequestTokenNotFoundException extends __SmithyException, $Metad
   name: "RequestTokenNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace RequestTokenNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestTokenNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -239,15 +212,6 @@ export interface ClientTokenConflictException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace ClientTokenConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientTokenConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Another resource operation is currently being performed on this resource.</p>
  */
@@ -255,15 +219,6 @@ export interface ConcurrentOperationException extends __SmithyException, $Metada
   name: "ConcurrentOperationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ConcurrentOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentOperationException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateResourceInput {
@@ -359,15 +314,6 @@ export interface GeneralServiceException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace GeneralServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GeneralServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource handler has failed without a returning a more specific error code. This can
  *       include timeouts.</p>
@@ -376,15 +322,6 @@ export interface HandlerFailureException extends __SmithyException, $MetadataBea
   name: "HandlerFailureException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace HandlerFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HandlerFailureException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -397,15 +334,6 @@ export interface HandlerInternalFailureException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace HandlerInternalFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HandlerInternalFailureException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource handler has returned that the credentials provided by the user are
  *       invalid.</p>
@@ -414,15 +342,6 @@ export interface InvalidCredentialsException extends __SmithyException, $Metadat
   name: "InvalidCredentialsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidCredentialsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCredentialsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -435,15 +354,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource handler has returned that the request could not be completed due to
  *       networking issues, such as a failure to receive a response from the server.</p>
@@ -452,15 +362,6 @@ export interface NetworkFailureException extends __SmithyException, $MetadataBea
   name: "NetworkFailureException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace NetworkFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkFailureException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -473,15 +374,6 @@ export interface NotStabilizedException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace NotStabilizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotStabilizedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more properties included in this resource operation are defined as create-only, and
  *       therefore cannot be updated.</p>
@@ -490,15 +382,6 @@ export interface NotUpdatableException extends __SmithyException, $MetadataBeare
   name: "NotUpdatableException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NotUpdatableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotUpdatableException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -512,15 +395,6 @@ export interface PrivateTypeException extends __SmithyException, $MetadataBearer
   Message?: string;
 }
 
-export namespace PrivateTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrivateTypeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource is temporarily unavailable to be acted upon. For example, if the resource is
  *       currently undergoing an operation and cannot be acted upon until that operation is
@@ -532,15 +406,6 @@ export interface ResourceConflictException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ResourceConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A resource with the specified identifier cannot be found.</p>
  */
@@ -548,15 +413,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -569,15 +425,6 @@ export interface ServiceInternalErrorException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace ServiceInternalErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceInternalErrorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource handler has returned that a non-transient resource limit was reached on the
  *       service side.</p>
@@ -586,15 +433,6 @@ export interface ServiceLimitExceededException extends __SmithyException, $Metad
   name: "ServiceLimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ServiceLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -606,15 +444,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified extension does not exist in the CloudFormation registry.</p>
  */
@@ -624,15 +453,6 @@ export interface TypeNotFoundException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace TypeNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TypeNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource does not support this resource operation.</p>
  */
@@ -640,15 +460,6 @@ export interface UnsupportedActionException extends __SmithyException, $Metadata
   name: "UnsupportedActionException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnsupportedActionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedActionException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteResourceInput {

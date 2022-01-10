@@ -54,15 +54,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Type?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An internal server error exception object.</p>
  */
@@ -78,15 +69,6 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
    * <p>The error type.</p>
    */
   Type?: string;
-}
-
-export namespace InternalServerErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
-    ...obj,
-  });
 }
 
 /**

@@ -13,15 +13,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   resourceType?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateMemberAccountRequest {
   /**
    * <p>The ID of the AWS account that you want to associate with Amazon Macie Classic as a
@@ -53,15 +44,6 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace InternalException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter. </p>
@@ -81,15 +63,6 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
   fieldName?: string;
 }
 
-export namespace InvalidInputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because it attempted to create resources beyond the current
  *       AWS account limits. The error code describes the limit exceeded. </p>
@@ -107,15 +80,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    * Resource type that caused the exception
    */
   resourceType?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum S3ContinuousClassificationType {

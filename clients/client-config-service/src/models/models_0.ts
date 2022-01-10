@@ -956,15 +956,6 @@ export interface NoSuchConfigurationAggregatorException extends __SmithyExceptio
   message?: string;
 }
 
-export namespace NoSuchConfigurationAggregatorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchConfigurationAggregatorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested action is not valid.</p>
  * 		       <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
@@ -977,15 +968,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1071,15 +1053,6 @@ export interface NoAvailableConfigurationRecorderException extends __SmithyExcep
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace NoAvailableConfigurationRecorderException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoAvailableConfigurationRecorderException): any => ({
-    ...obj,
-  });
 }
 
 export enum ChronologicalOrder {
@@ -2649,15 +2622,6 @@ export interface ConformancePackTemplateValidationException extends __SmithyExce
   message?: string;
 }
 
-export namespace ConformancePackTemplateValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConformancePackTemplateValidationException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAggregationAuthorizationRequest {
   /**
    * <p>The 12-digit account ID of the account authorized to aggregate
@@ -2693,15 +2657,6 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InvalidParameterValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -2733,15 +2688,6 @@ export interface NoSuchConfigRuleException extends __SmithyException, $MetadataB
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace NoSuchConfigRuleException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchConfigRuleException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2777,15 +2723,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteConfigurationAggregatorRequest {
@@ -2839,15 +2776,6 @@ export interface NoSuchConfigurationRecorderException extends __SmithyException,
   message?: string;
 }
 
-export namespace NoSuchConfigurationRecorderException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchConfigurationRecorderException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteConformancePackRequest {
   /**
    * <p>Name of the conformance pack you want to delete.</p>
@@ -2874,15 +2802,6 @@ export interface NoSuchConformancePackException extends __SmithyException, $Meta
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace NoSuchConformancePackException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchConformancePackException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2919,15 +2838,6 @@ export interface LastDeliveryChannelDeleteFailedException extends __SmithyExcept
   message?: string;
 }
 
-export namespace LastDeliveryChannelDeleteFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LastDeliveryChannelDeleteFailedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have specified a delivery channel that does not
  * 			exist.</p>
@@ -2939,15 +2849,6 @@ export interface NoSuchDeliveryChannelException extends __SmithyException, $Meta
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace NoSuchDeliveryChannelException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchDeliveryChannelException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3013,15 +2914,6 @@ export interface NoSuchOrganizationConfigRuleException extends __SmithyException
   message?: string;
 }
 
-export namespace NoSuchOrganizationConfigRuleException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchOrganizationConfigRuleException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p>
  * 		       <ul>
@@ -3052,15 +2944,6 @@ export interface OrganizationAccessDeniedException extends __SmithyException, $M
   message?: string;
 }
 
-export namespace OrganizationAccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationAccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteOrganizationConformancePackRequest {
   /**
    * <p>The name of organization conformance pack that you want to delete.</p>
@@ -3088,15 +2971,6 @@ export interface NoSuchOrganizationConformancePackException extends __SmithyExce
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace NoSuchOrganizationConformancePackException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchOrganizationConformancePackException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeletePendingAggregationRequestRequest {
@@ -3187,15 +3061,6 @@ export interface InsufficientPermissionsException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace InsufficientPermissionsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientPermissionsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You specified an Config rule without a remediation configuration.</p>
  */
@@ -3208,15 +3073,6 @@ export interface NoSuchRemediationConfigurationException extends __SmithyExcepti
   message?: string;
 }
 
-export namespace NoSuchRemediationConfigurationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchRemediationConfigurationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Remediation action is in progress. You can either cancel execution in Amazon Web Services Systems Manager or wait and try again later. </p>
  */
@@ -3227,15 +3083,6 @@ export interface RemediationInProgressException extends __SmithyException, $Meta
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace RemediationInProgressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemediationInProgressException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3335,15 +3182,6 @@ export interface NoSuchRemediationExceptionException extends __SmithyException, 
   message?: string;
 }
 
-export namespace NoSuchRemediationExceptionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchRemediationExceptionException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResourceConfigRequest {
   /**
    * <p>The type of the resource.</p>
@@ -3377,15 +3215,6 @@ export interface NoRunningConfigurationRecorderException extends __SmithyExcepti
   message?: string;
 }
 
-export namespace NoRunningConfigurationRecorderException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoRunningConfigurationRecorderException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRetentionConfigurationRequest {
   /**
    * <p>The name of the retention configuration to delete.</p>
@@ -3412,15 +3241,6 @@ export interface NoSuchRetentionConfigurationException extends __SmithyException
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace NoSuchRetentionConfigurationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchRetentionConfigurationException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteStoredQueryRequest {
@@ -3460,15 +3280,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3685,15 +3496,6 @@ export interface InvalidLimitException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace InvalidLimitException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidLimitException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified next token is invalid. Specify the
  * 				<code>nextToken</code> string that was returned in the previous
@@ -3706,15 +3508,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAggregateComplianceByConformancePacksRequest {
@@ -4341,15 +4134,6 @@ export interface NoSuchConfigRuleInConformancePackException extends __SmithyExce
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace NoSuchConfigRuleInConformancePackException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchConfigRuleInConformancePackException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeConformancePacksRequest {
@@ -6383,15 +6167,6 @@ export interface OversizedConfigurationItemException extends __SmithyException, 
   message?: string;
 }
 
-export namespace OversizedConfigurationItemException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OversizedConfigurationItemException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have specified a resource that is either unknown or has not
  * 			been discovered.</p>
@@ -6403,15 +6178,6 @@ export interface ResourceNotDiscoveredException extends __SmithyException, $Meta
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace ResourceNotDiscoveredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotDiscoveredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7387,15 +7153,6 @@ export interface InvalidTimeRangeException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace InvalidTimeRangeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTimeRangeException): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStoredQueryRequest {
   /**
    * <p>The name of the query.</p>
@@ -7487,15 +7244,6 @@ export interface InsufficientDeliveryPolicyException extends __SmithyException, 
   message?: string;
 }
 
-export namespace InsufficientDeliveryPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientDeliveryPolicyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have provided a configuration recorder name that is not
  * 			valid.</p>
@@ -7507,15 +7255,6 @@ export interface InvalidConfigurationRecorderNameException extends __SmithyExcep
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace InvalidConfigurationRecorderNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidConfigurationRecorderNameException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7530,15 +7269,6 @@ export interface InvalidDeliveryChannelNameException extends __SmithyException, 
   message?: string;
 }
 
-export namespace InvalidDeliveryChannelNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDeliveryChannelNameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The syntax of the query is incorrect.</p>
  */
@@ -7549,15 +7279,6 @@ export interface InvalidExpressionException extends __SmithyException, $Metadata
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace InvalidExpressionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidExpressionException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7572,15 +7293,6 @@ export interface InvalidRecordingGroupException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InvalidRecordingGroupException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRecordingGroupException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified <code>ResultToken</code> is invalid.</p>
  */
@@ -7591,15 +7303,6 @@ export interface InvalidResultTokenException extends __SmithyException, $Metadat
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace InvalidResultTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidResultTokenException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7614,15 +7317,6 @@ export interface InvalidRoleException extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace InvalidRoleException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRoleException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified Amazon S3 key prefix is not valid.</p>
  */
@@ -7633,15 +7327,6 @@ export interface InvalidS3KeyPrefixException extends __SmithyException, $Metadat
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace InvalidS3KeyPrefixException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidS3KeyPrefixException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7656,15 +7341,6 @@ export interface InvalidS3KmsKeyArnException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace InvalidS3KmsKeyArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidS3KmsKeyArnException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified Amazon SNS topic does not exist.</p>
  */
@@ -7675,15 +7351,6 @@ export interface InvalidSNSTopicARNException extends __SmithyException, $Metadat
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace InvalidSNSTopicARNException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSNSTopicARNException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7701,15 +7368,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8083,15 +7741,6 @@ export interface MaxActiveResourcesExceededException extends __SmithyException, 
   message?: string;
 }
 
-export namespace MaxActiveResourcesExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaxActiveResourcesExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Failed to add the Config rule because the account already
  * 			contains the maximum number of 150 rules. Consider deleting any
@@ -8104,15 +7753,6 @@ export interface MaxNumberOfConfigRulesExceededException extends __SmithyExcepti
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace MaxNumberOfConfigRulesExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaxNumberOfConfigRulesExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8128,15 +7768,6 @@ export interface MaxNumberOfConfigurationRecordersExceededException extends __Sm
   message?: string;
 }
 
-export namespace MaxNumberOfConfigurationRecordersExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaxNumberOfConfigurationRecordersExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have reached the limit (6) of the number of conformance packs in an account (6 conformance pack with 25 Config rules per pack).</p>
  */
@@ -8147,15 +7778,6 @@ export interface MaxNumberOfConformancePacksExceededException extends __SmithyEx
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace MaxNumberOfConformancePacksExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaxNumberOfConformancePacksExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8171,15 +7793,6 @@ export interface MaxNumberOfDeliveryChannelsExceededException extends __SmithyEx
   message?: string;
 }
 
-export namespace MaxNumberOfDeliveryChannelsExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaxNumberOfDeliveryChannelsExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have reached the limit of the number of organization config rules you can create.</p>
  */
@@ -8190,15 +7803,6 @@ export interface MaxNumberOfOrganizationConfigRulesExceededException extends __S
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace MaxNumberOfOrganizationConfigRulesExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaxNumberOfOrganizationConfigRulesExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8213,15 +7817,6 @@ export interface MaxNumberOfOrganizationConformancePacksExceededException extend
   message?: string;
 }
 
-export namespace MaxNumberOfOrganizationConformancePacksExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaxNumberOfOrganizationConformancePacksExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Failed to add the retention configuration because a retention configuration with that name already exists.</p>
  */
@@ -8232,15 +7827,6 @@ export interface MaxNumberOfRetentionConfigurationsExceededException extends __S
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace MaxNumberOfRetentionConfigurationsExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaxNumberOfRetentionConfigurationsExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8256,15 +7842,6 @@ export interface NoAvailableDeliveryChannelException extends __SmithyException, 
   message?: string;
 }
 
-export namespace NoAvailableDeliveryChannelException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoAvailableDeliveryChannelException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Organization is no longer available.</p>
  */
@@ -8275,15 +7852,6 @@ export interface NoAvailableOrganizationException extends __SmithyException, $Me
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace NoAvailableOrganizationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoAvailableOrganizationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8298,15 +7866,6 @@ export interface NoSuchBucketException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace NoSuchBucketException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchBucketException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Config resource cannot be created because your organization does not have all features enabled.</p>
  */
@@ -8319,15 +7878,6 @@ export interface OrganizationAllFeaturesNotEnabledException extends __SmithyExce
   message?: string;
 }
 
-export namespace OrganizationAllFeaturesNotEnabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationAllFeaturesNotEnabledException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have specified a template that is not valid or supported.</p>
  */
@@ -8338,15 +7888,6 @@ export interface OrganizationConformancePackTemplateValidationException extends 
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace OrganizationConformancePackTemplateValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationConformancePackTemplateValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface PutAggregationAuthorizationRequest {

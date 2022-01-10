@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum AccessPropertyValue {
   ALLOW = "ALLOW",
   DENY = "DENY",
@@ -136,15 +127,6 @@ export interface InvalidParameterValuesException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace InvalidParameterValuesException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterValuesException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The state of the resource is not valid for this operation.</p>
  */
@@ -152,15 +134,6 @@ export interface InvalidResourceStateException extends __SmithyException, $Metad
   name: "InvalidResourceStateException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidResourceStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidResourceStateException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -172,15 +145,6 @@ export interface OperationNotSupportedException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace OperationNotSupportedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationNotSupportedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource is associated with a directory.</p>
  */
@@ -188,15 +152,6 @@ export interface ResourceAssociatedException extends __SmithyException, $Metadat
   name: "ResourceAssociatedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceAssociatedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAssociatedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -214,15 +169,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The ID of the resource that could not be found.</p>
    */
   ResourceId?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateIpGroupsRequest {
@@ -267,15 +213,6 @@ export interface ResourceLimitExceededException extends __SmithyException, $Meta
    * <p>The exception error message.</p>
    */
   message?: string;
-}
-
-export namespace ResourceLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum AssociationStatus {
@@ -727,15 +664,6 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace ResourceAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource is not available.</p>
  */
@@ -751,15 +679,6 @@ export interface ResourceUnavailableException extends __SmithyException, $Metada
    * <p>The identifier of the resource that is not available.</p>
    */
   ResourceId?: string;
-}
-
-export namespace ResourceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateConnectionAliasRequest {
@@ -859,15 +778,6 @@ export interface ResourceCreationFailedException extends __SmithyException, $Met
   name: "ResourceCreationFailedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceCreationFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceCreationFailedException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateTagsRequest {
@@ -2979,15 +2889,6 @@ export interface OperationInProgressException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace OperationInProgressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationInProgressException): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyAccountRequest {
   /**
    * <p>The status of BYOL.</p>
@@ -3273,15 +3174,6 @@ export interface UnsupportedWorkspaceConfigurationException extends __SmithyExce
   message?: string;
 }
 
-export namespace UnsupportedWorkspaceConfigurationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedWorkspaceConfigurationException): any => ({
-    ...obj,
-  });
-}
-
 export enum TargetWorkspaceState {
   ADMIN_MAINTENANCE = "ADMIN_MAINTENANCE",
   AVAILABLE = "AVAILABLE",
@@ -3497,15 +3389,6 @@ export interface UnsupportedNetworkConfigurationException extends __SmithyExcept
   message?: string;
 }
 
-export namespace UnsupportedNetworkConfigurationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedNetworkConfigurationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The workspaces_DefaultRole role could not be found. If this is the first time you are registering a directory, you
  *          will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">Creating the workspaces_DefaultRole Role</a>.</p>
@@ -3514,15 +3397,6 @@ export interface WorkspacesDefaultRoleNotFoundException extends __SmithyExceptio
   name: "WorkspacesDefaultRoleNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace WorkspacesDefaultRoleNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspacesDefaultRoleNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface RestoreWorkspaceRequest {

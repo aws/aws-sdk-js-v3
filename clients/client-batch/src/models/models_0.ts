@@ -245,15 +245,6 @@ export interface ClientException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace ClientException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>These errors are usually caused by a server issue.</p>
  */
@@ -261,15 +252,6 @@ export interface ServerException extends __SmithyException, $MetadataBearer {
   name: "ServerException";
   $fault: "server";
   message?: string;
-}
-
-export namespace ServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerException): any => ({
-    ...obj,
-  });
 }
 
 export enum CRAllocationStrategy {

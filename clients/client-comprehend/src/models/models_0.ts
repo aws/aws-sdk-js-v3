@@ -218,15 +218,6 @@ export interface BatchSizeLimitExceededException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace BatchSizeLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchSizeLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An internal server error occurred. Retry your request.</p>
  */
@@ -234,15 +225,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -254,15 +236,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The size of the input text exceeds the limit. Use a smaller document.</p>
  */
@@ -270,15 +243,6 @@ export interface TextSizeLimitExceededException extends __SmithyException, $Meta
   name: "TextSizeLimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TextSizeLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TextSizeLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum LanguageCode {
@@ -444,15 +408,6 @@ export interface UnsupportedLanguageException extends __SmithyException, $Metada
   name: "UnsupportedLanguageException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnsupportedLanguageException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedLanguageException): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchDetectKeyPhrasesRequest {
@@ -1103,15 +1058,6 @@ export interface ResourceUnavailableException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace ResourceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
 export interface ContainsPiiEntitiesRequest {
   /**
    * <p>Creates a new document classification request to analyze a single document in real-time,
@@ -1545,15 +1491,6 @@ export interface KmsKeyValidationException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace KmsKeyValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KmsKeyValidationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource name is already in use. Use a different name and try your request
  *       again.</p>
@@ -1562,15 +1499,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1583,15 +1511,6 @@ export interface ResourceLimitExceededException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace ResourceLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  */
@@ -1599,15 +1518,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1619,15 +1529,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
   name: "TooManyTagsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateEndpointRequest {
@@ -1704,15 +1605,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2434,15 +2326,6 @@ export interface JobNotFoundException extends __SmithyException, $MetadataBearer
   name: "JobNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace JobNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDocumentClassifierRequest {
@@ -4370,15 +4253,6 @@ export interface InvalidFilterException extends __SmithyException, $MetadataBear
   name: "InvalidFilterException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidFilterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidFilterException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6823,15 +6697,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource to which you want
@@ -6874,15 +6739,6 @@ export interface TooManyTagKeysException extends __SmithyException, $MetadataBea
   name: "TooManyTagKeysException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyTagKeysException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagKeysException): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {

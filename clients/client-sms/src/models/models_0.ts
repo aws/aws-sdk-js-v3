@@ -604,15 +604,6 @@ export interface InternalError extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace InternalError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A specified parameter is not valid.</p>
  */
@@ -620,15 +611,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -640,15 +622,6 @@ export interface MissingRequiredParameterException extends __SmithyException, $M
   message?: string;
 }
 
-export namespace MissingRequiredParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MissingRequiredParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This operation is not allowed.</p>
  */
@@ -656,15 +629,6 @@ export interface OperationNotPermittedException extends __SmithyException, $Meta
   name: "OperationNotPermittedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace OperationNotPermittedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -675,15 +639,6 @@ export interface UnauthorizedOperationException extends __SmithyException, $Meta
   name: "UnauthorizedOperationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace UnauthorizedOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedOperationException): any => ({
-    ...obj,
-  });
 }
 
 export enum LicenseType {
@@ -796,15 +751,6 @@ export interface NoConnectorsAvailableException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace NoConnectorsAvailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoConnectorsAvailableException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified replication job already exists.</p>
  */
@@ -812,15 +758,6 @@ export interface ReplicationJobAlreadyExistsException extends __SmithyException,
   name: "ReplicationJobAlreadyExistsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ReplicationJobAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationJobAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -832,30 +769,12 @@ export interface ServerCannotBeReplicatedException extends __SmithyException, $M
   message?: string;
 }
 
-export namespace ServerCannotBeReplicatedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerCannotBeReplicatedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service is temporarily unavailable.</p>
  */
 export interface TemporarilyUnavailableException extends __SmithyException, $MetadataBearer {
   name: "TemporarilyUnavailableException";
   $fault: "server";
-}
-
-export namespace TemporarilyUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemporarilyUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAppRequest {
@@ -1012,15 +931,6 @@ export interface ReplicationJobNotFoundException extends __SmithyException, $Met
   name: "ReplicationJobNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ReplicationJobNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationJobNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteServerCatalogRequest {}
@@ -2674,15 +2584,6 @@ export interface DryRunOperationException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace DryRunOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DryRunOperationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have exceeded the number of on-demand replication runs you can request in a
  *             24-hour period.</p>
@@ -2691,15 +2592,6 @@ export interface ReplicationRunLimitExceededException extends __SmithyException,
   name: "ReplicationRunLimitExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ReplicationRunLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationRunLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface StartOnDemandReplicationRunRequest {

@@ -126,15 +126,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies an action for an experiment template.</p>
  */
@@ -534,15 +525,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have exceeded your service quota.</p>
  */
@@ -552,15 +534,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
  */
@@ -568,15 +541,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteExperimentTemplateRequest {

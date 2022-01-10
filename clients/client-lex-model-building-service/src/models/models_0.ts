@@ -11,15 +11,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request is not well formed. For example, a value is invalid or
  *       a required field is missing. Check the field values, and try
@@ -31,15 +22,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> There was a conflict processing the request. Try your request
  *       again. </p>
@@ -48,15 +30,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBotVersionRequest {
@@ -382,15 +355,6 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InternalFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request exceeded a limit. Try your request again.</p>
  */
@@ -399,15 +363,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   $fault: "client";
   retryAfterSeconds?: string;
   message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -420,15 +375,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The checksum of the resource that you are trying to change does
  *       not match the checksum in the request. Check the resource's checksum and
@@ -438,15 +384,6 @@ export interface PreconditionFailedException extends __SmithyException, $Metadat
   name: "PreconditionFailedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace PreconditionFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PreconditionFailedException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateIntentVersionRequest {
@@ -1238,15 +1175,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
    *         <code>ResourceInUseException</code> exception. </p>
    */
   exampleReference?: ResourceReference;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBotAliasRequest {

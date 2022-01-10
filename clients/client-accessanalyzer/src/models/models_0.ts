@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A conflict exception error.</p>
  */
@@ -34,15 +25,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>The resource type.</p>
    */
   resourceType: string | undefined;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -127,15 +109,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   retryAfterSeconds?: number;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource could not be found.</p>
  */
@@ -152,15 +125,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The type of the resource.</p>
    */
   resourceType: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -181,15 +145,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   resourceType: string | undefined;
 }
 
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Throttling limit exceeded error.</p>
  */
@@ -204,15 +159,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>The seconds to wait to retry.</p>
    */
   retryAfterSeconds?: number;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -262,15 +208,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>A list of fields that didn't validate.</p>
    */
   fieldList?: ValidationExceptionField[];
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 /**

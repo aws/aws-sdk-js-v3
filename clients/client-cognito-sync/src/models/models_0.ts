@@ -12,15 +12,6 @@ export interface AlreadyStreamedException extends __SmithyException, $MetadataBe
   message: string | undefined;
 }
 
-export namespace AlreadyStreamedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlreadyStreamedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The input for the BulkPublish operation.
  */
@@ -75,15 +66,6 @@ export interface DuplicateRequestException extends __SmithyException, $MetadataB
   message: string | undefined;
 }
 
-export namespace DuplicateRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Indicates an internal service
  *       error.
@@ -96,15 +78,6 @@ export interface InternalErrorException extends __SmithyException, $MetadataBear
    *       InternalErrorException.
    */
   message: string | undefined;
-}
-
-export namespace InternalErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalErrorException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -121,15 +94,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   message: string | undefined;
 }
 
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Thrown when a user is not authorized to access the
  *       requested resource.
@@ -144,15 +108,6 @@ export interface NotAuthorizedException extends __SmithyException, $MetadataBear
   message: string | undefined;
 }
 
-export namespace NotAuthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Thrown if the resource doesn't
  *       exist.
@@ -165,15 +120,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    *       ResourceNotFoundException.
    */
   message: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -310,15 +256,6 @@ export interface ResourceConflictException extends __SmithyException, $MetadataB
   message: string | undefined;
 }
 
-export namespace ResourceConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Thrown if the request is
  *       throttled.
@@ -331,15 +268,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
    *       TooManyRequestsException.
    */
   message: string | undefined;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1119,15 +1047,6 @@ export interface InvalidConfigurationException extends __SmithyException, $Metad
   message: string | undefined;
 }
 
-export namespace InvalidConfigurationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidConfigurationException): any => ({
-    ...obj,
-  });
-}
-
 export type Platform = "ADM" | "APNS" | "APNS_SANDBOX" | "GCM";
 
 /**
@@ -1218,15 +1137,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
    * <p>The message returned by a ConcurrentModicationException.</p>
    */
   message: string | undefined;
-}
-
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1399,15 +1309,6 @@ export interface InvalidLambdaFunctionOutputException extends __SmithyException,
   message: string | undefined;
 }
 
-export namespace InvalidLambdaFunctionOutputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidLambdaFunctionOutputException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>AWS Lambda throttled your account, please contact AWS Support</p>
  */
@@ -1418,15 +1319,6 @@ export interface LambdaThrottledException extends __SmithyException, $MetadataBe
    * <p>A message returned when an LambdaThrottledException is thrown</p>
    */
   message: string | undefined;
-}
-
-export namespace LambdaThrottledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaThrottledException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1441,15 +1333,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    *       LimitExceededException.
    */
   message: string | undefined;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export type Operation = "remove" | "replace";

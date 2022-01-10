@@ -138,15 +138,6 @@ export interface AccountSuspendedException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace AccountSuspendedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountSuspendedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource specified in your request already exists.</p>
  */
@@ -156,15 +147,6 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace AlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input you provided is invalid.</p>
  */
@@ -172,15 +154,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   name: "BadRequestException";
   $fault: "client";
   message?: string;
-}
-
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
 }
 
 export enum BehaviorOnMxFailure {
@@ -700,15 +673,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>If there is already an ongoing account details update under review.</p>
  */
@@ -716,15 +680,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 export enum SubscriptionStatus {
@@ -1149,15 +1104,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource you attempted to access doesn't exist.</p>
  */
@@ -1167,15 +1113,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Too many requests have been made to the operation.</p>
  */
@@ -1183,15 +1120,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   name: "TooManyRequestsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1829,15 +1757,6 @@ export interface MailFromDomainNotVerifiedException extends __SmithyException, $
   message?: string;
 }
 
-export namespace MailFromDomainNotVerifiedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MailFromDomainNotVerifiedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The message can't be sent because it contains invalid content.</p>
  */
@@ -1845,15 +1764,6 @@ export interface MessageRejected extends __SmithyException, $MetadataBearer {
   name: "MessageRejected";
   $fault: "client";
   message?: string;
-}
-
-export namespace MessageRejected {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageRejected): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1864,15 +1774,6 @@ export interface SendingPausedException extends __SmithyException, $MetadataBear
   name: "SendingPausedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace SendingPausedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendingPausedException): any => ({
-    ...obj,
-  });
 }
 
 export enum DkimSigningKeyLength {
@@ -4732,15 +4633,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   name: "InvalidNextTokenException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
 }
 
 /**

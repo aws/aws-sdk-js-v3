@@ -177,15 +177,6 @@ export interface AuthorizationErrorException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace AuthorizationErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizationErrorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The home region is not set. Set the home region to continue.</p>
  */
@@ -195,15 +186,6 @@ export interface HomeRegionNotSetException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace HomeRegionNotSetException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HomeRegionNotSetException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more parameters are not valid. Verify the parameters and try again.</p>
  */
@@ -211,15 +193,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -232,15 +205,6 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InvalidParameterValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The server experienced an internal error. Try again.</p>
  */
@@ -248,15 +212,6 @@ export interface ServerInternalErrorException extends __SmithyException, $Metada
   name: "ServerInternalErrorException";
   $fault: "server";
   message?: string;
-}
-
-export namespace ServerInternalErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerInternalErrorException): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchDeleteImportDataRequest {
@@ -434,15 +389,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteApplicationsRequest {
@@ -848,15 +794,6 @@ export interface OperationNotPermittedException extends __SmithyException, $Meta
   name: "OperationNotPermittedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace OperationNotPermittedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeExportConfigurationsRequest {
@@ -1833,15 +1770,6 @@ export interface ConflictErrorException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace ConflictErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictErrorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This issue occurs when the same <code>clientRequestToken</code> is used with the
  *         <code>StartImportTask</code> action, but with different parameters. For example, you use the
@@ -1853,15 +1781,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   name: "ResourceInUseException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
 }
 
 export interface StartContinuousExportRequest {}

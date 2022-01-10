@@ -45,15 +45,6 @@ export interface RequestError extends __SmithyException, $MetadataBearer {
   TurkErrorCode?: string;
 }
 
-export namespace RequestError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  */
@@ -62,15 +53,6 @@ export interface ServiceFault extends __SmithyException, $MetadataBearer {
   $fault: "server";
   Message?: string;
   TurkErrorCode?: string;
-}
-
-export namespace ServiceFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceFault): any => ({
-    ...obj,
-  });
 }
 
 export interface ApproveAssignmentRequest {

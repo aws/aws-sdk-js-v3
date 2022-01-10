@@ -106,15 +106,6 @@ export interface ArgumentException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace ArgumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArgumentException): any => ({
-    ...obj,
-  });
-}
-
 export enum ArtifactType {
   APPIUM_JAVA_OUTPUT = "APPIUM_JAVA_OUTPUT",
   APPIUM_JAVA_XML_OUTPUT = "APPIUM_JAVA_XML_OUTPUT",
@@ -292,15 +283,6 @@ export interface CannotDeleteException extends __SmithyException, $MetadataBeare
   name: "CannotDeleteException";
   $fault: "client";
   message?: string;
-}
-
-export namespace CannotDeleteException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CannotDeleteException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -679,15 +661,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified entity was not found.</p>
  */
@@ -700,15 +673,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>There was a problem with the service account.</p>
  */
@@ -719,15 +683,6 @@ export interface ServiceAccountException extends __SmithyException, $MetadataBea
    * <p>Any additional information about the exception.</p>
    */
   message?: string;
-}
-
-export namespace ServiceAccountException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceAccountException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateInstanceProfileRequest {
@@ -1106,15 +1061,6 @@ export interface TagOperationException extends __SmithyException, $MetadataBeare
   $fault: "client";
   message?: string;
   resourceName?: string;
-}
-
-export namespace TagOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagOperationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1885,15 +1831,6 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
   name: "InternalServiceException";
   $fault: "server";
   message?: string;
-}
-
-export namespace InternalServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateTestGridUrlRequest {
@@ -2752,15 +2689,6 @@ export interface InvalidOperationException extends __SmithyException, $MetadataB
   name: "InvalidOperationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3987,15 +3915,6 @@ export interface NotEligibleException extends __SmithyException, $MetadataBearer
    * <p>The HTTP response code of a Not Eligible exception.</p>
    */
   message?: string;
-}
-
-export namespace NotEligibleException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotEligibleException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7266,15 +7185,6 @@ export interface IdempotencyException extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace IdempotencyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdempotencyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the device filters used in a test run and the maximum number of devices to be included in the
  *             run. It is passed in as the <code>deviceSelectionConfiguration</code> request parameter in <a>ScheduleRun</a>.</p>
@@ -7667,15 +7577,6 @@ export interface TagPolicyException extends __SmithyException, $MetadataBearer {
   resourceName?: string;
 }
 
-export namespace TagPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagPolicyException): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource or resources to which to add tags. You can associate tags
@@ -7722,15 +7623,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
   $fault: "client";
   message?: string;
   resourceName?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {

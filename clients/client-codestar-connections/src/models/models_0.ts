@@ -98,15 +98,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Resource not found. Verify the connection resource ARN and try again.</p>
  */
@@ -116,15 +107,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Resource not found. Verify the ARN for the host resource and try again.</p>
  */
@@ -132,15 +114,6 @@ export interface ResourceUnavailableException extends __SmithyException, $Metada
   name: "ResourceUnavailableException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -702,15 +675,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation is not supported. Check the connection status and try again.</p>
  */
@@ -718,15 +682,6 @@ export interface UnsupportedOperationException extends __SmithyException, $Metad
   name: "UnsupportedOperationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnsupportedOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateHostInput {

@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelChangeSetRequest {
   /**
    * <p>Required. The catalog related to the request. Fixed value:
@@ -71,15 +62,6 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InternalServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource is currently in use.</p>
  */
@@ -87,15 +69,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -107,15 +80,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Too many requests.</p>
  */
@@ -125,15 +89,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An error occurred during validation.</p>
  */
@@ -141,15 +96,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeChangeSetRequest {
@@ -413,15 +359,6 @@ export interface ResourceNotSupportedException extends __SmithyException, $Metad
   name: "ResourceNotSupportedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotSupportedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotSupportedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -782,15 +719,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   name: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**

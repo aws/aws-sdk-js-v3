@@ -12,15 +12,6 @@ export interface ActorDoesNotExistException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace ActorDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActorDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 export enum ApprovalState {
   APPROVE = "APPROVE",
   REVOKE = "REVOKE",
@@ -140,15 +131,6 @@ export interface ApprovalRuleContentRequiredException extends __SmithyException,
   message?: string;
 }
 
-export namespace ApprovalRuleContentRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApprovalRuleContentRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified approval rule does not exist.</p>
  */
@@ -159,15 +141,6 @@ export interface ApprovalRuleDoesNotExistException extends __SmithyException, $M
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace ApprovalRuleDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApprovalRuleDoesNotExistException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -212,15 +185,6 @@ export interface ApprovalRuleNameAlreadyExistsException extends __SmithyExceptio
   message?: string;
 }
 
-export namespace ApprovalRuleNameAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApprovalRuleNameAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An approval rule name is required, but was not specified.</p>
  */
@@ -231,15 +195,6 @@ export interface ApprovalRuleNameRequiredException extends __SmithyException, $M
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace ApprovalRuleNameRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApprovalRuleNameRequiredException): any => ({
-    ...obj,
-  });
 }
 
 export enum OverrideStatus {
@@ -337,15 +292,6 @@ export interface ApprovalRuleTemplateContentRequiredException extends __SmithyEx
   message?: string;
 }
 
-export namespace ApprovalRuleTemplateContentRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApprovalRuleTemplateContentRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the AWS Region where the template
  *         was created, and then try again.</p>
@@ -359,15 +305,6 @@ export interface ApprovalRuleTemplateDoesNotExistException extends __SmithyExcep
   message?: string;
 }
 
-export namespace ApprovalRuleTemplateDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApprovalRuleTemplateDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The approval rule template is associated with one or more repositories. You cannot delete a template that is associated with a repository. Remove
  *         all associations, and then try again.</p>
@@ -379,15 +316,6 @@ export interface ApprovalRuleTemplateInUseException extends __SmithyException, $
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace ApprovalRuleTemplateInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApprovalRuleTemplateInUseException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -404,15 +332,6 @@ export interface ApprovalRuleTemplateNameAlreadyExistsException extends __Smithy
   message?: string;
 }
 
-export namespace ApprovalRuleTemplateNameAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApprovalRuleTemplateNameAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An approval rule template name is required, but was not specified.</p>
  */
@@ -423,15 +342,6 @@ export interface ApprovalRuleTemplateNameRequiredException extends __SmithyExcep
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace ApprovalRuleTemplateNameRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApprovalRuleTemplateNameRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -470,15 +380,6 @@ export interface ApprovalStateRequiredException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace ApprovalStateRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApprovalStateRequiredException): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateApprovalRuleTemplateWithRepositoryInput {
   /**
    * <p>The name for the approval rule template. </p>
@@ -512,15 +413,6 @@ export interface EncryptionIntegrityChecksFailedException extends __SmithyExcept
   message?: string;
 }
 
-export namespace EncryptionIntegrityChecksFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionIntegrityChecksFailedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An encryption key could not be accessed.</p>
  */
@@ -531,15 +423,6 @@ export interface EncryptionKeyAccessDeniedException extends __SmithyException, $
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace EncryptionKeyAccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionKeyAccessDeniedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -554,15 +437,6 @@ export interface EncryptionKeyDisabledException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace EncryptionKeyDisabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionKeyDisabledException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>No encryption key was found.</p>
  */
@@ -575,15 +449,6 @@ export interface EncryptionKeyNotFoundException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace EncryptionKeyNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionKeyNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The encryption key is not available.</p>
  */
@@ -594,15 +459,6 @@ export interface EncryptionKeyUnavailableException extends __SmithyException, $M
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace EncryptionKeyUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionKeyUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -618,15 +474,6 @@ export interface InvalidApprovalRuleTemplateNameException extends __SmithyExcept
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidApprovalRuleTemplateNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidApprovalRuleTemplateNameException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -647,15 +494,6 @@ export interface InvalidRepositoryNameException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InvalidRepositoryNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRepositoryNameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The maximum number of approval rule templates for a repository has been exceeded. You cannot associate more than 25
  *         approval rule templates with a repository.</p>
@@ -667,15 +505,6 @@ export interface MaximumRuleTemplatesAssociatedWithRepositoryException extends _
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace MaximumRuleTemplatesAssociatedWithRepositoryException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaximumRuleTemplatesAssociatedWithRepositoryException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -690,15 +519,6 @@ export interface RepositoryDoesNotExistException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace RepositoryDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A repository name is required, but was not specified.</p>
  */
@@ -711,15 +531,6 @@ export interface RepositoryNameRequiredException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace RepositoryNameRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryNameRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
  */
@@ -730,15 +541,6 @@ export interface AuthorDoesNotExistException extends __SmithyException, $Metadat
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace AuthorDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorDoesNotExistException): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
@@ -827,15 +629,6 @@ export interface MaximumRepositoryNamesExceededException extends __SmithyExcepti
   message?: string;
 }
 
-export namespace MaximumRepositoryNamesExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaximumRepositoryNamesExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>At least one repository name object is required, but was not specified.</p>
  */
@@ -846,15 +639,6 @@ export interface RepositoryNamesRequiredException extends __SmithyException, $Me
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace RepositoryNamesRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryNamesRequiredException): any => ({
-    ...obj,
-  });
 }
 
 export enum ConflictDetailLevelTypeEnum {
@@ -1342,15 +1126,6 @@ export interface CommitDoesNotExistException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace CommitDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommitDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A commit was not specified.</p>
  */
@@ -1361,15 +1136,6 @@ export interface CommitRequiredException extends __SmithyException, $MetadataBea
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace CommitRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommitRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1384,15 +1150,6 @@ export interface InvalidCommitException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace InvalidCommitException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCommitException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified conflict detail level is not valid.</p>
  */
@@ -1403,15 +1160,6 @@ export interface InvalidConflictDetailLevelException extends __SmithyException, 
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidConflictDetailLevelException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidConflictDetailLevelException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1426,15 +1174,6 @@ export interface InvalidConflictResolutionStrategyException extends __SmithyExce
   message?: string;
 }
 
-export namespace InvalidConflictResolutionStrategyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidConflictResolutionStrategyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified continuation token is not valid.</p>
  */
@@ -1445,15 +1184,6 @@ export interface InvalidContinuationTokenException extends __SmithyException, $M
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidContinuationTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidContinuationTokenException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1468,15 +1198,6 @@ export interface InvalidMaxConflictFilesException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace InvalidMaxConflictFilesException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidMaxConflictFilesException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified value for the number of merge hunks to return is not valid.</p>
  */
@@ -1487,15 +1208,6 @@ export interface InvalidMaxMergeHunksException extends __SmithyException, $Metad
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidMaxMergeHunksException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidMaxMergeHunksException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1510,15 +1222,6 @@ export interface InvalidMergeOptionException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace InvalidMergeOptionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidMergeOptionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of files to load exceeds the allowed limit.</p>
  */
@@ -1529,15 +1232,6 @@ export interface MaximumFileContentToLoadExceededException extends __SmithyExcep
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace MaximumFileContentToLoadExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaximumFileContentToLoadExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1552,15 +1246,6 @@ export interface MaximumItemsToCompareExceededException extends __SmithyExceptio
   message?: string;
 }
 
-export namespace MaximumItemsToCompareExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaximumItemsToCompareExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A merge option or stategy is required, and none was provided.</p>
  */
@@ -1571,15 +1256,6 @@ export interface MergeOptionRequiredException extends __SmithyException, $Metada
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace MergeOptionRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeOptionRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1593,15 +1269,6 @@ export interface TipsDivergenceExceededException extends __SmithyException, $Met
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace TipsDivergenceExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TipsDivergenceExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
@@ -1855,15 +1522,6 @@ export interface CommitIdsLimitExceededException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace CommitIdsLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommitIdsLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of commit IDs is required, but was either not specified or the list was empty.</p>
  */
@@ -1874,15 +1532,6 @@ export interface CommitIdsListRequiredException extends __SmithyException, $Meta
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace CommitIdsListRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommitIdsListRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2007,15 +1656,6 @@ export interface BeforeCommitIdAndAfterCommitIdAreSameException extends __Smithy
   message?: string;
 }
 
-export namespace BeforeCommitIdAndAfterCommitIdAreSameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BeforeCommitIdAndAfterCommitIdAreSameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified blob does not exist.</p>
  */
@@ -2028,15 +1668,6 @@ export interface BlobIdDoesNotExistException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace BlobIdDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BlobIdDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A blob ID is required, but was not specified.</p>
  */
@@ -2047,15 +1678,6 @@ export interface BlobIdRequiredException extends __SmithyException, $MetadataBea
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace BlobIdRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BlobIdRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2117,15 +1739,6 @@ export interface BranchDoesNotExistException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace BranchDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BranchDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about a branch.</p>
  */
@@ -2163,15 +1776,6 @@ export interface BranchNameExistsException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace BranchNameExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BranchNameExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified branch name is not valid because it is a tag name. Enter the name of a
  *             branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
@@ -2185,15 +1789,6 @@ export interface BranchNameIsTagNameException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace BranchNameIsTagNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BranchNameIsTagNameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A branch name is required, but was not specified.</p>
  */
@@ -2204,15 +1799,6 @@ export interface BranchNameRequiredException extends __SmithyException, $Metadat
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace BranchNameRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BranchNameRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2228,15 +1814,6 @@ export interface CannotDeleteApprovalRuleFromTemplateException extends __SmithyE
   message?: string;
 }
 
-export namespace CannotDeleteApprovalRuleFromTemplateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CannotDeleteApprovalRuleFromTemplateException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The approval rule cannot be modified for the pull request because it was created by an
  *             approval rule template and applied to the pull request automatically.</p>
@@ -2248,15 +1825,6 @@ export interface CannotModifyApprovalRuleFromTemplateException extends __SmithyE
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace CannotModifyApprovalRuleFromTemplateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CannotModifyApprovalRuleFromTemplateException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2273,15 +1841,6 @@ export interface ClientRequestTokenRequiredException extends __SmithyException, 
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace ClientRequestTokenRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientRequestTokenRequiredException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateApprovalRuleTemplateInput {
@@ -2385,15 +1944,6 @@ export interface InvalidApprovalRuleTemplateContentException extends __SmithyExc
   message?: string;
 }
 
-export namespace InvalidApprovalRuleTemplateContentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidApprovalRuleTemplateContentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The description for the approval rule template is not valid because it exceeds the
  *             maximum characters allowed for a description. For more information about limits in AWS
@@ -2409,15 +1959,6 @@ export interface InvalidApprovalRuleTemplateDescriptionException extends __Smith
   message?: string;
 }
 
-export namespace InvalidApprovalRuleTemplateDescriptionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidApprovalRuleTemplateDescriptionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The maximum number of approval rule templates has been exceeded for this AWS Region. </p>
  */
@@ -2430,15 +1971,6 @@ export interface NumberOfRuleTemplatesExceededException extends __SmithyExceptio
   message?: string;
 }
 
-export namespace NumberOfRuleTemplatesExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NumberOfRuleTemplatesExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A commit ID was not specified.</p>
  */
@@ -2449,15 +1981,6 @@ export interface CommitIdRequiredException extends __SmithyException, $MetadataB
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace CommitIdRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommitIdRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2501,15 +2024,6 @@ export interface InvalidBranchNameException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace InvalidBranchNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidBranchNameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified commit ID is not valid.</p>
  */
@@ -2522,15 +2036,6 @@ export interface InvalidCommitIdException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InvalidCommitIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCommitIdException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The commit message is too long. Provide a shorter string. </p>
  */
@@ -2541,15 +2046,6 @@ export interface CommitMessageLengthExceededException extends __SmithyException,
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace CommitMessageLengthExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommitMessageLengthExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2799,15 +2295,6 @@ export interface DirectoryNameConflictsWithFileNameException extends __SmithyExc
   message?: string;
 }
 
-export namespace DirectoryNameConflictsWithFileNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryNameConflictsWithFileNameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The commit cannot be created because both a source file and file content have been
  *             specified for the same file. You cannot provide both. Either specify a source file or
@@ -2820,15 +2307,6 @@ export interface FileContentAndSourceFileSpecifiedException extends __SmithyExce
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace FileContentAndSourceFileSpecifiedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileContentAndSourceFileSpecifiedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2845,15 +2323,6 @@ export interface FileContentSizeLimitExceededException extends __SmithyException
   message?: string;
 }
 
-export namespace FileContentSizeLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileContentSizeLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified file does not exist. Verify that you have used the correct file name,
  *             full path, and extension.</p>
@@ -2867,15 +2336,6 @@ export interface FileDoesNotExistException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace FileDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The commit cannot be created because no files have been specified as added, updated, or changed (PutFile or DeleteFile) for the commit.</p>
  */
@@ -2886,15 +2346,6 @@ export interface FileEntryRequiredException extends __SmithyException, $Metadata
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace FileEntryRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileEntryRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2910,15 +2361,6 @@ export interface FileModeRequiredException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace FileModeRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileModeRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A file cannot be added to the repository because the specified file name has the same name as a directory in this repository. Either provide
  *         another name for the file, or add the file in a directory that does not match the file name.</p>
@@ -2932,15 +2374,6 @@ export interface FileNameConflictsWithDirectoryNameException extends __SmithyExc
   message?: string;
 }
 
-export namespace FileNameConflictsWithDirectoryNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileNameConflictsWithDirectoryNameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The commit cannot be created because a specified file path points to a submodule. Verify that the destination files
  *         have valid file paths that do not point to a submodule.</p>
@@ -2952,15 +2385,6 @@ export interface FilePathConflictsWithSubmodulePathException extends __SmithyExc
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace FilePathConflictsWithSubmodulePathException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FilePathConflictsWithSubmodulePathException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2977,15 +2401,6 @@ export interface FolderContentSizeLimitExceededException extends __SmithyExcepti
   message?: string;
 }
 
-export namespace FolderContentSizeLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FolderContentSizeLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified deletion parameter is not valid.</p>
  */
@@ -2996,15 +2411,6 @@ export interface InvalidDeletionParameterException extends __SmithyException, $M
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidDeletionParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDeletionParameterException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3020,15 +2426,6 @@ export interface InvalidEmailException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace InvalidEmailException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEmailException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
  */
@@ -3039,15 +2436,6 @@ export interface InvalidFileModeException extends __SmithyException, $MetadataBe
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidFileModeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidFileModeException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3063,15 +2451,6 @@ export interface InvalidParentCommitIdException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InvalidParentCommitIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParentCommitIdException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified path is not valid.</p>
  */
@@ -3082,15 +2461,6 @@ export interface InvalidPathException extends __SmithyException, $MetadataBearer
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidPathException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPathException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3106,15 +2476,6 @@ export interface MaximumFileEntriesExceededException extends __SmithyException, 
   message?: string;
 }
 
-export namespace MaximumFileEntriesExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaximumFileEntriesExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The user name is not valid because it has exceeded the character limit for author names. </p>
  */
@@ -3125,15 +2486,6 @@ export interface NameLengthExceededException extends __SmithyException, $Metadat
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace NameLengthExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NameLengthExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3148,15 +2500,6 @@ export interface NoChangeException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace NoChangeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoChangeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.</p>
  */
@@ -3167,15 +2510,6 @@ export interface ParentCommitDoesNotExistException extends __SmithyException, $M
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace ParentCommitDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParentCommitDoesNotExistException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3191,15 +2525,6 @@ export interface ParentCommitIdOutdatedException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace ParentCommitIdOutdatedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParentCommitIdOutdatedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A parent commit ID is required. To view the full commit ID of a branch in a repository, use <a>GetBranch</a> or a Git command
  *         (for example, git pull or git log).</p>
@@ -3211,15 +2536,6 @@ export interface ParentCommitIdRequiredException extends __SmithyException, $Met
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace ParentCommitIdRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParentCommitIdRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3234,15 +2550,6 @@ export interface PathRequiredException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace PathRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PathRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The commit cannot be created because one or more files specified in the commit reference both a file and a folder.</p>
  */
@@ -3255,15 +2562,6 @@ export interface PutFileEntryConflictException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace PutFileEntryConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutFileEntryConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The commit cannot be created because one of the changes specifies copying or moving a .gitkeep file.</p>
  */
@@ -3274,15 +2572,6 @@ export interface RestrictedSourceFileException extends __SmithyException, $Metad
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace RestrictedSourceFileException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestrictedSourceFileException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3299,15 +2588,6 @@ export interface SamePathRequestException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace SamePathRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SamePathRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The commit cannot be created because no source files or file content have been specified for the commit.</p>
  */
@@ -3318,15 +2598,6 @@ export interface SourceFileOrContentRequiredException extends __SmithyException,
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace SourceFileOrContentRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceFileOrContentRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3593,15 +2864,6 @@ export interface IdempotencyParameterMismatchException extends __SmithyException
   message?: string;
 }
 
-export namespace IdempotencyParameterMismatchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdempotencyParameterMismatchException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The client request token is not valid.</p>
  */
@@ -3612,15 +2874,6 @@ export interface InvalidClientRequestTokenException extends __SmithyException, $
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidClientRequestTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidClientRequestTokenException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3634,15 +2887,6 @@ export interface InvalidDescriptionException extends __SmithyException, $Metadat
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidDescriptionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDescriptionException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3659,15 +2903,6 @@ export interface InvalidReferenceNameException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace InvalidReferenceNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidReferenceNameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The target for the pull request is not valid. A target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
  */
@@ -3678,15 +2913,6 @@ export interface InvalidTargetException extends __SmithyException, $MetadataBear
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidTargetException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTargetException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3702,15 +2928,6 @@ export interface InvalidTargetsException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace InvalidTargetsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTargetsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The title of the pull request is not valid. Pull request titles cannot exceed 100 characters in length.</p>
  */
@@ -3721,15 +2938,6 @@ export interface InvalidTitleException extends __SmithyException, $MetadataBeare
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidTitleException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTitleException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3745,15 +2953,6 @@ export interface MaximumOpenPullRequestsExceededException extends __SmithyExcept
   message?: string;
 }
 
-export namespace MaximumOpenPullRequestsExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaximumOpenPullRequestsExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You cannot include more than one repository in a pull request. Make sure you have specified only one repository name in your request, and then try again.</p>
  */
@@ -3764,15 +2963,6 @@ export interface MultipleRepositoriesInPullRequestException extends __SmithyExce
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace MultipleRepositoriesInPullRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultipleRepositoriesInPullRequestException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3787,15 +2977,6 @@ export interface ReferenceDoesNotExistException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace ReferenceDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReferenceDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A reference name is required, but none was provided.</p>
  */
@@ -3808,15 +2989,6 @@ export interface ReferenceNameRequiredException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace ReferenceNameRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReferenceNameRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified reference is not a supported type. </p>
  */
@@ -3827,15 +2999,6 @@ export interface ReferenceTypeNotSupportedException extends __SmithyException, $
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace ReferenceTypeNotSupportedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReferenceTypeNotSupportedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3851,15 +3014,6 @@ export interface SourceAndDestinationAreSameException extends __SmithyException,
   message?: string;
 }
 
-export namespace SourceAndDestinationAreSameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceAndDestinationAreSameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A pull request target is required. It cannot be empty or null. A pull request target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
  */
@@ -3870,15 +3024,6 @@ export interface TargetRequiredException extends __SmithyException, $MetadataBea
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace TargetRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3893,15 +3038,6 @@ export interface TargetsRequiredException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace TargetsRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetsRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A pull request title is required. It cannot be empty or null.</p>
  */
@@ -3912,15 +3048,6 @@ export interface TitleRequiredException extends __SmithyException, $MetadataBear
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace TitleRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TitleRequiredException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePullRequestApprovalRuleInput {
@@ -4019,15 +3146,6 @@ export interface InvalidApprovalRuleContentException extends __SmithyException, 
   message?: string;
 }
 
-export namespace InvalidApprovalRuleContentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidApprovalRuleContentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The name for the approval rule is not valid.</p>
  */
@@ -4038,15 +3156,6 @@ export interface InvalidApprovalRuleNameException extends __SmithyException, $Me
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidApprovalRuleNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidApprovalRuleNameException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4061,15 +3170,6 @@ export interface InvalidPullRequestIdException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace InvalidPullRequestIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPullRequestIdException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The approval rule cannot be added. The pull request has the maximum number of approval rules associated with it.</p>
  */
@@ -4080,15 +3180,6 @@ export interface NumberOfRulesExceededException extends __SmithyException, $Meta
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace NumberOfRulesExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NumberOfRulesExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4103,15 +3194,6 @@ export interface PullRequestAlreadyClosedException extends __SmithyException, $M
   message?: string;
 }
 
-export namespace PullRequestAlreadyClosedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PullRequestAlreadyClosedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
  */
@@ -4124,15 +3206,6 @@ export interface PullRequestDoesNotExistException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace PullRequestDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PullRequestDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A pull request ID is required, but none was provided.</p>
  */
@@ -4143,15 +3216,6 @@ export interface PullRequestIdRequiredException extends __SmithyException, $Meta
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace PullRequestIdRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PullRequestIdRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4228,15 +3292,6 @@ export interface InvalidRepositoryDescriptionException extends __SmithyException
   message?: string;
 }
 
-export namespace InvalidRepositoryDescriptionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRepositoryDescriptionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified tag is not valid. Key names cannot be prefixed with aws:.</p>
  */
@@ -4247,15 +3302,6 @@ export interface InvalidSystemTagUsageException extends __SmithyException, $Meta
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidSystemTagUsageException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSystemTagUsageException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4270,15 +3316,6 @@ export interface InvalidTagsMapException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace InvalidTagsMapException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTagsMapException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A repository resource limit was exceeded.</p>
  */
@@ -4289,15 +3326,6 @@ export interface RepositoryLimitExceededException extends __SmithyException, $Me
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace RepositoryLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4312,15 +3340,6 @@ export interface RepositoryNameExistsException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace RepositoryNameExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryNameExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The tag policy is not valid.</p>
  */
@@ -4331,15 +3350,6 @@ export interface TagPolicyException extends __SmithyException, $MetadataBearer {
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace TagPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagPolicyException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4354,15 +3364,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
  */
@@ -4373,15 +3374,6 @@ export interface ConcurrentReferenceUpdateException extends __SmithyException, $
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace ConcurrentReferenceUpdateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentReferenceUpdateException): any => ({
-    ...obj,
-  });
 }
 
 export enum ReplacementTypeEnum {
@@ -4565,15 +3557,6 @@ export interface InvalidConflictResolutionException extends __SmithyException, $
   message?: string;
 }
 
-export namespace InvalidConflictResolutionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidConflictResolutionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Automerge was specified for resolving the conflict, but the replacement type is not valid or content is missing. </p>
  */
@@ -4584,15 +3567,6 @@ export interface InvalidReplacementContentException extends __SmithyException, $
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidReplacementContentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidReplacementContentException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4607,15 +3581,6 @@ export interface InvalidReplacementTypeException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace InvalidReplacementTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidReplacementTypeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
  */
@@ -4626,15 +3591,6 @@ export interface ManualMergeRequiredException extends __SmithyException, $Metada
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace ManualMergeRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManualMergeRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4649,15 +3605,6 @@ export interface MaximumConflictResolutionEntriesExceededException extends __Smi
   message?: string;
 }
 
-export namespace MaximumConflictResolutionEntriesExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaximumConflictResolutionEntriesExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>More than one conflict resolution entries exists for the conflict. A conflict can have only one conflict resolution entry.</p>
  */
@@ -4668,15 +3615,6 @@ export interface MultipleConflictResolutionEntriesException extends __SmithyExce
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace MultipleConflictResolutionEntriesException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultipleConflictResolutionEntriesException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4691,15 +3629,6 @@ export interface ReplacementContentRequiredException extends __SmithyException, 
   message?: string;
 }
 
-export namespace ReplacementContentRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplacementContentRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A replacement type is required.</p>
  */
@@ -4710,15 +3639,6 @@ export interface ReplacementTypeRequiredException extends __SmithyException, $Me
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace ReplacementTypeRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplacementTypeRequiredException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteApprovalRuleTemplateInput {
@@ -4764,15 +3684,6 @@ export interface DefaultBranchCannotBeDeletedException extends __SmithyException
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace DefaultBranchCannotBeDeletedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefaultBranchCannotBeDeletedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4830,15 +3741,6 @@ export interface CommentDeletedException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace CommentDeletedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommentDeletedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
  *             then try again.</p>
@@ -4852,15 +3754,6 @@ export interface CommentDoesNotExistException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace CommentDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommentDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The comment ID is missing or null. A comment ID is required.</p>
  */
@@ -4871,15 +3764,6 @@ export interface CommentIdRequiredException extends __SmithyException, $Metadata
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace CommentIdRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommentIdRequiredException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteCommentContentInput {
@@ -4992,15 +3876,6 @@ export interface InvalidCommentIdException extends __SmithyException, $MetadataB
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidCommentIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCommentIdException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteFileInput {
@@ -5556,15 +4431,6 @@ export interface InvalidActorArnException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InvalidActorArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidActorArnException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified number of maximum results is not valid.</p>
  */
@@ -5577,15 +4443,6 @@ export interface InvalidMaxResultsException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace InvalidMaxResultsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidMaxResultsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The pull request event type is not valid. </p>
  */
@@ -5596,15 +4453,6 @@ export interface InvalidPullRequestEventTypeException extends __SmithyException,
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidPullRequestEventTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPullRequestEventTypeException): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateApprovalRuleTemplateFromRepositoryInput {
@@ -5714,15 +4562,6 @@ export interface InvalidRevisionIdException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace InvalidRevisionIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRevisionIdException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A revision ID is required, but was not provided.</p>
  */
@@ -5735,15 +4574,6 @@ export interface RevisionIdRequiredException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace RevisionIdRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevisionIdRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.</p>
  */
@@ -5754,15 +4584,6 @@ export interface RevisionNotCurrentException extends __SmithyException, $Metadat
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace RevisionNotCurrentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevisionNotCurrentException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetApprovalRuleTemplateInput {
@@ -5808,15 +4629,6 @@ export interface FileTooLargeException extends __SmithyException, $MetadataBeare
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace FileTooLargeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileTooLargeException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5872,15 +4684,6 @@ export interface InvalidBlobIdException extends __SmithyException, $MetadataBear
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidBlobIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidBlobIdException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6080,15 +4883,6 @@ export interface InvalidReactionUserArnException extends __SmithyException, $Met
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidReactionUserArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidReactionUserArnException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCommentsForComparedCommitInput {
@@ -6374,15 +5168,6 @@ export interface RepositoryNotAssociatedWithPullRequestException extends __Smith
   message?: string;
 }
 
-export namespace RepositoryNotAssociatedWithPullRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryNotAssociatedWithPullRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified commit ID does not exist.</p>
  */
@@ -6393,15 +5178,6 @@ export interface CommitIdDoesNotExistException extends __SmithyException, $Metad
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace CommitIdDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommitIdDoesNotExistException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6568,15 +5344,6 @@ export interface PathDoesNotExistException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace PathDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PathDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFileInput {
   /**
    * <p>The name of the repository that contains the file.</p>
@@ -6665,15 +5432,6 @@ export interface FolderDoesNotExistException extends __SmithyException, $Metadat
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace FolderDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FolderDoesNotExistException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFolderInput {
@@ -7070,15 +5828,6 @@ export interface InvalidDestinationCommitSpecifierException extends __SmithyExce
   message?: string;
 }
 
-export namespace InvalidDestinationCommitSpecifierException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDestinationCommitSpecifierException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The source commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID.</p>
  */
@@ -7089,15 +5838,6 @@ export interface InvalidSourceCommitSpecifierException extends __SmithyException
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidSourceCommitSpecifierException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSourceCommitSpecifierException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMergeOptionsInput {
@@ -7577,15 +6317,6 @@ export interface InvalidAuthorArnException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace InvalidAuthorArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidAuthorArnException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The pull request status is not valid. The only valid values are <code>OPEN</code> and <code>CLOSED</code>.</p>
  */
@@ -7596,15 +6327,6 @@ export interface InvalidPullRequestStatusException extends __SmithyException, $M
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidPullRequestStatusException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPullRequestStatusException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPullRequestsInput {
@@ -7678,15 +6400,6 @@ export interface InvalidOrderException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace InvalidOrderException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOrderException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified sort by value is not valid.</p>
  */
@@ -7697,13 +6410,4 @@ export interface InvalidSortByException extends __SmithyException, $MetadataBear
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidSortByException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSortByException): any => ({
-    ...obj,
-  });
 }

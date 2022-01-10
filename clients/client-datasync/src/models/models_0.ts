@@ -83,15 +83,6 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
   errorCode?: string;
 }
 
-export namespace InternalException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the client submits a malformed request.</p>
  */
@@ -100,15 +91,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   $fault: "client";
   message?: string;
   errorCode?: string;
-}
-
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
 }
 
 /**

@@ -56,15 +56,6 @@ export interface InternalErrorException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace InternalErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalErrorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
@@ -75,15 +66,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>A message to show the detail of the exception.</p>
    */
   Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -317,15 +299,6 @@ export interface DuplicateReportNameException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace DuplicateReportNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateReportNameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Creates a Cost and Usage Report.</p>
  */
@@ -370,13 +343,4 @@ export interface ReportLimitReachedException extends __SmithyException, $Metadat
    * <p>A message to show the detail of the exception.</p>
    */
   Message?: string;
-}
-
-export namespace ReportLimitReachedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReportLimitReachedException): any => ({
-    ...obj,
-  });
 }

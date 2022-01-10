@@ -223,15 +223,6 @@ export interface DisabledApiException extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace DisabledApiException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisabledApiException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An internal error has occurred. Retry your request. If the problem persists, post a
  *             message with details on the AWS forums.</p>
@@ -242,15 +233,6 @@ export interface InternalServiceErrorException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace InternalServiceErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have metered usage for a CustomerIdentifier that does not exist.</p>
  */
@@ -258,15 +240,6 @@ export interface InvalidCustomerIdentifierException extends __SmithyException, $
   name: "InvalidCustomerIdentifierException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidCustomerIdentifierException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCustomerIdentifierException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -279,15 +252,6 @@ export interface InvalidProductCodeException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace InvalidProductCodeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidProductCodeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The tag is invalid, or the number of tags is greater than 5.</p>
  */
@@ -295,15 +259,6 @@ export interface InvalidTagException extends __SmithyException, $MetadataBearer 
   name: "InvalidTagException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidTagException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTagException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -316,15 +271,6 @@ export interface InvalidUsageAllocationsException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace InvalidUsageAllocationsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidUsageAllocationsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The usage dimension does not match one of the UsageDimensions associated with
  *             products.</p>
@@ -333,15 +279,6 @@ export interface InvalidUsageDimensionException extends __SmithyException, $Meta
   name: "InvalidUsageDimensionException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidUsageDimensionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidUsageDimensionException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -353,15 +290,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The timestamp value passed in the meterUsage() is out of allowed range.</p>
  */
@@ -369,15 +297,6 @@ export interface TimestampOutOfBoundsException extends __SmithyException, $Metad
   name: "TimestampOutOfBoundsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TimestampOutOfBoundsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimestampOutOfBoundsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -388,15 +307,6 @@ export interface CustomerNotEntitledException extends __SmithyException, $Metada
   name: "CustomerNotEntitledException";
   $fault: "client";
   message?: string;
-}
-
-export namespace CustomerNotEntitledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomerNotEntitledException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -410,15 +320,6 @@ export interface DuplicateRequestException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace DuplicateRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The endpoint being called is in a AWS Region different from your EC2 instance, ECS
  *             task, or EKS pod. The Region of the Metering Service endpoint and the AWS Region of the
@@ -428,15 +329,6 @@ export interface InvalidEndpointRegionException extends __SmithyException, $Meta
   name: "InvalidEndpointRegionException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidEndpointRegionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEndpointRegionException): any => ({
-    ...obj,
-  });
 }
 
 export interface MeterUsageRequest {
@@ -517,15 +409,6 @@ export interface InvalidPublicKeyVersionException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace InvalidPublicKeyVersionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPublicKeyVersionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>RegisterUsage must be called in the same AWS Region the ECS task was launched in.
  *             This prevents a container from hardcoding a Region (e.g. withRegion(“us-east-1”) when
@@ -537,15 +420,6 @@ export interface InvalidRegionException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace InvalidRegionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRegionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>AWS Marketplace does not support metering usage from the underlying platform.
  *             Currently, Amazon ECS, Amazon EKS, and AWS Fargate are supported.</p>
@@ -554,15 +428,6 @@ export interface PlatformNotSupportedException extends __SmithyException, $Metad
   name: "PlatformNotSupportedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace PlatformNotSupportedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlatformNotSupportedException): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterUsageRequest {
@@ -628,15 +493,6 @@ export interface ExpiredTokenException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace ExpiredTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpiredTokenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Registration token is invalid.</p>
  */
@@ -644,15 +500,6 @@ export interface InvalidTokenException extends __SmithyException, $MetadataBeare
   name: "InvalidTokenException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTokenException): any => ({
-    ...obj,
-  });
 }
 
 /**

@@ -137,15 +137,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified repository could not be found. Check the spelling of the specified
  *             repository and ensure that you are performing operations on the correct registry.</p>
@@ -159,15 +150,6 @@ export interface RepositoryNotFoundException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace RepositoryNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>These errors are usually caused by a server-side issue.</p>
  */
@@ -178,15 +160,6 @@ export interface ServerException extends __SmithyException, $MetadataBearer {
    * <p>The error message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace ServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -557,15 +530,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
-}
-
 export interface CompleteLayerUploadRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the registry to which to upload layers.
@@ -642,15 +606,6 @@ export interface EmptyUploadException extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace EmptyUploadException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmptyUploadException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The layer digest calculation performed by Amazon ECR upon receipt of the image layer does
  *             not match the digest specified.</p>
@@ -662,15 +617,6 @@ export interface InvalidLayerException extends __SmithyException, $MetadataBeare
    * <p>The error message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidLayerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidLayerException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -686,15 +632,6 @@ export interface KmsException extends __SmithyException, $MetadataBearer {
   kmsError?: string;
 }
 
-export namespace KmsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KmsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The image layer already exists in the associated repository.</p>
  */
@@ -705,15 +642,6 @@ export interface LayerAlreadyExistsException extends __SmithyException, $Metadat
    * <p>The error message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace LayerAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LayerAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -728,15 +656,6 @@ export interface LayerPartTooSmallException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace LayerPartTooSmallException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LayerPartTooSmallException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The upload could not be found, or the specified upload ID is not valid for this
  *             repository.</p>
@@ -748,15 +667,6 @@ export interface UploadNotFoundException extends __SmithyException, $MetadataBea
    * <p>The error message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace UploadNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePullThroughCacheRuleRequest {
@@ -833,15 +743,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A pull through cache rule with these settings already exists for the private
  *             registry.</p>
@@ -852,15 +753,6 @@ export interface PullThroughCacheRuleAlreadyExistsException extends __SmithyExce
   message?: string;
 }
 
-export namespace PullThroughCacheRuleAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PullThroughCacheRuleAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified upstream registry isn't supported.</p>
  */
@@ -868,15 +760,6 @@ export interface UnsupportedUpstreamRegistryException extends __SmithyException,
   name: "UnsupportedUpstreamRegistryException";
   $fault: "client";
   message?: string;
-}
-
-export namespace UnsupportedUpstreamRegistryException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedUpstreamRegistryException): any => ({
-    ...obj,
-  });
 }
 
 export enum EncryptionType {
@@ -1124,15 +1007,6 @@ export interface InvalidTagParameterException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace InvalidTagParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTagParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified repository already exists in the specified registry.</p>
  */
@@ -1145,15 +1019,6 @@ export interface RepositoryAlreadyExistsException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace RepositoryAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The list of tags on the repository is over the limit. The maximum number of tags that
  *             can be applied to a repository is 50.</p>
@@ -1162,15 +1027,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteLifecyclePolicyRequest {
@@ -1234,15 +1090,6 @@ export interface LifecyclePolicyNotFoundException extends __SmithyException, $Me
   name: "LifecyclePolicyNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace LifecyclePolicyNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecyclePolicyNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeletePullThroughCacheRuleRequest {
@@ -1309,15 +1156,6 @@ export interface PullThroughCacheRuleNotFoundException extends __SmithyException
   message?: string;
 }
 
-export namespace PullThroughCacheRuleNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PullThroughCacheRuleNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRegistryPolicyRequest {}
 
 export namespace DeleteRegistryPolicyRequest {
@@ -1357,15 +1195,6 @@ export interface RegistryPolicyNotFoundException extends __SmithyException, $Met
   name: "RegistryPolicyNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace RegistryPolicyNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegistryPolicyNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRepositoryRequest {
@@ -1422,15 +1251,6 @@ export interface RepositoryNotEmptyException extends __SmithyException, $Metadat
    * <p>The error message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace RepositoryNotEmptyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryNotEmptyException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRepositoryPolicyRequest {
@@ -1493,15 +1313,6 @@ export interface RepositoryPolicyNotFoundException extends __SmithyException, $M
    * <p>The error message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace RepositoryPolicyNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryPolicyNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeImageReplicationStatusRequest {
@@ -1603,15 +1414,6 @@ export interface ImageNotFoundException extends __SmithyException, $MetadataBear
   name: "ImageNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ImageNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export enum TagStatus {
@@ -2554,15 +2356,6 @@ export interface ScanNotFoundException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace ScanNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScanNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePullThroughCacheRulesRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the registry to return the pull through cache
@@ -3018,15 +2811,6 @@ export interface LayerInaccessibleException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace LayerInaccessibleException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LayerInaccessibleException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified layers could not be found, or the specified layer is not valid for this
  *             repository.</p>
@@ -3038,15 +2822,6 @@ export interface LayersNotFoundException extends __SmithyException, $MetadataBea
    * <p>The error message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace LayersNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LayersNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetLifecyclePolicyRequest {
@@ -3325,15 +3100,6 @@ export interface LifecyclePolicyPreviewNotFoundException extends __SmithyExcepti
   name: "LifecyclePolicyPreviewNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace LifecyclePolicyPreviewNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecyclePolicyPreviewNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRegistryPolicyRequest {}
@@ -3691,15 +3457,6 @@ export interface ImageAlreadyExistsException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace ImageAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified image digest does not match the digest that Amazon ECR calculated for the
  *             image.</p>
@@ -3710,15 +3467,6 @@ export interface ImageDigestDoesNotMatchException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace ImageDigestDoesNotMatchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageDigestDoesNotMatchException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified image is tagged with a tag that already exists. The repository is
  *             configured for tag immutability.</p>
@@ -3727,15 +3475,6 @@ export interface ImageTagAlreadyExistsException extends __SmithyException, $Meta
   name: "ImageTagAlreadyExistsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ImageTagAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageTagAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 export interface PutImageRequest {
@@ -3806,15 +3545,6 @@ export interface ReferencedImagesNotFoundException extends __SmithyException, $M
   name: "ReferencedImagesNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ReferencedImagesNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReferencedImagesNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface PutImageScanningConfigurationRequest {
@@ -4228,15 +3958,6 @@ export interface UnsupportedImageTypeException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace UnsupportedImageTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedImageTypeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The previous lifecycle policy preview request has not completed. Wait and try
  *             again.</p>
@@ -4245,15 +3966,6 @@ export interface LifecyclePolicyPreviewInProgressException extends __SmithyExcep
   name: "LifecyclePolicyPreviewInProgressException";
   $fault: "client";
   message?: string;
-}
-
-export namespace LifecyclePolicyPreviewInProgressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecyclePolicyPreviewInProgressException): any => ({
-    ...obj,
-  });
 }
 
 export interface StartLifecyclePolicyPreviewRequest {
@@ -4415,15 +4127,6 @@ export interface InvalidLayerPartException extends __SmithyException, $MetadataB
    * <p>The error message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidLayerPartException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidLayerPartException): any => ({
-    ...obj,
-  });
 }
 
 export interface UploadLayerPartRequest {

@@ -405,15 +405,6 @@ export interface ExpiredTokenException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace ExpiredTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpiredTokenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the policy document was malformed. The error message
  *             describes the specific error.</p>
@@ -422,15 +413,6 @@ export interface MalformedPolicyDocumentException extends __SmithyException, $Me
   name: "MalformedPolicyDocumentException";
   $fault: "client";
   message?: string;
-}
-
-export namespace MalformedPolicyDocumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedPolicyDocumentException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -450,15 +432,6 @@ export interface PackedPolicyTooLargeException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace PackedPolicyTooLargeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackedPolicyTooLargeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>STS is not activated in the requested region for the account that is being asked to
  *             generate credentials. The account administrator must use the IAM console to activate STS
@@ -470,15 +443,6 @@ export interface RegionDisabledException extends __SmithyException, $MetadataBea
   name: "RegionDisabledException";
   $fault: "client";
   message?: string;
-}
-
-export namespace RegionDisabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegionDisabledException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssumeRoleWithSAMLRequest {
@@ -711,15 +675,6 @@ export interface IDPRejectedClaimException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace IDPRejectedClaimException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IDPRejectedClaimException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The web identity token that was passed could not be validated by Amazon Web Services. Get a new
  *             identity token from the identity provider and then retry the request.</p>
@@ -728,15 +683,6 @@ export interface InvalidIdentityTokenException extends __SmithyException, $Metad
   name: "InvalidIdentityTokenException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidIdentityTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidIdentityTokenException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssumeRoleWithWebIdentityRequest {
@@ -963,15 +909,6 @@ export interface IDPCommunicationErrorException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace IDPCommunicationErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IDPCommunicationErrorException): any => ({
-    ...obj,
-  });
-}
-
 export interface DecodeAuthorizationMessageRequest {
   /**
    * <p>The encoded message that was returned with the response.</p>
@@ -1017,15 +954,6 @@ export interface InvalidAuthorizationMessageException extends __SmithyException,
   name: "InvalidAuthorizationMessageException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidAuthorizationMessageException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidAuthorizationMessageException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAccessKeyInfoRequest {

@@ -1509,15 +1509,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Associates sasl scram secrets to cluster.</p>
  */
@@ -1580,15 +1571,6 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ForbiddenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about an error.</p>
  */
@@ -1604,15 +1586,6 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
    * <p>The description of the error.</p>
    */
   Message?: string;
-}
-
-export namespace InternalServerErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1632,15 +1605,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about an error.</p>
  */
@@ -1656,15 +1620,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
    * <p>The description of the error.</p>
    */
   Message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1684,15 +1639,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about an error.</p>
  */
@@ -1708,15 +1654,6 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
    * <p>The description of the error.</p>
    */
   Message?: string;
-}
-
-export namespace UnauthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1779,15 +1716,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>The description of the error.</p>
    */
   Message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateClusterRequest {

@@ -122,16 +122,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Details?: BadRequestDetails;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-    ...(obj.Details && { Details: BadRequestDetails.filterSensitiveLog(obj.Details) }),
-  });
-}
-
 export interface CreateApplicationRequest {
   /**
    * <p>A name for the application.</p>
@@ -167,15 +157,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
 }
 
 export enum ValidatorType {
@@ -350,15 +331,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   $fault: "client";
   Message?: string;
   ResourceName?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export enum GrowthType {
@@ -631,15 +603,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateHostedConfigurationVersionRequest {
   /**
    * <p>The application ID.</p>
@@ -745,15 +708,6 @@ export interface PayloadTooLargeException extends __SmithyException, $MetadataBe
   Size?: number;
 }
 
-export namespace PayloadTooLargeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PayloadTooLargeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of hosted configuration versions exceeds the limit for the AppConfig hosted
  *          configuration store. Delete one or more versions and try again.</p>
@@ -762,15 +716,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   name: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteApplicationRequest {

@@ -1489,15 +1489,6 @@ export interface OperationNotPermittedFault extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace OperationNotPermittedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationNotPermittedFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  */
@@ -1508,15 +1499,6 @@ export interface UnknownResourceFault extends __SmithyException, $MetadataBearer
    * <p>A description that may help with diagnosing the cause of the fault.</p>
    */
   message?: string;
-}
-
-export namespace UnknownResourceFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnknownResourceFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4961,15 +4943,6 @@ export interface DefaultUndefinedFault extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace DefaultUndefinedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefaultUndefinedFault): any => ({
-    ...obj,
-  });
-}
-
 export interface DeprecateActivityTypeInput {
   /**
    * <p>The name of the domain in which the activity type is registered.</p>
@@ -5003,15 +4976,6 @@ export interface TypeDeprecatedFault extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace TypeDeprecatedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TypeDeprecatedFault): any => ({
-    ...obj,
-  });
-}
-
 export interface DeprecateDomainInput {
   /**
    * <p>The name of the domain to deprecate.</p>
@@ -5038,15 +5002,6 @@ export interface DomainDeprecatedFault extends __SmithyException, $MetadataBeare
    * <p>A description that may help with diagnosing the cause of the fault.</p>
    */
   message?: string;
-}
-
-export namespace DomainDeprecatedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainDeprecatedFault): any => ({
-    ...obj,
-  });
 }
 
 export interface DeprecateWorkflowTypeInput {
@@ -5661,15 +5616,6 @@ export interface DomainAlreadyExistsFault extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace DomainAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains a paginated collection of DomainInfo structures.</p>
  */
@@ -5780,15 +5726,6 @@ export interface LimitExceededFault extends __SmithyException, $MetadataBearer {
    * <p>A description that may help with diagnosing the cause of the fault.</p>
    */
   message?: string;
-}
-
-export namespace LimitExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededFault): any => ({
-    ...obj,
-  });
 }
 
 export interface ListActivityTypesInput {
@@ -6483,15 +6420,6 @@ export interface TypeAlreadyExistsFault extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace TypeAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TypeAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterDomainInput {
   /**
    * <p>Name of the domain to register. The name must be unique in the region that the domain
@@ -6545,15 +6473,6 @@ export interface TooManyTagsFault extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace TooManyTagsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsFault): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterWorkflowTypeInput {
@@ -7053,15 +6972,6 @@ export interface WorkflowExecutionAlreadyStartedFault extends __SmithyException,
    * <p>A description that may help with diagnosing the cause of the fault.</p>
    */
   message?: string;
-}
-
-export namespace WorkflowExecutionAlreadyStartedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowExecutionAlreadyStartedFault): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceInput {

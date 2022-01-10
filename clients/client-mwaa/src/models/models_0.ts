@@ -10,15 +10,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCliTokenRequest {
   /**
    * <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
@@ -64,15 +55,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export enum LoggingLevel {
@@ -323,15 +305,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>ValidationException: The provided input is not valid.</p>
  */
@@ -339,15 +312,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateWebLoginTokenRequest {

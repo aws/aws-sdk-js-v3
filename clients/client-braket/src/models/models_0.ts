@@ -10,15 +10,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The container image used to create an Amazon Braket job.</p>
  */
@@ -176,15 +167,6 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InternalServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource was not found.</p>
  */
@@ -192,15 +174,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -212,15 +185,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
@@ -228,15 +192,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -398,15 +353,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -738,15 +684,6 @@ export interface DeviceRetiredException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace DeviceRetiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceRetiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request failed because a service quota is exceeded.</p>
  */
@@ -754,15 +691,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   name: "ServiceQuotaExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetJobRequest {
@@ -1245,15 +1173,6 @@ export interface DeviceOfflineException extends __SmithyException, $MetadataBear
   name: "DeviceOfflineException";
   $fault: "client";
   message?: string;
-}
-
-export namespace DeviceOfflineException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceOfflineException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetQuantumTaskRequest {

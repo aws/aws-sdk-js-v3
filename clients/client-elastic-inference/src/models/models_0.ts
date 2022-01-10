@@ -146,15 +146,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAcceleratorOfferingsRequest {
   /**
    * <p>
@@ -212,15 +203,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Raised when the requested resource cannot be found.
@@ -230,15 +212,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**

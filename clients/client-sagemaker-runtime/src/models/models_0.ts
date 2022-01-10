@@ -10,15 +10,6 @@ export interface InternalDependencyException extends __SmithyException, $Metadat
   Message?: string;
 }
 
-export namespace InternalDependencyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalDependencyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> An internal failure occurred. </p>
  */
@@ -26,15 +17,6 @@ export interface InternalFailure extends __SmithyException, $MetadataBearer {
   name: "InternalFailure";
   $fault: "server";
   Message?: string;
-}
-
-export namespace InternalFailure {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalFailure): any => ({
-    ...obj,
-  });
 }
 
 export interface InvokeEndpointInput {
@@ -196,15 +178,6 @@ export interface ModelError extends __SmithyException, $MetadataBearer {
   LogStreamArn?: string;
 }
 
-export namespace ModelError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Either a serverless endpoint variant's resources are still being provisioned, or a multi-model endpoint is still downloading or loading the target model. Wait and try your request again.</p>
  */
@@ -212,15 +185,6 @@ export interface ModelNotReadyException extends __SmithyException, $MetadataBear
   name: "ModelNotReadyException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ModelNotReadyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelNotReadyException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -232,15 +196,6 @@ export interface ServiceUnavailable extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ServiceUnavailable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailable): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Inspect your request and try again. </p>
  */
@@ -248,15 +203,6 @@ export interface ValidationError extends __SmithyException, $MetadataBearer {
   name: "ValidationError";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ValidationError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationError): any => ({
-    ...obj,
-  });
 }
 
 export interface InvokeEndpointAsyncInput {

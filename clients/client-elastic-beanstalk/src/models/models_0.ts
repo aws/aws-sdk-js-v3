@@ -39,15 +39,6 @@ export interface InsufficientPrivilegesException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace InsufficientPrivilegesException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientPrivilegesException): any => ({
-    ...obj,
-  });
-}
-
 export type ActionHistoryStatus = "Completed" | "Failed" | "Unknown";
 
 export type ActionStatus = "Pending" | "Running" | "Scheduled" | "Unknown";
@@ -752,15 +743,6 @@ export interface ElasticBeanstalkServiceException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace ElasticBeanstalkServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticBeanstalkServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Cannot modify the managed action in its current state.</p>
  */
@@ -771,15 +753,6 @@ export interface ManagedActionInvalidStateException extends __SmithyException, $
    * <p>The exception error message.</p>
    */
   message?: string;
-}
-
-export namespace ManagedActionInvalidStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManagedActionInvalidStateException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1334,15 +1307,6 @@ export interface TooManyEnvironmentsException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace TooManyEnvironmentsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyEnvironmentsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a tag applied to a resource in an environment.</p>
  */
@@ -1416,15 +1380,6 @@ export interface TooManyApplicationsException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace TooManyApplicationsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyApplicationsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>AWS CodeBuild is not available in the specified region.</p>
  */
@@ -1435,15 +1390,6 @@ export interface CodeBuildNotInServiceRegionException extends __SmithyException,
    * <p>The exception error message.</p>
    */
   message?: string;
-}
-
-export namespace CodeBuildNotInServiceRegionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeBuildNotInServiceRegionException): any => ({
-    ...obj,
-  });
 }
 
 export enum ComputeType {
@@ -1625,15 +1571,6 @@ export interface S3LocationNotInServiceRegionException extends __SmithyException
   message?: string;
 }
 
-export namespace S3LocationNotInServiceRegionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3LocationNotInServiceRegionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified account has reached its limit of application versions.</p>
  */
@@ -1644,15 +1581,6 @@ export interface TooManyApplicationVersionsException extends __SmithyException, 
    * <p>The exception error message.</p>
    */
   message?: string;
-}
-
-export namespace TooManyApplicationVersionsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyApplicationVersionsException): any => ({
-    ...obj,
-  });
 }
 
 export type ConfigurationDeploymentStatus = "deployed" | "failed" | "pending";
@@ -1914,15 +1842,6 @@ export interface TooManyBucketsException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace TooManyBucketsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyBucketsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified account has reached its limit of configuration templates.</p>
  */
@@ -1933,15 +1852,6 @@ export interface TooManyConfigurationTemplatesException extends __SmithyExceptio
    * <p>The exception error message.</p>
    */
   message?: string;
-}
-
-export namespace TooManyConfigurationTemplatesException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyConfigurationTemplatesException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2278,15 +2188,6 @@ export interface TooManyPlatformsException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace TooManyPlatformsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyPlatformsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Results of a <a>CreateStorageLocationResult</a> call.</p>
  */
@@ -2316,15 +2217,6 @@ export interface S3SubscriptionRequiredException extends __SmithyException, $Met
    * <p>The exception error message.</p>
    */
   message?: string;
-}
-
-export namespace S3SubscriptionRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3SubscriptionRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2363,15 +2255,6 @@ export interface OperationInProgressException extends __SmithyException, $Metada
    * <p>The exception error message.</p>
    */
   message?: string;
-}
-
-export namespace OperationInProgressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationInProgressException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2416,15 +2299,6 @@ export interface SourceBundleDeletionException extends __SmithyException, $Metad
    * <p>The exception error message.</p>
    */
   message?: string;
-}
-
-export namespace SourceBundleDeletionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceBundleDeletionException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2517,15 +2391,6 @@ export interface PlatformVersionStillReferencedException extends __SmithyExcepti
    * <p>The exception error message.</p>
    */
   message?: string;
-}
-
-export namespace PlatformVersionStillReferencedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlatformVersionStillReferencedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3144,15 +3009,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
    * <p>The exception error message.</p>
    */
   message?: string;
-}
-
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4761,15 +4617,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface ResourceTagsDescriptionMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource for which a tag list was requested.</p>
@@ -4801,15 +4648,6 @@ export interface ResourceTypeNotSupportedException extends __SmithyException, $M
    * <p>The exception error message.</p>
    */
   message?: string;
-}
-
-export namespace ResourceTypeNotSupportedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceTypeNotSupportedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5357,15 +5195,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
    * <p>The exception error message.</p>
    */
   message?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateTagsForResourceMessage {

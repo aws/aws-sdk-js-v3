@@ -207,15 +207,6 @@ export interface DomainNotWhitelistedException extends __SmithyException, $Metad
   RequestId?: string;
 }
 
-export namespace DomainNotWhitelistedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainNotWhitelistedException): any => ({
-    ...obj,
-  });
-}
-
 export enum EmbeddingIdentityType {
   ANONYMOUS = "ANONYMOUS",
   IAM = "IAM",
@@ -433,15 +424,6 @@ export interface SessionLifetimeInMinutesInvalidException extends __SmithyExcept
   RequestId?: string;
 }
 
-export namespace SessionLifetimeInMinutesInvalidException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SessionLifetimeInMinutesInvalidException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This error indicates that you are calling an embedding operation in Amazon QuickSight
  * 			without the required pricing plan on your Amazon Web Services account. Before you can use embedding
@@ -461,15 +443,6 @@ export interface UnsupportedPricingPlanException extends __SmithyException, $Met
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
-}
-
-export namespace UnsupportedPricingPlanException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedPricingPlanException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -704,15 +677,6 @@ export interface QuickSightUserNotFoundException extends __SmithyException, $Met
   RequestId?: string;
 }
 
-export namespace QuickSightUserNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QuickSightUserNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDashboardEmbedUrlRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the dashboard that you're embedding.</p>
@@ -850,15 +814,6 @@ export interface IdentityTypeNotSupportedException extends __SmithyException, $M
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
-}
-
-export namespace IdentityTypeNotSupportedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityTypeNotSupportedException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSessionEmbedUrlRequest {

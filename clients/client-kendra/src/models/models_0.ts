@@ -31,15 +31,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the column that should be used for
  *             filtering the query response by groups.</p>
@@ -299,15 +290,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -315,15 +297,6 @@ export interface ResourceAlreadyExistException extends __SmithyException, $Metad
   name: "ResourceAlreadyExistException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceAlreadyExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -335,15 +308,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -353,15 +317,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -369,15 +324,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export enum Persona {
@@ -712,15 +658,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1444,15 +1381,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   name: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface ClearQuerySuggestionsRequest {
@@ -6258,15 +6186,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDataSourcesRequest {
   /**
    * <p>The identifier of the index that contains the data source.</p>
@@ -7354,15 +7273,6 @@ export interface ResourceUnavailableException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace ResourceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
 export interface ListThesauriRequest {
   /**
    * <p>The identifier of the index associated with the thesaurus to list.</p>
@@ -8037,15 +7947,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
 }
 
 export interface StartDataSourceSyncJobRequest {

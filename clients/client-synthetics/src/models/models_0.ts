@@ -732,15 +732,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>If this canary is to test an endpoint in a VPC, this structure contains
  *          information about the subnets and security groups of the VPC endpoint.
@@ -929,15 +920,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A parameter could not be validated.</p>
  */
@@ -945,15 +927,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteCanaryRequest {
@@ -990,15 +963,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCanariesRequest {

@@ -9,15 +9,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A parameter for a group configuration item. For details about group service
  *             configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
@@ -465,15 +456,6 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ForbiddenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An internal error occurred while processing the request. Try again later.</p>
  */
@@ -481,15 +463,6 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
   name: "InternalServerErrorException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace InternalServerErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -501,15 +474,6 @@ export interface MethodNotAllowedException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace MethodNotAllowedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MethodNotAllowedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
@@ -518,15 +482,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteGroupInput {
@@ -575,15 +530,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetGroupInput {
@@ -1157,15 +1103,6 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
   name: "UnauthorizedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnauthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj,
-  });
 }
 
 export enum GroupFilterName {

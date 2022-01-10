@@ -580,15 +580,6 @@ export interface ReservedNodeExchangeNotFoundFault extends __SmithyException, $M
   message?: string;
 }
 
-export namespace ReservedNodeExchangeNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedNodeExchangeNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1152,15 +1143,6 @@ export interface TableRestoreNotFoundFault extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace TableRestoreNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableRestoreNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 export type TableRestoreStatusType = "CANCELED" | "FAILED" | "IN_PROGRESS" | "PENDING" | "SUCCEEDED";
 
 /**
@@ -1626,15 +1608,6 @@ export interface SnapshotCopyAlreadyDisabledFault extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace SnapshotCopyAlreadyDisabledFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotCopyAlreadyDisabledFault): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateDataShareConsumerMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the datashare to remove association for. </p>
@@ -1740,15 +1713,6 @@ export interface InsufficientS3BucketPolicyFault extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace InsufficientS3BucketPolicyFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientS3BucketPolicyFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The S3 bucket name is invalid. For more information about naming rules, go to
  *                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html">Bucket
@@ -1761,15 +1725,6 @@ export interface InvalidS3BucketNameFault extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InvalidS3BucketNameFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidS3BucketNameFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The string specified for the logging S3 key prefix does not comply with the
  *             documented constraints.</p>
@@ -1778,15 +1733,6 @@ export interface InvalidS3KeyPrefixFault extends __SmithyException, $MetadataBea
   name: "InvalidS3KeyPrefixFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidS3KeyPrefixFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidS3KeyPrefixFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1865,15 +1811,6 @@ export interface IncompatibleOrderableOptions extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace IncompatibleOrderableOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncompatibleOrderableOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The cluster already has cross-region snapshot copy enabled.</p>
  */
@@ -1881,15 +1818,6 @@ export interface SnapshotCopyAlreadyEnabledFault extends __SmithyException, $Met
   name: "SnapshotCopyAlreadyEnabledFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SnapshotCopyAlreadyEnabledFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotCopyAlreadyEnabledFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1901,15 +1829,6 @@ export interface UnknownSnapshotCopyRegionFault extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace UnknownSnapshotCopyRegionFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnknownSnapshotCopyRegionFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The authorization for this endpoint can't be found.</p>
  */
@@ -1917,15 +1836,6 @@ export interface EndpointAuthorizationNotFoundFault extends __SmithyException, $
   name: "EndpointAuthorizationNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace EndpointAuthorizationNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointAuthorizationNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2222,15 +2132,6 @@ export interface InProgressTableRestoreQuotaExceededFault extends __SmithyExcept
   message?: string;
 }
 
-export namespace InProgressTableRestoreQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InProgressTableRestoreQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The restore is invalid.</p>
  */
@@ -2238,15 +2139,6 @@ export interface InvalidRestoreFault extends __SmithyException, $MetadataBearer 
   name: "InvalidRestoreFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidRestoreFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRestoreFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2258,15 +2150,6 @@ export interface InvalidTableRestoreArgumentFault extends __SmithyException, $Me
   name: "InvalidTableRestoreArgumentFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidTableRestoreArgumentFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTableRestoreArgumentFault): any => ({
-    ...obj,
-  });
 }
 
 export interface ModifyAquaInputMessage {
@@ -2677,15 +2560,6 @@ export interface TableLimitExceededFault extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace TableLimitExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableLimitExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request option was specified that is not supported.</p>
  */
@@ -2693,15 +2567,6 @@ export interface UnsupportedOptionFault extends __SmithyException, $MetadataBear
   name: "UnsupportedOptionFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace UnsupportedOptionFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedOptionFault): any => ({
-    ...obj,
-  });
 }
 
 export interface ModifyClusterDbRevisionMessage {
@@ -3017,15 +2882,6 @@ export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace SubnetAlreadyInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetAlreadyInUse): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyEndpointAccessMessage {
   /**
    * <p>The endpoint to be modified.</p>
@@ -3256,15 +3112,6 @@ export interface SnapshotCopyDisabledFault extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace SnapshotCopyDisabledFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotCopyDisabledFault): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifySnapshotScheduleMessage {
   /**
    * <p>A unique alphanumeric identifier of the schedule to modify.</p>
@@ -3294,15 +3141,6 @@ export interface SnapshotScheduleUpdateInProgressFault extends __SmithyException
   name: "SnapshotScheduleUpdateInProgressFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SnapshotScheduleUpdateInProgressFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotScheduleUpdateInProgressFault): any => ({
-    ...obj,
-  });
 }
 
 export interface ModifyUsageLimitMessage {
@@ -3402,15 +3240,6 @@ export interface ReservedNodeQuotaExceededFault extends __SmithyException, $Meta
   name: "ReservedNodeQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ReservedNodeQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedNodeQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**

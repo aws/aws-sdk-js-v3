@@ -169,15 +169,6 @@ export interface InvalidStateException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace InvalidStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidStateException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested resource does not exist, or access was denied.
  *     </p>
@@ -192,15 +183,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more of the provided request parameters are not valid.
  *     </p>
@@ -213,15 +195,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    *     </p>
    */
   Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export enum BackupType {
@@ -528,15 +501,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    *     </p>
    */
   Message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateServerRequest {
@@ -1089,15 +1053,6 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace ResourceAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBackupRequest {
   /**
    * <p>The ID of the backup to delete. Run the DescribeBackups command to get a list of backup IDs.
@@ -1250,15 +1205,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
    *     </p>
    */
   Message?: string;
-}
-
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeEventsRequest {

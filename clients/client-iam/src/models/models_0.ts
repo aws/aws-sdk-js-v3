@@ -263,15 +263,6 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace InvalidInputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *       account limits. The error message describes the limit exceeded.</p>
@@ -280,15 +271,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -301,15 +283,6 @@ export interface NoSuchEntityException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace NoSuchEntityException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchEntityException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
@@ -318,15 +291,6 @@ export interface ServiceFailureException extends __SmithyException, $MetadataBea
   name: "ServiceFailureException";
   $fault: "server";
   message?: string;
-}
-
-export namespace ServiceFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceFailureException): any => ({
-    ...obj,
-  });
 }
 
 export interface AddRoleToInstanceProfileRequest {
@@ -364,15 +328,6 @@ export interface EntityAlreadyExistsException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace EntityAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because only the service that depends on the service-linked role
  *       can modify or delete the role on your behalf. The error message includes the name of the
@@ -383,15 +338,6 @@ export interface UnmodifiableEntityException extends __SmithyException, $Metadat
   name: "UnmodifiableEntityException";
   $fault: "client";
   message?: string;
-}
-
-export namespace UnmodifiableEntityException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnmodifiableEntityException): any => ({
-    ...obj,
-  });
 }
 
 export interface AddUserToGroupRequest {
@@ -519,15 +465,6 @@ export interface PolicyNotAttachableException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace PolicyNotAttachableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyNotAttachableException): any => ({
-    ...obj,
-  });
-}
-
 export interface AttachRolePolicyRequest {
   /**
    * <p>The name (friendly name, not ARN) of the role to attach the policy to.</p>
@@ -619,15 +556,6 @@ export interface EntityTemporarilyUnmodifiableException extends __SmithyExceptio
   message?: string;
 }
 
-export namespace EntityTemporarilyUnmodifiableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityTemporarilyUnmodifiableException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the type of user for the transaction was
  *       incorrect.</p>
@@ -638,15 +566,6 @@ export interface InvalidUserTypeException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InvalidUserTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidUserTypeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the provided password did not meet the requirements
  *       imposed by the account password policy.</p>
@@ -655,15 +574,6 @@ export interface PasswordPolicyViolationException extends __SmithyException, $Me
   name: "PasswordPolicyViolationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace PasswordPolicyViolationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PasswordPolicyViolationException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAccessKeyRequest {
@@ -844,15 +754,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   name: "ConcurrentModificationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1544,15 +1445,6 @@ export interface MalformedPolicyDocumentException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace MalformedPolicyDocumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedPolicyDocumentException): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePolicyVersionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new
@@ -2030,15 +1922,6 @@ export interface ServiceNotSupportedException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace ServiceNotSupportedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceNotSupportedException): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateUserRequest {
   /**
    * <p> The path for the user name. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
@@ -2399,15 +2282,6 @@ export interface DeleteConflictException extends __SmithyException, $MetadataBea
   name: "DeleteConflictException";
   $fault: "client";
   message?: string;
-}
-
-export namespace DeleteConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConflictException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteGroupRequest {
@@ -2977,15 +2851,6 @@ export interface InvalidAuthenticationCodeException extends __SmithyException, $
   message?: string;
 }
 
-export namespace InvalidAuthenticationCodeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidAuthenticationCodeException): any => ({
-    ...obj,
-  });
-}
-
 export enum ReportStateType {
   COMPLETE = "COMPLETE",
   INPROGRESS = "INPROGRESS",
@@ -3070,15 +2935,6 @@ export interface ReportGenerationLimitExceededException extends __SmithyExceptio
   name: "ReportGenerationLimitExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ReportGenerationLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReportGenerationLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface GenerateServiceLastAccessedDetailsRequest {
@@ -3865,15 +3721,6 @@ export interface CredentialReportExpiredException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace CredentialReportExpiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CredentialReportExpiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the credential report does not exist. To generate a
  *       credential report, use <a>GenerateCredentialReport</a>.</p>
@@ -3884,15 +3731,6 @@ export interface CredentialReportNotPresentException extends __SmithyException, 
   message?: string;
 }
 
-export namespace CredentialReportNotPresentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CredentialReportNotPresentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the credential report is still being generated.</p>
  */
@@ -3900,15 +3738,6 @@ export interface CredentialReportNotReadyException extends __SmithyException, $M
   name: "CredentialReportNotReadyException";
   $fault: "client";
   message?: string;
-}
-
-export namespace CredentialReportNotReadyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CredentialReportNotReadyException): any => ({
-    ...obj,
-  });
 }
 
 export type ReportFormatType = "text/csv";
@@ -5349,15 +5178,6 @@ export interface UnrecognizedPublicKeyEncodingException extends __SmithyExceptio
   name: "UnrecognizedPublicKeyEncodingException";
   $fault: "client";
   message?: string;
-}
-
-export namespace UnrecognizedPublicKeyEncodingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnrecognizedPublicKeyEncodingException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetUserRequest {
@@ -8811,15 +8631,6 @@ export interface PolicyEvaluationException extends __SmithyException, $MetadataB
   name: "PolicyEvaluationException";
   $fault: "server";
   message?: string;
-}
-
-export namespace PolicyEvaluationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyEvaluationException): any => ({
-    ...obj,
-  });
 }
 
 export enum ContextKeyTypeEnum {

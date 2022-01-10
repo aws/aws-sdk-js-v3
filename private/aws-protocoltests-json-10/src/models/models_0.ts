@@ -23,15 +23,6 @@ export interface ComplexError extends __SmithyException, $MetadataBearer {
   Nested?: ComplexNestedErrorData;
 }
 
-export namespace ComplexError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComplexError): any => ({
-    ...obj,
-  });
-}
-
 export interface EmptyInputAndEmptyOutputInput {}
 
 export namespace EmptyInputAndEmptyOutputInput {
@@ -65,15 +56,6 @@ export interface FooError extends __SmithyException, $MetadataBearer {
   $fault: "server";
 }
 
-export namespace FooError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FooError): any => ({
-    ...obj,
-  });
-}
-
 export interface GreetingWithErrorsOutput {
   greeting?: string;
 }
@@ -94,15 +76,6 @@ export interface InvalidGreeting extends __SmithyException, $MetadataBearer {
   name: "InvalidGreeting";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidGreeting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidGreeting): any => ({
-    ...obj,
-  });
 }
 
 export enum FooEnum {

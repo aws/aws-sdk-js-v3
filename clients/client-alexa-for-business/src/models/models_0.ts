@@ -95,15 +95,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You are performing an action that would put you beyond your account's limits.</p>
  */
@@ -113,15 +104,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource is not found.</p>
  */
@@ -129,15 +111,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateContactWithAddressBookRequest {
@@ -211,15 +184,6 @@ export interface DeviceNotRegisteredException extends __SmithyException, $Metada
   name: "DeviceNotRegisteredException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace DeviceNotRegisteredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceNotRegisteredException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateDeviceWithRoomRequest {
@@ -327,15 +291,6 @@ export interface SkillNotLinkedException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace SkillNotLinkedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SkillNotLinkedException): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateSkillWithUsersRequest {
   /**
    * <p>The private skill ID you want to make available to enrolled users.</p>
@@ -370,15 +325,6 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
   name: "AlreadyExistsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace AlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1044,15 +990,6 @@ export interface InvalidCertificateAuthorityException extends __SmithyException,
   Message?: string;
 }
 
-export namespace InvalidCertificateAuthorityException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCertificateAuthorityException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service linked role is locked for deletion. </p>
  */
@@ -1060,15 +997,6 @@ export interface InvalidServiceLinkedRoleStateException extends __SmithyExceptio
   name: "InvalidServiceLinkedRoleStateException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidServiceLinkedRoleStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidServiceLinkedRoleStateException): any => ({
-    ...obj,
-  });
 }
 
 export enum DistanceUnit {
@@ -1487,15 +1415,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   ClientRequestToken?: string;
 }
 
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAddressBookRequest {
   /**
    * <p>The ARN of the address book to delete.</p>
@@ -1701,15 +1620,6 @@ export interface ResourceAssociatedException extends __SmithyException, $Metadat
   name: "ResourceAssociatedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceAssociatedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAssociatedException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteNetworkProfileRequest {
@@ -2848,15 +2758,6 @@ export interface InvalidSecretsManagerResourceException extends __SmithyExceptio
   name: "InvalidSecretsManagerResourceException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidSecretsManagerResourceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSecretsManagerResourceException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetProfileRequest {
@@ -4437,15 +4338,6 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace UnauthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The device is in an invalid state.</p>
  */
@@ -4453,15 +4345,6 @@ export interface InvalidDeviceException extends __SmithyException, $MetadataBear
   name: "InvalidDeviceException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidDeviceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDeviceException): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterAVSDeviceRequest {
@@ -5748,15 +5631,6 @@ export interface InvalidUserStatusException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace InvalidUserStatusException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidUserStatusException): any => ({
-    ...obj,
-  });
-}
-
 export interface SendInvitationRequest {
   /**
    * <p>The ARN of the user to whom to send an invitation. Required.</p>
@@ -5921,15 +5795,6 @@ export interface NameInUseException extends __SmithyException, $MetadataBearer {
   name: "NameInUseException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NameInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NameInUseException): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAddressBookRequest {

@@ -43,15 +43,6 @@ export interface AuthorizationErrorException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace AuthorizationErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizationErrorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates an internal service error.</p>
  */
@@ -59,15 +50,6 @@ export interface InternalErrorException extends __SmithyException, $MetadataBear
   name: "InternalErrorException";
   $fault: "server";
   message?: string;
-}
-
-export namespace InternalErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalErrorException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -80,15 +62,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the requested resource does not exist.</p>
  */
@@ -96,15 +69,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -169,15 +133,6 @@ export interface ThrottledException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace ThrottledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottledException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input for ConfirmSubscription action.</p>
  */
@@ -240,15 +195,6 @@ export interface FilterPolicyLimitExceededException extends __SmithyException, $
   message?: string;
 }
 
-export namespace FilterPolicyLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FilterPolicyLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the customer already owns the maximum allowed number of
  *             subscriptions.</p>
@@ -257,15 +203,6 @@ export interface SubscriptionLimitExceededException extends __SmithyException, $
   name: "SubscriptionLimitExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace SubscriptionLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscriptionLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -438,15 +375,6 @@ export interface OptedOutException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace OptedOutException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OptedOutException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
@@ -457,15 +385,6 @@ export interface UserErrorException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace UserErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserErrorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Can't perform multiple operations on a tag simultaneously. Perform the operations
  *             sequentially.</p>
@@ -474,15 +393,6 @@ export interface ConcurrentAccessException extends __SmithyException, $MetadataB
   name: "ConcurrentAccessException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ConcurrentAccessException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentAccessException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -645,15 +555,6 @@ export interface InvalidSecurityException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InvalidSecurityException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSecurityException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A tag has been added to a resource with the same ARN as a deleted resource. Wait a
  *             short while and then retry the operation.</p>
@@ -664,15 +565,6 @@ export interface StaleTagException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace StaleTagException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StaleTagException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Can't add more than 50 tags to a topic.</p>
  */
@@ -680,15 +572,6 @@ export interface TagLimitExceededException extends __SmithyException, $MetadataB
   name: "TagLimitExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TagLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -701,15 +584,6 @@ export interface TagPolicyException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace TagPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagPolicyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the customer already owns the maximum allowed number of topics.</p>
  */
@@ -717,15 +591,6 @@ export interface TopicLimitExceededException extends __SmithyException, $Metadat
   name: "TopicLimitExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TopicLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TopicLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -801,15 +666,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteTopicInput {
@@ -1457,15 +1313,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   Message: string | undefined;
 }
 
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input for the <code>ListPhoneNumbersOptedOut</code> action.</p>
  */
@@ -1935,15 +1782,6 @@ export interface EndpointDisabledException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace EndpointDisabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointDisabledException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that a request parameter does not comply with the associated constraints.</p>
  */
@@ -1956,15 +1794,6 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InvalidParameterValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The ciphertext references a key that doesn't exist or that you don't have access
  *             to.</p>
@@ -1975,15 +1804,6 @@ export interface KMSAccessDeniedException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace KMSAccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSAccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the specified customer master key (CMK) isn't
  *             enabled.</p>
@@ -1992,15 +1812,6 @@ export interface KMSDisabledException extends __SmithyException, $MetadataBearer
   name: "KMSDisabledException";
   $fault: "client";
   message?: string;
-}
-
-export namespace KMSDisabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSDisabledException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2015,15 +1826,6 @@ export interface KMSInvalidStateException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace KMSInvalidStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSInvalidStateException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the specified entity or resource can't be
  *             found.</p>
@@ -2034,15 +1836,6 @@ export interface KMSNotFoundException extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace KMSNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
  */
@@ -2050,15 +1843,6 @@ export interface KMSOptInRequired extends __SmithyException, $MetadataBearer {
   name: "KMSOptInRequired";
   $fault: "client";
   message?: string;
-}
-
-export namespace KMSOptInRequired {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSOptInRequired): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2073,15 +1857,6 @@ export interface KMSThrottlingException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace KMSThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Exception error indicating platform application disabled.</p>
  */
@@ -2092,15 +1867,6 @@ export interface PlatformApplicationDisabledException extends __SmithyException,
    * <p>Message for platform application disabled.</p>
    */
   message?: string;
-}
-
-export namespace PlatformApplicationDisabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlatformApplicationDisabledException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2349,15 +2115,6 @@ export interface BatchEntryIdsNotDistinctException extends __SmithyException, $M
   message?: string;
 }
 
-export namespace BatchEntryIdsNotDistinctException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchEntryIdsNotDistinctException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The length of all the batch messages put together is more than the limit.</p>
  */
@@ -2365,15 +2122,6 @@ export interface BatchRequestTooLongException extends __SmithyException, $Metada
   name: "BatchRequestTooLongException";
   $fault: "client";
   message?: string;
-}
-
-export namespace BatchRequestTooLongException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchRequestTooLongException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2385,15 +2133,6 @@ export interface EmptyBatchRequestException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace EmptyBatchRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmptyBatchRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification. </p>
  */
@@ -2401,15 +2140,6 @@ export interface InvalidBatchEntryIdException extends __SmithyException, $Metada
   name: "InvalidBatchEntryIdException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidBatchEntryIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidBatchEntryIdException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2638,15 +2368,6 @@ export interface TooManyEntriesInBatchRequestException extends __SmithyException
   name: "TooManyEntriesInBatchRequestException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TooManyEntriesInBatchRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyEntriesInBatchRequestException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3413,15 +3134,6 @@ export interface VerificationException extends __SmithyException, $MetadataBeare
    * <p>The status of the verification error.</p>
    */
   Status: string | undefined;
-}
-
-export namespace VerificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerificationException): any => ({
-    ...obj,
-  });
 }
 
 export interface VerifySMSSandboxPhoneNumberInput {

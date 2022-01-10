@@ -63,15 +63,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
  *          policy associated with this account.</p>
@@ -80,15 +71,6 @@ export interface AuthorizationException extends __SmithyException, $MetadataBear
   name: "AuthorizationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace AuthorizationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -100,15 +82,6 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace InvalidParameterValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Too many requests have been submitted. Try again after a brief wait.</p>
  */
@@ -116,15 +89,6 @@ export interface RateLimitExceededException extends __SmithyException, $Metadata
   name: "RateLimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace RateLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RateLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -136,15 +100,6 @@ export interface ResourceLimitExceededException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace ResourceLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The server experienced an internal error. Try again.</p>
  */
@@ -154,15 +109,6 @@ export interface ServerInternalException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace ServerInternalException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerInternalException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The provided input is not valid. Try your request again.</p>
  */
@@ -170,15 +116,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export enum AllowedOperation {
@@ -251,15 +188,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource cannot be found.</p>
  */
@@ -267,15 +195,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -467,15 +386,6 @@ export interface EntitlementNotAllowedException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace EntitlementNotAllowedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntitlementNotAllowedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>There are no entitlements found for this license, or the entitlement maximum count is reached.</p>
  */
@@ -483,15 +393,6 @@ export interface NoEntitlementsAllowedException extends __SmithyException, $Meta
   name: "NoEntitlementsAllowedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NoEntitlementsAllowedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoEntitlementsAllowedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -504,15 +405,6 @@ export interface RedirectException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace RedirectException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedirectException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The digital signature method is unsupported. Try your request again.</p>
  */
@@ -520,15 +412,6 @@ export interface UnsupportedDigitalSignatureMethodException extends __SmithyExce
   name: "UnsupportedDigitalSignatureMethodException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnsupportedDigitalSignatureMethodException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedDigitalSignatureMethodException): any => ({
-    ...obj,
-  });
 }
 
 export enum CheckoutType {
@@ -2751,15 +2634,6 @@ export interface FilterLimitExceededException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace FilterLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FilterLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssociationsForLicenseConfigurationRequest {
   /**
    * <p>Amazon Resource Name (ARN) of a license configuration.</p>
@@ -3873,15 +3747,6 @@ export interface FailedDependencyException extends __SmithyException, $MetadataB
   ErrorCode?: string;
 }
 
-export namespace FailedDependencyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailedDependencyException): any => ({
-    ...obj,
-  });
-}
-
 export enum InventoryFilterCondition {
   BEGINS_WITH = "BEGINS_WITH",
   CONTAINS = "CONTAINS",
@@ -4556,15 +4421,6 @@ export interface InvalidResourceStateException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace InvalidResourceStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidResourceStateException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You do not have enough licenses available to support a new resource launch.</p>
  */
@@ -4572,15 +4428,6 @@ export interface LicenseUsageException extends __SmithyException, $MetadataBeare
   name: "LicenseUsageException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace LicenseUsageException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LicenseUsageException): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateLicenseSpecificationsForResourceRequest {

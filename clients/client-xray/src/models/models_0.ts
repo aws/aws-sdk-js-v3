@@ -320,15 +320,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request exceeds the maximum number of requests per second.</p>
  */
@@ -336,15 +327,6 @@ export interface ThrottledException extends __SmithyException, $MetadataBearer {
   name: "ThrottledException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ThrottledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottledException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -729,15 +711,6 @@ export interface RuleLimitExceededException extends __SmithyException, $Metadata
   name: "RuleLimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace RuleLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteGroupRequest {
@@ -3112,15 +3085,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   ResourceName?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface PutEncryptionConfigRequest {
   /**
    * <p>An Amazon Web Services KMS key in one of the following formats:</p>
@@ -3436,15 +3400,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
   $fault: "client";
   Message?: string;
   ResourceName?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {

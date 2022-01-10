@@ -17,15 +17,6 @@ export interface BaseException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace BaseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BaseException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for the parameters to the <code><a>BuildSuggester</a></code> operation. Specifies the name of the domain you want to update.</p>
  */
@@ -82,15 +73,6 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace InternalException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
  */
@@ -108,15 +90,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because it has invalid parameters.</p>
  */
@@ -132,15 +105,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>A human-readable string error or warning message.</p>
    */
   Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -307,15 +271,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because it attempted to create a resource that already exists.</p>
  */
@@ -331,15 +286,6 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
    * <p>A human-readable string error or warning message.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 export type AlgorithmicStemming = "full" | "light" | "minimal" | "none";
@@ -578,15 +524,6 @@ export interface InvalidTypeException extends __SmithyException, $MetadataBearer
    * <p>A human-readable string error or warning message.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTypeException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1833,15 +1770,6 @@ export interface DisabledOperationException extends __SmithyException, $Metadata
    * <p>A human-readable string error or warning message.</p>
    */
   Message?: string;
-}
-
-export namespace DisabledOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisabledOperationException): any => ({
-    ...obj,
-  });
 }
 
 /**

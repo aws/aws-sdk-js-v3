@@ -78,15 +78,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Unexpected error occurred while
  *          processing the request.</p>
@@ -99,15 +90,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
    * Advice to clients on when the call can be safely retried
    */
   RetryAfterSeconds?: number;
-}
-
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -126,15 +108,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * Hypothetical resource type that was not found
    */
   ResourceType: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -158,15 +131,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * Advice to clients on when the call can be safely retried
    */
   RetryAfterSeconds?: number;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -217,15 +181,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * The fields that caused the error
    */
   Fields?: ValidationExceptionField[];
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface ActivateContactChannelRequest {
@@ -313,15 +268,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * ype of the resource in use
    */
   ResourceType: string | undefined;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 export enum ContactType {
@@ -646,15 +592,6 @@ export interface DataEncryptionException extends __SmithyException, $MetadataBea
   Message: string | undefined;
 }
 
-export namespace DataEncryptionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataEncryptionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request would cause a service quota to be exceeded.</p>
  */
@@ -681,15 +618,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    * Service Quotas requirement to identify originating quota
    */
   ServiceCode: string | undefined;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateContactChannelRequest {

@@ -10,15 +10,6 @@ export interface ClientLimitExceededException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace ClientLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 export enum Service {
   TURN = "TURN",
 }
@@ -117,15 +108,6 @@ export interface InvalidArgumentException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InvalidArgumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified client is invalid.</p>
  */
@@ -133,15 +115,6 @@ export interface InvalidClientException extends __SmithyException, $MetadataBear
   name: "InvalidClientException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidClientException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidClientException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -153,15 +126,6 @@ export interface NotAuthorizedException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace NotAuthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource is not found.</p>
  */
@@ -169,15 +133,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -189,15 +144,6 @@ export interface SessionExpiredException extends __SmithyException, $MetadataBea
   name: "SessionExpiredException";
   $fault: "client";
   message?: string;
-}
-
-export namespace SessionExpiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SessionExpiredException): any => ({
-    ...obj,
-  });
 }
 
 export interface SendAlexaOfferToMasterRequest {

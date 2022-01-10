@@ -15,15 +15,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Logref?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Structure containing the estimated age range, in years, for a face.</p>
  *          <p>Amazon Rekognition estimates an age range for faces detected in the input image. Estimated age
@@ -1323,15 +1314,6 @@ export interface ImageTooLargeException extends __SmithyException, $MetadataBear
   Logref?: string;
 }
 
-export namespace ImageTooLargeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageTooLargeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
  */
@@ -1346,15 +1328,6 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
   Logref?: string;
 }
 
-export namespace InternalServerError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The provided image format is not supported. </p>
  */
@@ -1367,15 +1340,6 @@ export interface InvalidImageFormatException extends __SmithyException, $Metadat
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
-}
-
-export namespace InvalidImageFormatException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidImageFormatException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1393,15 +1357,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   Logref?: string;
 }
 
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
  */
@@ -1414,15 +1369,6 @@ export interface InvalidS3ObjectException extends __SmithyException, $MetadataBe
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
-}
-
-export namespace InvalidS3ObjectException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidS3ObjectException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1440,15 +1386,6 @@ export interface ProvisionedThroughputExceededException extends __SmithyExceptio
   Logref?: string;
 }
 
-export namespace ProvisionedThroughputExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedThroughputExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  */
@@ -1461,15 +1398,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 export enum ContentClassifier {
@@ -1606,15 +1534,6 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
   Logref?: string;
 }
 
-export namespace ResourceAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  *
@@ -1631,15 +1550,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1753,15 +1663,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   Logref?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource specified in the request cannot be found.</p>
  */
@@ -1774,15 +1675,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateProjectRequest {
@@ -1830,15 +1722,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2957,15 +2840,6 @@ export interface InvalidPaginationTokenException extends __SmithyException, $Met
   Logref?: string;
 }
 
-export namespace InvalidPaginationTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPaginationTokenException): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProjectVersionsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the project that contains the models you want to describe.</p>
@@ -3436,15 +3310,6 @@ export interface ResourceNotReadyException extends __SmithyException, $MetadataB
   Logref?: string;
 }
 
-export namespace ResourceNotReadyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotReadyException): any => ({
-    ...obj,
-  });
-}
-
 export interface DetectFacesRequest {
   /**
    * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call
@@ -3864,15 +3729,6 @@ export interface HumanLoopQuotaExceededException extends __SmithyException, $Met
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
-}
-
-export namespace HumanLoopQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HumanLoopQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5465,15 +5321,6 @@ export interface IdempotentParameterMismatchException extends __SmithyException,
   Logref?: string;
 }
 
-export namespace IdempotentParameterMismatchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
-    ...obj,
-  });
-}
-
 export interface IndexFacesRequest {
   /**
    * <p>The ID of an existing collection to which you want to add the faces that are detected
@@ -6357,15 +6204,6 @@ export interface VideoTooLargeException extends __SmithyException, $MetadataBear
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
-}
-
-export namespace VideoTooLargeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VideoTooLargeException): any => ({
-    ...obj,
-  });
 }
 
 export interface StartContentModerationRequest {

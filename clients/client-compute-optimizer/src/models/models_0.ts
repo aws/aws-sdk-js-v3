@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum Status {
   ACTIVE = "Active",
   FAILED = "Failed",
@@ -720,15 +711,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The value supplied for the input parameter is out of range or not valid.</p>
  */
@@ -736,15 +718,6 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
   name: "InvalidParameterValueException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidParameterValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -757,15 +730,6 @@ export interface MissingAuthenticationToken extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace MissingAuthenticationToken {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MissingAuthenticationToken): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The account is not opted in to Compute Optimizer.</p>
  */
@@ -773,15 +737,6 @@ export interface OptInRequiredException extends __SmithyException, $MetadataBear
   name: "OptInRequiredException";
   $fault: "client";
   message?: string;
-}
-
-export namespace OptInRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OptInRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -793,15 +748,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request has failed due to a temporary failure of the server.</p>
  */
@@ -811,15 +757,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was denied due to request throttling.</p>
  */
@@ -827,15 +764,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   name: "ThrottlingException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 export enum JobFilterName {
@@ -1502,15 +1430,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum ExportableVolumeField {

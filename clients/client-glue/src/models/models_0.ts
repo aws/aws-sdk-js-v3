@@ -12,15 +12,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies configuration properties of a notification.</p>
  */
@@ -102,15 +93,6 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace AlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 export interface AuditContext {
@@ -548,15 +530,6 @@ export interface EntityNotFoundException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace EntityNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An encryption operation failed.</p>
  */
@@ -567,15 +540,6 @@ export interface GlueEncryptionException extends __SmithyException, $MetadataBea
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace GlueEncryptionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlueEncryptionException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -590,15 +554,6 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InternalServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input provided was not valid.</p>
  */
@@ -609,15 +564,6 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidInputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -632,15 +578,6 @@ export interface OperationTimeoutException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace OperationTimeoutException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationTimeoutException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A resource numerical limit was exceeded.</p>
  */
@@ -651,15 +588,6 @@ export interface ResourceNumberLimitExceededException extends __SmithyException,
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceNumberLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNumberLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchDeleteConnectionRequest {
@@ -859,15 +787,6 @@ export interface ResourceNotReadyException extends __SmithyException, $MetadataB
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceNotReadyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotReadyException): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchDeleteTableVersionRequest {
@@ -2367,15 +2286,6 @@ export interface InvalidStateException extends __SmithyException, $MetadataBeare
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidStateException): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchGetTriggersRequest {
@@ -4144,15 +4054,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
 export enum Permission {
   ALL = "ALL",
   ALTER = "ALTER",
@@ -4576,15 +4477,6 @@ export interface IdempotentParameterMismatchException extends __SmithyException,
   Message?: string;
 }
 
-export namespace IdempotentParameterMismatchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A value could not be validated.</p>
  */
@@ -4595,15 +4487,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateJobRequest {
@@ -6414,15 +6297,6 @@ export interface CrawlerRunningException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace CrawlerRunningException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CrawlerRunningException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCrawlerRequest {
   /**
    * <p>The name of the crawler to remove.</p>
@@ -6460,15 +6334,6 @@ export interface SchedulerTransitioningException extends __SmithyException, $Met
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace SchedulerTransitioningException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchedulerTransitioningException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDatabaseRequest {
@@ -6652,15 +6517,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePartitionIndexRequest {
   /**
    * <p>The catalog ID where the table resides.</p>
@@ -6760,15 +6616,6 @@ export interface ConditionCheckFailureException extends __SmithyException, $Meta
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace ConditionCheckFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConditionCheckFailureException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteResourcePolicyRequest {

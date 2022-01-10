@@ -10,15 +10,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum ThresholdComparator {
   GREATER_THAN = "GREATER_THAN",
   GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
@@ -296,15 +287,6 @@ export interface InternalServiceErrorException extends __SmithyException, $Metad
   $fault: "server";
 }
 
-export namespace InternalServiceErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
  */
@@ -312,15 +294,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -332,15 +305,6 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace ResourceAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The maximum number of resources of that type already exist. Ensure the resources requested are within the boundaries of the service edition and your account limits.</p>
  */
@@ -348,15 +312,6 @@ export interface ResourceLimitExceededException extends __SmithyException, $Meta
   name: "ResourceLimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -372,15 +327,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   ResourceName?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested resource exists but is not in a status that can complete the operation.</p>
  */
@@ -390,30 +336,12 @@ export interface ResourceNotReadyException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ResourceNotReadyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotReadyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request or operation could not be performed because a service is throttling requests. The most common source of throttling errors is launching EC2 instances such that your service limit for EC2 instances is exceeded. Request a limit increase or delete unused resources if possible.</p>
  */
 export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -427,15 +355,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
    * <p></p>
    */
   ResourceName?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 export enum Framework {
@@ -1782,15 +1701,6 @@ export interface IllegalActionException extends __SmithyException, $MetadataBear
   name: "IllegalActionException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace IllegalActionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IllegalActionException): any => ({
-    ...obj,
-  });
 }
 
 /**

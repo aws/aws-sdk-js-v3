@@ -13,15 +13,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   exceptionMessage?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetChannelRequest {
   /**
    * <p>Array of ARNs, one per channel.</p>
@@ -349,15 +340,6 @@ export interface PendingVerification extends __SmithyException, $MetadataBearer 
   exceptionMessage?: string;
 }
 
-export namespace PendingVerification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PendingVerification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p/>
  */
@@ -368,15 +350,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>Request references a resource which does not exist.</p>
    */
   exceptionMessage?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -391,15 +364,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   exceptionMessage?: string;
 }
 
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p/>
  */
@@ -412,15 +376,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   exceptionMessage?: string;
 }
 
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p/>
  */
@@ -431,15 +386,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>Updating or deleting a resource can cause an inconsistent state.</p>
    */
   exceptionMessage?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -581,15 +527,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
    * <p>Unexpected error during processing of request.</p>
    */
   exceptionMessage?: string;
-}
-
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateStreamKeyRequest {
@@ -845,15 +782,6 @@ export interface ChannelNotBroadcasting extends __SmithyException, $MetadataBear
    * <p>The stream is offline for the given channel ARN.</p>
    */
   exceptionMessage?: string;
-}
-
-export namespace ChannelNotBroadcasting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelNotBroadcasting): any => ({
-    ...obj,
-  });
 }
 
 export interface GetStreamRequest {
@@ -1868,15 +1796,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   exceptionMessage?: string;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 export interface StopStreamRequest {
   /**
    * <p>ARN of the channel for which the stream is to be stopped.</p>
@@ -1914,15 +1833,6 @@ export interface StreamUnavailable extends __SmithyException, $MetadataBearer {
    * <p>The stream is temporarily unavailable.</p>
    */
   exceptionMessage?: string;
-}
-
-export namespace StreamUnavailable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamUnavailable): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {

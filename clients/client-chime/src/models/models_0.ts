@@ -29,15 +29,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum AccountStatus {
   Active = "Active",
   Suspended = "Suspended",
@@ -703,15 +694,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The client is permanently forbidden from making the request.</p>
  */
@@ -720,15 +702,6 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   $fault: "client";
   Code?: ErrorCode | string;
   Message?: string;
-}
-
-export namespace ForbiddenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -741,15 +714,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service encountered an unexpected error.</p>
  */
@@ -758,15 +722,6 @@ export interface ServiceFailureException extends __SmithyException, $MetadataBea
   $fault: "server";
   Code?: ErrorCode | string;
   Message?: string;
-}
-
-export namespace ServiceFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceFailureException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -779,15 +734,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   Message?: string;
 }
 
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The client exceeded its request rate limit.</p>
  */
@@ -798,15 +744,6 @@ export interface ThrottledClientException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace ThrottledClientException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottledClientException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The client is not currently authorized to make the request.</p>
  */
@@ -815,15 +752,6 @@ export interface UnauthorizedClientException extends __SmithyException, $Metadat
   $fault: "client";
   Code?: ErrorCode | string;
   Message?: string;
-}
-
-export namespace UnauthorizedClientException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedClientException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
@@ -1160,15 +1088,6 @@ export interface ResourceLimitExceededException extends __SmithyException, $Meta
   $fault: "client";
   Code?: ErrorCode | string;
   Message?: string;
-}
-
-export namespace ResourceLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchCreateChannelMembershipRequest {
@@ -2322,15 +2241,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   $fault: "client";
   Code?: ErrorCode | string;
   Message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4747,15 +4657,6 @@ export interface UnprocessableEntityException extends __SmithyException, $Metada
   $fault: "client";
   Code?: ErrorCode | string;
   Message?: string;
-}
-
-export namespace UnprocessableEntityException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnprocessableEntityException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAppInstanceRequest {

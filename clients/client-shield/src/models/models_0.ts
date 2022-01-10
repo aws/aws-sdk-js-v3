@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>In order to grant the necessary access to the Shield Response Team (SRT) the user submitting the request must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an Amazon Web Services Service</a>. </p>
  */
@@ -25,15 +16,6 @@ export interface AccessDeniedForDependencyException extends __SmithyException, $
   name: "AccessDeniedForDependencyException";
   $fault: "client";
   message?: string;
-}
-
-export namespace AccessDeniedForDependencyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedForDependencyException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -167,15 +149,6 @@ export interface InternalErrorException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace InternalErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalErrorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Exception that indicates that the operation would not cause any change to occur.</p>
  */
@@ -183,15 +156,6 @@ export interface InvalidOperationException extends __SmithyException, $MetadataB
   name: "InvalidOperationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -241,15 +205,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   fields?: ValidationExceptionField[];
 }
 
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Exception that indicates that the operation would exceed a limit.</p>
  */
@@ -268,15 +223,6 @@ export interface LimitsExceededException extends __SmithyException, $MetadataBea
   Limit?: number;
 }
 
-export namespace LimitsExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitsExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The ARN of the role that you specifed does not exist.</p>
  */
@@ -284,15 +230,6 @@ export interface NoAssociatedRoleException extends __SmithyException, $MetadataB
   name: "NoAssociatedRoleException";
   $fault: "client";
   message?: string;
-}
-
-export namespace NoAssociatedRoleException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoAssociatedRoleException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -303,15 +240,6 @@ export interface OptimisticLockException extends __SmithyException, $MetadataBea
   name: "OptimisticLockException";
   $fault: "client";
   message?: string;
-}
-
-export namespace OptimisticLockException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OptimisticLockException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -325,15 +253,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>Type of resource.</p>
    */
   resourceType?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateDRTRoleRequest {
@@ -403,15 +322,6 @@ export interface InvalidResourceException extends __SmithyException, $MetadataBe
   name: "InvalidResourceException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidResourceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidResourceException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1055,15 +965,6 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
   resourceType?: string;
 }
 
-export namespace ResourceAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 export enum ProtectionGroupAggregation {
   MAX = "MAX",
   MEAN = "MEAN",
@@ -1255,15 +1156,6 @@ export interface LockedSubscriptionException extends __SmithyException, $Metadat
   name: "LockedSubscriptionException";
   $fault: "client";
   message?: string;
-}
-
-export namespace LockedSubscriptionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LockedSubscriptionException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAttackRequest {
@@ -2104,15 +1996,6 @@ export interface InvalidPaginationTokenException extends __SmithyException, $Met
   name: "InvalidPaginationTokenException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidPaginationTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPaginationTokenException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListProtectionGroupsRequest {

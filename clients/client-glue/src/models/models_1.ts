@@ -3663,15 +3663,6 @@ export interface PermissionTypeMismatchException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace PermissionTypeMismatchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PermissionTypeMismatchException): any => ({
-    ...obj,
-  });
-}
-
 export interface GetUnfilteredPartitionsMetadataRequest {
   CatalogId: string | undefined;
   DatabaseName: string | undefined;
@@ -5322,15 +5313,6 @@ export interface ConcurrentRunsExceededException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace ConcurrentRunsExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentRunsExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The workflow is in an invalid state to perform a requested operation.</p>
  */
@@ -5341,15 +5323,6 @@ export interface IllegalWorkflowStateException extends __SmithyException, $Metad
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace IllegalWorkflowStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IllegalWorkflowStateException): any => ({
-    ...obj,
-  });
 }
 
 export interface ResumeWorkflowRunRequest {
@@ -5552,15 +5525,6 @@ export interface IllegalBlueprintStateException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace IllegalBlueprintStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IllegalBlueprintStateException): any => ({
-    ...obj,
-  });
-}
-
 export interface StartBlueprintRunRequest {
   /**
    * <p>The name of the blueprint.</p>
@@ -5642,15 +5606,6 @@ export interface NoScheduleException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace NoScheduleException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoScheduleException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified scheduler is already running.</p>
  */
@@ -5661,15 +5616,6 @@ export interface SchedulerRunningException extends __SmithyException, $MetadataB
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace SchedulerRunningException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchedulerRunningException): any => ({
-    ...obj,
-  });
 }
 
 export interface StartCrawlerScheduleRequest {
@@ -5913,15 +5859,6 @@ export interface MLTransformNotReadyException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace MLTransformNotReadyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MLTransformNotReadyException): any => ({
-    ...obj,
-  });
-}
-
 export interface StartMLEvaluationTaskRunRequest {
   /**
    * <p>The unique identifier of the machine learning transform.</p>
@@ -6068,15 +6005,6 @@ export interface CrawlerNotRunningException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace CrawlerNotRunningException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CrawlerNotRunningException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified crawler is stopping.</p>
  */
@@ -6087,15 +6015,6 @@ export interface CrawlerStoppingException extends __SmithyException, $MetadataBe
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace CrawlerStoppingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CrawlerStoppingException): any => ({
-    ...obj,
-  });
 }
 
 export interface StopCrawlerRequest {
@@ -6135,15 +6054,6 @@ export interface SchedulerNotRunningException extends __SmithyException, $Metada
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace SchedulerNotRunningException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchedulerNotRunningException): any => ({
-    ...obj,
-  });
 }
 
 export interface StopCrawlerScheduleRequest {
@@ -6540,15 +6450,6 @@ export interface VersionMismatchException extends __SmithyException, $MetadataBe
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace VersionMismatchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VersionMismatchException): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateColumnStatisticsForPartitionRequest {

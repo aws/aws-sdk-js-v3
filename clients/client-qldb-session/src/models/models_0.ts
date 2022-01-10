@@ -66,15 +66,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Code?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned when the request exceeds the processing capacity of the ledger.</p>
  */
@@ -82,15 +73,6 @@ export interface CapacityExceededException extends __SmithyException, $MetadataB
   name: "CapacityExceededException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace CapacityExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CapacityExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -383,15 +365,6 @@ export interface InvalidSessionException extends __SmithyException, $MetadataBea
   Code?: string;
 }
 
-export namespace InvalidSessionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSessionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if a resource limit such as number of active sessions is exceeded.</p>
  */
@@ -399,15 +372,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -420,15 +384,6 @@ export interface OccConflictException extends __SmithyException, $MetadataBearer
   Message?: string;
 }
 
-export namespace OccConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OccConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned when the rate of requests exceeds the allowed throughput.</p>
  */
@@ -436,15 +391,6 @@ export interface RateExceededException extends __SmithyException, $MetadataBeare
   name: "RateExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace RateExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RateExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**

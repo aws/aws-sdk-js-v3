@@ -45,15 +45,6 @@ export interface AccessPointNotFoundException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace AccessPointNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessPointNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the parameters for EnableAvailabilityZonesForLoadBalancer.</p>
  */
@@ -201,15 +192,6 @@ export interface DuplicateTagKeysException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace DuplicateTagKeysException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateTagKeysException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The quota for the number of tags that can be assigned to a load balancer has been reached.</p>
  */
@@ -217,15 +199,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
   name: "TooManyTagsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -304,15 +277,6 @@ export interface InvalidConfigurationRequestException extends __SmithyException,
   Message?: string;
 }
 
-export namespace InvalidConfigurationRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidConfigurationRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more of the specified security groups do not exist.</p>
  */
@@ -320,15 +284,6 @@ export interface InvalidSecurityGroupException extends __SmithyException, $Metad
   name: "InvalidSecurityGroupException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidSecurityGroupException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSecurityGroupException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -383,15 +338,6 @@ export interface InvalidSubnetException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace InvalidSubnetException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSubnetException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more of the specified subnets do not exist.</p>
  */
@@ -399,15 +345,6 @@ export interface SubnetNotFoundException extends __SmithyException, $MetadataBea
   name: "SubnetNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace SubnetNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -443,15 +380,6 @@ export interface CertificateNotFoundException extends __SmithyException, $Metada
   name: "CertificateNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace CertificateNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -764,15 +692,6 @@ export interface DuplicatePolicyNameException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace DuplicatePolicyNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicatePolicyNameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The quota for the number of policies for this load balancer has been reached.</p>
  */
@@ -780,15 +699,6 @@ export interface TooManyPoliciesException extends __SmithyException, $MetadataBe
   name: "TooManyPoliciesException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyPoliciesException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyPoliciesException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -843,15 +753,6 @@ export interface DuplicateAccessPointNameException extends __SmithyException, $M
   Message?: string;
 }
 
-export namespace DuplicateAccessPointNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateAccessPointNameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified value for the schema is not valid. You can only specify a scheme for load balancers in a VPC.</p>
  */
@@ -859,15 +760,6 @@ export interface InvalidSchemeException extends __SmithyException, $MetadataBear
   name: "InvalidSchemeException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidSchemeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSchemeException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -879,15 +771,6 @@ export interface OperationNotPermittedException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace OperationNotPermittedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The quota for the number of load balancers has been reached.</p>
  */
@@ -897,15 +780,6 @@ export interface TooManyAccessPointsException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace TooManyAccessPointsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyAccessPointsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified protocol or signature version is not supported.</p>
  */
@@ -913,15 +787,6 @@ export interface UnsupportedProtocolException extends __SmithyException, $Metada
   name: "UnsupportedProtocolException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnsupportedProtocolException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedProtocolException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -969,15 +834,6 @@ export interface DuplicateListenerException extends __SmithyException, $Metadata
   name: "DuplicateListenerException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace DuplicateListenerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateListenerException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1060,15 +916,6 @@ export interface PolicyTypeNotFoundException extends __SmithyException, $Metadat
   name: "PolicyTypeNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace PolicyTypeNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyTypeNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1208,15 +1055,6 @@ export interface DependencyThrottleException extends __SmithyException, $Metadat
   Message?: string;
 }
 
-export namespace DependencyThrottleException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DependencyThrottleException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The ID of an EC2 instance.</p>
  */
@@ -1286,15 +1124,6 @@ export interface InvalidEndPointException extends __SmithyException, $MetadataBe
   name: "InvalidEndPointException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidEndPointException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEndPointException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1868,15 +1697,6 @@ export interface LoadBalancerAttributeNotFoundException extends __SmithyExceptio
   Message?: string;
 }
 
-export namespace LoadBalancerAttributeNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerAttributeNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the parameters for DescribeLoadBalancerPolicies.</p>
  */
@@ -1980,15 +1800,6 @@ export interface PolicyNotFoundException extends __SmithyException, $MetadataBea
   name: "PolicyNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace PolicyNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2415,15 +2226,6 @@ export interface ListenerNotFoundException extends __SmithyException, $MetadataB
   name: "ListenerNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ListenerNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListenerNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**

@@ -11,15 +11,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum AntipatternReportStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -910,15 +901,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The specified ID in the request is not found. </p>
  */
@@ -928,15 +910,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The request was denied due to request throttling. </p>
  */
@@ -944,15 +917,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   name: "ThrottlingException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetApplicationComponentStrategiesRequest {
@@ -1175,15 +1139,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPortfolioPreferencesRequest {}
@@ -2095,15 +2050,6 @@ export interface ServiceLinkedRoleLockClientException extends __SmithyException,
   message?: string;
 }
 
-export namespace ServiceLinkedRoleLockClientException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceLinkedRoleLockClientException): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCollectorsRequest {
   /**
    * <p> The token from a previous call that you use to retrieve the next set of results. For example,
@@ -2420,15 +2366,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   message: string | undefined;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 export interface PutPortfolioPreferencesRequest {
   /**
    * <p> The rank of the business goals based on priority. </p>
@@ -2480,15 +2417,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   name: "ServiceQuotaExceededException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface StartAssessmentRequest {

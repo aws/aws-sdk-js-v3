@@ -21,15 +21,6 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   $fault: "client";
 }
 
-export namespace ForbiddenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The connection with the provided id no longer exists.</p>
  */
@@ -38,30 +29,12 @@ export interface GoneException extends __SmithyException, $MetadataBearer {
   $fault: "client";
 }
 
-export namespace GoneException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GoneException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The client is sending more than the allowed number of requests per unit of time or the WebSocket client side buffer is full.</p>
  */
 export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetConnectionRequest {
@@ -127,15 +100,6 @@ export interface PayloadTooLargeException extends __SmithyException, $MetadataBe
   name: "PayloadTooLargeException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace PayloadTooLargeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PayloadTooLargeException): any => ({
-    ...obj,
-  });
 }
 
 export interface PostToConnectionRequest {

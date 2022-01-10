@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains a request to associate a client device with a core device. The <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_BatchAssociateClientDeviceWithCoreDevice.html">BatchAssociateClientDeviceWithCoreDevice</a> operation consumes a list of these
  *       requests.</p>
@@ -141,15 +132,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   retryAfterSeconds?: number;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a validation exception field.</p>
  */
@@ -198,15 +180,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>The list of fields that failed to validate.</p>
    */
   fields?: ValidationExceptionField[];
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchAssociateClientDeviceWithCoreDeviceRequest {
@@ -265,15 +238,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   resourceType: string | undefined;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Your request exceeded a request rate quota. For example, you might have exceeded the
  *       amount of times that you can retrieve device or deployment status per second.</p>
@@ -296,15 +260,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>The amount of time to wait before you retry the request.</p>
    */
   retryAfterSeconds?: number;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -445,15 +400,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>The type of the resource that conflicts with the request.</p>
    */
   resourceType: string | undefined;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 export enum CloudComponentState {
@@ -1375,15 +1321,6 @@ export interface RequestAlreadyInProgressException extends __SmithyException, $M
   message: string | undefined;
 }
 
-export namespace RequestAlreadyInProgressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestAlreadyInProgressException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Your request exceeds a service quota. For example, you might have the maximum number of
  *       components that you can create.</p>
@@ -1411,15 +1348,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    * <p>The code for the service in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
    */
   serviceCode: string | undefined;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum DeploymentComponentUpdatePolicyAction {

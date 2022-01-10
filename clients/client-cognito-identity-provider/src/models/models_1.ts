@@ -957,15 +957,6 @@ export interface EnableSoftwareTokenMFAException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace EnableSoftwareTokenMFAException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableSoftwareTokenMFAException): any => ({
-    ...obj,
-  });
-}
-
 export interface VerifySoftwareTokenRequest {
   /**
    * <p>The access token.</p>

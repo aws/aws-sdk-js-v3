@@ -802,15 +802,6 @@ export interface InvalidArgsException extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace InvalidArgsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArgsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource policy is invalid or is missing a required statement. For general
  * 			information about IAM policy and statement structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json">Overview of JSON Policies</a>.</p>
@@ -819,15 +810,6 @@ export interface InvalidPolicyException extends __SmithyException, $MetadataBear
   name: "InvalidPolicyException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPolicyException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -840,15 +822,6 @@ export interface InvalidTagException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace InvalidTagException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTagException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An ACM Private CA quota has been exceeded. See the exception message returned to determine the
  * 			quota that was exceeded.</p>
@@ -857,15 +830,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum AuditReportResponseFormat {
@@ -934,15 +898,6 @@ export interface InvalidArnException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace InvalidArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArnException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The state of the private CA does not allow this action to occur.</p>
  */
@@ -950,15 +905,6 @@ export interface InvalidStateException extends __SmithyException, $MetadataBeare
   name: "InvalidStateException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidStateException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -970,15 +916,6 @@ export interface RequestFailedException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace RequestFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestFailedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Your request is already in progress.</p>
  */
@@ -986,15 +923,6 @@ export interface RequestInProgressException extends __SmithyException, $Metadata
   name: "RequestInProgressException";
   $fault: "client";
   message?: string;
-}
-
-export namespace RequestInProgressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestInProgressException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1005,15 +933,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export enum ActionType {
@@ -1070,15 +989,6 @@ export interface PermissionAlreadyExistsException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace PermissionAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PermissionAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A previous update to your private CA is still ongoing.</p>
  */
@@ -1086,15 +996,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   name: "ConcurrentModificationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteCertificateAuthorityRequest {
@@ -1184,15 +1085,6 @@ export interface LockoutPreventedException extends __SmithyException, $MetadataB
   name: "LockoutPreventedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace LockoutPreventedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LockoutPreventedException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCertificateAuthorityRequest {
@@ -1593,15 +1485,6 @@ export interface CertificateMismatchException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace CertificateMismatchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateMismatchException): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportCertificateAuthorityCertificateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form: </p>
@@ -1647,15 +1530,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more fields in the certificate are invalid.</p>
  */
@@ -1663,15 +1537,6 @@ export interface MalformedCertificateException extends __SmithyException, $Metad
   name: "MalformedCertificateException";
   $fault: "client";
   message?: string;
-}
-
-export namespace MalformedCertificateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedCertificateException): any => ({
-    ...obj,
-  });
 }
 
 export enum PolicyQualifierId {
@@ -2096,15 +1961,6 @@ export interface MalformedCSRException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace MalformedCSRException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedCSRException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The token specified in the <code>NextToken</code> argument is not valid. Use the token
  * 			returned from your previous call to <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a>.</p>
@@ -2113,15 +1969,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   name: "InvalidNextTokenException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceOwner {
@@ -2406,15 +2253,6 @@ export interface RequestAlreadyProcessedException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace RequestAlreadyProcessedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestAlreadyProcessedException): any => ({
-    ...obj,
-  });
-}
-
 export enum RevocationReason {
   AFFILIATION_CHANGED = "AFFILIATION_CHANGED",
   A_A_COMPROMISE = "A_A_COMPROMISE",
@@ -2500,15 +2338,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagCertificateAuthorityRequest {

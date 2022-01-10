@@ -637,15 +637,6 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InternalFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was invalid.</p>
  */
@@ -656,15 +647,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -679,15 +661,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request could not be completed due to throttling.</p>
  */
@@ -698,15 +671,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1331,15 +1295,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDetectorRequest {

@@ -131,15 +131,6 @@ export interface InvalidJobStateException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InvalidJobStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidJobStateException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource can't be found. Check the information you provided in your last
  *       request, and try again.</p>
@@ -154,15 +145,6 @@ export interface InvalidResourceException extends __SmithyException, $MetadataBe
   ResourceType?: string;
 }
 
-export namespace InvalidResourceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidResourceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The provided Key Management Service key lacks the permissions to perform the specified
  *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
@@ -171,15 +153,6 @@ export interface KMSRequestFailedException extends __SmithyException, $MetadataB
   name: "KMSRequestFailedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace KMSRequestFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSRequestFailedException): any => ({
-    ...obj,
-  });
 }
 
 export interface CancelJobRequest {
@@ -254,15 +227,6 @@ export interface InvalidAddressException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InvalidAddressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidAddressException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The address is either outside the serviceable area for your region, or an error
  *       occurred. Check the address with your region's carrier and try again. If the issue persists,
@@ -272,15 +236,6 @@ export interface UnsupportedAddressException extends __SmithyException, $Metadat
   name: "UnsupportedAddressException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnsupportedAddressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedAddressException): any => ({
-    ...obj,
-  });
 }
 
 export enum JobType {
@@ -867,15 +822,6 @@ export interface Ec2RequestFailedException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace Ec2RequestFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Ec2RequestFailedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Job or cluster creation failed. One or more inputs were invalid. Confirm that the <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>, and try again.</p>
  */
@@ -883,15 +829,6 @@ export interface InvalidInputCombinationException extends __SmithyException, $Me
   name: "InvalidInputCombinationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidInputCombinationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputCombinationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -903,15 +840,6 @@ export interface ClusterLimitExceededException extends __SmithyException, $Metad
   name: "ClusterLimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ClusterLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1234,15 +1162,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateReturnShippingLabelRequest {
   /**
    * <p>The ID for a job that you want to create the return shipping label for; for example,
@@ -1299,15 +1218,6 @@ export interface ReturnShippingLabelAlreadyExistsException extends __SmithyExcep
   name: "ReturnShippingLabelAlreadyExistsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ReturnShippingLabelAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReturnShippingLabelAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAddressRequest {
@@ -1398,15 +1308,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeClusterRequest {

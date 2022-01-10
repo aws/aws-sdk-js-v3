@@ -11,15 +11,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export type Tier =
   | "CUSTOM"
   | "DEFAULT"
@@ -172,15 +163,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   name: "BadRequestException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
 }
 
 export type CloudWatchEventSource = "CODE_DEPLOY" | "EC2" | "HEALTH" | "RDS";
@@ -376,15 +358,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource is already created or in use.</p>
  */
@@ -392,15 +365,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -412,15 +376,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Tags are already registered for the specified application ARN.</p>
  */
@@ -430,15 +385,6 @@ export interface TagsAlreadyExistException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace TagsAlreadyExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagsAlreadyExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The parameter is not valid.</p>
  */
@@ -446,15 +392,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateComponentRequest {
@@ -1809,15 +1746,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
    * <p>The name of the resource with too many tags.</p>
    */
   ResourceName?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {

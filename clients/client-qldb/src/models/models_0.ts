@@ -52,15 +52,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   ParameterName?: string;
 }
 
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource doesn't exist.</p>
  */
@@ -79,15 +70,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   ResourceName?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation failed because a condition wasn't satisfied in advance.</p>
  */
@@ -104,15 +86,6 @@ export interface ResourcePreconditionNotMetException extends __SmithyException, 
    * <p>The name of the resource.</p>
    */
   ResourceName?: string;
-}
-
-export namespace ResourcePreconditionNotMetException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourcePreconditionNotMetException): any => ({
-    ...obj,
-  });
 }
 
 export enum PermissionsMode {
@@ -312,15 +285,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   ResourceType?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource already exists.</p>
  */
@@ -339,15 +303,6 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
   ResourceName?: string;
 }
 
-export namespace ResourceAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource can't be modified at this time.</p>
  */
@@ -364,15 +319,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
    * <p>The name of the resource.</p>
    */
   ResourceName?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteLedgerRequest {

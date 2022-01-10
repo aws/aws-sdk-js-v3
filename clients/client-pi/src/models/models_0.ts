@@ -427,15 +427,6 @@ export interface InternalServiceError extends __SmithyException, $MetadataBearer
   Message?: string;
 }
 
-export namespace InternalServiceError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One of the arguments provided is invalid for this request.</p>
  */
@@ -445,15 +436,6 @@ export interface InvalidArgumentException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InvalidArgumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The user is not authorized to perform this request.</p>
  */
@@ -461,15 +443,6 @@ export interface NotAuthorizedException extends __SmithyException, $MetadataBear
   name: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NotAuthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
-    ...obj,
-  });
 }
 
 export enum DetailStatus {

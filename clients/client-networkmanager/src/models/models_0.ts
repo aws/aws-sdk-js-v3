@@ -199,15 +199,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>There was a conflict processing the request. Updating or deleting the resource can
  *             cause an inconsistent state.</p>
@@ -227,15 +218,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   ResourceType: string | undefined;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request has failed due to an internal error.</p>
  */
@@ -247,15 +229,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
    * <p>Indicates when to retry the request.</p>
    */
   RetryAfterSeconds?: number;
-}
-
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -281,15 +254,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   Context?: { [key: string]: string };
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was denied due to request throttling.</p>
  */
@@ -301,15 +265,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>Indicates when to retry the request.</p>
    */
   RetryAfterSeconds?: number;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -359,15 +314,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>The fields that caused the error, if applicable.</p>
    */
   Fields?: ValidationExceptionField[];
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateConnectPeerRequest {
@@ -493,15 +439,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    * <p>The service code.</p>
    */
   ServiceCode: string | undefined;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateCustomerGatewayRequest {
@@ -1525,15 +1462,6 @@ export interface CoreNetworkPolicyException extends __SmithyException, $Metadata
    * <p>Describes a core network policy exception.</p>
    */
   Errors?: CoreNetworkPolicyError[];
-}
-
-export namespace CoreNetworkPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CoreNetworkPolicyException): any => ({
-    ...obj,
-  });
 }
 
 /**

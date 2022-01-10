@@ -63,15 +63,6 @@ export interface DomainLimitExceeded extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace DomainLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainLimitExceeded): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name
  * 			that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>,
@@ -87,15 +78,6 @@ export interface InvalidInput extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace InvalidInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
  */
@@ -108,15 +90,6 @@ export interface OperationLimitExceeded extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace OperationLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationLimitExceeded): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  */
@@ -127,15 +100,6 @@ export interface UnsupportedTLD extends __SmithyException, $MetadataBearer {
    * <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
    */
   message?: string;
-}
-
-export namespace UnsupportedTLD {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedTLD): any => ({
-    ...obj,
-  });
 }
 
 export enum OperationType {
@@ -1755,15 +1719,6 @@ export interface DuplicateRequest extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace DuplicateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The top-level domain does not support this operation.</p>
  */
@@ -1774,15 +1729,6 @@ export interface TLDRulesViolation extends __SmithyException, $MetadataBearer {
    * <p>The top-level domain does not support this operation.</p>
    */
   message?: string;
-}
-
-export namespace TLDRulesViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TLDRulesViolation): any => ({
-    ...obj,
-  });
 }
 
 /**

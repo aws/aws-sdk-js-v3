@@ -14,15 +14,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure containing an LF-tag key-value pair.</p>
  */
@@ -500,15 +491,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A specified entity does not exist</p>
  */
@@ -519,15 +501,6 @@ export interface EntityNotFoundException extends __SmithyException, $MetadataBea
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace EntityNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -542,15 +515,6 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InternalServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input provided was not valid.</p>
  */
@@ -563,15 +527,6 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace InvalidInputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation timed out.</p>
  */
@@ -582,15 +537,6 @@ export interface OperationTimeoutException extends __SmithyException, $MetadataB
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace OperationTimeoutException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationTimeoutException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -652,15 +598,6 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace AlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -896,15 +833,6 @@ export interface TransactionCommitInProgressException extends __SmithyException,
   Message?: string;
 }
 
-export namespace TransactionCommitInProgressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransactionCommitInProgressException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
  */
@@ -915,15 +843,6 @@ export interface TransactionCommittedException extends __SmithyException, $Metad
    * <p>A message describing the error.</p>
    */
   Message?: string;
-}
-
-export namespace TransactionCommittedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransactionCommittedException): any => ({
-    ...obj,
-  });
 }
 
 export interface CommitTransactionRequest {
@@ -975,15 +894,6 @@ export interface TransactionCanceledException extends __SmithyException, $Metada
    * <p>A message describing the error.</p>
    */
   Message?: string;
-}
-
-export namespace TransactionCanceledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransactionCanceledException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1099,15 +1009,6 @@ export interface ResourceNumberLimitExceededException extends __SmithyException,
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceNumberLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNumberLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLFTagRequest {
@@ -1303,15 +1204,6 @@ export interface ResourceNotReadyException extends __SmithyException, $MetadataB
    * <p>A message describing the error.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceNotReadyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotReadyException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeregisterResourceRequest {
@@ -1854,15 +1746,6 @@ export interface ExpiredException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ExpiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpiredException): any => ({
-    ...obj,
-  });
-}
-
 export interface GetQueryStatisticsRequest {
   /**
    * <p>The ID of the plan query operation.</p>
@@ -1980,15 +1863,6 @@ export interface StatisticsNotReadyYetException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace StatisticsNotReadyYetException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatisticsNotReadyYetException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains details about an error where the query request was throttled.</p>
  */
@@ -2002,15 +1876,6 @@ export interface ThrottledException extends __SmithyException, $MetadataBearer {
    * <p>A message describing the error.</p>
    */
   Message?: string;
-}
-
-export namespace ThrottledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottledException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResourceLFTagsRequest {
@@ -2099,15 +1964,6 @@ export interface GlueEncryptionException extends __SmithyException, $MetadataBea
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace GlueEncryptionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlueEncryptionException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetTableObjectsRequest {
@@ -2354,15 +2210,6 @@ export interface PermissionTypeMismatchException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace PermissionTypeMismatchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PermissionTypeMismatchException): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTemporaryGlueTableCredentialsRequest {
   /**
    * <p>The ARN identifying a table in the Data Catalog for the temporary credentials request.</p>
@@ -2570,15 +2417,6 @@ export interface WorkUnitsNotReadyYetException extends __SmithyException, $Metad
    * <p>A message describing the error.</p>
    */
   Message?: string;
-}
-
-export namespace WorkUnitsNotReadyYetException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkUnitsNotReadyYetException): any => ({
-    ...obj,
-  });
 }
 
 export interface GrantPermissionsRequest {

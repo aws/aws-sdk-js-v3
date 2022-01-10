@@ -108,16 +108,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Details?: BadRequestDetails;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-    ...(obj.Details && { Details: BadRequestDetails.filterSensitiveLog(obj.Details) }),
-  });
-}
-
 /**
  * <p>There was an internal failure in the service.</p>
  */
@@ -125,15 +115,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceType {
@@ -175,15 +156,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>A map indicating which parameters in the request reference the resource that was not found.</p>
    */
   ReferencedBy?: { [key: string]: string };
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -253,15 +225,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   name: "ThrottlingException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**

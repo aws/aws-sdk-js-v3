@@ -3138,15 +3138,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
  */
@@ -3157,15 +3148,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>The explanation of the error that occurred.</p>
    */
   message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3180,15 +3162,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
  */
@@ -3199,15 +3172,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The explanation of the error that occurred.</p>
    */
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3222,15 +3186,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
  */
@@ -3243,15 +3198,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  */
@@ -3262,15 +3208,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>The explanation of the error that occurred.</p>
    */
   message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 /**

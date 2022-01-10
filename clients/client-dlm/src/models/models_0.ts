@@ -741,15 +741,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   Code?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Bad request. The request is missing required parameters or has invalid
  * 			parameters.</p>
@@ -770,15 +761,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   MutuallyExclusiveParameters?: string[];
 }
 
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request failed because a limit was exceeded.</p>
  */
@@ -791,15 +773,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    * <p>Value is the type of resource for which a limit was exceeded.</p>
    */
   ResourceType?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteLifecyclePolicyRequest {
@@ -846,15 +819,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>Value is a list of resource IDs that were not found.</p>
    */
   ResourceIds?: string[];
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export enum GettablePolicyStateValues {

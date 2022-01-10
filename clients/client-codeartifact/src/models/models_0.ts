@@ -12,15 +12,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum HashAlgorithm {
   MD5 = "MD5",
   SHA1 = "SHA-1",
@@ -341,15 +332,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   resourceType?: ResourceType | string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The operation did not succeed because of an error that occurred inside AWS CodeArtifact. </p>
  */
@@ -357,15 +339,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   name: "InternalServerException";
   $fault: "server";
   message: string | undefined;
-}
-
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -392,15 +365,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   resourceType?: ResourceType | string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *         The operation did not succeed because it would have exceeded a service limit for your account.
@@ -425,15 +389,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   resourceType?: ResourceType | string;
 }
 
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       The operation did not succeed because too many requests are sent to the service.
@@ -449,15 +404,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    *     </p>
    */
   retryAfterSeconds?: number;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 export enum ValidationExceptionReason {
@@ -483,15 +429,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    *     </p>
    */
   reason?: ValidationExceptionReason | string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface CopyPackageVersionsRequest {

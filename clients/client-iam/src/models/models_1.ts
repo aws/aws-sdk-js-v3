@@ -710,15 +710,6 @@ export interface KeyPairMismatchException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace KeyPairMismatchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyPairMismatchException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the certificate was malformed or expired. The error
  *       message describes the specific error.</p>
@@ -727,15 +718,6 @@ export interface MalformedCertificateException extends __SmithyException, $Metad
   name: "MalformedCertificateException";
   $fault: "client";
   message?: string;
-}
-
-export namespace MalformedCertificateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedCertificateException): any => ({
-    ...obj,
-  });
 }
 
 export interface UploadServerCertificateRequest {
@@ -888,15 +870,6 @@ export interface DuplicateCertificateException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace DuplicateCertificateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateCertificateException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the certificate is invalid.</p>
  */
@@ -904,15 +877,6 @@ export interface InvalidCertificateException extends __SmithyException, $Metadat
   name: "InvalidCertificateException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidCertificateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCertificateException): any => ({
-    ...obj,
-  });
 }
 
 export interface UploadSigningCertificateRequest {
@@ -984,15 +948,6 @@ export interface DuplicateSSHPublicKeyException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace DuplicateSSHPublicKeyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateSSHPublicKeyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the public key is malformed or otherwise invalid.</p>
  */
@@ -1000,15 +955,6 @@ export interface InvalidPublicKeyException extends __SmithyException, $MetadataB
   name: "InvalidPublicKeyException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidPublicKeyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPublicKeyException): any => ({
-    ...obj,
-  });
 }
 
 export interface UploadSSHPublicKeyRequest {
