@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "elasticloadbalancing.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "elasticloadbalancing-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -16,10 +12,6 @@ const regionHash: RegionHash = {
   },
   "us-east-2": {
     variants: [
-      {
-        hostname: "elasticloadbalancing.us-east-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "elasticloadbalancing-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
@@ -30,20 +22,12 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "elasticloadbalancing.us-gov-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
-        hostname: "elasticloadbalancing.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
     ],
   },
   "us-gov-west-1": {
     variants: [
-      {
-        hostname: "elasticloadbalancing.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "elasticloadbalancing.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
@@ -53,10 +37,6 @@ const regionHash: RegionHash = {
   "us-west-1": {
     variants: [
       {
-        hostname: "elasticloadbalancing.us-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "elasticloadbalancing-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -64,10 +44,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "elasticloadbalancing.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "elasticloadbalancing-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

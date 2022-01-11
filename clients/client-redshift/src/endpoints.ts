@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "ca-central-1": {
     variants: [
       {
-        hostname: "redshift.ca-central-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "redshift-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -17,10 +13,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "redshift.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "redshift-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -28,10 +20,6 @@ const regionHash: RegionHash = {
   },
   "us-east-2": {
     variants: [
-      {
-        hostname: "redshift.us-east-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "redshift-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
@@ -59,10 +47,6 @@ const regionHash: RegionHash = {
   "us-west-1": {
     variants: [
       {
-        hostname: "redshift.us-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "redshift-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -70,10 +54,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "redshift.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "redshift-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

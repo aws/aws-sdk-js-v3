@@ -6,10 +6,6 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "identitystore.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
-        hostname: "identitystore.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
     ],

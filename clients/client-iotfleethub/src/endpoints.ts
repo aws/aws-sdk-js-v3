@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "ca-central-1": {
     variants: [
       {
-        hostname: "api.fleethub.iot.ca-central-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "api.fleethub.iot-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -16,10 +12,6 @@ const regionHash: RegionHash = {
   },
   "us-east-1": {
     variants: [
-      {
-        hostname: "api.fleethub.iot.us-east-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "api.fleethub.iot-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
@@ -29,10 +21,6 @@ const regionHash: RegionHash = {
   "us-east-2": {
     variants: [
       {
-        hostname: "api.fleethub.iot.us-east-2.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "api.fleethub.iot-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
@@ -40,10 +28,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "api.fleethub.iot.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "api.fleethub.iot-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

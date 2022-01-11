@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "us-gov-west-1": {
     variants: [
       {
-        hostname: "email.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "email-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },

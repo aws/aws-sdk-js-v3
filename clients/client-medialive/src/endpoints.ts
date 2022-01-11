@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "medialive.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "medialive-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -17,10 +13,6 @@ const regionHash: RegionHash = {
   "us-east-2": {
     variants: [
       {
-        hostname: "medialive.us-east-2.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "medialive-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
@@ -28,10 +20,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "medialive.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "medialive-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

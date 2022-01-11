@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "meetings-chime.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "meetings-chime-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -16,10 +12,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "meetings-chime.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "meetings-chime-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

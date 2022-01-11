@@ -103,13 +103,17 @@ final class EndpointGenerator implements Runnable {
                         resolvedHostname,
                         dnsSuffix);
 
-                    String defaultHostname = getResolvedHostnameWithDnsSuffix(resolvedHostname, dnsSuffix);
-                    ArrayNode defaultVariant = ArrayNode.fromNodes(getDefaultVariant(defaultHostname));
+                    if (config.containsMember("hostname")) {
+                        // Populate default variant only if endpoint entry contains hostname
+                        String defaultHostname = getResolvedHostnameWithDnsSuffix(resolvedHostname, dnsSuffix);
+                        ArrayNode defaultVariant = ArrayNode.fromNodes(getDefaultVariant(defaultHostname));
+                        variants = defaultVariant.merge(variants);
+                    }
 
                     endpoints.put(region,
                         config
                             .withMember("hostname", resolvedHostname)
-                            .withMember("variants", defaultVariant.merge(variants)));
+                            .withMember("variants", variants));
                 }
             }
         }

@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "ca-central-1": {
     variants: [
       {
-        hostname: "network-firewall.ca-central-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "network-firewall-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -16,10 +12,6 @@ const regionHash: RegionHash = {
   },
   "us-east-1": {
     variants: [
-      {
-        hostname: "network-firewall.us-east-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "network-firewall-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
@@ -29,10 +21,6 @@ const regionHash: RegionHash = {
   "us-east-2": {
     variants: [
       {
-        hostname: "network-firewall.us-east-2.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "network-firewall-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
@@ -40,10 +28,6 @@ const regionHash: RegionHash = {
   },
   "us-gov-east-1": {
     variants: [
-      {
-        hostname: "network-firewall.us-gov-east-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "network-firewall-fips.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
@@ -53,10 +37,6 @@ const regionHash: RegionHash = {
   "us-gov-west-1": {
     variants: [
       {
-        hostname: "network-firewall.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "network-firewall-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -65,10 +45,6 @@ const regionHash: RegionHash = {
   "us-west-1": {
     variants: [
       {
-        hostname: "network-firewall.us-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "network-firewall-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -76,10 +52,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "network-firewall.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "network-firewall-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

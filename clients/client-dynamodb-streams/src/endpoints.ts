@@ -15,20 +15,12 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "streams.dynamodb.us-gov-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
-        hostname: "streams.dynamodb.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
     ],
   },
   "us-gov-west-1": {
     variants: [
-      {
-        hostname: "streams.dynamodb.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "streams.dynamodb.us-gov-west-1.amazonaws.com",
         tags: ["fips"],

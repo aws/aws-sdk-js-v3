@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "identity-chime.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "identity-chime-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },

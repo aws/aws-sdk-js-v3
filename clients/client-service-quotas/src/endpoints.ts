@@ -6,20 +6,12 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "servicequotas.us-gov-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
-        hostname: "servicequotas.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
     ],
   },
   "us-gov-west-1": {
     variants: [
-      {
-        hostname: "servicequotas.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "servicequotas.us-gov-west-1.amazonaws.com",
         tags: ["fips"],

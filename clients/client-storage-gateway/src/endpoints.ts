@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "ca-central-1": {
     variants: [
       {
-        hostname: "storagegateway.ca-central-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "storagegateway-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -16,10 +12,6 @@ const regionHash: RegionHash = {
   },
   "us-east-1": {
     variants: [
-      {
-        hostname: "storagegateway.us-east-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "storagegateway-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
@@ -29,10 +21,6 @@ const regionHash: RegionHash = {
   "us-east-2": {
     variants: [
       {
-        hostname: "storagegateway.us-east-2.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "storagegateway-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
@@ -40,10 +28,6 @@ const regionHash: RegionHash = {
   },
   "us-gov-east-1": {
     variants: [
-      {
-        hostname: "storagegateway.us-gov-east-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "storagegateway-fips.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
@@ -53,10 +37,6 @@ const regionHash: RegionHash = {
   "us-gov-west-1": {
     variants: [
       {
-        hostname: "storagegateway.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "storagegateway-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -65,10 +45,6 @@ const regionHash: RegionHash = {
   "us-west-1": {
     variants: [
       {
-        hostname: "storagegateway.us-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "storagegateway-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -76,10 +52,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "storagegateway.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "storagegateway-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

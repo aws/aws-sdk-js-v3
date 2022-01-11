@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "ca-central-1": {
     variants: [
       {
-        hostname: "textract.ca-central-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "textract-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -16,10 +12,6 @@ const regionHash: RegionHash = {
   },
   "us-east-1": {
     variants: [
-      {
-        hostname: "textract.us-east-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "textract-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
@@ -29,10 +21,6 @@ const regionHash: RegionHash = {
   "us-east-2": {
     variants: [
       {
-        hostname: "textract.us-east-2.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "textract-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
@@ -40,10 +28,6 @@ const regionHash: RegionHash = {
   },
   "us-gov-east-1": {
     variants: [
-      {
-        hostname: "textract.us-gov-east-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "textract-fips.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
@@ -53,10 +37,6 @@ const regionHash: RegionHash = {
   "us-gov-west-1": {
     variants: [
       {
-        hostname: "textract.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "textract-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -65,10 +45,6 @@ const regionHash: RegionHash = {
   "us-west-1": {
     variants: [
       {
-        hostname: "textract.us-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "textract-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -76,10 +52,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "textract.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "textract-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
