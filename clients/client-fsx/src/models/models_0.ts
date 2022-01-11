@@ -63,15 +63,6 @@ export interface ActiveDirectoryError extends __SmithyException, $MetadataBearer
   Message?: string;
 }
 
-export namespace ActiveDirectoryError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActiveDirectoryError): any => ({
-    ...obj,
-  });
-}
-
 export enum AdministrativeActionType {
   FILE_SYSTEM_ALIAS_ASSOCIATION = "FILE_SYSTEM_ALIAS_ASSOCIATION",
   FILE_SYSTEM_ALIAS_DISASSOCIATION = "FILE_SYSTEM_ALIAS_DISASSOCIATION",
@@ -1722,15 +1713,6 @@ export interface BadRequest extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace BadRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
  */
@@ -1743,15 +1725,6 @@ export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace FileSystemNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileSystemNotFound): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A generic error indicating a server-side failure.</p>
  */
@@ -1762,15 +1735,6 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
    * <p>A detailed error message.</p>
    */
   Message?: string;
-}
-
-export namespace InternalServerError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj,
-  });
 }
 
 export enum EventType {
@@ -1955,15 +1919,6 @@ export interface DataRepositoryTaskEnded extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace DataRepositoryTaskEnded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataRepositoryTaskEnded): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The data repository task or tasks you specified could not be found.</p>
  */
@@ -1974,15 +1929,6 @@ export interface DataRepositoryTaskNotFound extends __SmithyException, $Metadata
    * <p>A detailed error message.</p>
    */
   Message?: string;
-}
-
-export namespace DataRepositoryTaskNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataRepositoryTaskNotFound): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1997,15 +1943,6 @@ export interface UnsupportedOperation extends __SmithyException, $MetadataBearer
   Message?: string;
 }
 
-export namespace UnsupportedOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedOperation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
  */
@@ -2016,15 +1953,6 @@ export interface BackupNotFound extends __SmithyException, $MetadataBearer {
    * <p>A detailed error message.</p>
    */
   Message?: string;
-}
-
-export namespace BackupNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackupNotFound): any => ({
-    ...obj,
-  });
 }
 
 export interface CopyBackupRequest {
@@ -2145,15 +2073,6 @@ export interface IncompatibleParameterError extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace IncompatibleParameterError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncompatibleParameterError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Amazon FSx doesn't support Multi-AZ Windows File Server copy backup in the
  *          destination Region, so the copied backup can't be restored.</p>
@@ -2165,15 +2084,6 @@ export interface IncompatibleRegionForMultiAZ extends __SmithyException, $Metada
    * <p>A detailed error message.</p>
    */
   Message?: string;
-}
-
-export namespace IncompatibleRegionForMultiAZ {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncompatibleRegionForMultiAZ): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2189,15 +2099,6 @@ export interface InvalidDestinationKmsKey extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InvalidDestinationKmsKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDestinationKmsKey): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Region provided for <code>SourceRegion</code> is not valid or is in a different
  *             Amazon Web Services partition.</p>
@@ -2211,15 +2112,6 @@ export interface InvalidRegion extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace InvalidRegion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRegion): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Key Management Service (KMS) key of the source backup is not
  *          valid.</p>
@@ -2231,15 +2123,6 @@ export interface InvalidSourceKmsKey extends __SmithyException, $MetadataBearer 
    * <p>A detailed error message.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidSourceKmsKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSourceKmsKey): any => ({
-    ...obj,
-  });
 }
 
 export enum ServiceLimit {
@@ -2272,15 +2155,6 @@ export interface ServiceLimitExceeded extends __SmithyException, $MetadataBearer
   Message?: string;
 }
 
-export namespace ServiceLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceLimitExceeded): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the lifecycle status of the source backup isn't
  *             <code>AVAILABLE</code>.</p>
@@ -2299,15 +2173,6 @@ export interface SourceBackupUnavailable extends __SmithyException, $MetadataBea
   BackupId?: string;
 }
 
-export namespace SourceBackupUnavailable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceBackupUnavailable): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Another backup is already under way. Wait for completion before initiating
  *             additional backups of this file system.</p>
@@ -2319,15 +2184,6 @@ export interface BackupInProgress extends __SmithyException, $MetadataBearer {
    * <p>A detailed error message.</p>
    */
   Message?: string;
-}
-
-export namespace BackupInProgress {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackupInProgress): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2380,15 +2236,6 @@ export interface VolumeNotFound extends __SmithyException, $MetadataBearer {
    * <p>A detailed error message.</p>
    */
   Message?: string;
-}
-
-export namespace VolumeNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VolumeNotFound): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3010,15 +2857,6 @@ export interface DataRepositoryTaskExecuting extends __SmithyException, $Metadat
    * <p>A detailed error message.</p>
    */
   Message?: string;
-}
-
-export namespace DataRepositoryTaskExecuting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataRepositoryTaskExecuting): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4142,15 +3980,6 @@ export interface InvalidExportPath extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace InvalidExportPath {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidExportPath): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The path provided for data repository import isn't valid.</p>
  */
@@ -4161,15 +3990,6 @@ export interface InvalidImportPath extends __SmithyException, $MetadataBearer {
    * <p>A detailed error message.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidImportPath {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidImportPath): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4199,15 +4019,6 @@ export interface InvalidNetworkSettings extends __SmithyException, $MetadataBear
   InvalidRouteTableId?: string;
 }
 
-export namespace InvalidNetworkSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNetworkSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An invalid value for <code>PerUnitStorageThroughput</code> was provided. Please create your file system again, using a valid value.</p>
  */
@@ -4220,15 +4031,6 @@ export interface InvalidPerUnitStorageThroughput extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace InvalidPerUnitStorageThroughput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPerUnitStorageThroughput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A file system configuration is required for this operation.</p>
  */
@@ -4239,15 +4041,6 @@ export interface MissingFileSystemConfiguration extends __SmithyException, $Meta
    * <p>A detailed error message.</p>
    */
   Message?: string;
-}
-
-export namespace MissingFileSystemConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MissingFileSystemConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5024,15 +4817,6 @@ export interface MissingVolumeConfiguration extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace MissingVolumeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MissingVolumeConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>No Amazon FSx for NetApp ONTAP SVMs were found based upon the supplied parameters.</p>
  */
@@ -5043,15 +4827,6 @@ export interface StorageVirtualMachineNotFound extends __SmithyException, $Metad
    * <p>A detailed error message.</p>
    */
   Message?: string;
-}
-
-export namespace StorageVirtualMachineNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageVirtualMachineNotFound): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateVolumeFromBackupRequest {
@@ -5109,15 +4884,6 @@ export interface BackupBeingCopied extends __SmithyException, $MetadataBearer {
   BackupId?: string;
 }
 
-export namespace BackupBeingCopied {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackupBeingCopied): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You can't delete a backup while it's being used to restore a file
  *             system.</p>
@@ -5134,15 +4900,6 @@ export interface BackupRestoring extends __SmithyException, $MetadataBearer {
    * <p>The ID of a file system being restored from the backup.</p>
    */
   FileSystemId?: string;
-}
-
-export namespace BackupRestoring {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackupRestoring): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5206,15 +4963,6 @@ export interface DataRepositoryAssociationNotFound extends __SmithyException, $M
    * <p>A detailed error message.</p>
    */
   Message?: string;
-}
-
-export namespace DataRepositoryAssociationNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataRepositoryAssociationNotFound): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDataRepositoryAssociationRequest {
@@ -5584,15 +5332,6 @@ export interface SnapshotNotFound extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace SnapshotNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotNotFound): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteStorageVirtualMachineRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
@@ -5919,15 +5658,6 @@ export interface InvalidDataRepositoryType extends __SmithyException, $MetadataB
    * <p>A detailed error message.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidDataRepositoryType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDataRepositoryType): any => ({
-    ...obj,
-  });
 }
 
 export enum DataRepositoryTaskFilterName {
@@ -6486,15 +6216,6 @@ export interface NotServiceResourceError extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace NotServiceResourceError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotServiceResourceError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource specified does not support tagging. </p>
  */
@@ -6513,15 +6234,6 @@ export interface ResourceDoesNotSupportTagging extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace ResourceDoesNotSupportTagging {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceDoesNotSupportTagging): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource specified by the Amazon Resource Name (ARN) can't be found.</p>
  */
@@ -6537,15 +6249,6 @@ export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
    * <p>A detailed error message.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFound): any => ({
-    ...obj,
-  });
 }
 
 export interface ReleaseFileSystemNfsV3LocksRequest {

@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum AuthenticationType {
   AMAZON_COGNITO_USER_POOLS = "AMAZON_COGNITO_USER_POOLS",
   API_KEY = "API_KEY",
@@ -534,15 +525,6 @@ export interface ApiKeyLimitExceededException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace ApiKeyLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApiKeyLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The API key expiration must be set to a value between 1 and 365 days from creation (for
  *             <code>CreateApiKey</code>) or from update (for <code>UpdateApiKey</code>).</p>
@@ -553,15 +535,6 @@ export interface ApiKeyValidityOutOfBoundsException extends __SmithyException, $
   message?: string;
 }
 
-export namespace ApiKeyValidityOutOfBoundsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApiKeyValidityOutOfBoundsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The GraphQL API exceeded a limit. Try your request again.</p>
  */
@@ -569,15 +542,6 @@ export interface ApiLimitExceededException extends __SmithyException, $MetadataB
   name: "ApiLimitExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ApiLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApiLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateApiRequest {
@@ -627,15 +591,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An internal AppSync error occurred. Try your request again.</p>
  */
@@ -643,15 +598,6 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
   name: "InternalFailureException";
   $fault: "server";
   message?: string;
-}
-
-export namespace InternalFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -662,15 +608,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export enum AuthorizationType {
@@ -740,15 +677,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   name: "ConcurrentModificationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -910,15 +838,6 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace UnauthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateApiKeyRequest {
   /**
    * <p>The ID for your GraphQL API.</p>
@@ -970,15 +889,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2926,15 +2836,6 @@ export interface GraphQLSchemaException extends __SmithyException, $MetadataBear
   name: "GraphQLSchemaException";
   $fault: "client";
   message?: string;
-}
-
-export namespace GraphQLSchemaException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GraphQLSchemaException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResolverRequest {

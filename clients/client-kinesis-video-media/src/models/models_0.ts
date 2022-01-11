@@ -11,15 +11,6 @@ export interface ClientLimitExceededException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace ClientLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *       allowed client connections.</p>
@@ -28,15 +19,6 @@ export interface ConnectionLimitExceededException extends __SmithyException, $Me
   name: "ConnectionLimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ConnectionLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum StartSelectorType {
@@ -257,15 +239,6 @@ export interface InvalidArgumentException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InvalidArgumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Status Code: 400, Caller used wrong endpoint to write data to a stream. On receiving
  *       such an exception, the user must call <code>GetDataEndpoint</code> with
@@ -278,15 +251,6 @@ export interface InvalidEndpointException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InvalidEndpointException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEndpointException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Status Code: 403, The caller is not authorized to perform an operation on the given
  *       stream, or the token has expired.</p>
@@ -297,15 +261,6 @@ export interface NotAuthorizedException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace NotAuthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Status Code: 404, The stream with the given name does not exist.</p>
  */
@@ -313,13 +268,4 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }

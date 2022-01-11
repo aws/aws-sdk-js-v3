@@ -38,15 +38,6 @@ export interface EntityNotExistsException extends __SmithyException, $MetadataBe
   EntityIds?: string[];
 }
 
-export namespace EntityNotExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityNotExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The AWS Directory Service cannot reach an on-premises instance. Or a dependency
  *             under the control of the organization is failing, such as a connected Active
@@ -58,15 +49,6 @@ export interface FailedDependencyException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace FailedDependencyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailedDependencyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified document version is not in the INITIALIZED state.</p>
  */
@@ -76,15 +58,6 @@ export interface ProhibitedStateException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace ProhibitedStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProhibitedStateException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more of the dependencies is unavailable.</p>
  */
@@ -92,15 +65,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -113,15 +77,6 @@ export interface UnauthorizedOperationException extends __SmithyException, $Meta
   Code?: string;
 }
 
-export namespace UnauthorizedOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedOperationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The caller does not have access to perform the action on the resource.</p>
  */
@@ -129,15 +84,6 @@ export interface UnauthorizedResourceAccessException extends __SmithyException, 
   name: "UnauthorizedResourceAccessException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnauthorizedResourceAccessException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedResourceAccessException): any => ({
-    ...obj,
-  });
 }
 
 export interface ActivateUserRequest {
@@ -960,15 +906,6 @@ export interface DocumentLockedForCommentsException extends __SmithyException, $
   Message?: string;
 }
 
-export namespace DocumentLockedForCommentsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentLockedForCommentsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested operation is not allowed on the specified comment object.</p>
  */
@@ -976,15 +913,6 @@ export interface InvalidCommentOperationException extends __SmithyException, $Me
   name: "InvalidCommentOperationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidCommentOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCommentOperationException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateCustomMetadataRequest {
@@ -1041,15 +969,6 @@ export interface CustomMetadataLimitExceededException extends __SmithyException,
   Message?: string;
 }
 
-export namespace CustomMetadataLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomMetadataLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Another operation is in progress on the resource that conflicts with the current operation.</p>
  */
@@ -1057,15 +976,6 @@ export interface ConflictingOperationException extends __SmithyException, $Metad
   name: "ConflictingOperationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ConflictingOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictingOperationException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateFolderRequest {
@@ -1197,15 +1107,6 @@ export interface EntityAlreadyExistsException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace EntityAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The maximum of 100,000 folders under the parent folder has been exceeded.</p>
  */
@@ -1213,15 +1114,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLabelsRequest {
@@ -1270,15 +1162,6 @@ export interface TooManyLabelsException extends __SmithyException, $MetadataBear
   name: "TooManyLabelsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyLabelsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyLabelsException): any => ({
-    ...obj,
-  });
 }
 
 export enum SubscriptionProtocolType {
@@ -1375,15 +1258,6 @@ export interface TooManySubscriptionsException extends __SmithyException, $Metad
   name: "TooManySubscriptionsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManySubscriptionsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManySubscriptionsException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateUserRequest {
@@ -1571,15 +1445,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   name: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDocumentRequest {
@@ -1834,15 +1699,6 @@ export interface InvalidArgumentException extends __SmithyException, $MetadataBe
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidArgumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCommentsRequest {
@@ -2621,15 +2477,6 @@ export interface RequestedEntityTooLargeException extends __SmithyException, $Me
   Message?: string;
 }
 
-export namespace RequestedEntityTooLargeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestedEntityTooLargeException): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCurrentUserRequest {
   /**
    * <p>Amazon WorkDocs authentication token.</p>
@@ -2719,15 +2566,6 @@ export interface InvalidPasswordException extends __SmithyException, $MetadataBe
   name: "InvalidPasswordException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidPasswordException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPasswordException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDocumentPathRequest {
@@ -3068,15 +2906,6 @@ export interface DraftUploadOutOfSyncException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace DraftUploadOutOfSyncException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DraftUploadOutOfSyncException): any => ({
-    ...obj,
-  });
-}
-
 export interface InitiateDocumentVersionUploadRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
@@ -3186,15 +3015,6 @@ export interface ResourceAlreadyCheckedOutException extends __SmithyException, $
   Message?: string;
 }
 
-export namespace ResourceAlreadyCheckedOutException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyCheckedOutException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The storage limit has been exceeded.</p>
  */
@@ -3204,15 +3024,6 @@ export interface StorageLimitExceededException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace StorageLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The storage limit will be exceeded.</p>
  */
@@ -3220,15 +3031,6 @@ export interface StorageLimitWillExceedException extends __SmithyException, $Met
   name: "StorageLimitWillExceedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace StorageLimitWillExceedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageLimitWillExceedException): any => ({
-    ...obj,
-  });
 }
 
 export interface RemoveAllResourcePermissionsRequest {
@@ -3332,15 +3134,6 @@ export interface InvalidOperationException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace InvalidOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
-    ...obj,
-  });
-}
-
 export enum DocumentVersionStatus {
   ACTIVE = "ACTIVE",
 }
@@ -3425,15 +3218,6 @@ export interface DeactivatingLastSystemUserException extends __SmithyException, 
   Code?: string;
 }
 
-export namespace DeactivatingLastSystemUserException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeactivatingLastSystemUserException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The user is undergoing transfer of ownership.</p>
  */
@@ -3441,15 +3225,6 @@ export interface IllegalUserStateException extends __SmithyException, $MetadataB
   name: "IllegalUserStateException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace IllegalUserStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IllegalUserStateException): any => ({
-    ...obj,
-  });
 }
 
 export enum BooleanEnumType {

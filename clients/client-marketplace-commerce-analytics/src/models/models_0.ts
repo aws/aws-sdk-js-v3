@@ -225,15 +225,6 @@ export interface MarketplaceCommerceAnalyticsException extends __SmithyException
   message?: string;
 }
 
-export namespace MarketplaceCommerceAnalyticsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MarketplaceCommerceAnalyticsException): any => ({
-    ...obj,
-  });
-}
-
 export type SupportDataSetType = "customer_support_contacts_data" | "test_customer_support_contacts_data";
 
 /**

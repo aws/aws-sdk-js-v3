@@ -33,15 +33,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   canRetry: boolean | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This data type is used as a request parameter in the <a>AddAttributesToFindings</a> and <a>CreateAssessmentTemplate</a>
  *          actions.</p>
@@ -156,15 +147,6 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
   canRetry: boolean | undefined;
 }
 
-export namespace InternalException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalException): any => ({
-    ...obj,
-  });
-}
-
 export enum InvalidInputErrorCode {
   ASSESSMENT_TARGET_NAME_ALREADY_TAKEN = "ASSESSMENT_TARGET_NAME_ALREADY_TAKEN",
   ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN = "ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN",
@@ -245,15 +227,6 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
   canRetry: boolean | undefined;
 }
 
-export namespace InvalidInputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj,
-  });
-}
-
 export enum NoSuchEntityErrorCode {
   ASSESSMENT_RUN_DOES_NOT_EXIST = "ASSESSMENT_RUN_DOES_NOT_EXIST",
   ASSESSMENT_TARGET_DOES_NOT_EXIST = "ASSESSMENT_TARGET_DOES_NOT_EXIST",
@@ -288,15 +261,6 @@ export interface NoSuchEntityException extends __SmithyException, $MetadataBeare
   canRetry: boolean | undefined;
 }
 
-export namespace NoSuchEntityException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchEntityException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The serice is temporary unavailable.</p>
  */
@@ -312,15 +276,6 @@ export interface ServiceTemporarilyUnavailableException extends __SmithyExceptio
    * <p>You can wait and then retry your request.</p>
    */
   canRetry: boolean | undefined;
-}
-
-export namespace ServiceTemporarilyUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceTemporarilyUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -474,15 +429,6 @@ export interface AgentsAlreadyRunningAssessmentException extends __SmithyExcepti
    * <p>You can immediately retry your request.</p>
    */
   canRetry: boolean | undefined;
-}
-
-export namespace AgentsAlreadyRunningAssessmentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AgentsAlreadyRunningAssessmentException): any => ({
-    ...obj,
-  });
 }
 
 export enum Severity {
@@ -916,15 +862,6 @@ export interface AssessmentRunInProgressException extends __SmithyException, $Me
    * <p>You can immediately retry your request.</p>
    */
   canRetry: boolean | undefined;
-}
-
-export namespace AssessmentRunInProgressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentRunInProgressException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1367,15 +1304,6 @@ export interface InvalidCrossAccountRoleException extends __SmithyException, $Me
   canRetry: boolean | undefined;
 }
 
-export namespace InvalidCrossAccountRoleException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCrossAccountRoleException): any => ({
-    ...obj,
-  });
-}
-
 export enum LimitExceededErrorCode {
   ASSESSMENT_RUN_LIMIT_EXCEEDED = "ASSESSMENT_RUN_LIMIT_EXCEEDED",
   ASSESSMENT_TARGET_LIMIT_EXCEEDED = "ASSESSMENT_TARGET_LIMIT_EXCEEDED",
@@ -1405,15 +1333,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    * <p>You can immediately retry your request.</p>
    */
   canRetry: boolean | undefined;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAssessmentTemplateRequest {
@@ -1519,15 +1438,6 @@ export interface PreviewGenerationInProgressException extends __SmithyException,
   name: "PreviewGenerationInProgressException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace PreviewGenerationInProgressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PreviewGenerationInProgressException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2441,15 +2351,6 @@ export interface UnsupportedFeatureException extends __SmithyException, $Metadat
   $fault: "client";
   message: string | undefined;
   canRetry: boolean | undefined;
-}
-
-export namespace UnsupportedFeatureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedFeatureException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetExclusionsPreviewRequest {

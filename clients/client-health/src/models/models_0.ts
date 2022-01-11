@@ -171,15 +171,6 @@ export interface InvalidPaginationToken extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace InvalidPaginationToken {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPaginationToken): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A range of dates and times that is used by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html">EventFilter</a> and <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html">EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set:
  *          match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or
@@ -324,15 +315,6 @@ export interface UnsupportedLocale extends __SmithyException, $MetadataBearer {
   name: "UnsupportedLocale";
   $fault: "client";
   message?: string;
-}
-
-export namespace UnsupportedLocale {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedLocale): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1592,13 +1574,4 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   name: "ConcurrentModificationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
 }

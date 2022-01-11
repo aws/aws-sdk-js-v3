@@ -10,15 +10,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum AccountStatus {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
@@ -1151,15 +1142,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   message: string | undefined;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The resource that's specified in the request can't be found. </p>
  */
@@ -1176,15 +1158,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p> The type of resource that's affected by the error. </p>
    */
   resourceType: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1234,15 +1207,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p> The fields that caused the error, if applicable. </p>
    */
   fields?: ValidationExceptionField[];
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchAssociateAssessmentReportEvidenceRequest {

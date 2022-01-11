@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Timestream was unable to process this request because it contains resource that already exists.</p>
  */
@@ -25,15 +16,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   Message: string | undefined;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -172,15 +154,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   Message: string | undefined;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested endpoint was invalid.</p>
  */
@@ -188,15 +161,6 @@ export interface InvalidEndpointException extends __SmithyException, $MetadataBe
   name: "InvalidEndpointException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidEndpointException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEndpointException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -208,15 +172,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Too many requests were made by a user exceeding service quotas. The request was throttled.</p>
  */
@@ -226,15 +181,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   Message: string | undefined;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Invalid or malformed request.</p>
  */
@@ -242,15 +188,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   Message: string | undefined;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export enum S3EncryptionOption {
@@ -491,15 +428,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDatabaseRequest {
@@ -1117,15 +1045,6 @@ export interface RejectedRecordsException extends __SmithyException, $MetadataBe
   $fault: "client";
   Message?: string;
   RejectedRecords?: RejectedRecord[];
-}
-
-export namespace RejectedRecordsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectedRecordsException): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {

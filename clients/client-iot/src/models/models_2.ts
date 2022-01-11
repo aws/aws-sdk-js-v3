@@ -1128,15 +1128,6 @@ export interface RegistrationCodeValidationException extends __SmithyException, 
   message?: string;
 }
 
-export namespace RegistrationCodeValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegistrationCodeValidationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Unable to verify the CA certificate used to sign the device certificate you are
  *          attempting to register. This is happens when you have registered more than one CA
@@ -1149,15 +1140,6 @@ export interface CertificateConflictException extends __SmithyException, $Metada
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace CertificateConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1315,15 +1297,6 @@ export interface ResourceRegistrationFailureException extends __SmithyException,
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace ResourceRegistrationFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceRegistrationFailureException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1862,15 +1835,6 @@ export interface TaskAlreadyExistsException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace TaskAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaskAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 export interface StartDetectMitigationActionsTaskRequest {
   /**
    * <p>
@@ -2164,15 +2128,6 @@ export interface InvalidResponseException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InvalidResponseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidResponseException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the HTTP context to use for the test authorizer request.</p>
  */
@@ -2383,15 +2338,6 @@ export interface TransferConflictException extends __SmithyException, $MetadataB
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace TransferConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransferConflictException): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {

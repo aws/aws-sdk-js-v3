@@ -96,15 +96,6 @@ export interface AttachmentLimitExceeded extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace AttachmentLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachmentLimitExceeded): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The expiration time of the attachment set has passed. The set expires 1 hour after it
  *             is created.</p>
@@ -119,15 +110,6 @@ export interface AttachmentSetExpired extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace AttachmentSetExpired {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachmentSetExpired): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An attachment set with the specified ID could not be found.</p>
  */
@@ -138,15 +120,6 @@ export interface AttachmentSetIdNotFound extends __SmithyException, $MetadataBea
    * <p>An attachment set with the specified ID could not be found.</p>
    */
   message?: string;
-}
-
-export namespace AttachmentSetIdNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachmentSetIdNotFound): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -163,15 +136,6 @@ export interface AttachmentSetSizeLimitExceeded extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace AttachmentSetSizeLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachmentSetSizeLimitExceeded): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An internal server error occurred.</p>
  */
@@ -182,15 +146,6 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
    * <p>An internal server error occurred.</p>
    */
   message?: string;
-}
-
-export namespace InternalServerError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj,
-  });
 }
 
 export interface AddCommunicationToCaseRequest {
@@ -261,15 +216,6 @@ export interface CaseIdNotFound extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace CaseIdNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaseIdNotFound): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The file name and ID of an attachment to a case communication. You can use the ID to
  *             retrieve the attachment with the <a>DescribeAttachment</a> operation.</p>
@@ -307,15 +253,6 @@ export interface AttachmentIdNotFound extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace AttachmentIdNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachmentIdNotFound): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The case creation limit for the account has been exceeded.</p>
  */
@@ -327,15 +264,6 @@ export interface CaseCreationLimitExceeded extends __SmithyException, $MetadataB
    *             have open.</p>
    */
   message?: string;
-}
-
-export namespace CaseCreationLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaseCreationLimitExceeded): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateCaseRequest {
@@ -447,15 +375,6 @@ export interface DescribeAttachmentLimitExceeded extends __SmithyException, $Met
    *             period of time has been exceeded.</p>
    */
   message?: string;
-}
-
-export namespace DescribeAttachmentLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAttachmentLimitExceeded): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAttachmentRequest {

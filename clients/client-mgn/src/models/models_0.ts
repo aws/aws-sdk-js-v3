@@ -11,15 +11,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   code?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export interface InitializeServiceRequest {}
 
 export namespace InitializeServiceRequest {
@@ -92,15 +83,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   fieldList?: ValidationExceptionField[];
 }
 
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
  */
@@ -118,15 +100,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>A conflict occured when prompting for resource type.</p>
    */
   resourceType?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteJobRequest {
@@ -175,15 +148,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   resourceType?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Unitialized account exception.</p>
  */
@@ -192,15 +156,6 @@ export interface UninitializedAccountException extends __SmithyException, $Metad
   $fault: "client";
   message?: string;
   code?: string;
-}
-
-export namespace UninitializedAccountException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UninitializedAccountException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeJobLogItemsRequest {
@@ -532,15 +487,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   retryAfterSeconds?: number;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>List tags for resource request by ARN.</p>
@@ -595,15 +541,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>Reached throttling quota exception will retry after x seconds.</p>
    */
   retryAfterSeconds?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 export enum ReplicationConfigurationDataPlaneRouting {
@@ -2227,15 +2164,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    * <p>Exceeded the service quota code.</p>
    */
   quotaCode?: string;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface StartReplicationRequest {

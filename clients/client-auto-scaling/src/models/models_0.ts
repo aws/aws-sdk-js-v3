@@ -83,15 +83,6 @@ export interface ActiveInstanceRefreshNotFoundFault extends __SmithyException, $
   message?: string;
 }
 
-export namespace ActiveInstanceRefreshNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActiveInstanceRefreshNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 export enum ScalingActivityStatusCode {
   Cancelled = "Cancelled",
   Failed = "Failed",
@@ -280,15 +271,6 @@ export interface AlreadyExistsFault extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace AlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 export interface AttachInstancesQuery {
   /**
    * <p>The IDs of the instances. You can specify up to 20 instances.</p>
@@ -323,15 +305,6 @@ export interface ResourceContentionFault extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace ResourceContentionFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceContentionFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service-linked role is not yet ready for use.</p>
  */
@@ -339,15 +312,6 @@ export interface ServiceLinkedRoleFailure extends __SmithyException, $MetadataBe
   name: "ServiceLinkedRoleFailure";
   $fault: "server";
   message?: string;
-}
-
-export namespace ServiceLinkedRoleFailure {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceLinkedRoleFailure): any => ({
-    ...obj,
-  });
 }
 
 export interface AttachLoadBalancersResultType {}
@@ -606,15 +570,6 @@ export interface LimitExceededFault extends __SmithyException, $MetadataBearer {
    * <p></p>
    */
   message?: string;
-}
-
-export namespace LimitExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededFault): any => ({
-    ...obj,
-  });
 }
 
 export interface CancelInstanceRefreshAnswer {
@@ -2207,15 +2162,6 @@ export interface ResourceInUseFault extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace ResourceInUseFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseFault): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAutoScalingGroupType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -2250,15 +2196,6 @@ export interface ScalingActivityInProgressFault extends __SmithyException, $Meta
    * <p></p>
    */
   message?: string;
-}
-
-export namespace ScalingActivityInProgressFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalingActivityInProgressFault): any => ({
-    ...obj,
-  });
 }
 
 export interface LaunchConfigurationNameType {
@@ -3148,15 +3085,6 @@ export interface InvalidNextToken extends __SmithyException, $MetadataBearer {
    * <p></p>
    */
   message?: string;
-}
-
-export namespace InvalidNextToken {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextToken): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7227,15 +7155,6 @@ export interface InstanceRefreshInProgressFault extends __SmithyException, $Meta
   name: "InstanceRefreshInProgressFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InstanceRefreshInProgressFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceRefreshInProgressFault): any => ({
-    ...obj,
-  });
 }
 
 export interface StartInstanceRefreshAnswer {

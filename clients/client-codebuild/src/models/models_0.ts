@@ -10,15 +10,6 @@ export interface AccountLimitExceededException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace AccountLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 export enum ArtifactNamespace {
   BUILD_ID = "BUILD_ID",
   NONE = "NONE",
@@ -109,15 +100,6 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
   name: "InvalidInputException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidInputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchGetBuildBatchesInput {
@@ -3954,15 +3936,6 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace ResourceAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateReportGroupInput {
   /**
    * <p>
@@ -4090,15 +4063,6 @@ export interface OAuthProviderException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace OAuthProviderException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OAuthProviderException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified Amazon Web Services resource cannot be found.</p>
  */
@@ -4106,15 +4070,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBuildBatchInput {

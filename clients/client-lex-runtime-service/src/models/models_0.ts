@@ -79,15 +79,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Two clients are using the same AWS account, Amazon Lex bot, and user
  *       ID. </p>
@@ -96,15 +87,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteSessionRequest {
@@ -173,15 +155,6 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InternalFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Exceeded a limit.</p>
  */
@@ -192,15 +165,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource (such as the Amazon Lex bot or an alias) that is referred
  *       to is not found.</p>
@@ -209,15 +173,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSessionRequest {
@@ -597,15 +552,6 @@ export interface BadGatewayException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace BadGatewayException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadGatewayException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> One of the dependencies, such as AWS Lambda or Amazon Polly, threw an
  *       exception. For example, </p>
@@ -630,15 +576,6 @@ export interface DependencyFailedException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace DependencyFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DependencyFailedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is not used.</p>
  */
@@ -648,15 +585,6 @@ export interface LoopDetectedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace LoopDetectedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoopDetectedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The accept header in the request does not have a valid value.</p>
  */
@@ -664,15 +592,6 @@ export interface NotAcceptableException extends __SmithyException, $MetadataBear
   name: "NotAcceptableException";
   $fault: "client";
   message?: string;
-}
-
-export namespace NotAcceptableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotAcceptableException): any => ({
-    ...obj,
-  });
 }
 
 export interface PostContentRequest {
@@ -1161,15 +1080,6 @@ export interface RequestTimeoutException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace RequestTimeoutException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestTimeoutException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Content-Type header (<code>PostContent</code> API) has an invalid
  *       value. </p>
@@ -1178,15 +1088,6 @@ export interface UnsupportedMediaTypeException extends __SmithyException, $Metad
   name: "UnsupportedMediaTypeException";
   $fault: "client";
   message?: string;
-}
-
-export namespace UnsupportedMediaTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedMediaTypeException): any => ({
-    ...obj,
-  });
 }
 
 export interface PostTextRequest {

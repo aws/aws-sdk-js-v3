@@ -11,15 +11,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateTrackerConsumerRequest {
   /**
    * <p>The name of the tracker resource to be associated with a geofence collection.</p>
@@ -69,15 +60,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   Message: string | undefined;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
  */
@@ -88,15 +70,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   Message: string | undefined;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource that you've entered was not found in your AWS account.</p>
  */
@@ -104,15 +77,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   Message: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -128,15 +92,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   Message: string | undefined;
 }
 
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was denied because of request throttling.</p>
  */
@@ -145,15 +100,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   $fault: "client";
   $retryable: {};
   Message: string | undefined;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -204,15 +150,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>The field where the invalid entry was detected.</p>
    */
   FieldList: ValidationExceptionField[] | undefined;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchDeleteDevicePositionHistoryRequest {

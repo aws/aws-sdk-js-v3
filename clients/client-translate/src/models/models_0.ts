@@ -64,15 +64,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 export enum EncryptionKeyType {
   KMS = "KMS",
 }
@@ -209,15 +200,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The value of the parameter is invalid. Review the value of the parameter you are using to
  *       correct it, and then retry your operation.</p>
@@ -226,15 +208,6 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
   name: "InvalidParameterValueException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidParameterValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -247,15 +220,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified limit has been exceeded. Review your request and retry it with a quantity
  *       below the stated limit.</p>
@@ -264,15 +228,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -285,15 +240,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Another modification is being made. That modification must complete before you can make
  *       your change.</p>
@@ -302,15 +248,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   name: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteParallelDataRequest {
@@ -359,15 +296,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteTerminologyRequest {
@@ -1310,15 +1238,6 @@ export interface InvalidFilterException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace InvalidFilterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidFilterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information for filtering a list of translation jobs. For more information, see
  *         <a>ListTextTranslationJobs</a>.</p>
@@ -1563,15 +1482,6 @@ export interface UnsupportedLanguagePairException extends __SmithyException, $Me
   TargetLanguageCode?: string;
 }
 
-export namespace UnsupportedLanguagePairException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedLanguagePairException): any => ({
-    ...obj,
-  });
-}
-
 export interface StopTextTranslationJobRequest {
   /**
    * <p>The job ID of the job to be stopped.</p>
@@ -1626,15 +1536,6 @@ export interface DetectedLanguageLowConfidenceException extends __SmithyExceptio
   DetectedLanguageCode?: string;
 }
 
-export namespace DetectedLanguageLowConfidenceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectedLanguageLowConfidenceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Amazon Translate service is temporarily unavailable. Please wait a bit and then retry your
  *       request.</p>
@@ -1645,15 +1546,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   Message?: string;
 }
 
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or
  *       use a smaller document and then retry your request. </p>
@@ -1662,15 +1554,6 @@ export interface TextSizeLimitExceededException extends __SmithyException, $Meta
   name: "TextSizeLimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TextSizeLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TextSizeLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface TranslateTextRequest {

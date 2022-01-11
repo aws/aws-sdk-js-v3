@@ -12,15 +12,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information of a test device. A thing ARN or a certificate ARN is required.</p>
  */
@@ -148,15 +139,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Sends a validation exception.</p>
  */
@@ -167,15 +149,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>Sends a Validation Exception message.</p>
    */
   message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteSuiteDefinitionRequest {
@@ -252,15 +225,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>Sends a Resource Not Found Exception message.</p>
    */
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSuiteDefinitionRequest {

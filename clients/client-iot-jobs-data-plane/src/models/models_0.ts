@@ -12,15 +12,6 @@ export interface CertificateValidationException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace CertificateValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateValidationException): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeJobExecutionRequest {
   /**
    * <p>The unique identifier assigned to this job when it was created.</p>
@@ -165,15 +156,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource does not exist.</p>
  */
@@ -184,15 +166,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -207,15 +180,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The job is in a terminal state.</p>
  */
@@ -223,15 +187,6 @@ export interface TerminalStateException extends __SmithyException, $MetadataBear
   name: "TerminalStateException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TerminalStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminalStateException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -249,15 +204,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>The payload associated with the exception.</p>
    */
   payload?: Uint8Array;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPendingJobExecutionsRequest {
@@ -351,15 +297,6 @@ export interface InvalidStateTransitionException extends __SmithyException, $Met
   name: "InvalidStateTransitionException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidStateTransitionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidStateTransitionException): any => ({
-    ...obj,
-  });
 }
 
 export interface StartNextPendingJobExecutionRequest {

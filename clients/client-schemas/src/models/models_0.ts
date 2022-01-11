@@ -219,15 +219,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Message: string | undefined;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 export enum CodeGenerationStatus {
   CREATE_COMPLETE = "CREATE_COMPLETE",
   CREATE_FAILED = "CREATE_FAILED",
@@ -246,15 +237,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDiscovererRequest {
@@ -348,15 +330,6 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   Message: string | undefined;
 }
 
-export namespace ForbiddenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
-}
-
 export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
@@ -369,15 +342,6 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
-}
-
-export namespace InternalServerErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
-    ...obj,
-  });
 }
 
 export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
@@ -394,15 +358,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   Message: string | undefined;
 }
 
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
 export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
   name: "UnauthorizedException";
   $fault: "client";
@@ -415,15 +370,6 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
-}
-
-export namespace UnauthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRegistryRequest {
@@ -605,15 +551,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   Message: string | undefined;
 }
 
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRegistryRequest {
   /**
    * <p>The name of the registry.</p>
@@ -767,15 +704,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDiscovererRequest {
@@ -1146,15 +1074,6 @@ export interface GoneException extends __SmithyException, $MetadataBearer {
   Message: string | undefined;
 }
 
-export namespace GoneException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GoneException): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDiscoverersRequest {
   /**
    * <p>Specifying this limits the results to only those discoverer IDs that start with the specified prefix.</p>
@@ -1391,15 +1310,6 @@ export interface PreconditionFailedException extends __SmithyException, $Metadat
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
-}
-
-export namespace PreconditionFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PreconditionFailedException): any => ({
-    ...obj,
-  });
 }
 
 export interface PutCodeBindingRequest {

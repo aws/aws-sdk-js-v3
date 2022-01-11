@@ -13,15 +13,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The automation execution did not end successfully.</p>
  */
@@ -31,15 +22,6 @@ export interface AutomationExecutionException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace AutomationExecutionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutomationExecutionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The automation execution timed out.</p>
  */
@@ -47,15 +29,6 @@ export interface AutomationExecutionTimeoutException extends __SmithyException, 
   name: "AutomationExecutionTimeoutException";
   $fault: "server";
   message?: string;
-}
-
-export namespace AutomationExecutionTimeoutException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutomationExecutionTimeoutException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -254,15 +227,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request timed out.</p>
  */
@@ -272,15 +236,6 @@ export interface RequestTimeoutException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace RequestTimeoutException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestTimeoutException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A Workbook, Table, App, Screen or Screen Automation was not found with the given ID.</p>
  */
@@ -288,15 +243,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -310,15 +256,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   message: string | undefined;
 }
 
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Remote service is unreachable.</p>
  */
@@ -326,15 +263,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   name: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -346,15 +274,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Request is invalid. The message in the response contains details on why the request is invalid.
@@ -364,15 +283,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchDeleteTableRowsRequest {

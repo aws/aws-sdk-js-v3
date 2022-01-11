@@ -174,15 +174,6 @@ export interface ResourceLimitExceeded extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace ResourceLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceLimitExceeded): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Resource being access is not found.</p>
  */
@@ -190,15 +181,6 @@ export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFound";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFound): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5998,15 +5980,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 export enum RepositoryAccessMode {
   PLATFORM = "Platform",
   VPC = "Vpc",
@@ -6919,15 +6892,6 @@ export interface ResourceInUse extends __SmithyException, $MetadataBearer {
   name: "ResourceInUse";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAppImageConfigRequest {

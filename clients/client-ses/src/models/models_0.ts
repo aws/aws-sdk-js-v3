@@ -10,15 +10,6 @@ export interface AccountSendingPausedException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace AccountSendingPausedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountSendingPausedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>When included in a receipt rule, this action adds a header to the received
  *             email.</p>
@@ -61,15 +52,6 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
   Name?: string;
 
   message?: string;
-}
-
-export namespace AlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 export enum BehaviorOnMXFailure {
@@ -605,15 +587,6 @@ export interface CannotDeleteException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace CannotDeleteException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CannotDeleteException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to create a receipt rule set by cloning an existing one. You use
  *             receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
@@ -676,15 +649,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the provided receipt rule set does not exist.</p>
  */
@@ -697,15 +661,6 @@ export interface RuleSetDoesNotExistException extends __SmithyException, $Metada
   Name?: string;
 
   message?: string;
-}
-
-export namespace RuleSetDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleSetDoesNotExistException): any => ({
-    ...obj,
-  });
 }
 
 export enum DimensionValueSource {
@@ -841,15 +796,6 @@ export interface ConfigurationSetAlreadyExistsException extends __SmithyExceptio
   message?: string;
 }
 
-export namespace ConfigurationSetAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationSetAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 export enum ConfigurationSetAttribute {
   DELIVERY_OPTIONS = "deliveryOptions",
   EVENT_DESTINATIONS = "eventDestinations",
@@ -871,15 +817,6 @@ export interface ConfigurationSetDoesNotExistException extends __SmithyException
   message?: string;
 }
 
-export namespace ConfigurationSetDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationSetDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that email sending is disabled for the configuration set.</p>
  *         <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
@@ -893,15 +830,6 @@ export interface ConfigurationSetSendingPausedException extends __SmithyExceptio
   ConfigurationSetName?: string;
 
   message?: string;
-}
-
-export namespace ConfigurationSetSendingPausedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationSetSendingPausedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -948,15 +876,6 @@ export interface InvalidConfigurationSetException extends __SmithyException, $Me
   name: "InvalidConfigurationSetException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidConfigurationSetException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidConfigurationSetException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1157,15 +1076,6 @@ export interface EventDestinationAlreadyExistsException extends __SmithyExceptio
   message?: string;
 }
 
-export namespace EventDestinationAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDestinationAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the Amazon CloudWatch destination is invalid. See the error message for
  *             details.</p>
@@ -1184,15 +1094,6 @@ export interface InvalidCloudWatchDestinationException extends __SmithyException
   EventDestinationName?: string;
 
   message?: string;
-}
-
-export namespace InvalidCloudWatchDestinationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCloudWatchDestinationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1215,15 +1116,6 @@ export interface InvalidFirehoseDestinationException extends __SmithyException, 
   message?: string;
 }
 
-export namespace InvalidFirehoseDestinationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidFirehoseDestinationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is
  *             invalid. See the error message for details.</p>
@@ -1242,15 +1134,6 @@ export interface InvalidSNSDestinationException extends __SmithyException, $Meta
   EventDestinationName?: string;
 
   message?: string;
-}
-
-export namespace InvalidSNSDestinationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSNSDestinationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1340,15 +1223,6 @@ export interface InvalidTrackingOptionsException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace InvalidTrackingOptionsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTrackingOptionsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the configuration set you specified already contains a TrackingOptions
  *             object.</p>
@@ -1363,15 +1237,6 @@ export interface TrackingOptionsAlreadyExistsException extends __SmithyException
   ConfigurationSetName?: string;
 
   message?: string;
-}
-
-export namespace TrackingOptionsAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrackingOptionsAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1432,15 +1297,6 @@ export interface CustomVerificationEmailInvalidContentException extends __Smithy
   message?: string;
 }
 
-export namespace CustomVerificationEmailInvalidContentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomVerificationEmailInvalidContentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that a custom verification email template with the name you specified
  *             already exists.</p>
@@ -1457,15 +1313,6 @@ export interface CustomVerificationEmailTemplateAlreadyExistsException extends _
   message?: string;
 }
 
-export namespace CustomVerificationEmailTemplateAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomVerificationEmailTemplateAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the sender address specified for a custom verification email is not
  *             verified, and is therefore not eligible to send the custom verification email. </p>
@@ -1480,15 +1327,6 @@ export interface FromEmailAddressNotVerifiedException extends __SmithyException,
   FromEmailAddress?: string;
 
   message?: string;
-}
-
-export namespace FromEmailAddressNotVerifiedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FromEmailAddressNotVerifiedException): any => ({
-    ...obj,
-  });
 }
 
 export enum ReceiptFilterPolicy {
@@ -2049,15 +1887,6 @@ export interface InvalidLambdaFunctionException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InvalidLambdaFunctionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidLambdaFunctionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the provided Amazon S3 bucket or AWS KMS encryption key is invalid, or
  *             that Amazon SES could not publish to the bucket, possibly due to permissions issues. For
@@ -2073,15 +1902,6 @@ export interface InvalidS3ConfigurationException extends __SmithyException, $Met
   Bucket?: string;
 
   message?: string;
-}
-
-export namespace InvalidS3ConfigurationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidS3ConfigurationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2101,15 +1921,6 @@ export interface InvalidSnsTopicException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InvalidSnsTopicException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSnsTopicException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the provided receipt rule does not exist.</p>
  */
@@ -2122,15 +1933,6 @@ export interface RuleDoesNotExistException extends __SmithyException, $MetadataB
   Name?: string;
 
   message?: string;
-}
-
-export namespace RuleDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleDoesNotExistException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2261,15 +2063,6 @@ export interface InvalidTemplateException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InvalidTemplateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTemplateException): any => ({
-    ...obj,
-  });
-}
-
 export enum CustomMailFromStatus {
   Failed = "Failed",
   Pending = "Pending",
@@ -2331,15 +2124,6 @@ export interface CustomVerificationEmailTemplateDoesNotExistException extends __
   CustomVerificationEmailTemplateName?: string;
 
   message?: string;
-}
-
-export namespace CustomVerificationEmailTemplateDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomVerificationEmailTemplateDoesNotExistException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2439,15 +2223,6 @@ export interface EventDestinationDoesNotExistException extends __SmithyException
   message?: string;
 }
 
-export namespace EventDestinationDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDestinationDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to delete open and click tracking options in a configuration set.
  *         </p>
@@ -2496,15 +2271,6 @@ export interface TrackingOptionsDoesNotExistException extends __SmithyException,
   ConfigurationSetName?: string;
 
   message?: string;
-}
-
-export namespace TrackingOptionsDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrackingOptionsDoesNotExistException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3702,15 +3468,6 @@ export interface TemplateDoesNotExistException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace TemplateDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 export type IdentityType = "Domain" | "EmailAddress";
 
 /**
@@ -3720,15 +3477,6 @@ export interface InvalidDeliveryOptionsException extends __SmithyException, $Met
   name: "InvalidDeliveryOptionsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidDeliveryOptionsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDeliveryOptionsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3741,15 +3489,6 @@ export interface InvalidPolicyException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace InvalidPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPolicyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that one or more of the replacement values you provided is invalid. This
  *             error may occur when the TemplateData object contains invalid JSON.</p>
@@ -3759,15 +3498,6 @@ export interface InvalidRenderingParameterException extends __SmithyException, $
   $fault: "client";
   TemplateName?: string;
   message?: string;
-}
-
-export namespace InvalidRenderingParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRenderingParameterException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4179,15 +3909,6 @@ export interface MailFromDomainNotVerifiedException extends __SmithyException, $
   message?: string;
 }
 
-export namespace MailFromDomainNotVerifiedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MailFromDomainNotVerifiedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the message to be sent, composed of a subject and a body.</p>
  */
@@ -4258,15 +3979,6 @@ export interface MessageRejected extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace MessageRejected {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageRejected): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that one or more of the replacement values for the specified template was
  *             not specified. Ensure that the TemplateData object contains references to all of the
@@ -4279,15 +3991,6 @@ export interface MissingRenderingAttributeException extends __SmithyException, $
   message?: string;
 }
 
-export namespace MissingRenderingAttributeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MissingRenderingAttributeException): any => ({
-    ...obj,
-  });
-}
-
 export type NotificationType = "Bounce" | "Complaint" | "Delivery";
 
 /**
@@ -4297,15 +4000,6 @@ export interface ProductionAccessNotGrantedException extends __SmithyException, 
   name: "ProductionAccessNotGrantedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ProductionAccessNotGrantedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProductionAccessNotGrantedException): any => ({
-    ...obj,
-  });
 }
 
 /**

@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The encryption settings, if any, that are used for decrypting your input files or
  *             encrypting your output files. If your input file is encrypted, you must specify the mode
@@ -618,15 +609,6 @@ export interface IncompatibleVersionException extends __SmithyException, $Metada
   message: string | undefined;
 }
 
-export namespace IncompatibleVersionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncompatibleVersionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
  */
@@ -634,15 +616,6 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
   name: "InternalServiceException";
   $fault: "server";
   message: string | undefined;
-}
-
-export namespace InternalServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -655,15 +628,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   message: string | undefined;
 }
 
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested resource does not exist or is not available. For example, the pipeline
  *             to which you're trying to add a job doesn't exist or is still being created.</p>
@@ -674,15 +638,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   message: string | undefined;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more required parameter values were not provided in the request.</p>
  */
@@ -690,15 +645,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2305,15 +2251,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**

@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateServiceQuotaTemplateRequest {}
 
 export namespace AssociateServiceQuotaTemplateRequest {
@@ -50,15 +41,6 @@ export interface AWSServiceAccessNotEnabledException extends __SmithyException, 
   Message?: string;
 }
 
-export namespace AWSServiceAccessNotEnabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AWSServiceAccessNotEnabledException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You can't perform this action because a dependency does not have access.</p>
  */
@@ -66,15 +48,6 @@ export interface DependencyAccessDeniedException extends __SmithyException, $Met
   name: "DependencyAccessDeniedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace DependencyAccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DependencyAccessDeniedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -86,15 +59,6 @@ export interface NoAvailableOrganizationException extends __SmithyException, $Me
   Message?: string;
 }
 
-export namespace NoAvailableOrganizationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoAvailableOrganizationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The organization that your account belongs to is not in All Features mode.</p>
  */
@@ -102,15 +66,6 @@ export interface OrganizationNotInAllFeaturesModeException extends __SmithyExcep
   name: "OrganizationNotInAllFeaturesModeException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace OrganizationNotInAllFeaturesModeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationNotInAllFeaturesModeException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -122,15 +77,6 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Service Quotas template is not available in this AWS Region.</p>
  */
@@ -138,15 +84,6 @@ export interface TemplatesNotAvailableInRegionException extends __SmithyExceptio
   name: "TemplatesNotAvailableInRegionException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TemplatesNotAvailableInRegionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplatesNotAvailableInRegionException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -157,15 +94,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
@@ -214,15 +142,6 @@ export interface IllegalArgumentException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace IllegalArgumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IllegalArgumentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource does not exist.</p>
  */
@@ -230,15 +149,6 @@ export interface NoSuchResourceException extends __SmithyException, $MetadataBea
   name: "NoSuchResourceException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NoSuchResourceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchResourceException): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateServiceQuotaTemplateRequest {}
@@ -270,15 +180,6 @@ export interface ServiceQuotaTemplateNotInUseException extends __SmithyException
   name: "ServiceQuotaTemplateNotInUseException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ServiceQuotaTemplateNotInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaTemplateNotInUseException): any => ({
-    ...obj,
-  });
 }
 
 export enum ErrorCode {
@@ -843,15 +744,6 @@ export interface InvalidPaginationTokenException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace InvalidPaginationTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPaginationTokenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource is in an invalid state.</p>
  */
@@ -859,15 +751,6 @@ export interface InvalidResourceStateException extends __SmithyException, $Metad
   name: "InvalidResourceStateException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidResourceStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidResourceStateException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAWSDefaultServiceQuotasRequest {
@@ -1294,15 +1177,6 @@ export interface QuotaExceededException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace QuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 export interface RequestServiceQuotaIncreaseRequest {
   /**
    * <p>The service identifier.</p>
@@ -1354,15 +1228,6 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace ResourceAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified tag is a reserved word and cannot be used.</p>
  */
@@ -1370,15 +1235,6 @@ export interface TagPolicyViolationException extends __SmithyException, $Metadat
   name: "TagPolicyViolationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TagPolicyViolationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagPolicyViolationException): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -1423,15 +1279,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
   name: "TooManyTagsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {

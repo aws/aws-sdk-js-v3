@@ -81,15 +81,6 @@ export interface CloudTrailARNInvalidException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace CloudTrailARNInvalidException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudTrailARNInvalidException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the specified resource is not ready for an operation.
  *          This can occur when you try to run an operation on a trail before CloudTrail has time to fully load the trail.
@@ -104,15 +95,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified event data store was not found.</p>
  */
@@ -123,15 +105,6 @@ export interface EventDataStoreNotFoundException extends __SmithyException, $Met
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace EventDataStoreNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDataStoreNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -146,15 +119,6 @@ export interface InactiveEventDataStoreException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace InactiveEventDataStoreException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InactiveEventDataStoreException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the specified tag key or values are not valid.
  *          It can also occur if there are duplicate tags or too many tags on the resource.</p>
@@ -166,15 +130,6 @@ export interface InvalidTagParameterException extends __SmithyException, $Metada
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidTagParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTagParameterException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -207,15 +162,6 @@ export interface InvalidTrailNameException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace InvalidTrailNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTrailNameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail is not the management account for an
  *          organization in Organizations. For more information, see
@@ -230,15 +176,6 @@ export interface NotOrganizationMasterAccountException extends __SmithyException
   Message?: string;
 }
 
-export namespace NotOrganizationMasterAccountException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotOrganizationMasterAccountException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the requested operation is not permitted.</p>
  */
@@ -249,15 +186,6 @@ export interface OperationNotPermittedException extends __SmithyException, $Meta
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace OperationNotPermittedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -272,15 +200,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the specified resource type is not supported by CloudTrail.</p>
  */
@@ -291,15 +210,6 @@ export interface ResourceTypeNotSupportedException extends __SmithyException, $M
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceTypeNotSupportedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceTypeNotSupportedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -314,15 +224,6 @@ export interface TagsLimitExceededException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace TagsLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagsLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the requested operation is not supported.</p>
  */
@@ -333,15 +234,6 @@ export interface UnsupportedOperationException extends __SmithyException, $Metad
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace UnsupportedOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -733,15 +625,6 @@ export interface EventDataStoreARNInvalidException extends __SmithyException, $M
   Message?: string;
 }
 
-export namespace EventDataStoreARNInvalidException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDataStoreARNInvalidException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified query cannot be canceled because it is in the <code>FINISHED</code>, <code>FAILED</code>, or
  *          <code>CANCELLED</code> state.</p>
@@ -753,15 +636,6 @@ export interface InactiveQueryException extends __SmithyException, $MetadataBear
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace InactiveQueryException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InactiveQueryException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -776,15 +650,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The query ID does not exist or does not map to a query.</p>
  */
@@ -795,15 +660,6 @@ export interface QueryIdNotFoundException extends __SmithyException, $MetadataBe
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace QueryIdNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryIdNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -818,15 +674,6 @@ export interface CloudTrailAccessNotEnabledException extends __SmithyException, 
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace CloudTrailAccessNotEnabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudTrailAccessNotEnabledException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateEventDataStoreRequest {
@@ -965,15 +812,6 @@ export interface EventDataStoreAlreadyExistsException extends __SmithyException,
   Message?: string;
 }
 
-export namespace EventDataStoreAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDataStoreAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Your account has used the maximum number of event data stores.</p>
  */
@@ -984,15 +822,6 @@ export interface EventDataStoreMaxLimitExceededException extends __SmithyExcepti
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace EventDataStoreMaxLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDataStoreMaxLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1009,15 +838,6 @@ export interface InsufficientDependencyServiceAccessPermissionException extends 
   Message?: string;
 }
 
-export namespace InsufficientDependencyServiceAccessPermissionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientDependencyServiceAccessPermissionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when Organizations is not configured to support all features. All features must be enabled in Organizations to support
  *          creating an organization trail. For more information, see
@@ -1032,15 +852,6 @@ export interface OrganizationNotInAllFeaturesModeException extends __SmithyExcep
   Message?: string;
 }
 
-export namespace OrganizationNotInAllFeaturesModeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationNotInAllFeaturesModeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the request is made from an Amazon Web Services account that is not a member of an organization.
  *          To make this request, sign in using the credentials of an account that belongs to an organization.</p>
@@ -1052,15 +863,6 @@ export interface OrganizationsNotInUseException extends __SmithyException, $Meta
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace OrganizationsNotInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationsNotInUseException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1077,15 +879,6 @@ export interface CloudTrailInvalidClientTokenIdException extends __SmithyExcepti
   Message?: string;
 }
 
-export namespace CloudTrailInvalidClientTokenIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudTrailInvalidClientTokenIdException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Cannot set a CloudWatch Logs delivery for this region.</p>
  */
@@ -1096,15 +889,6 @@ export interface CloudWatchLogsDeliveryUnavailableException extends __SmithyExce
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace CloudWatchLogsDeliveryUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchLogsDeliveryUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1335,15 +1119,6 @@ export interface InsufficientEncryptionPolicyException extends __SmithyException
   Message?: string;
 }
 
-export namespace InsufficientEncryptionPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientEncryptionPolicyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the policy on the S3 bucket is not sufficient.</p>
  */
@@ -1354,15 +1129,6 @@ export interface InsufficientS3BucketPolicyException extends __SmithyException, 
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace InsufficientS3BucketPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientS3BucketPolicyException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1377,15 +1143,6 @@ export interface InsufficientSnsTopicPolicyException extends __SmithyException, 
   Message?: string;
 }
 
-export namespace InsufficientSnsTopicPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientSnsTopicPolicyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the provided CloudWatch Logs log group is not valid.</p>
  */
@@ -1396,15 +1153,6 @@ export interface InvalidCloudWatchLogsLogGroupArnException extends __SmithyExcep
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidCloudWatchLogsLogGroupArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCloudWatchLogsLogGroupArnException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1419,15 +1167,6 @@ export interface InvalidCloudWatchLogsRoleArnException extends __SmithyException
   Message?: string;
 }
 
-export namespace InvalidCloudWatchLogsRoleArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCloudWatchLogsRoleArnException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the KMS key ARN is not valid.</p>
  */
@@ -1438,15 +1177,6 @@ export interface InvalidKmsKeyIdException extends __SmithyException, $MetadataBe
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidKmsKeyIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidKmsKeyIdException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1461,15 +1191,6 @@ export interface InvalidParameterCombinationException extends __SmithyException,
   Message?: string;
 }
 
-export namespace InvalidParameterCombinationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the provided S3 bucket name is not valid.</p>
  */
@@ -1480,15 +1201,6 @@ export interface InvalidS3BucketNameException extends __SmithyException, $Metada
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidS3BucketNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidS3BucketNameException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1503,15 +1215,6 @@ export interface InvalidS3PrefixException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InvalidS3PrefixException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidS3PrefixException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the provided SNS topic name is not valid.</p>
  */
@@ -1524,15 +1227,6 @@ export interface InvalidSnsTopicNameException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace InvalidSnsTopicNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSnsTopicNameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when there is an issue with the specified KMS key and the trail can’t be updated.</p>
  */
@@ -1543,15 +1237,6 @@ export interface KmsException extends __SmithyException, $MetadataBearer {
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace KmsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KmsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1568,15 +1253,6 @@ export interface KmsKeyDisabledException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace KmsKeyDisabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KmsKeyDisabledException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the KMS key does not exist, when the S3 bucket and the
  *          KMS key are not in the same region, or when the KMS key associated with the Amazon SNS
@@ -1591,15 +1267,6 @@ export interface KmsKeyNotFoundException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace KmsKeyNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KmsKeyNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the maximum number of trails is reached.</p>
  */
@@ -1610,15 +1277,6 @@ export interface MaximumNumberOfTrailsExceededException extends __SmithyExceptio
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace MaximumNumberOfTrailsExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaximumNumberOfTrailsExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1633,15 +1291,6 @@ export interface S3BucketDoesNotExistException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace S3BucketDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3BucketDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the specified trail already exists.</p>
  */
@@ -1654,15 +1303,6 @@ export interface TrailAlreadyExistsException extends __SmithyException, $Metadat
   Message?: string;
 }
 
-export namespace TrailAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrailAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is no longer in use.</p>
  */
@@ -1673,15 +1313,6 @@ export interface TrailNotProvidedException extends __SmithyException, $MetadataB
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace TrailNotProvidedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrailNotProvidedException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteEventDataStoreRequest {
@@ -1721,15 +1352,6 @@ export interface EventDataStoreTerminationProtectedException extends __SmithyExc
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace EventDataStoreTerminationProtectedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDataStoreTerminationProtectedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1780,15 +1402,6 @@ export interface InvalidHomeRegionException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace InvalidHomeRegionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidHomeRegionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the trail with the given name is not found.</p>
  */
@@ -1799,15 +1412,6 @@ export interface TrailNotFoundException extends __SmithyException, $MetadataBear
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace TrailNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrailNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeQueryRequest {
@@ -2558,15 +2162,6 @@ export interface InsightNotEnabledException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace InsightNotEnabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsightNotEnabledException): any => ({
-    ...obj,
-  });
-}
-
 export interface GetQueryResultsRequest {
   /**
    * <p>The ARN (or ID suffix of the ARN) of the event data store against which the query was run.</p>
@@ -2671,15 +2266,6 @@ export interface InvalidMaxResultsException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace InvalidMaxResultsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidMaxResultsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A token that is not valid, or a token that was previously used in a request with different parameters. This exception is thrown if the token is not valid.</p>
  */
@@ -2690,15 +2276,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetTrailRequest {
@@ -2994,15 +2571,6 @@ export interface InvalidTimeRangeException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace InvalidTimeRangeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTimeRangeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Reserved for future use.</p>
  */
@@ -3013,15 +2581,6 @@ export interface InvalidTokenException extends __SmithyException, $MetadataBeare
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTokenException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3130,15 +2689,6 @@ export interface InvalidDateRangeException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace InvalidDateRangeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDateRangeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The query status is not valid for the operation.</p>
  */
@@ -3149,15 +2699,6 @@ export interface InvalidQueryStatusException extends __SmithyException, $Metadat
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidQueryStatusException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidQueryStatusException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListQueriesRequest {
@@ -3415,15 +2956,6 @@ export interface InvalidEventCategoryException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace InvalidEventCategoryException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEventCategoryException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Occurs when a lookup attribute is specified that is not valid.</p>
  */
@@ -3434,15 +2966,6 @@ export interface InvalidLookupAttributesException extends __SmithyException, $Me
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidLookupAttributesException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidLookupAttributesException): any => ({
-    ...obj,
-  });
 }
 
 export enum EventCategory {
@@ -3678,15 +3201,6 @@ export interface InvalidEventSelectorsException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace InvalidEventSelectorsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEventSelectorsException): any => ({
-    ...obj,
-  });
-}
-
 export interface PutEventSelectorsRequest {
   /**
    * <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the
@@ -3788,15 +3302,6 @@ export interface InvalidInsightSelectorsException extends __SmithyException, $Me
   Message?: string;
 }
 
-export namespace InvalidInsightSelectorsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInsightSelectorsException): any => ({
-    ...obj,
-  });
-}
-
 export interface PutInsightSelectorsRequest {
   /**
    * <p>The name of the CloudTrail trail for which you want to change or add Insights selectors.</p>
@@ -3891,15 +3396,6 @@ export interface InvalidEventDataStoreStatusException extends __SmithyException,
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidEventDataStoreStatusException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEventDataStoreStatusException): any => ({
-    ...obj,
-  });
 }
 
 export interface RestoreEventDataStoreRequest {
@@ -4032,15 +3528,6 @@ export interface InvalidQueryStatementException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace InvalidQueryStatementException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidQueryStatementException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You are already running the maximum number of concurrent queries. Wait a minute for some queries to finish, and then
  *          run the query again.</p>
@@ -4052,15 +3539,6 @@ export interface MaxConcurrentQueriesException extends __SmithyException, $Metad
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace MaxConcurrentQueriesException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaxConcurrentQueriesException): any => ({
-    ...obj,
-  });
 }
 
 export interface StartQueryRequest {

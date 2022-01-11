@@ -12,15 +12,6 @@ export interface AccessPointAlreadyExists extends __SmithyException, $MetadataBe
   AccessPointId: string | undefined;
 }
 
-export namespace AccessPointAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessPointAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 export enum LifeCycleState {
   AVAILABLE = "available",
   CREATING = "creating",
@@ -238,15 +229,6 @@ export interface AccessPointLimitExceeded extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace AccessPointLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessPointLimitExceeded): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the
  *             requester's Amazon Web Services account.</p>
@@ -258,15 +240,6 @@ export interface AccessPointNotFound extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace AccessPointNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessPointNotFound): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if the Availability Zone that was specified for a mount target is different from the Availability Zone that was specified for One Zone storage classes.
  *             For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html">Regional and One Zone storage redundancy</a>.</p>
@@ -276,15 +249,6 @@ export interface AvailabilityZonesMismatch extends __SmithyException, $MetadataB
   $fault: "client";
   ErrorCode?: string;
   Message?: string;
-}
-
-export namespace AvailabilityZonesMismatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvailabilityZonesMismatch): any => ({
-    ...obj,
-  });
 }
 
 export enum Status {
@@ -367,15 +331,6 @@ export interface BadRequest extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace BadRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAccessPointRequest {
   /**
    * <p>A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent
@@ -435,15 +390,6 @@ export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace FileSystemNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileSystemNotFound): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if the file system's lifecycle state is not "available".</p>
  */
@@ -454,15 +400,6 @@ export interface IncorrectFileSystemLifeCycleState extends __SmithyException, $M
   Message?: string;
 }
 
-export namespace IncorrectFileSystemLifeCycleState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncorrectFileSystemLifeCycleState): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if an error occurred on the server side.</p>
  */
@@ -471,15 +408,6 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
   $fault: "server";
   ErrorCode: string | undefined;
   Message?: string;
-}
-
-export namespace InternalServerError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj,
-  });
 }
 
 export enum PerformanceMode {
@@ -627,15 +555,6 @@ export interface FileSystemAlreadyExists extends __SmithyException, $MetadataBea
   ErrorCode: string | undefined;
   Message?: string;
   FileSystemId: string | undefined;
-}
-
-export namespace FileSystemAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileSystemAlreadyExists): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -817,15 +736,6 @@ export interface FileSystemLimitExceeded extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace FileSystemLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileSystemLimitExceeded): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if there's not enough capacity to provision additional throughput. This value
  *             might be returned when you try to create a file system in provisioned throughput mode,
@@ -840,15 +750,6 @@ export interface InsufficientThroughputCapacity extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace InsufficientThroughputCapacity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientThroughputCapacity): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if the throughput mode or amount of provisioned throughput can't be changed
  *             because the throughput limit of 1024 MiB/s has been reached.</p>
@@ -860,15 +761,6 @@ export interface ThroughputLimitExceeded extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace ThroughputLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThroughputLimitExceeded): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if the requested Amazon EFS functionality is not available in the specified Availability Zone.</p>
  */
@@ -877,15 +769,6 @@ export interface UnsupportedAvailabilityZone extends __SmithyException, $Metadat
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
-}
-
-export namespace UnsupportedAvailabilityZone {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedAvailabilityZone): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -935,15 +818,6 @@ export interface IpAddressInUse extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace IpAddressInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IpAddressInUse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if the mount target would violate one of the specified restrictions based
  *             on the file system's existing mount targets.</p>
@@ -953,15 +827,6 @@ export interface MountTargetConflict extends __SmithyException, $MetadataBearer 
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
-}
-
-export namespace MountTargetConflict {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MountTargetConflict): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1046,15 +911,6 @@ export interface NetworkInterfaceLimitExceeded extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace NetworkInterfaceLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkInterfaceLimitExceeded): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if <code>IpAddress</code> was not specified in the request and there are
  *             no free IP addresses in the subnet.</p>
@@ -1064,15 +920,6 @@ export interface NoFreeAddressesInSubnet extends __SmithyException, $MetadataBea
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
-}
-
-export namespace NoFreeAddressesInSubnet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoFreeAddressesInSubnet): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1086,15 +933,6 @@ export interface SecurityGroupLimitExceeded extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace SecurityGroupLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecurityGroupLimitExceeded): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if one of the specified security groups doesn't exist in the subnet's
  *             VPC.</p>
@@ -1106,15 +944,6 @@ export interface SecurityGroupNotFound extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace SecurityGroupNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecurityGroupNotFound): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if there is no subnet with ID <code>SubnetId</code> provided in the
  *             request.</p>
@@ -1124,15 +953,6 @@ export interface SubnetNotFound extends __SmithyException, $MetadataBearer {
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
-}
-
-export namespace SubnetNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetNotFound): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1206,15 +1026,6 @@ export interface FileSystemInUse extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace FileSystemInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileSystemInUse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFileSystemPolicyRequest {
   /**
    * <p>Specifies the EFS file system for which to delete the <code>FileSystemPolicy</code>.</p>
@@ -1261,15 +1072,6 @@ export interface DependencyTimeout extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace DependencyTimeout {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DependencyTimeout): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if there is no mount target with the specified ID found in the
  *             caller's Amazon Web Services account.</p>
@@ -1279,15 +1081,6 @@ export interface MountTargetNotFound extends __SmithyException, $MetadataBearer 
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
-}
-
-export namespace MountTargetNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MountTargetNotFound): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1476,15 +1269,6 @@ export interface PolicyNotFound extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace PolicyNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyNotFound): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
  */
@@ -1493,15 +1277,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeFileSystemPolicyRequest {
@@ -1817,15 +1592,6 @@ export interface IncorrectMountTargetState extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace IncorrectMountTargetState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncorrectMountTargetState): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1901,15 +1667,6 @@ export interface InvalidPolicyException extends __SmithyException, $MetadataBear
   $fault: "client";
   ErrorCode?: string;
   Message?: string;
-}
-
-export namespace InvalidPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPolicyException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -2169,15 +1926,6 @@ export interface TooManyRequests extends __SmithyException, $MetadataBearer {
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
-}
-
-export namespace TooManyRequests {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequests): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateFileSystemRequest {

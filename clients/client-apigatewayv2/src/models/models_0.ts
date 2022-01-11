@@ -1092,15 +1092,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
  */
@@ -1113,15 +1104,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
  */
@@ -1132,15 +1114,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>Describes the error encountered.</p>
    */
   Message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1330,15 +1303,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   ResourceType?: string;
 }
 
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A limit has been exceeded. See the accompanying error message for details.</p>
  */
@@ -1354,15 +1318,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
    * <p>Describes the error encountered.</p>
    */
   Message?: string;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 /**

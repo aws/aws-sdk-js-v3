@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum Action {
   ALERT = "ALERT",
   ALLOW = "ALLOW",
@@ -226,15 +217,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>We encountered an unknown error. Try again in a few minutes.</p>
  */
@@ -242,15 +224,6 @@ export interface InternalServiceErrorException extends __SmithyException, $Metad
   name: "InternalServiceErrorException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InternalServiceErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -266,15 +239,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   ResourceType?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource doesn't exist.</p>
  */
@@ -288,15 +252,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   ResourceType?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was throttled. Try again in a few minutes.</p>
  */
@@ -306,15 +261,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -322,15 +268,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -573,15 +510,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   FieldName?: string;
 }
 
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request is invalid.</p>
  */
@@ -589,15 +517,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -611,15 +530,6 @@ export interface ResourceExistsException extends __SmithyException, $MetadataBea
    * <p>For a <code>ResourceExistsException</code> error, the type of resource that the error applies to.</p>
    */
   ResourceType?: string;
-}
-
-export namespace ResourceExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceExistsException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateResolverQueryLogConfigRequest {
@@ -877,15 +787,6 @@ export interface ResourceUnavailableException extends __SmithyException, $Metada
    * <p>For a <code>ResourceUnavailableException</code> error, the type of resource that isn't available.</p>
    */
   ResourceType?: string;
-}
-
-export namespace ResourceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 export enum AutodefinedReverseFlag {
@@ -2086,15 +1987,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   ResourceType?: string;
 }
 
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateFirewallRuleGroupRequest {
   /**
    * <p>The identifier of the <a>FirewallRuleGroupAssociation</a>. </p>
@@ -3157,15 +3049,6 @@ export interface UnknownResourceException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace UnknownResourceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnknownResourceException): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResolverRuleRequest {
   /**
    * <p>The ID of the Resolver rule that you want to get information about.</p>
@@ -3331,15 +3214,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified Resolver rule policy is invalid.</p>
  */
@@ -3349,15 +3223,6 @@ export interface InvalidPolicyDocument extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace InvalidPolicyDocument {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPolicyDocument): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified tag is invalid.</p>
  */
@@ -3365,15 +3230,6 @@ export interface InvalidTagException extends __SmithyException, $MetadataBearer 
   name: "InvalidTagException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidTagException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTagException): any => ({
-    ...obj,
-  });
 }
 
 export enum IpAddressStatus {

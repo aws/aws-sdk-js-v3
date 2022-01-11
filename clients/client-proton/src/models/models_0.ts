@@ -107,16 +107,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-    ...(obj.message && { message: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
  */
@@ -124,16 +114,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-    ...(obj.message && { message: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -146,16 +126,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   message: string | undefined;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-    ...(obj.message && { message: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The requested resource <i>wasn't</i> found.</p>
  */
@@ -163,16 +133,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-    ...(obj.message && { message: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -187,16 +147,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   message: string | undefined;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-    ...(obj.message && { message: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  */
@@ -204,16 +154,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-    ...(obj.message && { message: SENSITIVE_STRING }),
-  });
 }
 
 export enum RepositoryProvider {
@@ -866,16 +806,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   name: "ServiceQuotaExceededException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-    ...(obj.message && { message: SENSITIVE_STRING }),
-  });
 }
 
 export interface DeleteEnvironmentAccountConnectionInput {

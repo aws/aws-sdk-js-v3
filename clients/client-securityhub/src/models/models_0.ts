@@ -42,15 +42,6 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
   Code?: string;
 }
 
-export namespace InternalException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>There is an issue with the account used to make the request. Either Security Hub is not enabled
  *          for the account, or the account does not have permission to perform this action.</p>
@@ -60,15 +51,6 @@ export interface InvalidAccessException extends __SmithyException, $MetadataBear
   $fault: "client";
   Message?: string;
   Code?: string;
-}
-
-export namespace InvalidAccessException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidAccessException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -82,15 +64,6 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
   Code?: string;
 }
 
-export namespace InvalidInputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
@@ -102,15 +75,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   Code?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because we can't find the specified resource.</p>
  */
@@ -119,15 +83,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   $fault: "client";
   Message?: string;
   Code?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface AcceptInvitationRequest {
@@ -170,15 +125,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   $fault: "client";
   Message?: string;
   Code?: string;
-}
-
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
 }
 
 /**

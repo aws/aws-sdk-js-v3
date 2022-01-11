@@ -19,15 +19,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request body for CloneBackend.</p>
  */
@@ -110,15 +101,6 @@ export interface GatewayTimeoutException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace GatewayTimeoutException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GatewayTimeoutException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An error returned when a specific resource type is not found.</p>
  */
@@ -136,15 +118,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   ResourceType?: string;
 }
 
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  */
@@ -160,15 +133,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
    * <p>An error message to inform that the request has failed.</p>
    */
   Message?: string;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 /**

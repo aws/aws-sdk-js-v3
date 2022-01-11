@@ -35,15 +35,6 @@ export interface PalindromeException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace PalindromeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PalindromeException): any => ({
-    ...obj,
-  });
-}
-
 export interface LengthInput {
   string: string | undefined;
 }

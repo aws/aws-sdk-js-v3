@@ -17,15 +17,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   RequestId?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Amazon QuickSight customizations associated with your Amazon Web Services account or a QuickSight namespace in a specific Amazon Web Services Region.</p>
  */
@@ -732,15 +723,6 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
   RequestId?: string;
 }
 
-export namespace InternalFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more parameters has a value that isn't valid.</p>
  */
@@ -752,15 +734,6 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
-}
-
-export namespace InvalidParameterValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
-    ...obj,
-  });
 }
 
 export enum ExceptionResourceType {
@@ -793,15 +766,6 @@ export interface ResourceExistsException extends __SmithyException, $MetadataBea
   RequestId?: string;
 }
 
-export namespace ResourceExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more resources can't be found.</p>
  */
@@ -820,15 +784,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   RequestId?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Access is throttled.</p>
  */
@@ -840,15 +795,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 export enum ColumnDataType {
@@ -1118,15 +1064,6 @@ export interface ConcurrentUpdatingException extends __SmithyException, $Metadat
   RequestId?: string;
 }
 
-export namespace ConcurrentUpdatingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentUpdatingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Updating or deleting a resource can cause an inconsistent state.</p>
  */
@@ -1138,15 +1075,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1269,15 +1197,6 @@ export interface ResourceUnavailableException extends __SmithyException, $Metada
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
-}
-
-export namespace ResourceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1560,15 +1479,6 @@ export interface UnsupportedUserEditionException extends __SmithyException, $Met
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
-}
-
-export namespace UnsupportedUserEditionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedUserEditionException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2883,15 +2793,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4677,15 +4578,6 @@ export interface PreconditionNotMetException extends __SmithyException, $Metadat
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
-}
-
-export namespace PreconditionNotMetException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PreconditionNotMetException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateGroupMembershipRequest {
@@ -8340,15 +8232,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
-}
-
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeIngestionRequest {

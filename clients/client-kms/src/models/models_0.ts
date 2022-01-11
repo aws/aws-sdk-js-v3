@@ -58,15 +58,6 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace AlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelKeyDeletionRequest {
   /**
    * <p>Identifies the KMS key whose deletion is being canceled.</p>
@@ -123,15 +114,6 @@ export interface DependencyTimeoutException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace DependencyTimeoutException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DependencyTimeoutException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
  *       valid.</p>
@@ -142,15 +124,6 @@ export interface InvalidArnException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace InvalidArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArnException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because an internal exception occurred. The request can be
  *       retried.</p>
@@ -159,15 +132,6 @@ export interface KMSInternalException extends __SmithyException, $MetadataBearer
   name: "KMSInternalException";
   $fault: "server";
   message?: string;
-}
-
-export namespace KMSInternalException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSInternalException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -184,15 +148,6 @@ export interface KMSInvalidStateException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace KMSInvalidStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSInvalidStateException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
@@ -201,15 +156,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -223,15 +169,6 @@ export interface CloudHsmClusterInUseException extends __SmithyException, $Metad
   name: "CloudHsmClusterInUseException";
   $fault: "client";
   message?: string;
-}
-
-export namespace CloudHsmClusterInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudHsmClusterInUseException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -275,15 +212,6 @@ export interface CloudHsmClusterInvalidConfigurationException extends __SmithyEx
   message?: string;
 }
 
-export namespace CloudHsmClusterInvalidConfigurationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudHsmClusterInvalidConfigurationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the CloudHSM cluster that is associated with the custom key
  *       store is not active. Initialize and activate the cluster and try the command again. For
@@ -295,15 +223,6 @@ export interface CloudHsmClusterNotActiveException extends __SmithyException, $M
   message?: string;
 }
 
-export namespace CloudHsmClusterNotActiveException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudHsmClusterNotActiveException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because KMS cannot find the CloudHSM cluster with the specified
  *       cluster ID. Retry the request with a different cluster ID.</p>
@@ -312,15 +231,6 @@ export interface CloudHsmClusterNotFoundException extends __SmithyException, $Me
   name: "CloudHsmClusterNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace CloudHsmClusterNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudHsmClusterNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -337,15 +247,6 @@ export interface CloudHsmClusterNotRelatedException extends __SmithyException, $
   name: "CloudHsmClusterNotRelatedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace CloudHsmClusterNotRelatedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudHsmClusterNotRelatedException): any => ({
-    ...obj,
-  });
 }
 
 export interface ConnectCustomKeyStoreRequest {
@@ -405,15 +306,6 @@ export interface CustomKeyStoreInvalidStateException extends __SmithyException, 
   message?: string;
 }
 
-export namespace CustomKeyStoreInvalidStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomKeyStoreInvalidStateException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because KMS cannot find a custom key store with the specified
  *       key store name or ID.</p>
@@ -422,15 +314,6 @@ export interface CustomKeyStoreNotFoundException extends __SmithyException, $Met
   name: "CustomKeyStoreNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace CustomKeyStoreNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomKeyStoreNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export enum ConnectionErrorCodeType {
@@ -509,15 +392,6 @@ export interface InvalidAliasNameException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace InvalidAliasNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidAliasNameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because a quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the
  *       <i>Key Management Service Developer Guide</i>.</p>
@@ -526,15 +400,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateCustomKeyStoreRequest {
@@ -606,15 +471,6 @@ export interface CustomKeyStoreNameInUseException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace CustomKeyStoreNameInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomKeyStoreNameInUseException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the trust anchor certificate in the request is not the
  *       trust anchor certificate for the specified CloudHSM cluster.</p>
@@ -625,15 +481,6 @@ export interface IncorrectTrustAnchorException extends __SmithyException, $Metad
   name: "IncorrectTrustAnchorException";
   $fault: "client";
   message?: string;
-}
-
-export namespace IncorrectTrustAnchorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncorrectTrustAnchorException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -843,15 +690,6 @@ export interface DisabledException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace DisabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisabledException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the specified grant token is not valid.</p>
  */
@@ -859,15 +697,6 @@ export interface InvalidGrantTokenException extends __SmithyException, $Metadata
   name: "InvalidGrantTokenException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidGrantTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidGrantTokenException): any => ({
-    ...obj,
-  });
 }
 
 export enum CustomerMasterKeySpec {
@@ -1500,15 +1329,6 @@ export interface MalformedPolicyDocumentException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace MalformedPolicyDocumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedPolicyDocumentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because one or more tags are not valid.</p>
  */
@@ -1516,15 +1336,6 @@ export interface TagException extends __SmithyException, $MetadataBearer {
   name: "TagException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TagException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1537,15 +1348,6 @@ export interface UnsupportedOperationException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace UnsupportedOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the custom key store contains KMS keys. After verifying
  *       that you do not need to use the KMS keys, use the <a>ScheduleKeyDeletion</a>
@@ -1556,15 +1358,6 @@ export interface CustomKeyStoreHasCMKsException extends __SmithyException, $Meta
   name: "CustomKeyStoreHasCMKsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace CustomKeyStoreHasCMKsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomKeyStoreHasCMKsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1829,15 +1622,6 @@ export interface IncorrectKeyException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace IncorrectKeyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncorrectKeyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>From the <a>Decrypt</a> or <a>ReEncrypt</a> operation, the request
  *       was rejected because the specified ciphertext, or additional authenticated data incorporated
@@ -1850,15 +1634,6 @@ export interface InvalidCiphertextException extends __SmithyException, $Metadata
   name: "InvalidCiphertextException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidCiphertextException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCiphertextException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1886,15 +1661,6 @@ export interface InvalidKeyUsageException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InvalidKeyUsageException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidKeyUsageException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the specified KMS key was not available. You can retry
  *       the request.</p>
@@ -1903,15 +1669,6 @@ export interface KeyUnavailableException extends __SmithyException, $MetadataBea
   name: "KeyUnavailableException";
   $fault: "server";
   message?: string;
-}
-
-export namespace KeyUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAliasRequest {
@@ -2071,15 +1828,6 @@ export interface InvalidMarkerException extends __SmithyException, $MetadataBear
   name: "InvalidMarkerException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidMarkerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidMarkerException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeKeyRequest {
@@ -2395,15 +2143,6 @@ export interface ExpiredImportTokenException extends __SmithyException, $Metadat
   name: "ExpiredImportTokenException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ExpiredImportTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpiredImportTokenException): any => ({
-    ...obj,
-  });
 }
 
 export interface GenerateDataKeyRequest {
@@ -3263,15 +3002,6 @@ export interface IncorrectKeyMaterialException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace IncorrectKeyMaterialException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncorrectKeyMaterialException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the provided import token is invalid or is associated
  *       with a different KMS key.</p>
@@ -3282,15 +3012,6 @@ export interface InvalidImportTokenException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace InvalidImportTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidImportTokenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the specified <code>GrantId</code> is not valid.</p>
  */
@@ -3298,15 +3019,6 @@ export interface InvalidGrantIdException extends __SmithyException, $MetadataBea
   name: "InvalidGrantIdException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidGrantIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidGrantIdException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3342,15 +3054,6 @@ export interface KMSInvalidSignatureException extends __SmithyException, $Metada
   name: "KMSInvalidSignatureException";
   $fault: "client";
   message?: string;
-}
-
-export namespace KMSInvalidSignatureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSInvalidSignatureException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAliasesRequest {

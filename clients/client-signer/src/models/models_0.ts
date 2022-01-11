@@ -10,15 +10,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   code?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export interface AddProfilePermissionRequest {
   /**
    * <p>The human-readable name of the signing profile.</p>
@@ -87,15 +78,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   code?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An internal error occurred.</p>
  */
@@ -104,15 +86,6 @@ export interface InternalServiceErrorException extends __SmithyException, $Metad
   $fault: "server";
   message?: string;
   code?: string;
-}
-
-export namespace InternalServiceErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -125,15 +98,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   code?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The client is making a request that exceeds service limits.</p>
  */
@@ -142,15 +106,6 @@ export interface ServiceLimitExceededException extends __SmithyException, $Metad
   $fault: "client";
   message?: string;
   code?: string;
-}
-
-export namespace ServiceLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -164,15 +119,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   code?: string;
 }
 
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You signing certificate could not be validated.</p>
  */
@@ -181,15 +127,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   $fault: "client";
   message?: string;
   code?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -201,15 +138,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   $fault: "client";
   message?: string;
   code?: string;
-}
-
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
 }
 
 export interface CancelSigningProfileRequest {
@@ -1497,15 +1425,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   code?: string;
 }
 
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface PutSigningProfileRequest {
   /**
    * <p>The name of the signing profile to be created.</p>
@@ -1755,15 +1674,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   $fault: "client";
   message?: string;
   code?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {

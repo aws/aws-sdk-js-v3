@@ -92,15 +92,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum AccessDeniedForDependencyExceptionReason {
   ACCESS_DENIED_DURING_CREATE_SERVICE_LINKED_ROLE = "ACCESS_DENIED_DURING_CREATE_SERVICE_LINKED_ROLE",
 }
@@ -118,15 +109,6 @@ export interface AccessDeniedForDependencyException extends __SmithyException, $
   Reason?: AccessDeniedForDependencyExceptionReason | string;
 }
 
-export namespace AccessDeniedForDependencyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedForDependencyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Your account isn't a member of an organization. To make this request, you must use the
  *             credentials of an account that belongs to an organization.</p>
@@ -135,15 +117,6 @@ export interface AWSOrganizationsNotInUseException extends __SmithyException, $M
   name: "AWSOrganizationsNotInUseException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace AWSOrganizationsNotInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AWSOrganizationsNotInUseException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -156,15 +129,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified handshake is already in the requested state. For example, you can't
  *             accept a handshake that was already accepted.</p>
@@ -173,15 +137,6 @@ export interface HandshakeAlreadyInStateException extends __SmithyException, $Me
   name: "HandshakeAlreadyInStateException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace HandshakeAlreadyInStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HandshakeAlreadyInStateException): any => ({
-    ...obj,
-  });
 }
 
 export enum HandshakeConstraintViolationExceptionReason {
@@ -263,15 +218,6 @@ export interface HandshakeConstraintViolationException extends __SmithyException
   Reason?: HandshakeConstraintViolationExceptionReason | string;
 }
 
-export namespace HandshakeConstraintViolationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HandshakeConstraintViolationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>We can't find a handshake with the <code>HandshakeId</code> that you specified.</p>
  */
@@ -279,15 +225,6 @@ export interface HandshakeNotFoundException extends __SmithyException, $Metadata
   name: "HandshakeNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace HandshakeNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HandshakeNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -299,15 +236,6 @@ export interface InvalidHandshakeTransitionException extends __SmithyException, 
   name: "InvalidHandshakeTransitionException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidHandshakeTransitionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidHandshakeTransitionException): any => ({
-    ...obj,
-  });
 }
 
 export enum InvalidInputExceptionReason {
@@ -448,15 +376,6 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
   Reason?: InvalidInputExceptionReason | string;
 }
 
-export namespace InvalidInputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>AWS Organizations can't complete your request because of an internal service error. Try again
  *             later.</p>
@@ -465,15 +384,6 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
   name: "ServiceException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace ServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -488,15 +398,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   $fault: "client";
   Type?: string;
   Message?: string;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 export enum AccountJoinedMethod {
@@ -580,15 +481,6 @@ export interface AccountAlreadyRegisteredException extends __SmithyException, $M
   Message?: string;
 }
 
-export namespace AccountAlreadyRegisteredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountAlreadyRegisteredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> We can't find an AWS account with the <code>AccountId</code> that you specified, or
  *             the account whose credentials you used to make this request isn't a member of an
@@ -600,15 +492,6 @@ export interface AccountNotFoundException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace AccountNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified account is not a delegated administrator for this AWS service. </p>
  */
@@ -616,15 +499,6 @@ export interface AccountNotRegisteredException extends __SmithyException, $Metad
   name: "AccountNotRegisteredException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace AccountNotRegisteredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountNotRegisteredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -640,15 +514,6 @@ export interface AccountOwnerNotVerifiedException extends __SmithyException, $Me
   Message?: string;
 }
 
-export namespace AccountOwnerNotVerifiedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountOwnerNotVerifiedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This account is already a member of an organization. An account can belong to only one
  *             organization at a time.</p>
@@ -657,15 +522,6 @@ export interface AlreadyInOrganizationException extends __SmithyException, $Meta
   name: "AlreadyInOrganizationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace AlreadyInOrganizationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlreadyInOrganizationException): any => ({
-    ...obj,
-  });
 }
 
 export interface AttachPolicyRequest {
@@ -922,15 +778,6 @@ export interface ConstraintViolationException extends __SmithyException, $Metada
   Reason?: ConstraintViolationExceptionReason | string;
 }
 
-export namespace ConstraintViolationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConstraintViolationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The selected policy is already attached to the specified target.</p>
  */
@@ -938,15 +785,6 @@ export interface DuplicatePolicyAttachmentException extends __SmithyException, $
   name: "DuplicatePolicyAttachmentException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace DuplicatePolicyAttachmentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicatePolicyAttachmentException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -959,15 +797,6 @@ export interface PolicyChangesInProgressException extends __SmithyException, $Me
   Message?: string;
 }
 
-export namespace PolicyChangesInProgressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyChangesInProgressException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>We can't find a policy with the <code>PolicyId</code> that you specified.</p>
  */
@@ -975,15 +804,6 @@ export interface PolicyNotFoundException extends __SmithyException, $MetadataBea
   name: "PolicyNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace PolicyNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -999,15 +819,6 @@ export interface PolicyTypeNotEnabledException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace PolicyTypeNotEnabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyTypeNotEnabledException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>We can't find a root, OU, account, or policy with the <code>TargetId</code> that you
  *             specified.</p>
@@ -1018,15 +829,6 @@ export interface TargetNotFoundException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace TargetNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This action isn't available in the current AWS Region.</p>
  */
@@ -1034,15 +836,6 @@ export interface UnsupportedAPIEndpointException extends __SmithyException, $Met
   name: "UnsupportedAPIEndpointException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnsupportedAPIEndpointException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedAPIEndpointException): any => ({
-    ...obj,
-  });
 }
 
 export interface CancelHandshakeRequest {
@@ -1369,15 +1162,6 @@ export interface FinalizingOrganizationException extends __SmithyException, $Met
   name: "FinalizingOrganizationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace FinalizingOrganizationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FinalizingOrganizationException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateGovCloudAccountRequest {
@@ -1764,15 +1548,6 @@ export interface DuplicateOrganizationalUnitException extends __SmithyException,
   Message?: string;
 }
 
-export namespace DuplicateOrganizationalUnitException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateOrganizationalUnitException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>We can't find a root or OU with the <code>ParentId</code> that you specified.</p>
  */
@@ -1780,15 +1555,6 @@ export interface ParentNotFoundException extends __SmithyException, $MetadataBea
   name: "ParentNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ParentNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParentNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePolicyRequest {
@@ -1966,15 +1732,6 @@ export interface DuplicatePolicyException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace DuplicatePolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicatePolicyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The provided policy document doesn't meet the requirements of the specified policy
  *             type. For example, the syntax might be incorrect. For details about service control
@@ -1988,15 +1745,6 @@ export interface MalformedPolicyDocumentException extends __SmithyException, $Me
   Message?: string;
 }
 
-export namespace MalformedPolicyDocumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedPolicyDocumentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You can't use the specified policy type with the feature set currently enabled for
  *             this organization. For example, you can enable SCPs only after you enable all features
@@ -2008,15 +1756,6 @@ export interface PolicyTypeNotAvailableForOrganizationException extends __Smithy
   name: "PolicyTypeNotAvailableForOrganizationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace PolicyTypeNotAvailableForOrganizationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyTypeNotAvailableForOrganizationException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeclineHandshakeRequest {
@@ -2046,15 +1785,6 @@ export interface OrganizationNotEmptyException extends __SmithyException, $Metad
   name: "OrganizationNotEmptyException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace OrganizationNotEmptyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationNotEmptyException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteOrganizationalUnitRequest {
@@ -2088,15 +1818,6 @@ export interface OrganizationalUnitNotEmptyException extends __SmithyException, 
   Message?: string;
 }
 
-export namespace OrganizationalUnitNotEmptyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationalUnitNotEmptyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>We can't find an OU with the <code>OrganizationalUnitId</code> that you
  *             specified.</p>
@@ -2105,15 +1826,6 @@ export interface OrganizationalUnitNotFoundException extends __SmithyException, 
   name: "OrganizationalUnitNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace OrganizationalUnitNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationalUnitNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeletePolicyRequest {
@@ -2144,15 +1856,6 @@ export interface PolicyInUseException extends __SmithyException, $MetadataBearer
   name: "PolicyInUseException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace PolicyInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyInUseException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeregisterDelegatedAdministratorRequest {
@@ -2226,15 +1929,6 @@ export interface CreateAccountStatusNotFoundException extends __SmithyException,
   name: "CreateAccountStatusNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace CreateAccountStatusNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccountStatusNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCreateAccountStatusRequest {
@@ -2385,15 +2079,6 @@ export interface EffectivePolicyNotFoundException extends __SmithyException, $Me
   name: "EffectivePolicyNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace EffectivePolicyNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EffectivePolicyNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeHandshakeRequest {
@@ -2570,15 +2255,6 @@ export interface PolicyNotAttachedException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace PolicyNotAttachedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyNotAttachedException): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableAWSServiceAccessRequest {
   /**
    * <p>The service principal name of the AWS service for which you want to disable
@@ -2720,15 +2396,6 @@ export interface RootNotFoundException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace RootNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RootNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableAllFeaturesRequest {}
 
 export namespace EnableAllFeaturesRequest {
@@ -2831,15 +2498,6 @@ export interface PolicyTypeAlreadyEnabledException extends __SmithyException, $M
   Message?: string;
 }
 
-export namespace PolicyTypeAlreadyEnabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyTypeAlreadyEnabledException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A handshake with the same action and target already exists. For example, if you
  *             invited an account to join your organization, the invited account might already have a
@@ -2851,15 +2509,6 @@ export interface DuplicateHandshakeException extends __SmithyException, $Metadat
   name: "DuplicateHandshakeException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace DuplicateHandshakeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateHandshakeException): any => ({
-    ...obj,
-  });
 }
 
 export interface InviteAccountToOrganizationRequest {
@@ -2937,15 +2586,6 @@ export interface MasterCannotLeaveOrganizationException extends __SmithyExceptio
   name: "MasterCannotLeaveOrganizationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace MasterCannotLeaveOrganizationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MasterCannotLeaveOrganizationException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAccountsRequest {
@@ -3767,15 +3407,6 @@ export interface ChildNotFoundException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace ChildNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChildNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface ListParentsRequest {
   /**
    * <p>The unique identifier (ID) of the OU or account whose parent containers you want to
@@ -4359,15 +3990,6 @@ export interface DestinationParentNotFoundException extends __SmithyException, $
   Message?: string;
 }
 
-export namespace DestinationParentNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationParentNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>That account is already present in the specified destination.</p>
  */
@@ -4375,15 +3997,6 @@ export interface DuplicateAccountException extends __SmithyException, $MetadataB
   name: "DuplicateAccountException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace DuplicateAccountException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateAccountException): any => ({
-    ...obj,
-  });
 }
 
 export interface MoveAccountRequest {
@@ -4454,15 +4067,6 @@ export interface SourceParentNotFoundException extends __SmithyException, $Metad
   name: "SourceParentNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace SourceParentNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceParentNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterDelegatedAdministratorRequest {

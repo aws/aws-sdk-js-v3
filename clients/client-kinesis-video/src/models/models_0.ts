@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have reached the maximum limit of active signaling channels for this AWS account
  *             in this region.</p>
@@ -28,15 +19,6 @@ export interface AccountChannelLimitExceededException extends __SmithyException,
   Message?: string;
 }
 
-export namespace AccountChannelLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountChannelLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of streams created for the account is too high.</p>
  */
@@ -44,15 +26,6 @@ export interface AccountStreamLimitExceededException extends __SmithyException, 
   name: "AccountStreamLimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace AccountStreamLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountStreamLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum APIName {
@@ -199,15 +172,6 @@ export interface ClientLimitExceededException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace ClientLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A key and value pair that is associated with the specified signaling channel.</p>
  */
@@ -291,15 +255,6 @@ export interface InvalidArgumentException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InvalidArgumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The signaling channel is currently not available for this operation.</p>
  */
@@ -307,15 +262,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -326,15 +272,6 @@ export interface TagsPerResourceExceededLimitException extends __SmithyException
   name: "TagsPerResourceExceededLimitException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TagsPerResourceExceededLimitException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagsPerResourceExceededLimitException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateStreamInput {
@@ -428,15 +365,6 @@ export interface DeviceStreamLimitExceededException extends __SmithyException, $
   Message?: string;
 }
 
-export namespace DeviceStreamLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceStreamLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Not implemented.</p>
  */
@@ -444,15 +372,6 @@ export interface InvalidDeviceException extends __SmithyException, $MetadataBear
   name: "InvalidDeviceException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidDeviceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDeviceException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteSignalingChannelInput {
@@ -499,15 +418,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The stream version that you specified is not the latest version. To get the latest
  *             version, use the <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html">DescribeStream</a>
@@ -517,15 +427,6 @@ export interface VersionMismatchException extends __SmithyException, $MetadataBe
   name: "VersionMismatchException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace VersionMismatchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VersionMismatchException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteStreamInput {
@@ -571,15 +472,6 @@ export interface NotAuthorizedException extends __SmithyException, $MetadataBear
   name: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NotAuthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSignalingChannelInput {
@@ -869,15 +761,6 @@ export interface InvalidResourceFormatException extends __SmithyException, $Meta
   name: "InvalidResourceFormatException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidResourceFormatException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidResourceFormatException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSignalingChannelsInput {

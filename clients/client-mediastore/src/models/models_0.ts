@@ -77,15 +77,6 @@ export interface ContainerInUseException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace ContainerInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerInUseException): any => ({
-    ...obj,
-  });
-}
-
 export enum ContainerLevelMetrics {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -98,15 +89,6 @@ export interface ContainerNotFoundException extends __SmithyException, $Metadata
   name: "ContainerNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ContainerNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -173,15 +155,6 @@ export interface CorsPolicyNotFoundException extends __SmithyException, $Metadat
   name: "CorsPolicyNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace CorsPolicyNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CorsPolicyNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -275,15 +248,6 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace InternalServerError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A service limit has been exceeded.</p>
  */
@@ -291,15 +255,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteContainerInput {
@@ -363,15 +318,6 @@ export interface PolicyNotFoundException extends __SmithyException, $MetadataBea
   name: "PolicyNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace PolicyNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteCorsPolicyInput {

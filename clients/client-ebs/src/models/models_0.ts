@@ -20,15 +20,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Reason: AccessDeniedExceptionReason | string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A block of data in an Amazon Elastic Block Store snapshot.</p>
  */
@@ -168,15 +159,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 export enum RequestThrottledExceptionReason {
   ACCOUNT_THROTTLED = "ACCOUNT_THROTTLED",
   DEPENDENCY_REQUEST_THROTTLED = "DEPENDENCY_REQUEST_THROTTLED",
@@ -194,15 +176,6 @@ export interface RequestThrottledException extends __SmithyException, $MetadataB
    * <p>The reason for the exception.</p>
    */
   Reason?: RequestThrottledExceptionReason | string;
-}
-
-export namespace RequestThrottledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestThrottledException): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceNotFoundExceptionReason {
@@ -223,15 +196,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   Reason?: ResourceNotFoundExceptionReason | string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export enum ServiceQuotaExceededExceptionReason {
   DEPENDENCY_SERVICE_QUOTA_EXCEEDED = "DEPENDENCY_SERVICE_QUOTA_EXCEEDED",
 }
@@ -247,15 +211,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    * <p>The reason for the exception.</p>
    */
   Reason?: ServiceQuotaExceededExceptionReason | string;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum ValidationExceptionReason {
@@ -285,15 +240,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   Reason?: ValidationExceptionReason | string;
 }
 
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have reached the limit for concurrent API requests. For more information, see
  *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapi-performance">Optimizing performance of the EBS direct APIs</a> in the <i>Amazon Elastic Compute Cloud
@@ -305,15 +251,6 @@ export interface ConcurrentLimitExceededException extends __SmithyException, $Me
   Message?: string;
 }
 
-export namespace ConcurrentLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request uses the same client token as a previous, but non-identical
  *             request.</p>
@@ -322,15 +259,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSnapshotBlockRequest {

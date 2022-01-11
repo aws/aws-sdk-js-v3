@@ -54,15 +54,6 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
   message: string | undefined;
 }
 
-export namespace InternalFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -71,15 +62,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   $fault: "client";
   code: string | undefined;
   message: string | undefined;
-}
-
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -92,15 +74,6 @@ export interface ResourceConflictException extends __SmithyException, $MetadataB
   message: string | undefined;
 }
 
-export namespace ResourceConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -109,15 +82,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   $fault: "client";
   code: string | undefined;
   message: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePlacementRequest {
@@ -296,15 +260,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   $fault: "client";
   code: string | undefined;
   message: string | undefined;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteProjectRequest {

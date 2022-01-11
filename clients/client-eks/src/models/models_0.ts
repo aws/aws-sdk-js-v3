@@ -12,15 +12,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum AddonIssueCode {
   ACCESS_DENIED = "AccessDenied",
   ADMISSION_REQUEST_DENIED = "AdmissionRequestDenied",
@@ -565,15 +556,6 @@ export interface ClientException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace ClientException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified parameter is invalid. Review the available parameters for the API
  *             request.</p>
@@ -600,15 +582,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request is invalid given the state of the cluster. Check the state of the cluster
  *             and the associated operations.</p>
@@ -630,15 +603,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource is in use.</p>
  */
@@ -657,15 +621,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
 
   addonName?: string;
   message?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -696,15 +651,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>These errors are usually caused by a server-side issue.</p>
  */
@@ -723,15 +669,6 @@ export interface ServerException extends __SmithyException, $MetadataBearer {
 
   addonName?: string;
   message?: string;
-}
-
-export namespace ServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1609,15 +1546,6 @@ export interface ResourceLimitExceededException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace ResourceLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service is unavailable. Back off and retry the operation.</p>
  */
@@ -1625,15 +1553,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   name: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1661,15 +1580,6 @@ export interface UnsupportedAvailabilityZoneException extends __SmithyException,
    *             Availability Zones for your cluster.</p>
    */
   validZones?: string[];
-}
-
-export namespace UnsupportedAvailabilityZoneException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedAvailabilityZoneException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3560,15 +3470,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the
@@ -3610,15 +3511,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListUpdatesRequest {
@@ -3787,15 +3679,6 @@ export interface ResourcePropagationDelayException extends __SmithyException, $M
   name: "ResourcePropagationDelayException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourcePropagationDelayException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourcePropagationDelayException): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {

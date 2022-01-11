@@ -84,15 +84,6 @@ export interface ACLAlreadyExistsFault extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace ACLAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ACLAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -102,15 +93,6 @@ export interface ACLNotFoundFault extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace ACLNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ACLNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -118,15 +100,6 @@ export interface ACLQuotaExceededFault extends __SmithyException, $MetadataBeare
   name: "ACLQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ACLQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ACLQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -619,15 +592,6 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InvalidParameterValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -635,15 +599,6 @@ export interface ServiceUpdateNotFoundFault extends __SmithyException, $Metadata
   name: "ServiceUpdateNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ServiceUpdateNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUpdateNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -926,15 +881,6 @@ export interface InvalidParameterCombinationException extends __SmithyException,
   message?: string;
 }
 
-export namespace InvalidParameterCombinationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -942,15 +888,6 @@ export interface InvalidSnapshotStateFault extends __SmithyException, $MetadataB
   name: "InvalidSnapshotStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidSnapshotStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSnapshotStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -962,15 +899,6 @@ export interface ServiceLinkedRoleNotFoundFault extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace ServiceLinkedRoleNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceLinkedRoleNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -978,15 +906,6 @@ export interface SnapshotAlreadyExistsFault extends __SmithyException, $Metadata
   name: "SnapshotAlreadyExistsFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SnapshotAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotAlreadyExistsFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -998,15 +917,6 @@ export interface SnapshotNotFoundFault extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace SnapshotNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1016,15 +926,6 @@ export interface SnapshotQuotaExceededFault extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace SnapshotQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1032,15 +933,6 @@ export interface TagQuotaPerResourceExceeded extends __SmithyException, $Metadat
   name: "TagQuotaPerResourceExceeded";
   $fault: "client";
   message?: string;
-}
-
-export namespace TagQuotaPerResourceExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagQuotaPerResourceExceeded): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateACLRequest {
@@ -1094,15 +986,6 @@ export interface DefaultUserRequired extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace DefaultUserRequired {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefaultUserRequired): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1110,15 +993,6 @@ export interface DuplicateUserNameFault extends __SmithyException, $MetadataBear
   name: "DuplicateUserNameFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DuplicateUserNameFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateUserNameFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1130,15 +1004,6 @@ export interface UserNotFoundFault extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace UserNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1148,15 +1013,6 @@ export interface ClusterAlreadyExistsFault extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ClusterAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1164,15 +1020,6 @@ export interface ClusterQuotaForCustomerExceededFault extends __SmithyException,
   name: "ClusterQuotaForCustomerExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ClusterQuotaForCustomerExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterQuotaForCustomerExceededFault): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateClusterRequest {
@@ -1320,15 +1167,6 @@ export interface InsufficientClusterCapacityFault extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace InsufficientClusterCapacityFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientClusterCapacityFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1336,15 +1174,6 @@ export interface InvalidACLStateFault extends __SmithyException, $MetadataBearer
   name: "InvalidACLStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidACLStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidACLStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1356,15 +1185,6 @@ export interface InvalidCredentialsException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace InvalidCredentialsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCredentialsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1372,15 +1192,6 @@ export interface InvalidVPCNetworkStateFault extends __SmithyException, $Metadat
   name: "InvalidVPCNetworkStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidVPCNetworkStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidVPCNetworkStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1392,15 +1203,6 @@ export interface NodeQuotaForClusterExceededFault extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace NodeQuotaForClusterExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeQuotaForClusterExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1408,15 +1210,6 @@ export interface NodeQuotaForCustomerExceededFault extends __SmithyException, $M
   name: "NodeQuotaForCustomerExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace NodeQuotaForCustomerExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeQuotaForCustomerExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1428,15 +1221,6 @@ export interface ParameterGroupNotFoundFault extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace ParameterGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterGroupNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1446,15 +1230,6 @@ export interface ShardsPerClusterQuotaExceededFault extends __SmithyException, $
   message?: string;
 }
 
-export namespace ShardsPerClusterQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShardsPerClusterQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1462,15 +1237,6 @@ export interface SubnetGroupNotFoundFault extends __SmithyException, $MetadataBe
   name: "SubnetGroupNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SubnetGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetGroupNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateParameterGroupRequest {
@@ -1563,15 +1329,6 @@ export interface InvalidParameterGroupStateFault extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace InvalidParameterGroupStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterGroupStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1579,15 +1336,6 @@ export interface ParameterGroupAlreadyExistsFault extends __SmithyException, $Me
   name: "ParameterGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ParameterGroupAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterGroupAlreadyExistsFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1599,15 +1347,6 @@ export interface ParameterGroupQuotaExceededFault extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace ParameterGroupQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterGroupQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1615,15 +1354,6 @@ export interface ClusterNotFoundFault extends __SmithyException, $MetadataBearer
   name: "ClusterNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ClusterNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSnapshotRequest {
@@ -1680,15 +1410,6 @@ export interface InvalidClusterStateFault extends __SmithyException, $MetadataBe
   name: "InvalidClusterStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidClusterStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidClusterStateFault): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSubnetGroupRequest {
@@ -1838,15 +1559,6 @@ export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace InvalidSubnet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1854,15 +1566,6 @@ export interface SubnetGroupAlreadyExistsFault extends __SmithyException, $Metad
   name: "SubnetGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SubnetGroupAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetGroupAlreadyExistsFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1874,15 +1577,6 @@ export interface SubnetGroupQuotaExceededFault extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace SubnetGroupQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetGroupQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1892,15 +1586,6 @@ export interface SubnetNotAllowedFault extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace SubnetNotAllowedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetNotAllowedFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1908,15 +1593,6 @@ export interface SubnetQuotaExceededFault extends __SmithyException, $MetadataBe
   name: "SubnetQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SubnetQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 export enum InputAuthenticationType {
@@ -2083,15 +1759,6 @@ export interface UserAlreadyExistsFault extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace UserAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -2099,15 +1766,6 @@ export interface UserQuotaExceededFault extends __SmithyException, $MetadataBear
   name: "UserQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace UserQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteACLRequest {
@@ -2284,15 +1942,6 @@ export interface SubnetGroupInUseFault extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace SubnetGroupInUseFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetGroupInUseFault): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteUserRequest {
   /**
    * <p>The name of the user to delete</p>
@@ -2332,15 +1981,6 @@ export interface InvalidUserStateFault extends __SmithyException, $MetadataBeare
   name: "InvalidUserStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidUserStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidUserStateFault): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeACLsRequest {
@@ -3090,15 +2730,6 @@ export interface APICallRateForCustomerExceededFault extends __SmithyException, 
   message?: string;
 }
 
-export namespace APICallRateForCustomerExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: APICallRateForCustomerExceededFault): any => ({
-    ...obj,
-  });
-}
-
 export interface FailoverShardRequest {
   /**
    * <p>The cluster being failed over</p>
@@ -3145,15 +2776,6 @@ export interface InvalidKMSKeyFault extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace InvalidKMSKeyFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidKMSKeyFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -3163,15 +2785,6 @@ export interface ShardNotFoundFault extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace ShardNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShardNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -3179,15 +2792,6 @@ export interface TestFailoverNotAvailableFault extends __SmithyException, $Metad
   name: "TestFailoverNotAvailableFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace TestFailoverNotAvailableFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestFailoverNotAvailableFault): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAllowedNodeTypeUpdatesRequest {
@@ -3235,15 +2839,6 @@ export interface InvalidARNFault extends __SmithyException, $MetadataBearer {
   name: "InvalidARNFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidARNFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidARNFault): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsRequest {
@@ -3366,15 +2961,6 @@ export interface TagNotFoundFault extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace TagNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to which the tags are to be removed</p>
@@ -3463,15 +3049,6 @@ export interface InvalidNodeStateFault extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace InvalidNodeStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNodeStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -3479,15 +3056,6 @@ export interface NoOperationFault extends __SmithyException, $MetadataBearer {
   name: "NoOperationFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace NoOperationFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoOperationFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3693,15 +3261,6 @@ export interface SubnetInUse extends __SmithyException, $MetadataBearer {
   name: "SubnetInUse";
   $fault: "client";
   message?: string;
-}
-
-export namespace SubnetInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetInUse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSubnetGroupRequest {

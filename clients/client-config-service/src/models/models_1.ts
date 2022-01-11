@@ -138,15 +138,6 @@ export interface ResourceConcurrentModificationException extends __SmithyExcepti
   message?: string;
 }
 
-export namespace ResourceConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have reached the limit of the number of tags you can use. You have more than 50 tags.</p>
  */
@@ -157,15 +148,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
    * <p>Error executing the command</p>
    */
   message?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 /**

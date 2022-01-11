@@ -220,15 +220,6 @@ export interface IdempotentParameterMismatchException extends __SmithyException,
   message: string | undefined;
 }
 
-export namespace IdempotentParameterMismatchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The client token is not valid.</p>
  */
@@ -236,15 +227,6 @@ export interface InvalidClientTokenException extends __SmithyException, $Metadat
   name: "InvalidClientTokenException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace InvalidClientTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidClientTokenException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -256,15 +238,6 @@ export interface MalformedArnException extends __SmithyException, $MetadataBeare
   message: string | undefined;
 }
 
-export namespace MalformedArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedArnException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested operation is not permitted.</p>
  */
@@ -272,15 +245,6 @@ export interface OperationNotPermittedException extends __SmithyException, $Meta
   name: "OperationNotPermittedException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace OperationNotPermittedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -292,15 +256,6 @@ export interface ResourceShareInvitationAlreadyAcceptedException extends __Smith
   message: string | undefined;
 }
 
-export namespace ResourceShareInvitationAlreadyAcceptedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceShareInvitationAlreadyAcceptedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified invitation was already rejected.</p>
  */
@@ -308,15 +263,6 @@ export interface ResourceShareInvitationAlreadyRejectedException extends __Smith
   name: "ResourceShareInvitationAlreadyRejectedException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace ResourceShareInvitationAlreadyRejectedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceShareInvitationAlreadyRejectedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -328,15 +274,6 @@ export interface ResourceShareInvitationArnNotFoundException extends __SmithyExc
   message: string | undefined;
 }
 
-export namespace ResourceShareInvitationArnNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceShareInvitationArnNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified invitation is expired.</p>
  */
@@ -344,15 +281,6 @@ export interface ResourceShareInvitationExpiredException extends __SmithyExcepti
   name: "ResourceShareInvitationExpiredException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace ResourceShareInvitationExpiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceShareInvitationExpiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -364,15 +292,6 @@ export interface ServerInternalException extends __SmithyException, $MetadataBea
   message: string | undefined;
 }
 
-export namespace ServerInternalException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerInternalException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service is not available.</p>
  */
@@ -380,15 +299,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   name: "ServiceUnavailableException";
   $fault: "server";
   message: string | undefined;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateResourceShareRequest {
@@ -499,15 +409,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   message: string | undefined;
 }
 
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested state transition is not valid.</p>
  */
@@ -517,15 +418,6 @@ export interface InvalidStateTransitionException extends __SmithyException, $Met
   message: string | undefined;
 }
 
-export namespace InvalidStateTransitionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidStateTransitionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This request would exceed the limit for resource shares for your account.</p>
  */
@@ -533,15 +425,6 @@ export interface ResourceShareLimitExceededException extends __SmithyException, 
   name: "ResourceShareLimitExceededException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace ResourceShareLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceShareLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -554,15 +437,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   message: string | undefined;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A specified resource was not found.</p>
  */
@@ -570,15 +444,6 @@ export interface UnknownResourceException extends __SmithyException, $MetadataBe
   name: "UnknownResourceException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace UnknownResourceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnknownResourceException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateResourceSharePermissionRequest {
@@ -907,15 +772,6 @@ export interface TagPolicyViolationException extends __SmithyException, $Metadat
   name: "TagPolicyViolationException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace TagPolicyViolationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagPolicyViolationException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteResourceShareRequest {
@@ -1336,15 +1192,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   message: string | undefined;
 }
 
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified Amazon Resource Name (ARN) was not found.</p>
  */
@@ -1352,15 +1199,6 @@ export interface ResourceArnNotFoundException extends __SmithyException, $Metada
   name: "ResourceArnNotFoundException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace ResourceArnNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceArnNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResourceShareAssociationsRequest {
@@ -1543,15 +1381,6 @@ export interface InvalidMaxResultsException extends __SmithyException, $Metadata
   name: "InvalidMaxResultsException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace InvalidMaxResultsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidMaxResultsException): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceOwner {
@@ -1879,15 +1708,6 @@ export interface MissingRequiredParameterException extends __SmithyException, $M
   message: string | undefined;
 }
 
-export namespace MissingRequiredParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MissingRequiredParameterException): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPermissionsRequest {
   /**
    * <p>Specifies that you want to list permissions for only the specified resource type. For
@@ -2199,15 +2019,6 @@ export interface InvalidResourceTypeException extends __SmithyException, $Metada
   name: "InvalidResourceTypeException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace InvalidResourceTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidResourceTypeException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResourcesRequest {
@@ -2620,15 +2431,6 @@ export interface TagLimitExceededException extends __SmithyException, $MetadataB
   name: "TagLimitExceededException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace TagLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {

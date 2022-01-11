@@ -2634,15 +2634,6 @@ export interface ReservedDBInstanceNotFoundFault extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace ReservedDBInstanceNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedDBInstanceNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -2826,15 +2817,6 @@ export interface ReservedDBInstancesOfferingNotFoundFault extends __SmithyExcept
   name: "ReservedDBInstancesOfferingNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ReservedDBInstancesOfferingNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedDBInstancesOfferingNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3138,15 +3120,6 @@ export interface DBLogFileNotFoundFault extends __SmithyException, $MetadataBear
   name: "DBLogFileNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBLogFileNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBLogFileNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3453,15 +3426,6 @@ export interface InstallationMediaAlreadyExistsFault extends __SmithyException, 
   message?: string;
 }
 
-export namespace InstallationMediaAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstallationMediaAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -3597,15 +3561,6 @@ export interface InvalidDBClusterCapacityFault extends __SmithyException, $Metad
   name: "InvalidDBClusterCapacityFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidDBClusterCapacityFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBClusterCapacityFault): any => ({
-    ...obj,
-  });
 }
 
 export interface ModifyCurrentDBClusterCapacityMessage {
@@ -4368,15 +4323,6 @@ export interface SharedSnapshotQuotaExceededFault extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace SharedSnapshotQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SharedSnapshotQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The DB upgrade failed because a resource the DB depends on can't be
  *             modified.</p>
@@ -4385,15 +4331,6 @@ export interface DBUpgradeDependencyFailureFault extends __SmithyException, $Met
   name: "DBUpgradeDependencyFailureFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBUpgradeDependencyFailureFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBUpgradeDependencyFailureFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5695,15 +5632,6 @@ export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace SubnetAlreadyInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetAlreadyInUse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -6193,15 +6121,6 @@ export interface ReservedDBInstanceAlreadyExistsFault extends __SmithyException,
   message?: string;
 }
 
-export namespace ReservedDBInstanceAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedDBInstanceAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request would exceed the user's DB Instance quota.</p>
  */
@@ -6209,15 +6128,6 @@ export interface ReservedDBInstanceQuotaExceededFault extends __SmithyException,
   name: "ReservedDBInstanceQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ReservedDBInstanceQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedDBInstanceQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 export interface RebootDBClusterMessage {
@@ -6344,15 +6254,6 @@ export interface DBProxyTargetAlreadyRegisteredFault extends __SmithyException, 
   message?: string;
 }
 
-export namespace DBProxyTargetAlreadyRegisteredFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBProxyTargetAlreadyRegisteredFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested operation can't be performed because there aren't enough available IP addresses
  *            in the proxy's subnets. Add more CIDR blocks to the VPC or remove IP address that aren't required
@@ -6362,15 +6263,6 @@ export interface InsufficientAvailableIPsInSubnetFault extends __SmithyException
   name: "InsufficientAvailableIPsInSubnetFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InsufficientAvailableIPsInSubnetFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientAvailableIPsInSubnetFault): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterDBProxyTargetsRequest {
@@ -6470,15 +6362,6 @@ export interface DBClusterRoleNotFoundFault extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace DBClusterRoleNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterRoleNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveRoleFromDBClusterMessage {
   /**
    * <p>The name of the DB cluster to disassociate the IAM role from.</p>
@@ -6515,15 +6398,6 @@ export interface DBInstanceRoleNotFoundFault extends __SmithyException, $Metadat
   name: "DBInstanceRoleNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBInstanceRoleNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstanceRoleNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 export interface RemoveRoleFromDBInstanceMessage {
@@ -6729,15 +6603,6 @@ export interface InvalidS3BucketFault extends __SmithyException, $MetadataBearer
   name: "InvalidS3BucketFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidS3BucketFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidS3BucketFault): any => ({
-    ...obj,
-  });
 }
 
 export interface RestoreDBClusterFromS3Message {
@@ -7111,15 +6976,6 @@ export interface InsufficientDBClusterCapacityFault extends __SmithyException, $
   message?: string;
 }
 
-export namespace InsufficientDBClusterCapacityFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientDBClusterCapacityFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Cannot restore from VPC backup to non-VPC DB instance.</p>
  */
@@ -7127,15 +6983,6 @@ export interface InvalidRestoreFault extends __SmithyException, $MetadataBearer 
   name: "InvalidRestoreFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidRestoreFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRestoreFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8809,15 +8656,6 @@ export interface PointInTimeRestoreNotEnabledFault extends __SmithyException, $M
   message?: string;
 }
 
-export namespace PointInTimeRestoreNotEnabledFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PointInTimeRestoreNotEnabledFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -9597,15 +9435,6 @@ export interface ExportTaskAlreadyExistsFault extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace ExportTaskAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportTaskAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The IAM role requires additional permissions to export to an Amazon S3 bucket.</p>
  */
@@ -9613,15 +9442,6 @@ export interface IamRoleMissingPermissionsFault extends __SmithyException, $Meta
   name: "IamRoleMissingPermissionsFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace IamRoleMissingPermissionsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IamRoleMissingPermissionsFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9633,15 +9453,6 @@ export interface IamRoleNotFoundFault extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace IamRoleNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IamRoleNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The export is invalid for exporting to an Amazon S3 bucket.</p>
  */
@@ -9651,15 +9462,6 @@ export interface InvalidExportOnlyFault extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace InvalidExportOnlyFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidExportOnlyFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The state of the export snapshot is invalid for exporting to an Amazon S3 bucket.</p>
  */
@@ -9667,15 +9469,6 @@ export interface InvalidExportSourceStateFault extends __SmithyException, $Metad
   name: "InvalidExportSourceStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidExportSourceStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidExportSourceStateFault): any => ({
-    ...obj,
-  });
 }
 
 export interface StartExportTaskMessage {

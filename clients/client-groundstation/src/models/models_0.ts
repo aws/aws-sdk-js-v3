@@ -360,15 +360,6 @@ export interface DependencyException extends __SmithyException, $MetadataBearer 
   parameterName?: string;
 }
 
-export namespace DependencyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DependencyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more parameters are not valid.</p>
  */
@@ -382,15 +373,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   parameterName?: string;
 }
 
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Resource was not found.</p>
  */
@@ -398,15 +380,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export enum ConfigCapabilityType {
@@ -769,15 +742,6 @@ export interface ResourceLimitExceededException extends __SmithyException, $Meta
    * <p/>
    */
   parameterName?: string;
-}
-
-export namespace ResourceLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**

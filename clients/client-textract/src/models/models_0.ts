@@ -12,15 +12,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Code?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The S3 bucket name and file name that identifies the document.</p>
  *          <p>The AWS Region for the S3 bucket that contains the document must match the Region that
@@ -663,15 +654,6 @@ export interface BadDocumentException extends __SmithyException, $MetadataBearer
   Code?: string;
 }
 
-export namespace BadDocumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadDocumentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The document can't be processed because it's too large. The maximum document size for
  *          synchronous operations 10 MB. The maximum document size for asynchronous operations is 500
@@ -682,15 +664,6 @@ export interface DocumentTooLargeException extends __SmithyException, $MetadataB
   $fault: "client";
   Message?: string;
   Code?: string;
-}
-
-export namespace DocumentTooLargeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentTooLargeException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -718,15 +691,6 @@ export interface HumanLoopQuotaExceededException extends __SmithyException, $Met
   Code?: string;
 }
 
-export namespace HumanLoopQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HumanLoopQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Amazon Textract experienced a service issue. Try your call again.</p>
  */
@@ -735,15 +699,6 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
   $fault: "server";
   Message?: string;
   Code?: string;
-}
-
-export namespace InternalServerError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -760,15 +715,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   Code?: string;
 }
 
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Amazon Textract is unable to access the S3 object that's specified in the request.
  *          for more information, <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Configure Access to Amazon S3</a>
@@ -782,15 +728,6 @@ export interface InvalidS3ObjectException extends __SmithyException, $MetadataBe
   Code?: string;
 }
 
-export namespace InvalidS3ObjectException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidS3ObjectException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of requests exceeded your throughput limit. If you want to increase this limit,
  *          contact Amazon Textract.</p>
@@ -800,15 +737,6 @@ export interface ProvisionedThroughputExceededException extends __SmithyExceptio
   $fault: "client";
   Message?: string;
   Code?: string;
-}
-
-export namespace ProvisionedThroughputExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedThroughputExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -821,15 +749,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   Code?: string;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The format of the input document isn't supported. Documents for synchronous operations can be in
  *          PNG or JPEG format only. Documents for asynchronous operations can be in PDF format.</p>
@@ -839,15 +758,6 @@ export interface UnsupportedDocumentException extends __SmithyException, $Metada
   $fault: "client";
   Message?: string;
   Code?: string;
-}
-
-export namespace UnsupportedDocumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedDocumentException): any => ({
-    ...obj,
-  });
 }
 
 export interface AnalyzeExpenseRequest {
@@ -1408,15 +1318,6 @@ export interface InvalidJobIdException extends __SmithyException, $MetadataBeare
   Code?: string;
 }
 
-export namespace InvalidJobIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidJobIdException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key
  *         was entered incorrectly. </p>
@@ -1426,15 +1327,6 @@ export interface InvalidKMSKeyException extends __SmithyException, $MetadataBear
   $fault: "client";
   Message?: string;
   Code?: string;
-}
-
-export namespace InvalidKMSKeyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidKMSKeyException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDocumentTextDetectionRequest {
@@ -1607,15 +1499,6 @@ export interface IdempotentParameterMismatchException extends __SmithyException,
   Code?: string;
 }
 
-export namespace IdempotentParameterMismatchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An Amazon Textract service limit was exceeded. For example, if you start too many
  *          asynchronous jobs concurrently, calls to start operations
@@ -1628,15 +1511,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   $fault: "client";
   Message?: string;
   Code?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**

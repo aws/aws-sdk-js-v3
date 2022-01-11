@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateBrowserSettingsRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -78,15 +69,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   resourceType?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>There is an internal server error.</p>
  */
@@ -98,15 +80,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
    * <p>Advice to clients on when the call can be safely retried.</p>
    */
   retryAfterSeconds?: number;
-}
-
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -125,15 +98,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>Hypothetical type of the resource affected.</p>
    */
   resourceType?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -157,15 +121,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>Advice to clients on when the call can be safely retried.</p>
    */
   retryAfterSeconds?: number;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -215,15 +170,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>The field that caused the error.</p>
    */
   fieldList?: ValidationExceptionField[];
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateNetworkSettingsRequest {
@@ -459,15 +405,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    * <p>The originating quota.</p>
    */
   quotaCode?: string;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum IdentityProviderType {
@@ -2588,15 +2525,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
    * <p>Name of the resource affected.</p>
    */
   resourceName?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {

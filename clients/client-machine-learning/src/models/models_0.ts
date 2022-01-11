@@ -91,15 +91,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   code?: number;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  */
@@ -110,28 +101,10 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
   code?: number;
 }
 
-export namespace InvalidInputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj,
-  });
-}
-
 export interface InvalidTagException extends __SmithyException, $MetadataBearer {
   name: "InvalidTagException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidTagException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTagException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -144,28 +117,10 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   code?: number;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface TagLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "TagLimitExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TagLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum Algorithm {
@@ -241,15 +196,6 @@ export interface IdempotentParameterMismatchException extends __SmithyException,
   $fault: "client";
   message?: string;
   code?: number;
-}
-
-export namespace IdempotentParameterMismatchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3730,15 +3676,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   code?: number;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 export interface PredictInput {
   /**
    * <p>A unique identifier of the <code>MLModel</code>.</p>
@@ -3769,15 +3706,6 @@ export interface PredictorNotMountedException extends __SmithyException, $Metada
   name: "PredictorNotMountedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace PredictorNotMountedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictorNotMountedException): any => ({
-    ...obj,
-  });
 }
 
 export enum DetailsAttributes {

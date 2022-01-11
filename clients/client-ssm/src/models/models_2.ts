@@ -769,15 +769,6 @@ export interface OpsMetadataKeyLimitExceededException extends __SmithyException,
   message?: string;
 }
 
-export namespace OpsMetadataKeyLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsMetadataKeyLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateOpsMetadataRequest {
   /**
    * <p>The Amazon Resoure Name (ARN) of the OpsMetadata Object to update.</p>
@@ -1021,15 +1012,6 @@ export interface ResourceDataSyncConflictException extends __SmithyException, $M
   name: "ResourceDataSyncConflictException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceDataSyncConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceDataSyncConflictException): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateResourceDataSyncRequest {

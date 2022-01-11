@@ -382,15 +382,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
  */
@@ -401,15 +392,6 @@ export interface InvalidParameterCombinationException extends __SmithyException,
    * <p>The error message in the exception.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidParameterCombinationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -424,15 +406,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The attempted operation is not permitted.</p>
  */
@@ -445,15 +418,6 @@ export interface OperationNotPermittedException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace OperationNotPermittedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource was not found.</p>
  */
@@ -464,15 +428,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The error message in the exception.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateApplicationToEntitlementRequest {
@@ -524,15 +479,6 @@ export interface EntitlementNotFoundException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace EntitlementNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntitlementNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateFleetRequest {
   /**
    * <p>The name of the fleet. </p>
@@ -577,15 +523,6 @@ export interface IncompatibleImageException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace IncompatibleImageException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncompatibleImageException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
  */
@@ -596,15 +533,6 @@ export interface InvalidAccountStatusException extends __SmithyException, $Metad
    * <p>The error message in the exception.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidAccountStatusException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidAccountStatusException): any => ({
-    ...obj,
-  });
 }
 
 export enum AuthenticationType {
@@ -876,15 +804,6 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace ResourceAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource exists and is not in use, but isn't available.</p>
  */
@@ -895,15 +814,6 @@ export interface ResourceNotAvailableException extends __SmithyException, $Metad
    * <p>The error message in the exception.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceNotAvailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotAvailableException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAppBlockRequest {
@@ -1168,15 +1078,6 @@ export interface InvalidRoleException extends __SmithyException, $MetadataBearer
   Message?: string;
 }
 
-export namespace InvalidRoleException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRoleException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An attribute associated with an entitlement. Application entitlements work by matching
  *             a supported SAML 2.0 attribute name to a value when a user identity federates to an
@@ -1347,15 +1248,6 @@ export interface EntitlementAlreadyExistsException extends __SmithyException, $M
    * <p>The error message in the exception.</p>
    */
   Message?: string;
-}
-
-export namespace EntitlementAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntitlementAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2032,15 +1924,6 @@ export interface RequestLimitExceededException extends __SmithyException, $Metad
    * <p>The error message in the exception.</p>
    */
   Message?: string;
-}
-
-export namespace RequestLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateImageBuilderRequest {
@@ -3295,15 +3178,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
    * <p>The error message in the exception.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteApplicationRequest {

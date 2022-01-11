@@ -191,15 +191,6 @@ export interface InternalErrorException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace InternalErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalErrorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Thrown for missing or bad input parameter(s).</p>
  */
@@ -210,15 +201,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
    * <p>The message returned by an InvalidParameterException.</p>
    */
   message?: string;
-}
-
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -233,15 +215,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Thrown when a user is not authorized to access the requested resource.</p>
  */
@@ -252,15 +225,6 @@ export interface NotAuthorizedException extends __SmithyException, $MetadataBear
    * <p>The message returned by a NotAuthorizedException</p>
    */
   message?: string;
-}
-
-export namespace NotAuthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -276,15 +240,6 @@ export interface ResourceConflictException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Thrown when a request is throttled.</p>
  */
@@ -295,15 +250,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
    * <p>Message returned by a TooManyRequestsException</p>
    */
   message?: string;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -408,15 +354,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input to the <code>DescribeIdentity</code> action.</p>
  */
@@ -500,15 +437,6 @@ export interface ExternalServiceException extends __SmithyException, $MetadataBe
    * <p>The message returned by an ExternalServiceException</p>
    */
   message?: string;
-}
-
-export namespace ExternalServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExternalServiceException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -622,15 +550,6 @@ export interface InvalidIdentityPoolConfigurationException extends __SmithyExcep
    *          </p>
    */
   message?: string;
-}
-
-export namespace InvalidIdentityPoolConfigurationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidIdentityPoolConfigurationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -934,15 +853,6 @@ export interface DeveloperUserAlreadyRegisteredException extends __SmithyExcepti
    * <p>This developer user identifier is already registered with Cognito.</p>
    */
   message?: string;
-}
-
-export namespace DeveloperUserAlreadyRegisteredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeveloperUserAlreadyRegisteredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1399,15 +1309,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
    * <p>The message returned by a ConcurrentModificationException.</p>
    */
   message?: string;
-}
-
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
 }
 
 /**

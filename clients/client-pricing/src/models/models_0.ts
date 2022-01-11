@@ -117,15 +117,6 @@ export interface ExpiredNextTokenException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ExpiredNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpiredNextTokenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  */
@@ -133,15 +124,6 @@ export interface InternalErrorException extends __SmithyException, $MetadataBear
   name: "InternalErrorException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace InternalErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalErrorException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -153,15 +135,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more parameters had an invalid value.</p>
  */
@@ -171,15 +144,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested resource can't be found.</p>
  */
@@ -187,15 +151,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAttributeValuesRequest {

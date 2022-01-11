@@ -56,15 +56,6 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InternalServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more parameter values in the request are invalid. Correct the invalid
  *             parameter values before retrying.</p>
@@ -73,15 +64,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -94,15 +76,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested operation is not supported in the Region specified.</p>
  */
@@ -110,15 +83,6 @@ export interface UnsupportedRegionException extends __SmithyException, $Metadata
   name: "UnsupportedRegionException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnsupportedRegionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedRegionException): any => ({
-    ...obj,
-  });
 }
 
 export enum RoutingStrategyType {
@@ -653,15 +617,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified game server group has no available game servers to fulfill a
  *             <code>ClaimGameServer</code> request. Clients can retry such requests immediately
@@ -675,15 +630,6 @@ export interface OutOfCapacityException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace OutOfCapacityException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutOfCapacityException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The client failed authentication. Clients should not retry such requests.</p>
  */
@@ -691,15 +637,6 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
   name: "UnauthorizedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnauthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj,
-  });
 }
 
 export enum ComparisonOperatorType {
@@ -830,15 +767,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             The requested tagging operation did not succeed. This may be due to invalid tag format
@@ -849,15 +777,6 @@ export interface TaggingFailedException extends __SmithyException, $MetadataBear
   name: "TaggingFailedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TaggingFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaggingFailedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1847,15 +1766,6 @@ export interface InvalidFleetStatusException extends __SmithyException, $Metadat
   Message?: string;
 }
 
-export namespace InvalidFleetStatusException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidFleetStatusException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             <b>This data type is used with the GameLift FleetIQ and game server groups.</b>
@@ -2749,15 +2659,6 @@ export interface FleetCapacityExceededException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace FleetCapacityExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FleetCapacityExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A game session with this custom ID string already exists in this fleet. Resolve
  *             this conflict before retrying this request.</p>
@@ -2766,15 +2667,6 @@ export interface IdempotentParameterMismatchException extends __SmithyException,
   name: "IdempotentParameterMismatchException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace IdempotentParameterMismatchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2788,15 +2680,6 @@ export interface TerminalRoutingStrategyException extends __SmithyException, $Me
   name: "TerminalRoutingStrategyException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TerminalRoutingStrategyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminalRoutingStrategyException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3769,15 +3652,6 @@ export interface GameSessionFullException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace GameSessionFullException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GameSessionFullException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested operation would cause a conflict with the current state of a resource
  *             associated with the request and/or the game instance. Resolve the conflict before
@@ -3787,15 +3661,6 @@ export interface InvalidGameSessionStatusException extends __SmithyException, $M
   name: "InvalidGameSessionStatusException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidGameSessionStatusException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidGameSessionStatusException): any => ({
-    ...obj,
-  });
 }
 
 /**

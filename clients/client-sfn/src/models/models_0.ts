@@ -10,15 +10,6 @@ export interface ActivityDoesNotExist extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace ActivityDoesNotExist {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivityDoesNotExist): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains details about an activity that failed during an execution.</p>
  */
@@ -53,15 +44,6 @@ export interface ActivityLimitExceeded extends __SmithyException, $MetadataBeare
   name: "ActivityLimitExceeded";
   $fault: "client";
   message?: string;
-}
-
-export namespace ActivityLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivityLimitExceeded): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -284,15 +266,6 @@ export interface ActivityWorkerLimitExceeded extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace ActivityWorkerLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivityWorkerLimitExceeded): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Tags are key-value pairs that can be associated with Step Functions state machines and
  *       activities.</p>
@@ -403,15 +376,6 @@ export interface InvalidName extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace InvalidName {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidName): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
  *       AWS Step Functions Developer Guide.</p>
@@ -421,15 +385,6 @@ export interface TooManyTags extends __SmithyException, $MetadataBearer {
   $fault: "client";
   message?: string;
   resourceName?: string;
-}
-
-export namespace TooManyTags {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTags): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -639,15 +594,6 @@ export interface InvalidArn extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace InvalidArn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArn): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The provided Amazon States Language definition is invalid.</p>
  */
@@ -655,15 +601,6 @@ export interface InvalidDefinition extends __SmithyException, $MetadataBearer {
   name: "InvalidDefinition";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDefinition): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -675,15 +612,6 @@ export interface InvalidLoggingConfiguration extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace InvalidLoggingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidLoggingConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code> has not been set to <code>true</code> or <code>false</code>.</p>
  */
@@ -691,15 +619,6 @@ export interface InvalidTracingConfiguration extends __SmithyException, $Metadat
   name: "InvalidTracingConfiguration";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidTracingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTracingConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -712,15 +631,6 @@ export interface StateMachineAlreadyExists extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace StateMachineAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StateMachineAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified state machine is being deleted.</p>
  */
@@ -728,15 +638,6 @@ export interface StateMachineDeleting extends __SmithyException, $MetadataBearer
   name: "StateMachineDeleting";
   $fault: "client";
   message?: string;
-}
-
-export namespace StateMachineDeleting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StateMachineDeleting): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -749,15 +650,6 @@ export interface StateMachineLimitExceeded extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace StateMachineLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StateMachineLimitExceeded): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -765,15 +657,6 @@ export interface StateMachineTypeNotSupported extends __SmithyException, $Metada
   name: "StateMachineTypeNotSupported";
   $fault: "client";
   message?: string;
-}
-
-export namespace StateMachineTypeNotSupported {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StateMachineTypeNotSupported): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteActivityInput {
@@ -1035,15 +918,6 @@ export interface ExecutionDoesNotExist extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace ExecutionDoesNotExist {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionDoesNotExist): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeStateMachineInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the state machine to describe.</p>
@@ -1151,15 +1025,6 @@ export interface StateMachineDoesNotExist extends __SmithyException, $MetadataBe
   name: "StateMachineDoesNotExist";
   $fault: "client";
   message?: string;
-}
-
-export namespace StateMachineDoesNotExist {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StateMachineDoesNotExist): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeStateMachineForExecutionInput {
@@ -2407,15 +2272,6 @@ export interface InvalidToken extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace InvalidToken {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidToken): any => ({
-    ...obj,
-  });
-}
-
 export interface ListActivitiesInput {
   /**
    * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
@@ -2726,15 +2582,6 @@ export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
   resourceName?: string;
 }
 
-export namespace ResourceNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFound): any => ({
-    ...obj,
-  });
-}
-
 export interface SendTaskFailureInput {
   /**
    * <p>The token that represents this task. Task tokens are generated by Step Functions when
@@ -2782,28 +2629,10 @@ export interface TaskDoesNotExist extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace TaskDoesNotExist {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaskDoesNotExist): any => ({
-    ...obj,
-  });
-}
-
 export interface TaskTimedOut extends __SmithyException, $MetadataBearer {
   name: "TaskTimedOut";
   $fault: "client";
   message?: string;
-}
-
-export namespace TaskTimedOut {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaskTimedOut): any => ({
-    ...obj,
-  });
 }
 
 export interface SendTaskHeartbeatInput {
@@ -2842,15 +2671,6 @@ export interface InvalidOutput extends __SmithyException, $MetadataBearer {
   name: "InvalidOutput";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface SendTaskSuccessInput {
@@ -2902,15 +2722,6 @@ export interface ExecutionAlreadyExists extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace ExecutionAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The maximum number of running executions has been reached. Running executions must end or
  *       be stopped before a new execution can be started.</p>
@@ -2921,15 +2732,6 @@ export interface ExecutionLimitExceeded extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace ExecutionLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionLimitExceeded): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The provided JSON input data is invalid.</p>
  */
@@ -2937,15 +2739,6 @@ export interface InvalidExecutionInput extends __SmithyException, $MetadataBeare
   name: "InvalidExecutionInput";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidExecutionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidExecutionInput): any => ({
-    ...obj,
-  });
 }
 
 export interface StartExecutionInput {
@@ -3308,15 +3101,6 @@ export interface MissingRequiredParameter extends __SmithyException, $MetadataBe
   name: "MissingRequiredParameter";
   $fault: "client";
   message?: string;
-}
-
-export namespace MissingRequiredParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MissingRequiredParameter): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateStateMachineInput {

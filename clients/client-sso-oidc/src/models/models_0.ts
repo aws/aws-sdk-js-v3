@@ -10,15 +10,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   error_description?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that a request to authorize a client with an access user session token is pending.</p>
  */
@@ -27,15 +18,6 @@ export interface AuthorizationPendingException extends __SmithyException, $Metad
   $fault: "client";
   error?: string;
   error_description?: string;
-}
-
-export namespace AuthorizationPendingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizationPendingException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateTokenRequest {
@@ -141,15 +123,6 @@ export interface ExpiredTokenException extends __SmithyException, $MetadataBeare
   error_description?: string;
 }
 
-export namespace ExpiredTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpiredTokenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that an error from the service occurred while trying to process a request.</p>
  */
@@ -158,15 +131,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   $fault: "server";
   error?: string;
   error_description?: string;
-}
-
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -181,15 +145,6 @@ export interface InvalidClientException extends __SmithyException, $MetadataBear
   error_description?: string;
 }
 
-export namespace InvalidClientException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidClientException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that a request contains an invalid grant. This can occur if a client makes a <a>CreateToken</a> request with an invalid grant type.</p>
  */
@@ -198,15 +153,6 @@ export interface InvalidGrantException extends __SmithyException, $MetadataBeare
   $fault: "client";
   error?: string;
   error_description?: string;
-}
-
-export namespace InvalidGrantException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidGrantException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -220,15 +166,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   error_description?: string;
 }
 
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the scope provided in the request is invalid.</p>
  */
@@ -239,15 +176,6 @@ export interface InvalidScopeException extends __SmithyException, $MetadataBeare
   error_description?: string;
 }
 
-export namespace InvalidScopeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidScopeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the client is making the request too frequently and is more than the service can handle. </p>
  */
@@ -256,15 +184,6 @@ export interface SlowDownException extends __SmithyException, $MetadataBearer {
   $fault: "client";
   error?: string;
   error_description?: string;
-}
-
-export namespace SlowDownException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlowDownException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -278,15 +197,6 @@ export interface UnauthorizedClientException extends __SmithyException, $Metadat
   error_description?: string;
 }
 
-export namespace UnauthorizedClientException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedClientException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the grant type in the request is not supported by the service.</p>
  */
@@ -297,15 +207,6 @@ export interface UnsupportedGrantTypeException extends __SmithyException, $Metad
   error_description?: string;
 }
 
-export namespace UnsupportedGrantTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedGrantTypeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the client information sent in the request during registration is invalid.</p>
  */
@@ -314,15 +215,6 @@ export interface InvalidClientMetadataException extends __SmithyException, $Meta
   $fault: "client";
   error?: string;
   error_description?: string;
-}
-
-export namespace InvalidClientMetadataException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidClientMetadataException): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterClientRequest {

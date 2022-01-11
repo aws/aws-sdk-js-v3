@@ -179,15 +179,6 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace InternalServerError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation failed because it's not valid. For example, you might have tried to delete
  *          a rule group or firewall policy that's in use.</p>
@@ -196,15 +187,6 @@ export interface InvalidOperationException extends __SmithyException, $MetadataB
   name: "InvalidOperationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -229,15 +211,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The token you provided is stale or isn't valid for the operation. </p>
  */
@@ -245,15 +218,6 @@ export interface InvalidTokenException extends __SmithyException, $MetadataBeare
   name: "InvalidTokenException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTokenException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -265,15 +229,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Unable to process the request due to throttling limitations.</p>
  */
@@ -281,15 +236,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   name: "ThrottlingException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -390,15 +336,6 @@ export interface InsufficientCapacityException extends __SmithyException, $Metad
   name: "InsufficientCapacityException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace InsufficientCapacityException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientCapacityException): any => ({
-    ...obj,
-  });
 }
 
 export enum AttachmentStatus {
@@ -786,15 +723,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum RuleOrder {
@@ -2117,15 +2045,6 @@ export interface UnsupportedOperationException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace UnsupportedOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFirewallPolicyRequest {
   /**
    * <p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>
@@ -2200,15 +2119,6 @@ export interface InvalidResourcePolicyException extends __SmithyException, $Meta
   name: "InvalidResourcePolicyException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidResourcePolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidResourcePolicyException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRuleGroupRequest {
@@ -3055,15 +2965,6 @@ export interface LogDestinationPermissionException extends __SmithyException, $M
   Message?: string;
 }
 
-export namespace LogDestinationPermissionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogDestinationPermissionException): any => ({
-    ...obj,
-  });
-}
-
 export interface PutResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the account that you want to share rule groups and firewall policies with.</p>
@@ -3196,15 +3097,6 @@ export interface ResourceOwnerCheckException extends __SmithyException, $Metadat
   name: "ResourceOwnerCheckException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceOwnerCheckException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceOwnerCheckException): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateFirewallDeleteProtectionRequest {

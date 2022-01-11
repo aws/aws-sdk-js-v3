@@ -2424,15 +2424,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   RequestID?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
  */
@@ -3666,15 +3657,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   RequestID?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the display name of an application and the tags to associate with the application.</p>
  */
@@ -3748,15 +3730,6 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   RequestID?: string;
 }
 
-export namespace ForbiddenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about an API request or response.</p>
  */
@@ -3772,15 +3745,6 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
    * <p>The unique identifier for the request or response.</p>
    */
   RequestID?: string;
-}
-
-export namespace InternalServerErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3800,15 +3764,6 @@ export interface MethodNotAllowedException extends __SmithyException, $MetadataB
   RequestID?: string;
 }
 
-export namespace MethodNotAllowedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MethodNotAllowedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about an API request or response.</p>
  */
@@ -3824,15 +3779,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
    * <p>The unique identifier for the request or response.</p>
    */
   RequestID?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3852,15 +3798,6 @@ export interface PayloadTooLargeException extends __SmithyException, $MetadataBe
   RequestID?: string;
 }
 
-export namespace PayloadTooLargeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PayloadTooLargeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about an API request or response.</p>
  */
@@ -3876,15 +3813,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
    * <p>The unique identifier for the request or response.</p>
    */
   RequestID?: string;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 /**

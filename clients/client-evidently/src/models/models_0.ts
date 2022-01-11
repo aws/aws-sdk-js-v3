@@ -10,15 +10,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This structure assigns a feature variation to one user session.</p>
  */
@@ -260,15 +251,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   resourceType?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was denied because of request throttling. Retry the request.</p>
  */
@@ -285,15 +267,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>The ID of the service quota that was exceeded.</p>
    */
   quotaCode?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -343,15 +316,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>The parameter that caused the exception.</p>
    */
   fieldList?: ValidationExceptionField[];
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export enum ChangeDirectionEnum {
@@ -417,15 +381,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>The type of the resource that is associated with the error.</p>
    */
   resourceType?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -977,15 +932,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    * <p>The ID of the service quota that was exceeded.</p>
    */
   quotaCode?: string;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum FeatureEvaluationStrategy {
@@ -1965,15 +1911,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service was unavailable. Retry the request.</p>
  */
@@ -1981,15 +1918,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   name: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteFeatureRequest {

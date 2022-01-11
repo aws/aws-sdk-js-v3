@@ -153,15 +153,6 @@ export interface ConcurrentModification extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace ConcurrentModification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input is not valid.</p>
  */
@@ -174,15 +165,6 @@ export interface InvalidInput extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace InvalidInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The key-signing key (KSK) status isn't valid or another KSK has the status <code>INTERNAL_FAILURE</code>.</p>
  */
@@ -192,15 +174,6 @@ export interface InvalidKeySigningKeyStatus extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace InvalidKeySigningKeyStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidKeySigningKeyStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The KeyManagementServiceArn that you specified isn't valid to use with DNSSEC signing.</p>
  */
@@ -208,15 +181,6 @@ export interface InvalidKMSArn extends __SmithyException, $MetadataBearer {
   name: "InvalidKMSArn";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidKMSArn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidKMSArn): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -229,15 +193,6 @@ export interface InvalidSigningStatus extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace InvalidSigningStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSigningStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified key-signing key (KSK) doesn't exist.</p>
  */
@@ -245,15 +200,6 @@ export interface NoSuchKeySigningKey extends __SmithyException, $MetadataBearer 
   name: "NoSuchKeySigningKey";
   $fault: "client";
   message?: string;
-}
-
-export namespace NoSuchKeySigningKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchKeySigningKey): any => ({
-    ...obj,
-  });
 }
 
 export type CloudWatchRegion =
@@ -845,15 +791,6 @@ export interface ConflictingDomainExists extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace ConflictingDomainExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictingDomainExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The VPC ID that you specified either isn't a valid ID or the current account is not authorized to access this VPC.</p>
  */
@@ -864,15 +801,6 @@ export interface InvalidVPCId extends __SmithyException, $MetadataBearer {
    * <p></p>
    */
   message?: string;
-}
-
-export namespace InvalidVPCId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidVPCId): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -893,15 +821,6 @@ export interface LimitsExceeded extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace LimitsExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitsExceeded): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>No hosted zone exists with the ID that you specified.</p>
  */
@@ -914,15 +833,6 @@ export interface NoSuchHostedZone extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace NoSuchHostedZone {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchHostedZone): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Associating the specified VPC with the specified hosted zone has not been authorized.</p>
  */
@@ -933,15 +843,6 @@ export interface NotAuthorizedException extends __SmithyException, $MetadataBear
    * <p></p>
    */
   message?: string;
-}
-
-export namespace NotAuthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -957,15 +858,6 @@ export interface PriorRequestNotComplete extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace PriorRequestNotComplete {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PriorRequestNotComplete): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You're trying to associate a VPC with a public hosted zone. Amazon Route 53 doesn't support associating a
  * 			VPC with a public hosted zone.</p>
@@ -977,15 +869,6 @@ export interface PublicZoneVPCAssociation extends __SmithyException, $MetadataBe
    * <p></p>
    */
   message?: string;
-}
-
-export namespace PublicZoneVPCAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublicZoneVPCAssociation): any => ({
-    ...obj,
-  });
 }
 
 export type ChangeAction = "CREATE" | "DELETE" | "UPSERT";
@@ -1773,15 +1656,6 @@ export interface InvalidChangeBatch extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace InvalidChangeBatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidChangeBatch): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>No health check exists with the specified ID.</p>
  */
@@ -1792,15 +1666,6 @@ export interface NoSuchHealthCheck extends __SmithyException, $MetadataBearer {
    * <p></p>
    */
   message?: string;
-}
-
-export namespace NoSuchHealthCheck {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchHealthCheck): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1926,15 +1791,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   name: "ThrottlingException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 export type InsufficientDataHealthStatus = "Healthy" | "LastKnownStatus" | "Unhealthy";
@@ -2563,15 +2419,6 @@ export interface HealthCheckAlreadyExists extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace HealthCheckAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HealthCheckAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This health check can't be created because the current account has reached the limit on the number of active health checks.</p>
  * 		       <p>For information about default limits, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a>
@@ -2587,15 +2434,6 @@ export interface TooManyHealthChecks extends __SmithyException, $MetadataBearer 
   name: "TooManyHealthChecks";
   $fault: "client";
   message?: string;
-}
-
-export namespace TooManyHealthChecks {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyHealthChecks): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2824,15 +2662,6 @@ export interface DelegationSetNotAvailable extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace DelegationSetNotAvailable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DelegationSetNotAvailable): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A reusable delegation set with the specified ID does not exist.</p>
  */
@@ -2843,15 +2672,6 @@ export interface DelegationSetNotReusable extends __SmithyException, $MetadataBe
    * <p></p>
    */
   message?: string;
-}
-
-export namespace DelegationSetNotReusable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DelegationSetNotReusable): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2867,15 +2687,6 @@ export interface HostedZoneAlreadyExists extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace HostedZoneAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostedZoneAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified domain name is not valid.</p>
  */
@@ -2888,15 +2699,6 @@ export interface InvalidDomainName extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace InvalidDomainName {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDomainName): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A reusable delegation set with the specified ID does not exist.</p>
  */
@@ -2907,15 +2709,6 @@ export interface NoSuchDelegationSet extends __SmithyException, $MetadataBearer 
    * <p></p>
    */
   message?: string;
-}
-
-export namespace NoSuchDelegationSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchDelegationSet): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2936,15 +2729,6 @@ export interface TooManyHostedZones extends __SmithyException, $MetadataBearer {
    * <p></p>
    */
   message?: string;
-}
-
-export namespace TooManyHostedZones {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyHostedZones): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateKeySigningKeyRequest {
@@ -3245,15 +3029,6 @@ export interface InvalidArgument extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace InvalidArgument {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArgument): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The key-signing key (KSK) name that you specified isn't a valid name.</p>
  */
@@ -3261,15 +3036,6 @@ export interface InvalidKeySigningKeyName extends __SmithyException, $MetadataBe
   name: "InvalidKeySigningKeyName";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidKeySigningKeyName {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidKeySigningKeyName): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3281,15 +3047,6 @@ export interface KeySigningKeyAlreadyExists extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace KeySigningKeyAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeySigningKeyAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You've reached the limit for the number of key-signing keys (KSKs). Remove at least one KSK, and then try again.</p>
  */
@@ -3297,15 +3054,6 @@ export interface TooManyKeySigningKeys extends __SmithyException, $MetadataBeare
   name: "TooManyKeySigningKeys";
   $fault: "client";
   message?: string;
-}
-
-export namespace TooManyKeySigningKeys {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyKeySigningKeys): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateQueryLoggingConfigRequest {
@@ -3415,15 +3163,6 @@ export interface InsufficientCloudWatchLogsResourcePolicy extends __SmithyExcept
   message?: string;
 }
 
-export namespace InsufficientCloudWatchLogsResourcePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientCloudWatchLogsResourcePolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>There is no CloudWatch Logs log group with the specified ARN.</p>
  */
@@ -3431,15 +3170,6 @@ export interface NoSuchCloudWatchLogsLogGroup extends __SmithyException, $Metada
   name: "NoSuchCloudWatchLogsLogGroup";
   $fault: "client";
   message?: string;
-}
-
-export namespace NoSuchCloudWatchLogsLogGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchCloudWatchLogsLogGroup): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3450,15 +3180,6 @@ export interface QueryLoggingConfigAlreadyExists extends __SmithyException, $Met
   name: "QueryLoggingConfigAlreadyExists";
   $fault: "client";
   message?: string;
-}
-
-export namespace QueryLoggingConfigAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryLoggingConfigAlreadyExists): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateReusableDelegationSetRequest {
@@ -3520,15 +3241,6 @@ export interface DelegationSetAlreadyCreated extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace DelegationSetAlreadyCreated {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DelegationSetAlreadyCreated): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified delegation set has already been marked as reusable.</p>
  */
@@ -3541,15 +3253,6 @@ export interface DelegationSetAlreadyReusable extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace DelegationSetAlreadyReusable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DelegationSetAlreadyReusable): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified HostedZone can't be found.</p>
  */
@@ -3560,15 +3263,6 @@ export interface HostedZoneNotFound extends __SmithyException, $MetadataBearer {
    * <p></p>
    */
   message?: string;
-}
-
-export namespace HostedZoneNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostedZoneNotFound): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3685,15 +3379,6 @@ export interface InvalidTrafficPolicyDocument extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace InvalidTrafficPolicyDocument {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTrafficPolicyDocument): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This traffic policy can't be created because the current account has reached the limit on the number of traffic policies.</p>
  * 		       <p>For information about default limits, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a>
@@ -3712,15 +3397,6 @@ export interface TooManyTrafficPolicies extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace TooManyTrafficPolicies {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTrafficPolicies): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A traffic policy that has the same value for <code>Name</code> already exists.</p>
  */
@@ -3731,15 +3407,6 @@ export interface TrafficPolicyAlreadyExists extends __SmithyException, $Metadata
    * <p></p>
    */
   message?: string;
-}
-
-export namespace TrafficPolicyAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrafficPolicyAlreadyExists): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3895,15 +3562,6 @@ export interface NoSuchTrafficPolicy extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace NoSuchTrafficPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchTrafficPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This traffic policy instance can't be created because the current account has reached the limit on the number of
  * 			traffic policy instances.</p>
@@ -3923,15 +3581,6 @@ export interface TooManyTrafficPolicyInstances extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace TooManyTrafficPolicyInstances {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTrafficPolicyInstances): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>There is already a traffic policy instance with the specified ID.</p>
  */
@@ -3942,15 +3591,6 @@ export interface TrafficPolicyInstanceAlreadyExists extends __SmithyException, $
    * <p></p>
    */
   message?: string;
-}
-
-export namespace TrafficPolicyInstanceAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrafficPolicyInstanceAlreadyExists): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4026,15 +3666,6 @@ export interface TooManyTrafficPolicyVersionsForCurrentPolicy extends __SmithyEx
   message?: string;
 }
 
-export namespace TooManyTrafficPolicyVersionsForCurrentPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTrafficPolicyVersionsForCurrentPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains information about the request to authorize associating a VPC with your private hosted zone.
  * 			Authorization is only required when a private hosted zone and a VPC were created by using different accounts.</p>
@@ -4100,15 +3731,6 @@ export interface TooManyVPCAssociationAuthorizations extends __SmithyException, 
   message?: string;
 }
 
-export namespace TooManyVPCAssociationAuthorizations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyVPCAssociationAuthorizations): any => ({
-    ...obj,
-  });
-}
-
 export interface DeactivateKeySigningKeyRequest {
   /**
    * <p>A unique string used to identify a hosted zone.</p>
@@ -4156,15 +3778,6 @@ export interface KeySigningKeyInParentDSRecord extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace KeySigningKeyInParentDSRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeySigningKeyInParentDSRecord): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The key-signing key (KSK) that you specified can't be deactivated because it's the only KSK for a
  * 		currently-enabled DNSSEC. Disable DNSSEC signing, or add or enable another KSK.</p>
@@ -4173,15 +3786,6 @@ export interface KeySigningKeyInUse extends __SmithyException, $MetadataBearer {
   name: "KeySigningKeyInUse";
   $fault: "client";
   message?: string;
-}
-
-export namespace KeySigningKeyInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeySigningKeyInUse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4229,15 +3833,6 @@ export interface HealthCheckInUse extends __SmithyException, $MetadataBearer {
    * <p></p>
    */
   message?: string;
-}
-
-export namespace HealthCheckInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HealthCheckInUse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4288,15 +3883,6 @@ export interface HostedZoneNotEmpty extends __SmithyException, $MetadataBearer {
    * <p></p>
    */
   message?: string;
-}
-
-export namespace HostedZoneNotEmpty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostedZoneNotEmpty): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteKeySigningKeyRequest {
@@ -4373,15 +3959,6 @@ export interface NoSuchQueryLoggingConfig extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace NoSuchQueryLoggingConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchQueryLoggingConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified delegation contains associated hosted zones which must be deleted before the reusable delegation set
  * 			can be deleted.</p>
@@ -4393,15 +3970,6 @@ export interface DelegationSetInUse extends __SmithyException, $MetadataBearer {
    * <p></p>
    */
   message?: string;
-}
-
-export namespace DelegationSetInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DelegationSetInUse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4487,15 +4055,6 @@ export interface TrafficPolicyInUse extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace TrafficPolicyInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrafficPolicyInUse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to delete a specified traffic policy instance.</p>
  */
@@ -4543,15 +4102,6 @@ export interface NoSuchTrafficPolicyInstance extends __SmithyException, $Metadat
    * <p></p>
    */
   message?: string;
-}
-
-export namespace NoSuchTrafficPolicyInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchTrafficPolicyInstance): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4607,15 +4157,6 @@ export interface VPCAssociationAuthorizationNotFound extends __SmithyException, 
   message?: string;
 }
 
-export namespace VPCAssociationAuthorizationNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VPCAssociationAuthorizationNotFound): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableHostedZoneDNSSECRequest {
   /**
    * <p>A unique string used to identify a hosted zone.</p>
@@ -4656,15 +4197,6 @@ export interface DNSSECNotFound extends __SmithyException, $MetadataBearer {
   name: "DNSSECNotFound";
   $fault: "client";
   message?: string;
-}
-
-export namespace DNSSECNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DNSSECNotFound): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4731,15 +4263,6 @@ export interface LastVPCAssociation extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace LastVPCAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LastVPCAssociation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified VPC and hosted zone are not currently associated.</p>
  */
@@ -4750,15 +4273,6 @@ export interface VPCAssociationNotFound extends __SmithyException, $MetadataBear
    * <p>The specified VPC or hosted zone weren't found.</p>
    */
   message?: string;
-}
-
-export namespace VPCAssociationNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VPCAssociationNotFound): any => ({
-    ...obj,
-  });
 }
 
 export interface EnableHostedZoneDNSSECRequest {
@@ -4803,15 +4317,6 @@ export interface HostedZonePartiallyDelegated extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace HostedZonePartiallyDelegated {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostedZonePartiallyDelegated): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A key-signing key (KSK) with <code>ACTIVE</code> status wasn't found.</p>
  */
@@ -4819,15 +4324,6 @@ export interface KeySigningKeyWithActiveStatusNotFound extends __SmithyException
   name: "KeySigningKeyWithActiveStatusNotFound";
   $fault: "client";
   message?: string;
-}
-
-export namespace KeySigningKeyWithActiveStatusNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeySigningKeyWithActiveStatusNotFound): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4951,15 +4447,6 @@ export interface NoSuchChange extends __SmithyException, $MetadataBearer {
   name: "NoSuchChange";
   $fault: "client";
   message?: string;
-}
-
-export namespace NoSuchChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchChange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5221,15 +4708,6 @@ export interface NoSuchGeoLocation extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace NoSuchGeoLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchGeoLocation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to get information about a specified health check. </p>
  */
@@ -5277,15 +4755,6 @@ export interface IncompatibleVersion extends __SmithyException, $MetadataBearer 
   name: "IncompatibleVersion";
   $fault: "client";
   message?: string;
-}
-
-export namespace IncompatibleVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncompatibleVersion): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5657,15 +5126,6 @@ export interface HostedZoneNotPrivate extends __SmithyException, $MetadataBearer
    * <p></p>
    */
   message?: string;
-}
-
-export namespace HostedZoneNotPrivate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostedZoneNotPrivate): any => ({
-    ...obj,
-  });
 }
 
 export interface GetQueryLoggingConfigRequest {
@@ -6283,15 +5743,6 @@ export interface InvalidPaginationToken extends __SmithyException, $MetadataBear
   name: "InvalidPaginationToken";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidPaginationToken {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPaginationToken): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7512,15 +6963,6 @@ export interface HealthCheckVersionMismatch extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace HealthCheckVersionMismatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HealthCheckVersionMismatch): any => ({
-    ...obj,
-  });
-}
-
 export type ResettableElementName = "ChildHealthChecks" | "FullyQualifiedDomainName" | "Regions" | "ResourcePath";
 
 /**
@@ -7980,15 +7422,6 @@ export interface ConflictingTypes extends __SmithyException, $MetadataBearer {
    * <p></p>
    */
   message?: string;
-}
-
-export namespace ConflictingTypes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictingTypes): any => ({
-    ...obj,
-  });
 }
 
 /**

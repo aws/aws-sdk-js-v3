@@ -469,15 +469,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAnomalySubscriptionRequest {
   /**
    * <p>The cost anomaly subscription object that you want to create. </p>
@@ -518,15 +509,6 @@ export interface UnknownMonitorException extends __SmithyException, $MetadataBea
   name: "UnknownMonitorException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnknownMonitorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnknownMonitorException): any => ({
-    ...obj,
-  });
 }
 
 export enum CostCategoryInheritedValueDimensionName {
@@ -691,15 +673,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAnomalyMonitorRequest {
   /**
    * <p>The unique identifier of the cost anomaly monitor that you want to delete. </p>
@@ -764,15 +737,6 @@ export interface UnknownSubscriptionException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace UnknownSubscriptionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnknownSubscriptionException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCostCategoryDefinitionRequest {
   /**
    * <p>
@@ -825,15 +789,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCostCategoryDefinitionRequest {
@@ -1010,15 +965,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAnomalyMonitorsRequest {
   /**
    * <p>A list of cost anomaly monitor ARNs. </p>
@@ -1109,15 +1055,6 @@ export interface BillExpirationException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace BillExpirationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BillExpirationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested data is unavailable.</p>
  */
@@ -1125,15 +1062,6 @@ export interface DataUnavailableException extends __SmithyException, $MetadataBe
   name: "DataUnavailableException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace DataUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 export enum Granularity {
@@ -1348,15 +1276,6 @@ export interface RequestChangedException extends __SmithyException, $MetadataBea
   name: "RequestChangedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace RequestChangedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestChangedException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCostAndUsageWithResourcesResponse {
@@ -4087,15 +4006,6 @@ export interface UnresolvableUsageUnitException extends __SmithyException, $Meta
   name: "UnresolvableUsageUnitException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnresolvableUsageUnitException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnresolvableUsageUnitException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCostCategoryDefinitionsRequest {

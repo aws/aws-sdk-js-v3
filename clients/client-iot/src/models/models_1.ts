@@ -2569,15 +2569,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeMitigationActionRequest {
   /**
    * <p>The friendly name that uniquely identifies the mitigation action.</p>
@@ -5015,15 +5006,6 @@ export interface NotConfiguredException extends __SmithyException, $MetadataBear
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace NotConfiguredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotConfiguredException): any => ({
-    ...obj,
-  });
 }
 
 export enum BehaviorCriteriaType {

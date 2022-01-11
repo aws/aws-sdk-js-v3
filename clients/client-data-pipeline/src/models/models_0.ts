@@ -79,15 +79,6 @@ export interface InternalServiceError extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace InternalServiceError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
  */
@@ -98,15 +89,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
    * <p>Description of the error message.</p>
    */
   message?: string;
-}
-
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -121,15 +103,6 @@ export interface PipelineDeletedException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace PipelineDeletedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineDeletedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  */
@@ -140,15 +113,6 @@ export interface PipelineNotFoundException extends __SmithyException, $MetadataB
    * <p>Description of the error message.</p>
    */
   message?: string;
-}
-
-export namespace PipelineNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -600,15 +564,6 @@ export interface TaskNotFoundException extends __SmithyException, $MetadataBeare
    * <p>Description of the error message.</p>
    */
   message?: string;
-}
-
-export namespace TaskNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaskNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**

@@ -13,15 +13,6 @@ export interface SearchException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace SearchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchException): any => ({
-    ...obj,
-  });
-}
-
 export type QueryParser = "dismax" | "lucene" | "simple" | "structured";
 
 /**
@@ -695,15 +686,6 @@ export interface DocumentServiceException extends __SmithyException, $MetadataBe
    * <p>The description of the errors returned by the document service.</p>
    */
   message?: string;
-}
-
-export namespace DocumentServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentServiceException): any => ({
-    ...obj,
-  });
 }
 
 export type ContentType = "application/json" | "application/xml";

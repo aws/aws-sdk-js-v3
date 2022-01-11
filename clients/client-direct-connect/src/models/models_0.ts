@@ -207,15 +207,6 @@ export interface DirectConnectClientException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace DirectConnectClientException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectConnectClientException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A server-side error occurred.</p>
  */
@@ -223,15 +214,6 @@ export interface DirectConnectServerException extends __SmithyException, $Metada
   name: "DirectConnectServerException";
   $fault: "server";
   message?: string;
-}
-
-export namespace DirectConnectServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectConnectServerException): any => ({
-    ...obj,
-  });
 }
 
 export enum AddressFamily {
@@ -614,15 +596,6 @@ export interface DuplicateTagKeysException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace DuplicateTagKeysException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateTagKeysException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have reached the limit on the number of tags that can be assigned.</p>
  */
@@ -630,15 +603,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 /**

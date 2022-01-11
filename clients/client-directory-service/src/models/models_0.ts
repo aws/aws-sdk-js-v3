@@ -137,15 +137,6 @@ export interface ClientException extends __SmithyException, $MetadataBearer {
   RequestId?: string;
 }
 
-export namespace ClientException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified directory has already been shared with this Amazon Web Services account.</p>
  */
@@ -161,15 +152,6 @@ export interface DirectoryAlreadySharedException extends __SmithyException, $Met
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
-}
-
-export namespace DirectoryAlreadySharedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryAlreadySharedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -189,15 +171,6 @@ export interface EntityDoesNotExistException extends __SmithyException, $Metadat
   RequestId?: string;
 }
 
-export namespace EntityDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more parameters are not valid.</p>
  */
@@ -213,15 +186,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
-}
-
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -241,15 +205,6 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
   RequestId?: string;
 }
 
-export namespace ServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Client authentication is not available in this region at this time.</p>
  */
@@ -265,15 +220,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
-}
-
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -426,15 +372,6 @@ export interface DirectoryUnavailableException extends __SmithyException, $Metad
   RequestId?: string;
 }
 
-export namespace DirectoryUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryUnavailableException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified entity already exists.</p>
  */
@@ -450,15 +387,6 @@ export interface EntityAlreadyExistsException extends __SmithyException, $Metada
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
-}
-
-export namespace EntityAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -477,15 +405,6 @@ export interface IpRouteLimitExceededException extends __SmithyException, $Metad
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
-}
-
-export namespace IpRouteLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IpRouteLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -570,15 +489,6 @@ export interface DirectoryAlreadyInRegionException extends __SmithyException, $M
   RequestId?: string;
 }
 
-export namespace DirectoryAlreadyInRegionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryAlreadyInRegionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified directory does not exist in the system.</p>
  */
@@ -594,15 +504,6 @@ export interface DirectoryDoesNotExistException extends __SmithyException, $Meta
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
-}
-
-export namespace DirectoryDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryDoesNotExistException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -623,15 +524,6 @@ export interface RegionLimitExceededException extends __SmithyException, $Metada
   RequestId?: string;
 }
 
-export namespace RegionLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegionLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation is not supported.</p>
  */
@@ -647,15 +539,6 @@ export interface UnsupportedOperationException extends __SmithyException, $Metad
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
-}
-
-export namespace UnsupportedOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -736,15 +619,6 @@ export interface TagLimitExceededException extends __SmithyException, $MetadataB
   RequestId?: string;
 }
 
-export namespace TagLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a named directory attribute.</p>
  */
@@ -784,15 +658,6 @@ export interface AuthenticationFailedException extends __SmithyException, $Metad
    * <p>The identifier of the request that caused the exception.</p>
    */
   RequestId?: string;
-}
-
-export namespace AuthenticationFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthenticationFailedException): any => ({
-    ...obj,
-  });
 }
 
 export interface CancelSchemaExtensionRequest {
@@ -931,15 +796,6 @@ export interface CertificateAlreadyExistsException extends __SmithyException, $M
   RequestId?: string;
 }
 
-export namespace CertificateAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The certificate is not present in the system for describe or deregister activities.</p>
  */
@@ -955,15 +811,6 @@ export interface CertificateDoesNotExistException extends __SmithyException, $Me
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
-}
-
-export namespace CertificateDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateDoesNotExistException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1023,15 +870,6 @@ export interface CertificateInUseException extends __SmithyException, $MetadataB
   RequestId?: string;
 }
 
-export namespace CertificateInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateInUseException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The certificate could not be added because the certificate limit has been reached.</p>
  */
@@ -1047,15 +885,6 @@ export interface CertificateLimitExceededException extends __SmithyException, $M
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
-}
-
-export namespace CertificateLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum ClientAuthenticationStatus {
@@ -1306,15 +1135,6 @@ export interface DirectoryLimitExceededException extends __SmithyException, $Met
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
-}
-
-export namespace DirectoryLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1623,15 +1443,6 @@ export interface InsufficientPermissionsException extends __SmithyException, $Me
   RequestId?: string;
 }
 
-export namespace InsufficientPermissionsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientPermissionsException): any => ({
-    ...obj,
-  });
-}
-
 export enum DirectoryEdition {
   ENTERPRISE = "Enterprise",
   STANDARD = "Standard",
@@ -1773,15 +1584,6 @@ export interface SnapshotLimitExceededException extends __SmithyException, $Meta
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
-}
-
-export namespace SnapshotLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum SelectiveAuth {
@@ -2761,15 +2563,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   RequestId?: string;
 }
 
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDomainControllersRequest {
   /**
    * <p>Identifier of the directory for which to retrieve the domain controller
@@ -3615,15 +3408,6 @@ export interface DirectoryNotSharedException extends __SmithyException, $Metadat
   RequestId?: string;
 }
 
-export namespace DirectoryNotSharedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryNotSharedException): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableClientAuthenticationRequest {
   /**
    * <p>The identifier of the directory </p>
@@ -3671,15 +3455,6 @@ export interface InvalidClientAuthStatusException extends __SmithyException, $Me
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
-}
-
-export namespace InvalidClientAuthStatusException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidClientAuthStatusException): any => ({
-    ...obj,
-  });
 }
 
 export interface DisableLDAPSRequest {
@@ -3731,15 +3506,6 @@ export interface InvalidLDAPSStatusException extends __SmithyException, $Metadat
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
-}
-
-export namespace InvalidLDAPSStatusException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidLDAPSStatusException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3879,15 +3645,6 @@ export interface NoAvailableCertificateException extends __SmithyException, $Met
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
-}
-
-export namespace NoAvailableCertificateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoAvailableCertificateException): any => ({
-    ...obj,
-  });
 }
 
 export interface EnableLDAPSRequest {
@@ -4531,15 +4288,6 @@ export interface InvalidCertificateException extends __SmithyException, $Metadat
   RequestId?: string;
 }
 
-export namespace InvalidCertificateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCertificateException): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterCertificateRequest {
   /**
    * <p>The identifier of the directory.</p>
@@ -4769,15 +4517,6 @@ export interface InvalidPasswordException extends __SmithyException, $MetadataBe
   RequestId?: string;
 }
 
-export namespace InvalidPasswordException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPasswordException): any => ({
-    ...obj,
-  });
-}
-
 export interface ResetUserPasswordRequest {
   /**
    * <p>Identifier of the Managed Microsoft AD or Simple AD directory in which the user
@@ -4834,15 +4573,6 @@ export interface UserDoesNotExistException extends __SmithyException, $MetadataB
   RequestId?: string;
 }
 
-export namespace UserDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object representing the inputs for the <a>RestoreFromSnapshot</a> operation.</p>
  */
@@ -4893,15 +4623,6 @@ export interface InvalidTargetException extends __SmithyException, $MetadataBear
   RequestId?: string;
 }
 
-export namespace InvalidTargetException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTargetException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Exception encountered while trying to access your Amazon Web Services organization.</p>
  */
@@ -4917,15 +4638,6 @@ export interface OrganizationsException extends __SmithyException, $MetadataBear
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
-}
-
-export namespace OrganizationsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationsException): any => ({
-    ...obj,
-  });
 }
 
 export enum TargetType {
@@ -5026,15 +4738,6 @@ export interface ShareLimitExceededException extends __SmithyException, $Metadat
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
-}
-
-export namespace ShareLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShareLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface StartSchemaExtensionRequest {
@@ -5215,15 +4918,6 @@ export interface DomainControllerLimitExceededException extends __SmithyExceptio
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
-}
-
-export namespace DomainControllerLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainControllerLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateNumberOfDomainControllersRequest {

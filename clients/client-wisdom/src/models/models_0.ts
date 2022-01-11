@@ -10,15 +10,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration information for Amazon AppIntegrations to automatically ingest content.</p>
  */
@@ -67,15 +58,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -312,15 +294,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   resourceName?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You've exceeded your service quota. To perform the requested action, remove some of the
  *       relevant resources, or use service quotas to request a service quota increase.</p>
@@ -331,15 +304,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
@@ -347,15 +311,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAssistantAssociationRequest {
@@ -1877,15 +1832,6 @@ export interface PreconditionFailedException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace PreconditionFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PreconditionFailedException): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateContentRequest {
   /**
    * <p>The the identifier of the knowledge base. Can be either the ID or the ARN</p>
@@ -2618,15 +2564,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
    * <p>The specified resource name.</p>
    */
   resourceName?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {

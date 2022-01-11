@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>There was a conflict with this request. Try again.</p>
  */
@@ -40,15 +31,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   resourceType: string | undefined;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The cluster endpoint isn't available. Try another cluster endpoint.</p>
  */
@@ -56,15 +38,6 @@ export interface EndpointTemporarilyUnavailableException extends __SmithyExcepti
   name: "EndpointTemporarilyUnavailableException";
   $fault: "server";
   message: string | undefined;
-}
-
-export namespace EndpointTemporarilyUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointTemporarilyUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRoutingControlStateRequest {
@@ -122,15 +95,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   retryAfterSeconds?: number;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request references a routing control that was not found.</p>
  */
@@ -149,15 +113,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   resourceType: string | undefined;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was denied because of request throttling.</p>
  */
@@ -169,15 +124,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * Advice to clients on when the call can be safely retried
    */
   retryAfterSeconds?: number;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -227,15 +173,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * The fields that caused the error, if applicable
    */
   fields?: ValidationExceptionField[];
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateRoutingControlStateRequest {

@@ -289,15 +289,6 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace InternalServerError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation tried to access a nonexistent table or index. The resource
  *             might not be specified correctly, or its status might not be
@@ -312,15 +303,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The shard iterator has expired and can no longer be used to retrieve stream records. A shard
  *       iterator expires 15 minutes after it is retrieved using the <code>GetShardIterator</code>
@@ -333,15 +315,6 @@ export interface ExpiredIteratorException extends __SmithyException, $MetadataBe
    * <p>The provided iterator exceeds the maximum age allowed.</p>
    */
   message?: string;
-}
-
-export namespace ExpiredIteratorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpiredIteratorException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -418,15 +391,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation attempted to read past the oldest stream record in a shard.</p>
  *          <p>In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream. You might receive a TrimmedDataAccessException if:</p>
@@ -448,15 +412,6 @@ export interface TrimmedDataAccessException extends __SmithyException, $Metadata
    * <p>"The data you are trying to access has been trimmed.</p>
    */
   message?: string;
-}
-
-export namespace TrimmedDataAccessException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrimmedDataAccessException): any => ({
-    ...obj,
-  });
 }
 
 export type ShardIteratorType = "AFTER_SEQUENCE_NUMBER" | "AT_SEQUENCE_NUMBER" | "LATEST" | "TRIM_HORIZON";

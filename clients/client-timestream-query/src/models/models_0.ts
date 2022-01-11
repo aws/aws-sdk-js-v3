@@ -10,15 +10,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelQueryRequest {
   /**
    * <p> The ID of the query that needs to be cancelled. <code>QueryID</code> is returned as
@@ -64,15 +55,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested endpoint was not valid.</p>
  */
@@ -80,15 +62,6 @@ export interface InvalidEndpointException extends __SmithyException, $MetadataBe
   name: "InvalidEndpointException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidEndpointException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEndpointException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -100,15 +73,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Invalid or malformed request. </p>
  */
@@ -116,15 +80,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export enum ScalarType {
@@ -148,15 +103,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 export enum S3EncryptionOption {
@@ -633,15 +579,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteScheduledQueryRequest {
   /**
    * <p>The ARN of the scheduled query. </p>
@@ -669,15 +606,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The ARN of the scheduled query.</p>
    */
   ScheduledQueryArn?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeEndpointsRequest {}
@@ -1257,15 +1185,6 @@ export interface QueryExecutionException extends __SmithyException, $MetadataBea
   name: "QueryExecutionException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace QueryExecutionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryExecutionException): any => ({
-    ...obj,
-  });
 }
 
 export interface QueryRequest {

@@ -1653,15 +1653,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Message: string | undefined;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
@@ -1672,15 +1663,6 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
    * The error message returned by AWS Elemental MediaConnect.
    */
   Message: string | undefined;
-}
-
-export namespace ForbiddenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1695,15 +1677,6 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
   Message: string | undefined;
 }
 
-export namespace InternalServerErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
@@ -1714,15 +1687,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
    * The error message returned by AWS Elemental MediaConnect.
    */
   Message: string | undefined;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1737,15 +1701,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   Message: string | undefined;
 }
 
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
@@ -1758,15 +1713,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   Message: string | undefined;
 }
 
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
@@ -1777,15 +1723,6 @@ export interface AddFlowOutputs420Exception extends __SmithyException, $Metadata
    * The error message returned by AWS Elemental MediaConnect.
    */
   Message: string | undefined;
-}
-
-export namespace AddFlowOutputs420Exception {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddFlowOutputs420Exception): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1933,15 +1870,6 @@ export interface CreateFlow420Exception extends __SmithyException, $MetadataBear
    * The error message returned by AWS Elemental MediaConnect.
    */
   Message: string | undefined;
-}
-
-export namespace CreateFlow420Exception {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFlow420Exception): any => ({
-    ...obj,
-  });
 }
 
 export enum FailoverMode {
@@ -2317,15 +2245,6 @@ export interface GrantFlowEntitlements420Exception extends __SmithyException, $M
    * The error message returned by AWS Elemental MediaConnect.
    */
   Message: string | undefined;
-}
-
-export namespace GrantFlowEntitlements420Exception {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GrantFlowEntitlements420Exception): any => ({
-    ...obj,
-  });
 }
 
 /**

@@ -43,15 +43,6 @@ export interface LexiconNotFoundException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace LexiconNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LexiconNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An unknown condition has caused a service failure.</p>
  */
@@ -59,15 +50,6 @@ export interface ServiceFailureException extends __SmithyException, $MetadataBea
   name: "ServiceFailureException";
   $fault: "server";
   message?: string;
-}
-
-export namespace ServiceFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceFailureException): any => ({
-    ...obj,
-  });
 }
 
 export enum Engine {
@@ -310,15 +292,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This engine is not compatible with the voice that you have designated.
  *       Choose a new voice that is compatible with the engine or change the engine
@@ -328,15 +301,6 @@ export interface EngineNotSupportedException extends __SmithyException, $Metadat
   name: "EngineNotSupportedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace EngineNotSupportedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EngineNotSupportedException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetLexiconInput {
@@ -638,15 +602,6 @@ export interface InvalidTaskIdException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace InvalidTaskIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTaskIdException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Speech Synthesis task with requested Task ID cannot be
  *       found.</p>
@@ -655,15 +610,6 @@ export interface SynthesisTaskNotFoundException extends __SmithyException, $Meta
   name: "SynthesisTaskNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace SynthesisTaskNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SynthesisTaskNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -676,15 +622,6 @@ export interface InvalidLexiconException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace InvalidLexiconException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidLexiconException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The provided Amazon S3 bucket name is invalid. Please check your input
  *       with S3 bucket naming requirements and try again.</p>
@@ -693,15 +630,6 @@ export interface InvalidS3BucketException extends __SmithyException, $MetadataBe
   name: "InvalidS3BucketException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidS3BucketException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidS3BucketException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -714,15 +642,6 @@ export interface InvalidS3KeyException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace InvalidS3KeyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidS3KeyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified sample rate is not valid.</p>
  */
@@ -730,15 +649,6 @@ export interface InvalidSampleRateException extends __SmithyException, $Metadata
   name: "InvalidSampleRateException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidSampleRateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSampleRateException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -751,15 +661,6 @@ export interface InvalidSnsTopicArnException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace InvalidSnsTopicArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSnsTopicArnException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The SSML you provided is invalid. Verify the SSML syntax, spelling
  *       of tags and values, and then try again.</p>
@@ -770,15 +671,6 @@ export interface InvalidSsmlException extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace InvalidSsmlException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSsmlException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The language specified is not currently supported by Amazon Polly in this
  *       capacity.</p>
@@ -787,15 +679,6 @@ export interface LanguageNotSupportedException extends __SmithyException, $Metad
   name: "LanguageNotSupportedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace LanguageNotSupportedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LanguageNotSupportedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -830,15 +713,6 @@ export interface LexiconSizeExceededException extends __SmithyException, $Metada
   name: "LexiconSizeExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace LexiconSizeExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LexiconSizeExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLexiconsInput {
@@ -947,15 +821,6 @@ export interface MarksNotSupportedForFormatException extends __SmithyException, 
   message?: string;
 }
 
-export namespace MarksNotSupportedForFormatException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MarksNotSupportedForFormatException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The maximum size of the lexeme would be exceeded by this
  *       operation.</p>
@@ -966,15 +831,6 @@ export interface MaxLexemeLengthExceededException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace MaxLexemeLengthExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaxLexemeLengthExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The maximum number of lexicons would be exceeded by this
  *       operation.</p>
@@ -983,15 +839,6 @@ export interface MaxLexiconsNumberExceededException extends __SmithyException, $
   name: "MaxLexiconsNumberExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace MaxLexiconsNumberExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaxLexiconsNumberExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface PutLexiconInput {
@@ -1039,15 +886,6 @@ export interface UnsupportedPlsAlphabetException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace UnsupportedPlsAlphabetException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedPlsAlphabetException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The language specified in the lexicon is unsupported. For a list of
  *       supported languages, see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html">Lexicon Attributes</a>.</p>
@@ -1058,15 +896,6 @@ export interface UnsupportedPlsLanguageException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace UnsupportedPlsLanguageException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedPlsLanguageException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>SSML speech marks are not supported for plain text-type
  *       input.</p>
@@ -1075,15 +904,6 @@ export interface SsmlMarksNotSupportedForTextTypeException extends __SmithyExcep
   name: "SsmlMarksNotSupportedForTextTypeException";
   $fault: "client";
   message?: string;
-}
-
-export namespace SsmlMarksNotSupportedForTextTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SsmlMarksNotSupportedForTextTypeException): any => ({
-    ...obj,
-  });
 }
 
 export interface StartSpeechSynthesisTaskInput {
@@ -1209,15 +1029,6 @@ export interface TextLengthExceededException extends __SmithyException, $Metadat
   name: "TextLengthExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TextLengthExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TextLengthExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface SynthesizeSpeechInput {

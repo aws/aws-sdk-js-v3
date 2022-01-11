@@ -305,15 +305,6 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
   error?: StorageGatewayError;
 }
 
-export namespace InternalServerError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
@@ -331,15 +322,6 @@ export interface InvalidGatewayRequestException extends __SmithyException, $Meta
    *          error.</p>
    */
   error?: StorageGatewayError;
-}
-
-export namespace InvalidGatewayRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidGatewayRequestException): any => ({
-    ...obj,
-  });
 }
 
 export type ActiveDirectoryStatus =
@@ -2080,15 +2062,6 @@ export interface ServiceUnavailableError extends __SmithyException, $MetadataBea
    *          of the error.</p>
    */
   error?: StorageGatewayError;
-}
-
-export namespace ServiceUnavailableError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableError): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSnapshotFromVolumeRecoveryPointInput {

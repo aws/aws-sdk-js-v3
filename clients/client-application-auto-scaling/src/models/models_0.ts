@@ -40,15 +40,6 @@ export interface ConcurrentUpdateException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ConcurrentUpdateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentUpdateException): any => ({
-    ...obj,
-  });
-}
-
 export enum ScalableDimension {
   AppstreamFleetDesiredCapacity = "appstream:fleet:DesiredCapacity",
   CassandraTableReadCapacityUnits = "cassandra:table:ReadCapacityUnits",
@@ -288,15 +279,6 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InternalServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified object could not be found. For any operation that depends on the existence
  *          of a scalable target, this exception is thrown if the scalable target with the specified
@@ -310,15 +292,6 @@ export interface ObjectNotFoundException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace ObjectNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An exception was thrown for a validation issue. Review the available parameters for the
  *          API request.</p>
@@ -327,15 +300,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteScheduledActionRequest {
@@ -1175,15 +1139,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeScalingActivitiesRequest {
@@ -2598,15 +2553,6 @@ export interface FailedResourceAccessException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace FailedResourceAccessException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailedResourceAccessException): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeScheduledActionsRequest {
   /**
    * <p>The names of the scheduled actions to describe.</p>
@@ -3107,15 +3053,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface PutScalingPolicyRequest {

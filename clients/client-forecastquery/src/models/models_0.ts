@@ -9,15 +9,6 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace InvalidInputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The token is not valid. Tokens expire after 24 hours.</p>
  */
@@ -27,15 +18,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The limit on the number of requests per second has been exceeded.</p>
  */
@@ -43,15 +25,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface QueryForecastRequest {
@@ -184,15 +157,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>We can't find that resource. Check the information that you've provided and try
  *       again.</p>
@@ -201,13 +165,4 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }

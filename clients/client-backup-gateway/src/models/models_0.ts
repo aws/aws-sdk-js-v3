@@ -15,15 +15,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateGatewayToServerInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <code>ListGateways</code> operation
@@ -76,15 +67,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation did not succeed because an internal error occurred. Try again later.</p>
  */
@@ -99,15 +81,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation did not succeed because a validation error occurred.</p>
  */
@@ -120,15 +93,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   ErrorCode?: string;
 
   Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export enum GatewayType {
@@ -252,15 +216,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   ErrorCode?: string;
 
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateGatewayFromServerInput {

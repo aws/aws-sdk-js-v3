@@ -10,15 +10,6 @@ export interface AccountSuspendedException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace AccountSuspendedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountSuspendedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource specified in your request already exists.</p>
  */
@@ -26,15 +17,6 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
   name: "AlreadyExistsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace AlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -46,15 +28,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource is being modified by another operation or thread.</p>
  */
@@ -62,15 +35,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   name: "ConcurrentModificationException";
   $fault: "server";
   message?: string;
-}
-
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
 }
 
 export enum TlsPolicy {
@@ -314,15 +278,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource you attempted to access doesn't exist.</p>
  */
@@ -332,15 +287,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Too many requests have been made to the operation.</p>
  */
@@ -348,15 +294,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   name: "TooManyRequestsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 export enum DimensionValueSource {
@@ -960,15 +897,6 @@ export interface MailFromDomainNotVerifiedException extends __SmithyException, $
   message?: string;
 }
 
-export namespace MailFromDomainNotVerifiedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MailFromDomainNotVerifiedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The message can't be sent because it contains invalid content.</p>
  */
@@ -976,15 +904,6 @@ export interface MessageRejected extends __SmithyException, $MetadataBearer {
   name: "MessageRejected";
   $fault: "client";
   message?: string;
-}
-
-export namespace MessageRejected {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageRejected): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -995,15 +914,6 @@ export interface SendingPausedException extends __SmithyException, $MetadataBear
   name: "SendingPausedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace SendingPausedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendingPausedException): any => ({
-    ...obj,
-  });
 }
 
 /**

@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The name of the data and how often it should be pulled from the source.</p>
  */
@@ -160,15 +151,6 @@ export interface DuplicateResourceException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace DuplicateResourceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateResourceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request processing failed due to an error or failure with the service.</p>
  */
@@ -176,15 +158,6 @@ export interface InternalServiceError extends __SmithyException, $MetadataBearer
   name: "InternalServiceError";
   $fault: "server";
   Message?: string;
-}
-
-export namespace InternalServiceError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceError): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -196,15 +169,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The allowed quota for the resource has been exceeded.</p>
  */
@@ -214,15 +178,6 @@ export interface ResourceQuotaExceededException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace ResourceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The throttling limit has been exceeded.</p>
  */
@@ -230,15 +185,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   name: "ThrottlingException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -352,15 +298,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteEventIntegrationRequest {

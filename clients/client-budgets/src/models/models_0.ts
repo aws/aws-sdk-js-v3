@@ -13,15 +13,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum ThresholdType {
   ABSOLUTE_VALUE = "ABSOLUTE_VALUE",
   PERCENTAGE = "PERCENTAGE",
@@ -876,15 +867,6 @@ export interface CreationLimitExceededException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace CreationLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreationLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The budget name already exists. Budget names must be unique within an account.</p>
  */
@@ -895,15 +877,6 @@ export interface DuplicateRecordException extends __SmithyException, $MetadataBe
    * <p>The error message the exception carries.</p>
    */
   Message?: string;
-}
-
-export namespace DuplicateRecordException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateRecordException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -918,15 +891,6 @@ export interface InternalErrorException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace InternalErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalErrorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  */
@@ -937,15 +901,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
    * <p>The error message the exception carries.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBudgetActionRequest {
@@ -1053,15 +1008,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
    * <p>The error message the exception carries.</p>
    */
   Message?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1268,15 +1214,6 @@ export interface ResourceLockedException extends __SmithyException, $MetadataBea
    * <p>The error message the exception carries.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceLockedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceLockedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1549,15 +1486,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeBudgetActionsForAccountRequest {
   /**
    * <p>The account ID of the user. It should be a 12-digit number.</p>
@@ -1804,15 +1732,6 @@ export interface ExpiredNextTokenException extends __SmithyException, $MetadataB
    * <p>The error message the exception carries.</p>
    */
   Message?: string;
-}
-
-export namespace ExpiredNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpiredNextTokenException): any => ({
-    ...obj,
-  });
 }
 
 /**

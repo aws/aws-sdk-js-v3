@@ -939,15 +939,6 @@ export interface BackupInUseException extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace BackupInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackupInUseException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Backup not found for the given BackupARN. </p>
  */
@@ -955,15 +946,6 @@ export interface BackupNotFoundException extends __SmithyException, $MetadataBea
   name: "BackupNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace BackupNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackupNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1194,15 +1176,6 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace InternalServerError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Throughput exceeds the current throughput quota for your account. Please contact
  *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
@@ -1214,28 +1187,10 @@ export interface RequestLimitExceeded extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace RequestLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestLimitExceeded): any => ({
-    ...obj,
-  });
-}
-
 export interface InvalidEndpointException extends __SmithyException, $MetadataBearer {
   name: "InvalidEndpointException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidEndpointException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEndpointException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1253,15 +1208,6 @@ export interface ProvisionedThroughputExceededException extends __SmithyExceptio
   message?: string;
 }
 
-export namespace ProvisionedThroughputExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedThroughputExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation tried to access a nonexistent table or index. The resource might not
  *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
@@ -1273,15 +1219,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The resource which is being requested does not exist.</p>
    */
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export type ReturnItemCollectionMetrics = "NONE" | "SIZE";
@@ -1298,15 +1235,6 @@ export interface ItemCollectionSizeLimitExceededException extends __SmithyExcept
    *             gigabytes.</p>
    */
   message?: string;
-}
-
-export namespace ItemCollectionSizeLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ItemCollectionSizeLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1374,15 +1302,6 @@ export interface ConditionalCheckFailedException extends __SmithyException, $Met
    * <p>The conditional request failed.</p>
    */
   message?: string;
-}
-
-export namespace ConditionalCheckFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConditionalCheckFailedException): any => ({
-    ...obj,
-  });
 }
 
 export type ConditionalOperator = "AND" | "OR";
@@ -1473,15 +1392,6 @@ export interface ContinuousBackupsUnavailableException extends __SmithyException
   name: "ContinuousBackupsUnavailableException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ContinuousBackupsUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContinuousBackupsUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 export type ContributorInsightsAction = "DISABLE" | "ENABLE";
@@ -1576,15 +1486,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A target table with the specified name is either being created or deleted.
  *         </p>
@@ -1595,15 +1496,6 @@ export interface TableInUseException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace TableInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableInUseException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A source table with the name <code>TableName</code> does not currently exist within
  *             the subscriber's account.</p>
@@ -1612,15 +1504,6 @@ export interface TableNotFoundException extends __SmithyException, $MetadataBear
   name: "TableNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TableNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1971,15 +1854,6 @@ export interface GlobalTableAlreadyExistsException extends __SmithyException, $M
   name: "GlobalTableAlreadyExistsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace GlobalTableAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalTableAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3275,15 +3149,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBackupInput {
   /**
    * <p>The ARN associated with the backup.</p>
@@ -3345,15 +3210,6 @@ export interface TransactionConflictException extends __SmithyException, $Metada
   name: "TransactionConflictException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TransactionConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransactionConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3838,15 +3694,6 @@ export interface ExportNotFoundException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace ExportNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeGlobalTableInput {
   /**
    * <p>The name of the global table.</p>
@@ -3886,15 +3733,6 @@ export interface GlobalTableNotFoundException extends __SmithyException, $Metada
   name: "GlobalTableNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace GlobalTableNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalTableNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeGlobalTableSettingsInput {
@@ -4524,15 +4362,6 @@ export interface DuplicateItemException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace DuplicateItemException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateItemException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>DynamoDB rejected the request because you retried a request with a
  *             different payload but with an idempotent token that was already used.</p>
@@ -4541,15 +4370,6 @@ export interface IdempotentParameterMismatchException extends __SmithyException,
   name: "IdempotentParameterMismatchException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace IdempotentParameterMismatchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4561,15 +4381,6 @@ export interface TransactionInProgressException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace TransactionInProgressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransactionInProgressException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>There was a conflict when writing to the specified S3 bucket.</p>
  */
@@ -4577,15 +4388,6 @@ export interface ExportConflictException extends __SmithyException, $MetadataBea
   name: "ExportConflictException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ExportConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportConflictException): any => ({
-    ...obj,
-  });
 }
 
 export interface ExportTableToPointInTimeInput {
@@ -4697,15 +4499,6 @@ export interface InvalidExportTimeException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace InvalidExportTimeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidExportTimeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Point in time recovery has not yet been enabled for this source table.</p>
  */
@@ -4713,15 +4506,6 @@ export interface PointInTimeRecoveryUnavailableException extends __SmithyExcepti
   name: "PointInTimeRecoveryUnavailableException";
   $fault: "client";
   message?: string;
-}
-
-export namespace PointInTimeRecoveryUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PointInTimeRecoveryUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBackupsInput {
@@ -5197,15 +4981,6 @@ export interface TableAlreadyExistsException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace TableAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An invalid restore time was specified. RestoreDateTime must be between
  *             EarliestRestorableDateTime and LatestRestorableDateTime.</p>
@@ -5214,15 +4989,6 @@ export interface InvalidRestoreTimeException extends __SmithyException, $Metadat
   name: "InvalidRestoreTimeException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidRestoreTimeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRestoreTimeException): any => ({
-    ...obj,
-  });
 }
 
 export interface RestoreTableToPointInTimeInput {
@@ -5472,15 +5238,6 @@ export interface ReplicaAlreadyExistsException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace ReplicaAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicaAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified replica is no longer part of the global table.</p>
  */
@@ -5488,15 +5245,6 @@ export interface ReplicaNotFoundException extends __SmithyException, $MetadataBe
   name: "ReplicaNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ReplicaNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicaNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5578,15 +5326,6 @@ export interface IndexNotFoundException extends __SmithyException, $MetadataBear
   name: "IndexNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace IndexNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IndexNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8118,18 +7857,6 @@ export interface TransactionCanceledException extends __SmithyException, $Metada
    * <p>A list of cancellation reasons.</p>
    */
   CancellationReasons?: CancellationReason[];
-}
-
-export namespace TransactionCanceledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransactionCanceledException): any => ({
-    ...obj,
-    ...(obj.CancellationReasons && {
-      CancellationReasons: obj.CancellationReasons.map((item) => CancellationReason.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 /**

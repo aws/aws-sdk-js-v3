@@ -2658,15 +2658,6 @@ export interface BadGatewayException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace BadGatewayException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadGatewayException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for BadRequestException
  */
@@ -2677,15 +2668,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
    * Placeholder documentation for __string
    */
   Message?: string;
-}
-
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2700,15 +2682,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for ForbiddenException
  */
@@ -2719,15 +2692,6 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
    * Placeholder documentation for __string
    */
   Message?: string;
-}
-
-export namespace ForbiddenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2742,15 +2706,6 @@ export interface GatewayTimeoutException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace GatewayTimeoutException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GatewayTimeoutException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for InternalServerErrorException
  */
@@ -2761,15 +2716,6 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
    * Placeholder documentation for __string
    */
   Message?: string;
-}
-
-export namespace InternalServerErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2784,15 +2730,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for TooManyRequestsException
  */
@@ -2803,15 +2740,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
    * Placeholder documentation for __string
    */
   Message?: string;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2829,15 +2757,6 @@ export interface UnprocessableEntityException extends __SmithyException, $Metada
    * A collection of validation error responses.
    */
   ValidationErrors?: ValidationError[];
-}
-
-export namespace UnprocessableEntityException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnprocessableEntityException): any => ({
-    ...obj,
-  });
 }
 
 export enum AvailBlankingState {
