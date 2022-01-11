@@ -2859,23 +2859,15 @@ export namespace SubscribeToShardEventStream {
     if (obj.SubscribeToShardEvent !== undefined)
       return { SubscribeToShardEvent: SubscribeToShardEvent.filterSensitiveLog(obj.SubscribeToShardEvent) };
     if (obj.ResourceNotFoundException !== undefined)
-      return { ResourceNotFoundException: ResourceNotFoundException.filterSensitiveLog(obj.ResourceNotFoundException) };
-    if (obj.ResourceInUseException !== undefined)
-      return { ResourceInUseException: ResourceInUseException.filterSensitiveLog(obj.ResourceInUseException) };
-    if (obj.KMSDisabledException !== undefined)
-      return { KMSDisabledException: KMSDisabledException.filterSensitiveLog(obj.KMSDisabledException) };
-    if (obj.KMSInvalidStateException !== undefined)
-      return { KMSInvalidStateException: KMSInvalidStateException.filterSensitiveLog(obj.KMSInvalidStateException) };
-    if (obj.KMSAccessDeniedException !== undefined)
-      return { KMSAccessDeniedException: KMSAccessDeniedException.filterSensitiveLog(obj.KMSAccessDeniedException) };
-    if (obj.KMSNotFoundException !== undefined)
-      return { KMSNotFoundException: KMSNotFoundException.filterSensitiveLog(obj.KMSNotFoundException) };
-    if (obj.KMSOptInRequired !== undefined)
-      return { KMSOptInRequired: KMSOptInRequired.filterSensitiveLog(obj.KMSOptInRequired) };
-    if (obj.KMSThrottlingException !== undefined)
-      return { KMSThrottlingException: KMSThrottlingException.filterSensitiveLog(obj.KMSThrottlingException) };
-    if (obj.InternalFailureException !== undefined)
-      return { InternalFailureException: InternalFailureException.filterSensitiveLog(obj.InternalFailureException) };
+      return { ResourceNotFoundException: obj.ResourceNotFoundException };
+    if (obj.ResourceInUseException !== undefined) return { ResourceInUseException: obj.ResourceInUseException };
+    if (obj.KMSDisabledException !== undefined) return { KMSDisabledException: obj.KMSDisabledException };
+    if (obj.KMSInvalidStateException !== undefined) return { KMSInvalidStateException: obj.KMSInvalidStateException };
+    if (obj.KMSAccessDeniedException !== undefined) return { KMSAccessDeniedException: obj.KMSAccessDeniedException };
+    if (obj.KMSNotFoundException !== undefined) return { KMSNotFoundException: obj.KMSNotFoundException };
+    if (obj.KMSOptInRequired !== undefined) return { KMSOptInRequired: obj.KMSOptInRequired };
+    if (obj.KMSThrottlingException !== undefined) return { KMSThrottlingException: obj.KMSThrottlingException };
+    if (obj.InternalFailureException !== undefined) return { InternalFailureException: obj.InternalFailureException };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }

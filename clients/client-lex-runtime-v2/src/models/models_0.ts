@@ -2377,22 +2377,16 @@ export namespace StartConversationResponseEventStream {
       return { AudioResponseEvent: AudioResponseEvent.filterSensitiveLog(obj.AudioResponseEvent) };
     if (obj.HeartbeatEvent !== undefined)
       return { HeartbeatEvent: HeartbeatEvent.filterSensitiveLog(obj.HeartbeatEvent) };
-    if (obj.AccessDeniedException !== undefined)
-      return { AccessDeniedException: AccessDeniedException.filterSensitiveLog(obj.AccessDeniedException) };
+    if (obj.AccessDeniedException !== undefined) return { AccessDeniedException: obj.AccessDeniedException };
     if (obj.ResourceNotFoundException !== undefined)
-      return { ResourceNotFoundException: ResourceNotFoundException.filterSensitiveLog(obj.ResourceNotFoundException) };
-    if (obj.ValidationException !== undefined)
-      return { ValidationException: ValidationException.filterSensitiveLog(obj.ValidationException) };
-    if (obj.ThrottlingException !== undefined)
-      return { ThrottlingException: ThrottlingException.filterSensitiveLog(obj.ThrottlingException) };
-    if (obj.InternalServerException !== undefined)
-      return { InternalServerException: InternalServerException.filterSensitiveLog(obj.InternalServerException) };
-    if (obj.ConflictException !== undefined)
-      return { ConflictException: ConflictException.filterSensitiveLog(obj.ConflictException) };
+      return { ResourceNotFoundException: obj.ResourceNotFoundException };
+    if (obj.ValidationException !== undefined) return { ValidationException: obj.ValidationException };
+    if (obj.ThrottlingException !== undefined) return { ThrottlingException: obj.ThrottlingException };
+    if (obj.InternalServerException !== undefined) return { InternalServerException: obj.InternalServerException };
+    if (obj.ConflictException !== undefined) return { ConflictException: obj.ConflictException };
     if (obj.DependencyFailedException !== undefined)
-      return { DependencyFailedException: DependencyFailedException.filterSensitiveLog(obj.DependencyFailedException) };
-    if (obj.BadGatewayException !== undefined)
-      return { BadGatewayException: BadGatewayException.filterSensitiveLog(obj.BadGatewayException) };
+      return { DependencyFailedException: obj.DependencyFailedException };
+    if (obj.BadGatewayException !== undefined) return { BadGatewayException: obj.BadGatewayException };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
