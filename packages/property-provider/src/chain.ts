@@ -13,15 +13,23 @@ import { ProviderError } from "./ProviderError";
  */
 export function chain<T>(...providers: Array<Provider<T>>): Provider<T> {
   return () => {
-    let promise: Promise<T> = Promise.reject(new ProviderError("No providers in chain"));
+    if(!providers?.length) {
+      return Promise.reject(new ProviderError("No providers in chain"));
+    }
+    
+    let promise: Promise<T>;
     for (const provider of providers) {
-      promise = promise.catch((err: any) => {
-        if (err?.tryNextLink) {
-          return provider();
-        }
+      if(promise) {
+        promise = promise.catch((err: any) => {
+          if (err?.tryNextLink) {
+            return provider();
+          }
 
-        throw err;
-      });
+          throw err;
+        });
+      } else {
+        promise = Promise.resolve().then(provider);  
+      }
     }
 
     return promise;
