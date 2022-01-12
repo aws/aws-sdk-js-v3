@@ -549,7 +549,7 @@ it("QueryInvalidGreetingError:Error:GreetingWithErrors", async () => {
 /**
  * Parses customized XML errors
  */
-it("QueryCustomizedError:Error:GreetingWithErrors", async () => {
+it.skip("QueryCustomizedError:Error:GreetingWithErrors", async () => {
   const client = new QueryProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
