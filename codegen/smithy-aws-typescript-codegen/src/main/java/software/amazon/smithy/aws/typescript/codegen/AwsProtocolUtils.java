@@ -294,6 +294,11 @@ final class AwsProtocolUtils {
             HttpMessageTestCase testCase,
             TypeScriptSettings settings
     ) {
+        // TODO: Consume AWSQueryError trait as a follow-up.
+        if (testCase.getId().equals("QueryCustomizedError")) {
+            return true;
+        }
+
         // TODO: Remove when server protocol tests are fixed in
         // https://github.com/aws/aws-sdk-js-v3/issues/3058
         // TODO: Move to filter specific to server protocol tests if added in
