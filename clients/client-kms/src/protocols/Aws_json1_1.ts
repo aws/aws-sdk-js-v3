@@ -1550,14 +1550,6 @@ const deserializeAws_json1_1DecryptCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       response = {
@@ -1570,6 +1562,14 @@ const deserializeAws_json1_1DecryptCommandError = async (
     case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2494,14 +2494,6 @@ const deserializeAws_json1_1EncryptCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       response = {
@@ -2514,6 +2506,14 @@ const deserializeAws_json1_1EncryptCommandError = async (
     case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2604,14 +2604,6 @@ const deserializeAws_json1_1GenerateDataKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       response = {
@@ -2624,6 +2616,14 @@ const deserializeAws_json1_1GenerateDataKeyCommandError = async (
     case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2714,14 +2714,6 @@ const deserializeAws_json1_1GenerateDataKeyPairCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       response = {
@@ -2734,6 +2726,14 @@ const deserializeAws_json1_1GenerateDataKeyPairCommandError = async (
     case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2832,14 +2832,6 @@ const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError = as
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       response = {
@@ -2852,6 +2844,14 @@ const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError = as
     case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2950,14 +2950,6 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError = async 
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       response = {
@@ -2970,6 +2962,14 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError = async 
     case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3420,14 +3420,6 @@ const deserializeAws_json1_1GetPublicKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       response = {
@@ -3440,6 +3432,14 @@ const deserializeAws_json1_1GetPublicKeyCommandError = async (
     case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4295,14 +4295,6 @@ const deserializeAws_json1_1ReEncryptCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       response = {
@@ -4315,6 +4307,14 @@ const deserializeAws_json1_1ReEncryptCommandError = async (
     case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4807,14 +4807,6 @@ const deserializeAws_json1_1SignCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       response = {
@@ -4827,6 +4819,14 @@ const deserializeAws_json1_1SignCommandError = async (
     case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5458,14 +5458,6 @@ const deserializeAws_json1_1VerifyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "KeyUnavailableException":
-    case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       response = {
@@ -5486,6 +5478,14 @@ const deserializeAws_json1_1VerifyCommandError = async (
     case "com.amazonaws.kms#KMSInvalidStateException":
       response = {
         ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KeyUnavailableException":
+    case "com.amazonaws.kms#KeyUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

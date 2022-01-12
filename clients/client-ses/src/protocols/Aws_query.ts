@@ -1609,7 +1609,7 @@ const deserializeAws_queryCloneReceiptRuleSetCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsException":
+    case "AlreadyExists":
     case "com.amazonaws.ses#AlreadyExistsException":
       response = {
         ...(await deserializeAws_queryAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -1617,7 +1617,7 @@ const deserializeAws_queryCloneReceiptRuleSetCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -1625,7 +1625,7 @@ const deserializeAws_queryCloneReceiptRuleSetCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -1679,7 +1679,7 @@ const deserializeAws_queryCreateConfigurationSetCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetAlreadyExistsException":
+    case "ConfigurationSetAlreadyExists":
     case "com.amazonaws.ses#ConfigurationSetAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryConfigurationSetAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -1687,7 +1687,7 @@ const deserializeAws_queryCreateConfigurationSetCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidConfigurationSetException":
+    case "InvalidConfigurationSet":
     case "com.amazonaws.ses#InvalidConfigurationSetException":
       response = {
         ...(await deserializeAws_queryInvalidConfigurationSetExceptionResponse(parsedOutput, context)),
@@ -1695,7 +1695,7 @@ const deserializeAws_queryCreateConfigurationSetCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -1752,7 +1752,7 @@ const deserializeAws_queryCreateConfigurationSetEventDestinationCommandError = a
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -1760,7 +1760,7 @@ const deserializeAws_queryCreateConfigurationSetEventDestinationCommandError = a
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "EventDestinationAlreadyExistsException":
+    case "EventDestinationAlreadyExists":
     case "com.amazonaws.ses#EventDestinationAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEventDestinationAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -1768,7 +1768,7 @@ const deserializeAws_queryCreateConfigurationSetEventDestinationCommandError = a
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidCloudWatchDestinationException":
+    case "InvalidCloudWatchDestination":
     case "com.amazonaws.ses#InvalidCloudWatchDestinationException":
       response = {
         ...(await deserializeAws_queryInvalidCloudWatchDestinationExceptionResponse(parsedOutput, context)),
@@ -1776,7 +1776,7 @@ const deserializeAws_queryCreateConfigurationSetEventDestinationCommandError = a
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidFirehoseDestinationException":
+    case "InvalidFirehoseDestination":
     case "com.amazonaws.ses#InvalidFirehoseDestinationException":
       response = {
         ...(await deserializeAws_queryInvalidFirehoseDestinationExceptionResponse(parsedOutput, context)),
@@ -1784,7 +1784,7 @@ const deserializeAws_queryCreateConfigurationSetEventDestinationCommandError = a
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidSNSDestinationException":
+    case "InvalidSNSDestination":
     case "com.amazonaws.ses#InvalidSNSDestinationException":
       response = {
         ...(await deserializeAws_queryInvalidSNSDestinationExceptionResponse(parsedOutput, context)),
@@ -1792,7 +1792,7 @@ const deserializeAws_queryCreateConfigurationSetEventDestinationCommandError = a
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -1849,7 +1849,7 @@ const deserializeAws_queryCreateConfigurationSetTrackingOptionsCommandError = as
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -1857,7 +1857,7 @@ const deserializeAws_queryCreateConfigurationSetTrackingOptionsCommandError = as
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidTrackingOptionsException":
+    case "InvalidTrackingOptions":
     case "com.amazonaws.ses#InvalidTrackingOptionsException":
       response = {
         ...(await deserializeAws_queryInvalidTrackingOptionsExceptionResponse(parsedOutput, context)),
@@ -1916,7 +1916,7 @@ const deserializeAws_queryCreateCustomVerificationEmailTemplateCommandError = as
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CustomVerificationEmailInvalidContentException":
+    case "CustomVerificationEmailInvalidContent":
     case "com.amazonaws.ses#CustomVerificationEmailInvalidContentException":
       response = {
         ...(await deserializeAws_queryCustomVerificationEmailInvalidContentExceptionResponse(parsedOutput, context)),
@@ -1924,7 +1924,7 @@ const deserializeAws_queryCreateCustomVerificationEmailTemplateCommandError = as
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "CustomVerificationEmailTemplateAlreadyExistsException":
+    case "CustomVerificationEmailTemplateAlreadyExists":
     case "com.amazonaws.ses#CustomVerificationEmailTemplateAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryCustomVerificationEmailTemplateAlreadyExistsExceptionResponse(
@@ -1935,7 +1935,7 @@ const deserializeAws_queryCreateCustomVerificationEmailTemplateCommandError = as
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "FromEmailAddressNotVerifiedException":
+    case "FromEmailAddressNotVerified":
     case "com.amazonaws.ses#FromEmailAddressNotVerifiedException":
       response = {
         ...(await deserializeAws_queryFromEmailAddressNotVerifiedExceptionResponse(parsedOutput, context)),
@@ -1943,7 +1943,7 @@ const deserializeAws_queryCreateCustomVerificationEmailTemplateCommandError = as
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -1997,7 +1997,7 @@ const deserializeAws_queryCreateReceiptFilterCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsException":
+    case "AlreadyExists":
     case "com.amazonaws.ses#AlreadyExistsException":
       response = {
         ...(await deserializeAws_queryAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -2005,7 +2005,7 @@ const deserializeAws_queryCreateReceiptFilterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -2059,7 +2059,7 @@ const deserializeAws_queryCreateReceiptRuleCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsException":
+    case "AlreadyExists":
     case "com.amazonaws.ses#AlreadyExistsException":
       response = {
         ...(await deserializeAws_queryAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -2067,7 +2067,7 @@ const deserializeAws_queryCreateReceiptRuleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidLambdaFunctionException":
+    case "InvalidLambdaFunction":
     case "com.amazonaws.ses#InvalidLambdaFunctionException":
       response = {
         ...(await deserializeAws_queryInvalidLambdaFunctionExceptionResponse(parsedOutput, context)),
@@ -2075,7 +2075,7 @@ const deserializeAws_queryCreateReceiptRuleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidS3ConfigurationException":
+    case "InvalidS3Configuration":
     case "com.amazonaws.ses#InvalidS3ConfigurationException":
       response = {
         ...(await deserializeAws_queryInvalidS3ConfigurationExceptionResponse(parsedOutput, context)),
@@ -2083,7 +2083,7 @@ const deserializeAws_queryCreateReceiptRuleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidSnsTopicException":
+    case "InvalidSnsTopic":
     case "com.amazonaws.ses#InvalidSnsTopicException":
       response = {
         ...(await deserializeAws_queryInvalidSnsTopicExceptionResponse(parsedOutput, context)),
@@ -2091,7 +2091,7 @@ const deserializeAws_queryCreateReceiptRuleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -2099,7 +2099,7 @@ const deserializeAws_queryCreateReceiptRuleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "RuleDoesNotExistException":
+    case "RuleDoesNotExist":
     case "com.amazonaws.ses#RuleDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -2107,7 +2107,7 @@ const deserializeAws_queryCreateReceiptRuleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -2161,7 +2161,7 @@ const deserializeAws_queryCreateReceiptRuleSetCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsException":
+    case "AlreadyExists":
     case "com.amazonaws.ses#AlreadyExistsException":
       response = {
         ...(await deserializeAws_queryAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -2169,7 +2169,7 @@ const deserializeAws_queryCreateReceiptRuleSetCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -2223,7 +2223,7 @@ const deserializeAws_queryCreateTemplateCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsException":
+    case "AlreadyExists":
     case "com.amazonaws.ses#AlreadyExistsException":
       response = {
         ...(await deserializeAws_queryAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -2231,7 +2231,7 @@ const deserializeAws_queryCreateTemplateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidTemplateException":
+    case "InvalidTemplate":
     case "com.amazonaws.ses#InvalidTemplateException":
       response = {
         ...(await deserializeAws_queryInvalidTemplateExceptionResponse(parsedOutput, context)),
@@ -2239,7 +2239,7 @@ const deserializeAws_queryCreateTemplateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -2293,7 +2293,7 @@ const deserializeAws_queryDeleteConfigurationSetCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -2350,7 +2350,7 @@ const deserializeAws_queryDeleteConfigurationSetEventDestinationCommandError = a
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -2358,7 +2358,7 @@ const deserializeAws_queryDeleteConfigurationSetEventDestinationCommandError = a
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "EventDestinationDoesNotExistException":
+    case "EventDestinationDoesNotExist":
     case "com.amazonaws.ses#EventDestinationDoesNotExistException":
       response = {
         ...(await deserializeAws_queryEventDestinationDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -2415,7 +2415,7 @@ const deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommandError = as
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -2658,7 +2658,7 @@ const deserializeAws_queryDeleteReceiptRuleCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -2712,7 +2712,7 @@ const deserializeAws_queryDeleteReceiptRuleSetCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CannotDeleteException":
+    case "CannotDelete":
     case "com.amazonaws.ses#CannotDeleteException":
       response = {
         ...(await deserializeAws_queryCannotDeleteExceptionResponse(parsedOutput, context)),
@@ -2901,7 +2901,7 @@ const deserializeAws_queryDescribeConfigurationSetCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -2955,7 +2955,7 @@ const deserializeAws_queryDescribeReceiptRuleCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "RuleDoesNotExistException":
+    case "RuleDoesNotExist":
     case "com.amazonaws.ses#RuleDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -2963,7 +2963,7 @@ const deserializeAws_queryDescribeReceiptRuleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -3017,7 +3017,7 @@ const deserializeAws_queryDescribeReceiptRuleSetCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -3120,7 +3120,7 @@ const deserializeAws_queryGetCustomVerificationEmailTemplateCommandError = async
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CustomVerificationEmailTemplateDoesNotExistException":
+    case "CustomVerificationEmailTemplateDoesNotExist":
     case "com.amazonaws.ses#CustomVerificationEmailTemplateDoesNotExistException":
       response = {
         ...(await deserializeAws_queryCustomVerificationEmailTemplateDoesNotExistExceptionResponse(
@@ -3508,7 +3508,7 @@ const deserializeAws_queryGetTemplateCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "TemplateDoesNotExistException":
+    case "TemplateDoesNotExist":
     case "com.amazonaws.ses#TemplateDoesNotExistException":
       response = {
         ...(await deserializeAws_queryTemplateDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -3936,7 +3936,7 @@ const deserializeAws_queryPutConfigurationSetDeliveryOptionsCommandError = async
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -3944,7 +3944,7 @@ const deserializeAws_queryPutConfigurationSetDeliveryOptionsCommandError = async
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidDeliveryOptionsException":
+    case "InvalidDeliveryOptions":
     case "com.amazonaws.ses#InvalidDeliveryOptionsException":
       response = {
         ...(await deserializeAws_queryInvalidDeliveryOptionsExceptionResponse(parsedOutput, context)),
@@ -3998,7 +3998,7 @@ const deserializeAws_queryPutIdentityPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidPolicyException":
+    case "InvalidPolicy":
     case "com.amazonaws.ses#InvalidPolicyException":
       response = {
         ...(await deserializeAws_queryInvalidPolicyExceptionResponse(parsedOutput, context)),
@@ -4052,7 +4052,7 @@ const deserializeAws_queryReorderReceiptRuleSetCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "RuleDoesNotExistException":
+    case "RuleDoesNotExist":
     case "com.amazonaws.ses#RuleDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -4060,7 +4060,7 @@ const deserializeAws_queryReorderReceiptRuleSetCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -4176,7 +4176,7 @@ const deserializeAws_querySendBulkTemplatedEmailCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -4208,7 +4208,7 @@ const deserializeAws_querySendBulkTemplatedEmailCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "TemplateDoesNotExistException":
+    case "TemplateDoesNotExist":
     case "com.amazonaws.ses#TemplateDoesNotExistException":
       response = {
         ...(await deserializeAws_queryTemplateDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -4262,7 +4262,7 @@ const deserializeAws_querySendCustomVerificationEmailCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -4270,7 +4270,7 @@ const deserializeAws_querySendCustomVerificationEmailCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "CustomVerificationEmailTemplateDoesNotExistException":
+    case "CustomVerificationEmailTemplateDoesNotExist":
     case "com.amazonaws.ses#CustomVerificationEmailTemplateDoesNotExistException":
       response = {
         ...(await deserializeAws_queryCustomVerificationEmailTemplateDoesNotExistExceptionResponse(
@@ -4281,7 +4281,7 @@ const deserializeAws_querySendCustomVerificationEmailCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "FromEmailAddressNotVerifiedException":
+    case "FromEmailAddressNotVerified":
     case "com.amazonaws.ses#FromEmailAddressNotVerifiedException":
       response = {
         ...(await deserializeAws_queryFromEmailAddressNotVerifiedExceptionResponse(parsedOutput, context)),
@@ -4297,7 +4297,7 @@ const deserializeAws_querySendCustomVerificationEmailCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ProductionAccessNotGrantedException":
+    case "ProductionAccessNotGranted":
     case "com.amazonaws.ses#ProductionAccessNotGrantedException":
       response = {
         ...(await deserializeAws_queryProductionAccessNotGrantedExceptionResponse(parsedOutput, context)),
@@ -4359,7 +4359,7 @@ const deserializeAws_querySendEmailCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -4445,7 +4445,7 @@ const deserializeAws_querySendRawEmailCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -4531,7 +4531,7 @@ const deserializeAws_querySendTemplatedEmailCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -4563,7 +4563,7 @@ const deserializeAws_querySendTemplatedEmailCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "TemplateDoesNotExistException":
+    case "TemplateDoesNotExist":
     case "com.amazonaws.ses#TemplateDoesNotExistException":
       response = {
         ...(await deserializeAws_queryTemplateDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -4617,7 +4617,7 @@ const deserializeAws_querySetActiveReceiptRuleSetCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -4907,7 +4907,7 @@ const deserializeAws_querySetReceiptRulePositionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "RuleDoesNotExistException":
+    case "RuleDoesNotExist":
     case "com.amazonaws.ses#RuleDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -4915,7 +4915,7 @@ const deserializeAws_querySetReceiptRulePositionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -4969,7 +4969,7 @@ const deserializeAws_queryTestRenderTemplateCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidRenderingParameterException":
+    case "InvalidRenderingParameter":
     case "com.amazonaws.ses#InvalidRenderingParameterException":
       response = {
         ...(await deserializeAws_queryInvalidRenderingParameterExceptionResponse(parsedOutput, context)),
@@ -4977,7 +4977,7 @@ const deserializeAws_queryTestRenderTemplateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "MissingRenderingAttributeException":
+    case "MissingRenderingAttribute":
     case "com.amazonaws.ses#MissingRenderingAttributeException":
       response = {
         ...(await deserializeAws_queryMissingRenderingAttributeExceptionResponse(parsedOutput, context)),
@@ -4985,7 +4985,7 @@ const deserializeAws_queryTestRenderTemplateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "TemplateDoesNotExistException":
+    case "TemplateDoesNotExist":
     case "com.amazonaws.ses#TemplateDoesNotExistException":
       response = {
         ...(await deserializeAws_queryTemplateDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -5085,7 +5085,7 @@ const deserializeAws_queryUpdateConfigurationSetEventDestinationCommandError = a
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -5093,7 +5093,7 @@ const deserializeAws_queryUpdateConfigurationSetEventDestinationCommandError = a
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "EventDestinationDoesNotExistException":
+    case "EventDestinationDoesNotExist":
     case "com.amazonaws.ses#EventDestinationDoesNotExistException":
       response = {
         ...(await deserializeAws_queryEventDestinationDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -5101,7 +5101,7 @@ const deserializeAws_queryUpdateConfigurationSetEventDestinationCommandError = a
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidCloudWatchDestinationException":
+    case "InvalidCloudWatchDestination":
     case "com.amazonaws.ses#InvalidCloudWatchDestinationException":
       response = {
         ...(await deserializeAws_queryInvalidCloudWatchDestinationExceptionResponse(parsedOutput, context)),
@@ -5109,7 +5109,7 @@ const deserializeAws_queryUpdateConfigurationSetEventDestinationCommandError = a
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidFirehoseDestinationException":
+    case "InvalidFirehoseDestination":
     case "com.amazonaws.ses#InvalidFirehoseDestinationException":
       response = {
         ...(await deserializeAws_queryInvalidFirehoseDestinationExceptionResponse(parsedOutput, context)),
@@ -5117,7 +5117,7 @@ const deserializeAws_queryUpdateConfigurationSetEventDestinationCommandError = a
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidSNSDestinationException":
+    case "InvalidSNSDestination":
     case "com.amazonaws.ses#InvalidSNSDestinationException":
       response = {
         ...(await deserializeAws_queryInvalidSNSDestinationExceptionResponse(parsedOutput, context)),
@@ -5168,7 +5168,7 @@ const deserializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommandE
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -5219,7 +5219,7 @@ const deserializeAws_queryUpdateConfigurationSetSendingEnabledCommandError = asy
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -5276,7 +5276,7 @@ const deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommandError = as
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConfigurationSetDoesNotExistException":
+    case "ConfigurationSetDoesNotExist":
     case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -5284,7 +5284,7 @@ const deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommandError = as
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidTrackingOptionsException":
+    case "InvalidTrackingOptions":
     case "com.amazonaws.ses#InvalidTrackingOptionsException":
       response = {
         ...(await deserializeAws_queryInvalidTrackingOptionsExceptionResponse(parsedOutput, context)),
@@ -5343,7 +5343,7 @@ const deserializeAws_queryUpdateCustomVerificationEmailTemplateCommandError = as
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CustomVerificationEmailInvalidContentException":
+    case "CustomVerificationEmailInvalidContent":
     case "com.amazonaws.ses#CustomVerificationEmailInvalidContentException":
       response = {
         ...(await deserializeAws_queryCustomVerificationEmailInvalidContentExceptionResponse(parsedOutput, context)),
@@ -5351,7 +5351,7 @@ const deserializeAws_queryUpdateCustomVerificationEmailTemplateCommandError = as
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "CustomVerificationEmailTemplateDoesNotExistException":
+    case "CustomVerificationEmailTemplateDoesNotExist":
     case "com.amazonaws.ses#CustomVerificationEmailTemplateDoesNotExistException":
       response = {
         ...(await deserializeAws_queryCustomVerificationEmailTemplateDoesNotExistExceptionResponse(
@@ -5362,7 +5362,7 @@ const deserializeAws_queryUpdateCustomVerificationEmailTemplateCommandError = as
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "FromEmailAddressNotVerifiedException":
+    case "FromEmailAddressNotVerified":
     case "com.amazonaws.ses#FromEmailAddressNotVerifiedException":
       response = {
         ...(await deserializeAws_queryFromEmailAddressNotVerifiedExceptionResponse(parsedOutput, context)),
@@ -5416,7 +5416,7 @@ const deserializeAws_queryUpdateReceiptRuleCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidLambdaFunctionException":
+    case "InvalidLambdaFunction":
     case "com.amazonaws.ses#InvalidLambdaFunctionException":
       response = {
         ...(await deserializeAws_queryInvalidLambdaFunctionExceptionResponse(parsedOutput, context)),
@@ -5424,7 +5424,7 @@ const deserializeAws_queryUpdateReceiptRuleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidS3ConfigurationException":
+    case "InvalidS3Configuration":
     case "com.amazonaws.ses#InvalidS3ConfigurationException":
       response = {
         ...(await deserializeAws_queryInvalidS3ConfigurationExceptionResponse(parsedOutput, context)),
@@ -5432,7 +5432,7 @@ const deserializeAws_queryUpdateReceiptRuleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidSnsTopicException":
+    case "InvalidSnsTopic":
     case "com.amazonaws.ses#InvalidSnsTopicException":
       response = {
         ...(await deserializeAws_queryInvalidSnsTopicExceptionResponse(parsedOutput, context)),
@@ -5440,7 +5440,7 @@ const deserializeAws_queryUpdateReceiptRuleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.ses#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -5448,7 +5448,7 @@ const deserializeAws_queryUpdateReceiptRuleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "RuleDoesNotExistException":
+    case "RuleDoesNotExist":
     case "com.amazonaws.ses#RuleDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -5456,7 +5456,7 @@ const deserializeAws_queryUpdateReceiptRuleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "RuleSetDoesNotExistException":
+    case "RuleSetDoesNotExist":
     case "com.amazonaws.ses#RuleSetDoesNotExistException":
       response = {
         ...(await deserializeAws_queryRuleSetDoesNotExistExceptionResponse(parsedOutput, context)),
@@ -5510,7 +5510,7 @@ const deserializeAws_queryUpdateTemplateCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidTemplateException":
+    case "InvalidTemplate":
     case "com.amazonaws.ses#InvalidTemplateException":
       response = {
         ...(await deserializeAws_queryInvalidTemplateExceptionResponse(parsedOutput, context)),
@@ -5518,7 +5518,7 @@ const deserializeAws_queryUpdateTemplateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "TemplateDoesNotExistException":
+    case "TemplateDoesNotExist":
     case "com.amazonaws.ses#TemplateDoesNotExistException":
       response = {
         ...(await deserializeAws_queryTemplateDoesNotExistExceptionResponse(parsedOutput, context)),

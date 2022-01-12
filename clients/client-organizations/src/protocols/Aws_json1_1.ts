@@ -983,6 +983,14 @@ const deserializeAws_json1_1AcceptHandshakeCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      response = {
+        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       response = {
@@ -995,14 +1003,6 @@ const deserializeAws_json1_1AcceptHandshakeCommandError = async (
     case "com.amazonaws.organizations#AccessDeniedForDependencyException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1114,18 +1114,18 @@ const deserializeAws_json1_1AttachPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1374,18 +1374,18 @@ const deserializeAws_json1_1CreateAccountCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1492,18 +1492,18 @@ const deserializeAws_json1_1CreateGovCloudAccountCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1720,18 +1720,18 @@ const deserializeAws_json1_1CreateOrganizationalUnitCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1838,18 +1838,18 @@ const deserializeAws_json1_1CreatePolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2079,18 +2079,18 @@ const deserializeAws_json1_1DeleteOrganizationCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2178,18 +2178,18 @@ const deserializeAws_json1_1DeleteOrganizationalUnitCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2285,18 +2285,18 @@ const deserializeAws_json1_1DeletePolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2400,6 +2400,14 @@ const deserializeAws_json1_1DeregisterDelegatedAdministratorCommandError = async
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      response = {
+        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       response = {
@@ -2420,14 +2428,6 @@ const deserializeAws_json1_1DeregisterDelegatedAdministratorCommandError = async
     case "com.amazonaws.organizations#AccountNotRegisteredException":
       response = {
         ...(await deserializeAws_json1_1AccountNotRegisteredExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2526,6 +2526,14 @@ const deserializeAws_json1_1DescribeAccountCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      response = {
+        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       response = {
@@ -2538,14 +2546,6 @@ const deserializeAws_json1_1DescribeAccountCommandError = async (
     case "com.amazonaws.organizations#AccountNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2620,18 +2620,18 @@ const deserializeAws_json1_1DescribeCreateAccountStatusCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2722,18 +2722,18 @@ const deserializeAws_json1_1DescribeEffectivePolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2934,18 +2934,18 @@ const deserializeAws_json1_1DescribeOrganizationCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3020,18 +3020,18 @@ const deserializeAws_json1_1DescribeOrganizationalUnitCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3114,18 +3114,18 @@ const deserializeAws_json1_1DescribePolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3213,18 +3213,18 @@ const deserializeAws_json1_1DetachPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3352,18 +3352,18 @@ const deserializeAws_json1_1DisableAWSServiceAccessCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3462,18 +3462,18 @@ const deserializeAws_json1_1DisablePolicyTypeCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3596,18 +3596,18 @@ const deserializeAws_json1_1EnableAllFeaturesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3695,18 +3695,18 @@ const deserializeAws_json1_1EnableAWSServiceAccessCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3805,18 +3805,18 @@ const deserializeAws_json1_1EnablePolicyTypeCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3947,6 +3947,14 @@ const deserializeAws_json1_1InviteAccountToOrganizationCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      response = {
+        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       response = {
@@ -3959,14 +3967,6 @@ const deserializeAws_json1_1InviteAccountToOrganizationCommandError = async (
     case "com.amazonaws.organizations#AccountOwnerNotVerifiedException":
       response = {
         ...(await deserializeAws_json1_1AccountOwnerNotVerifiedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4078,6 +4078,14 @@ const deserializeAws_json1_1LeaveOrganizationCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      response = {
+        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       response = {
@@ -4090,14 +4098,6 @@ const deserializeAws_json1_1LeaveOrganizationCommandError = async (
     case "com.amazonaws.organizations#AccountNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4196,18 +4196,18 @@ const deserializeAws_json1_1ListAccountsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4282,18 +4282,18 @@ const deserializeAws_json1_1ListAccountsForParentCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4376,18 +4376,18 @@ const deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandError = as
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4478,18 +4478,18 @@ const deserializeAws_json1_1ListChildrenCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4572,18 +4572,18 @@ const deserializeAws_json1_1ListCreateAccountStatusCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4666,18 +4666,18 @@ const deserializeAws_json1_1ListDelegatedAdministratorsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4768,6 +4768,14 @@ const deserializeAws_json1_1ListDelegatedServicesForAccountCommandError = async 
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      response = {
+        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       response = {
@@ -4788,14 +4796,6 @@ const deserializeAws_json1_1ListDelegatedServicesForAccountCommandError = async 
     case "com.amazonaws.organizations#AccountNotRegisteredException":
       response = {
         ...(await deserializeAws_json1_1AccountNotRegisteredExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4972,18 +4972,18 @@ const deserializeAws_json1_1ListHandshakesForOrganizationCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5066,18 +5066,18 @@ const deserializeAws_json1_1ListOrganizationalUnitsForParentCommandError = async
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5160,18 +5160,18 @@ const deserializeAws_json1_1ListParentsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5254,18 +5254,18 @@ const deserializeAws_json1_1ListPoliciesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5348,18 +5348,18 @@ const deserializeAws_json1_1ListPoliciesForTargetCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5450,18 +5450,18 @@ const deserializeAws_json1_1ListRootsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5536,18 +5536,18 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5630,18 +5630,18 @@ const deserializeAws_json1_1ListTargetsForPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5729,6 +5729,14 @@ const deserializeAws_json1_1MoveAccountCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      response = {
+        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       response = {
@@ -5741,14 +5749,6 @@ const deserializeAws_json1_1MoveAccountCommandError = async (
     case "com.amazonaws.organizations#AccountNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5852,6 +5852,14 @@ const deserializeAws_json1_1RegisterDelegatedAdministratorCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      response = {
+        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       response = {
@@ -5872,14 +5880,6 @@ const deserializeAws_json1_1RegisterDelegatedAdministratorCommandError = async (
     case "com.amazonaws.organizations#AccountNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5975,6 +5975,14 @@ const deserializeAws_json1_1RemoveAccountFromOrganizationCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      response = {
+        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       response = {
@@ -5987,14 +5995,6 @@ const deserializeAws_json1_1RemoveAccountFromOrganizationCommandError = async (
     case "com.amazonaws.organizations#AccountNotFoundException":
       response = {
         ...(await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6090,18 +6090,18 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6197,18 +6197,18 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6307,18 +6307,18 @@ const deserializeAws_json1_1UpdateOrganizationalUnitCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6417,18 +6417,18 @@ const deserializeAws_json1_1UpdatePolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
       response = {
         ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

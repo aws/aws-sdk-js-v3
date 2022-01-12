@@ -421,18 +421,18 @@ const deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       response = {
         ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.servicequotas#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -531,18 +531,18 @@ const deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       response = {
         ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.servicequotas#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -649,18 +649,18 @@ const deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandError = async
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       response = {
         ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.servicequotas#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -759,18 +759,18 @@ const deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommandError = 
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       response = {
         ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.servicequotas#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1127,18 +1127,18 @@ const deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommandErr
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       response = {
         ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.servicequotas#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1527,18 +1527,18 @@ const deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommandErr
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       response = {
         ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.servicequotas#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1903,18 +1903,18 @@ const deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommandErr
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "AWSServiceAccessNotEnabledException":
     case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
       response = {
         ...(await deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccessDeniedException":
+    case "com.amazonaws.servicequotas#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

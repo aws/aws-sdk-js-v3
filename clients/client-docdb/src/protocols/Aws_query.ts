@@ -1266,7 +1266,7 @@ const deserializeAws_queryAddSourceIdentifierToSubscriptionCommandError = async 
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "SourceNotFoundFault":
+    case "SourceNotFound":
     case "com.amazonaws.docdb#SourceNotFoundFault":
       response = {
         ...(await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context)),
@@ -1274,7 +1274,7 @@ const deserializeAws_queryAddSourceIdentifierToSubscriptionCommandError = async 
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SubscriptionNotFoundFault":
+    case "SubscriptionNotFound":
     case "com.amazonaws.docdb#SubscriptionNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context)),
@@ -1333,7 +1333,7 @@ const deserializeAws_queryAddTagsToResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.docdb#DBInstanceNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
@@ -1341,7 +1341,7 @@ const deserializeAws_queryAddTagsToResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.docdb#DBSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context)),
@@ -1403,7 +1403,7 @@ const deserializeAws_queryApplyPendingMaintenanceActionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.docdb#InvalidDBInstanceStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
@@ -1465,7 +1465,7 @@ const deserializeAws_queryCopyDBClusterParameterGroupCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupAlreadyExistsFault":
+    case "DBParameterGroupAlreadyExists":
     case "com.amazonaws.docdb#DBParameterGroupAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(parsedOutput, context)),
@@ -1473,7 +1473,7 @@ const deserializeAws_queryCopyDBClusterParameterGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.docdb#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
@@ -1481,7 +1481,7 @@ const deserializeAws_queryCopyDBClusterParameterGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBParameterGroupQuotaExceededFault":
+    case "DBParameterGroupQuotaExceeded":
     case "com.amazonaws.docdb#DBParameterGroupQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(parsedOutput, context)),
@@ -1575,7 +1575,7 @@ const deserializeAws_queryCopyDBClusterSnapshotCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SnapshotQuotaExceededFault":
+    case "SnapshotQuotaExceeded":
     case "com.amazonaws.docdb#SnapshotQuotaExceededFault":
       response = {
         ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
@@ -1645,7 +1645,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBClusterParameterGroupNotFoundFault":
+    case "DBClusterParameterGroupNotFound":
     case "com.amazonaws.docdb#DBClusterParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context)),
@@ -1661,7 +1661,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.docdb#DBInstanceNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
@@ -1693,7 +1693,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InsufficientStorageClusterCapacityFault":
+    case "InsufficientStorageClusterCapacity":
     case "com.amazonaws.docdb#InsufficientStorageClusterCapacityFault":
       response = {
         ...(await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context)),
@@ -1709,7 +1709,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.docdb#InvalidDBInstanceStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
@@ -1757,7 +1757,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.docdb#StorageQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context)),
@@ -1811,7 +1811,7 @@ const deserializeAws_queryCreateDBClusterParameterGroupCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupAlreadyExistsFault":
+    case "DBParameterGroupAlreadyExists":
     case "com.amazonaws.docdb#DBParameterGroupAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(parsedOutput, context)),
@@ -1819,7 +1819,7 @@ const deserializeAws_queryCreateDBClusterParameterGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBParameterGroupQuotaExceededFault":
+    case "DBParameterGroupQuotaExceeded":
     case "com.amazonaws.docdb#DBParameterGroupQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(parsedOutput, context)),
@@ -1905,7 +1905,7 @@ const deserializeAws_queryCreateDBClusterSnapshotCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SnapshotQuotaExceededFault":
+    case "SnapshotQuotaExceeded":
     case "com.amazonaws.docdb#SnapshotQuotaExceededFault":
       response = {
         ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
@@ -1959,7 +1959,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.docdb#AuthorizationNotFoundFault":
       response = {
         ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context)),
@@ -1975,7 +1975,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBInstanceAlreadyExistsFault":
+    case "DBInstanceAlreadyExists":
     case "com.amazonaws.docdb#DBInstanceAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context)),
@@ -1983,7 +1983,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.docdb#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
@@ -1991,7 +1991,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.docdb#DBSecurityGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
@@ -2015,7 +2015,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InstanceQuotaExceededFault":
+    case "InstanceQuotaExceeded":
     case "com.amazonaws.docdb#InstanceQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context)),
@@ -2023,7 +2023,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InsufficientDBInstanceCapacityFault":
+    case "InsufficientDBInstanceCapacity":
     case "com.amazonaws.docdb#InsufficientDBInstanceCapacityFault":
       response = {
         ...(await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context)),
@@ -2063,7 +2063,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.docdb#StorageQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context)),
@@ -2071,7 +2071,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "StorageTypeNotSupportedFault":
+    case "StorageTypeNotSupported":
     case "com.amazonaws.docdb#StorageTypeNotSupportedFault":
       response = {
         ...(await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context)),
@@ -2125,7 +2125,7 @@ const deserializeAws_queryCreateDBSubnetGroupCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBSubnetGroupAlreadyExistsFault":
+    case "DBSubnetGroupAlreadyExists":
     case "com.amazonaws.docdb#DBSubnetGroupAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBSubnetGroupAlreadyExistsFaultResponse(parsedOutput, context)),
@@ -2141,7 +2141,7 @@ const deserializeAws_queryCreateDBSubnetGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBSubnetGroupQuotaExceededFault":
+    case "DBSubnetGroupQuotaExceeded":
     case "com.amazonaws.docdb#DBSubnetGroupQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryDBSubnetGroupQuotaExceededFaultResponse(parsedOutput, context)),
@@ -2211,7 +2211,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EventSubscriptionQuotaExceededFault":
+    case "EventSubscriptionQuotaExceeded":
     case "com.amazonaws.docdb#EventSubscriptionQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(parsedOutput, context)),
@@ -2219,7 +2219,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SNSInvalidTopicFault":
+    case "SNSInvalidTopic":
     case "com.amazonaws.docdb#SNSInvalidTopicFault":
       response = {
         ...(await deserializeAws_querySNSInvalidTopicFaultResponse(parsedOutput, context)),
@@ -2227,7 +2227,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SNSNoAuthorizationFault":
+    case "SNSNoAuthorization":
     case "com.amazonaws.docdb#SNSNoAuthorizationFault":
       response = {
         ...(await deserializeAws_querySNSNoAuthorizationFaultResponse(parsedOutput, context)),
@@ -2235,7 +2235,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SNSTopicArnNotFoundFault":
+    case "SNSTopicArnNotFound":
     case "com.amazonaws.docdb#SNSTopicArnNotFoundFault":
       response = {
         ...(await deserializeAws_querySNSTopicArnNotFoundFaultResponse(parsedOutput, context)),
@@ -2243,7 +2243,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SourceNotFoundFault":
+    case "SourceNotFound":
     case "com.amazonaws.docdb#SourceNotFoundFault":
       response = {
         ...(await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context)),
@@ -2251,7 +2251,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SubscriptionAlreadyExistFault":
+    case "SubscriptionAlreadyExist":
     case "com.amazonaws.docdb#SubscriptionAlreadyExistFault":
       response = {
         ...(await deserializeAws_querySubscriptionAlreadyExistFaultResponse(parsedOutput, context)),
@@ -2259,7 +2259,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SubscriptionCategoryNotFoundFault":
+    case "SubscriptionCategoryNotFound":
     case "com.amazonaws.docdb#SubscriptionCategoryNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(parsedOutput, context)),
@@ -2423,7 +2423,7 @@ const deserializeAws_queryDeleteDBClusterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SnapshotQuotaExceededFault":
+    case "SnapshotQuotaExceeded":
     case "com.amazonaws.docdb#SnapshotQuotaExceededFault":
       response = {
         ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
@@ -2474,7 +2474,7 @@ const deserializeAws_queryDeleteDBClusterParameterGroupCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.docdb#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
@@ -2482,7 +2482,7 @@ const deserializeAws_queryDeleteDBClusterParameterGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidDBParameterGroupStateFault":
+    case "InvalidDBParameterGroupState":
     case "com.amazonaws.docdb#InvalidDBParameterGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context)),
@@ -2598,7 +2598,7 @@ const deserializeAws_queryDeleteDBInstanceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.docdb#DBInstanceNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
@@ -2606,7 +2606,7 @@ const deserializeAws_queryDeleteDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBSnapshotAlreadyExistsFault":
+    case "DBSnapshotAlreadyExists":
     case "com.amazonaws.docdb#DBSnapshotAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(parsedOutput, context)),
@@ -2622,7 +2622,7 @@ const deserializeAws_queryDeleteDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.docdb#InvalidDBInstanceStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
@@ -2630,7 +2630,7 @@ const deserializeAws_queryDeleteDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SnapshotQuotaExceededFault":
+    case "SnapshotQuotaExceeded":
     case "com.amazonaws.docdb#SnapshotQuotaExceededFault":
       response = {
         ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
@@ -2751,7 +2751,7 @@ const deserializeAws_queryDeleteEventSubscriptionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidEventSubscriptionStateFault":
+    case "InvalidEventSubscriptionState":
     case "com.amazonaws.docdb#InvalidEventSubscriptionStateFault":
       response = {
         ...(await deserializeAws_queryInvalidEventSubscriptionStateFaultResponse(parsedOutput, context)),
@@ -2759,7 +2759,7 @@ const deserializeAws_queryDeleteEventSubscriptionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SubscriptionNotFoundFault":
+    case "SubscriptionNotFound":
     case "com.amazonaws.docdb#SubscriptionNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context)),
@@ -2875,7 +2875,7 @@ const deserializeAws_queryDescribeCertificatesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CertificateNotFoundFault":
+    case "CertificateNotFound":
     case "com.amazonaws.docdb#CertificateNotFoundFault":
       response = {
         ...(await deserializeAws_queryCertificateNotFoundFaultResponse(parsedOutput, context)),
@@ -2929,7 +2929,7 @@ const deserializeAws_queryDescribeDBClusterParameterGroupsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.docdb#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
@@ -2983,7 +2983,7 @@ const deserializeAws_queryDescribeDBClusterParametersCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.docdb#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
@@ -3248,7 +3248,7 @@ const deserializeAws_queryDescribeDBInstancesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.docdb#DBInstanceNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
@@ -3497,7 +3497,7 @@ const deserializeAws_queryDescribeEventSubscriptionsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "SubscriptionNotFoundFault":
+    case "SubscriptionNotFound":
     case "com.amazonaws.docdb#SubscriptionNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context)),
@@ -3727,7 +3727,7 @@ const deserializeAws_queryFailoverDBClusterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.docdb#InvalidDBInstanceStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
@@ -3789,7 +3789,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.docdb#DBInstanceNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
@@ -3797,7 +3797,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.docdb#DBSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context)),
@@ -3867,7 +3867,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBClusterParameterGroupNotFoundFault":
+    case "DBClusterParameterGroupNotFound":
     case "com.amazonaws.docdb#DBClusterParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context)),
@@ -3891,7 +3891,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.docdb#InvalidDBInstanceStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
@@ -3899,7 +3899,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidDBSecurityGroupStateFault":
+    case "InvalidDBSecurityGroupState":
     case "com.amazonaws.docdb#InvalidDBSecurityGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context)),
@@ -3931,7 +3931,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.docdb#StorageQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context)),
@@ -3985,7 +3985,7 @@ const deserializeAws_queryModifyDBClusterParameterGroupCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.docdb#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
@@ -3993,7 +3993,7 @@ const deserializeAws_queryModifyDBClusterParameterGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidDBParameterGroupStateFault":
+    case "InvalidDBParameterGroupState":
     case "com.amazonaws.docdb#InvalidDBParameterGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context)),
@@ -4066,7 +4066,7 @@ const deserializeAws_queryModifyDBClusterSnapshotAttributeCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SharedSnapshotQuotaExceededFault":
+    case "SharedSnapshotQuotaExceeded":
     case "com.amazonaws.docdb#SharedSnapshotQuotaExceededFault":
       response = {
         ...(await deserializeAws_querySharedSnapshotQuotaExceededFaultResponse(parsedOutput, context)),
@@ -4120,7 +4120,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.docdb#AuthorizationNotFoundFault":
       response = {
         ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context)),
@@ -4128,7 +4128,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "CertificateNotFoundFault":
+    case "CertificateNotFound":
     case "com.amazonaws.docdb#CertificateNotFoundFault":
       response = {
         ...(await deserializeAws_queryCertificateNotFoundFaultResponse(parsedOutput, context)),
@@ -4136,7 +4136,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBInstanceAlreadyExistsFault":
+    case "DBInstanceAlreadyExists":
     case "com.amazonaws.docdb#DBInstanceAlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context)),
@@ -4144,7 +4144,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.docdb#DBInstanceNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
@@ -4152,7 +4152,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.docdb#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
@@ -4160,7 +4160,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBSecurityGroupNotFoundFault":
+    case "DBSecurityGroupNotFound":
     case "com.amazonaws.docdb#DBSecurityGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
@@ -4168,7 +4168,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBUpgradeDependencyFailureFault":
+    case "DBUpgradeDependencyFailure":
     case "com.amazonaws.docdb#DBUpgradeDependencyFailureFault":
       response = {
         ...(await deserializeAws_queryDBUpgradeDependencyFailureFaultResponse(parsedOutput, context)),
@@ -4176,7 +4176,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InsufficientDBInstanceCapacityFault":
+    case "InsufficientDBInstanceCapacity":
     case "com.amazonaws.docdb#InsufficientDBInstanceCapacityFault":
       response = {
         ...(await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context)),
@@ -4184,7 +4184,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.docdb#InvalidDBInstanceStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
@@ -4192,7 +4192,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidDBSecurityGroupStateFault":
+    case "InvalidDBSecurityGroupState":
     case "com.amazonaws.docdb#InvalidDBSecurityGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context)),
@@ -4208,7 +4208,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.docdb#StorageQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context)),
@@ -4216,7 +4216,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "StorageTypeNotSupportedFault":
+    case "StorageTypeNotSupported":
     case "com.amazonaws.docdb#StorageTypeNotSupportedFault":
       response = {
         ...(await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context)),
@@ -4356,7 +4356,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EventSubscriptionQuotaExceededFault":
+    case "EventSubscriptionQuotaExceeded":
     case "com.amazonaws.docdb#EventSubscriptionQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(parsedOutput, context)),
@@ -4364,7 +4364,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SNSInvalidTopicFault":
+    case "SNSInvalidTopic":
     case "com.amazonaws.docdb#SNSInvalidTopicFault":
       response = {
         ...(await deserializeAws_querySNSInvalidTopicFaultResponse(parsedOutput, context)),
@@ -4372,7 +4372,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SNSNoAuthorizationFault":
+    case "SNSNoAuthorization":
     case "com.amazonaws.docdb#SNSNoAuthorizationFault":
       response = {
         ...(await deserializeAws_querySNSNoAuthorizationFaultResponse(parsedOutput, context)),
@@ -4380,7 +4380,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SNSTopicArnNotFoundFault":
+    case "SNSTopicArnNotFound":
     case "com.amazonaws.docdb#SNSTopicArnNotFoundFault":
       response = {
         ...(await deserializeAws_querySNSTopicArnNotFoundFaultResponse(parsedOutput, context)),
@@ -4388,7 +4388,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SubscriptionCategoryNotFoundFault":
+    case "SubscriptionCategoryNotFound":
     case "com.amazonaws.docdb#SubscriptionCategoryNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(parsedOutput, context)),
@@ -4396,7 +4396,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SubscriptionNotFoundFault":
+    case "SubscriptionNotFound":
     case "com.amazonaws.docdb#SubscriptionNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context)),
@@ -4512,7 +4512,7 @@ const deserializeAws_queryRebootDBInstanceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.docdb#DBInstanceNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
@@ -4520,7 +4520,7 @@ const deserializeAws_queryRebootDBInstanceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.docdb#InvalidDBInstanceStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
@@ -4647,7 +4647,7 @@ const deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommandError = a
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "SourceNotFoundFault":
+    case "SourceNotFound":
     case "com.amazonaws.docdb#SourceNotFoundFault":
       response = {
         ...(await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context)),
@@ -4655,7 +4655,7 @@ const deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommandError = a
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SubscriptionNotFoundFault":
+    case "SubscriptionNotFound":
     case "com.amazonaws.docdb#SubscriptionNotFoundFault":
       response = {
         ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context)),
@@ -4714,7 +4714,7 @@ const deserializeAws_queryRemoveTagsFromResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBInstanceNotFoundFault":
+    case "DBInstanceNotFound":
     case "com.amazonaws.docdb#DBInstanceNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
@@ -4722,7 +4722,7 @@ const deserializeAws_queryRemoveTagsFromResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.docdb#DBSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context)),
@@ -4776,7 +4776,7 @@ const deserializeAws_queryResetDBClusterParameterGroupCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DBParameterGroupNotFoundFault":
+    case "DBParameterGroupNotFound":
     case "com.amazonaws.docdb#DBParameterGroupNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
@@ -4784,7 +4784,7 @@ const deserializeAws_queryResetDBClusterParameterGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidDBParameterGroupStateFault":
+    case "InvalidDBParameterGroupState":
     case "com.amazonaws.docdb#InvalidDBParameterGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context)),
@@ -4862,7 +4862,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DBSnapshotNotFoundFault":
+    case "DBSnapshotNotFound":
     case "com.amazonaws.docdb#DBSnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context)),
@@ -4886,7 +4886,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InsufficientStorageClusterCapacityFault":
+    case "InsufficientStorageClusterCapacity":
     case "com.amazonaws.docdb#InsufficientStorageClusterCapacityFault":
       response = {
         ...(await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context)),
@@ -4902,7 +4902,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidDBSnapshotStateFault":
+    case "InvalidDBSnapshotState":
     case "com.amazonaws.docdb#InvalidDBSnapshotStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context)),
@@ -4942,7 +4942,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.docdb#StorageQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context)),
@@ -5044,7 +5044,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InsufficientStorageClusterCapacityFault":
+    case "InsufficientStorageClusterCapacity":
     case "com.amazonaws.docdb#InsufficientStorageClusterCapacityFault":
       response = {
         ...(await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context)),
@@ -5068,7 +5068,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidDBSnapshotStateFault":
+    case "InvalidDBSnapshotState":
     case "com.amazonaws.docdb#InvalidDBSnapshotStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context)),
@@ -5108,7 +5108,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "StorageQuotaExceededFault":
+    case "StorageQuotaExceeded":
     case "com.amazonaws.docdb#StorageQuotaExceededFault":
       response = {
         ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context)),
@@ -5178,7 +5178,7 @@ const deserializeAws_queryStartDBClusterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.docdb#InvalidDBInstanceStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
@@ -5248,7 +5248,7 @@ const deserializeAws_queryStopDBClusterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidDBInstanceStateFault":
+    case "InvalidDBInstanceState":
     case "com.amazonaws.docdb#InvalidDBInstanceStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
