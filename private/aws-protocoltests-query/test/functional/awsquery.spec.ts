@@ -32,7 +32,6 @@ import { XmlMapsCommand } from "../../src/commands/XmlMapsCommand";
 import { XmlMapsXmlNameCommand } from "../../src/commands/XmlMapsXmlNameCommand";
 import { XmlNamespacesCommand } from "../../src/commands/XmlNamespacesCommand";
 import { XmlTimestampsCommand } from "../../src/commands/XmlTimestampsCommand";
-import { ComplexError, CustomCodeError, InvalidGreeting } from "../../src/models/models_0";
 import { QueryProtocolClient } from "../../src/QueryProtocolClient";
 
 /**

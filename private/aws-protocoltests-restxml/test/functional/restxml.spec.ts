@@ -58,7 +58,6 @@ import { XmlMapsXmlNameCommand } from "../../src/commands/XmlMapsXmlNameCommand"
 import { XmlNamespacesCommand } from "../../src/commands/XmlNamespacesCommand";
 import { XmlTimestampsCommand } from "../../src/commands/XmlTimestampsCommand";
 import { XmlUnionsCommand } from "../../src/commands/XmlUnionsCommand";
-import { ComplexError, InvalidGreeting } from "../../src/models/models_0";
 import { RestXmlProtocolClient } from "../../src/RestXmlProtocolClient";
 
 /**
