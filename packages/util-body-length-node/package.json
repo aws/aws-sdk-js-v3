@@ -12,7 +12,7 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@types/node": "^10.0.0"
+    "@types/node": "^12.7.5"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
