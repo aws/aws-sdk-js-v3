@@ -53,7 +53,6 @@ import { TestNoPayloadCommand } from "../../src/commands/TestNoPayloadCommand";
 import { TestPayloadBlobCommand } from "../../src/commands/TestPayloadBlobCommand";
 import { TestPayloadStructureCommand } from "../../src/commands/TestPayloadStructureCommand";
 import { TimestampFormatHeadersCommand } from "../../src/commands/TimestampFormatHeadersCommand";
-import { ComplexError, FooError, InvalidGreeting } from "../../src/models/models_0";
 import { RestJsonProtocolClient } from "../../src/RestJsonProtocolClient";
 
 /**

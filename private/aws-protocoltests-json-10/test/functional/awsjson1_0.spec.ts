@@ -13,7 +13,6 @@ import { NoInputAndNoOutputCommand } from "../../src/commands/NoInputAndNoOutput
 import { NoInputAndOutputCommand } from "../../src/commands/NoInputAndOutputCommand";
 import { SimpleScalarPropertiesCommand } from "../../src/commands/SimpleScalarPropertiesCommand";
 import { JSONRPC10Client } from "../../src/JSONRPC10Client";
-import { ComplexError, FooError, InvalidGreeting } from "../../src/models/models_0";
 
 /**
  * Throws an expected exception that contains the serialized request.

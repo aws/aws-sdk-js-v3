@@ -16,7 +16,6 @@ import { OperationWithOptionalInputOutputCommand } from "../../src/commands/Oper
 import { PutAndGetInlineDocumentsCommand } from "../../src/commands/PutAndGetInlineDocumentsCommand";
 import { SimpleScalarPropertiesCommand } from "../../src/commands/SimpleScalarPropertiesCommand";
 import { JsonProtocolClient } from "../../src/JsonProtocolClient";
-import { ComplexError, FooError, InvalidGreeting } from "../../src/models/models_0";
 
 /**
  * Throws an expected exception that contains the serialized request.
