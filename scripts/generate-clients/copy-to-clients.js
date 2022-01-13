@@ -139,6 +139,10 @@ const copyToClients = async (sourceDir, destinationDir) => {
           extends: "../../typedoc.client.json",
         };
         writeFileSync(destSubPath, JSON.stringify(typedocJson, null, 2).concat(`\n`));
+      } else if (packageSub === "tsconfig.json") {
+        const tsconfigPath = join(artifactPath, "tsconfig.json");
+        const tsconfig = JSON.parse(readFileSync(tsconfigPath).toString());
+        writeFileSync(destSubPath, JSON.stringify({ ...tsconfig, exclude: ["test/"] }, null, 2).concat(`\n`));
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
         copySync(packageSubPath, destSubPath, {
