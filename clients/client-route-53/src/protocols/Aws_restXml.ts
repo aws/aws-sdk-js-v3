@@ -2639,18 +2639,18 @@ const deserializeAws_restXmlActivateKeySigningKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidKeySigningKeyStatus":
-    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      response = {
-        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "InvalidKMSArn":
     case "com.amazonaws.route53#InvalidKMSArn":
       response = {
         ...(await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidKeySigningKeyStatus":
+    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
+      response = {
+        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3241,6 +3241,14 @@ const deserializeAws_restXmlCreateKeySigningKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidKMSArn":
+    case "com.amazonaws.route53#InvalidKMSArn":
+      response = {
+        ...(await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidKeySigningKeyName":
     case "com.amazonaws.route53#InvalidKeySigningKeyName":
       response = {
@@ -3253,14 +3261,6 @@ const deserializeAws_restXmlCreateKeySigningKeyCommandError = async (
     case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
       response = {
         ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidKMSArn":
-    case "com.amazonaws.route53#InvalidKMSArn":
-      response = {
-        ...(await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4182,18 +4182,18 @@ const deserializeAws_restXmlDeleteKeySigningKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidKeySigningKeyStatus":
-    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      response = {
-        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "InvalidKMSArn":
     case "com.amazonaws.route53#InvalidKMSArn":
       response = {
         ...(await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidKeySigningKeyStatus":
+    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
+      response = {
+        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4660,18 +4660,18 @@ const deserializeAws_restXmlDisableHostedZoneDNSSECCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidKeySigningKeyStatus":
-    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      response = {
-        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "InvalidKMSArn":
     case "com.amazonaws.route53#InvalidKMSArn":
       response = {
         ...(await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidKeySigningKeyStatus":
+    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
+      response = {
+        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4866,18 +4866,18 @@ const deserializeAws_restXmlEnableHostedZoneDNSSECCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidKeySigningKeyStatus":
-    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      response = {
-        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "InvalidKMSArn":
     case "com.amazonaws.route53#InvalidKMSArn":
       response = {
         ...(await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidKeySigningKeyStatus":
+    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
+      response = {
+        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

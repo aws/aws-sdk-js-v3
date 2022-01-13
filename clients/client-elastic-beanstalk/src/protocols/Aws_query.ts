@@ -1461,18 +1461,18 @@ const deserializeAws_queryCreateApplicationVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "TooManyApplicationsException":
-    case "com.amazonaws.elasticbeanstalk#TooManyApplicationsException":
-      response = {
-        ...(await deserializeAws_queryTooManyApplicationsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "TooManyApplicationVersionsException":
     case "com.amazonaws.elasticbeanstalk#TooManyApplicationVersionsException":
       response = {
         ...(await deserializeAws_queryTooManyApplicationVersionsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyApplicationsException":
+    case "com.amazonaws.elasticbeanstalk#TooManyApplicationsException":
+      response = {
+        ...(await deserializeAws_queryTooManyApplicationsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1792,7 +1792,7 @@ const deserializeAws_queryDeleteApplicationCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "OperationInProgressException":
+    case "OperationInProgressFailure":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
       response = {
         ...(await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context)),
@@ -1851,7 +1851,7 @@ const deserializeAws_queryDeleteApplicationVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "OperationInProgressException":
+    case "OperationInProgressFailure":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
       response = {
         ...(await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context)),
@@ -1867,7 +1867,7 @@ const deserializeAws_queryDeleteApplicationVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "SourceBundleDeletionException":
+    case "SourceBundleDeletionFailure":
     case "com.amazonaws.elasticbeanstalk#SourceBundleDeletionException":
       response = {
         ...(await deserializeAws_querySourceBundleDeletionExceptionResponse(parsedOutput, context)),
@@ -1918,7 +1918,7 @@ const deserializeAws_queryDeleteConfigurationTemplateCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "OperationInProgressException":
+    case "OperationInProgressFailure":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
       response = {
         ...(await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context)),
@@ -2031,7 +2031,7 @@ const deserializeAws_queryDeletePlatformVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "OperationInProgressException":
+    case "OperationInProgressFailure":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
       response = {
         ...(await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context)),
@@ -3632,7 +3632,7 @@ const deserializeAws_queryUpdateTagsForResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "OperationInProgressException":
+    case "OperationInProgressFailure":
     case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
       response = {
         ...(await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context)),

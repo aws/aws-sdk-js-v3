@@ -1376,7 +1376,7 @@ const deserializeAws_queryAttachInstancesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -1438,7 +1438,7 @@ const deserializeAws_queryAttachLoadBalancersCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -1503,7 +1503,7 @@ const deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -1565,7 +1565,7 @@ const deserializeAws_queryBatchDeleteScheduledActionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -1622,7 +1622,7 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError = async
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsFault":
+    case "AlreadyExists":
     case "com.amazonaws.autoscaling#AlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryAlreadyExistsFaultResponse(parsedOutput, context)),
@@ -1630,7 +1630,7 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError = async
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
@@ -1638,7 +1638,7 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError = async
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -1692,7 +1692,7 @@ const deserializeAws_queryCancelInstanceRefreshCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ActiveInstanceRefreshNotFoundFault":
+    case "ActiveInstanceRefreshNotFound":
     case "com.amazonaws.autoscaling#ActiveInstanceRefreshNotFoundFault":
       response = {
         ...(await deserializeAws_queryActiveInstanceRefreshNotFoundFaultResponse(parsedOutput, context)),
@@ -1700,7 +1700,7 @@ const deserializeAws_queryCancelInstanceRefreshCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
@@ -1708,7 +1708,7 @@ const deserializeAws_queryCancelInstanceRefreshCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -1762,7 +1762,7 @@ const deserializeAws_queryCompleteLifecycleActionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -1813,7 +1813,7 @@ const deserializeAws_queryCreateAutoScalingGroupCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsFault":
+    case "AlreadyExists":
     case "com.amazonaws.autoscaling#AlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryAlreadyExistsFaultResponse(parsedOutput, context)),
@@ -1821,7 +1821,7 @@ const deserializeAws_queryCreateAutoScalingGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
@@ -1829,7 +1829,7 @@ const deserializeAws_queryCreateAutoScalingGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -1888,7 +1888,7 @@ const deserializeAws_queryCreateLaunchConfigurationCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsFault":
+    case "AlreadyExists":
     case "com.amazonaws.autoscaling#AlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryAlreadyExistsFaultResponse(parsedOutput, context)),
@@ -1896,7 +1896,7 @@ const deserializeAws_queryCreateLaunchConfigurationCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
@@ -1904,7 +1904,7 @@ const deserializeAws_queryCreateLaunchConfigurationCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -1955,7 +1955,7 @@ const deserializeAws_queryCreateOrUpdateTagsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsFault":
+    case "AlreadyExists":
     case "com.amazonaws.autoscaling#AlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryAlreadyExistsFaultResponse(parsedOutput, context)),
@@ -1963,7 +1963,7 @@ const deserializeAws_queryCreateOrUpdateTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
@@ -1971,7 +1971,7 @@ const deserializeAws_queryCreateOrUpdateTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -1979,7 +1979,7 @@ const deserializeAws_queryCreateOrUpdateTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceInUseFault":
+    case "ResourceInUse":
     case "com.amazonaws.autoscaling#ResourceInUseFault":
       response = {
         ...(await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context)),
@@ -2030,7 +2030,7 @@ const deserializeAws_queryDeleteAutoScalingGroupCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -2038,7 +2038,7 @@ const deserializeAws_queryDeleteAutoScalingGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceInUseFault":
+    case "ResourceInUse":
     case "com.amazonaws.autoscaling#ResourceInUseFault":
       response = {
         ...(await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context)),
@@ -2046,7 +2046,7 @@ const deserializeAws_queryDeleteAutoScalingGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ScalingActivityInProgressFault":
+    case "ScalingActivityInProgress":
     case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
       response = {
         ...(await deserializeAws_queryScalingActivityInProgressFaultResponse(parsedOutput, context)),
@@ -2097,7 +2097,7 @@ const deserializeAws_queryDeleteLaunchConfigurationCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -2105,7 +2105,7 @@ const deserializeAws_queryDeleteLaunchConfigurationCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceInUseFault":
+    case "ResourceInUse":
     case "com.amazonaws.autoscaling#ResourceInUseFault":
       response = {
         ...(await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context)),
@@ -2159,7 +2159,7 @@ const deserializeAws_queryDeleteLifecycleHookCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -2210,7 +2210,7 @@ const deserializeAws_queryDeleteNotificationConfigurationCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -2261,7 +2261,7 @@ const deserializeAws_queryDeletePolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -2320,7 +2320,7 @@ const deserializeAws_queryDeleteScheduledActionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -2371,7 +2371,7 @@ const deserializeAws_queryDeleteTagsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -2379,7 +2379,7 @@ const deserializeAws_queryDeleteTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceInUseFault":
+    case "ResourceInUse":
     case "com.amazonaws.autoscaling#ResourceInUseFault":
       response = {
         ...(await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context)),
@@ -2433,7 +2433,7 @@ const deserializeAws_queryDeleteWarmPoolCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
@@ -2441,7 +2441,7 @@ const deserializeAws_queryDeleteWarmPoolCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -2449,7 +2449,7 @@ const deserializeAws_queryDeleteWarmPoolCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceInUseFault":
+    case "ResourceInUse":
     case "com.amazonaws.autoscaling#ResourceInUseFault":
       response = {
         ...(await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context)),
@@ -2457,7 +2457,7 @@ const deserializeAws_queryDeleteWarmPoolCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ScalingActivityInProgressFault":
+    case "ScalingActivityInProgress":
     case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
       response = {
         ...(await deserializeAws_queryScalingActivityInProgressFaultResponse(parsedOutput, context)),
@@ -2511,7 +2511,7 @@ const deserializeAws_queryDescribeAccountLimitsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -2565,7 +2565,7 @@ const deserializeAws_queryDescribeAdjustmentTypesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -2627,7 +2627,7 @@ const deserializeAws_queryDescribeAutoScalingGroupsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -2689,7 +2689,7 @@ const deserializeAws_queryDescribeAutoScalingInstancesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -2746,7 +2746,7 @@ const deserializeAws_queryDescribeAutoScalingNotificationTypesCommandError = asy
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -2808,7 +2808,7 @@ const deserializeAws_queryDescribeInstanceRefreshesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -2870,7 +2870,7 @@ const deserializeAws_queryDescribeLaunchConfigurationsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -2924,7 +2924,7 @@ const deserializeAws_queryDescribeLifecycleHooksCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -2978,7 +2978,7 @@ const deserializeAws_queryDescribeLifecycleHookTypesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -3040,7 +3040,7 @@ const deserializeAws_queryDescribeLoadBalancersCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -3105,7 +3105,7 @@ const deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -3159,7 +3159,7 @@ const deserializeAws_queryDescribeMetricCollectionTypesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -3224,7 +3224,7 @@ const deserializeAws_queryDescribeNotificationConfigurationsCommandError = async
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -3286,7 +3286,7 @@ const deserializeAws_queryDescribePoliciesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -3356,7 +3356,7 @@ const deserializeAws_queryDescribeScalingActivitiesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -3410,7 +3410,7 @@ const deserializeAws_queryDescribeScalingProcessTypesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -3472,7 +3472,7 @@ const deserializeAws_queryDescribeScheduledActionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -3534,7 +3534,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -3591,7 +3591,7 @@ const deserializeAws_queryDescribeTerminationPolicyTypesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -3653,7 +3653,7 @@ const deserializeAws_queryDescribeWarmPoolCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
@@ -3661,7 +3661,7 @@ const deserializeAws_queryDescribeWarmPoolCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -3715,7 +3715,7 @@ const deserializeAws_queryDetachInstancesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -3769,7 +3769,7 @@ const deserializeAws_queryDetachLoadBalancersCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -3826,7 +3826,7 @@ const deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -3877,7 +3877,7 @@ const deserializeAws_queryDisableMetricsCollectionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -3928,7 +3928,7 @@ const deserializeAws_queryEnableMetricsCollectionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -3982,7 +3982,7 @@ const deserializeAws_queryEnterStandbyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -4033,7 +4033,7 @@ const deserializeAws_queryExecutePolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -4041,7 +4041,7 @@ const deserializeAws_queryExecutePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ScalingActivityInProgressFault":
+    case "ScalingActivityInProgress":
     case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
       response = {
         ...(await deserializeAws_queryScalingActivityInProgressFaultResponse(parsedOutput, context)),
@@ -4095,7 +4095,7 @@ const deserializeAws_queryExitStandbyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -4149,7 +4149,7 @@ const deserializeAws_queryGetPredictiveScalingForecastCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -4203,7 +4203,7 @@ const deserializeAws_queryPutLifecycleHookCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
@@ -4211,7 +4211,7 @@ const deserializeAws_queryPutLifecycleHookCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -4262,7 +4262,7 @@ const deserializeAws_queryPutNotificationConfigurationCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
@@ -4270,7 +4270,7 @@ const deserializeAws_queryPutNotificationConfigurationCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -4332,7 +4332,7 @@ const deserializeAws_queryPutScalingPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
@@ -4340,7 +4340,7 @@ const deserializeAws_queryPutScalingPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -4399,7 +4399,7 @@ const deserializeAws_queryPutScheduledUpdateGroupActionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AlreadyExistsFault":
+    case "AlreadyExists":
     case "com.amazonaws.autoscaling#AlreadyExistsFault":
       response = {
         ...(await deserializeAws_queryAlreadyExistsFaultResponse(parsedOutput, context)),
@@ -4407,7 +4407,7 @@ const deserializeAws_queryPutScheduledUpdateGroupActionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
@@ -4415,7 +4415,7 @@ const deserializeAws_queryPutScheduledUpdateGroupActionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -4469,7 +4469,7 @@ const deserializeAws_queryPutWarmPoolCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
@@ -4477,7 +4477,7 @@ const deserializeAws_queryPutWarmPoolCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -4534,7 +4534,7 @@ const deserializeAws_queryRecordLifecycleActionHeartbeatCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -4585,7 +4585,7 @@ const deserializeAws_queryResumeProcessesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -4593,7 +4593,7 @@ const deserializeAws_queryResumeProcessesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceInUseFault":
+    case "ResourceInUse":
     case "com.amazonaws.autoscaling#ResourceInUseFault":
       response = {
         ...(await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context)),
@@ -4644,7 +4644,7 @@ const deserializeAws_querySetDesiredCapacityCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -4652,7 +4652,7 @@ const deserializeAws_querySetDesiredCapacityCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ScalingActivityInProgressFault":
+    case "ScalingActivityInProgress":
     case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
       response = {
         ...(await deserializeAws_queryScalingActivityInProgressFaultResponse(parsedOutput, context)),
@@ -4703,7 +4703,7 @@ const deserializeAws_querySetInstanceHealthCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -4757,7 +4757,7 @@ const deserializeAws_querySetInstanceProtectionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
@@ -4765,7 +4765,7 @@ const deserializeAws_querySetInstanceProtectionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -4819,7 +4819,7 @@ const deserializeAws_queryStartInstanceRefreshCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InstanceRefreshInProgressFault":
+    case "InstanceRefreshInProgress":
     case "com.amazonaws.autoscaling#InstanceRefreshInProgressFault":
       response = {
         ...(await deserializeAws_queryInstanceRefreshInProgressFaultResponse(parsedOutput, context)),
@@ -4827,7 +4827,7 @@ const deserializeAws_queryStartInstanceRefreshCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededFault":
+    case "LimitExceeded":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
         ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
@@ -4835,7 +4835,7 @@ const deserializeAws_queryStartInstanceRefreshCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -4886,7 +4886,7 @@ const deserializeAws_querySuspendProcessesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -4894,7 +4894,7 @@ const deserializeAws_querySuspendProcessesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceInUseFault":
+    case "ResourceInUse":
     case "com.amazonaws.autoscaling#ResourceInUseFault":
       response = {
         ...(await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context)),
@@ -4948,7 +4948,7 @@ const deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandError = asyn
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -4956,7 +4956,7 @@ const deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandError = asyn
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ScalingActivityInProgressFault":
+    case "ScalingActivityInProgress":
     case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
       response = {
         ...(await deserializeAws_queryScalingActivityInProgressFaultResponse(parsedOutput, context)),
@@ -5007,7 +5007,7 @@ const deserializeAws_queryUpdateAutoScalingGroupCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ResourceContentionFault":
+    case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
         ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
@@ -5015,7 +5015,7 @@ const deserializeAws_queryUpdateAutoScalingGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ScalingActivityInProgressFault":
+    case "ScalingActivityInProgress":
     case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
       response = {
         ...(await deserializeAws_queryScalingActivityInProgressFaultResponse(parsedOutput, context)),

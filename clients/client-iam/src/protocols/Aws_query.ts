@@ -3268,7 +3268,7 @@ const deserializeAws_queryAddClientIDToOpenIDConnectProviderCommandError = async
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -3276,7 +3276,7 @@ const deserializeAws_queryAddClientIDToOpenIDConnectProviderCommandError = async
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -3284,7 +3284,7 @@ const deserializeAws_queryAddClientIDToOpenIDConnectProviderCommandError = async
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -3292,7 +3292,7 @@ const deserializeAws_queryAddClientIDToOpenIDConnectProviderCommandError = async
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -3343,7 +3343,7 @@ const deserializeAws_queryAddRoleToInstanceProfileCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -3351,7 +3351,7 @@ const deserializeAws_queryAddRoleToInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -3359,7 +3359,7 @@ const deserializeAws_queryAddRoleToInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -3367,7 +3367,7 @@ const deserializeAws_queryAddRoleToInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -3375,7 +3375,7 @@ const deserializeAws_queryAddRoleToInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       response = {
         ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
@@ -3426,7 +3426,7 @@ const deserializeAws_queryAddUserToGroupCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -3434,7 +3434,7 @@ const deserializeAws_queryAddUserToGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -3442,7 +3442,7 @@ const deserializeAws_queryAddUserToGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -3493,7 +3493,7 @@ const deserializeAws_queryAttachGroupPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -3501,7 +3501,7 @@ const deserializeAws_queryAttachGroupPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -3509,7 +3509,7 @@ const deserializeAws_queryAttachGroupPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -3517,7 +3517,7 @@ const deserializeAws_queryAttachGroupPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "PolicyNotAttachableException":
+    case "PolicyNotAttachable":
     case "com.amazonaws.iam#PolicyNotAttachableException":
       response = {
         ...(await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context)),
@@ -3525,7 +3525,7 @@ const deserializeAws_queryAttachGroupPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -3576,7 +3576,7 @@ const deserializeAws_queryAttachRolePolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -3584,7 +3584,7 @@ const deserializeAws_queryAttachRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -3592,7 +3592,7 @@ const deserializeAws_queryAttachRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -3600,7 +3600,7 @@ const deserializeAws_queryAttachRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "PolicyNotAttachableException":
+    case "PolicyNotAttachable":
     case "com.amazonaws.iam#PolicyNotAttachableException":
       response = {
         ...(await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context)),
@@ -3608,7 +3608,7 @@ const deserializeAws_queryAttachRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -3616,7 +3616,7 @@ const deserializeAws_queryAttachRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       response = {
         ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
@@ -3667,7 +3667,7 @@ const deserializeAws_queryAttachUserPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -3675,7 +3675,7 @@ const deserializeAws_queryAttachUserPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -3683,7 +3683,7 @@ const deserializeAws_queryAttachUserPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -3691,7 +3691,7 @@ const deserializeAws_queryAttachUserPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "PolicyNotAttachableException":
+    case "PolicyNotAttachable":
     case "com.amazonaws.iam#PolicyNotAttachableException":
       response = {
         ...(await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context)),
@@ -3699,7 +3699,7 @@ const deserializeAws_queryAttachUserPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -3750,7 +3750,7 @@ const deserializeAws_queryChangePasswordCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityTemporarilyUnmodifiableException":
+    case "EntityTemporarilyUnmodifiable":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
       response = {
         ...(await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context)),
@@ -3758,7 +3758,7 @@ const deserializeAws_queryChangePasswordCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidUserTypeException":
+    case "InvalidUserType":
     case "com.amazonaws.iam#InvalidUserTypeException":
       response = {
         ...(await deserializeAws_queryInvalidUserTypeExceptionResponse(parsedOutput, context)),
@@ -3766,7 +3766,7 @@ const deserializeAws_queryChangePasswordCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -3774,7 +3774,7 @@ const deserializeAws_queryChangePasswordCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -3782,7 +3782,7 @@ const deserializeAws_queryChangePasswordCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "PasswordPolicyViolationException":
+    case "PasswordPolicyViolation":
     case "com.amazonaws.iam#PasswordPolicyViolationException":
       response = {
         ...(await deserializeAws_queryPasswordPolicyViolationExceptionResponse(parsedOutput, context)),
@@ -3790,7 +3790,7 @@ const deserializeAws_queryChangePasswordCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -3844,7 +3844,7 @@ const deserializeAws_queryCreateAccessKeyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -3852,7 +3852,7 @@ const deserializeAws_queryCreateAccessKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -3860,7 +3860,7 @@ const deserializeAws_queryCreateAccessKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -3911,7 +3911,7 @@ const deserializeAws_queryCreateAccountAliasCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -3919,7 +3919,7 @@ const deserializeAws_queryCreateAccountAliasCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -3927,7 +3927,7 @@ const deserializeAws_queryCreateAccountAliasCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -3981,7 +3981,7 @@ const deserializeAws_queryCreateGroupCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -3989,7 +3989,7 @@ const deserializeAws_queryCreateGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -3997,7 +3997,7 @@ const deserializeAws_queryCreateGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -4005,7 +4005,7 @@ const deserializeAws_queryCreateGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -4059,7 +4059,7 @@ const deserializeAws_queryCreateInstanceProfileCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -4067,7 +4067,7 @@ const deserializeAws_queryCreateInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -4075,7 +4075,7 @@ const deserializeAws_queryCreateInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -4083,7 +4083,7 @@ const deserializeAws_queryCreateInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -4091,7 +4091,7 @@ const deserializeAws_queryCreateInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -4145,7 +4145,7 @@ const deserializeAws_queryCreateLoginProfileCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -4153,7 +4153,7 @@ const deserializeAws_queryCreateLoginProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -4161,7 +4161,7 @@ const deserializeAws_queryCreateLoginProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -4169,7 +4169,7 @@ const deserializeAws_queryCreateLoginProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "PasswordPolicyViolationException":
+    case "PasswordPolicyViolation":
     case "com.amazonaws.iam#PasswordPolicyViolationException":
       response = {
         ...(await deserializeAws_queryPasswordPolicyViolationExceptionResponse(parsedOutput, context)),
@@ -4177,7 +4177,7 @@ const deserializeAws_queryCreateLoginProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -4231,7 +4231,7 @@ const deserializeAws_queryCreateOpenIDConnectProviderCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -4239,7 +4239,7 @@ const deserializeAws_queryCreateOpenIDConnectProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -4247,7 +4247,7 @@ const deserializeAws_queryCreateOpenIDConnectProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -4255,7 +4255,7 @@ const deserializeAws_queryCreateOpenIDConnectProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -4263,7 +4263,7 @@ const deserializeAws_queryCreateOpenIDConnectProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -4317,7 +4317,7 @@ const deserializeAws_queryCreatePolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -4325,7 +4325,7 @@ const deserializeAws_queryCreatePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -4333,7 +4333,7 @@ const deserializeAws_queryCreatePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -4341,7 +4341,7 @@ const deserializeAws_queryCreatePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -4349,7 +4349,7 @@ const deserializeAws_queryCreatePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
@@ -4357,7 +4357,7 @@ const deserializeAws_queryCreatePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -4411,7 +4411,7 @@ const deserializeAws_queryCreatePolicyVersionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -4419,7 +4419,7 @@ const deserializeAws_queryCreatePolicyVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -4427,7 +4427,7 @@ const deserializeAws_queryCreatePolicyVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
@@ -4435,7 +4435,7 @@ const deserializeAws_queryCreatePolicyVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -4443,7 +4443,7 @@ const deserializeAws_queryCreatePolicyVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -4497,7 +4497,7 @@ const deserializeAws_queryCreateRoleCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -4505,7 +4505,7 @@ const deserializeAws_queryCreateRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -4513,7 +4513,7 @@ const deserializeAws_queryCreateRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -4521,7 +4521,7 @@ const deserializeAws_queryCreateRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -4529,7 +4529,7 @@ const deserializeAws_queryCreateRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
@@ -4537,7 +4537,7 @@ const deserializeAws_queryCreateRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -4591,7 +4591,7 @@ const deserializeAws_queryCreateSAMLProviderCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -4599,7 +4599,7 @@ const deserializeAws_queryCreateSAMLProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -4607,7 +4607,7 @@ const deserializeAws_queryCreateSAMLProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -4615,7 +4615,7 @@ const deserializeAws_queryCreateSAMLProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -4623,7 +4623,7 @@ const deserializeAws_queryCreateSAMLProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -4677,7 +4677,7 @@ const deserializeAws_queryCreateServiceLinkedRoleCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -4685,7 +4685,7 @@ const deserializeAws_queryCreateServiceLinkedRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -4693,7 +4693,7 @@ const deserializeAws_queryCreateServiceLinkedRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -4701,7 +4701,7 @@ const deserializeAws_queryCreateServiceLinkedRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -4758,7 +4758,7 @@ const deserializeAws_queryCreateServiceSpecificCredentialCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -4766,7 +4766,7 @@ const deserializeAws_queryCreateServiceSpecificCredentialCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -4774,7 +4774,7 @@ const deserializeAws_queryCreateServiceSpecificCredentialCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceNotSupportedException":
+    case "NotSupportedService":
     case "com.amazonaws.iam#ServiceNotSupportedException":
       response = {
         ...(await deserializeAws_queryServiceNotSupportedExceptionResponse(parsedOutput, context)),
@@ -4828,7 +4828,7 @@ const deserializeAws_queryCreateUserCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -4836,7 +4836,7 @@ const deserializeAws_queryCreateUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -4844,7 +4844,7 @@ const deserializeAws_queryCreateUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -4852,7 +4852,7 @@ const deserializeAws_queryCreateUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -4860,7 +4860,7 @@ const deserializeAws_queryCreateUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -4868,7 +4868,7 @@ const deserializeAws_queryCreateUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -4922,7 +4922,7 @@ const deserializeAws_queryCreateVirtualMFADeviceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -4930,7 +4930,7 @@ const deserializeAws_queryCreateVirtualMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -4938,7 +4938,7 @@ const deserializeAws_queryCreateVirtualMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -4946,7 +4946,7 @@ const deserializeAws_queryCreateVirtualMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -4954,7 +4954,7 @@ const deserializeAws_queryCreateVirtualMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -5005,7 +5005,7 @@ const deserializeAws_queryDeactivateMFADeviceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityTemporarilyUnmodifiableException":
+    case "EntityTemporarilyUnmodifiable":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
       response = {
         ...(await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context)),
@@ -5013,7 +5013,7 @@ const deserializeAws_queryDeactivateMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -5021,7 +5021,7 @@ const deserializeAws_queryDeactivateMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -5029,7 +5029,7 @@ const deserializeAws_queryDeactivateMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -5080,7 +5080,7 @@ const deserializeAws_queryDeleteAccessKeyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -5088,7 +5088,7 @@ const deserializeAws_queryDeleteAccessKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -5096,7 +5096,7 @@ const deserializeAws_queryDeleteAccessKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -5147,7 +5147,7 @@ const deserializeAws_queryDeleteAccountAliasCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -5155,7 +5155,7 @@ const deserializeAws_queryDeleteAccountAliasCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -5163,7 +5163,7 @@ const deserializeAws_queryDeleteAccountAliasCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -5214,7 +5214,7 @@ const deserializeAws_queryDeleteAccountPasswordPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -5222,7 +5222,7 @@ const deserializeAws_queryDeleteAccountPasswordPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -5230,7 +5230,7 @@ const deserializeAws_queryDeleteAccountPasswordPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -5281,7 +5281,7 @@ const deserializeAws_queryDeleteGroupCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DeleteConflictException":
+    case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
       response = {
         ...(await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context)),
@@ -5289,7 +5289,7 @@ const deserializeAws_queryDeleteGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -5297,7 +5297,7 @@ const deserializeAws_queryDeleteGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -5305,7 +5305,7 @@ const deserializeAws_queryDeleteGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -5356,7 +5356,7 @@ const deserializeAws_queryDeleteGroupPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -5364,7 +5364,7 @@ const deserializeAws_queryDeleteGroupPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -5372,7 +5372,7 @@ const deserializeAws_queryDeleteGroupPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -5423,7 +5423,7 @@ const deserializeAws_queryDeleteInstanceProfileCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DeleteConflictException":
+    case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
       response = {
         ...(await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context)),
@@ -5431,7 +5431,7 @@ const deserializeAws_queryDeleteInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -5439,7 +5439,7 @@ const deserializeAws_queryDeleteInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -5447,7 +5447,7 @@ const deserializeAws_queryDeleteInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -5498,7 +5498,7 @@ const deserializeAws_queryDeleteLoginProfileCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityTemporarilyUnmodifiableException":
+    case "EntityTemporarilyUnmodifiable":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
       response = {
         ...(await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context)),
@@ -5506,7 +5506,7 @@ const deserializeAws_queryDeleteLoginProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -5514,7 +5514,7 @@ const deserializeAws_queryDeleteLoginProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -5522,7 +5522,7 @@ const deserializeAws_queryDeleteLoginProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -5573,7 +5573,7 @@ const deserializeAws_queryDeleteOpenIDConnectProviderCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -5581,7 +5581,7 @@ const deserializeAws_queryDeleteOpenIDConnectProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -5589,7 +5589,7 @@ const deserializeAws_queryDeleteOpenIDConnectProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -5640,7 +5640,7 @@ const deserializeAws_queryDeletePolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DeleteConflictException":
+    case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
       response = {
         ...(await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context)),
@@ -5648,7 +5648,7 @@ const deserializeAws_queryDeletePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -5656,7 +5656,7 @@ const deserializeAws_queryDeletePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -5664,7 +5664,7 @@ const deserializeAws_queryDeletePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -5672,7 +5672,7 @@ const deserializeAws_queryDeletePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -5723,7 +5723,7 @@ const deserializeAws_queryDeletePolicyVersionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DeleteConflictException":
+    case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
       response = {
         ...(await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context)),
@@ -5731,7 +5731,7 @@ const deserializeAws_queryDeletePolicyVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -5739,7 +5739,7 @@ const deserializeAws_queryDeletePolicyVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -5747,7 +5747,7 @@ const deserializeAws_queryDeletePolicyVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -5755,7 +5755,7 @@ const deserializeAws_queryDeletePolicyVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -5806,7 +5806,7 @@ const deserializeAws_queryDeleteRoleCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -5814,7 +5814,7 @@ const deserializeAws_queryDeleteRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DeleteConflictException":
+    case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
       response = {
         ...(await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context)),
@@ -5822,7 +5822,7 @@ const deserializeAws_queryDeleteRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -5830,7 +5830,7 @@ const deserializeAws_queryDeleteRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -5838,7 +5838,7 @@ const deserializeAws_queryDeleteRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -5846,7 +5846,7 @@ const deserializeAws_queryDeleteRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       response = {
         ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
@@ -5897,7 +5897,7 @@ const deserializeAws_queryDeleteRolePermissionsBoundaryCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -5905,7 +5905,7 @@ const deserializeAws_queryDeleteRolePermissionsBoundaryCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -5913,7 +5913,7 @@ const deserializeAws_queryDeleteRolePermissionsBoundaryCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       response = {
         ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
@@ -5964,7 +5964,7 @@ const deserializeAws_queryDeleteRolePolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -5972,7 +5972,7 @@ const deserializeAws_queryDeleteRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -5980,7 +5980,7 @@ const deserializeAws_queryDeleteRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -5988,7 +5988,7 @@ const deserializeAws_queryDeleteRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       response = {
         ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
@@ -6039,7 +6039,7 @@ const deserializeAws_queryDeleteSAMLProviderCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -6047,7 +6047,7 @@ const deserializeAws_queryDeleteSAMLProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -6055,7 +6055,7 @@ const deserializeAws_queryDeleteSAMLProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -6063,7 +6063,7 @@ const deserializeAws_queryDeleteSAMLProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -6114,7 +6114,7 @@ const deserializeAws_queryDeleteServerCertificateCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DeleteConflictException":
+    case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
       response = {
         ...(await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context)),
@@ -6122,7 +6122,7 @@ const deserializeAws_queryDeleteServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -6130,7 +6130,7 @@ const deserializeAws_queryDeleteServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -6138,7 +6138,7 @@ const deserializeAws_queryDeleteServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -6192,7 +6192,7 @@ const deserializeAws_queryDeleteServiceLinkedRoleCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -6200,7 +6200,7 @@ const deserializeAws_queryDeleteServiceLinkedRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -6208,7 +6208,7 @@ const deserializeAws_queryDeleteServiceLinkedRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -6259,7 +6259,7 @@ const deserializeAws_queryDeleteServiceSpecificCredentialCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -6310,7 +6310,7 @@ const deserializeAws_queryDeleteSigningCertificateCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -6318,7 +6318,7 @@ const deserializeAws_queryDeleteSigningCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -6326,7 +6326,7 @@ const deserializeAws_queryDeleteSigningCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -6377,7 +6377,7 @@ const deserializeAws_queryDeleteSSHPublicKeyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -6428,7 +6428,7 @@ const deserializeAws_queryDeleteUserCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -6436,7 +6436,7 @@ const deserializeAws_queryDeleteUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DeleteConflictException":
+    case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
       response = {
         ...(await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context)),
@@ -6444,7 +6444,7 @@ const deserializeAws_queryDeleteUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -6452,7 +6452,7 @@ const deserializeAws_queryDeleteUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -6460,7 +6460,7 @@ const deserializeAws_queryDeleteUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -6511,7 +6511,7 @@ const deserializeAws_queryDeleteUserPermissionsBoundaryCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -6519,7 +6519,7 @@ const deserializeAws_queryDeleteUserPermissionsBoundaryCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -6570,7 +6570,7 @@ const deserializeAws_queryDeleteUserPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -6578,7 +6578,7 @@ const deserializeAws_queryDeleteUserPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -6586,7 +6586,7 @@ const deserializeAws_queryDeleteUserPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -6637,7 +6637,7 @@ const deserializeAws_queryDeleteVirtualMFADeviceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DeleteConflictException":
+    case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
       response = {
         ...(await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context)),
@@ -6645,7 +6645,7 @@ const deserializeAws_queryDeleteVirtualMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -6653,7 +6653,7 @@ const deserializeAws_queryDeleteVirtualMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -6661,7 +6661,7 @@ const deserializeAws_queryDeleteVirtualMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -6712,7 +6712,7 @@ const deserializeAws_queryDetachGroupPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -6720,7 +6720,7 @@ const deserializeAws_queryDetachGroupPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -6728,7 +6728,7 @@ const deserializeAws_queryDetachGroupPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -6736,7 +6736,7 @@ const deserializeAws_queryDetachGroupPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -6787,7 +6787,7 @@ const deserializeAws_queryDetachRolePolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -6795,7 +6795,7 @@ const deserializeAws_queryDetachRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -6803,7 +6803,7 @@ const deserializeAws_queryDetachRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -6811,7 +6811,7 @@ const deserializeAws_queryDetachRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -6819,7 +6819,7 @@ const deserializeAws_queryDetachRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       response = {
         ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
@@ -6870,7 +6870,7 @@ const deserializeAws_queryDetachUserPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -6878,7 +6878,7 @@ const deserializeAws_queryDetachUserPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -6886,7 +6886,7 @@ const deserializeAws_queryDetachUserPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -6894,7 +6894,7 @@ const deserializeAws_queryDetachUserPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -6945,7 +6945,7 @@ const deserializeAws_queryEnableMFADeviceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -6953,7 +6953,7 @@ const deserializeAws_queryEnableMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "EntityTemporarilyUnmodifiableException":
+    case "EntityTemporarilyUnmodifiable":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
       response = {
         ...(await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context)),
@@ -6961,7 +6961,7 @@ const deserializeAws_queryEnableMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidAuthenticationCodeException":
+    case "InvalidAuthenticationCode":
     case "com.amazonaws.iam#InvalidAuthenticationCodeException":
       response = {
         ...(await deserializeAws_queryInvalidAuthenticationCodeExceptionResponse(parsedOutput, context)),
@@ -6969,7 +6969,7 @@ const deserializeAws_queryEnableMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -6977,7 +6977,7 @@ const deserializeAws_queryEnableMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -6985,7 +6985,7 @@ const deserializeAws_queryEnableMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -7039,7 +7039,7 @@ const deserializeAws_queryGenerateCredentialReportCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -7047,7 +7047,7 @@ const deserializeAws_queryGenerateCredentialReportCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -7104,7 +7104,7 @@ const deserializeAws_queryGenerateOrganizationsAccessReportCommandError = async 
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ReportGenerationLimitExceededException":
+    case "ReportGenerationLimitExceeded":
     case "com.amazonaws.iam#ReportGenerationLimitExceededException":
       response = {
         ...(await deserializeAws_queryReportGenerationLimitExceededExceptionResponse(parsedOutput, context)),
@@ -7161,7 +7161,7 @@ const deserializeAws_queryGenerateServiceLastAccessedDetailsCommandError = async
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -7169,7 +7169,7 @@ const deserializeAws_queryGenerateServiceLastAccessedDetailsCommandError = async
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -7223,7 +7223,7 @@ const deserializeAws_queryGetAccessKeyLastUsedCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -7280,7 +7280,7 @@ const deserializeAws_queryGetAccountAuthorizationDetailsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -7334,7 +7334,7 @@ const deserializeAws_queryGetAccountPasswordPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -7342,7 +7342,7 @@ const deserializeAws_queryGetAccountPasswordPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -7396,7 +7396,7 @@ const deserializeAws_queryGetAccountSummaryCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -7450,7 +7450,7 @@ const deserializeAws_queryGetContextKeysForCustomPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -7504,7 +7504,7 @@ const deserializeAws_queryGetContextKeysForPrincipalPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -7512,7 +7512,7 @@ const deserializeAws_queryGetContextKeysForPrincipalPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -7566,7 +7566,7 @@ const deserializeAws_queryGetCredentialReportCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CredentialReportExpiredException":
+    case "ReportExpired":
     case "com.amazonaws.iam#CredentialReportExpiredException":
       response = {
         ...(await deserializeAws_queryCredentialReportExpiredExceptionResponse(parsedOutput, context)),
@@ -7574,15 +7574,7 @@ const deserializeAws_queryGetCredentialReportCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "CredentialReportNotPresentException":
-    case "com.amazonaws.iam#CredentialReportNotPresentException":
-      response = {
-        ...(await deserializeAws_queryCredentialReportNotPresentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CredentialReportNotReadyException":
+    case "ReportInProgress":
     case "com.amazonaws.iam#CredentialReportNotReadyException":
       response = {
         ...(await deserializeAws_queryCredentialReportNotReadyExceptionResponse(parsedOutput, context)),
@@ -7590,7 +7582,15 @@ const deserializeAws_queryGetCredentialReportCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ReportNotPresent":
+    case "com.amazonaws.iam#CredentialReportNotPresentException":
+      response = {
+        ...(await deserializeAws_queryCredentialReportNotPresentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -7644,7 +7644,7 @@ const deserializeAws_queryGetGroupCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -7652,7 +7652,7 @@ const deserializeAws_queryGetGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -7706,7 +7706,7 @@ const deserializeAws_queryGetGroupPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -7714,7 +7714,7 @@ const deserializeAws_queryGetGroupPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -7768,7 +7768,7 @@ const deserializeAws_queryGetInstanceProfileCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -7776,7 +7776,7 @@ const deserializeAws_queryGetInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -7830,7 +7830,7 @@ const deserializeAws_queryGetLoginProfileCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -7838,7 +7838,7 @@ const deserializeAws_queryGetLoginProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -7892,7 +7892,7 @@ const deserializeAws_queryGetOpenIDConnectProviderCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -7900,7 +7900,7 @@ const deserializeAws_queryGetOpenIDConnectProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -7908,7 +7908,7 @@ const deserializeAws_queryGetOpenIDConnectProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -7962,7 +7962,7 @@ const deserializeAws_queryGetOrganizationsAccessReportCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -8016,7 +8016,7 @@ const deserializeAws_queryGetPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -8024,7 +8024,7 @@ const deserializeAws_queryGetPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -8032,7 +8032,7 @@ const deserializeAws_queryGetPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -8086,7 +8086,7 @@ const deserializeAws_queryGetPolicyVersionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -8094,7 +8094,7 @@ const deserializeAws_queryGetPolicyVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -8102,7 +8102,7 @@ const deserializeAws_queryGetPolicyVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -8156,7 +8156,7 @@ const deserializeAws_queryGetRoleCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -8164,7 +8164,7 @@ const deserializeAws_queryGetRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -8218,7 +8218,7 @@ const deserializeAws_queryGetRolePolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -8226,7 +8226,7 @@ const deserializeAws_queryGetRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -8280,7 +8280,7 @@ const deserializeAws_queryGetSAMLProviderCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -8288,7 +8288,7 @@ const deserializeAws_queryGetSAMLProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -8296,7 +8296,7 @@ const deserializeAws_queryGetSAMLProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -8350,7 +8350,7 @@ const deserializeAws_queryGetServerCertificateCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -8358,7 +8358,7 @@ const deserializeAws_queryGetServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -8415,7 +8415,7 @@ const deserializeAws_queryGetServiceLastAccessedDetailsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -8423,7 +8423,7 @@ const deserializeAws_queryGetServiceLastAccessedDetailsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -8480,7 +8480,7 @@ const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommandError 
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -8488,7 +8488,7 @@ const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommandError 
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -8545,7 +8545,7 @@ const deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommandError = async
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -8553,7 +8553,7 @@ const deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommandError = async
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -8561,7 +8561,7 @@ const deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommandError = async
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -8615,7 +8615,7 @@ const deserializeAws_queryGetSSHPublicKeyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -8623,7 +8623,7 @@ const deserializeAws_queryGetSSHPublicKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "UnrecognizedPublicKeyEncodingException":
+    case "UnrecognizedPublicKeyEncoding":
     case "com.amazonaws.iam#UnrecognizedPublicKeyEncodingException":
       response = {
         ...(await deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse(parsedOutput, context)),
@@ -8677,7 +8677,7 @@ const deserializeAws_queryGetUserCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -8685,7 +8685,7 @@ const deserializeAws_queryGetUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -8739,7 +8739,7 @@ const deserializeAws_queryGetUserPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -8747,7 +8747,7 @@ const deserializeAws_queryGetUserPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -8801,7 +8801,7 @@ const deserializeAws_queryListAccessKeysCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -8809,7 +8809,7 @@ const deserializeAws_queryListAccessKeysCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -8863,7 +8863,7 @@ const deserializeAws_queryListAccountAliasesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -8917,7 +8917,7 @@ const deserializeAws_queryListAttachedGroupPoliciesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -8925,7 +8925,7 @@ const deserializeAws_queryListAttachedGroupPoliciesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -8933,7 +8933,7 @@ const deserializeAws_queryListAttachedGroupPoliciesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -8987,7 +8987,7 @@ const deserializeAws_queryListAttachedRolePoliciesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -8995,7 +8995,7 @@ const deserializeAws_queryListAttachedRolePoliciesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -9003,7 +9003,7 @@ const deserializeAws_queryListAttachedRolePoliciesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -9057,7 +9057,7 @@ const deserializeAws_queryListAttachedUserPoliciesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -9065,7 +9065,7 @@ const deserializeAws_queryListAttachedUserPoliciesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -9073,7 +9073,7 @@ const deserializeAws_queryListAttachedUserPoliciesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -9127,7 +9127,7 @@ const deserializeAws_queryListEntitiesForPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -9135,7 +9135,7 @@ const deserializeAws_queryListEntitiesForPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -9143,7 +9143,7 @@ const deserializeAws_queryListEntitiesForPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -9197,7 +9197,7 @@ const deserializeAws_queryListGroupPoliciesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -9205,7 +9205,7 @@ const deserializeAws_queryListGroupPoliciesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -9259,7 +9259,7 @@ const deserializeAws_queryListGroupsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -9313,7 +9313,7 @@ const deserializeAws_queryListGroupsForUserCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -9321,7 +9321,7 @@ const deserializeAws_queryListGroupsForUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -9375,7 +9375,7 @@ const deserializeAws_queryListInstanceProfilesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -9429,7 +9429,7 @@ const deserializeAws_queryListInstanceProfilesForRoleCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -9437,7 +9437,7 @@ const deserializeAws_queryListInstanceProfilesForRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -9491,7 +9491,7 @@ const deserializeAws_queryListInstanceProfileTagsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -9499,7 +9499,7 @@ const deserializeAws_queryListInstanceProfileTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -9553,7 +9553,7 @@ const deserializeAws_queryListMFADevicesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -9561,7 +9561,7 @@ const deserializeAws_queryListMFADevicesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -9615,7 +9615,7 @@ const deserializeAws_queryListMFADeviceTagsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -9623,7 +9623,7 @@ const deserializeAws_queryListMFADeviceTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -9631,7 +9631,7 @@ const deserializeAws_queryListMFADeviceTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -9685,7 +9685,7 @@ const deserializeAws_queryListOpenIDConnectProvidersCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -9742,7 +9742,7 @@ const deserializeAws_queryListOpenIDConnectProviderTagsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -9750,7 +9750,7 @@ const deserializeAws_queryListOpenIDConnectProviderTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -9758,7 +9758,7 @@ const deserializeAws_queryListOpenIDConnectProviderTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -9812,7 +9812,7 @@ const deserializeAws_queryListPoliciesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -9869,7 +9869,7 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessCommandError = async 
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -9877,7 +9877,7 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessCommandError = async 
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -9931,7 +9931,7 @@ const deserializeAws_queryListPolicyTagsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -9939,7 +9939,7 @@ const deserializeAws_queryListPolicyTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -9947,7 +9947,7 @@ const deserializeAws_queryListPolicyTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -10001,7 +10001,7 @@ const deserializeAws_queryListPolicyVersionsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -10009,7 +10009,7 @@ const deserializeAws_queryListPolicyVersionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -10017,7 +10017,7 @@ const deserializeAws_queryListPolicyVersionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -10071,7 +10071,7 @@ const deserializeAws_queryListRolePoliciesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -10079,7 +10079,7 @@ const deserializeAws_queryListRolePoliciesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -10133,7 +10133,7 @@ const deserializeAws_queryListRolesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -10187,7 +10187,7 @@ const deserializeAws_queryListRoleTagsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -10195,7 +10195,7 @@ const deserializeAws_queryListRoleTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -10249,7 +10249,7 @@ const deserializeAws_queryListSAMLProvidersCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -10303,7 +10303,7 @@ const deserializeAws_queryListSAMLProviderTagsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -10311,7 +10311,7 @@ const deserializeAws_queryListSAMLProviderTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -10319,7 +10319,7 @@ const deserializeAws_queryListSAMLProviderTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -10373,7 +10373,7 @@ const deserializeAws_queryListServerCertificatesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -10427,7 +10427,7 @@ const deserializeAws_queryListServerCertificateTagsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -10435,7 +10435,7 @@ const deserializeAws_queryListServerCertificateTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -10492,7 +10492,7 @@ const deserializeAws_queryListServiceSpecificCredentialsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -10500,7 +10500,7 @@ const deserializeAws_queryListServiceSpecificCredentialsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceNotSupportedException":
+    case "NotSupportedService":
     case "com.amazonaws.iam#ServiceNotSupportedException":
       response = {
         ...(await deserializeAws_queryServiceNotSupportedExceptionResponse(parsedOutput, context)),
@@ -10554,7 +10554,7 @@ const deserializeAws_queryListSigningCertificatesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -10562,7 +10562,7 @@ const deserializeAws_queryListSigningCertificatesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -10616,7 +10616,7 @@ const deserializeAws_queryListSSHPublicKeysCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -10670,7 +10670,7 @@ const deserializeAws_queryListUserPoliciesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -10678,7 +10678,7 @@ const deserializeAws_queryListUserPoliciesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -10732,7 +10732,7 @@ const deserializeAws_queryListUsersCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -10786,7 +10786,7 @@ const deserializeAws_queryListUserTagsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -10794,7 +10794,7 @@ const deserializeAws_queryListUserTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -10891,7 +10891,7 @@ const deserializeAws_queryPutGroupPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -10899,7 +10899,7 @@ const deserializeAws_queryPutGroupPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
@@ -10907,7 +10907,7 @@ const deserializeAws_queryPutGroupPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -10915,7 +10915,7 @@ const deserializeAws_queryPutGroupPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -10966,7 +10966,7 @@ const deserializeAws_queryPutRolePermissionsBoundaryCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -10974,7 +10974,7 @@ const deserializeAws_queryPutRolePermissionsBoundaryCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -10982,7 +10982,7 @@ const deserializeAws_queryPutRolePermissionsBoundaryCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "PolicyNotAttachableException":
+    case "PolicyNotAttachable":
     case "com.amazonaws.iam#PolicyNotAttachableException":
       response = {
         ...(await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context)),
@@ -10990,7 +10990,7 @@ const deserializeAws_queryPutRolePermissionsBoundaryCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -10998,7 +10998,7 @@ const deserializeAws_queryPutRolePermissionsBoundaryCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       response = {
         ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
@@ -11049,7 +11049,7 @@ const deserializeAws_queryPutRolePolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -11057,7 +11057,7 @@ const deserializeAws_queryPutRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
@@ -11065,7 +11065,7 @@ const deserializeAws_queryPutRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -11073,7 +11073,7 @@ const deserializeAws_queryPutRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -11081,7 +11081,7 @@ const deserializeAws_queryPutRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       response = {
         ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
@@ -11132,7 +11132,7 @@ const deserializeAws_queryPutUserPermissionsBoundaryCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -11140,7 +11140,7 @@ const deserializeAws_queryPutUserPermissionsBoundaryCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -11148,7 +11148,7 @@ const deserializeAws_queryPutUserPermissionsBoundaryCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "PolicyNotAttachableException":
+    case "PolicyNotAttachable":
     case "com.amazonaws.iam#PolicyNotAttachableException":
       response = {
         ...(await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context)),
@@ -11156,7 +11156,7 @@ const deserializeAws_queryPutUserPermissionsBoundaryCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -11207,7 +11207,7 @@ const deserializeAws_queryPutUserPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -11215,7 +11215,7 @@ const deserializeAws_queryPutUserPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
@@ -11223,7 +11223,7 @@ const deserializeAws_queryPutUserPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -11231,7 +11231,7 @@ const deserializeAws_queryPutUserPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -11282,7 +11282,7 @@ const deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommandError = 
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -11290,7 +11290,7 @@ const deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommandError = 
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -11298,7 +11298,7 @@ const deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommandError = 
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -11349,7 +11349,7 @@ const deserializeAws_queryRemoveRoleFromInstanceProfileCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -11357,7 +11357,7 @@ const deserializeAws_queryRemoveRoleFromInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -11365,7 +11365,7 @@ const deserializeAws_queryRemoveRoleFromInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -11373,7 +11373,7 @@ const deserializeAws_queryRemoveRoleFromInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       response = {
         ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
@@ -11424,7 +11424,7 @@ const deserializeAws_queryRemoveUserFromGroupCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -11432,7 +11432,7 @@ const deserializeAws_queryRemoveUserFromGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -11440,7 +11440,7 @@ const deserializeAws_queryRemoveUserFromGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -11497,7 +11497,7 @@ const deserializeAws_queryResetServiceSpecificCredentialCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -11548,7 +11548,7 @@ const deserializeAws_queryResyncMFADeviceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidAuthenticationCodeException":
+    case "InvalidAuthenticationCode":
     case "com.amazonaws.iam#InvalidAuthenticationCodeException":
       response = {
         ...(await deserializeAws_queryInvalidAuthenticationCodeExceptionResponse(parsedOutput, context)),
@@ -11556,7 +11556,7 @@ const deserializeAws_queryResyncMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -11564,7 +11564,7 @@ const deserializeAws_queryResyncMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -11572,7 +11572,7 @@ const deserializeAws_queryResyncMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -11623,7 +11623,7 @@ const deserializeAws_querySetDefaultPolicyVersionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -11631,7 +11631,7 @@ const deserializeAws_querySetDefaultPolicyVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -11639,7 +11639,7 @@ const deserializeAws_querySetDefaultPolicyVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -11647,7 +11647,7 @@ const deserializeAws_querySetDefaultPolicyVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -11698,7 +11698,7 @@ const deserializeAws_querySetSecurityTokenServicePreferencesCommandError = async
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -11752,7 +11752,7 @@ const deserializeAws_querySimulateCustomPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -11760,7 +11760,7 @@ const deserializeAws_querySimulateCustomPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "PolicyEvaluationException":
+    case "PolicyEvaluation":
     case "com.amazonaws.iam#PolicyEvaluationException":
       response = {
         ...(await deserializeAws_queryPolicyEvaluationExceptionResponse(parsedOutput, context)),
@@ -11814,7 +11814,7 @@ const deserializeAws_querySimulatePrincipalPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -11822,7 +11822,7 @@ const deserializeAws_querySimulatePrincipalPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -11830,7 +11830,7 @@ const deserializeAws_querySimulatePrincipalPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "PolicyEvaluationException":
+    case "PolicyEvaluation":
     case "com.amazonaws.iam#PolicyEvaluationException":
       response = {
         ...(await deserializeAws_queryPolicyEvaluationExceptionResponse(parsedOutput, context)),
@@ -11881,7 +11881,7 @@ const deserializeAws_queryTagInstanceProfileCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -11889,7 +11889,7 @@ const deserializeAws_queryTagInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -11897,7 +11897,7 @@ const deserializeAws_queryTagInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -11905,7 +11905,7 @@ const deserializeAws_queryTagInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -11913,7 +11913,7 @@ const deserializeAws_queryTagInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -11964,7 +11964,7 @@ const deserializeAws_queryTagMFADeviceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -11972,7 +11972,7 @@ const deserializeAws_queryTagMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -11980,7 +11980,7 @@ const deserializeAws_queryTagMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -11988,7 +11988,7 @@ const deserializeAws_queryTagMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -11996,7 +11996,7 @@ const deserializeAws_queryTagMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -12047,7 +12047,7 @@ const deserializeAws_queryTagOpenIDConnectProviderCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -12055,7 +12055,7 @@ const deserializeAws_queryTagOpenIDConnectProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -12063,7 +12063,7 @@ const deserializeAws_queryTagOpenIDConnectProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -12071,7 +12071,7 @@ const deserializeAws_queryTagOpenIDConnectProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -12079,7 +12079,7 @@ const deserializeAws_queryTagOpenIDConnectProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -12130,7 +12130,7 @@ const deserializeAws_queryTagPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -12138,7 +12138,7 @@ const deserializeAws_queryTagPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -12146,7 +12146,7 @@ const deserializeAws_queryTagPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -12154,7 +12154,7 @@ const deserializeAws_queryTagPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -12162,7 +12162,7 @@ const deserializeAws_queryTagPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -12213,7 +12213,7 @@ const deserializeAws_queryTagRoleCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -12221,7 +12221,7 @@ const deserializeAws_queryTagRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -12229,7 +12229,7 @@ const deserializeAws_queryTagRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -12237,7 +12237,7 @@ const deserializeAws_queryTagRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -12245,7 +12245,7 @@ const deserializeAws_queryTagRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -12296,7 +12296,7 @@ const deserializeAws_queryTagSAMLProviderCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -12304,7 +12304,7 @@ const deserializeAws_queryTagSAMLProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -12312,7 +12312,7 @@ const deserializeAws_queryTagSAMLProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -12320,7 +12320,7 @@ const deserializeAws_queryTagSAMLProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -12328,7 +12328,7 @@ const deserializeAws_queryTagSAMLProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -12379,7 +12379,7 @@ const deserializeAws_queryTagServerCertificateCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -12387,7 +12387,7 @@ const deserializeAws_queryTagServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -12395,7 +12395,7 @@ const deserializeAws_queryTagServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -12403,7 +12403,7 @@ const deserializeAws_queryTagServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -12411,7 +12411,7 @@ const deserializeAws_queryTagServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -12462,7 +12462,7 @@ const deserializeAws_queryTagUserCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -12470,7 +12470,7 @@ const deserializeAws_queryTagUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -12478,7 +12478,7 @@ const deserializeAws_queryTagUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -12486,7 +12486,7 @@ const deserializeAws_queryTagUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -12494,7 +12494,7 @@ const deserializeAws_queryTagUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -12545,7 +12545,7 @@ const deserializeAws_queryUntagInstanceProfileCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -12553,7 +12553,7 @@ const deserializeAws_queryUntagInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -12561,7 +12561,7 @@ const deserializeAws_queryUntagInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -12569,7 +12569,7 @@ const deserializeAws_queryUntagInstanceProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -12620,7 +12620,7 @@ const deserializeAws_queryUntagMFADeviceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -12628,7 +12628,7 @@ const deserializeAws_queryUntagMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -12636,7 +12636,7 @@ const deserializeAws_queryUntagMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -12644,7 +12644,7 @@ const deserializeAws_queryUntagMFADeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -12695,7 +12695,7 @@ const deserializeAws_queryUntagOpenIDConnectProviderCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -12703,7 +12703,7 @@ const deserializeAws_queryUntagOpenIDConnectProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -12711,7 +12711,7 @@ const deserializeAws_queryUntagOpenIDConnectProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -12719,7 +12719,7 @@ const deserializeAws_queryUntagOpenIDConnectProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -12770,7 +12770,7 @@ const deserializeAws_queryUntagPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -12778,7 +12778,7 @@ const deserializeAws_queryUntagPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -12786,7 +12786,7 @@ const deserializeAws_queryUntagPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -12794,7 +12794,7 @@ const deserializeAws_queryUntagPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -12845,7 +12845,7 @@ const deserializeAws_queryUntagRoleCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -12853,7 +12853,7 @@ const deserializeAws_queryUntagRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -12861,7 +12861,7 @@ const deserializeAws_queryUntagRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -12912,7 +12912,7 @@ const deserializeAws_queryUntagSAMLProviderCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -12920,7 +12920,7 @@ const deserializeAws_queryUntagSAMLProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -12928,7 +12928,7 @@ const deserializeAws_queryUntagSAMLProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -12936,7 +12936,7 @@ const deserializeAws_queryUntagSAMLProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -12987,7 +12987,7 @@ const deserializeAws_queryUntagServerCertificateCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -12995,7 +12995,7 @@ const deserializeAws_queryUntagServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -13003,7 +13003,7 @@ const deserializeAws_queryUntagServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -13011,7 +13011,7 @@ const deserializeAws_queryUntagServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -13062,7 +13062,7 @@ const deserializeAws_queryUntagUserCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -13070,7 +13070,7 @@ const deserializeAws_queryUntagUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -13078,7 +13078,7 @@ const deserializeAws_queryUntagUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -13129,7 +13129,7 @@ const deserializeAws_queryUpdateAccessKeyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -13137,7 +13137,7 @@ const deserializeAws_queryUpdateAccessKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -13145,7 +13145,7 @@ const deserializeAws_queryUpdateAccessKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -13196,7 +13196,7 @@ const deserializeAws_queryUpdateAccountPasswordPolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -13204,7 +13204,7 @@ const deserializeAws_queryUpdateAccountPasswordPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
@@ -13212,7 +13212,7 @@ const deserializeAws_queryUpdateAccountPasswordPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -13220,7 +13220,7 @@ const deserializeAws_queryUpdateAccountPasswordPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -13271,7 +13271,7 @@ const deserializeAws_queryUpdateAssumeRolePolicyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -13279,7 +13279,7 @@ const deserializeAws_queryUpdateAssumeRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
@@ -13287,7 +13287,7 @@ const deserializeAws_queryUpdateAssumeRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -13295,7 +13295,7 @@ const deserializeAws_queryUpdateAssumeRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -13303,7 +13303,7 @@ const deserializeAws_queryUpdateAssumeRolePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       response = {
         ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
@@ -13354,7 +13354,7 @@ const deserializeAws_queryUpdateGroupCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -13362,7 +13362,7 @@ const deserializeAws_queryUpdateGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -13370,7 +13370,7 @@ const deserializeAws_queryUpdateGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -13378,7 +13378,7 @@ const deserializeAws_queryUpdateGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -13429,7 +13429,7 @@ const deserializeAws_queryUpdateLoginProfileCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityTemporarilyUnmodifiableException":
+    case "EntityTemporarilyUnmodifiable":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
       response = {
         ...(await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context)),
@@ -13437,7 +13437,7 @@ const deserializeAws_queryUpdateLoginProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -13445,7 +13445,7 @@ const deserializeAws_queryUpdateLoginProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -13453,7 +13453,7 @@ const deserializeAws_queryUpdateLoginProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "PasswordPolicyViolationException":
+    case "PasswordPolicyViolation":
     case "com.amazonaws.iam#PasswordPolicyViolationException":
       response = {
         ...(await deserializeAws_queryPasswordPolicyViolationExceptionResponse(parsedOutput, context)),
@@ -13461,7 +13461,7 @@ const deserializeAws_queryUpdateLoginProfileCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -13512,7 +13512,7 @@ const deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommandError = as
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -13520,7 +13520,7 @@ const deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommandError = as
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -13528,7 +13528,7 @@ const deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommandError = as
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -13582,7 +13582,7 @@ const deserializeAws_queryUpdateRoleCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -13590,7 +13590,7 @@ const deserializeAws_queryUpdateRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -13598,7 +13598,7 @@ const deserializeAws_queryUpdateRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       response = {
         ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
@@ -13652,7 +13652,7 @@ const deserializeAws_queryUpdateRoleDescriptionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -13660,7 +13660,7 @@ const deserializeAws_queryUpdateRoleDescriptionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -13668,7 +13668,7 @@ const deserializeAws_queryUpdateRoleDescriptionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "UnmodifiableEntityException":
+    case "UnmodifiableEntity":
     case "com.amazonaws.iam#UnmodifiableEntityException":
       response = {
         ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
@@ -13722,7 +13722,7 @@ const deserializeAws_queryUpdateSAMLProviderCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -13730,7 +13730,7 @@ const deserializeAws_queryUpdateSAMLProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -13738,7 +13738,7 @@ const deserializeAws_queryUpdateSAMLProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -13746,7 +13746,7 @@ const deserializeAws_queryUpdateSAMLProviderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -13797,7 +13797,7 @@ const deserializeAws_queryUpdateServerCertificateCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -13805,7 +13805,7 @@ const deserializeAws_queryUpdateServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -13813,7 +13813,7 @@ const deserializeAws_queryUpdateServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -13821,7 +13821,7 @@ const deserializeAws_queryUpdateServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -13872,7 +13872,7 @@ const deserializeAws_queryUpdateServiceSpecificCredentialCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -13923,7 +13923,7 @@ const deserializeAws_queryUpdateSigningCertificateCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -13931,7 +13931,7 @@ const deserializeAws_queryUpdateSigningCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -13939,7 +13939,7 @@ const deserializeAws_queryUpdateSigningCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -13990,7 +13990,7 @@ const deserializeAws_queryUpdateSSHPublicKeyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -14041,7 +14041,7 @@ const deserializeAws_queryUpdateUserCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -14049,7 +14049,7 @@ const deserializeAws_queryUpdateUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -14057,7 +14057,7 @@ const deserializeAws_queryUpdateUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "EntityTemporarilyUnmodifiableException":
+    case "EntityTemporarilyUnmodifiable":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
       response = {
         ...(await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context)),
@@ -14065,7 +14065,7 @@ const deserializeAws_queryUpdateUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -14073,7 +14073,7 @@ const deserializeAws_queryUpdateUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -14081,7 +14081,7 @@ const deserializeAws_queryUpdateUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -14135,7 +14135,7 @@ const deserializeAws_queryUploadServerCertificateCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
+    case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
@@ -14143,7 +14143,7 @@ const deserializeAws_queryUploadServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -14151,7 +14151,7 @@ const deserializeAws_queryUploadServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidInputException":
+    case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       response = {
         ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
@@ -14159,7 +14159,7 @@ const deserializeAws_queryUploadServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "KeyPairMismatchException":
+    case "KeyPairMismatch":
     case "com.amazonaws.iam#KeyPairMismatchException":
       response = {
         ...(await deserializeAws_queryKeyPairMismatchExceptionResponse(parsedOutput, context)),
@@ -14167,7 +14167,7 @@ const deserializeAws_queryUploadServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -14175,7 +14175,7 @@ const deserializeAws_queryUploadServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "MalformedCertificateException":
+    case "MalformedCertificate":
     case "com.amazonaws.iam#MalformedCertificateException":
       response = {
         ...(await deserializeAws_queryMalformedCertificateExceptionResponse(parsedOutput, context)),
@@ -14183,7 +14183,7 @@ const deserializeAws_queryUploadServerCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -14237,7 +14237,7 @@ const deserializeAws_queryUploadSigningCertificateCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DuplicateCertificateException":
+    case "DuplicateCertificate":
     case "com.amazonaws.iam#DuplicateCertificateException":
       response = {
         ...(await deserializeAws_queryDuplicateCertificateExceptionResponse(parsedOutput, context)),
@@ -14245,7 +14245,7 @@ const deserializeAws_queryUploadSigningCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "EntityAlreadyExistsException":
+    case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -14253,7 +14253,7 @@ const deserializeAws_queryUploadSigningCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidCertificateException":
+    case "InvalidCertificate":
     case "com.amazonaws.iam#InvalidCertificateException":
       response = {
         ...(await deserializeAws_queryInvalidCertificateExceptionResponse(parsedOutput, context)),
@@ -14261,7 +14261,7 @@ const deserializeAws_queryUploadSigningCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -14269,7 +14269,7 @@ const deserializeAws_queryUploadSigningCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "MalformedCertificateException":
+    case "MalformedCertificate":
     case "com.amazonaws.iam#MalformedCertificateException":
       response = {
         ...(await deserializeAws_queryMalformedCertificateExceptionResponse(parsedOutput, context)),
@@ -14277,7 +14277,7 @@ const deserializeAws_queryUploadSigningCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -14285,7 +14285,7 @@ const deserializeAws_queryUploadSigningCertificateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ServiceFailureException":
+    case "ServiceFailure":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
         ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
@@ -14339,7 +14339,7 @@ const deserializeAws_queryUploadSSHPublicKeyCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DuplicateSSHPublicKeyException":
+    case "DuplicateSSHPublicKey":
     case "com.amazonaws.iam#DuplicateSSHPublicKeyException":
       response = {
         ...(await deserializeAws_queryDuplicateSSHPublicKeyExceptionResponse(parsedOutput, context)),
@@ -14347,7 +14347,7 @@ const deserializeAws_queryUploadSSHPublicKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidPublicKeyException":
+    case "InvalidPublicKey":
     case "com.amazonaws.iam#InvalidPublicKeyException":
       response = {
         ...(await deserializeAws_queryInvalidPublicKeyExceptionResponse(parsedOutput, context)),
@@ -14355,7 +14355,7 @@ const deserializeAws_queryUploadSSHPublicKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
+    case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -14363,7 +14363,7 @@ const deserializeAws_queryUploadSSHPublicKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoSuchEntityException":
+    case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
@@ -14371,7 +14371,7 @@ const deserializeAws_queryUploadSSHPublicKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "UnrecognizedPublicKeyEncodingException":
+    case "UnrecognizedPublicKeyEncoding":
     case "com.amazonaws.iam#UnrecognizedPublicKeyEncodingException":
       response = {
         ...(await deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse(parsedOutput, context)),

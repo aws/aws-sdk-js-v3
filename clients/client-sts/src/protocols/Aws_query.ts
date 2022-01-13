@@ -229,7 +229,7 @@ const deserializeAws_queryAssumeRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
@@ -237,7 +237,7 @@ const deserializeAws_queryAssumeRoleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "PackedPolicyTooLargeException":
+    case "PackedPolicyTooLarge":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
       response = {
         ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context)),
@@ -307,7 +307,7 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "IDPRejectedClaimException":
+    case "IDPRejectedClaim":
     case "com.amazonaws.sts#IDPRejectedClaimException":
       response = {
         ...(await deserializeAws_queryIDPRejectedClaimExceptionResponse(parsedOutput, context)),
@@ -315,7 +315,7 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidIdentityTokenException":
+    case "InvalidIdentityToken":
     case "com.amazonaws.sts#InvalidIdentityTokenException":
       response = {
         ...(await deserializeAws_queryInvalidIdentityTokenExceptionResponse(parsedOutput, context)),
@@ -323,7 +323,7 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
@@ -331,7 +331,7 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "PackedPolicyTooLargeException":
+    case "PackedPolicyTooLarge":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
       response = {
         ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context)),
@@ -401,7 +401,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "IDPCommunicationErrorException":
+    case "IDPCommunicationError":
     case "com.amazonaws.sts#IDPCommunicationErrorException":
       response = {
         ...(await deserializeAws_queryIDPCommunicationErrorExceptionResponse(parsedOutput, context)),
@@ -409,7 +409,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "IDPRejectedClaimException":
+    case "IDPRejectedClaim":
     case "com.amazonaws.sts#IDPRejectedClaimException":
       response = {
         ...(await deserializeAws_queryIDPRejectedClaimExceptionResponse(parsedOutput, context)),
@@ -417,7 +417,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidIdentityTokenException":
+    case "InvalidIdentityToken":
     case "com.amazonaws.sts#InvalidIdentityTokenException":
       response = {
         ...(await deserializeAws_queryInvalidIdentityTokenExceptionResponse(parsedOutput, context)),
@@ -425,7 +425,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
@@ -433,7 +433,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "PackedPolicyTooLargeException":
+    case "PackedPolicyTooLarge":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
       response = {
         ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context)),
@@ -641,7 +641,7 @@ const deserializeAws_queryGetFederationTokenCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "MalformedPolicyDocumentException":
+    case "MalformedPolicyDocument":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
       response = {
         ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
@@ -649,7 +649,7 @@ const deserializeAws_queryGetFederationTokenCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "PackedPolicyTooLargeException":
+    case "PackedPolicyTooLarge":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
       response = {
         ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context)),
