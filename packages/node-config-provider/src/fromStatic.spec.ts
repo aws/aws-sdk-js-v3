@@ -20,4 +20,11 @@ describe("fromStatic", () => {
     expect(await config()).toBe(value);
     expect(getter).toHaveBeenCalled();
   });
+
+  it("should call the async provider function", async () => {
+    const getter = jest.fn().mockResolvedValue(value);
+    const config = fromStatic(getter);
+    expect(await config()).toBe(value);
+    expect(getter).toHaveBeenCalled();
+  });
 });

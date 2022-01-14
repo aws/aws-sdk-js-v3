@@ -1,6 +1,6 @@
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
-import { HttpHandlerOptions } from "@aws-sdk/types";
+import { HttpHandlerOptions, Provider } from "@aws-sdk/types";
 import { Agent as hAgent, request as hRequest } from "http";
 import { Agent as hsAgent, request as hsRequest, RequestOptions } from "https";
 
@@ -30,30 +30,56 @@ export interface NodeHttpHandlerOptions {
   httpsAgent?: hsAgent;
 }
 
+interface ResolvedNodeHttpHandlerConfig {
+  connectionTimeout?: number;
+  socketTimeout?: number;
+  httpAgent: hAgent;
+  httpsAgent: hsAgent;
+}
+
 export class NodeHttpHandler implements HttpHandler {
-  private readonly httpAgent: hAgent;
-  private readonly httpsAgent: hsAgent;
-  private readonly connectionTimeout?: number;
-  private readonly socketTimeout?: number;
+  private config?: ResolvedNodeHttpHandlerConfig;
+  private readonly configProvider?: Provider<ResolvedNodeHttpHandlerConfig>;
   // Node http handler is hard-coded to http/1.1: https://github.com/nodejs/node/blob/ff5664b83b89c55e4ab5d5f60068fb457f1f5872/lib/_http_server.js#L286
   public readonly metadata = { handlerProtocol: "http/1.1" };
 
-  constructor({ connectionTimeout, socketTimeout, httpAgent, httpsAgent }: NodeHttpHandlerOptions = {}) {
-    this.connectionTimeout = connectionTimeout;
-    this.socketTimeout = socketTimeout;
+  constructor(options?: NodeHttpHandlerOptions | Provider<NodeHttpHandlerOptions | void>) {
+    if (typeof options === "function") {
+      this.configProvider = async () => {
+        return this.resolveDefaultConfig(await options());
+      };
+    } else {
+      this.config = this.resolveDefaultConfig(options);
+    }
+  }
+
+  private resolveDefaultConfig(options?: NodeHttpHandlerOptions | void): ResolvedNodeHttpHandlerConfig {
+    const { connectionTimeout, socketTimeout, httpAgent, httpsAgent } = options || {};
     const keepAlive = true;
     const maxSockets = 50;
-    this.httpAgent = httpAgent || new hAgent({ keepAlive, maxSockets });
-    this.httpsAgent = httpsAgent || new hsAgent({ keepAlive, maxSockets });
+    return {
+      connectionTimeout,
+      socketTimeout,
+      httpAgent: httpAgent || new hAgent({ keepAlive, maxSockets }),
+      httpsAgent: httpsAgent || new hsAgent({ keepAlive, maxSockets }),
+    };
   }
 
   destroy(): void {
-    this.httpAgent.destroy();
-    this.httpsAgent.destroy();
+    this.config?.httpAgent?.destroy();
+    this.config?.httpsAgent?.destroy();
   }
 
-  handle(request: HttpRequest, { abortSignal }: HttpHandlerOptions = {}): Promise<{ response: HttpResponse }> {
+  async handle(request: HttpRequest, { abortSignal }: HttpHandlerOptions = {}): Promise<{ response: HttpResponse }> {
+    if (!this.config && this.configProvider) {
+      // TODO: make resolving provide only resolve once at concurrent execution
+      this.config = await this.configProvider();
+    }
     return new Promise((resolve, reject) => {
+      if (!this.config) {
+        throw new Error("Node HTTP request handler config is not resolved");
+      }
+
       // if the request was already aborted, prevent doing extra work
       if (abortSignal?.aborted) {
         const abortError = new Error("Request aborted");
@@ -71,7 +97,7 @@ export class NodeHttpHandler implements HttpHandler {
         method: request.method,
         path: queryString ? `${request.path}?${queryString}` : request.path,
         port: request.port,
-        agent: isSSL ? this.httpsAgent : this.httpAgent,
+        agent: isSSL ? this.config.httpsAgent : this.config.httpAgent,
       };
 
       // create the http request
@@ -94,8 +120,8 @@ export class NodeHttpHandler implements HttpHandler {
       });
 
       // wire-up any timeout logic
-      setConnectionTimeout(req, reject, this.connectionTimeout);
-      setSocketTimeout(req, reject, this.socketTimeout);
+      setConnectionTimeout(req, reject, this.config.connectionTimeout);
+      setSocketTimeout(req, reject, this.config.socketTimeout);
 
       // wire-up abort logic
       if (abortSignal) {

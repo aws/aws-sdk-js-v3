@@ -35,6 +35,7 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
+  DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
@@ -392,6 +393,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * @internal
    */
   endpointDiscoveryEnabledProvider?: __Provider<boolean | undefined>;
+
+  /**
+   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
 }
 
 type DynamoDBClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &

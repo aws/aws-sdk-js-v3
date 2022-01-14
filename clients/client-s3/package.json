@@ -57,6 +57,8 @@
     "@aws-sdk/util-base64-node": "3.46.0",
     "@aws-sdk/util-body-length-browser": "3.46.0",
     "@aws-sdk/util-body-length-node": "3.46.0",
+    "@aws-sdk/util-defaults-mode-browser": "3.0.0",
+    "@aws-sdk/util-defaults-mode-node": "3.0.0",
     "@aws-sdk/util-user-agent-browser": "3.46.0",
     "@aws-sdk/util-user-agent-node": "3.46.0",
     "@aws-sdk/util-utf8-browser": "3.46.0",
