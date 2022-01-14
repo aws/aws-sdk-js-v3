@@ -4,7 +4,7 @@
  * @returns
  */
 export const isReservedWord = (word: string): boolean => {
-  return reservedWords.indexOf(word) > -1;
+  return reservedWords.indexOf(word.toUpperCase()) > -1;
 };
 
 /**
