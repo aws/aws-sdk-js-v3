@@ -877,7 +877,7 @@ const deserializeAws_queryGreetingWithErrorsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "Customized":
+    case "CustomCodeError":
     case "aws.protocoltests.query#CustomCodeError":
       response = {
         ...(await deserializeAws_queryCustomCodeErrorResponse(parsedOutput, context)),

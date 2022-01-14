@@ -15,11 +15,7 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
-import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
-import java.util.TreeMap;
-import software.amazon.smithy.aws.traits.protocols.AwsQueryErrorTrait;
 import software.amazon.smithy.aws.traits.protocols.AwsQueryTrait;
 import software.amazon.smithy.codegen.core.SymbolReference;
 import software.amazon.smithy.model.shapes.OperationShape;
@@ -176,24 +172,5 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
     @Override
     public void generateProtocolTests(GenerationContext context) {
         AwsProtocolUtils.generateProtocolTests(this, context);
-    }
-
-    @Override
-    public Map<String, ShapeId> getOperationErrors(GenerationContext context, OperationShape operation) {
-        Map<String, ShapeId> errors = new TreeMap<>();
-
-        operation.getErrors().forEach(shapeId -> {
-            Shape errorShape = context.getModel().expectShape(shapeId);
-            String errorName = shapeId.getName(context.getService());
-
-            Optional<AwsQueryErrorTrait> errorShapeTrait = errorShape.getTrait(AwsQueryErrorTrait.class);
-            if (errorShapeTrait.isPresent()) {
-                errors.put(errorShapeTrait.get().getCode(), shapeId);
-            } else {
-                errors.put(errorName, shapeId);
-            }
-        });
-
-        return errors;
     }
 }

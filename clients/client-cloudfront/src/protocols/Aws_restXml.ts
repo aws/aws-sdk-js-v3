@@ -4679,18 +4679,18 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidTTLOrder":
-    case "com.amazonaws.cloudfront#InvalidTTLOrder":
-      response = {
-        ...(await deserializeAws_restXmlInvalidTTLOrderResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "InvalidTagging":
     case "com.amazonaws.cloudfront#InvalidTagging":
       response = {
         ...(await deserializeAws_restXmlInvalidTaggingResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidTTLOrder":
+    case "com.amazonaws.cloudfront#InvalidTTLOrder":
+      response = {
+        ...(await deserializeAws_restXmlInvalidTTLOrderResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

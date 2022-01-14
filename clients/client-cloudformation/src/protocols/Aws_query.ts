@@ -2049,7 +2049,7 @@ const deserializeAws_queryDeleteChangeSetCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidChangeSetStatus":
+    case "InvalidChangeSetStatusException":
     case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
       response = {
         ...(await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(parsedOutput, context)),
@@ -2410,7 +2410,7 @@ const deserializeAws_queryDescribeChangeSetCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ChangeSetNotFound":
+    case "ChangeSetNotFoundException":
     case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
       response = {
         ...(await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context)),
@@ -3299,7 +3299,7 @@ const deserializeAws_queryExecuteChangeSetCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ChangeSetNotFound":
+    case "ChangeSetNotFoundException":
     case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
       response = {
         ...(await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context)),
@@ -3315,7 +3315,7 @@ const deserializeAws_queryExecuteChangeSetCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidChangeSetStatus":
+    case "InvalidChangeSetStatusException":
     case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
       response = {
         ...(await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(parsedOutput, context)),
@@ -3423,7 +3423,7 @@ const deserializeAws_queryGetTemplateCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ChangeSetNotFound":
+    case "ChangeSetNotFoundException":
     case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
       response = {
         ...(await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context)),
@@ -4303,18 +4303,18 @@ const deserializeAws_queryRecordHandlerProgressCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConditionalCheckFailed":
-    case "com.amazonaws.cloudformation#OperationStatusCheckFailedException":
+    case "InvalidStateTransitionException":
+    case "com.amazonaws.cloudformation#InvalidStateTransitionException":
       response = {
-        ...(await deserializeAws_queryOperationStatusCheckFailedExceptionResponse(parsedOutput, context)),
+        ...(await deserializeAws_queryInvalidStateTransitionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidStateTransition":
-    case "com.amazonaws.cloudformation#InvalidStateTransitionException":
+    case "OperationStatusCheckFailedException":
+    case "com.amazonaws.cloudformation#OperationStatusCheckFailedException":
       response = {
-        ...(await deserializeAws_queryInvalidStateTransitionExceptionResponse(parsedOutput, context)),
+        ...(await deserializeAws_queryOperationStatusCheckFailedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
