@@ -2366,18 +2366,18 @@ const deserializeAws_json1_1AdminCreateUserCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "UsernameExistsException":
     case "com.amazonaws.cognitoidentityprovider#UsernameExistsException":
       response = {
         ...(await deserializeAws_json1_1UsernameExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserNotFoundException":
+    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5233,6 +5233,14 @@ const deserializeAws_json1_1ConfirmDeviceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UsernameExistsException":
+    case "com.amazonaws.cognitoidentityprovider#UsernameExistsException":
+      response = {
+        ...(await deserializeAws_json1_1UsernameExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
       response = {
@@ -5245,14 +5253,6 @@ const deserializeAws_json1_1ConfirmDeviceCommandError = async (
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
       response = {
         ...(await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UsernameExistsException":
-    case "com.amazonaws.cognitoidentityprovider#UsernameExistsException":
-      response = {
-        ...(await deserializeAws_json1_1UsernameExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

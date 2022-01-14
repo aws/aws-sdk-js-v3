@@ -640,7 +640,7 @@ const deserializeAws_queryBuildSuggestersCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -718,7 +718,7 @@ const deserializeAws_queryCreateDomainCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceeded":
+    case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -726,7 +726,7 @@ const deserializeAws_queryCreateDomainCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceAlreadyExists":
+    case "ResourceAlreadyExistsException":
     case "com.amazonaws.cloudsearch#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
@@ -804,7 +804,7 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidType":
+    case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
@@ -812,7 +812,7 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceeded":
+    case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -820,7 +820,7 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -898,7 +898,7 @@ const deserializeAws_queryDefineExpressionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidType":
+    case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
@@ -906,7 +906,7 @@ const deserializeAws_queryDefineExpressionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceeded":
+    case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -914,7 +914,7 @@ const deserializeAws_queryDefineExpressionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -992,7 +992,7 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidType":
+    case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
@@ -1000,7 +1000,7 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceeded":
+    case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -1008,7 +1008,7 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -1086,7 +1086,7 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidType":
+    case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
@@ -1094,7 +1094,7 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceeded":
+    case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -1102,7 +1102,7 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -1180,7 +1180,7 @@ const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidType":
+    case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
@@ -1188,7 +1188,7 @@ const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -1328,7 +1328,7 @@ const deserializeAws_queryDeleteExpressionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidType":
+    case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
@@ -1336,7 +1336,7 @@ const deserializeAws_queryDeleteExpressionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -1414,7 +1414,7 @@ const deserializeAws_queryDeleteIndexFieldCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidType":
+    case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
@@ -1422,7 +1422,7 @@ const deserializeAws_queryDeleteIndexFieldCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -1500,7 +1500,7 @@ const deserializeAws_queryDeleteSuggesterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidType":
+    case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
@@ -1508,7 +1508,7 @@ const deserializeAws_queryDeleteSuggesterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -1586,7 +1586,7 @@ const deserializeAws_queryDescribeAnalysisSchemesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -1648,7 +1648,7 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DisabledAction":
+    case "DisabledOperationException":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
       response = {
         ...(await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context)),
@@ -1664,7 +1664,7 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidType":
+    case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
@@ -1672,7 +1672,7 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceeded":
+    case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -1680,7 +1680,7 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -1745,7 +1745,7 @@ const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DisabledAction":
+    case "DisabledOperationException":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
       response = {
         ...(await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context)),
@@ -1761,7 +1761,7 @@ const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceeded":
+    case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -1769,7 +1769,7 @@ const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -1901,7 +1901,7 @@ const deserializeAws_queryDescribeExpressionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -1971,7 +1971,7 @@ const deserializeAws_queryDescribeIndexFieldsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -2041,7 +2041,7 @@ const deserializeAws_queryDescribeScalingParametersCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -2114,7 +2114,7 @@ const deserializeAws_queryDescribeServiceAccessPoliciesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -2184,7 +2184,7 @@ const deserializeAws_queryDescribeSuggestersCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -2254,7 +2254,7 @@ const deserializeAws_queryIndexDocumentsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -2378,7 +2378,7 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DisabledAction":
+    case "DisabledOperationException":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
       response = {
         ...(await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context)),
@@ -2394,7 +2394,7 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidType":
+    case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
@@ -2402,7 +2402,7 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceeded":
+    case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -2410,7 +2410,7 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -2480,7 +2480,7 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "DisabledAction":
+    case "DisabledOperationException":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
       response = {
         ...(await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context)),
@@ -2496,7 +2496,7 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidType":
+    case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
@@ -2504,7 +2504,7 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceeded":
+    case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -2512,7 +2512,7 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -2590,7 +2590,7 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidType":
+    case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
@@ -2598,7 +2598,7 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceeded":
+    case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -2606,7 +2606,7 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
@@ -2684,7 +2684,7 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidType":
+    case "InvalidTypeException":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
       response = {
         ...(await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context)),
@@ -2692,7 +2692,7 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceeded":
+    case "LimitExceededException":
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
@@ -2700,7 +2700,7 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceNotFound":
+    case "ResourceNotFoundException":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),

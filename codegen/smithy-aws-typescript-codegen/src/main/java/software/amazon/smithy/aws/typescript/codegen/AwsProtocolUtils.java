@@ -294,7 +294,7 @@ final class AwsProtocolUtils {
             HttpMessageTestCase testCase,
             TypeScriptSettings settings
     ) {
-        // TODO: Enable when protocol test setup allows passing error names.
+        // TODO: Consume AWSQueryError trait as a follow-up.
         if (testCase.getId().equals("QueryCustomizedError")) {
             return true;
         }

@@ -3578,14 +3578,6 @@ const deserializeAws_json1_1UpdateClusterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "NoOperationFault":
-    case "com.amazonaws.memorydb#NoOperationFault":
-      response = {
-        ...(await deserializeAws_json1_1NoOperationFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "NodeQuotaForClusterExceededFault":
     case "com.amazonaws.memorydb#NodeQuotaForClusterExceededFault":
       response = {
@@ -3598,6 +3590,14 @@ const deserializeAws_json1_1UpdateClusterCommandError = async (
     case "com.amazonaws.memorydb#NodeQuotaForCustomerExceededFault":
       response = {
         ...(await deserializeAws_json1_1NodeQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoOperationFault":
+    case "com.amazonaws.memorydb#NoOperationFault":
+      response = {
+        ...(await deserializeAws_json1_1NoOperationFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
