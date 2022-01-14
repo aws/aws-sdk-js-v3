@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { isReservedWord } from "./isReservedWord";
+import { isReservedWord, reservedWords } from "./isReservedWord";
 
 describe("isReservedWord", () => {
   describe("With lowercase words", () => {
@@ -21,6 +21,12 @@ describe("isReservedWord", () => {
 
     it("should return false because given word is a reserved one", () => {
       expect(isReservedWord("PROJECT")).toBe(true);
+    });
+  });
+
+  describe("Check all the reservedWords list", () => {
+    it("should return true because all the given words are reserved ones", () => {
+      expect(reservedWords.every(isReservedWord)).toBe(true);
     });
   });
 });
