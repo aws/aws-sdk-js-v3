@@ -1,19 +1,12 @@
 {
+  "extends": "@tsconfig/recommended/tsconfig.json",
   "compilerOptions": {
-    "alwaysStrict": true,
-    "target": "ES2018",
-    "module": "commonjs",
-    "strict": true,
     "downlevelIteration": true,
     "importHelpers": true,
-    "noEmitHelpers": true,
     "incremental": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "rootDir": "src",
-    "outDir": "dist-cjs",
     "removeComments": true,
-    "types": ["mocha", "node"]
+    "resolveJsonModule": true,
+    "rootDir": "src"
   },
-  "exclude": ["test/**/*"]
+  "exclude": ["test/"]
 }

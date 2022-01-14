@@ -37,7 +37,7 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
     if (fromContent[name].constructor.name === "Object") {
       if (name === "devDependencies") {
         // Remove devDeps defined in monorepo root
-        const devDepsInRoot = ["downlevel-dts", "rimraf", "typedoc", "typescript"];
+        const devDepsInRoot = ["@tsconfig/recommended", "downlevel-dts", "rimraf", "typedoc", "typescript"];
         devDepsInRoot.forEach((devDep) => delete fromContent[name][devDep]);
       }
       merged[name] = mergeManifest(fromContent[name], toContent[name]);
@@ -140,6 +140,11 @@ const copyToClients = async (sourceDir, destinationDir) => {
         };
         writeFileSync(destSubPath, JSON.stringify(typedocJson, null, 2).concat(`\n`));
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
+        if (packageSub === "tsconfig.json") {
+          const tsconfigPath = join(artifactPath, "tsconfig.json");
+          const tsconfig = JSON.parse(readFileSync(tsconfigPath).toString());
+          writeFileSync(destSubPath, JSON.stringify({ ...tsconfig, exclude: ["test/"] }, null, 2).concat(`\n`));
+        }
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
         copySync(packageSubPath, destSubPath, {
           overwrite: true,
