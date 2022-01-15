@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-config-provider",
-  "version": "3.46.0",
+  "version": "3.47.0",
   "description": "Utilities package for configuration providers",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
