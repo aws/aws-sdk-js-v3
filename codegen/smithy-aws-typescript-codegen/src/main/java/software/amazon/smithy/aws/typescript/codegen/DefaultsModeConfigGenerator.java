@@ -88,21 +88,24 @@ final class DefaultsModeConfigGenerator {
 
         ObjectNode docNode = defaultsConfigData.expectObjectMember("documentation").expectObjectMember("modes");
         List<String> defaultsModes = new LinkedList<String>();
-        String defaultsModeDoc = DEFAULTS_MODE_DOC_INTRODUCTION;
+        StringBuilder defaultsModeDoc = new StringBuilder(DEFAULTS_MODE_DOC_INTRODUCTION);
         for (Entry<StringNode, Node> map : docNode.getMembers().entrySet()) {
             String modeName = map.getKey().getValue();
             String doc = map.getValue().expectStringNode().getValue();
             defaultsModes.add(modeName);
-            defaultsModeDoc += String.format("* `\"%s\"`: %s\n", modeName, doc);
+            defaultsModeDoc.append(String.format("* `\"%s\"`: %s%n", modeName, doc));
         }
-        defaultsModeDoc += "\n@default \"legacy\"";
-        writer.writeDocs(defaultsModeDoc);
+        defaultsModeDoc.append("\n@default \"legacy\"");
+        writer.writeDocs(defaultsModeDoc.toString());
         writer.write("export type DefaultsMode = $L;\n",
                 String.join(" | ", defaultsModes.stream().map((mod) -> {
                         return "\"" + mod + "\""; }).collect(Collectors.toList())));
         writer.write(INTERNAL_INTERFACES_BLOCK);
 
-        outputPath.toFile().createNewFile();
+        boolean exists = outputPath.toFile().createNewFile();
+        if (exists) {
+            // PASS
+        }
         Files.write(outputPath, writer.toString().getBytes(StandardCharsets.UTF_8));
     }
 
